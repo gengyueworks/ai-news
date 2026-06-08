@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-08</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --accent: #C41E3A;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .doc-subtitle {
+            font-size: 15px;
+            color: var(--text-mid);
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .opening-block {
+            padding: 16px 20px;
+            background: var(--bg-light);
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-body p { margin-bottom: 8px; }
+
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        /* 三色标记 */
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .summary-block {
+            padding: 20px 24px;
+            background: var(--bg-light);
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .summary-block h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 12px;
+        }
+
+        .summary-block p {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月08日</span>
+    </nav>
+
+        <h1 class="doc-title">AI 情报日报｜<span>2026-06-08</span></h1>
+        <p class="doc-date">Sunday, June 8, 2026</p>
+        <p class="doc-subtitle">全球 AI 24 小时高价值信号</p>
+
+        <div class="divider"></div>
+
+        <!-- 今日头版 -->
+        <div class="section-block">
+            <h2 class="section-header">今日头版</h2>
+
+            <div class="opening-block">
+                <p>AI 的变化正在落到具体工作位置。</p>
+                <p><span class="highlight">小模型</span>被放进模拟社会里观察行为，<span class="highlight">开发工具</span>开始处理真实协作，<span class="highlight">基础设施公司</span>继续把 AI 推向工厂、机器人和国家级算力。</p>
+                <p class="card-tag">前线·AI Agent·产品转折·力量转移</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日信号 -->
+        <div class="section-block">
+            <h2 class="section-header">今日信号</h2>
+
+            <div class="news-item">
+                <h3 class="news-title"><span class="highlight">Persona Atlas</span>：把人物思维风格画成地图</h3>
+                <div class="news-body">
+                    <div class="image-block">
+                        <img src="assets/ai-frontline-images/by-date/2026-06-08/persona-atlas-map.png" alt="Persona Atlas：人物思维风格地图" loading="lazy">
+                        <p class="image-caption">配图：Persona Atlas · 六位思想者的思维风格可视化 · Hugging Face Build Small Hackathon</p>
+                    </div>
+                    <p>一个人的表达方式，可以被模型放进可视化空间。</p>
+                    <p>Persona Atlas 运行在 <span class="highlight">Hugging Face Inference Providers</span> 上。它尝试把人物的思维方式、表达倾向和观点结构做成一张可以探索的地图。</p>
+                    <p><span class="turn">这对创作者、研究者和教学场景很有用</span>：人可以更快进入一个人的思考方式，也能更清楚地比较不同人物的表达纹理。</p>
+                    <p class="source-line">来源：Hugging Face · <a href="https://huggingface.co/blog/build-small-hackathon/persona-atlas" target="_blank">读原文</a> · 2026-06-06</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折·力量转移</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title"><span class="highlight">Qwen2.5</span> 小模型被拿来搭多智能体经济体</h3>
+                <div class="news-body">
+                    <div class="image-block">
+                        <img src="assets/ai-frontline-images/by-date/2026-06-08/qwen-forest-agent-economy.png" alt="Thousand Token Wood：小模型多智能体经济模拟" loading="lazy">
+                        <p class="image-caption">配图：Thousand Token Wood · 多智能体性格热力图 · Hugging Face Build Small Hackathon</p>
+                    </div>
+                    <p>五个小智能体，在一片森林里开始做经济模拟。</p>
+                    <p>开发者用 <span class="accent">Qwen2.5-3B</span> 搭了一个五人森林经济体。每个智能体独立运行，通过 <span class="highlight">vLLM</span> 部署在 <span class="highlight">Modal</span> 上，再用 <span class="highlight">Gradio</span> 做交互界面。</p>
+                    <p><span class="turn">这项实验真正观察的是：小模型能不能在多智能体场景里维持角色、目标、交易和协作。</span></p>
+                    <p>未来一部分模拟、游戏和流程实验，可能会先从小模型开始跑，成本更低，调整也更快。</p>
+                    <p class="source-line">来源：Hugging Face · <a href="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim" target="_blank">读原文</a> · 2026-06-06</p>
+                </div>
+                <p class="card-tag">前线·开源模型·AI Agent·瓶颈倒逼</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">五个实验室，五个心智：<span class="highlight">小模型</span>进入金融剧情游戏</h3>
+                <div class="news-body">
+                    <p><span class="highlight">Thousand Token Wood v2</span> 把不同实验室的小模型放进同一个金融剧情游戏里。它们各自扮演角色、做决策、互相影响。</p>
+                    <p>普通 <span class="highlight">benchmark</span> 常看单次问答，这个实验看长期互动和复杂局面里的行为。</p>
+                    <p><span class="turn">小模型能否稳定扮演角色、保持目标、处理经济关系，是它真正有趣的地方。</span></p>
+                    <p>这类实验会影响团队以后怎样评估 Agent：看答案，也看长期行为。</p>
+                    <p class="source-line">来源：Hugging Face · <a href="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v2" target="_blank">读原文</a> · 2026-06-07</p>
+                </div>
+                <p class="card-tag">前线·AI科学·AI Agent·人的选择</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">微软 <span class="highlight">Project Mosaic</span>：算力瓶颈正在移到芯片之间</h3>
+                <div class="news-body">
+                    <p>模型越大，芯片之间的路越重要。</p>
+                    <p>微软 Azure CTO <span class="highlight">Mark Russinovich</span> 在 Build 2026 介绍 <span class="highlight">Project Mosaic</span>。核心是用 <span class="highlight">micro-LED 光学互连</span>改善数据中心里的通信和带宽问题。</p>
+                    <p>训练和推理规模继续扩大后，服务器之间怎么传数据，会直接影响成本和速度。</p>
+                    <p><span class="turn">模型能力的上限，越来越受数据中心连接方式影响。</span></p>
+                    <p class="source-line">来源：Microsoft Research · 2026-06-06</p>
+                </div>
+                <p class="card-tag">前线·AI科学·AI Agent·人的选择</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 工具 -->
+        <div class="section-block">
+            <h2 class="section-header">工具</h2>
+
+            <div class="news-item">
+                <h3 class="news-title"><span class="highlight">AI 求职搜索器</span>：求职开始从搜索变成委托</h3>
+                <div class="news-body">
+                    <div class="image-block">
+                        <img src="assets/ai-frontline-images/by-date/2026-06-08/job-searcher-workbench.png" alt="Job Searcher：AI求职流程" loading="lazy">
+                        <p class="image-caption">配图：Job Searcher · 从简历到岗位短列表的完整流程 · Hugging Face Build Small Hackathon</p>
+                    </div>
+                    <p>找工作这件事，也开始从搜索变成委托。</p>
+                    <p>Job Searcher 是 <span class="highlight">Hugging Face</span> 小模型黑客松里的 AI 求职搜索工具。用户上传简历并设定偏好后，系统会帮忙理解岗位、匹配机会，并跑完第一轮筛选。</p>
+                    <p><span class="turn">它的价值很朴素：先从茫茫职位表里，替你筛出一条更像样的路。</span></p>
+                    <p>对普通人来说，AI 工具的吸引力常常来自这种具体场景：少看一点无效职位，多保留一点判断力。</p>
+                    <p class="source-line">来源：Hugging Face · <a href="https://huggingface.co/blog/build-small-hackathon/job-search-blog" target="_blank">读原文</a> · 2026-06-06</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title"><span class="highlight">Her</span>：Claude Code 会话分析工具</h3>
+                <div class="news-body">
+                    <p>Her 是一个为 <span class="highlight">Claude Code</span> 设计的会话分析工具。用户上传 <span class="accent">.jsonl</span> 会话文件后，它会重建这段协作：做了什么，卡在哪里，哪些步骤有效，哪些地方浪费了上下文。</p>
+                    <p>AI 编程进入团队之后，大家会追问代码有没有写出来，也会追问这次协作为什么成功或失败。</p>
+                    <p><span class="turn">这类工具的价值在复盘：把一次模糊的"和 AI 搞了一下午"，变成可以讨论、改进和复用的工作记录。</span></p>
+                    <p class="source-line">来源：Hugging Face · <a href="https://huggingface.co/blog/build-small-hackathon/her-blog" target="_blank">读原文</a> · 2026-06-07</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title"><span class="highlight">OpenRouter</span> 把缓存命中率和有效价格摆到台前</h3>
+                <div class="news-body">
+                    <p>模型成本要看真实命中率。</p>
+                    <p>OpenRouter 在 Pricing 标签里加入实时缓存命中率和历史流量视图。</p>
+                    <p>企业规模化使用模型时，账单会受到缓存、路由、延迟和稳定性的影响。</p>
+                    <p><span class="turn">选模型不能只看标价，还要看请求结构、复用率和系统稳定性。</span></p>
+                    <p class="source-line">来源：OpenRouter · 2026-06-07</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title"><span class="highlight">GPT-5.5</span> 与 <span class="highlight">Opus 4.8</span> 的设计能力差距被放到同一张页面上</h3>
+                <div class="news-body">
+                    <p>模型审美差距，有时会直接体现在一张页面上。</p>
+                    <p><span class="highlight">宝玉</span>用同一类设计任务对比 GPT-5.5 和 Opus 4.8 的输出效果。他的观察是：<span class="turn">Opus 4.8 在页面完成度、视觉判断和可用性上更好。</span></p>
+                    <p>这更像一线使用者的温度计，提醒内容、产品和设计团队继续观察模型的视觉判断能力。</p>
+                    <p class="source-line">来源：宝玉 · 2026-06-07</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">声音</h2>
+
+            <div class="quote-block">
+                <p class="quote-text">"我不会再轻易照单全收 Apple 在 WWDC 上对 AI 的承诺。<span class="accent">2024 年的 Apple Intelligence</span> 已经让很多人被现实教育过一次。"</p>
+                <p class="quote-source">—— Simon Willison，开发者</p>
+                <p class="quote-source">· <a href="https://simonwillison.net/2026/Jun/8/wwdc/#atom-everything" target="_blank">simonwillison.net</a></p>
+                <p class="card-tag">声音·哲学反思·对AI的理解变了</p>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <div class="quote-block">
+                <p class="quote-text">"模型的设计能力差距，有时候会直接体现在同一张页面上。<span class="turn">真正有用的评测，来自具体任务里的成品差异。</span>"</p>
+                <p class="quote-source">—— 宝玉，开发者</p>
+                <p class="quote-source">· 2026-06-07</p>
+                <p class="card-tag">声音·哲学反思·对AI的理解变了</p>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <div class="quote-block">
+                <p class="quote-text">"小模型被放进多智能体经济体后，<span class="turn">真正值得观察的是角色、目标、交易和协作能不能稳定维持。</span>"</p>
+                <p class="quote-source">—— Hugging Face 社区开发者</p>
+                <p class="quote-source">· <a href="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim" target="_blank">huggingface.co</a></p>
+                <p class="card-tag">声音·哲学反思·对AI的理解变了</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 趋势 -->
+        <div class="section-block">
+            <h2 class="section-header">趋势</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">英国借助 <span class="highlight">NVIDIA</span> 技术推进<span class="highlight">主权 AI</span></h3>
+                <div class="news-body">
+                    <div class="image-block">
+                        <img src="assets/ai-frontline-doc-media/2026-06-08/uk-london-bridge-trend-source-2026-06-08.jpg" alt="英国伦敦塔桥夜景 · 主权AI基础设施" loading="lazy">
+                        <p class="image-caption">配图：伦敦塔桥夜景 · 英国主权 AI 从政策口号进入实际建设阶段 · NVIDIA Blog</p>
+                    </div>
+                    <p>一年前，英国提出要成为"AI 制造者"。现在这条线进入实际建设阶段：本地 AI 云提供商增加，新的 NVIDIA 系统开始部署。</p>
+                    <p><span class="turn">主权 AI 从政策口号变成了算力和产业动作。</span></p>
+                    <p>这件事有现实意义：国家级 AI 能力最后要落在数据、算力、云服务和本地产业链上。</p>
+                    <p class="source-line">来源：NVIDIA · <a href="https://blogs.nvidia.com/blog/uk-sovereign-ai-advancements" target="_blank">读原文</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">趋势·大厂竞争·本地部署·经济学翻转</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">NVIDIA 与 <span class="highlight">LG 集团</span>合作建设 <span class="highlight">AI 工厂</span></h3>
+                <div class="news-body">
+                    <p>NVIDIA 与 LG 集团合作建设 AI 工厂。这套基础设施会服务 LG 的机器人、自动驾驶、数据中心和 GPU 云服务。</p>
+                    <p><span class="turn">重点是物理 AI：AI 开始进入机器人、工厂和自动驾驶这些需要现实世界反馈的系统。</span></p>
+                    <p>这条线会影响制造业：模型训练、仿真、机器人测试和生产流程会被放到同一个基础设施里。</p>
+                    <p class="source-line">来源：NVIDIA · <a href="https://blogs.nvidia.com/blog/nvidia-and-lg-group-ai-factory" target="_blank">读原文</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">趋势·大厂竞争·本地部署·经济学翻转</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">英伟达与<span class="highlight">斗山集团</span>合作推进<span class="highlight">物理 AI</span></h3>
+                <div class="news-body">
+                    <p>英伟达与斗山集团扩大合作。合作范围覆盖机器人、工程机械、能源和电子材料等板块。</p>
+                    <p>斗山机器人将使用 <span class="highlight">NVIDIA Isaac Sim</span> 等工具训练和验证机器人能力。</p>
+                    <p><span class="turn">这意味着更多现实世界任务会先进入仿真环境里演练，再回到机器、工厂和现场。</span></p>
+                    <p class="source-line">来源：NVIDIA · <a href="https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai" target="_blank">读原文</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">趋势·大厂竞争·本地部署·经济学翻转</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日小结 -->
+        <div class="section-block">
+            <h2 class="section-header">今日小结</h2>
+
+            <div class="summary-block">
+                <p>今天这份电报收进 <span class="accent">14</span> 条信号。</p>
+                <p><span class="highlight">第一条线</span>：小模型开始进入复杂场景。森林经济体和金融剧情游戏，都在测试模型能不能长期扮演角色、保持目标、处理关系。</p>
+                <p><span class="highlight">第二条线</span>：工具进入真实工位。求职搜索、Claude Code 会话分析、模型成本视图，都在处理具体、重复、接近日常工作的环节。</p>
+                <p><span class="highlight">第三条线</span>：基础设施继续升温。英国主权 AI、LG AI 工厂、斗山物理 AI、微软光学互连，都在回答同一个问题：<span class="turn">模型能力怎样落到算力、机器、工厂和国家级布局里。</span></p>
+                <p>明天继续看两件事：好工具会不会真正进入普通团队的日常流程；基础设施公司的密集动作，会不会开始改变模型使用成本。</p>
+                <p class="card-tag">小结·AI Agent·力量转移</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/R3Tails_Kurak_960.jpg"
+                     alt="Comet R3 PanSTARRS Through Time · 彗星 R3 的时间之旅"
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-08">Comet R3 PanSTARRS Through Time · 彗星 R3 的时间之旅 · NASA APOD · 2026-06-08<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260608.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <p class="card-tag">好奇·宇宙</p>
+        </div>
+
+
+        <div class="footer">
+            AI 情报日报 · 2026-06-08 · 共 14 条信号 · 来源：Hugging Face / Microsoft Research / OpenRouter / NVIDIA / Simon Willison / 宝玉
+        </div>
+    </div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
