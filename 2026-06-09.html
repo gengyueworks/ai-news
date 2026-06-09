@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-09</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-lead {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-body p { margin-bottom: 6px; }
+
+        .news-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .news-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .news-bullets li {
+            font-size: 14.5px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .news-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 16px;
+        }
+
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-block + .quote-block { margin-top: 20px; }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+
+        .summary-block {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 28px 24px;
+            margin-top: 16px;
+        }
+
+        .summary-block p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .summary-block p:last-child { margin-bottom: 0; }
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月09日</span>
+    </nav>
+
+        <h1 class="doc-title">AI 情报日报｜<span>2026-06-09</span></h1>
+        <p class="doc-date">Monday, June 9, 2026</p>
+
+        <div class="divider"></div>
+
+        <!-- 今日头版 -->
+        <div class="section-block">
+            <h2 class="section-header">今日头版</h2>
+
+            <div class="news-item">
+                <div class="news-body">
+                    <p>Apple 在 <span class="highlight">WWDC26</span> 把 AI 放进系统、开发框架和 Xcode 工作流里。</p>
+                    <p><span class="highlight">Claude Connector</span> 开始提供运行监控，<span class="highlight">OpenRouter</span> 把人类监督和模型路由推向 Agent 产品，Anthropic 则把生物学智能体放到科研数据库和专家复核场景里。</p>
+                    <p>今天的主线很现实：<span class="turn">AI 产品要进入系统、合规、科研、视频、求职和日常安全判断，光有模型能力已经不够，工具链、运行数据和验证机制也要跟上</span>。</p>
+                </div>
+                <p class="card-tag">前线·创业融资·大厂竞争·力量转移</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日信号 -->
+        <div class="section-block">
+            <h2 class="section-header">今日信号</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Apple WWDC26：系统模型、Siri AI 和 Xcode Agent 同时更新</h3>
+                <div class="image-block">
+                    <img src="assets/remote-cached/2026-06-09-wwdc26-keynote.jpg" alt="WWDC26 Keynote" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>这场开发者大会把 AI 更新放到系统和开发工具两端。</p>
+                    <p><span class="highlight">Apple Intelligence</span> 基于新一代 Apple foundation models 重建。App Intents 可以把应用内容和能力接到 Siri AI，Foundation Models 框架增加图像输入、云端模型和 Dynamic Profiles。</p>
+                    <p>Xcode 27 也进入 Agent 线：Agent 可以跑测试、用 Playground 试方案、在 Simulator 里运行应用、修问题、做本地化。</p>
+                    <p>这会同时影响普通用户的手机体验，以及开发者以后怎么做 iOS、macOS 和 Apple 生态里的 AI 应用。</p>
+                    <p class="source-line">来源：Apple Developer · <a href="https://developer.apple.com/news/?id=lvart8mq" target="_blank">developer.apple.com</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·开源模型·瓶颈倒逼</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">EU AI Act 合规：AI 智能体开始接入人工监督</h3>
+                <div class="news-body">
+                    <p>这套方案面向 <span class="highlight">EU AI Act</span>、Colorado AI Act 和 NIST 要求。</p>
+                    <p>它让 Agent SDK 支持人机协作审核，重点解决一个很具体的问题：<span class="turn">当智能体替用户做决策时，哪里必须有人介入，哪里需要留下审计证据</span>。</p>
+                    <p>AI Agent 进入企业流程后，系统要能解释、能暂停、能交给人复核。合规会直接变成产品和工程里的功能设计。</p>
+                    <p class="source-line">来源：OpenRouter · <a href="https://openrouter.ai/blog/human-oversight-eu-ai-act-compliance-agent-sdk" target="_blank">openrouter.ai</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">前线·本地部署·推理能力·这也行？</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Claude Connector 有了开发者性能监控仪表盘</h3>
+                <div class="image-block">
+                    <img src="assets/remote-cached/2026-06-09-claude-connector-observability.jpg" alt="Claude Connector Observability Dashboard" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>这个开发者仪表盘开始提供公开测试版。开发者可以查看活跃用户、工具调用、延迟、错误和目录排名等数据。</p>
+                    <p>Connector 进入真实使用场景后，最怕黑箱：<span class="turn">用户有没有用、调用是否稳定、错误在哪里、延迟是否可接受，都需要持续监控</span>。这类仪表盘会让 AI 连接器从"接上了"走向"能运营"。</p>
+                    <p class="source-line">来源：Claude Blog · <a href="https://claude.com/blog/observability-for-developers-building-connectors" target="_blank">claude.com</a> · 2026-06-09</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Anthropic 测试生物学智能体，难点藏在数据库和证据链里</h3>
+                <div class="image-block">
+                    <img src="assets/remote-cached/2026-06-09-anthropic-biology-agents.png" alt="Anthropic Biology Agents Research" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>Anthropic 发布生物学智能体研究，讨论 AI 在<span class="highlight">病毒学数据库</span>、科研检索和实验辅助中的表现。</p>
+                    <p>相比写代码，生物学任务更难，因为数据库像一座旧城市，结构复杂，路标不统一，错误成本也更高。</p>
+                    <p><span class="turn">AI 进入科学，需要真正处理资料、证据、不确定性和专家复核</span>。科研智能体的关键能力会落在查证、解释和边界控制上。</p>
+                    <p class="source-line">来源：Anthropic Research · <a href="https://www.anthropic.com/research/agents-in-biology" target="_blank">anthropic.com</a> · 2026-06-09</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折·瓶颈倒逼</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 工具 -->
+        <div class="section-block">
+            <h2 class="section-header">工具</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Pakistan Notice Helper：点击、转账和验证码前先做风险判断</h3>
+                <div class="news-body">
+                    <p>这是一个面向巴基斯坦用户的轻量 AI 工具。它会帮助用户在点击链接、拨打电话、分享 OTP 或付款前判断风险。</p>
+                    <p>它处理的是普通人每天会遇到的小危险：短信、电话、支付和链接里的风险判断。<span class="turn">一个小工具如果能把判断前移，就能减少很多低门槛诈骗</span>。</p>
+                    <p class="source-line">来源：Hugging Face · <a href="https://huggingface.co/blog/build-small-hackathon/building-pakistan-notice-helper" target="_blank">huggingface.co</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">OpenRouter Advisor：小模型卡住时可以向强模型求助</h3>
+                <div class="news-body">
+                    <p>这个工具让较小模型在卡住时咨询更强的顾问模型。系统会根据任务难度切换不同能力层级。</p>
+                    <p><span class="turn">它和企业成本直接相关：简单任务用便宜模型，困难环节才请强模型出场</span>。如果产品能自动完成这种分配，用户体验和账单都会更稳定。</p>
+                    <p class="source-line">来源：OpenRouter（X） · <a href="https://x.com/OpenRouter/status/2064004944613527730" target="_blank">x.com/OpenRouter</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·产品转折</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Runway Aleph 2.0：同一段视频适配不同信息流</h3>
+                <div class="news-body">
+                    <p>这个编辑模型面向视频重构。用户上传已有视频，再选择目标画幅，模型会补全、扩展或重新适配画面。</p>
+                    <p>它瞄准的是创作者和营销团队最常见的重复工作：<span class="highlight">一个视频要反复裁切成横版、竖版和不同平台规格</span>。现在模型开始承担格式转换和视觉补全，内容团队可以把更多精力放在叙事和选题上。</p>
+                    <p class="source-line">来源：Runway（X） · <a href="https://x.com/runwayml/status/2064012425884569627" target="_blank">x.com/runwayml</a> · 2026-06-08</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Perplexity 与哈佛研究 Agent 如何改变知识工作</h3>
+                <div class="image-block">
+                    <img src="assets/remote-cached/2026-06-09-perplexity-agents-knowledge-work.webp" alt="AI Agents Reshape Knowledge Work · Perplexity + Harvard" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>这项与哈佛相关的研究，重点看聊天界面转向自主智能体后，任务效率和成本结构可能发生的变化。研究对象已经从问答转向执行任务。</p>
+                    <p>团队评估 AI 工具时，要看它能否独立推进任务、减少人工步骤、降低成本，并在失败时暴露问题。<span class="turn">AI 对工作的影响，正在从单点提效变成流程重组</span>。</p>
+                    <p class="source-line">来源：Perplexity Research · <a href="https://research.perplexity.ai/articles/how-ai-agents-reshape-knowledge-work" target="_blank">research.perplexity.ai</a> · 2026-06-09</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">声音</h2>
+
+            <!-- 声音栏目的3条引语均与6月8日/6月10日完全重复，已去除 -->
+
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 趋势 -->
+        <div class="section-block">
+            <h2 class="section-header">趋势</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">OpenAI 秘密提交 S-1 草案，资本市场进程浮出水面</h3>
+                <div class="news-body">
+                    <p>OpenAI 已经向美国 SEC 秘密提交 <span class="highlight">S-1 注册草案</span>，并表示尚未确定后续公开节奏。秘密提交说明公司进入更正式的资本市场准备阶段。</p>
+                    <p>这条要和模型竞争一起看。<span class="turn">大模型公司正在同时比能力、融资结构、治理方式、监管沟通和长期运营能力</span>。</p>
+                    <p class="source-line">来源：OpenAI Blog · <a href="https://openai.com/index/openai-submits-confidential-s-1" target="_blank">openai.com</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">趋势·大厂竞争·本地部署·经济学翻转</p>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">五个模型经济体中消失的崩溃：智能体行为仍要反复验证</h3>
+                <div class="news-body">
+                    <p>Hugging Face 社区实验把五个不同实验室的模型放进同一个经济市场，试图复现此前出现过的价格崩溃。</p>
+                    <p>结果没有稳定复现：模型没有集体抛售，反而出现囤积和价格上升。</p>
+                    <p><span class="turn">这条的关键是行为稳定性——多智能体系统需要经过反复验证，才可能得到可预测结果</span>。</p>
+                    <p class="source-line">来源：Hugging Face · <a href="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v3" target="_blank">huggingface.co</a> · 2026-06-08</p>
+                </div>
+                <p class="card-tag">趋势·AI Agent·本地部署·经济学翻转</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日小结 -->
+        <div class="section-block">
+            <h2 class="section-header">今日小结</h2>
+            <div class="summary-block">
+                <p>今天这份电报收进 <span class="accent">13 条信号</span>。</p>
+                <p>第一条线：<span class="highlight">AI 进入系统层</span>。Apple 把模型、Siri、App Intents 和 Xcode Agent 串到开发生态里，说明系统入口开始变得更重要。</p>
+                <p>第二条线：<span class="highlight">Agent 工程开始补治理和运营能力</span>。人工监督、模型路由、性能监控、失败复核，正在变成产品必备能力。</p>
+                <p>第三条线：<span class="highlight">科研和多智能体实验提醒我们保持清醒</span>。系统跑起来之后，还要继续验证可靠性、可控性和复现性。</p>
+                <p>明天继续看两件事：模型能力怎样进入普通团队的工作流；Agent 系统怎样把成本、安全和可验证性一起补齐。</p>
+                <p class="card-tag">小结·AI Agent·经济学翻转</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/Thor_Drudis_960.jpg"
+                     alt="Thor's Helmet · 雷神之盔星云"
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-09">Thor's Helmet · 雷神之盔星云 · NASA APOD · 2026-06-09<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260609.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <p class="card-tag">好奇·星空</p>
+        </div>
+
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
