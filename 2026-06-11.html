@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-11</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-lead {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-body p { margin-bottom: 6px; }
+
+        .news-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .news-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .news-bullets li {
+            font-size: 14.5px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .news-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 16px;
+        }
+
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 三色标记 */
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月11日</span>
+    </nav>
+
+        <h1 class="doc-title">AI 情报日报｜<span>2026-06-11</span></h1>
+        <p class="doc-date">Wednesday, June 11, 2026</p>
+
+        <div class="divider"></div>
+
+        <!-- 今日信号 -->
+        <div class="section-block">
+            <h2 class="section-header">今日信号</h2>
+
+            <div class="news-item">
+                <div class="image-block">
+                    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Diffusion_Gemma_Social.width-1300.png"
+                         alt="DiffusionGemma · 扩散式文本生成技术可视化 · Google DeepMind"
+                         loading="lazy">
+                </div>
+                <h3 class="news-title">DiffusionGemma：文本生成速度提升4倍的开源扩散模型</h3>
+                <p class="news-lead">Google DeepMind 发布开源实验模型，用扩散技术突破自回归逐 token 生成瓶颈。</p>
+                <div class="news-body">
+                    <p>Google DeepMind 发布开源实验模型 DiffusionGemma，采用文本扩散技术，突破自回归逐 token 生成瓶颈。</p>
+                    <p>Simon Willison 亦发文关注此模型，指出文本模型路线并非只有自回归一种方向。如果扩散式文本生成继续成熟，本地交互、长文草稿和低延迟工具链会多一条技术路线，速度和延迟会继续成为模型路线竞争的一部分。</p>
+                    <ul class="news-bullets">
+                        <li>生成范式：扩散式文本生成，非逐 token 自回归</li>
+                        <li>速度信号：文本生成速度提升约4倍</li>
+                        <li>路线意义：文本模型生成方式仍在分岔，端侧体验和推理成本可能因此改变</li>
+                    </ul>
+                    <p class="source-line">来源：Google DeepMind · <a href="https://deepmind.google/blog/diffusiongemma-4x-faster-text-generation" target="_blank">deepmind.google</a> ｜ Simon Willison · <a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/#atom-everything" target="_blank">simonwillison.net</a></p>
+                </div>
+            </div>
+
+
+            <div class="news-item">
+                <div class="image-block">
+                    <img src="https://cdn.eso.org/images/screen/eso1907a.jpg"
+                         alt="M87 黑洞 · Event Horizon Telescope 首张黑洞照片 · EHT Collaboration 2019"
+                         loading="lazy">
+                </div>
+                <h3 class="news-title">天体物理学家用 Codex 辅助模拟黑洞：编程 Agent 进入科研工作台</h3>
+                <p class="news-lead">Codex 的使用场景从日常开发扩展到专业科研模拟。</p>
+                <div class="news-body">
+                    <p>OpenAI 记录了一位天体物理学家如何用 Codex 辅助黑洞模拟。这个案例把编程 Agent 放进科研代码、实验验证和复杂模拟流程里观察。</p>
+                    <p>编程 Agent 如果能进入黑洞模拟这样的专业场景，它已经在靠近科研工作台。</p>
+                    <ul class="news-bullets">
+                        <li>场景突破：编程 Agent 从日常开发进入科研模拟</li>
+                        <li>验证维度：Codex 在复杂代码库理解和实验迭代中的表现</li>
+                        <li>信号意义：编程 Agent 不只是写脚本工具，正在靠近科研工作台</li>
+                    </ul>
+                    <p class="source-line">来源：OpenAI Blog · <a href="https://openai.com/index/using-codex-to-simulate-black-holes" target="_blank">openai.com</a></p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Cursor Bugbot 更新：速度提升超3倍、成本降低22%、发现更多 Bug</h3>
+                <p class="news-lead">代码审查 Agent 的工程经济性正在改善。</p>
+                <div class="news-body">
+                    <p>Cursor 的代码审查工具 Bugbot 迎来重大更新：运行速度提升超 3 倍，成本降低 22%，每轮审查多发现 10% 的缺陷。</p>
+                    <p>这条更新的重点在工程经济性：代码审查 Agent 只有跑得更快、成本更低、缺陷命中更多，才可能从尝鲜功能进入团队默认流程。</p>
+                    <ul class="news-bullets">
+                        <li>速度提升：运行速度提升超 3 倍</li>
+                        <li>成本降低：审查成本降低 22%</li>
+                        <li>缺陷发现：每轮审查多发现 10% 的缺陷</li>
+                    </ul>
+                    <p class="source-line">来源：Cursor Blog · <a href="https://cursor.com/blog/bugbot-updates-june-2026" target="_blank">cursor.com</a></p>
+                </div>
+            </div>
+
+
+            <div class="news-item">
+                <h3 class="news-title">用好 Claude Design 的一些经验：设计系统正在成为 AI 界面的约束层</h3>
+                <p class="news-lead">一线工作流经验：设计系统能减少 AI 做界面时的随机审美和返工。</p>
+                <div class="news-body">
+                    <p>宝玉分享了5点心得：加入设计系统（如 Adobe Spectrum 2）可避免 AI 味，设为默认后可专注布局与交互。更像一线工作流经验：设计系统正在成为 AI 做界面时的约束层，能减少随机审美和返工。</p>
+                    <p class="source-line">来源：宝玉（X） · 2026-06-10</p>
+                </div>
+                <p class="card-tag">前线·人才流动·AI Agent·力量转移</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 工具 -->
+        <div class="section-block">
+            <h2 class="section-header">工具</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">通过 Oracle 云承诺访问 OpenAI 模型和 Codex</h3>
+                <p class="news-lead">企业可利用现有 Oracle 云额度，在 Oracle 云访问 OpenAI 模型和 Codex。</p>
+                <div class="news-body">
+                    <p>OpenAI 与 Oracle 合作，用户可利用现有 Oracle 云服务承诺额度，在 Oracle 云访问 OpenAI 模型和 Codex。这条消息的重点在采购路径：企业如果已经有 Oracle 云承诺额度，就能把 OpenAI 模型和 Codex 纳入既有云账单和治理体系。</p>
+                    <p class="source-line">来源：OpenAI · <a href="https://openai.com/index/openai-on-oracle-cloud" target="_blank">openai.com</a></p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Replit 联合 Socket 推出 Package Firewall：恶意依赖拦截前移到安装环节</h3>
+                <p class="news-lead">Agent 写代码越多，依赖安装这一步越需要前置防护。</p>
+                <div class="news-body">
+                    <p>Replit 联合 Socket 推出 Package Firewall，把恶意依赖拦截前移到安装和开发过程里。这条的现实意义在软件供应链：Agent 写代码越多，依赖安装这一步越需要前置防护，不能等扫描报告出来再补救。</p>
+                    <p class="source-line">来源：Replit（X） · 2026-06-11</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">GitHub Copilot CLI 接入语言服务器，获得真实代码智能</h3>
+                <p class="news-lead">终端里的 Copilot 开始靠近 IDE 级代码理解。</p>
+                <div class="news-body">
+                    <p>GitHub 介绍了如何通过语言服务器让 Copilot CLI 获得更真实的代码智能。语言服务器可以提供符号、定义、引用和诊断等上下文，让命令行 Agent 更理解项目结构。</p>
+                    <p>Coding Agent 的战场正在从编辑器扩展到终端。只要 CLI 能拿到 IDE 级上下文，它就更容易进入自动修复、重构和项目巡检流程。</p>
+                    <p>终端工具一旦接上语言服务器，就不再只是会聊天的命令行。编程 Agent 要进入真实项目，必须先拿到项目结构，而语言服务器正是这层基础设施。</p>
+                    <ul class="news-bullets">
+                        <li>技术路径：通过安装和配置 LSP 服务器，把定义、引用、诊断等代码上下文带进终端</li>
+                        <li>战场扩展：Coding Agent 从编辑器扩展到终端</li>
+                        <li>基础设施：语言服务器是编程 Agent 进入真实项目的结构理解层</li>
+                    </ul>
+                    <p class="source-line">来源：GitHub Blog · <a href="https://github.blog/ai-and-ml/github-copilot/give-github-copilot-cli-real-code-intelligence-with-language-servers/" target="_blank">github.blog</a></p>
+                </div>
+            </div>
+
+
+            <div class="news-item">
+                <h3 class="news-title">Anthropic CEO Dario Amodei 发文呼吁缩小 AI 政策差距</h3>
+                <p class="news-lead">模型进展越快，监管、就业和安全准备越不能只靠事后补课。</p>
+                <div class="news-body">
+                    <p>Anthropic CEO Dario Amodei 发布新文《Policy on the AI Exponential》，讨论 AI 发展速度和政策准备之间的落差。</p>
+                    <p>它把 AI 指数级发展和政策节奏放在同一个问题里：模型进展越快，监管、就业和安全准备越不能只靠事后补课。</p>
+                    <p class="source-line">来源：Anthropic（X） · 2026-06-11</p>
+                </div>
+                <p class="card-tag">前线·AI Agent·本地部署·瓶颈倒逼</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">声音</h2>
+
+            <div class="quote-block">
+                <p class="quote-text">"Google DeepMind 发布开源实验模型 DiffusionGemma，采用文本扩散技术，突破自回归逐 token 生成。"</p>
+                <p class="quote-source">—— Google DeepMind，实践信号</p>
+                <p class="quote-source">· <a href="https://deepmind.google/blog/diffusiongemma-4x-faster-text-generation" target="_blank">deepmind.google</a></p>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <div class="quote-block">
+                <p class="quote-text">"OpenAI 记录了一位天体物理学家如何用 Codex 辅助黑洞模拟。这个案例把编程 Agent 放进科研代码、实验验证和复杂模拟流程里观察。"</p>
+                <p class="quote-source">—— OpenAI，实践信号</p>
+                <p class="quote-source">· <a href="https://openai.com/index/using-codex-to-simulate-black-holes" target="_blank">openai.com</a></p>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <div class="quote-block">
+                <p class="quote-text">"Google DeepMind 发布 DiffusionGemma。它把扩散模型方法用于文本生成，目标是在保持可用性的同时提高生成速度。"</p>
+                <p class="quote-source">—— Simon Willison，实践信号</p>
+                <p class="quote-source">· <a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/#atom-everything" target="_blank">simonwillison.net</a></p>
+                <p class="card-tag">声音·哲学反思·力量转移·对AI的理解变了</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 趋势 -->
+        <div class="section-block">
+            <h2 class="section-header">趋势</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">OpenAI：与中国相关的影响行动开始瞄准美国 AI 争论</h3>
+                <p class="news-lead">AI 政策讨论也开始成为影响行动的目标。</p>
+                <div class="news-body">
+                    <p>OpenAI 报告称，与中国相关的影响行动正在针对美国 AI 辩论发起内容操作。相关活动把 AI 政策、公共叙事和平台传播放到同一个战场里。</p>
+                    <p>AI 竞争已经进入模型、产品、政策讨论、舆论环境和安全治理共同作用的复合场景。未来 AI 公司需要同时面对技术风险和信息环境风险。</p>
+                    <ul class="news-bullets">
+                        <li>影响目标：美国 AI 辩论和政策讨论</li>
+                        <li>复合场景：模型、产品、政策、舆论、安全治理共同作用</li>
+                        <li>趋势信号：模型公司越来越像安全基础设施的一部分</li>
+                    </ul>
+                    <p class="source-line">来源：OpenAI Blog · <a href="https://openai.com/index/prc-linked-influence-operations-ai-debates" target="_blank">openai.com</a></p>
+                </div>
+                <p class="card-tag">趋势·AI科学·安全漏洞·人的选择</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日小结 -->
+        <div class="section-block">
+            <h2 class="section-header">今日小结</h2>
+
+            <div class="news-body">
+                <p>今天这份电报共收进 12 条信号：5 条今日信号、5 条工具、2 条趋势、0 条组织动向。</p>
+                <p>把今天的前线合起来看，可以得到三条判断：</p>
+                <ul class="news-bullets">
+                    <li>文本生成路线还在分岔：DiffusionGemma 把扩散式文本生成推到开源实验区，速度和延迟会继续成为模型路线竞争的一部分。</li>
+                    <li>编程 Agent 正在进入真实工作台：Codex 进入科研模拟，Bugbot 强调审查成本，Copilot CLI 借语言服务器补齐项目理解。</li>
+                    <li>组织落地开始看基础设施：云采购路径、依赖防火墙、成本视图和政策讨论，都会影响 AI 工具能不能长期进入团队流程。</li>
+                </ul>
+                <p>明天继续看两条线：这些工具会不会真正进入普通团队的日常流程，基础设施公司的密集动作会不会开始改变模型使用成本。</p>
+                <p class="card-tag">小结·力量转移·人的选择</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/Mermaid_1024.jpg"
+                     alt="The Mermaid Nebula · 美人鱼星云"
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-11">The Mermaid Nebula · 美人鱼星云 · NASA APOD · 2026-06-11<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260611.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <p class="card-tag">好奇·太空</p>
+        </div>
+
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
