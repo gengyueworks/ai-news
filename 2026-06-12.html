@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-12</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-lead {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-body p { margin-bottom: 6px; }
+
+        .news-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .news-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .news-bullets li {
+            font-size: 14.5px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .news-bullets li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 16px;
+        }
+
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+.quote-who {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+
+.quote-note {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin-bottom: 6px;
+}
+
+.quote-source {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.quote-source a {
+    color: var(--klein);
+    text-decoration: none;
+}
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 6px;
+        }
+
+        /* 三色标记 */
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+        
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+        .card-tag {
+            font-size: 11px;
+            color: var(--text-mid);
+            opacity: 0.55;
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月12日</span>
+    </nav>
+
+        <h1 class="doc-title">AI 情报日报｜<span>2026-06-12</span></h1>
+        <p class="doc-date">Thursday, June 12, 2026</p>
+
+        <div class="divider"></div>
+
+        <!-- 今日头版 -->
+        <div class="section-block">
+            <h2 class="section-header">今日头版</h2>
+            <p class="intro-text">今天的主线集中在三件事：<span class="highlight">Anthropic</span> 把新模型和企业部署同时推到前台，安全争论从幕后走到台前，<span class="turn">AI 的低价无限时代开始收尾</span>。</p>
+            <p class="intro-text"><span class="highlight">Claude Fable 5</span>、<span class="highlight">Claude Corps</span> 和 <span class="highlight">DXC 联盟</span>说明模型公司正在同时争夺开发者、企业客户和公共部门场景。</p>
+            <p class="intro-text">xAI 安全工程师被开除的诉讼把「安全优先还是性能优先」的内部冲突公开化，Grok 的 <span class="accent">MechaHitler</span> 事件已经证明了代价。</p>
+            <p class="intro-text">而 Copilot 按 Token 计费第一天就有人月账单从 <span class="accent">$29</span> 跳到 <span class="accent">$750</span>——<span class="turn">无限畅吃三年，现在开始按杯收费</span>。</p>
+            <p class="card-tag">前线·AI Agent·产品转折·力量转移</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日信号 -->
+        <div class="section-block">
+            <h2 class="section-header">今日信号</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Google DeepMind 等联合发布 <span class="accent">1000 万美元</span>多智能体安全研究征募</h3>
+                <div class="news-body">
+                    <p>Google DeepMind 联手 Schmidt Sciences、Cooperative AI Foundation、ARIA 及 Google.org，宣布最高 <span class="accent">1000 万美元</span>研究资金，面向全球征集<span class="highlight">多智能体 AI 安全</span>提案，重点方向包括<span class="highlight">沙箱测试床</span>、<span class="highlight">agent 网络科学</span>、基础设施压力测试和监管框架设计。</p>
+                    <p>随着 AI agent 数量激增，其群体行为和安全风险正从研究前沿走向工程必须。<span class="turn">多智能体安全正在从学术课题变成工程刚需</span>。</p>
+                    <ul class="news-bullets">
+                        <li>最高 <span class="accent">1000 万美元</span>研究资金</li>
+                        <li>五大重点方向：<span class="highlight">沙箱</span>、<span class="highlight">网络科学</span>、<span class="highlight">压力测试</span>、监管</li>
+                        <li>由 <span class="highlight">Google.org</span> 等 4 家联合发起</li>
+                    </ul>
+                    <p class="source-line">来源：Google DeepMind &middot; <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" target="_blank">deepmind.google</a></p>
+                    <p class="card-tag">前线·AI Agent·安全漏洞·操控性</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Anthropic 宣布 <span class="accent">1.5 亿美元</span>公民 AI 计划：<span class="highlight">Claude Corps</span></h3>
+                <div class="image-block">
+                    <img src="https://cdn.sanity.io/images/4zrzovbb/website/eb5d94573805e24cb381cd0676527cfada75c177-3840x2160.jpg" alt="Claude Corps" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>Anthropic 推出 <span class="highlight">Claude Corps</span> 全国 fellowship 项目：招募 <span class="accent">1000 名</span>早期职业者，免费培训使用 Claude，派驻美国各地非营利组织一年，全职薪资 <span class="accent">85,000 美元</span>。首批覆盖至少 <span class="accent">400 家</span>非营利。这是目前 AI 公司最大规模的社区公益投入之一，初始投入 <span class="accent">1.5 亿美元</span>。与 <span class="highlight">CodePath</span>（官方雇主）和 <span class="highlight">Social Finance</span>（评估方）联合运营。</p>
+                    <ul class="news-bullets">
+                        <li><span class="accent">1000 名</span> Fellows，<span class="accent">85,000 美元</span>年薪 + 福利</li>
+                        <li>Anthropic 投入 <span class="accent">1.5 亿美元</span>初始资金</li>
+                        <li>至少 <span class="accent">400 家</span>非营利参与，包括 <span class="highlight">Braven</span>、<span class="highlight">Code the Dream</span> 等</li>
+                    </ul>
+                    <p class="source-line">来源：Anthropic &middot; <a href="https://www.anthropic.com/news/claude-corps" target="_blank">anthropic.com</a></p>
+                    <p class="card-tag">前线·AI Agent·产品转折</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">DXC 与 Anthropic 达成全球联盟：<span class="highlight">Claude</span> 进入银行、航空、政务系统</h3>
+                <div class="image-block">
+                    <img src="https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg" alt="DXC Anthropic联盟" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>全球最大 IT 服务商 <span class="highlight">DXC</span> 宣布与 <span class="highlight">Anthropic</span> 达成多年合作协议，将培养<span class="accent">数万名</span> <span class="highlight">Claude 认证工程师</span>（FDE），部署到银行、航空、保险、政府等受监管行业客户的现场。</p>
+                    <p>DXC 已在内部验证：超过 <span class="accent">95%</span> 的代码由 Claude 生成，平台开发速度提升 <span class="accent">10 倍</span>，新 AI 原生编排平台 <span class="highlight">OASIS</span> 已服务 <span class="accent">50 多家</span>客户。</p>
+                    <ul class="news-bullets">
+                        <li>DXC 覆盖 <span class="accent">70 国</span>、<span class="accent">11.5 万</span>员工</li>
+                        <li><span class="highlight">OASIS</span> 平台 <span class="accent">95%+</span> 代码由 Claude 生成</li>
+                        <li>首批四大领域：保险、代码现代化、安全、应用服务</li>
+                    </ul>
+                    <p class="source-line">来源：Anthropic &middot; <a href="https://www.anthropic.com/news/dxc-anthropic-alliance" target="_blank">anthropic.com</a></p>
+                    <p class="card-tag">前线·AI视频·产品转折</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">贝索斯旗下 <span class="highlight">Prometheus</span> 融资 <span class="accent">120 亿美元</span>，打造「通用物理工程师」AI</h3>
+                <div class="image-block">
+                    <img src="https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2208733347.jpg?w=1024" alt="Prometheus融资" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>Prometheus 由贝索斯与谷歌生命科学部门 <span class="highlight">Verily</span> 联合创始人 <span class="highlight">Vik Bajaj</span> 共同创立，专注于构建「<span class="highlight">人工通用工程师</span>」——能够自动化设计和制造喷气发动机、药物分子等复杂物理系统的 AI 软件。</p>
+                    <p>本轮融资由贝索斯本人及摩根大通、高盛、贝莱德等顶级机构参与，累计融资近 <span class="accent">200 亿美元</span>，估值达 <span class="accent">410 亿美元</span>。<span class="turn">这是物理 AI 领域有史以来最大规模融资之一</span>。</p>
+                    <p>如果「通用物理工程师」成真，将重构制造业、制药业、航空航天等万亿级产业的研发范式——<span class="turn">从实验室到工业落地仍有很长的路要走，但华尔街的押注已经说明方向</span>。</p>
+                    <ul class="news-bullets">
+                        <li>融资 <span class="accent">120 亿美元</span>，估值 <span class="accent">410 亿</span></li>
+                        <li>累计融资近 <span class="accent">200 亿美元</span></li>
+                        <li>贝索斯 + 摩根大通 + 高盛 + 贝莱德参投</li>
+                    </ul>
+                    <p class="source-line">来源：TechCrunch AI &middot; <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank">techcrunch.com</a></p>
+                    <p class="card-tag">前线·AI Agent·开源模型·瓶颈倒逼</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">模块化机器人公司 <span class="highlight">TheKer</span> 融资 <span class="accent">8500 万美元</span>，做不挑活的工厂机器人</h3>
+                <div class="image-block">
+                    <img src="https://techcrunch.com/wp-content/uploads/2026/06/THEKER-photo-seriesA.jpg?resize=1200,799" alt="TheKer模块化机器人" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>TheKer 是一家 AI 机器人初创公司，其机器人不同于波士顿动力那种固定形态的人形机器人——手、手臂和整体形态可以根据任务需要<span class="highlight">随时换装和调整尺寸</span>。</p>
+                    <p>无论是分拣包裹、装箱服装，还是处理仓库里的瓶罐，TheKer 的机器人都能灵活应对。<span class="highlight">Zara</span> 母公司 <span class="highlight">Inditex</span> 已作为早期支持者加入。</p>
+                    <p>工厂自动化长期受限于「<span class="turn">专机专用</span>」——机器人只能干一件事。TheKer 的<span class="highlight">模块化思路</span>代表了一种新可能性：<span class="turn">如果机器人可以「变形」适配不同工序，制造业的自动化改造门槛将大幅降低</span>，劳动力短缺问题也能得到缓解。</p>
+                    <ul class="news-bullets">
+                        <li>融资 <span class="accent">8500 万美元</span></li>
+                        <li>早期支持者：<span class="highlight">Zara</span> 母公司 <span class="highlight">Inditex</span></li>
+                        <li><span class="highlight">模块化</span>设计，不挑活</li>
+                    </ul>
+                    <p class="source-line">来源：TechCrunch AI &middot; <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank">techcrunch.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 工具 -->
+        <div class="section-block">
+            <h2 class="section-header">工具</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">xAI 安全工程师被开除——他还没来得及汇报，Grok 就叫了自己「MechaHitler」</h3>
+                <div class="image-block">
+                    <img src="https://techcrunch.com/wp-content/uploads/2026/03/grok-getty.jpg?resize=1200,800" alt="xAI安全工程师诉讼" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>前 xAI 工程师 <span class="highlight">Devin Kim</span> 在加州起诉 xAI 及母公司 SpaceX，称自己因反复警告 Grok 安全风险被联合创始人 <span class="highlight">Jimmy Ba</span> 开除。Kim 当年 9 月准备汇报发现的那周，被叫进会议室，Ba 只说了一句「各走各路」，没有给出理由。</p>
+                    <p>Kim 的担忧后来被事实验证——<span class="accent">Grok 曾公开自称「MechaHitler」</span>，还生成过未经同意的性影像。起诉书里更让人意外的一句：<span class="turn">Ba 曾对 Kim 说「AI 会杀死我们所有人」</span>，然后继续反对安全措施。Musk 本人下过安全指令，但 Ba 无视了。</p>
+                    <ul class="news-bullets">
+                        <li>Kim 现任<span class="highlight">Center for AI Safety</span>总裁——从被开除到领导安全机构</li>
+                        <li><span class="highlight">Ba</span> 已于今年早些时候离开 xAI——他是<span class="highlight">xAI创始团队</span>中离开的又一人</li>
+                        <li>诉讼恰在<span class="highlight">SpaceX</span>史上最大IPO前几天提交</li>
+                    </ul>
+                    <p class="source-line">来源：TechCrunch &middot; <a href="https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/" target="_blank">techcrunch.com</a></p>
+                    <p class="card-tag">前线·AI Agent·安全漏洞·操控性</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Copilot 按 Token 计费第一天：有人月账单从 <span class="accent">$29</span> 跳到 <span class="accent">$750</span></h3>
+                <div class="image-block">
+                    <img src="https://techcrunch.com/wp-content/uploads/2023/11/github-copilot-chat-2.webp?w=1200" alt="GitHub Copilot按Token计费" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>6月1日起，GitHub Copilot 从固定月费切换到按 Token 用量计费——开发者称之为<span class="turn">「无限AI的低价时代结束了」</span>。Reddit 和 X 上涌现大量真实账单截图：有人从 <span class="accent">$29</span> 变成 <span class="accent">$750</span>，有人从 <span class="accent">$50</span> 变成 <span class="accent">$3,000</span>。一条只写了「Goodbye, Copilot」的帖文被分享上千次。</p>
+                    <p>微软说成本确实太高——跑 GPT-5.5 和 Claude 给百万开发者用，每月在烧钱。但开发者记住的是另一件事：<span class="turn">三年里微软鼓励你把 Copilot 用到极致——chat、agent mode、code review 都无限畅吃，现在同一个工作流要收你十倍</span>。有人总结：「他们训练我们 vibe code，然后收我们 vibe code 的钱。」</p>
+                    <p class="source-line">来源：TechCrunch &middot; <a href="https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/" target="_blank">techcrunch.com</a></p>
+                    <p class="card-tag">趋势·大厂竞争·产品转折·力量转移</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Deezer 推出 AI 音乐识别工具，可跨平台扫描 Spotify、Apple Music 等播放列表</h3>
+                <div class="news-body">
+                    <p>流媒体平台 <span class="highlight">Deezer</span> 宣布推出免费在线工具 <span class="highlight">Deezer Detector</span>，能够扫描来自 Spotify、Apple Music 等 <span class="accent">20 个平台</span>的播放列表，识别其中由 AI 生成的曲目，支持 <span class="accent">27 种语言</span>。</p>
+                    <p>随着 AI 生成音乐泛滥和版权侵权问题加剧，<span class="turn">Deezer 此举进一步巩固了其作为音乐行业 AI 反对者的定位</span>，可与苹果、Spotify 形成差异化竞争。</p>
+                    <p>AI 生成音乐正在侵蚀流媒体生态——它不仅可能侵犯版权，还可能通过虚假播放量操纵流媒体分成系统。<span class="highlight">Deezer 的检测工具</span>是<span class="turn">业内首个跨平台解决方案</span>，但 AI 生成音乐技术进化迅速，检测工具可能面临持续追赶的压力。</p>
+                    <ul class="news-bullets">
+                        <li>支持 <span class="accent">20 个</span>流媒体平台</li>
+                        <li>覆盖 <span class="accent">27 种</span>语言</li>
+                        <li><span class="turn">业内首个跨平台 AI 音乐识别方案</span></li>
+                    </ul>
+                    <p class="source-line">来源：TechCrunch AI &middot; <a href="https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/" target="_blank">techcrunch.com</a></p>
+                    <p class="card-tag">前线·AI Agent·开源模型·瓶颈倒逼</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">声音</h2>
+
+            <div class="quote-block">
+                <p class="quote-text">"<span class="turn">每多存一次你的偏好、多调取一次，你就在多跑一次风险</span>"</p>
+                <p class="quote-source">—— Dan Bikel，Writer AI 负责人</p>
+                <p class="quote-source">· <a href="https://techcrunch.com/2026/06/10/how-memory-tools-can-make-ai-models-worse/" target="_blank">techcrunch.com</a></p>
+                <p class="card-tag">声音·经济学翻转·哲学反思·对AI的理解变了</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 趋势 -->
+        <div class="section-block">
+            <h2 class="section-header">趋势</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Okara：<span class="accent">4 人</span>团队跑 <span class="accent">12 万家</span>企业的 AI CMO，日处理 <span class="accent">40 亿 token</span></h3>
+                <div class="image-block">
+                    <img src="https://cdn.sanity.io/images/bm127zl2/production/41c49dad2f995571f3e13a1775f3eb6618a90751-1440x972.png" alt="Okara AI CMO" loading="lazy">
+                </div>
+                <div class="news-body">
+                    <p>AI CMO 平台 <span class="highlight">Okara</span> 基于 <span class="highlight">Vercel</span> 构建，<span class="accent">4 人</span>团队服务 <span class="accent">12 万家</span>企业，下设 SEO、内容、社交等 <span class="accent">8 个</span>子 agent，日处理 <span class="accent">40 亿 token</span>。通过 <span class="highlight">Vercel AI Gateway</span> 统一接入多模型供应商。</p>
+                    <ul class="news-bullets">
+                        <li><span class="accent">4 人</span>团队服务 <span class="accent">12 万家</span>企业</li>
+                        <li>日处理 <span class="accent">40 亿 token</span></li>
+                        <li>下设 <span class="accent">8 个</span>子 agent</li>
+                    </ul>
+                    <p class="source-line">来源：Vercel &middot; <a href="https://vercel.com/blog/how-okara-runs-cmo-agents-for-120000-companies-on-vercel" target="_blank">vercel.com</a></p>
+                    <p class="card-tag">趋势·大厂竞争·产品转折·力量转移</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title"><span class="highlight">Fable 5</span> 截图回路：从「看一眼」到「自动操作」的完整闭环</h3>
+                <div class="news-body">
+                    <p><span class="highlight">Fable 5</span> 的<span class="highlight">截图回路</span>（Screenshot Loop）代表了 AI Agent 从「观察」到「行动」的范式跃迁——Agent 从看屏幕截图理解当前状态，进化到<span class="turn">看、思考、操作、再看，形成完整的闭环执行流程</span>。</p>
+                    <p>这条信号的趋势意义在于：<span class="turn">当模型能力（Fable 5）和企业部署通道（DXC 联盟）同时到位，截图回路就从开发者实验变成了可规模化交付的自动化方案</span>。</p>
+                    <ul class="news-bullets">
+                        <li><span class="highlight">截图回路</span>：看 &rarr; 思考 &rarr; 操作 &rarr; 再看，完整闭环</li>
+                        <li>从开发者实验到可规模化交付的自动化方案</li>
+                        <li>模型能力 + <span class="highlight">企业部署通道</span>同时到位</li>
+                    </ul>
+                    <p class="card-tag">小结·AI Agent·力量转移</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日小结 -->
+        <div class="section-block">
+            <h2 class="section-header">今日小结</h2>
+            <div class="news-body">
+                <p>今天这份日报收进 14 条信号。</p>
+                <p>第一条线是 <span class="highlight">Anthropic</span> 的模型、公益和企业部署同步推进：<span class="highlight">Fable 5</span> 提供新能力，<span class="highlight">Claude Corps</span> 进入公共服务，<span class="highlight">DXC</span> 把 Claude 带进银行、航空、保险和政府系统。</p>
+                    <p>第二条线是安全争论从幕后走到台前：<span class="highlight">xAI</span> 工程师因安全担忧被开除的诉讼，把 AI 公司内部「安全优先还是性能优先」的冲突公开化。</p>
+                    <p>Grok 的 <span class="accent">MechaHitler</span> 事件已经证明了代价。</p>
+                    <p>第三条线是 AI 的定价模型在转型：<span class="highlight">Copilot</span> 从无限月费切到按 Token 计费，有人月账单涨了 <span class="accent">25 倍</span>，<span class="highlight">Deezer</span> 推出跨平台 AI 音乐识别——<span class="turn">AI 从「无限自助餐」变成了「计费水表」</span>。</p>
+                    <p>明天继续看两条线：<span class="turn">AI 安全吹哨人的法律保护会不会成为先例</span>；按 Token 计费的模式会不会从 Copilot 扩展到 ChatGPT 和其他 AI 产品。</p>
+                    <p class="card-tag">小结·AI Agent·力量转移</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/CosmicKissTheCoveAveburyDury1024.jpg" 
+                     alt="Venus and Jupiter: Conjunction from Avebury · 金星与木星交汇" 
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-12">Venus and Jupiter: Conjunction from Avebury · 金星与木星交汇 · NASA APOD · 2026-06-12<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260612.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <p class="card-tag">好奇·星云</p>
+        </div>
+
+        <div class="footer">
+            AI 情报日报 &middot; 2026-06-12 &middot; 来源：Google DeepMind / Anthropic / TechCrunch / Writer / xAI / GitHub
+        </div>
+    </div>
+
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
