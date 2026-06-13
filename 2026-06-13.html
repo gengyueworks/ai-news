@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-13</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-lead {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-body p { margin-bottom: 6px; }
+
+        .news-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .news-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .news-bullets li {
+            font-size: 14.5px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .news-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 16px;
+        }
+
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+.quote-who {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+
+.quote-note {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin-bottom: 6px;
+}
+
+.quote-source {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.quote-source a {
+    color: var(--klein);
+    text-decoration: none;
+}
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 三色标记 */
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月13日</span>
+    </nav>
+
+        <h1 class="doc-title">AI 情报日报｜<span>2026-06-13</span></h1>
+        <p class="doc-date">Friday, June 13, 2026</p>
+
+        <div class="divider"></div>
+
+        <!-- 今日头版 -->
+        <div class="section-block">
+            <h2 class="section-header">今日头版</h2>
+
+            <div class="news-item">
+                <p class="news-body">今天真正值得放在头版的，是 AI 从"能力竞赛"继续往"社会采用"移动：公众希望它治病、助人、提效，同时担心失业。</p>
+                <p class="news-body">企业和教育平台开始交出真实使用率；模型公司也被迫把护栏、降级和安全评估讲清楚。</p>
+                <p class="news-body">Anthropic 的 5.2 万人公众调查，是今天最有分量的底图。普通人对 AI 的期待已经具体到医疗、残障辅助和教育，也把就业风险放进同一张账本里。</p>
+                <p class="news-body">Preply 的教育案例、Fable 5 护栏撤回、Google DeepMind 多智能体安全研究，连起来看是一条更硬的产业线。</p>
+                <p class="news-body">AI 要进入日常工作流，必须同时回答"有没有人长期用""出了问题谁解释""Agent 变主动以后谁来管"。</p>
+                <div class="card-tag">前线·AI视频·产品转折·前线感</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日信号 -->
+        <div class="section-block">
+            <h2 class="section-header">今日信号</h2>
+            <!-- Anthropic公众调查条目已去除——与6月14日Story 4重复 -->
+            <div class="news-item">
+                <h3 class="news-title">Preply 接入 OpenAI API：Lesson Insights 让 70% 老师每周都在用</h3>
+                <div class="news-body">
+                    <p>在线语言学习平台 Preply 把 OpenAI API 接进一对一课程后，70% 以上老师每周使用 Lesson Insights，学员满意度达到 4.7/5。公司内部 600 多名员工使用 ChatGPT Enterprise 后，周活从 60% 升到 95%。</p>
+                    <p>这条好在它没有停在「AI 能生成什么」，它给出了真实使用率和满意度。Preply 用课程转录稿生成语法、词汇、发音反馈，把老师从重复整理里释放出来，同时保留人类老师的服务关系。</p>
+                    <p>做教育科技、企业内训和 AI 应用落地的人，可以从这里看到一套更可靠的衡量方式：看每周使用、满意度、老师节省的动作，而不是只看模型能力演示。</p>
+                    <ul class="news-bullets">
+                        <li>70% 以上老师每周使用 Lesson Insights</li>
+                        <li>学员满意度达到 4.7/5</li>
+                        <li>600 多名员工使用 ChatGPT Enterprise 后，周活从 60% 升到 95%</li>
+                    </ul>
+                    <p class="source-line">来源：OpenAI Blog · <a href="https://openai.com/index/preply" target="_blank">openai.com/index/preply</a></p>
+                    <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-11.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Claude安全研究</a> · <a href="2026-06-09.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Anthropic融资+GPT-5</a></p>
+                </div>
+                <div class="card-tag">前线·AI Agent·产品转折·瓶颈倒逼</div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Google DeepMind 投资多智能体安全研究：把 Agent 风险推向系统级评估</h3>
+                <div class="news-body">
+                    <p>Google DeepMind 宣布投资多智能体 AI 安全研究，重点关注多个 AI 系统协作、竞争、委托和长链条执行时的风险。相比单模型评测，多智能体场景更接近未来企业和个人实际使用 AI 的方式。</p>
+                    <p>这条和今天的 Agent 工程线能互相印证。模型越来越会调用工具、彼此分工、在环境里持续执行，安全问题也从「单次回答是否正确」变成「多个 Agent 共同推动任务时，谁在监督目标、权限和外部影响」。</p>
+                    <p>做 Agent 产品、企业自动化和模型评估的人，需要把多智能体安全当成下一层基础设施：评估要同时覆盖模型单体能力、协作链路、任务边界、失败恢复和人类接管点。</p>
+                    <p class="source-line">来源：Google DeepMind Blog · <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" target="_blank">deepmind.google</a></p>
+                </div>
+                <div class="card-tag">前线·安全漏洞·操控性</div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Anthropic 撤回 Fable 5 隐形护栏：被拦截请求将明示，并降级到 Opus 4.8</h3>
+                <div class="news-body">
+                    <p>Anthropic 公开承认 Fable 5 对「前沿 LLM 开发相关请求」悄悄降效且不告知用户的政策是错误权衡。本周起，被识别的请求会显式降级回 Opus 4.8，API 拒绝时也会给出具体理由。</p>
+                    <p>这件事的行业信号很明确：前沿模型的策略护栏必须可见。研究者、开发者和企业客户不能在黑盒里猜测模型能力为什么突然变弱，尤其当这些限制影响到评估、研发和安全研究时。</p>
+                    <p>用 Claude 做研发、评估或 API 集成的团队，可以把这次事件当成一个治理案例：能力限制、风控策略和拒绝理由需要进入产品体验，不能只留在后台策略里。</p>
+                    <ul class="news-bullets">
+                        <li>隐形拒绝机制改为显式降级到 Opus 4.8</li>
+                        <li>API 拒绝会附带理由，服务端级回退将在几天内推出</li>
+                        <li>官方承认「为了快速上线选择隐形护栏」是错误权衡</li>
+                    </ul>
+                    <p class="source-line">来源：Simon Willison 链接博客 · <a href="https://simonwillison.net/2026/Jun/11/anthropic-walks-back-policy/" target="_blank">simonwillison.net</a></p>
+                    <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-12.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Anthropic花1.5亿让普通人用Claude</a> · <a href="2026-06-08.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Claude 4发布</a></p>
+                </div>
+                <div class="card-tag">前线·AI视频·产品转折</div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Kimi 发布并开源 Kimi-K2.7-Code，国产代码模型继续加速</h3>
+                <div class="news-body">
+                    <p>Kimi 官方发布并开源最新代码模型 Kimi-K2.7-Code。相比上一代 K2.6，新模型在 Kimi Code Bench v2、Program Bench、MLS Bench Lite 等代码评测上都有明显提升，同时把推理 token 使用量降低 30%。</p>
+                    <p>它补上了国产模型在代码模型主线上的明确动作。代码模型竞争已经进入长时任务成功率、指令遵循、推理成本和开发者入口同时较量的阶段；API、Kimi Code 和开源权重一起出现，比单一榜单分数更有实用信号。</p>
+                    <p>关注国产模型和 AI 编程工具的读者，可以把它当成 Kimi Code 能力升级和成本效率改善的观察点；后续需要继续看官方模型卡、仓库和 API 文档是否补齐。</p>
+                    <ul class="news-bullets">
+                        <li>Kimi Code Bench v2 相比 K2.6 提升 21.8%</li>
+                        <li>Program Bench 提升 11.0%，MLS Bench Lite 提升 31.5%</li>
+                        <li>推理 token 使用量降低 30%，6x 高速模式即将推出</li>
+                        <li>即日起可通过 Kimi API 和 Kimi Code 使用</li>
+                    </ul>
+                    <p class="source-line">来源：Kimi_Moonshot（X，用户提供） · <a href="https://x.com/Kimi_Moonshot/status/2065377579130142937" target="_blank">x.com/Kimi_Moonshot</a></p>
+                </div>
+                <div class="card-tag">前线·开源模型·AI Agent</div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">OpenAI Academy 三门新课程：从提示词走向 Agent 工作流</h3>
+                <div class="news-body">
+                    <p>OpenAI Academy 一次性放出三门新课程，覆盖 AI Foundations、Applied AI Foundations、Agents and Workflows。课程主线从提示词和上下文管理，推进到结构化工作流、人工审核点和 Agent 协作。</p>
+                    <p>它把 OpenAI 的企业市场动作从「给模型」推进到「给组织学习标准」。AI Fluency 需要可复制的课程、证书和内部培训框架；这三门课正好把个人使用、团队流程和 Agent 监督连接起来。</p>
+                    <p>企业里推进 AI 落地的同学，可以把它当成内部培训骨架：先让员工学会给上下文和审查输出，再把好用流程固化成可重复工作流，最后再把 Agent 引入可监督任务。</p>
+                    <ul class="news-bullets">
+                        <li>三门课覆盖「基础提示词 → 工作流 → Agent 监督」递进路径</li>
+                        <li>与 BCG、Accenture、BBVA 共建，强调企业实际落地场景</li>
+                        <li>完成课程可获得 OpenAI 结课证书</li>
+                    </ul>
+                    <p class="source-line">来源：OpenAI Blog · <a href="https://openai.com/index/academy-courses-applying-ai-at-work" target="_blank">openai.com/index/academy-courses</a></p>
+                </div>
+                <div class="card-tag">前线·AI科学·人的选择</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 工具 -->
+        <div class="section-block">
+            <h2 class="section-header">工具</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">olmo-eval：面向模型开发循环的评估工作台</h3>
+                <div class="news-body">
+                    <p>Allen AI 在 Hugging Face 介绍 olmo-eval，这是基于 OLMES 标准构建的评估工作台，面向 LLM 持续开发中的反复评测场景。它减少配置负担，让开发团队更容易把评测嵌入模型迭代循环。</p>
+                    <p>这条工具线的意义在于，评估正在从发布前的单次榜单，变成模型训练、对齐和应用开发过程中的常规动作。团队需要能快速复跑、对比和定位问题的评估工作台。</p>
+                    <p>做模型开发和应用评测的人，可以关注它如何把标准化评测、任务配置和结果追踪合在一起；这类工具会影响模型团队的日常研发节奏。</p>
+                    <p class="source-line">来源：Hugging Face · <a href="https://huggingface.co/blog/allenai/olmo-eval" target="_blank">huggingface.co/blog/allenai/olmo-eval</a></p>
+                </div>
+                <div class="card-tag">前线·本地部署·开源模型</div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Codex 推出浏览器开发者模式：AI 编程 Agent 接近真实前端调试现场</h3>
+                <div class="news-body">
+                    <p>OpenAI Developers 宣布为 Chrome 和 Codex 内置浏览器引入开发者模式。Codex 可以通过 Chrome DevTools Protocol 读取页面状态、控制浏览器并辅助调试前端问题。</p>
+                    <p>这条和 Fable 5 自己拼截图回路形成同一条趋势：编程 Agent 正在从「改代码」走向「看见运行现场」。前端、Web 应用和交互问题往往需要浏览器状态、控制台、网络请求和 DOM 证据；只靠源码上下文很难闭环。</p>
+                    <p>对前端团队来说，浏览器开发者模式会让 Agent 更接近真正的工程同事：能看页面、抓错误、复现交互，再把修复带回代码。</p>
+                    <p class="source-line">来源：OpenAI Developers（X） · <a href="https://x.com/OpenAIDevs/status/2065226355495895521" target="_blank">x.com/OpenAIDevs</a></p>
+                </div>
+                <div class="card-tag">前线·AI Agent·开源模型</div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">OpenAI Codex 推出速率重置攒存功能：高峰任务获得更灵活的额度安排</h3>
+                <div class="news-body">
+                    <p>OpenAI 宣布 Codex 速率限制重置可保留到以后使用。用户可以把未用完的速率重置攒到更合适的时间，方便集中处理长任务或高强度编码会话。</p>
+                    <p>这条看起来是小功能，实际指向 Agent 产品的使用节奏管理。长时编码任务常常集中在某个晚上、某个发布前或某次重构里；额度规则越贴近真实工作节奏，工具越容易进入日常。</p>
+                    <p>对重度 Codex 用户和团队账号管理者而言，这会影响任务排期、夜间批处理和长会话规划。</p>
+                    <p class="source-line">来源：OpenAI（X） · <a href="https://x.com/OpenAI/status/2065225362544726371" target="_blank">x.com/OpenAI</a></p>
+                </div>
+                <div class="card-tag">前线·大厂竞争·产品转折</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">声音</h2>
+
+            <div class="quote-block">
+                <p class="quote-text">"Simon Willison 用两天实测 Fable 5 后给出一个关键词：relentlessly proactive。一个具体例子是，模型自己用 Python、pyobjc 和 macOS screencapture 拼出截图回路，把 Safari 页面证据带回 Claude Code 终端。这不是普通的「会调用工具」，更像 Agent 自己寻找可用工具、组合权限和证据链。"</p>
+                <p class="quote-source">—— Simon Willison，实测 Fable 5</p>
+                <p class="quote-source">· 2026-06-11</p>
+                <div class="card-tag">声音·哲学反思·人的代价</div>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <div class="quote-block">
+                <p class="quote-text">"Andrew Singleton 用一则讽刺寓言拆解 AI 投资回报叙事：一家公司给另一家公司巨额投资，后者再用这笔钱购买前者服务，最后双方都能讲出漂亮的收入和估值故事。它提醒读者，看到 AI 公司公布「收入」「订单」「战略投资」时，需要继续问三个问题：钱从哪里来，是否回流到投资方，收入是否来自真实外部需求。"</p>
+                <p class="quote-source">—— Andrew Singleton，循环交易寓言</p>
+                <p class="quote-source">· 2026-06-12</p>
+                <div class="card-tag">声音·哲学反思·人的代价</div>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <div class="quote-block">
+                <p class="quote-text">"Berry Xia 记录 mlx-vlm v0.6.3 上线，首发支持 DiffusionGemma 和 North Mini Code 1.0。DiffusionGemma 以 256 token 块为单位并行生成，26B MoE 仅激活 3.8B；North Mini Code 1.0 为 30B MoE，仅激活 3B，BF16 下约 66 tok/s。这条是 Mac 本地推理生态的开发者视角：前沿模型发布后，Day-0 MLX 支持能显著缩短从模型发布到本地可用的时间。"</p>
+                <p class="quote-source">—— Berry Xia，mlx-vlm v0.6.3 发布记录</p>
+                <p class="quote-source">· Berry Xia</p>
+                <div class="card-tag">声音·哲学反思·人的代价</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 趋势 -->
+        <div class="section-block">
+            <h2 class="section-header">趋势</h2>
+
+            <div class="news-item">
+                <div class="image-block">
+                    <img src="https://static.simonwillison.net/static/2026/safari-cases.jpg"
+                         alt="Fable 5 自主创建的 Safari textarea 测试页面 · CSS scrollbar bug 调试现场截图 · Simon Willison"
+                         loading="lazy">
+                </div>
+                <h3 class="news-title">Claude Fable 5 实战：自己摸到 Quartz 框架和 screencapture，把截图带回终端</h3>
+                <div class="news-body">
+                    <p>Simon Willison 让 Fable 5 排查 Datasette Agent 的 UI bug。几分钟后，模型已经自己打开浏览器、截了图，还写了一段 Python 用 pyobjc-framework-Quartz 枚举系统窗口，找到 Safari 窗口编号，再用 macOS 自带 screencapture 截 PNG。</p>
+                    <p>这是 Agent 不靠明示授权、自己扩张工具范围的早期样本。它能写最小 HTML 复现 bug，再把证据带回终端，说明编程 Agent 正在形成一套「看见问题、制造证据、修改代码」的闭环。</p>
+                    <p>做 Agent 编排、调试沙箱设计、macOS 自动化和 AI 产品安全评估的人，都需要把这类行为纳入测试：Agent 能力越主动，工具边界越要清楚。</p>
+                    <ul class="news-bullets">
+                        <li>Fable 5 自己用 Quartz 和 screencapture 拼出截图回路</li>
+                        <li>它会写最小 HTML 复现 bug，再把证据带回 Claude Code 终端</li>
+                        <li>Willison 的判断关键词是 relentlessly proactive</li>
+                    </ul>
+                    <p class="source-line">来源：Simon Willison · <a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/" target="_blank">simonwillison.net</a></p>
+                </div>
+                <div class="card-tag">趋势·AI Agent·产品转折·力量转移</div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Preply 的教育落地样本：AI 保留老师关系，自动化课后反馈</h3>
+                <div class="news-body">
+                    <p>Preply 的案例还值得单独放进趋势线。它把 AI 放在课程后的反馈生成、学习建议和老师工作流里，避免直接把「AI 替代老师」作为产品叙事。</p>
+                    <p>教育和企业培训这类强服务场景，真正难的是信任、持续使用和个性化反馈。Preply 给出的路径是让 AI 承担重复整理和反馈初稿，让老师继续承担关系、引导和服务。</p>
+                    <p>这会成为很多垂直行业的落地模板：AI 先进入重复但高频的工作节点，再用真实使用率证明它能留在流程里。</p>
+                    <p class="source-line">来源：OpenAI Blog · <a href="https://openai.com/index/preply" target="_blank">openai.com/index/preply</a></p>
+                </div>
+                <div class="card-tag">趋势·大厂竞争·产品转折</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日小结 -->
+        <div class="section-block">
+            <h2 class="section-header">今日小结</h2>
+
+            <div class="news-item">
+                <div class="news-body">
+                    <p>今天这份电报共收进 15 条信号：6 条今日信号、4 条工具、3 条声音、2 条趋势。</p>
+                    <p>把今天的前线合起来看，可以得到三条判断：</p>
+                    <ul class="news-bullets">
+                        <li>国产代码模型开始把开源、API 和 IDE 入口一起推出来，Kimi-K2.7-Code 是今天最值得补进版面的国内信号。</li>
+                        <li>Agent 工具链继续向真实执行现场靠近，浏览器开发者模式、Fable 5 截图回路和多智能体安全研究共同说明，下一阶段重点是可见、可控、可审计。</li>
+                        <li>AI 落地叙事正在从能力展示转向使用率和成本结构，Preply、OpenRouter、OpenAI Academy 都在回答同一个问题：普通组织怎样长期用起来。</li>
+                    </ul>
+                    <p>明天继续看两条线：Kimi-K2.7-Code 是否补齐模型卡、仓库和更多公开评测；多智能体安全研究会不会形成新的 Agent 产品门槛。</p>
+                    <div class="card-tag">小结·AI视频·前线感</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/earth_cassinimessenger_1799.jpg" 
+                     alt="Interplanetary Earth · 行星际地球" 
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-13">Interplanetary Earth · 行星际地球 · NASA APOD · 2026-06-13<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260613.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <div class="card-tag">好奇·银河</div>
+        </div>
+
+
+        <div class="footer">
+            AI 情报日报 · 2026-06-13 · 共 15 条信号 · 来源：Anthropic / OpenAI / Google DeepMind / Simon Willison / Kimi / OpenRouter / Allen AI / Berry Xia
+        </div>
+    </div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
