@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报周报｜6月第2周 · 2026-06-08至06-14</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 3px solid var(--klein);
+            padding-bottom: 20px;
+            margin-bottom: 32px;
+        }
+
+        .header-kicker {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--klein);
+            margin-bottom: 6px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        /* Opening */
+        .opening {
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 36px;
+            padding: 16px 20px;
+            background: var(--bg-light);
+            border-left: 3px solid var(--klein);
+            border-radius: 0 6px 6px 0;
+            line-height: 1.8;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        /* Section header */
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        /* Story block */
+        .story { margin-bottom: 36px; }
+
+        .story-number {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .story-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .story-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .story-body p { margin-bottom: 8px; }
+
+        /* Three-color markup */
+        /* 三色标记 */
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+
+        /* Quote block */
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .quote-attr {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 10px;
+        }
+
+        /* Voice block (inline story voice) */
+        .story-voice {
+            margin: 14px 0;
+            padding: 14px 18px;
+            background: var(--bg-light);
+            border-left: 3px solid var(--klein);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .story-voice-quote {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--klein);
+            font-style: italic;
+        }
+
+        .story-voice-who {
+            font-size: 12px;
+            color: var(--text-mid);
+            margin-top: 6px;
+        }
+
+        /* News source */
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        /* Image block */
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        /* News label */
+        .news-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        /* News bullets */
+        .news-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .news-bullets li {
+            font-size: 14.5px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .news-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 16px;
+        }
+
+        /* Section block */
+        .section-block { margin-bottom: 48px; }
+
+        /* Footer */
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        
+
+        /* Summary block */
+        .summary-block {
+            background: var(--bg-light);
+            border-left: 3px solid var(--klein);
+            padding: 20px 24px;
+            margin: 28px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .summary-text {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Card tag */
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月14日</span>
+    </nav>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-kicker">周末版 · 这周有点意思</div>
+            <h1 class="doc-title">AI 情报<span>周报</span>｜6月第2周</h1>
+            <p class="doc-date">2026年6月8日 — 6月14日 · 本周必读</p>
+        </div>
+
+        <!-- Opening -->
+        <div class="opening">
+            这周挺忙的，有发布会，有出口管制，有人抓到警察用 AI 造假。如果你没空追，看完这份就够了。
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Story 1: Fable 5 来了然后被拦住 -->
+        <div class="section-block">
+            <h2 class="section-header">Fable 5 来了，然后被拦住了</h2>
+
+            <div class="story">
+                <p class="story-body">Anthropic 发了目前最强的模型 <span class="highlight">Fable 5</span> 和 <span class="highlight">Mythos 5</span>，价格砍了一半。</p>
+                <p class="story-body">很多人刚准备试一试，两天后美国政府就出了出口管制令——要求暂停在特定地区访问 Fable 5。</p>
+                <p class="story-body">后面还有一条更深的线。《华尔街日报》和 The Verge 先爆料：<span class="accent">Amazon CEO Andy Jassy 在这道命令发出前跟政府官员开了会</span>。</p>
+                <p class="story-body">Amazon 的安全团队向政府做了一份 Fable 5 的安全评估，据说成了触发因素。</p>
+                <p class="story-body">这是个让人停下来想一看的时刻。<span class="turn">这是前沿模型第一次被正式列入出口管制</span>。</p>
+                <p class="story-body">而且不只是一纸公文的动作，背后有云平台的安全判断在推。模型可及性不再只是"API 开关在哪"的问题了。</p>
+            </div>
+
+
+            <p class="source-line">来源：Anthropic · <a href="https://www.anthropic.com/news/statement-us-government-directive" target="_blank">anthropic.com</a> ｜ The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank">theverge.com</a> ｜ 华尔街日报</p>
+            <p class="card-tag">前线·AI Agent·产品转折·操控性</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Story 2: GLM 5.2 Hacker News -->
+        <div class="section-block">
+            <h2 class="section-header">GLM 5.2 在 Hacker News 冲到 316 票</h2>
+
+            <div class="story">
+                <p class="story-body">与此同时，<span class="highlight">GLM 5.2 在 Hacker News 上冲到了 316 票</span>，把很多国内模型的海外热度纪录甩在了后面。</p>
+                <p class="story-body">这是中文社区模型在 HN 主页上获得的最好的成绩之一。</p>
+                <p class="story-body">跟 Fable 5 出口管制同一天上了首页——技术的发展和地缘监管被放在一起讨论，<span class="turn">本身就是这周的一个注脚</span>。</p>
+            </div>
+
+            <p class="source-line">来源：Hacker News · <a href="https://news.ycombinator.com/item?id=41694916" target="_blank">news.ycombinator.com</a></p>
+            <p class="card-tag">前线·开源模型·推理能力</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Story 4: Anthropic 5.2万人公众调查 + Claude Corps 奖学金 -->
+        <div class="section-block">
+            <h2 class="section-header">Anthropic 问了 5.2 万人想让 AI 做什么</h2>
+
+            <div class="story">
+                <p class="story-body">Anthropic 问了 <span class="highlight">5.2 万人</span>想让 AI 做什么：48% 说治病，36% 说帮助残障人士，64% 担心丢工作。</p>
+                <p class="story-body">他们还启动了 <span class="highlight">Claude Corps 奖学金</span>，让年轻人把 AI 带到社区里。</p>
+                <p class="story-body">这两件事放在一起看，像一份产业底图。模型公司的叙事在换：<span class="turn">从"我的模型多强"变成"我的模型为谁解决了什么真实问题"</span>。</p>
+                <p class="story-body">公众的期望和恐惧同时在，假装看不到哪一边都不行。</p>
+            </div>
+
+            <p class="source-line">来源：Anthropic · <a href="https://www.anthropic.com/news/dxc-anthropic-alliance" target="_blank">anthropic.com</a> ｜ <a href="https://www.anthropic.com/news/tcs-anthropic-partner" target="_blank">anthropic.com</a></p>
+            <p class="card-tag">前线·大厂竞争·AI就业·人的选择</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Story 5: 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">这周的一些声音</h2>
+
+            <div class="quote-block">
+                <p class="quote-text">"从受限地区发请求，被静默拒绝，没有任何明确提示。一个政策事件变成了你写了一段代码，然后它突然不跑了，没有解释。"</p>
+                <p class="quote-source">—— Simon Willison</p>
+                <p class="quote-source">· <a href="https://simonwillison.net" target="_blank">simonwillison.net</a></p>
+                <p class="card-tag">声音·哲学反思·对AI的理解变了</p>
+            </div>
+
+            <!-- Ethan Mollick Mythos引语已去除——与6月10日声音栏目标杆重复 -->
+
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <div class="quote-block">
+                <p class="quote-text">"是政策、地缘在改变你能用什么。团队的 API 接入层应该做成可切换的。"</p>
+                <p class="quote-source">—— Armin Ronacher</p>
+                <p class="quote-source">· <a href="https://x.com/mitsuhiko" target="_blank">x.com/mitsuhiko</a></p>
+                <p class="card-tag">声音·哲学反思·对AI的理解变了</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Story 6: OpenRouter Fusion API -->
+        <div class="section-block">
+            <h2 class="section-header">OpenRouter Fusion API</h2>
+
+            <div class="story">
+                <p class="story-body">OpenRouter 发了个 <span class="highlight">Fusion API</span>，用路由组合接近 Fable 5 推理质量，价格一半。</p>
+                <p class="story-body">以前是你去挑一个模型，以后是<span class="turn">系统帮你实时挑最便宜且够用的那个</span>。</p>
+            </div>
+
+            <p class="source-line">来源：OpenRouter · <a href="https://openrouter.ai/blog/fusion-api" target="_blank">openrouter.ai</a></p>
+            <p class="card-tag">前线·开源模型·AI Agent</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Story 7: OpenAI收购Ona + Codex开源免费 -->
+        <div class="section-block">
+            <h2 class="section-header">OpenAI 买了 Ona，Codex 对开源免费</h2>
+
+            <div class="story">
+                <p class="story-body">OpenAI 买了家做工作流工具的公司 <span class="highlight">Ona</span>，同时宣布 <span class="highlight">Codex 对开源免费</span>。</p>
+                <p class="story-body">模型公司在补入口和生态。<span class="turn">不只是模型强就够了，还得有人用、有场景、有开发者围着</span>。</p>
+            </div>
+
+            <p class="source-line">来源：OpenAI · <a href="https://openai.com/index/openai-to-acquire-ona" target="_blank">openai.com</a></p>
+            <p class="card-tag">前线·人才流动·大厂竞争·力量转移</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 今日总结 -->
+        <div class="section-block">
+            <h2 class="section-header">今日总结</h2>
+
+            <div class="summary-block">
+                <p class="summary-text">这周的信息密度不低。虽然有些事是周二到周四发生的，但合在一起看还是有一条主线：<span class="turn">产业在从"模型发布会"走向"谁在用、谁在管、谁来兜底"</span>。</p>
+                <p class="summary-text" style="margin-top: 10px;">如果你这周忙，看完上面这些，不觉得自己错过了什么就好。</p>
+                <p class="card-tag">小结·力量转移·人的选择</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/VenusJupiter10_Pawar_1080.jpg" 
+                     alt="10 Days of Venus and Jupiter · 金星木星十天轨迹" 
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-14">10 Days of Venus and Jupiter · 金星木星十天轨迹 · NASA APOD · 2026-06-14<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260614.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <p class="card-tag">好奇·深空</p>
+        </div>
+
+        </div>
+
+        <div class="footer">
+            AI 情报日报 · 2026-06-14 · 周末版 · 这周有点意思 · 来源：Anthropic / The Verge / Hacker News / DeepMind / OpenRouter / OpenAI
+        </div>
+    </div>
+
+    
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
