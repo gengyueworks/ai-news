@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-16</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-lead {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-body p { margin-bottom: 6px; }
+
+        .news-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .news-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .news-bullets li {
+            font-size: 14.5px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .news-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 16px;
+        }
+
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+.quote-who {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+
+.quote-note {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin-bottom: 6px;
+}
+
+.quote-source {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.quote-source a {
+    color: var(--klein);
+    text-decoration: none;
+}
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 三色标记 */
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月16日</span>
+    </nav>
+
+        <h1 class="doc-title">AI 情报日报｜<span>2026-06-16</span></h1>
+        <p class="doc-date">Monday, June 16, 2026</p>
+
+        <div class="divider"></div>
+
+        <!-- 今日头版 -->
+        <div class="section-block">
+            <h2 class="section-header">今日头版</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Meta 143 亿美元拿下 Scale AI 近半股权，28 岁创始人 Alexandr Wang 入主超级智能部门</h3>
+                <p class="news-lead">扎克伯格用创纪录价格买了 AI 数据标注赛道的头号玩家。</p>
+                <div class="news-body">
+                    <p>Meta 以 143 亿美元收 Scale AI 49%，估值从 138 亿跳到 290 亿。</p>
+                    <p>28 岁创始人 Wang 加入 Meta 领导"超级智能"部门，Scale 原首席战略官 Jason Droege 暂代 CEO。这笔交易是 Meta 史上第二大，仅次于 WhatsApp。</p>
+                    <ul class="news-bullets">
+                        <li>Meta 出资 143 亿美元获 49% 股权，Scale 估值翻倍至 290 亿</li>
+                        <li>Wang 19 岁辍学 MIT 创业，将领导 Meta 新设超级智能团队</li>
+                        <li>Google 拟因利益冲突切断与 Scale AI 合作</li>
+                    </ul>
+                    <p class="source-line">来源：CNBC · <a href="https://www.cnbc.com/2025/06/12/scale-ai-founder-wang-announces-exit-for-meta-part-of-14-billion-deal.html" target="_blank">cnbc.com</a> ｜ Scale AI · <a href="https://scale.com/blog/scale-ai-announces-next-phase-of-company-evolution" target="_blank">scale.com</a></p>
+                    <p class="card-tag">前线·本地部署·具身智能·经济学翻转</p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 工具 -->
+        <div class="section-block">
+            <h2 class="section-header">工具</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Gemini Robotics On-Device：机器人端侧跑大模型，50 次示范就能微调</h3>
+                <p class="news-lead">Google DeepMind 把 VLA 模型塞进了机器人肚子里，不用联网。</p>
+                <div class="news-body">
+                    <p>Gemini Robotics On-Device 是完全本地推理的视觉-语言-动作模型，零网络依赖。50 到 100 次示范即可微调，能完成拉拉链、折衣服等精细操作。已适配 ALOHA 双臂、Franka FR3 和 Apollo 人形机器人。</p>
+                    <ul class="news-bullets">
+                        <li>完全本地推理，零网络依赖</li>
+                        <li>50 次示范微调，已适配 3 种机器人本体</li>
+                        <li>SDK 已开源，trusted tester 可申请</li>
+                    </ul>
+                    <p class="source-line">来源：Google DeepMind · <a href="https://deepmind.google/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/" target="_blank">deepmind.google</a></p>
+                    <p class="card-tag">前线·本地部署·开源模型·瓶颈倒逼</p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 趋势 -->
+        <div class="section-block">
+            <h2 class="section-header">趋势</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Anthropic、OpenAI、Google 就 AI 生存风险公开分裂</h3>
+                <p class="news-lead">三巨头对"AI 会不会毁灭人类"给出了完全不同的答案。</p>
+                <div class="news-body">
+                    <p>Axios 披露，三大 AI 实验室在 AI 生存威胁问题上出现根本分歧。Anthropic CEO Amodei 警告模型能力正超越安全措施；OpenAI 推进外部审计；DeepMind 主张渐进研究。</p>
+                    <ul class="news-bullets">
+                        <li>Anthropic 研究：16 个主流模型压力测试，96% 选勒索等不道德手段</li>
+                        <li>前 OpenAI 员工公开信指控公司"为速度和利润牺牲安全"</li>
+                        <li>同期三大实验室出现路线分裂</li>
+                    </ul>
+                    <p class="source-line">来源：Axios · <a href="https://www.anthropic.com/research/agentic-misalignment" target="_blank">Anthropic Agentic Misalignment 研究</a> ｜ Fortune · <a href="https://fortune.com/2025/06/23/ai-models-blackmail-existence-goals-threatened-anthropic-openai-xai-google/" target="_blank">fortune.com</a></p>
+                    <p class="card-tag">趋势·AI Agent·产品转折·力量转移</p>
+                </div>
+            </div>
+
+
+
+            <div class="news-item">
+                <div class="image-block">
+                    <img src="https://blogs.nvidia.com/wp-content/uploads/2025/06/neura-robotics-960x540.jpg"
+                         alt="NEURA Robotics 认知机器人 · 德国工业 AI 云训练设施 · NVIDIA"
+                         loading="lazy">
+                </div>
+                <h3 class="news-title">NVIDIA 与德国电信共建欧洲首个工业 AI 云，万块 Blackwell GPU 就位</h3>
+                <p class="news-lead">Jensen Huang 说"每个制造商需要两个工厂：一个造东西，一个造智能"。</p>
+                <div class="news-body">
+                    <p>NVIDIA 与 Deutsche Telekom 宣布打造欧洲首个工业 AI 云，首期部署 1 万块 Blackwell GPU。德国总理默茨与黄仁勋在德国会面讨论此事。NEURA Robotics 将用该设施训练认知机器人。</p>
+                    <ul class="news-bullets">
+                        <li>首期 1 万块 Blackwell GPU，由德国电信运营</li>
+                        <li>支持 Siemens、Ansys、Cadence 等工业软件</li>
+                        <li>2027 年升级至 10 万 GPU 的 AI 千兆工厂</li>
+                    </ul>
+                    <p class="source-line">来源：NVIDIA Blog · <a href="https://blogs.nvidia.com/blog/nvidia-deutsche-telekom-germany-sovereign-ai/" target="_blank">nvidia.com</a> ｜ Deutsche Telekom · <a href="https://www.telekom.com/en/media/media-information/archive/ai-turbo-nvidia-and-deutsche-telekom-1093532" target="_blank">telekom.com</a></p>
+                    <p class="card-tag">趋势·AI视频·产品转折</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">欧盟 AI 法案进入三方谈判，初创企业警告"创新冻结"</h3>
+                <p class="news-lead">全球最严格的 AI 监管正在落地，但执行细节可能比法案本身更危险。</p>
+                <div class="news-body">
+                    <p>欧盟《AI 法案》进入三方谈判，面临定义过宽、合规负担重的批评。CCIA Europe 公开呼吁暂停实施。中小企业警告高额文档要求将损害欧洲面对中美竞争的创新力。</p>
+                    <ul class="news-bullets">
+                        <li>CCIA Europe 警告法案可能"彻底冻结创新"</li>
+                        <li>中小企业合规成本预计增加 30%-50%</li>
+                        <li>全球首个综合性 AI 法律，将成为各国参考模板</li>
+                    </ul>
+                    <p class="source-line">来源：CCIA · <a href="https://ccianet.org/news/2025/06/ai-act-eu-leaders-urged-to-pause-implementation-amid-growing-concerns/" target="_blank">ccianet.org</a> ｜ Sifted · <a href="https://sifted.eu/articles/ai-act-news-startups-vcs-europe-pause-letter" target="_blank">sifted.eu</a></p>
+                    <p class="card-tag">趋势·大厂竞争·产品转折</p>
+                </div>
+            </div>
+
+
+
+            <div class="news-item">
+                <h3 class="news-title">硅谷高管集体入伍，美国陆军成立「201 分队」</h3>
+                <p class="news-lead">Meta CTO、OpenAI 前首席研究官穿上军装，代号来自 HTTP 201。</p>
+                <div class="news-body">
+                    <p>美国陆军预备役新设"201 分队"，名称取自 HTTP 状态码"201 Created"。Meta CTO Bosworth、OpenAI 首席产品官 Weil、前首席研究官 McGrew、Palantir CTO Sankar 四人以中校军衔入伍，每年服役 120 小时。</p>
+                    <ul class="news-bullets">
+                        <li>四人获中校军衔，每年服役 120 小时，可远程异步工作</li>
+                        <li>严格规避利益冲突：不得参与涉及雇主的项目</li>
+                        <li>OpenAI 已与 Anduril 合作反无人机系统</li>
+                    </ul>
+                    <p class="source-line">来源：Defense News · <a href="https://www.defensenews.com/land/2025/06/13/tech-execs-enlist-in-army-reserve-for-new-innovation-detachment/" target="_blank">defensenews.com</a> ｜ WSJ [付费墙] · <a href="https://archive.ph/newest/https://www.wsj.com/tech/army-reserve-tech-executives-meta-palantir-796f5360" target="_blank">archive.ph mirror</a></p>
+                    <p class="card-tag">趋势·大厂竞争·力量转移</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">声音</h2>
+
+            <div class="quote-block">
+                <p class="quote-text">"In the era of AI, every manufacturer needs two factories: one for making things, and one for creating the intelligence that powers them."</p>
+                <p class="quote-source">—— Jensen Huang，NVIDIA 创始人兼 CEO</p>
+                <p class="quote-source">· <a href="https://blogs.nvidia.com/blog/nvidia-deutsche-telekom-germany-sovereign-ai/" target="_blank">nvidia.com</a></p>
+                <p class="card-tag">声音·哲学反思·人的选择·对AI的理解变了</p>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <div class="news-body" style="margin-top: 16px;">
+                <p>黄仁勋在德国宣布工业 AI 云合作时，用"两个工厂"重新定义了制造业的 AI 范式。</p>
+                <p>这句话的背景是 NVIDIA 与 Deutsche Telekom 宣告欧洲首个工业 AI 云——"造东西的工厂"是产线，"造智能的工厂"是 GPU 集群。这已经是对未来制造业基础设施的直接规划：2027 年将升级为 10 万 GPU 的 AI 千兆工厂。</p>
+                <p class="source-line">来源：NVIDIA Blog · <a href="https://blogs.nvidia.com/blog/nvidia-deutsche-telekom-germany-sovereign-ai/" target="_blank">nvidia.com</a></p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 创造 -->
+        <div class="section-block">
+            <h2 class="section-header">创造</h2>
+
+            <div class="news-item">
+                <div class="image-block">
+                    <img src="https://opengraph.githubassets.com/8f1b1ac55100659036bbf7626f4526b5e7e4f50b6b5aac9f3e068c81c1d563f1/OpenBMB/VoxCPM"
+                         alt="VoxCPM 2 · Tokenizer-Free 多语言语音生成 · OpenBMB"
+                         loading="lazy">
+                </div>
+                <h3 class="news-title">VoxCPM：用 Tokenizer-Free 架构做多语言语音生成</h3>
+                <p class="news-lead">清华 OpenBMB 团队把 TTS 模型的 tokenizer 层拆了。</p>
+                <div class="news-body">
+                    <p>VoxCPM 2 用 Tokenizer-Free 架构跳过了传统 TTS 模型的离散化步骤——直接处理原始音频 token，避免 tokenizer 引入的信息损失。在多语言 TTS、语音克隆、创意声音设计三个场景都开源了权重。</p>
+                    <ul class="news-bullets">
+                        <li>Tokenizer-Free 架构，跳过离散化</li>
+                        <li>支持多语言 TTS / 语音克隆 / 创意声音设计</li>
+                        <li>权重开源，可本地部署</li>
+                    </ul>
+                    <p class="source-line">来源：OpenBMB · <a href="https://github.com/OpenBMB/VoxCPM/blob/main/README.md" target="_blank">github.com/OpenBMB/VoxCPM</a></p>
+                    <p class="card-tag">创造·AI视频·产品转折·前线感</p>
+                </div>
+            </div>
+
+
+
+            <div class="news-item">
+                <h3 class="news-title">zvec：阿里巴巴开源进程内向量数据库，零外部依赖</h3>
+                <p class="news-lead">C++ 写的向量搜索库，跑在进程内，不依赖 Milvus 或 Pinecone。</p>
+                <div class="news-body">
+                    <p>zvec 用 C++ 实现进程内向量索引，不走网络 I/O，延迟比独立向量数据库低一个数量级。适合 RAG 应用中不需要分布式部署的轻量场景——嵌入应用即可用，不用运维向量数据库集群。</p>
+                    <ul class="news-bullets">
+                        <li>C++ 进程内运行，零网络 I/O</li>
+                        <li>适合轻量 RAG / 语义搜索，不需运维集群</li>
+                        <li>开源可嵌入</li>
+                    </ul>
+                    <p class="source-line">来源：阿里巴巴 · <a href="https://github.com/alibaba/zvec/blob/main/README.md" target="_blank">github.com/alibaba/zvec</a></p>
+                    <p class="card-tag">创造·AI视频·产品转折</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 继续观察 -->
+        <div class="section-block">
+            <h2 class="section-header">继续观察</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">联邦法院命令 OpenAI 保留所有 ChatGPT 日志，包括用户已删除的对话</h3>
+                <p class="news-lead">你删掉的对话，法院说不准删。</p>
+                <div class="news-body">
+                    <p>纽约联邦法官 Ona Wang 下令 OpenAI 无限期保留所有 ChatGPT 输出日志——包括用户主动删除的对话、"临时对话"和 API 调用记录。起因是 NYT 等新闻机构担心侵权用户会删除对话痕迹。OpenAI 称该命令"前所未有"，迫使公司违背自身隐私承诺，数亿用户的敏感数据面临泄露风险。</p>
+                    <ul class="news-bullets">
+                        <li>法官 Wang 5 月 13 日下达保全令，覆盖 ChatGPT Free / PLUS / Pro 及 API 全部日志</li>
+                        <li>OpenAI 称该命令迫使其违反与用户的隐私协议和全球隐私法规</li>
+                        <li>用户在 LinkedIn / X 上恐慌，网络安全专家称其为"不可接受的安全风险"</li>
+                    </ul>
+                    <p class="source-line">来源：Ars Technica · <a href="https://arstechnica.com/tech-policy/2025/06/openai-says-court-forcing-it-to-save-all-chatgpt-logs-is-a-privacy-nightmare/" target="_blank">arstechnica.com</a> ｜ Cyber Insider · <a href="https://cyberinsider.com/us-court-orders-openai-to-preserve-all-chatgpt-logs-indefinitely/" target="_blank">cyberinsider.com</a></p>
+                    <p class="card-tag">趋势·开源模型·AI Agent</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 创业投资 -->
+        <div class="section-block">
+            <h2 class="section-header">创业投资</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">地瓜机器人完成 1 亿美元 A 轮，百 TOPS 芯片 RDK S100 售价 2499 元</h3>
+                <p class="news-lead">地平线分拆的机器人公司用"算控一体"架构打价格战。</p>
+                <div class="news-body">
+                    <p>地瓜机器人完成 1 亿美元 A 轮融资，推出百 TOPS 算力芯片 RDK S100。该芯片采用 CPU + BPU + MCU 算控一体架构，售价仅 2499 元。计划 2026 年推出 500 TOPS 版本，目前超 50 家客户测评中。</p>
+                    <ul class="news-bullets">
+                        <li>A 轮 1 亿美元，高瓴创投领投</li>
+                        <li>RDK S100：百 TOPS 算力，2499 元，算控一体 SoC</li>
+                        <li>2026 年推出 500 TOPS 高算力版本</li>
+                    </ul>
+                    <p class="source-line">来源：36氪 · <a href="https://36kr.com/p/3725011091012225" target="_blank">36kr.com</a> ｜ 东方财富 · <a href="https://fund.eastmoney.com/a/202606133770307457.html" target="_blank">eastmoney.com</a></p>
+                    <p class="card-tag">就业投资·人形机器人·创业融资·力量转移</p>
+                </div>
+            </div>
+
+
+
+            <div class="news-item">
+                <h3 class="news-title">Mira Murati 的 Thinking Machines Lab 融资 20 亿美元，估值 100 亿</h3>
+                <p class="news-lead">前 OpenAI CTO 的新公司还没发布产品，估值已跻身 AI 独角兽第一梯队。</p>
+                <div class="news-body">
+                    <p>Thinking Machines Lab 完成种子轮融资 20 亿美元，估值 100 亿美元，a16z 领投。公司目标是构建具备自主推理能力的 AI 系统，尚未发布产品。</p>
+                    <ul class="news-bullets">
+                        <li>融资 20 亿美元，估值 100 亿美元，a16z 领投</li>
+                        <li>Mira Murati 是 OpenAI 前 CTO，曾短暂代理 CEO</li>
+                        <li>公司尚未发布产品</li>
+                    </ul>
+                    <p class="source-line">来源：TechCrunch · <a href="https://techcrunch.com/2025/07/15/mira-muratis-thinking-machines-lab-is-worth-12b-in-seed-round/" target="_blank">techcrunch.com</a> ｜ Crunchbase · <a href="https://news.crunchbase.com/venture/biggest-seed-round-ai-thinking-machines-mira-murati/" target="_blank">crunchbase.com</a></p>
+                    <p class="card-tag">就业投资·大厂竞争·力量转移</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/SaturnRingsMoons_Cassini_960.jpg" 
+                     alt="Moons, Rings, Shadows, Clouds: Saturn · 土星的卫星与环影" 
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-16">Moons, Rings, Shadows, Clouds: Saturn · 土星的卫星与环影 · NASA APOD · 2026-06-16<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260616.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <p class="card-tag">好奇·火星</p>
+        </div>
+
+
+        <div class="footer">
+            AI 情报日报 · 2026-06-16 · 共 10 条新闻 · 来源：CNBC / Google DeepMind / Axios / NVIDIA / CCIA / Defense News / OpenBMB / 阿里巴巴 / Ars Technica / 36氪 / TechCrunch
+        </div>
+    </div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
