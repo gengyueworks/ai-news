@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-17</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-lead {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-body p { margin-bottom: 6px; }
+
+        .news-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .news-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .news-bullets li {
+            font-size: 14.5px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .news-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 16px;
+        }
+
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 三色标记 */
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月17日</span>
+    </nav>
+
+        <h1 class="doc-title">AI 情报日报｜<span>2026-06-17</span></h1>
+        <p class="doc-date">Tuesday, June 17, 2026</p>
+
+        <div class="divider"></div>
+
+        <!-- 今日头版 -->
+        <div class="section-block">
+            <h2 class="section-header">今日头版</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">G7峰会：Anthropic模型被美国封杀，AI巨头坐上外交桌</h3>
+                <p class="news-lead">美国把Anthropic最强模型锁在国门内，盟友恐慌——AI外交时代正式开始。</p>
+                <div class="news-body">
+                    <p>法国G7峰会的工作午餐桌上，坐了Altman、Amodei、Hassabis等十多位AI公司CEO。这是AI公司首次以正式身份参加G7外交谈判。</p>
+                    <p>但桌上的真正议题是封锁——美国政府上周下令禁止外国用户访问Fable 5和Mythos 5，理由是国家安全。两款模型被迫下线。</p>
+                    <p>法国总统Macron当场呼吁美国不要"像关灯一样锁住前沿AI"，Altman也表态"不该只由建模型的公司决定AI安全"。但白宫拒绝了英国首相为G7国家争取的豁免请求。</p>
+                    <ul class="news-bullets">
+                        <li>封锁事件：Fable 5和Mythos 5被迫下线，白宫拒绝G7国家豁免请求</li>
+                        <li>外交信号：Macron呼吁民主国家共同监管AI，Altman说"需要国际标准论坛"</li>
+                        <li>权力格局：AI公司首次以正式身份参加G7谈判，Cohere CEO说"共识是需要监管"</li>
+                    </ul>
+                    <p class="source-line">来源：AP · <a href="https://apnews.com/article/g7-france-ai-sovereignty-7d783c6de4356962e338b8b8563d48ea" target="_blank">apnews.com</a> ｜ CNBC · <a href="https://www.cnbc.com/2026/06/17/g7-trump-ai-tech-leaders-openai-anthropic-google.html" target="_blank">cnbc.com</a> ｜ Reuters · <a href="https://www.reuters.com/" target="_blank">reuters.com</a></p>
+                    <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-13.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Fable 5护栏撤回+Anthropic调查</a> · <a href="2026-06-09.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Anthropic融资</a></p>
+                    <p class="card-tag">前线·AI就业·经济学翻转·人的代价</p>
+                </div>
+            </div>
+
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&q=80&auto=format" alt="International Diplomacy" loading="lazy">
+                <p class="image-caption">配图：Unsplash · 政治与外交 · 非新闻原图</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 工具 -->
+        <div class="section-block">
+            <h2 class="section-header">工具</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">SpaceX 600亿美元收购Cursor：Musk把AI编程工具也收了</h3>
+                <p class="news-lead">刚IPO完的SpaceX转头就买了你每天用的编程工具——AI开发者的选择面正在收窄。</p>
+                <div class="news-body">
+                    <p>SpaceX以600亿美元全股票交易收购AI编程平台Cursor，预计第三季度完成。Cursor是VS Code的AI插件，让开发者在编辑器里直接用大模型写代码。SpaceX称过去几个月已与Cursor团队共同训练新模型，将在Grok Build和Cursor中发布。这笔收购发生在SpaceX完成世界最大IPO两天后。Cursor过去一度贡献底层模型供应商40%-50%收入，被收购后很可能转向自家模型。</p>
+                    <ul class="news-bullets">
+                        <li>交易规模：600亿美元全股票，SpaceX刚完成世界最大IPO后两天宣布</li>
+                        <li>模型整合：已在与Cursor共同训练新模型，将在Grok Build发布</li>
+                        <li>供应链断裂：Cursor曾贡献底层模型供应商40%-50%收入，收购后可能换Grok</li>
+                    </ul>
+                    <p class="source-line">来源：Ars Technica · <a href="https://arstechnica.com/ai/2026/06/spacex-will-acquire-coding-tool-cursor-to-compete-with-anthropic-openai/" target="_blank">arstechnica.com</a> ｜ TechCrunch · <a href="https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/" target="_blank">techcrunch.com</a></p>
+                    <p class="card-tag">前线·人才流动·大厂竞争·力量转移</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Android 17：Gemini住进手机系统层，不用再开app找AI</h3>
+                <p class="news-lead">Gemini从独立app变成系统层集成，任何app都能直接调用AI能力。</p>
+                <div class="news-body">
+                    <p>Google发布Android 17，Gemini AI从独立app升级为系统层集成。用户在任何app里都能调用AI——语音助手、任务自动化、AI生成小组件，全部从系统层直接发起。开发者可通过AppFunctions接口让自己的app被Gemini主动发现和调用。Gemini语音新增流式输出（技术名：streamGenerateContent），AI边生成边传语音数据，首音从1-2秒缩短到200-300毫秒。</p>
+                    <ul class="news-bullets">
+                        <li>开发者接口：AppFunctions，让第三方app被Gemini主动发现和调用</li>
+                        <li>语音升级：流式输出，首音从1-2秒缩短到200-300毫秒</li>
+                        <li>手表同步：Wear OS 7同步嵌入Gemini，语音助手从手腕启动</li>
+                    </ul>
+                    <p class="source-line">来源：Android Developers Blog · <a href="https://android-developers.googleblog.com/2026/06/Android-17.html" target="_blank">android-developers.googleblog.com</a> ｜ TechCrunch · <a href="https://techcrunch.com/2026/06/16/android-17-launches-with-new-multitasking-tools-as-google-expands-gemini-features/" target="_blank">techcrunch.com</a> ｜ Google Blog · <a href="https://blog.google/products-and-platforms/platforms/android/android-17-features" target="_blank">blog.google</a></p>
+                    <p class="card-tag">前线·安全漏洞·AI Agent·操控性</p>
+                </div>
+            </div>
+
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&q=80&auto=format" alt="Mobile Development" loading="lazy">
+                <p class="image-caption">配图：Unsplash · Campaign Creators · 非新闻原图</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 趋势 -->
+        <div class="section-block">
+            <h2 class="section-header">趋势</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">ChatGPT份额首次跌破50%：老大没倒，但战场换了</h3>
+                <p class="news-lead">Sensor Tower确认，Gemini和Claude正在从ChatGPT手里抢走用户。</p>
+                <div class="news-body">
+                    <p>ChatGPT三年半以来首次跌破50%市场份额。Sensor Tower数据显示，截至5月底，ChatGPT份额降至46.4%，Gemini升至27.7%，Claude升至10.3%。ChatGPT月活仍超11亿——但蛋糕正在被切走。2月OpenAI与美国国防部合作的消息引发了一波卸载潮，说明品牌信任正在影响用户选择。</p>
+                    <ul class="news-bullets">
+                        <li>Claude亮点：13%用户付费订阅，转化率行业最高</li>
+                        <li>品牌信任：2月国防部合作消息引发卸载潮，价值观影响留存</li>
+                        <li>格局信号：ChatGPT从50%以上→46.4%，不再是"一家独大"</li>
+                    </ul>
+                    <p class="source-line">来源：TechCrunch · <a href="https://techcrunch.com/2026/06/16/chatgpts-market-share-slips-below-50-for-first-time/" target="_blank">techcrunch.com</a> ｜ 钛媒体 · <a href="https://www.tmtpost.com/agent/ai-article/18267" target="_blank">tmtpost.com</a></p>
+                    <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-12.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Anthropic花1.5亿让普通人用Claude</a></p>
+                    <p class="card-tag">趋势·大厂竞争·产品转折</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">60%消费者反感AI品牌标识：你说"AI驱动"，用户说"别来"</h3>
+                <p class="news-lead">WordPress VIP调查确认，消费者正在用脚投票拒绝AI标签。</p>
+                <div class="news-body">
+                    <p>WordPress VIP调查显示，60%美国消费者认为品牌信息中出现"AI"是败笔。86%不完全信任AI生成的内容——42%认为无归属的AI答案可信度低于航空费和医疗账单。Gartner4月调查佐证同一趋势：50%消费者更愿意选择不用AI的品牌。企业拥抱AI营销，消费者反向逃离——信任缺口正在扩大。</p>
+                    <ul class="news-bullets">
+                        <li>信任缺口：86%不完全信任AI内容，42%认为无归属AI答案比航空费账单还不可信</li>
+                        <li>趋势佐证：50%消费者更愿选择不用AI的品牌（Gartner，4月调查）</li>
+                        <li>矛盾信号：企业拥抱AI营销→消费者反感AI标签，双向撕裂</li>
+                    </ul>
+                    <p class="source-line">来源：TechCrunch · <a href="https://techcrunch.com/2026/06/16/sixty-percent-of-u-s-consumers-say-ai-in-brand-messaging-is-a-turnoff-survey-finds/" target="_blank">techcrunch.com</a> ｜ Gartner · <a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-16-gartner-marketing-survey" target="_blank">gartner.com</a></p>
+                    <p class="card-tag">趋势·大厂竞争·产品转折</p>
+                </div>
+            </div>
+
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80&auto=format" alt="Consumer Behavior" loading="lazy">
+                <p class="image-caption">配图：Unsplash · Austin Distel · 非新闻原图</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">声音</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Karpathy："软件像自来水一样随开随用，我的需求在10倍膨胀"</h3>
+                <div class="quote-block">
+                    <p class="quote-text">"当可用的软件像拧开水龙头一样涌出来，我感觉很多东西正在改变。杰文斯悖论生效了——我对软件的需求在大幅增长。你可以要求任何东西——解释器、可视化工具、仪表盘、一次性定制应用，你可以把测试套件扩大十倍，自动优化代码，跑巨型研究项目然后用自定义HTML呈现结果，任何东西！'解放你的思想。'"</p>
+                    <p class="quote-source">—— Andrej Karpathy</p>
+                    <p class="quote-source">· <a href="https://x.com/karpathy" target="_blank">x.com/karpathy</a></p>
+                    <p class="card-tag">声音·哲学反思·对AI的理解变了</p>
+                </div>
+                <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+                <div class="news-body">
+                    <p>当写软件变得像拧开水龙头一样方便，杰文斯悖论 kicks in——需求10倍膨胀。以前写一个可视化仪表盘要两周，现在一句话就行；以前优化测试覆盖率要手动逐条写，现在一个指令跑完整个测试套件×10。核心：AI让你的需求量级变了。</p>
+                    <ul class="news-bullets">
+                        <li>核心概念：杰文斯悖论——效率越高→需求越大，不是需求不变+效率提升</li>
+                        <li>具体场景：一句话生成可视化仪表盘、测试套件×10、定制化单次使用app</li>
+                        <li>信号：需求量级变了，做以前根本不会做的事才是真市场</li>
+                    </ul>
+                    <p class="source-line">来源：simonwillison.net · <a href="https://simonwillison.net/2026/Jun/9/andrej-karpathy/" target="_blank">simonwillison.net</a> ｜ X · <a href="https://x.com/karpathy" target="_blank">x.com/karpathy</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 创造 -->
+        <div class="section-block">
+            <h2 class="section-header">创造</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">MiniMax M3开源：能写代码能操作电脑，一次能读70万字</h3>
+                <p class="news-lead">MiniMax开放M3权重，编程和智能体任务达前沿水平，自部署成本远低于闭源API。</p>
+                <div class="news-body">
+                    <p>MiniMax开放M3模型权重。模型总参数约428亿，推理时只激活约23亿参数降低算力成本。一次能处理约70万中文字（100万token上下文），长文档推理效率比上一代提升9倍。编程能力在SWE-Bench Pro等基准达到前沿水平，同时能直接操作电脑桌面完成任务。开发者可直接下载权重自部署。</p>
+                    <ul class="news-bullets">
+                        <li>上下文能力：一次读完约70万中文字，法律合同、代码库不用分段</li>
+                        <li>推理成本：总参数428亿，推理时只激活约23亿，算力成本大幅降低</li>
+                        <li>工具调用：能直接操作电脑桌面完成任务，不只是聊天</li>
+                    </ul>
+                    <p class="source-line">来源：GitHub · <a href="https://github.com/MiniMax-AI/MiniMax-M3" target="_blank">github.com/MiniMax-AI</a> ｜ arXiv · <a href="https://arxiv.org/abs/2606.13392" target="_blank">arxiv.org</a></p>
+                    <p class="card-tag">创造·AI视频·产品转折·前线感</p>
+                </div>
+            </div>
+
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80&auto=format" alt="Technology Development" loading="lazy">
+                <p class="image-caption">配图：Unsplash · ThisisEngineering · 非新闻原图</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 继续观察 -->
+        <div class="section-block">
+            <h2 class="section-header">继续观察</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Sanders提案：对AI公司征50%股票税，建7万亿主权基金</h3>
+                <p class="news-lead">每人每年拿1000美元分红——这是美国参议员对AI财富分配的回答。</p>
+                <div class="news-body">
+                    <p>美国参议员Bernie Sanders向AP独家披露立法提案：对年AI营收超200万美元的公司征50%股票税（强制转让股权而非现金纳税），创建约7万亿美元主权基金。7人独立委员会管理基金投票权，用5%年分红给每个美国人发超1000美元。Sanders说"公众必须有一席之地"。Trump和Altman都表示过类似想法，但Sanders的50%远超他们的5%方案。</p>
+                    <ul class="news-bullets">
+                        <li>核心机制：50%股票税，强制转让股权而非纳税</li>
+                        <li>基金规模：约7万亿美元主权基金，5%年分红=每人超1000美元</li>
+                        <li>对比：Sanders要50%股权，Trump+Altman只愿意给5%利润——比例差距巨大</li>
+                    </ul>
+                    <p class="source-line">来源：AP · <a href="https://apnews.com/article/bernie-sanders-ai-public-ownership-sovereign-wealth-fund" target="_blank">apnews.com</a></p>
+                    <p class="card-tag">趋势·AI视频·产品转折·瓶颈倒逼</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 创业投资 -->
+        <div class="section-block">
+            <h2 class="section-header">创业投资</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">DeepSeek 74亿融资：梁文锋个人出资200亿，把钱先进自己管的口袋</h3>
+                <p class="news-lead">中国AI最大单轮融资的关键不在金额，在控制权架构——外部资金全部注入梁文锋管理的有限合伙企业。</p>
+                <div class="news-body">
+                    <p>DeepSeek完成首次外部融资，募资超500亿元人民币（约74亿美元），估值突破500亿美元，是中国AI行业迄今规模最大的单轮融资。出资结构：梁文锋个人200亿、腾讯100亿、宁德时代50亿、京东与IDG各30亿、国家AI基金10亿直投。融资架构的关键：除国家AI基金外，其他外部投资者被要求将资金注入由梁文锋管理的有限合伙企业，而非直接投资公司本体——"钱不直接进公司，先进梁文锋管的口袋"。</p>
+                    <ul class="news-bullets">
+                        <li>融资规模：超500亿元人民币（约74亿美元），估值超500亿美元</li>
+                        <li>控制权设计：外部资金先进梁文锋管理的有限合伙企业，不直接进公司</li>
+                        <li>地缘信号：美国锁住前沿模型出口→中国开源模型获得更大国际关注</li>
+                    </ul>
+                    <p class="source-line">来源：[付费墙] WSJ · <a href="https://archive.ph/newest/https://www.wsj.com/tech/ai/deepseek-becomes-chinas-most-valuable-ai-startup-after-over-7-4-billion-fundraise-78ef64c0" target="_blank">archive.ph/WSJ</a> ｜ 36氪 · <a href="https://www.36kr.com/p/3855773631976456" target="_blank">36kr.com</a></p>
+                    <p class="card-tag">就业投资·创业融资·这也行？</p>
+                </div>
+            </div>
+
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format" alt="Financial Dashboard" loading="lazy">
+                <p class="image-caption">配图：Unsplash · Luke Chesser · 非新闻原图</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/hamster_1024.jpg" 
+                     alt="Longmore 8: The Hamster Wheel Nebula · 仓鼠轮星云" 
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-17">Longmore 8: The Hamster Wheel Nebula · 仓鼠轮星云 · NASA APOD · 2026-06-17<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260617.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <p class="card-tag">好奇·极光</p>
+        </div>
+
+
+        <div class="footer">
+            AI 情报日报 · 2026-06-17 · 共 9 条新闻 · 来源：AP / Reuters / CNBC / Ars Technica / TechCrunch / Android Developers Blog / Google Blog / WordPress VIP / Gartner / Sensor Tower / simonwillison.net / GitHub / arXiv / WSJ / 36氪 / 钛媒体
+        </div>
+    </div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
