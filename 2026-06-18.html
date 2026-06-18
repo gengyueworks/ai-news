@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-18</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-lead {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-body p { margin-bottom: 6px; }
+
+        .news-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--klein);
+            background: rgba(0, 47, 167, 0.08);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .news-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .news-bullets li {
+            font-size: 14.5px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .news-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 16px;
+        }
+
+        .source-line {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .source-line a {
+            color: var(--klein-bright);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .source-line a:hover { border-bottom-color: var(--klein-bright); }
+
+        .image-block {
+            margin: 28px 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--klein);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 三色标记 */
+        .highlight { color: #002FA7; font-weight: 600; }
+        .accent { color: #C41E3A; font-weight: 600; }
+        .turn { color: #002FA7; font-weight: 700; }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月18日</span>
+    </nav>
+
+        <h1 class="doc-title">AI 情报日报｜<span>2026-06-18</span></h1>
+        <p class="doc-date">Thursday, June 18, 2026</p>
+
+        <div class="divider"></div>
+
+        <!-- 今日头版 -->
+        <div class="section-block">
+            <h2 class="section-header">今日头版</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">WAIC 2026 倒计时30天：超300款AI产品全球首发，7月上海开幕</h3>
+                <p class="news-lead">全球最大AI综合盛会进入冲刺期，7月17日上海开幕。</p>
+                <div class="news-body">
+                    <p>6月17日，2026世界人工智能大会倒计时30天发布会在上海举行。大会7月17日至20日举办，分设世博、张江、西岸三大片区，由外交部、科技部、工信部等10个部门与上海市政府共同主办。</p>
+                    <p>大会将举办140余场主题论坛，集聚1400余位国际嘉宾，1100余家全球企业参展，推出3000余项展品，其中300余款AI产品全球首发。大会同时发布首个AI生态开放平台"Hi WAIC"APP，开放报名购票。</p>
+                    <ul class="news-bullets">
+                        <li>学术阵容：图灵奖得主姚期智任大会主席，强化学习之父理查德·萨顿任国际联席主席</li>
+                        <li>新设板块：首设OPC展示区180家企业入驻，五大赛道生态矩阵首次亮相</li>
+                        <li>城市联动：WAIC City Walk联动上海十六区，AI体验从展馆延伸到街区</li>
+                    </ul>
+                    <p class="source-line">来源：36氪 · <a href="https://www.36kr.com/p/3857123403551747" target="_blank">36kr.com</a> ｜ 经济观察网 · <a href="https://www.eeo.com.cn/2026/0617/919286.shtml" target="_blank">eeo.com.cn</a></p>
+                    <p class="card-tag">前线·大厂竞争·AI Agent·前线感</p>
+                </div>
+            </div>
+
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format" alt="Technology" loading="lazy">
+                <p class="image-caption">配图：Unsplash · Christopher Burns · 非新闻原图</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 工具 -->
+        <div class="section-block">
+            <h2 class="section-header">工具</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">Gemini CLI 今日停服：10万星开源项目转向闭源替代</h3>
+                <p class="news-lead">Google关闭Gemini CLI对所有个人用户的访问，替代品闭源重写。</p>
+                <div class="news-body">
+                    <p>Google宣布Gemini CLI于6月18日停止服务，免费用户、Pro和Ultra订阅者均受影响。替代品Antigravity CLI采用闭源Go语言重写，启动时不具备完整功能对等性。企业客户保留双重访问权。Gemini CLI运行期间累计超过6000次社区合并PR，GitHub星标超10万。</p>
+                    <ul class="news-bullets">
+                        <li>受影响：免费、Pro、Ultra订阅者及Gemini Code Assist订阅者</li>
+                        <li>替代品：Antigravity CLI（闭源Go重写，功能暂不完整，仅企业客户可用原版）</li>
+                        <li>社区代价：6000+合并PR、10万+星标的代码库，社区贡献者被排除在新产品之外</li>
+                    </ul>
+                    <p class="source-line">来源：Google Developers Blog · <a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/" target="_blank">developers.googleblog.com</a></p>
+                    <p class="card-tag">前线·开源模型·产品转折·瓶颈倒逼</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">Google给Gemini加了流式语音：AI能边想边说，不用等整段话</h3>
+                <p class="news-lead">Gemini API新增流式语音生成，语音助手不用等完整音频才能回应。</p>
+                <div class="news-body">
+                    <p>Google于6月17日为gemini-3.1-flash-tts-preview模型新增流式语音生成能力。开发者通过streamGenerateContent方法调用，AI边生成边传语音数据流，不用等完整音频拼完才输出。语音助手、实时翻译、智能客服场景下，用户说完话AI立刻开口回应。</p>
+                    <ul class="news-bullets">
+                        <li>调用方式：streamGenerateContent或Interactions API的stream:true参数</li>
+                        <li>适用场景：语音助手、实时翻译、智能客服——任何需要即时语音反馈的产品</li>
+                        <li>延迟变化：完整音频生成等待1-2秒→流式首音200-300毫秒</li>
+                    </ul>
+                    <p class="source-line">来源：Google AI · <a href="https://ai.google.dev/gemini-api/docs/changelog" target="_blank">ai.google.dev</a></p>
+                    <p class="card-tag">前线·AI Agent·产品转折</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 趋势 -->
+        <div class="section-block">
+            <h2 class="section-header">趋势</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">OpenAI营收翻3.5倍仍亏损：研发费一半付给微软</h3>
+                <p class="news-lead">泄露的SEC文件显示，OpenAI营收增长远追不上基础设施成本。</p>
+                <div class="news-body">
+                    <p>Ars Technica报道，OpenAI为准备IPO提交的SEC文件被泄露。2025年营收130.7亿美元（2024年37亿），运营亏损209.2亿美元。研发支出191.8亿美元，其中105.9亿美元支付给微软用于算力和授权。Sora视频生成模型上线仅15个月后于2026年3月下线。</p>
+                    <ul class="news-bullets">
+                        <li>增速对比：营收3.5倍增长，亏损扩大1.4倍——增长追不上烧钱</li>
+                        <li>最大单一支出：研发费一半付给微软（算力+授权）</li>
+                        <li>Sora已关闭：视频模型上线15个月后下线</li>
+                    </ul>
+                    <p class="source-line">来源：Ars Technica · <a href="https://arstechnica.com/ai/2026/06/leaked-financial-docs-show-openai-is-losing-billions-of-dollars-a-year/" target="_blank">arstechnica.com</a></p>
+                    <p class="card-tag">趋势·大厂竞争·创业融资·人的代价</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h3 class="news-title">63%美国人认为AI发展过快，但ChatGPT用户翻倍</h3>
+                <p class="news-lead">Pew研究：公众怀疑和实际使用同时上涨。</p>
+                <div class="news-body">
+                    <p>Pew Research发布两项调查：63%美国人认为AI发展过快，仅16%认为AI对社会有积极影响。与此同时，聊天机器人使用率从2024年33%升至49%，ChatGPT用户数自2023年翻倍达44%。华尔街热情和公众怀疑之间的差距正在扩大。</p>
+                    <ul class="news-bullets">
+                        <li>使用率上涨：聊天机器人使用率33%→49%，ChatGPT用户翻倍</li>
+                        <li>企业困境：Uber数月耗尽全年AI预算，部分公司削减Claude许可证</li>
+                    </ul>
+                    <p class="source-line">来源：The Verge · <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-pew-research-reveals-two-thirds-of-americans-believe-ai-is-advancing-too-quickly-despite-surging-cha" target="_blank">theverge.com</a> ｜ TechCrunch · <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-nea-partner-tiffany-luck-highlights-enterprise-challenges-in-determining-artificial-intelligence-ret" target="_blank">techcrunch.com</a></p>
+                    <p class="card-tag">趋势·AI Agent·产品转折·人的选择</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 声音 -->
+        <div class="section-block">
+            <h2 class="section-header">声音</h2>
+
+            <div class="quote-block">
+                <p class="quote-text">"我见过太多团队在AI上花了几百万，最后发现ROI算不出来——问题不在技术，在于你根本没想清楚用AI替换的是哪一步。"</p>
+                <p class="quote-source">—— Tiffany Luck，NEA 合伙人</p>
+                <p class="quote-source">· <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-nea-partner-tiffany-luck-highlights-enterprise-challenges-in-determining-artificial-intelligence-ret" target="_blank">techcrunch.com</a></p>
+                    <p class="card-tag">声音·哲学反思·力量转移·对AI的理解变了</p>
+            </div>
+            <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+            <p class="placeholder-text" style="font-size: 14px; color: var(--text-mid); font-style: italic; padding: 16px 0;">声音栏目持续搜索中。当天符合条件的真人公开引语有限，保留栏目占位。</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 创造 -->
+        <div class="section-block">
+            <h2 class="section-header">创造</h2>
+            <!-- MiniMax条目已去除——与6月17日创造栏MiniMax M3同产品系列 -->
+            </div>
+
+        <div class="divider"></div>
+
+        <!-- 继续观察 -->
+        <div class="section-block">
+            <h2 class="section-header">继续观察</h2>
+
+            <div class="news-item">
+                <h3 class="news-title">微信AI Agent：我说"明天中午3人粤菜馆"，它帮我找餐厅下单</h3>
+                <p class="news-lead">腾讯在微信内测试AI Agent，6月起灰度，能跨小程序自动执行任务。</p>
+                <div class="news-body">
+                    <p>据The Information报道，腾讯正在微信内测试AI Agent。用户说一句"明天中午3人预算500元粤菜馆"，Agent自动在多个小程序之间找餐厅、比价、下单、发确认。项目6月起灰度测试，覆盖微信生态百万级小程序。这将是中国社交平台首个深度集成AI Agent的案例。</p>
+                    <ul class="news-bullets">
+                        <li>使用方式：用户说一句话，Agent跨小程序找餐厅、比价、下单、发确认</li>
+                        <li>覆盖范围：微信生态百万级小程序可被调用</li>
+                        <li>时间线：6月起灰度测试</li>
+                    </ul>
+                    <p class="source-line">来源：The Information · <a href="https://www.theinformation.com/articles/tencent-builds-ai-agent-for-wechat" target="_blank">theinformation.com</a> [付费墙]</p>
+                    <p class="card-tag">趋势·AI Agent·产品转折·人的选择</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 创业投资 -->
+        <div class="section-block">
+            <h2 class="section-header">创业投资</h2>
+            <!-- DeepSeek融资条目已去除——与6月17日创业投资栏重复 -->
+            <div class="news-item">
+                <h3 class="news-title">Odyssey世界模型获14.5亿美元估值，亚马逊战略入股</h3>
+                <p class="news-lead">世界模型赛道被视为后LLM时代的下一个前沿。</p>
+                <div class="news-body">
+                    <p>据TechCrunch报道，AI世界模型公司Odyssey完成新一轮融资，估值达14.5亿美元，亚马逊参与战略投资。世界模型让AI理解物理空间和动态变化，被视为LLM之后的下一个技术方向。</p>
+                    <ul class="news-bullets">
+                        <li>估值：14.5亿美元，亚马逊战略入股</li>
+                        <li>技术方向：世界模型——让AI理解物理空间和动态变化</li>
+                        <li>赛道定位：被视为LLM之后的下一个基础设施</li>
+                    </ul>
+                    <p class="source-line">来源：TechCrunch · <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-world-model-maker-odyssey-reaches-145-billion-valuation-with-strategic-backing-from-amazon-and-major" target="_blank">techcrunch.com</a></p>
+                    <p class="card-tag">就业投资·创业融资·这也行？</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- Be Curious -->
+        <div class="section-block">
+            <h2 class="section-header">Be Curious 🌌</h2>
+            <div class="image-block">
+                <img src="https://apod.nasa.gov/apod/image/2606/sgrc.jpg" 
+                     alt="Possible Supernova Remnant in Galactic Center · 银河系中心的超新星遗迹" 
+                     loading="lazy">
+                <p class="image-caption" id="caption-06-18">Possible Supernova Remnant in Galactic Center · 银河系中心的超新星遗迹 · NASA APOD · 2026-06-18<br>每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260618.html" style="color:var(--klein-bright);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.15s;" onmouseover="this.style.borderBottomColor='var(--klein-bright)'" onmouseout="this.style.borderBottomColor='transparent'">查看原文 →</a></p>
+            </div>
+            <p class="card-tag">好奇·土星环</p>
+        </div>
+
+
+        <div class="footer">
+            AI 情报日报 · 2026-06-18 · 共 9 条新闻 · 来源：Ars Technica / The Information / TechCrunch / 36氪 / Google Developers Blog / Pew Research
+        </div>
+    </div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
