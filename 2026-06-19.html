@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-19</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --accent: #C41E3A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 12px;
+        }
+
+        .news-label {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: var(--klein);
+            font-weight: 600;
+        }
+
+        .accent {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .turn {
+            color: var(--klein);
+            font-weight: 700;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 10px;
+        }
+
+        .image-block {
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        .quote-block {
+            background: #F0F4FF;
+            border: 1px solid #C7D2FE;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .quote-text {
+            font-size: 15px;
+            color: var(--klein);
+            font-weight: 600;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .source-line {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        .source-line a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .footer-block {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .bullet-list {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .bullet-list li {
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .bullet-list li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 12px;
+        }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月19日</span>
+    </nav>
+
+
+    <h1 class="doc-title">AI 情报日报｜<span>2026-06-19</span></h1>
+    <p class="doc-date">2026年6月19日 · 星期五</p>
+
+    <div class="divider"></div>
+
+    <!-- 今日头版 intro -->
+    <div class="section-block">
+        <h2 class="section-header">今日头版</h2>
+        <p class="intro-text">半夜三点，Nvidia的<span class="highlight">GEAR实验室</span>灯还亮着——但没有人在。几个<span class="highlight">AI编码Agent</span>自己写代码、自己测试、自己调参数，教<span class="turn">机器人往主板里插GPU和剪扎带</span>。成功了<span class="accent">99%</span>。实验室负责人Jim Fan说："我们早上来只看报告。"</p>
+        <p class="intro-text">而Midjourney——你去年输入"cat"它给你猫图的那个公司——现在造了一个<span class="turn">全身超声波扫描仪</span>。你站上去，一圈传感器从上到下扫过你全身，看你的肌肉、脂肪、骨骼怎么变化。CEO Holz说："我也许想每天都看一遍我的身体数据。"</p>
+        <p class="card-tag">前线·大厂竞争·AI Agent·前线感</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- AI Agent教机器人 -->
+    <div class="section-block">
+        <h2 class="section-header">前线</h2>
+        <div class="news-item">
+            <h3 class="news-title">半夜没人，AI Agent自己教机器人装GPU——成功了99%</h3>
+            <div class="image-block">
+                <img src="https://research.nvidia.com/labs/gear/enpire/gpu_insertion.min.jpg" alt="Nvidia ENPIRE: 机器人往主板里插GPU" loading="lazy">
+            </div>
+            <p class="news-body">Nvidia的<span class="highlight">GEAR实验室</span>做了一件事：给AI编码Agent一个机器人实验室、一些算力和一个"慷慨的token预算"，然后<span class="turn">人全部离开</span>。Agent自己写训练代码、自己测试、自己看日志调参数、自己读论文改算法——教机器人<span class="highlight">往主板里插GPU、剪扎带、整理针盒</span>。插针任务的<span class="accent">成功率近100%</span>，比人类设计的in-the-loop方法还快。Jim Fan说："GEAR实验室的一部分现在<span class="turn">整夜自我改进</span>——我们早上来只看报告。"他还开玩笑说："我们都放假，Jensen都不会注意到。"</p>
+            <p class="source-line">来源：Ars Technica · <a href="https://arstechnica.com/ai/2026/06/ai-coding-agents-can-autonomously-direct-robot-training/" target="_blank">arstechnica.com</a> · Nvidia Research · <a href="https://research.nvidia.com/labs/gear/enpire/" target="_blank">nvidia.com</a></p>
+            <p class="card-tag">前线·具身智能·AI Agent·这也行？</p>
+        </div>
+
+        <!-- Midjourney Scanner -->
+        <div class="news-item">
+            <h3 class="news-title">Midjourney从猫图到全身扫描仪——你站上去它看遍你全身</h3>
+            <div class="image-block">
+                <img src="https://www.engadget.com/img/gallery/midjourney-the-ai-image-generator-is-developing-a-full-body-ultrasonic-scanner/intro-1781762608.jpg" alt="Midjourney Scanner 全身超声波扫描仪" loading="lazy">
+            </div>
+            <p class="news-body">Midjourney CEO David Holz展示了公司第一个硬件产品：<span class="highlight">Midjourney Scanner</span>——一个超声波全身扫描仪。你站上平台，平台降入水中，一圈<span class="accent">40个</span>传感器从上到下扫过你全身，看你的<span class="highlight">肌肉、脂肪、骨骼和器官</span>怎么变化。Holz说目标是<span class="turn">"在许多方面比MRI更好"</span>。跟Butterfly Network合作开发，用的是他们的Ultrasound-on-Chip模块。定位不是诊断——是预防性扫描，他叫它<span class="highlight">"magical spa"</span>。</p>
+            <p class="source-line">来源：The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/952011/midjourney-medical-ai-ultrasound-scan" target="_blank">theverge.com</a></p>
+            <p class="card-tag">前线·AI设计·产品转折·人的代价</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 趋势/转折 -->
+    <div class="section-block">
+        <h2 class="section-header">转折</h2>
+
+        <!-- Shazeer跳槽 -->
+        <div class="news-item">
+            <h3 class="news-title">27亿美元买回来的Transformer之父又走了——去了对手公司</h3>
+            <p class="news-body"><span class="highlight">Noam Shazeer</span>——2017年那篇<span class="highlight">"Attention Is All You Need"</span>的共同作者——在Google工作二十多年后，跳到OpenAI。他2024年因<span class="accent">$27亿</span>Character.AI收购回归Google，成为Gemini联合负责人。现在他走了。<span class="turn">Transformer之父跳到了正在准备史上最大IPO的对手公司</span>——他自己的声明说："It was a difficult decision to move on. I'm incredibly proud of the amazing team at Google."但事实是：Google花了27亿买回来的人，半年后又走了。</p>
+            <ul class="bullet-list">
+                <li>2017年<span class="highlight">"Attention Is All You Need"</span>共同作者</li>
+                <li>从<span class="highlight">Gemini联合负责人</span>到OpenAI架构研究负责人</li>
+                <li>中间经历了<span class="accent">$27亿</span>Character.AI收购回归</li>
+            </ul>
+            <p class="source-line">来源：The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/952069/co-lead-of-gemini-joins-openai" target="_blank">theverge.com</a> · Fast Company · <a href="https://www.fastcompany.com/91562193/google-ai-leader-noam-shazeer-leaves-company-for-openai" target="_blank">fastcompany.com</a></p>
+            <p class="card-tag">前线·具身智能·数据采集·人的选择</p>
+        </div>
+
+        <!-- XDOF -->
+        <div class="news-item">
+            <h3 class="news-title">机器人缺数据——有人专门叠T恤和搬箱子赚AI实验室的钱</h3>
+            <p class="news-body"><span class="highlight">XDOF</span>在杭州干一件脏活：雇人<span class="highlight">叠T恤、搬箱子、拧螺丝</span>，一遍遍重复，让机器人学。不是模拟数据——是真人真手真物。AI实验室已经在付钱让他们做。创始人说："这不是什么光荣的工作，但<span class="turn">没有脏数据就没有干净模型</span>。"XDOF用GELLO遥操作系统采集数据，已积累<span class="accent">13万条轨迹</span>。跟Nvidia的ENPIRE形成了有意思的对照：ENPIRE让AI自己写训练代码——但训练数据还是得有人来叠衣服。</p>
+            <ul class="bullet-list">
+                <li>真人真手真物采集，不是模拟数据</li>
+                <li>已积累<span class="accent">13万条</span>操作轨迹</li>
+                <li>总部杭州，服务全球AI实验室</li>
+            </ul>
+            <p class="source-line">来源：TechCrunch · <a href="https://techcrunch.com/2026/06/17/collecting-robot-training-data-is-dirty-unglamorous-work-some-ai-labs-are-already-paying-xdof-to-do-it/" target="_blank">techcrunch.com</a></p>
+            <p class="card-tag">前线·具身智能·数据采集·人的选择</p>
+        </div>
+
+        <!-- Cursor创造力 -->
+        <div class="news-item">
+            <h3 class="news-title">四个MIT年轻人做了四次反直觉判断——三年做出了SaaS史上增长最快的软件</h3>
+            <p class="news-body"><span class="highlight">Michael Truell</span>，25岁，父母都是记者。15岁做编程游戏拿了一万美元奖金，18岁参加投资人测试——一个小时的题他<span class="accent">十分钟交卷</span>，做完反过来给投资人出了一道题，投资人花了更长时间才解出来。他和三位MIT同学<span class="highlight">Aman Sanger、Sualeh Asif、Arvid Lunnemark</span>2022年开始创业，做了四次反直觉的判断：</p>
+            <p class="news-body">第一次——<span class="turn">从解决方案倒推问题</span>。先知道AI能把编程变成什么样，从终点往回走。Truell说："这违背创业常理。但AI领域充满新可能，或许不必局限细分问题，可以着眼宏大愿景从那里起步。"</p>
+            <p class="news-body">第二次——<span class="turn">先失败一年，然后做自己真正热爱的事</span>。他们觉得编程领域竞争太激烈（微软做Copilot，十几家在抢），跑去做了机械工程的3D CAD自动补全。结果CAD数据比代码数据少几个数量级，他们不是机械工程师。几个月后放弃，转回去做编程——<span class="turn">逃离竞争不如直面竞争</span>。</p>
+            <p class="news-body">第三次——<span class="turn">不做插件，做编辑器</span>。从界面到底层架构完全重构。Truell说："如果编程会从根本上改变，界面必须改变。"相当于说：我不在别人的画框里画画，我自己造画框。</p>
+            <p class="news-body">第四次——<span class="turn">先不碰模型，先把产品跑起来</span>。一开始完全买外部API把编辑器做出来，被质疑"不掌握核心模型不是受制于人？"他的回答：先把编辑器做出来让更多人用，用户一多数据自然就来。</p>
+            <p class="news-body">四次判断，每次都押在<span class="highlight">自己最懂的领域</span>。24个月内从零到<span class="accent">40亿</span>年化收入，没有任何B2B SaaS公司完成过这样的跨越。然后SpaceX以<span class="accent">$600亿</span>股票收购了他们——Cursor需要算力训练自己的模型，SpaceX手里有55万块GPU。<span class="turn">算力才是最终的议价筹码</span>。</p>
+            <p class="source-line">来源：搜狐 · <a href="https://www.sohu.com/a/1037729456_354973" target="_blank">sohu.com</a> · Founded · <a href="https://www.founded.com/meet-the-20-year-old-billionaire-founders-of-cursor-the-ai-coding-startup-valued-at-29-3-billion/" target="_blank">founded.com</a> · CNBC · <a href="https://www.cnbc.com/2026/01/17/billion-dollar-ai-startup-founders-are-getting-younger-heres-why.html" target="_blank">cnbc.com</a> · YC访谈 · <a href="https://news.qq.com/rain/a/20250908A08JKR00" target="_blank">qq.com</a></p>
+            <p class="card-tag">创造·创业融资·创造力的代价·人的选择</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 声音 -->
+    <div class="section-block">
+        <h2 class="section-header">声音</h2>
+
+        <div class="quote-block">
+            <p class="quote-text">"我们从解决方案倒推问题，这违背创业常理。但AI领域充满新可能，或许不必局限细分问题，可以着眼宏大愿景从那里起步——只要保持坚定信念。"</p>
+            <p class="quote-source">—— Michael Truell，Cursor CEO</p>
+            <p class="quote-source">· <a href="https://news.qq.com/rain/a/20250908A08JKR00" target="_blank">qq.com</a></p>
+            <p class="card-tag">声音·力量转移·经济学翻转·对AI的理解变了</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"最顶级的实验室必须同意：自己不用最强模型做前沿AI研究——但其他人可以用。这意味着前沿不前进。Anthropic走了相反的路：允许自己用最强模型做前沿研究。这意味着<span class="accent">前沿继续推进，权力失衡继续加剧</span>。"</p>
+            <p class="quote-source">—— Jeremy Howard，fast.ai 创始人</p>
+            <p class="quote-source">· <a href="https://simonwillison.net/2026/Jun/10/jeremy-howard/" target="_blank">simonwillison.net</a></p>
+            <p class="card-tag">声音·力量转移·经济学翻转·对AI的理解变了</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"软件工程是三明治——AI压缩了中间的执行层，但两端的决定层和交付层<span class="turn">抵抗自动化</span>，且这种抵抗不会被能力提升克服。"</p>
+            <p class="quote-source">—— Arvind Narayanan & Sayash Kapoor，Princeton 教授</p>
+            <p class="quote-source">· <a href="https://www.normaltech.ai/p/why-ai-hasnt-replaced-software-engineers" target="_blank">normaltech.ai</a></p>
+            <p class="card-tag">声音·力量转移·经济学翻转·对AI的理解变了</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 今日小结 -->
+    <div class="section-block">
+        <h2 class="section-header">今日小结</h2>
+        <p class="intro-text">今天的五条新闻连成一条线：<span class="turn">AI正在从屏幕里走出来，进入物理世界</span>。Nvidia实验室半夜<span class="highlight">AI自己教机器人装GPU</span>，成功率<span class="accent">99%</span>——人早上来只看报告。Midjourney从猫图跳到<span class="highlight">全身扫描仪</span>——从生成图片到扫描人体。</p>
+        <p class="intro-text">XDOF在杭州雇人叠T恤教机器人学——<span class="turn">脏数据才是具身智能的瓶颈</span>，模型再强也得有人来叠衣服。</p>
+        <p class="intro-text">另一条线：<span class="turn">创造力判断比经验更快</span>。四个MIT年轻人做了四次反直觉判断——从解决方案倒推问题、先失败再做热爱的事、不做插件做编辑器、先跑产品再训练模型——三年做出SaaS史上增长最快的软件。</p>
+        <p class="intro-text">Transformer之父<span class="accent">$27亿</span>买回来又走了——去了认为还有值得做的东西的地方。AI独兽兽创始人平均年龄从40降到29——<span class="turn">这个时代第一次让年轻人的判断力比传统经验更有价值</span>。</p>
+        <p class="card-tag">小结·力量转移·瓶颈倒逼</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Be Curious -->
+    <div class="section-block">
+        <h2 class="section-header">Be Curious 🌌</h2>
+        <div class="image-block">
+            <img src="https://apod.nasa.gov/apod/image/2606/StarryNight2_Guerra_960.jpg"
+                 alt="Starry Night II · 星夜 II · 摄影师在巴西还原梵高1889年的星空"
+                 loading="lazy">
+            <p class="image-caption" id="caption-06-19">Starry Night II · 星夜 II · 摄影师 Rodrigo Guerra 在巴西Cascavel用长曝光还原了梵高1889年看到的同一片星空——一棵大树、新月、金星，前景画架上摆着梵高原版《星夜》· NASA APOD · 2026-06-19<br>真实天空比画更美。每天我们从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260619.html">查看原文 →</a></p>
+        </div>
+        <p class="card-tag">好奇·星云</p>
+    </div>
+
+    <div class="footer-block">
+        <p>AI 情报日报 · 每日精选，跟你有关的AI新闻</p>
+        <p>信息源：Ars Technica / The Verge / TechCrunch / CNBC / Fast Company / Nvidia Research</p>
+    </div>
+
+</div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
