@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-20</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --accent: #C41E3A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 12px;
+        }
+
+        .news-label {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: var(--klein);
+            font-weight: 600;
+        }
+
+        .accent {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .turn {
+            color: var(--klein);
+            font-weight: 700;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 10px;
+        }
+
+        .image-block {
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        .quote-block {
+            background: #F0F4FF;
+            border: 1px solid #C7D2FE;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .quote-text {
+            font-size: 15px;
+            color: var(--klein);
+            font-weight: 600;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .source-line {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        .source-line a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .footer-block {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .bullet-list {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .bullet-list li {
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .bullet-list li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 12px;
+        }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月20日</span>
+    </nav>
+
+
+    <h1 class="doc-title">AI 情报日报｜<span>2026-06-20</span></h1>
+    <p class="doc-date">2026年6月20日 · 星期六</p>
+
+    <div class="divider"></div>
+
+    <!-- 今日头版 -->
+    <div class="section-block">
+        <h2 class="section-header">今日头版</h2>
+        <div class="image-block">
+            <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AF_hero_2.width-800.format-webp.webp" alt="AlphaFold预测的蛋白质3D结构：蓝色螺旋链与彩色分子交互可视化" loading="lazy">
+            <p class="image-caption">AlphaFold预测的蛋白质三维结构 · Google DeepMind / Isomorphic Labs</p>
+        </div>
+        <p class="intro-text"><span class="highlight">AlphaFold之父</span>离开了DeepMind——去了Anthropic。约翰·江珀（John Jumper），<span class="accent">2024年</span>诺贝尔化学奖得主，在Google做了近九年，决定走。</p>
+        <p class="intro-text">DeepMindCEO哈萨比斯说："我们在AlphaFold上做到的事<span class="turn">改变了世界</span>。"——这句话听起来像告别，更像一句悼词。</p>
+        <p class="intro-text"><span class="accent">48小时</span>内，Google连跑两个人：Shazeer——Transformer论文作者、Gemini技术联席负责人——去了OpenAI。Jumper——AlphaFold核心缔造者——去了Anthropic。两人用的是<span class="highlight">同一套注意力机制</span>：一个用在语言上，一个用在生物学上。</p>
+        <p class="intro-text">Google造了这个时代，竞争对手把定义这个时代的人挖走了。</p>
+        <p class="intro-text">Anthropic不是随便接人的。整个2026年，他们一直在搭<span class="highlight">AI做科学的基础设施</span>——开湿实验室、跟Allen研究所和霍华德·休斯医学研究所合作、把Claude部署进单细胞基因组学和连接组学的数据分析流水线。</p>
+        <p class="intro-text">Jumper是去<span class="turn">把蛋白质预测变成AI做科学的方式</span>。Anthropic CEO阿莫代说过，AI能把50到100年的科学进步压到5到10年。Jumper是最有资格证明这句话的人——AlphaFold已经把几十年的蛋白质结构工作压成了一个浏览器就能打开的数据库。</p>
+        <p class="intro-text">更狠的数据：SignalFire报告显示，DeepMind工程师跳槽去Anthropic的概率是反方向的<span class="accent">11倍</span>。Karpathy五月也去了Anthropic。Google的墙正在漏水。</p>
+        <p class="source-line">来源：CNBC · <a href="https://www.cnbc.com/2026/06/19/john-jumper-to-leave-google-deepmind-for-anthropic.html" target="_blank">cnbc.com</a> · TechTimes · <a href="https://www.techtimes.com/articles/318754/20260620/alphafold-nobel-laureate-john-jumper-joins-anthropic-after-nine-years-deepmind.htm" target="_blank">techtimes.com</a> · StartupFortune · <a href="https://startupfortune.com/nobel-laureate-john-jumper-leaves-google-deepmind-for-anthropic-as-talent-drains-from-googles-ai-crown-jewel/" target="_blank">startupfortune.com</a></p>
+        <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-19.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Shazeer→OpenAI</a> · <a href="2026-06-16.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Meta 143亿拿下Scale AI</a></p>
+        <p class="card-tag">前线·人才流动·大厂竞争·力量转移·人的选择</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 前线 -->
+    <div class="section-block">
+        <h2 class="section-header">前线</h2>
+
+        <!-- Hyundai全资收购波士顿动力 -->
+        <div class="news-item">
+            <h3 class="news-title">波士顿动力全资归了Hyundai——Atlas 2028进电动车工厂</h3>
+            <p class="news-body">Hyundai以<span class="accent">$3.25亿</span>收购SoftBank剩余<span class="accent">9.65%</span>股权，波士顿动力成为全资子公司。从2021年买<span class="highlight">80%</span>，到今年收完全部——Hyundai用五年把这家公司彻底拿下了。Atlas人形机器人<span class="highlight">2028年</span>在Georgia电动车工厂部署生产版本：身高<span class="accent">1.9米</span>，56度旋转自由度，能抬<span class="accent">30公斤</span>，零下20度到40度都能干活，电池跑4小时——3分钟自己换一块新的，换完继续干。</p>
+            <p class="source-line">来源：StartupFortune · <a href="https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/" target="_blank">startupfortune.com</a> · Boston Dynamics · <a href="https://bostondynamics.com/blog/enterprise-robotics-redefined/" target="_blank">bostondynamics.com</a></p>
+            <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-16.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Atlas量产部署</a> · <a href="2026-06-19.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">AI Agent教机器人装GPU</a></p>
+            <p class="card-tag">前线·人形机器人·产品转折·人的选择</p>
+        </div>
+
+        <!-- Copilot SearchLeak -->
+        <div class="news-item">
+            <h3 class="news-title">你点了一个链接——Copilot自己搜你的邮箱，把2FA码寄给了攻击者</h3>
+            <div class="image-block">
+                <img src="https://www.varonis.com/hubfs/Blog_VTL-SearchLeak_Diagram_202606_FNL.png" alt="SearchLeak攻击流程图：一次点击→Copilot搜邮箱→嵌入img标签→Bing代理外泄" loading="lazy">
+                <p class="image-caption">SearchLeak三阶段攻击链可视化 · Varonis Threat Labs</p>
+            </div>
+            <p class="news-body">Varonis Threat Labs发现了一个三步漏洞链，叫<span class="highlight">SearchLeak</span>（CVE-2026-42824）。第一步——<span class="highlight">P2P注入</span>：Copilot Enterprise Search的URL参数直接被当成AI指令执行。第二步——<span class="highlight">HTML渲染竞态</span>：AI回复流式输出时，<img>标签在安全过滤生效之前就触发了请求。第三步——<span class="highlight">Bing SSRF</span>：CSP白名单里的bing.com会做服务器端跳转，变成数据外泄的代理。三步连起来：用户点一个链接→Copilot搜自己的邮箱、日历、SharePoint→数据通过Bing发到攻击者服务器。<span class="turn">一次点击，零二次确认</span>。Microsoft已修复，评级"严重"。</p>
+            <p class="source-line">来源：Varonis Threat Labs · <a href="https://www.varonis.com/blog/searchleak" target="_blank">varonis.com</a> · Microsoft Security · <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42824" target="_blank">msrc.microsoft.com</a></p>
+            <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-13.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Anthropic安全漏洞</a> · <a href="2026-06-11.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Claude独立浏览安全</a></p>
+            <p class="card-tag">前线·安全漏洞·AI Agent·操控性</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 转折/创造 -->
+    <div class="section-block">
+        <h2 class="section-header">创造</h2>
+
+        <!-- CrankGPT -->
+        <div class="news-item">
+            <h3 class="news-title">摇曲柄，说一句话，AI回答你——没有电，没有网，没有电池</h3>
+            <p class="news-body">Squeez Labs做了一个盒子：<span class="highlight">Raspberry Pi 5</span>、<span class="accent">8GB</span> RAM、手摇发电机。没有电池，没有Wi-Fi，没有云。摇30秒曲柄，说一句话，它回答你。技术栈全在CPU上跑：<span class="highlight">Moonshine ASR</span>识别语音，<span class="highlight">llama.cpp</span>跑LFM2.5或Gemma 3，<span class="highlight">Piper TTS</span>合成语音——最小的模型从摇曲柄到开口对话<span class="accent">0.8秒</span>。Squeez Labs的创始人说了一句有画面感的话：<span class="turn">"你能通过曲柄感受到负载曲线——LLM推理和语音合成同时运行时，曲柄变得更难转。"</span></p>
+            <ul class="bullet-list">
+                <li>电容板做<span class="accent">20秒</span>电力缓冲——曲柄歇一下不掉电</li>
+                <li>DietPi从Linux启动到用户态<span class="accent">3秒</span></li>
+                <li>代码和模型全开源——<span class="highlight">edge_voice_agent</span> + llama.cpp + ONNX Runtime</li>
+            </ul>
+            <p class="source-line">来源：Squeez Labs · <a href="https://squeezlabs.github.io/handcrank/" target="_blank">squeezlabs.github.io</a> · Gigazine · <a href="https://gigazine.net/gsc_news/en/20260616-crankgpt-local-human-powered-ai" target="_blank">gigazine.net</a> · TechRadar · <a href="https://www.techradar.com/ai-platforms-assistants/crankgpt-is-a-hand-powered-fully-offline-ai-bot-powered-by-a-raspberry-pi-and-8gb-of-ram-and-im-all-for-apocalypse-ready-chatbots-that-dont-need-data-centers" target="_blank">techradar.com</a></p>
+            <p class="card-tag">创造·边缘AI·本地部署·这也行？</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 声音 -->
+    <div class="section-block">
+        <h2 class="section-header">声音</h2>
+
+        <div class="quote-block">
+            <p class="quote-text">"伪装成人类的AI具有操控性。孩子们需要知道：这些东西会非常非常令人信服、非常诱惑——也非常有用、非常强大——但它们仍然只是一个系统，一个<span class="accent">惊人的模式识别系统</span>。"</p>
+            <p class="quote-source">—— Spike Jonze，《她》导演</p>
+            <p class="quote-source">· <a href="https://www.theverge.com/ai-artificial-intelligence/952896/spike-jonze-director-of-her-warned-of-ai-systems-ability-to-manipulate" target="_blank">theverge.com</a></p>
+            <p class="card-tag">声音·操控性·哲学反思·人的代价</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"代码从被珍视变成可丢弃——这件事在一夜之间发生了。原来生成代码非常难、非常慢、非常贵，每一行都要珍惜、复用、精心维护。现在代码成了可丢弃的、可再生的——<span class="accent">经济学彻底翻转</span>。"</p>
+            <p class="quote-source">—— Charity Majors，Honeycomb CTO</p>
+            <p class="quote-source">· <a href="https://simonwillison.net/2026/Jun/17/charity-majors/" target="_blank">simonwillison.net</a></p>
+            <p class="card-tag">声音·代码经济学·经济学翻转·对AI的理解变了</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 今日小结 -->
+    <div class="section-block">
+        <h2 class="section-header">今日小结</h2>
+        <p class="intro-text">今天有一条内在主线：<span class="turn">AI正在重新定义"谁来做"和"怎么做"</span>。48小时内，Google连跑两个人——Shazeer用Transformer做了语言，Jumper用同一套注意力机制做了生物学，两人都走了。</p>
+        <p class="intro-text">DeepMind工程师跳槽Anthropic的概率是反方向的11倍。Hyundai全资拿下波士顿动力——Atlas从实验室样品变成工厂工人，2028年量产3万台。Spike Jonze说伪装成人类的AI具有操控性——十年前他拍了一部电影，十年后他看到了<span class="turn">操控性被装进产品设计</span>。</p>
+        <p class="intro-text">另一条线：<span class="turn">最小也能做大事</span>。CrankGPT用手摇发电跑完整语音Agent——0.8秒开口说话，没有数据中心、没有电池、没有网。</p>
+        <p class="intro-text">Charity Majors说代码从稀缺变成过剩——经济学翻转了，你对待代码的方式也得翻转。SearchLeak把三个独立不成事的经典bug串成致命链——<span class="highlight">AI是新攻击路径的串联器</span>。</p>
+        <p class="card-tag">小结·力量转移·经济学翻转</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Be Curious -->
+    <div class="section-block">
+        <h2 class="section-header">Be Curious 🌌</h2>
+        <div class="image-block">
+            <img src="https://apod.nasa.gov/apod/image/2003/conjonction-montreal-200318.jpg"
+                 alt="蒙特利尔黎明：残月悬城市灯海，晨星伴晓"
+                 loading="lazy">
+            <p class="image-caption">Morning, Planets, Moon and Montreal · 春分前夕蒙特利尔黎明：残月悬城市灯海，晨星伴晓 · 摄影师 Arnaud Mariat · NASA APOD · 2020-03-20<br>城市灯光和天体共存同一画面——我们造的东西和宇宙造的东西，哪个更持久？每天从宇宙深处回望，保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap200318.html">查看原文 →</a></p>
+        </div>
+        <p class="card-tag">好奇·蒙特利尔黎明</p>
+    </div>
+
+    <div class="footer-block">
+        <p>AI 情报日报 · 每日精选，跟你有关的AI新闻</p>
+        <p>信息源：Varonis / Squeez Labs / The Verge / simonwillison.net / StartupFortune / Gigazine / TechRadar</p>
+    </div>
+
+</div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
