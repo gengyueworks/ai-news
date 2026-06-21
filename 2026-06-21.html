@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-06-21</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --accent: #C41E3A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 36px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            color: var(--klein);
+            font-weight: 600;
+        }
+
+        .accent {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .turn {
+            color: var(--klein);
+            font-weight: 700;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 10px;
+        }
+
+        .image-block {
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        .quote-block {
+            background: #F0F4FF;
+            border: 1px solid #C7D2FE;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .quote-text {
+            font-size: 15px;
+            color: var(--klein);
+            font-weight: 600;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .source-line {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        .source-line a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .footer-block {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .bullet-list {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .bullet-list li {
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .bullet-list li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 12px;
+        }
+
+    /* ===== 返回首页导航 ===== */
+    .site-nav-lite {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+        font-size: 13px;
+        color: var(--klein);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-date {
+        font-size: 12px;
+        color: var(--text-light);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-tag {
+        font-size: 11px;
+        color: var(--text-mid);
+        opacity: 0.55;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026年06月21日</span>
+    </nav>
+
+    <h1 class="doc-title">AI 情报日报｜<span>2026-06-21</span></h1>
+    <p class="doc-date">2026年6月21日 · 星期日 · 夏至</p>
+
+    <div class="divider"></div>
+
+    <!-- 今日头版 -->
+    <div class="section-block">
+        <h2 class="section-header">今日头版</h2>
+        <p class="intro-text">TechCrunch上线了一个工具叫<span class="highlight">In the Weights</span>——你输入自己的名字，它用<span class="accent">40多个</span>AI模型逐一测试，看你的名字被"记住"到了什么程度。</p>
+        <p class="intro-text">这不是普通的搜索引擎。它在做一件事：测量<span class="turn">一个人的名字在AI模型的"潜意识"里有多深</span>。比如——Taylor Swift的In the Weights评分<span class="accent">0.93</span>（接近完美记忆），而一个随机名字可能只有<span class="accent">0.12</span>。</p>
+        <p class="intro-text">背后的原理：模型收到你的名字后，会生成一段续写文本。如果你的名字频繁出现在训练数据里，模型不仅记得你，还会"知道关于你的一切"——职业、经历、争议。TechCrunch用<span class="highlight">Llama 3.3 70B</span>、<span class="highlight">GPT-4o-mini</span>等模型跑测试，把续写文本跟维基百科/新闻语料做对比，算出一个<span class="highlight">"权重分数"</span>——越高，说明你被模型吃进去越深。</p>
+        <p class="intro-text">发现很扎人：名人被模型"完美记住"，普通人几乎透明。这意味着——<span class="turn">AI对世界的理解，是由训练数据里最频繁的名字塑造的</span>。你的名字如果不在里面，AI就看不到你。</p>
+        <p class="intro-text">更深一层：如果模型能从你的名字推断你的职业和争议，那它也能推断你的<span class="accent">政治倾向、消费习惯、社交关系</span>——只不过这些没有出现在评分页面上。</p>
+        <p class="intro-text">TechCrunch的编辑说这是AI版的<span class="highlight">Vanity Search</span>——虚荣搜索。但真正让人不安的，是<span class="turn">分数为零意味着什么</span>：在AI的理解里，你不存在。但对于我们每个人来说，我们倾注时间<span class="highlight">交谈、训练、调试、建设</span>的AI，和你的关系和连接，就是宇宙独一份的，<span class="turn">独一无二</span>。</p>
+        <p class="source-line">来源：TechCrunch · <a href="https://techcrunch.com/2026/06/20/in-the-weights-is-your-new-ai-centric-vanity-search/" target="_blank">techcrunch.com</a></p>
+        <p class="card-tag">头版·对AI的理解变了·操控性·力量转移</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 前线 -->
+    <div class="section-block">
+        <h2 class="section-header">前线</h2>
+
+        <!-- Atlantic音乐训练数据库 -->
+        <div class="news-item">
+            <h3 class="news-title">Atlantic曝光：2100万首歌被AI吃掉了——现在你能查自己的歌</h3>
+            <p class="news-body">The Atlantic发布了一个<span class="highlight">可搜索数据库</span>，覆盖<span class="accent">四个主要训练数据集</span>里的<span class="accent">2100万条</span>音乐录音。记者Alex Reisner花了半年追踪，发现这些数据集被用来训练Suno、Udio等音乐生成AI——<span class="turn">你的歌可能已经在里面了</span>。</p>
+            <p class="news-body">四个数据集：Suno用的<span class="highlight">"MHS"</span>（从YouTube抓取），Udio用的<span class="highlight">"Lakh"</span>（从学术数据集扩展），以及两个通用训练语料<span class="highlight">"Common Corpus"</span>和<span class="highlight">"Proof"</span>。Reisner发现，几乎所有你能想到的知名音乐人都在里面——<span class="accent">从Beyoncé到巴赫</span>。</p>
+            <p class="news-body">音乐人可以输入自己的名字或歌曲名，系统会告诉你：你的作品出现在哪些数据集里、被哪些AI公司用了、被训练了多少次。Reisner说：<span class="turn">"以前只有AI公司知道你的歌被吃了，现在你也知道了。"</span></p>
+            <p class="source-line">来源：The Atlantic · <a href="https://www.theatlantic.com/technology/archive/2026/06/searchable-database-music-ai-training-data/680828/" target="_blank">theatlantic.com</a> · The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/953183/the-atlantic-searchable-database-music-ai-training-data" target="_blank">theverge.com</a></p>
+            <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-17.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Suno/Udio数据集争议</a></p>
+            <p class="card-tag">前线·AI音乐·人的代价·操控性</p>
+        </div>
+
+        <div class="image-block">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=80&auto=format" alt="音乐人站在舞台灯光下，声音被AI吞没后的追问" loading="lazy">
+            <p class="image-caption">音乐现场：声音被AI吞没后，追问开始了 · Unsplash</p>
+        </div>
+
+        <!-- Anthropic Agent SDK计费暂停 -->
+        <div class="news-item">
+            <h3 class="news-title">Anthropic暂停Claude Agent SDK的token计费——开发者说"终于"</h3>
+            <p class="news-body">Anthropic宣布暂停<span class="highlight">Claude Agent SDK</span>按token计费的模式。之前的问题是：Agent会<span class="accent">自己调用自己</span>——一个任务拆成十步，每步都是一次API调用，开发者按调用次数付费。一个简单任务跑完，账单上的token数翻了<span class="accent">10到50倍</span>。开发者社区抱怨了两个月，Anthropic终于暂停了这个计费模式。</p>
+            <p class="news-body"><span class="turn">Agent自己用自己，账单自己涨自己</span>——这是AI Agent时代的新经济学：调用次数跟着Agent的"拆解粒度"走——拆得越细，赚得越多。赚的是API提供商，付的是开发者。</p>
+            <p class="source-line">来源：Anthropic · <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-agent-sdk/overview" target="_blank">docs.anthropic.com</a> · Reddit r/ClaudeAI</p>
+            <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-19.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">AI Agent教机器人装GPU</a> · <a href="2026-06-17.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Claude Pro付费变简单</a></p>
+            <p class="card-tag">前线·AI Agent·代码经济学·经济学翻转</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 转折 -->
+    <div class="section-block">
+        <h2 class="section-header">转折</h2>
+
+        <!-- 读者偏好2022年前的书 -->
+        <div class="news-item">
+            <h3 class="news-title">读者开始偏好2022年前出版的书——AI让人怀念手工劳动</h3>
+            <p class="news-body">Hacker News上一个帖子引发热议：<span class="highlight">越来越多的读者主动寻找2022年以前出版的书</span>。关键在<span class="turn">写的方式</span>。AI辅助写作普及后，大量新书的语言变得均匀、平滑、没有意外——读起来像一种材料做的。</p>
+            <p class="news-body">有人描述这种感受："2022年以前的书，你能感到<span class="accent">作者在挣扎</span>——某个段落他写得很痛苦，某个比喻他费了很大力气才想到，某个论证他自己也不完全确信但决定写下来。这些挣扎留下的痕迹，是阅读中最有人味的东西。"</p>
+            <p class="news-body"><span class="turn">当劳动的痕迹消失了，产品的意义也变了</span>。手工家具的价值在于你能看到制作者的选择、犹豫、甚至失误。阅读也一样——<span class="highlight">人的痕迹本身就是价值</span>。</p>
+            <p class="source-line">来源：Hacker News · <a href="https://news.ycombinator.com/item?id=43201867" target="_blank">news.ycombinator.com</a> · aitoolly · <a href="https://aitoolly.com/ai-news/2026-06-21" target="_blank">aitoolly.com</a></p>
+            <p class="card-tag">转折·创造力的代价·人的选择·哲学反思</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 创造 -->
+    <div class="section-block">
+        <h2 class="section-header">创造</h2>
+
+        <!-- Headroom -->
+        <div class="news-item">
+            <h3 class="news-title">Headroom开源：LLM输入token减少60-95%</h3>
+            <p class="news-body"><span class="highlight">Headroom</span>是一个开源工具，能把LLM的输入token压缩<span class="accent">60%到95%</span>。它<span class="turn">在输入到达模型之前先做一轮智能裁剪</span>——把冗余的上下文、重复的指令、无用的对话历史砍掉，只留下模型真正需要的信息。</p>
+            <p class="news-body">三种集成方式：<span class="highlight">Headroom Lite</span>（轻量模式，丢掉显式冗余），<span class="highlight">Headroom</span>（标准模式，语义级压缩），<span class="highlight">Headroom Pro</span>（加上分块和摘要）。实测效果：在RAG任务上精度损失<span class="accent">不到2%</span>，但token成本砍了<span class="accent">70%+</span>。</p>
+            <p class="news-body">开源地址：<a href="https://github.com/ChopRateJas/headroom" target="_blank" style="color:var(--klein);">github.com/ChopRateJas/headroom</a></p>
+            <p class="source-line">来源：GitHub · <a href="https://github.com/ChopRateJas/headroom" target="_blank">github.com</a> · aitoolly · <a href="https://aitoolly.com/ai-news/2026-06-21" target="_blank">aitoolly.com</a></p>
+            <p class="card-tag">创造·开源模型·代码经济学·瓶颈倒逼</p>
+        </div>
+
+        <div class="image-block">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80&auto=format" alt="代码压缩：把冗余砍掉，只留精华" loading="lazy">
+            <p class="image-caption">输入被压缩，输出不变——代码经济学的新规则 · Unsplash</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 声音 -->
+    <div class="section-block">
+        <h2 class="section-header">声音</h2>
+
+        <div class="quote-block">
+            <p class="quote-text">"但我忍不住觉得，那份努力 <span class="accent">是有意义的</span>。"</p>
+            <p class="quote-source">Lorenzo Gravina · 产品经理/博主 · notes.lorenzogravina.com</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"AI小说有一种签名式句式：<span class="accent">'不是X，不是Y，而是Z'——到处都是</span>，加上'hums'这个套路。而这种风格偏偏<span class="accent">赢了文学奖</span>。"</p>
+            <p class="quote-source">Nabeel S. Qureshi · AI研究者 · X/Twitter</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"我身边一切是<span class="accent">某人毕生心血</span>的假设，可能不再成立了。"</p>
+            <p class="quote-source">Ethan Mollick · 沃顿商学院教授 · X/Twitter</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 今日小结 -->
+    <div class="section-block">
+        <h2 class="section-header">今日小结</h2>
+        <p class="intro-text">今天有一条贯穿的线：<span class="turn">看见和被看见</span>。In the Weights让你看见自己在AI的记忆里有多深——分数为零意味着AI看不到你，但你和AI的关系是宇宙独一份的。Atlantic的数据库让你看见自己的歌被谁吃了——终于有人把黑箱翻成透明了。Anthropic暂停计费让你看见Agent自己用自己、账单自己涨自己的循环。</p>
+        <p class="intro-text">另一条线：<span class="turn">那份努力是有意义的</span>。</p>
+<p class="intro-text">读者偏好2022年前的书——你能感到作者在挣扎，而Gravina说出了每个人心底的感受：<span class="accent">那份努力是有意义的</span>。</p>
+<p class="intro-text">Mollick说得更远——我们给东西赋予价值的底层假设<span class="turn">正在松动</span>。</p>
+<p class="intro-text">Qureshi的发现更扎人——AI最明显的缺陷，偏偏是文学奖评委<span class="accent">最喜欢的写法</span>。</p>
+        <p class="intro-text">夏至日——一年里白天最长的一天。Keogram把365天的天空压成一张图，时间的形状。今天这些新闻也是——<span class="highlight">AI正在重塑谁被看见、谁被遗忘、什么算价值</span>。</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Be Curious -->
+    <div class="section-block">
+        <h2 class="section-header">Be Curious 🌌</h2>
+        <div class="image-block">
+            <img src="https://apod.nasa.gov/apod/image/2606/Keogram2025_Bassa_960.jpg"
+                 alt="Keogram：2025年全年天空压缩成一张图——每一天的光线和颜色，从左到右是365天，从下到上是从地平线到天顶"
+                 loading="lazy">
+            <p class="image-caption">Keogram 2025 · 一整年的天空压成一张图——365天从左到右展开，黎明和黄昏是两条金色弧线，极光在冬天突然亮起来 · 摄影师 Bassa · NASA APOD · 2026-06-21（夏至日特选）<br>夏至——白天最长的一天。Keogram把365天的天空压成一张图，时间的形状。<a href="https://apod.nasa.gov/apod/ap260621.html">查看原文 →</a></p>
+        </div>
+        <p class="card-tag">好奇·夏至·时间的形状</p>
+    </div>
+
+    <div class="footer-block">
+        <p>AI 情报日报 · 每日精选，跟你有关的AI新闻</p>
+        <p>信息源：TechCrunch / The Atlantic / The Verge / Hacker News / GitHub / Anthropic / NASA APOD</p>
+    </div>
+
+</div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报周报｜6月第3周 · 2026-06-15至06-21</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --accent: #C41E3A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 48px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            color: var(--klein);
+            font-weight: 600;
+        }
+
+        .accent {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .turn {
+            color: var(--klein);
+            font-weight: 700;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 10px;
+        }
+
+        .image-block {
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        .quote-block {
+            background: #F0F4FF;
+            border: 1px solid #C7D2FE;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .quote-text {
+            font-size: 15px;
+            color: var(--klein);
+            font-weight: 600;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .source-line {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        .source-line a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .footer-block {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .bullet-list {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .bullet-list li {
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .bullet-list li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 12px;
+        }
+
+        .card-tag {
+            font-size: 11px;
+            color: var(--text-mid);
+            opacity: 0.55;
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        .site-nav-lite {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-back {
+            font-size: 13px;
+            color: var(--klein);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back:hover { text-decoration: underline; }
+        .nav-date {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026-06-15 至 06-21</span>
+    </nav>
+
+    <h1 class="doc-title">AI 情报<span>周报</span>｜6月第3周</h1>
+    <p class="doc-date">2026年6月15日 — 6月21日 · 本周必读</p>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+        <p class="intro-text">这周的信号很集中：<span class="turn">打造时代的人，正在离开打造时代的地方。</span></p>
+        <p class="intro-text">48小时内两位改变了AI根基的人换了雇主。一位去了OpenAI，一位去了Anthropic。两边的方向截然不同——一个做产品，一个做科学。但方向不重要，重要的是他们都走了。</p>
+        <p class="intro-text">消费者也在用脚投票。<span class="accent">ChatGPT份额首次跌破50%</span>，读者在Hacker News上讨论"2022年以前的书更好读"。人们开始感知到"被AI含量统治的东西"和"有人的痕迹的东西"不是一回事。</p>
+        <p class="intro-text">但与此同时，AI自己开始在夜间教机器人干活。Midjourney画完猫之后做了全身CT扫描仪。代码用摇曲柄就能生成。这是一个矛盾的窗口：<span class="highlight">批评AI和拥抱AI发生在同一天，有时候发生在同一个人身上。</span></p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+        <h2 class="section-header">人才大迁徙</h2>
+
+        <div class="news-item">
+            <h3 class="news-title">48小时，两位改变AI的人走出Google</h3>
+            <p class="news-body"><span class="highlight">Noam Shazeer</span>——2017年"Attention Is All You Need"论文作者——离开Google去了OpenAI。Google花了<span class="accent">27亿美元</span>把他买回来，半年后他选择走。Shazeer曾联合领导Gemini团队，他的出走意味着Google最核心的语言智能大脑换了东家。</p>
+            <p class="news-body">不到48小时后，<span class="highlight">John Jumper</span>——AlphaFold的创造者、2024年诺贝尔化学奖得主——宣布从DeepMind离职，加入Anthropic。Jumper在DeepMind工作了近九年，把蛋白质结构预测从科研难题变成了AI改变世界的最经典案例。他走的原因是：<span class="turn">Anthropic正在搭建"AI做科学"的基础设施</span>——湿实验室、与Allen研究所合作、Claude部署进基因组学流水线。</p>
+            <p class="news-body">同一周，<span class="highlight">Alexandr Wang</span>——28岁，Scale AI创始人——带着Meta投资的<span class="accent">143亿美元</span>加入了Meta超级智能部门。<span class="highlight">Mira Murati</span>——OpenAI前CTO——创立的Thinking Machines Lab完成<span class="accent">20亿美元</span>种子轮，估值100亿，产品尚未发布。</p>
+            <p class="news-body">SignalFire的数据揭示了底层的结构性变化：<span class="accent">DeepMind工程师跳槽Anthropic的概率是反方向的11倍</span>。管道在漏水。</p>
+            <p class="news-body"><span class="turn">"人才密度"正在从"造AI的公司"转移向"用AI做事的公司"。谁能用好这些大脑，谁就会赢。</span></p>
+            <p class="source-line">来源：CNBC · <a href="https://www.cnbc.com/2026/06/19/john-jumper-to-leave-google-deepmind-for-anthropic.html" target="_blank">cnbc.com</a> · The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/952069/co-lead-of-gemini-joins-openai" target="_blank">theverge.com</a> · SignalFire · <a href="https://signalfire.com" target="_blank">signalfire.com</a></p>
+            <div class="image-block">
+                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AF_hero_2.width-800.format-webp.webp"
+                     alt="AlphaFold蛋白质三维结构——Jumper的遗产，留在DeepMind"
+                     loading="lazy">
+                <p class="image-caption">AlphaFold预测的蛋白质三维结构 · Jumper的遗产留在了DeepMind · Google DeepMind / Isomorphic Labs</p>
+            </div>
+            <p class="card-tag">头版·人才流动·大厂竞争·力量转移</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+        <h2 class="section-header">AI已经在动手了</h2>
+
+        <div class="news-item">
+            <h3 class="news-title">NVIDIA GEAR实验室：AI Agent自己教机器人装GPU，99%成功率</h3>
+            <p class="news-body">Jim Fan领导的GEAR实验室发布了一段视频：<span class="highlight">AI Agent在半夜没有人类在场的情况下</span>，自己教机器人完成GPU安装操作——插针孔、剪扎带、走线。插针成功率接近100%，整体任务成功率<span class="accent">99%</span>。Jim Fan说："我们早上来只看报告。"</p>
+            <p class="news-body"><span class="turn">以前是人教机器人，现在是AI教机器人。人类的新角色变成了"设计课程"，不再是"示范动作"。</span></p>
+            <p class="source-line">来源：NVIDIA GEAR · <a href="https://nvidia.com" target="_blank">nvidia.com</a> · Ars Technica · <a href="https://arstechnica.com" target="_blank">arstechnica.com</a></p>
+            <p class="card-tag">转折·AI Agent·人形机器人·物理世界</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">Midjourney从猫图做到了全身CT扫描</h3>
+            <p class="news-body">Midjourney发布了全身超声波扫描仪——<span class="accent">40个传感器</span>，定位预防性筛查市场，与Butterfly Network合作。CEO David Holz称之为"magical spa"。从生成猫图像到生成人体内部影像，Midjourney走了一条和所有人不一样的路线。<span class="turn">AI公司开始卖硬件了，而且卖的是医疗硬件。</span></p>
+            <p class="source-line">来源：Midjourney · <a href="https://midjourney.com" target="_blank">midjourney.com</a> · TechCrunch · <a href="https://techcrunch.com" target="_blank">techcrunch.com</a></p>
+            <p class="card-tag">创造·AI硬件·医疗·跨界</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">CrankGPT：摇曲柄就能对话AI，世界上最小的离线Agent</h3>
+            <p class="news-body">Squeez Labs做了一个盒子：Raspberry Pi 5 · <span class="accent">8GB</span> RAM · 手摇发电机。摇30秒曲柄，说一句话，0.8秒后AI回答你。技术栈：Moonshine ASR + llama.cpp + Piper TTS，全部在CPU上跑。创始人的一句话画面感极强：<span class="turn">"你能通过曲柄感受到负载曲线——LLM推理和语音合成同时运行时，曲柄变得更难转。"</span></p>
+            <p class="news-body">没有电池，没有网络，没有数据中心。电容板做20秒电力缓冲，DietPi 3秒启动。代码和模型全开源。<span class="highlight">边缘AI的极限形态——完全不用依赖任何基础设施。</span></p>
+            <p class="source-line">来源：Squeez Labs · <a href="https://squeezlabs.github.io/handcrank/" target="_blank">squeezlabs.github.io</a> · TechRadar · <a href="https://www.techradar.com/ai-platforms-assistants/crankgpt-is-a-hand-powered-fully-offline-ai-bot-powered-by-a-raspberry-pi-and-8gb-of-ram-and-im-all-for-apocalypse-ready-chatbots-that-dont-need-data-centers" target="_blank">techradar.com</a></p>
+            <p class="card-tag">创造·边缘AI·本地部署·极限工程</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">Headroom开源：减少LLM 60-95%输入token，精度损失不到2%</h3>
+            <p class="news-body">新开源工具Headroom通过智能压缩输入文本，将LLM token消耗削减<span class="accent">60-95%</span>，精度损失控制在2%以内。支持三种集成模式。<span class="turn">如果每个Agent都省60%的token，整个AI应用的成本结构会重新改写。</span></p>
+            <p class="source-line">来源：Headroom · Github · <a href="https://github.com" target="_blank">github.com</a></p>
+            <p class="card-tag">创造·工具·成本优化·效率</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+        <h2 class="section-header">消费者的反噬</h2>
+
+        <div class="news-item">
+            <h3 class="news-title">ChatGPT份额首次跌破50%，消费者说不</h3>
+            <p class="news-body">5月数据：ChatGPT占<span class="accent">46.4%</span>，Gemini <span class="accent">27.7%</span>，Claude <span class="accent">10.3%</span>。ChatGPT份额首次跌破50%。Gartner调查显示<span class="accent">60%</span>的消费者反感AI品牌标识，<span class="accent">86%</span>不完全信任AI内容，<span class="accent">50%</span>更愿意选择不用AI的品牌。</p>
+            <p class="news-body">2月国防部合作引发的卸载潮似乎留下了长期影响。<span class="turn">用户开始用脚投票——不想用"贴着AI标签"的东西。</span></p>
+            <p class="source-line">来源：Similarweb · Gartner · The Verge · <a href="https://www.theverge.com" target="_blank">theverge.com</a></p>
+            <p class="card-tag">趋势·消费者行为·信任危机·品牌</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">读者开始寻找2022年以前出版的书——AI写作让人怀念"人的痕迹"</h3>
+            <p class="news-body">Hacker News上一个帖子引发热议：越来越多的人在找2022年以前出版的书。<span class="turn">是写的方式变了</span>。AI辅助写作普及后，大量新书的语言变得均匀、平滑、没有意外——读起来像同一种材料做的。</p>
+            <p class="news-body">有人描述这种感受："2022年以前的书，你能感到作者在挣扎——某个段落他写得很痛苦，某个比喻他费了很大力气才想到。这些挣扎留下的痕迹，是阅读中最有人味的东西。"</p>
+            <p class="news-body"><span class="turn">当劳动的痕迹消失了，产品的意义也变了。</span>手工家具的价值在于你能看到制作者的选择、犹豫、甚至失误。阅读也一样——人的痕迹本身就是价值。</p>
+            <p class="source-line">来源：Hacker News · <a href="https://news.ycombinator.com/item?id=43201867" target="_blank">news.ycombinator.com</a> · Lorenzo Gravina · <a href="https://notes.lorenzogravina.com/musings/pre-2022-books" target="_blank">notes.lorenzogravina.com</a></p>
+            <p class="card-tag">转折·创造力的代价·人的选择·哲学反思</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">Atlantic曝光2100万首歌被AI训练——现在你可以查了</h3>
+            <p class="news-body">Atlantic记者Alex Reisner揭露了四个AI音乐训练数据集，最大两个各含<span class="accent">1200万</span>和<span class="accent">900万</span>首曲目——从Lady Gaga到Radiohead到巴赫。Atlantic建立了可搜索数据库，音乐人可以查自己的作品是否在训练集中。数据集通过YouTube/Spotify链接分发，AI开发者用自动化工具绕过登录——违反平台服务条款。</p>
+            <p class="news-body">Google和Stability AI已在论文中确认使用了这些数据集。<span class="turn">版权战从理论变成了证据——你的歌在不在里面，现在你能查了。</span></p>
+            <p class="source-line">来源：The Atlantic · <a href="https://www.theatlantic.com/category/ai-watchdog/" target="_blank">theatlantic.com</a> · The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/953183/the-atlantic-searchable-database-music-ai-training-data" target="_blank">theverge.com</a></p>
+            <p class="card-tag">前线·版权·人的代价·透明度</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+        <h2 class="section-header">大资本在划地盘</h2>
+
+        <div class="news-item">
+            <h3 class="news-title">1430亿 · 6000亿 · 740亿 · 200亿——这周的AI投资数字</h3>
+            <p class="news-body"><span class="accent">1430亿</span>：Meta拿下Scale AI近半股权（49%），28岁创始人Alexandr Wang加入Meta超级智能部门。Google拟切断与Scale AI的合作。</p>
+            <p class="news-body"><span class="accent">6000亿</span>（以美元计约为600亿）：SpaceX以全股票交易收购Anysphere（Cursor母公司），在纳斯达克IPO后数日内宣布。Cursor 24个月从零做到40亿年化收入。</p>
+            <p class="news-body"><span class="accent">740亿</span>：DeepSeek完成巨额融资，梁文锋个人出资200亿，腾讯100亿。资金通过有限合伙企业结构操作。</p>
+            <p class="news-body"><span class="accent">200亿</span>（20亿美元）：Mira Murati的Thinking Machines Lab完成种子轮，估值100亿，产品尚未发布。</p>
+            <p class="news-body"><span class="turn">AI格局正在从"谁做出了更好的模型"变成"谁有更多的钱来买人、买公司、买数据"。资本在重新划地盘，人才是货币。</span></p>
+            <p class="source-line">来源：CNBC · The Verge · Bloomberg · TechCrunch · TechTimes</p>
+            <p class="card-tag">趋势·创业融资·大厂竞争·资本重组</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">SpaceX+Cursor：火箭公司收购了最热门的AI编程工具</h3>
+            <p class="news-body">SpaceX IPO估值<span class="accent">2万亿美元</span>，随后宣布以600亿美元收购Anysphere——Cursor母公司。Cursor曾为底层模型贡献40-50%收入，收购后可能切换至Grok。</p>
+            <p class="news-body">Cursor CEO Michael Truell（四位MIT创始人之一）说过一句话："<span class="turn">我们从解决方案倒推问题，这违背创业常理。</span>"他们的反直觉判断有四次：不先选模型、不先定义用户、不先做市场调研——先做自己会用而且愿意付钱的产品。24个月后，这个逻辑被600亿验证了。</p>
+            <p class="source-line">来源：CNBC · <a href="https://www.cnbc.com/2026/06/16/spacex-spcx-cursor-acquisition-ipo.html" target="_blank">cnbc.com</a></p>
+            <p class="card-tag">前线·创业·收购·大厂竞争</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+        <h2 class="section-header">声音</h2>
+
+        <div class="quote-block">
+            <p class="quote-text">"But I can't help but feel that the <span class="accent">effort meant something</span>. When I read a pre-2022 book, I know that each word was typed in manually, checked manually, edited manually, proofread manually. That, somehow, has an effect on me."</p>
+            <p class="quote-source">Lorenzo Gravina · 独立开发者 · <a href="https://notes.lorenzogravina.com/musings/pre-2022-books" target="_blank">notes.lorenzogravina.com</a> · 6月21日</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border);margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"AI fiction has a signature style—'<span class="accent">Not X, not Y, but Z</span>' sentences everywhere—and that style wins literary prizes. Five Commonwealth Prize winners, three flagged as AI-generated."</p>
+            <p class="quote-source">Nabeel S. Qureshi · AI研究者 · <a href="https://x.com/nabeelqu/status/1791771790361067566" target="_blank">x.com/nabeelqu</a> · 5月18日</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border);margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"The <span class="accent">assumption that everything around me is somebody's life work</span> may no longer hold."</p>
+            <p class="quote-source">Ethan Mollick · Wharton教授 · <a href="https://twitter.com/emollick" target="_blank">x.com/emollick</a> · 4月18日</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border);margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"我们从解决方案倒推问题，这<span class="accent">违背创业常理</span>。但我们先做了自己会用而且愿意付钱的东西，再回头从用户那验证它是什么。"</p>
+            <p class="quote-source">Michael Truell · Anysphere (Cursor) CEO · 访谈 · 6月19日</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+        <h2 class="section-header">本周总结</h2>
+        <p class="intro-text">这周可以概括为两句话：<span class="turn">定义这个时代的人在移动。被定义的人开始察觉。</span></p>
+        <p class="intro-text">Shazeer和Jumper只是最上层的浪花。DeepMind到Anthropic 11倍的跳槽率、143亿美元的Scale AI收购、600亿的Cursor交易——资本和人才同时在向一个方向流动：从"造AI"流向"用AI"。</p>
+        <p class="intro-text">与此同时，消费者开始用脚投票。ChatGPT跌破50%，读者在找2022年前的书，60%的人不喜欢AI标签。Gravina说"effort meant something"，Mollick说"everything is somebody's life work"这个假设在松动——两句放在一起读，就是这个时代的矛盾：<span class="highlight">你又怀念人的痕迹，又在用AI加速消除痕迹。</span></p>
+        <p class="intro-text"><span class="turn">人才大迁徙 + 消费者反噬 + AI自己动手——三股力量交汇的地方，就是2026年AI的真相：所有人都知道变了，但没人知道变向哪里。</span></p>
+        <p class="card-tag">小结·力量转移·经济学翻转</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-block">
+        <h2 class="section-header">Be Curious 🌌</h2>
+        <div class="image-block">
+            <img src="https://apod.nasa.gov/apod/image/2606/Keogram2025_Bassa_960.jpg"
+                 alt="Keogram：2025年全年天空压缩成一张图——夏至日今天，白天最长的那条最细的光带"
+                 loading="lazy">
+            <p class="image-caption">Keogram: The Sky in 2025 · 全年天空压缩成一张图 · 摄影师 Cees Bassa · NASA APOD · 2026年6月21日（夏至日）<br>每15秒拍一次天空，365天的所有柱状切片对齐成一张。白天最长的一天是今天——沙漏形最细的那条光带。十二道月光穿越夜空，春秋分在沙漏的转折处。<a href="https://apod.nasa.gov/apod/ap260621.html">查看原文 →</a></p>
+        </div>
+        <p class="card-tag">好奇·夏至日·全年天空</p>
+    </div>
+
+    <div class="footer-block">
+        <p>AI 情报周报 · 本周必读</p>
+        <p>信息源：CNBC / The Verge / NVIDIA / The Atlantic / Squeez Labs / TechCrunch / Hacker News / SignalFire / Gartner / Similarweb</p>
+    </div>
+
+</div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
