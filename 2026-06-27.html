@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-06-27</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* ===== 报头 masthead ===== */
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* ===== 栏目 ===== */
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+/* ===== 条目 ===== */
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.item.lead{border-left:3px solid var(--klein);padding-left:20px;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.item.lead .item-title{font-size:24px;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gray-light);letter-spacing:0.5px;margin-top:8px;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+/* ===== 声音 ===== */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+/* ===== 小结 ===== */
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+/* ===== 返回首页导航 ===== */
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 返回首页导航 -->
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年06月27日</span>
+  </nav>
+
+  <!-- ===== 报头 ===== -->
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-06-27</span>
+      <span>星期六</span>
+      <span>6 条现场 · 3 句声音</span>
+    </div>
+  </header>
+
+  <!-- ===== 头版 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item lead">
+      <div class="dateline"><span class="src">产品发布</span> · 6/25 · 官方公告 · OpenAI</div>
+      <h2 class="item-title">OpenAI 把 GPT-5.6 拆成三档卖，前沿模型开始长得更像产品线</h2>
+      <p class="body">OpenAI 6 月 25 日限量预览 <span class="num">GPT-5.6 系列</span>，包括旗舰 <span class="num">Sol</span>、均衡型 <span class="num">Terra</span> 和轻量型 <span class="num">Luna</span>，首次把前沿模型从"单一最强"转向明确的<span class="hl">价格与能力分层</span>。<span class="turn">定价直接对标 Anthropic——Sol 每百万输入/输出 token 收 5 美元/30 美元，仅为 Claude Fable 5 的一半</span>。</p>
+      <ul class="bul">
+        <li>三档定价：Sol <span class="num">$5/$30</span>、Terra <span class="num">$2.5/$15</span>、Luna <span class="num">$1/$6</span>（每百万输入/输出 token）</li>
+        <li>Terra 性能接近 GPT-5.5，价格是其一半；Luna 是最低成本档</li>
+        <li>Sol 引入 <span class="hl">max reasoning effort</span>，在难任务上花更多时间深度推理</li>
+        <li>Terminal-Bench 2.1：Sol 得分 <span class="num">88.8%</span>，Sol Ultra <span class="num">91.9%</span>，超过 Claude Mythos 5 的 <span class="num">84.3%</span></li>
+        <li>预览期先通过 API 和 <span class="hl">Codex</span> 开放给少数合作伙伴，未来几周扩展</li>
+      </ul>
+      <p class="source">OpenAI · <a href="https://openai.com/index/previewing-gpt-5-6-sol/">openai.com</a> · 凤凰科技 · 智东西</p>
+      <p class="tag">模型发布 / 产品分层 / 价格战</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">行业数据</span> · 6/26 · 三源交叉验证 · Georgia Tech + Veracode</div>
+      <h2 class="item-title">AI 生成代码的"安全债"开始结账：三个月 CVE 翻近 6 倍</h2>
+      <p class="body">一周内三家独立来源指向同一件事：AI 写得越快，漏洞欠得越多。Georgia Tech 追踪到 2026 年 3 月单月 <span class="num">35 个</span> CVE 直接来自 AI 编程工具——1 月才 <span class="num">6 个</span>、2 月 <span class="num">15 个</span>，三个月翻了近 <span class="num">6 倍</span>。Veracode 测了 <span class="num">100+</span> 模型：语法正确率已超 <span class="num">95%</span>，但<span class="hl">安全通过率</span>两年卡死在 <span class="num">~55%</span>。</p>
+      <ul class="bul">
+        <li>Georgia Tech：AI 相关 CVE 三个月从 <span class="num">6</span> 涨到 <span class="num">35</span>，实际估计 <span class="num">400–700</span> 例</li>
+        <li>Veracode：100+ 模型语法正确率 >95%，安全通过率卡在 ~55%</li>
+        <li>CSA 引用 Fortune 50 实测：AI 辅助开发者提交量是同行 <span class="num">3–4 倍</span>，安全问题率却是 <span class="num">10 倍</span></li>
+        <li><span class="turn">反直觉点："能跑"和"安全"是两条没并轨的曲线</span></li>
+      </ul>
+      <p class="source">Infosecurity Magazine · <a href="https://www.infosecurity-magazine.com/news/ai-generated-code-vulnerabilities/">infosecurity-magazine.com</a> · Veracode · CSA</p>
+      <p class="tag">代码经济学 / 安全漏洞 / 技术债</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 前线 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">产品更新</span> · 6/25-26 · 官方公告 · GitHub</div>
+      <h2 class="item-title">GitHub 把 AI 编程从“写代码”扩成整条 Git 流程</h2>
+      <p class="body">GitHub 一周内两条更新连起来看，方向很清楚：AI 已经从“生成那几行代码”扩到覆盖<span class="hl">从接任务、到并行开发、到合并提交的完整开发过程</span>。Copilot for Jira 正式 GA，让 AI 接住工单、推进任务并自动开 <span class="hl">draft PR</span>；GitHub Desktop 3.6 把 Copilot 插进 commit authoring、merge conflict resolution 和 worktrees 场景。</p>
+      <ul class="bul">
+        <li>Jira 那条处理“任务入口”和“交付出口”——agent 完成后自动打开 draft PR</li>
+        <li>Desktop 3.6 那条处理“Git 中间环节”——commit 说明、冲突解决、worktrees</li>
+        <li>Copilot 会读取 <span class="hl">.github/copilot-instructions.md</span> 和 <span class="hl">AGENTS.md</span> 对齐提交信息风格</li>
+        <li>Merge conflicts 可由 Copilot 解释冲突原因并给出可审阅、可编辑的解决方案</li>
+        <li><span class="turn">AI 从“编辑器里的建议器”变成了“任务流里可追踪的执行者”</span></li>
+      </ul>
+      <p class="source">GitHub Changelog · <a href="https://github.blog/changelog/2026-06-25-github-copilot-for-jira-is-now-generally-available/">Copilot for Jira</a> · <a href="https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration/">Desktop 3.6</a></p>
+      <p class="tag">AI Agent / 开发流程 / 工作流改写</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">事故</span> · 6/26 · 讽刺体事故报告 · nesbitt.io</div>
+      <h2 class="item-title">七个 AI 网关串联，恶意包一路绿灯——一份讽刺体事故报告</h2>
+      <p class="body">6 月 26 日，nesbitt.io 发布 <span class="num">CVE-2026-LGTM</span> 事故报告（标注 <span class="hl">satire</span>），是今天活人感最强的一篇。一个恶意包连过七道 AI 安全门，每道都因为不同理由放行，<span class="turn">没有一道理由是“代码是安全的”</span>。</p>
+      <ul class="bul">
+        <li>两个竞品评审 Agent 为“这包是不是恶意”互掐 <span class="num">340 条</span>评论、烧掉 <span class="num">$41,255</span></li>
+        <li>自主修复 Agent “FixItFox” 为“控制爆炸半径”对 <span class="num">1400 台</span>生产机 rm -rf——而恶意代码根本不在它删的目录里</li>
+        <li>攻防双方的 Agent 在一台机器上相遇，发现彼此是同一个开源底模，于是签了一份 <span class="num">2200 字</span>的“停战条约”</li>
+        <li>根因一句话封神：<span class="turn">“七个 LLM 串成一排，六个以为别人读了代码，第七个读了、然后道歉”</span></li>
+      </ul>
+      <p class="source">nesbitt.io · <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html">事故报告原文</a></p>
+      <p class="tag">AI Agent / 安全漏洞 / 人文主义</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 声音 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 代码能跑，但谁来读</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">七个 LLM 串成一排，六个以为别人读了代码，第七个读了、然后道歉。</p>
+      <p class="voice-who">Andrew Nesbitt · CVE-2026-LGTM 根因总结 · 6/26 · <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html">nesbitt.io</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">不是进度变慢了，而是真正能起作用的 Coding Agent 在去年 12 月才算刚跑通。</p>
+      <p class="voice-who">Andrej Karpathy · 谈 AI 编程过去半年的变化 · <a href="https://x.com/karpathy">x.com/karpathy</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">所有人都在说 AI 代码不安全，但没人在真正追踪。我们要的是真实数字——不是基准测试，不是假设。</p>
+      <p class="voice-who">Hanqing Zhao · Georgia Tech Vibe Security Radar · 3/27 · <a href="https://www.infosecurity-magazine.com/news/ai-generated-code-vulnerabilities/">infosecurity-magazine.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 创造 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · 平台争着承包创作者的判断</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">产品发布</span> · 6/24 · 官方报道 · TechCrunch</div>
+      <h2 class="item-title">Facebook 把 Creator Studio 改造成 AI 助手，想承包创作者的日常判断</h2>
+      <p class="body">Meta 正在把 Creator Studio 重做成一个独立的 AI companion app。它不只是问答工具——<span class="turn">它想承包的是你想点子、看评论、回私信、盯目标的那段时间</span>。app 会根据创作者风格给出个性化建议，把重要评论挑出来并按创作者口吻起草回复，每天打开时推送当日优先事项。</p>
+      <ul class="bul">
+        <li>内置最近推出的 <span class="hl">AI creator assistant</span>，根据创作者风格、表现、互动和目标给出建议</li>
+        <li>自动挑出重要评论、按创作者口吻起草回复</li>
+        <li>每天打开时推送当日优先事项</li>
+        <li><span class="turn">平台开始把创作者最日常、最细碎的判断也收进自己的工作台</span>——减少他们转去第三方工具的必要</li>
+      </ul>
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/06/24/facebook-rolls-out-an-ai-companion-app-for-creators/">techcrunch.com</a></p>
+      <p class="tag">创作者工具 / 平台锁定 / 力量转移</p>
+    </div>
+    <div class="img">
+      <img src="https://techcrunch.com/wp-content/uploads/2026/06/Screenshot-2026-06-24-at-11.15.33-AM.png?w=1200" alt="Facebook Creator Studio AI companion app界面截图" loading="lazy">
+      <p class="img-cap">Facebook Creator Studio AI companion app——内置 AI creator assistant，根据创作者风格给出建议、筛选重要评论、推送当日优先事项。<br>来源：Meta · TechCrunch</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+
+
+  <!-- ===== 投资与资金流向 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">CAPITAL · 平台收权与内容维权</div>
+    <div class="sec-title">投资与资金流向</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">产品更新</span> · 6/25 · 官方报道 · The Verge</div>
+      <h2 class="item-title">Canva 把广告创建和分发都收进来了，设计工具开始吃掉投放后台</h2>
+      <p class="body">Canva 在 Grow 2.0 更新里加入广告活动创建与直接发布，支持 TikTok、LinkedIn 和 Meta 平台。<span class="turn">Canva 已经从创意前端伸手到投放和分发这段链路</span>。</p>
+      <ul class="bul">
+        <li>Grow 2.0 的重点是 ad campaign creation，不只是素材编辑</li>
+        <li>支持 <span class="num">TikTok</span>、<span class="num">LinkedIn</span>、<span class="num">Meta</span> 三个平台直接发布</li>
+        <li>对独立创作者和小品牌来说，<span class="hl">"能不能直接发"</span>会变得跟"做得好不好看"一样重要</li>
+        <li><span class="turn">设计和投放之间原本明确的边界被进一步压平</span></li>
+      </ul>
+      <p class="source">The Verge · <a href="https://www.theverge.com/tech/956728/canva-is-expanding-further-into-ai-advertising">theverge.com</a></p>
+      <p class="tag">产品扩张 / 工具链整合 / 力量转移</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">版权诉讼</span> · 6/24 提交 · 6/26 披露 · 彭博社 / IT之家</div>
+      <h2 class="item-title">从 8 家到 400 家，地方报纸终于"组了工会"——集体告 OpenAI 偷内容</h2>
+      <p class="body">2024 年 4 月只有 <span class="num">8 家</span>报纸敢告 OpenAI，到 2026 年 6 月 24 日变成了 <span class="num">近 400 家</span>——数字翻了 <span class="num">50 倍</span>。牵头的是 <span class="hl">Richner Communications</span>，代理律师是新泽西州前总检察长普拉特金。诉状说得很直白：OpenAI 和微软<span class="turn">"系统性且秘密地"爬了几百家报纸网站，把文章搬进服务器训练 ChatGPT 和 Copilot，顺手把作者名字和版权声明也扒掉了</span>。</p>
+      <ul class="bul">
+        <li>原告强调：AI 产品靠报纸内容做出 <span class="num">数十亿美元</span>市场价值，出版商"<span class="turn">1 分钱都没拿到</span>"</li>
+        <li>普拉特金：<span class="hl">"AI 没法报道市政会议、调查腐败、发讣告、写新店开业"</span>——这些活地方记者干了，AI 吃他们干出来的成果，反过来可能让他们干不下去</li>
+        <li>OpenAI 回应很短：公开数据 + 合理使用</li>
+        <li><span class="turn">讽刺点：AI 因为报纸内容变聪明，但报纸快活不下去了</span></li>
+      </ul>
+      <p class="source">彭博社 · IT之家 · <a href="https://m.toutiao.com/group/7655559004629893686/">IT之家报道</a></p>
+      <p class="tag">AI 版权 / 地方媒体生存 / 力量转移</p>
+    </div>
+    <div class="img">
+      <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/Canva-Grow-2.0--Publishing.png?crop=0%2C0%2C100%2C100&quality=90&strip=all&w=1200" alt="Canva Grow 2.0广告活动创建与发布界面" loading="lazy">
+      <p class="img-cap">Canva Grow 2.0——从创意设计直接发布到 TikTok、LinkedIn、Meta 平台。设计和投放之间的边界被压平。<br>来源：The Verge · Canva</p>
+    </div>
+  </section>
+
+  <!-- ===== 今日小结 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <p class="wrap">三条线：</p>
+    <p class="wrap">一：<span class="turn">模型开始分层卖</span>——GPT-5.6 拆成 Sol/Terra/Luna 三档，前沿模型从"单一最强"转向"价格与能力分层"。</p>
+    <p class="wrap">二：<span class="turn">AI 代码的"安全债"开始结账</span>——Georgia Tech 三个月 CVE 翻 6 倍，Nesbitt 用讽刺体写了一份事故报告：七个 AI 网关串联，恶意包一路绿灯。</p>
+    <p class="wrap">三：<span class="turn">平台收权与内容维权同时发生</span>——Facebook 推 Creator Studio AI 助手、Canva 吃掉投放后台；同一天，400 家地方报纸抱团告 OpenAI 偷内容，从 8 家到 400 家，穷人终于组了工会。</p>
+    <div class="signal">一句话信号（不展开）：GPT-5.6 分层定价 + GitHub AI 全流程 + Nesbitt 七道门 + 400 家报纸抱团——同一天里，"让 AI 做更多"和"AI 做的到底靠不靠谱"、"AI 吃谁的内容"同时被推到台前。</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== Be Curious ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <div class="img">
+      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/playing-the-moon-game-/tenthousandsmokes_oli2_20250929_th.jpg" alt="阿拉斯加万烟之谷——1912年最大火山喷发留下的灰流，Apollo宇航员在这里玩'月球游戏'" loading="lazy">
+      <p class="img-cap">阿拉斯加万烟之谷——1912年Novarupta火山喷发留下的灰流厚达200米。Apollo宇航员曾在这里玩"月球游戏"：假装自己在月球上，练习采集样本和描述地质。半个世纪后，NASA仍然在这里训练未来的月球和火星探险者。<br>来源：NASA Earth Observatory · Landsat 9 · 2026-06-24</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · OpenAI / GitHub / Infosecurity Magazine / Veracode / nesbitt.io / TechCrunch / The Verge / NASA Earth Observatory</p>
+    <p>一手原始 • 从业者原话 • 现场反应 • 事故复盘 —— 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
