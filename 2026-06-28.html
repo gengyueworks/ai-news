@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-06-28</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* ===== 报头 masthead ===== */
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* ===== 栏目 ===== */
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+/* ===== 条目 ===== */
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.item.lead{border-left:3px solid var(--klein);padding-left:20px;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.item.lead .item-title{font-size:24px;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gray-light);letter-spacing:0.5px;margin-top:8px;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+/* ===== 声音 ===== */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+/* ===== 小结 ===== */
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+/* ===== 返回首页导航 ===== */
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 返回首页导航 -->
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年06月28日 · 星期日</span>
+  </nav>
+
+  <!-- ===== 报头 ===== -->
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-06-28</span>
+      <span>星期日</span>
+      <span>6 条现场 · 2 句声音</span>
+    </div>
+    <p class="mast-lede">这一周，模型越强，围绕"谁能用、用谁的、谁来把关"的摩擦就越大。政府开始在发布端设闸，实验室指控对手偷师，大厂往下做芯片、往上做工具。而最有温度的信号来自福特车间——经验还没被算法追上。</p>
+  </header>
+
+  <!-- ===== 头版 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item lead">
+      <div class="dateline"><span class="src">Axios / TechCrunch / Reuters</span> · 6 月 26 日</div>
+      <h2 class="item-title">OpenAI 发布 GPT-5.6 三款新模型，美国政府逐个客户审批发布</h2>
+      <p class="body">6 月 26 日，OpenAI 推出新一代模型 <span class="hl">Sol、Terra、<span class="num">Luna</span></span>，然后在同一天宣布：三款全部只开放给约 <span class="num">20</span> 家公司，而且每接入一个新客户都要美国政府点头。按 OpenAI 自己的说法，这是应美国政府要求的短期措施。<span class="turn">此前 <span class="num">Anthropic</span> 的 Fable 5 因为被要求对所有外国国籍用户关闭，干脆整个下架</span>。TechCrunch 把这种状态称为对前沿 AI 的<span class="hl">"事实上的强制许可制"</span>。</p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-06-28/2026-06-28-chart-1.png" alt="华盛顿的前沿模型闸门：6月第三个被限制发布的模型" loading="lazy">
+        <p class="img-cap">华盛顿的前沿模型闸门：继 Claude Fable 5、Mythos 5 之后，GPT-5.6 成为 6 月第三个被限制发布的模型。数据：TechCrunch / Axios。</p>
+      </div>
+      <ul class="bul">
+        <li>Sol 定价 $5/$30、Terra $2.5/$15、Luna $1/$6（每百万输入/输出 token）</li>
+        <li>新增 max reasoning effort 深度推理、ultra 子代理模式</li>
+        <li>OpenAI 公开表态：不认为这种政府准入流程应该成为长期默认</li>
+        <li>预计下周扩容到更多公司，几周内逐步放开</li>
+      </ul>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-06-28/2026-06-28-chart-2.png" alt="GPT-5.6 三档定价对比图" loading="lazy">
+        <p class="img-cap">GPT-5.6 三档定价（每百万 token、输入 vs 输出）：最强的 Sol 也是最贵的。数据：TechCrunch。</p>
+      </div>
+      <p class="source">Axios / TechCrunch / Reuters · <a href="https://techcrunch.com">techcrunch.com</a></p>
+      <p class="tag">模型发布 / 政府准入 / 前沿许可制</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 前线 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">CNBC / Bloomberg / BBC</span> · 6 月 24 日</div>
+      <h2 class="item-title">两万五千个假账号，2880 万次对话：Anthropic 指控阿里巴巴"拄"走了 Claude</h2>
+      <p class="body">6 月 24 日，Anthropic 给美国参议员和政府写信，指控阿里巴巴旗下 <span class="num">Qwen</span> 团队用近 <span class="num">25,000</span> 个伪造账号，在 <span class="num">4 月 22 日</span>到 6 月 5 日之间对 Claude 发起了 <span class="num">2880 万</span> 次对话，试图蒸馏 Claude 的能力。被盯上的包括软件工程、智能体推理和长任务执行。<span class="turn">Anthropic 一向禁止中国境内访问其产品</span>——这些账号从一开始就是为绕过限制而设。消息一出，阿里巴巴股价跌到 <span class="hl">16 个月低点</span>。</p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-06-28/2026-06-28-chart-3.png" alt="Anthropic 指控阿里巴巴蒸馏攻击信息图" loading="lazy">
+        <p class="img-cap">Anthropic 口中"迄今规模最大的蒸馏攻击"：约 25,000 个假账号、2880 万次对话、跨度 45 天。数据：Business Insider / Bloomberg。</p>
+      </div>
+      <ul class="bul">
+        <li>信由 Anthropic 政策负责人署名，寄给两位参议员</li>
+        <li>据称这场行动是在无视政府此前警告后进行的</li>
+        <li>多家媒体（CNBC、彭博、BBC）拿到了信件副本</li>
+      </ul>
+      <p class="source">CNBC / Bloomberg / BBC · <a href="https://www.bloomberg.com">bloomberg.com</a></p>
+      <p class="tag">模型安全 / 蒸馏攻击 / 地缘技术</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Bloomberg</span> · 6 月 26 日</div>
+      <h2 class="item-title">AI 让硅谷高效、焦虑、不敢下线——"睡觉时一个 agent 替我看管其他 agent"</h2>
+      <p class="body">连续创业者 <span class="num">Matt Van Horn</span>，四个孩子的父亲，从来不关笔记本电脑。他同时跑着半打 AI agent，每 <span class="num">10</span> 分钟问他下一步做什么。孩子足球训练时开着，送孩子上学时开着，度假时开着。<span class="turn">睡觉的时候，一个 agent 替他看管其他 agent</span>。驱动他的不是效率，是 <span class="hl">FOMO</span>——AI 每天都在进步，我不在就可能被抛下。效率提升换来的是更长的工作时间，而不是更短的。</p>
+      <ul class="bul">
+        <li>Van Horn 用 Anthropic 的 Claude Code 同时跑 6 个 agent</li>
+        <li>FOMO 成为新的加班动力：AI 在进步 → 我不能停下来</li>
+        <li>研究者发现：用 AI 省下来的时间，又被 AI 焦虑吃掉了</li>
+      </ul>
+      <p class="source">Bloomberg · <a href="https://www.bloomberg.com/news/articles/2026-06-26/ai-anxiety-is-fueling-burnout-across-silicon-valley-s-tech-workers">bloomberg.com</a></p>
+      <p class="tag">人的代价 / AI 倦怠 / FOMO</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Bloomberg</span> · 6 月 25 日</div>
+      <h2 class="item-title">AI 没顶上，福特把退休的"灰胡子"质检员请了回来</h2>
+      <p class="body">6 月 25 日，彭博报道福特一直在返聘约 <span class="num">350</span> 名资深质量检验员——因为 AI 没能接住这活。这些被内部称为 <span class="hl">"gray beard"</span> 的老师傅，凭手感和经验抓得出 AI 漏检的毛病。一位高管直接说，<span class="turn">有些判断目前还得靠人</span>。背景是福特刚拿下 J.D. Power 一个 <span class="num">16</span> 年来首次的头名，质量这根弦绷得很紧。</p>
+      <p class="source">Bloomberg · <a href="https://www.bloomberg.com">bloomberg.com</a></p>
+      <p class="tag">人的代价 / 经验价值 / AI 替代</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">IT之家 / 新智元</span> · 6 月 28 日</div>
+      <h2 class="item-title">AI 打《文明 <span class="num">VI</span>》：Claude 核平法国仍输，暴露感知与执行短板</h2>
+      <p class="body">6 月 28 日，英国前首相府数据科学家 Liam Wilkinson 用 <span class="num">76</span> 个 MCP 工具将 Claude、GPT、Gemini 等四个模型放入《文明 <span class="num">VI</span>》进行了 <span class="num">23</span> 场对局。最大发现：<span class="turn">AI 主动检查全局状态仅占 1-2%（感知盲区），计划后 10 回合内执行率仅 48-66%（知行差距）</span>。结论是智力不是瓶颈，感知与执行才是。</p>
+      <ul class="bul">
+        <li>Claude 扮演葡萄牙时因法国文化胜利逼近，花 <span class="num">50</span> 回合研发核弹核平图卢兹，但法国最终以外交胜利获胜</li>
+        <li>Gemini 执行率最高（65.8%），Claude Opus 4.6 最低（48.2%）</li>
+        <li>"比更聪明更迫切的问题：怎么让 AI 真正睁开眼、伸出手"</li>
+      </ul>
+      <p class="source">IT之家 · <a href="https://www.ithome.com/0/969/570.htm">ithome.com</a></p>
+      <p class="tag">智能体评估 / 感知盲区 / 知行差距</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+    <!-- ===== 声音 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 这一周，谁说了什么</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">xAI 就是一场彻底的灾难。所有 <span class="num">11</span> 位联合创始人已全部离职，公司正在第三次重启。</p>
+      <p class="voice-who">Reid Hoffman · LinkedIn 联合创始人、Anthropic/OpenAI 投资人 · <a href="https://fortune.com/2026/06/24/reid-hoffman-spacex-musk-openai-anthropic-gen-z-mistake">Fortune</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">过去 <span class="num">12</span> 个月，生成式 AI 经济已创造了 <span class="num">1100</span> 亿美元真实营收，增长速度是移动互联网的 <span class="num">3</span> 倍。</p>
+      <p class="voice-who">Azeem Azhar · Exponential View 创始人 · <a href="https://intelligence.exponentialview.co">Exponential View</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 创造 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · 设计和开发的边界被一层层拆</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">The Verge</span> · 6 月 24 日</div>
+      <h2 class="item-title">Figma 在 Config 2026 上一口气发了 <span class="hl">Motion</span>、<span class="hl">Shaders</span> 和 Code Layers</h2>
+      <p class="body">6 月 24 日的 Config 2026 大会上，Figma 推出了动画工具 <span class="hl">Motion</span>、着色器 <span class="hl">Shaders</span> 和 <span class="hl">Code Layers</span>。Motion 把动效做进了设计稿，Code Layers 则继续模糊"设计"和"代码"之间那条线。<span class="turn">对设计师，这是少往开发那边丢一次</span>"请帮我实现一下"；对开发，是收到的稿子离能跑更近一点。</p>
+      <ul class="bul">
+        <li>三件套：Motion（动效）、Shaders（着色器）、Code Layers</li>
+        <li>主题仍是把设计往可运行那头推</li>
+      </ul>
+      <p class="source">The Verge · <a href="https://www.theverge.com">theverge.com</a></p>
+      <p class="tag">设计工具 / AI 集成 / 开发效率</p>
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 今日小结 ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <p class="wrap">这周连起来看是一条线：</p>
+    <p class="wrap">一：<span class="turn">模型越强，闸门越紧</span>。GPT-5.6 发布即受政府限制，Anthropic 告阿里巴巴蒸馏，前沿模型从"谁都能用"变成"谁批准用"。</p>
+    <p class="wrap">二：<span class="turn">AI 让人高效也让人不敢下线</span>。FOMO 驱动加班——效率提升换来的是更长的工作时间而不是更短的。睡觉时一个 agent 替你看管其他 agent。</p>
+    <p class="wrap">三：<span class="turn">智能体撞上感知墙</span>。《文明 VI》测试暴露 AI 的感知盲区和知行差距——跟模型大小无关，是架构问题。</p>
+    <p class="wrap">四：<span class="turn">经验还没被算法追上</span>。福特返聘 <span class="num">350</span> 名灰胡子质检员——有些判断目前还得靠干了 30 年的人。</p>
+    <div class="signal">一句话：模型审批设闸、蒸馏指控升级、智能体露出感知短板、AI 让人不敢下线——以及，有些判断还得靠干了 30 年的人。</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== Be Curious ===== -->
+  <section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <div class="img">
+      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/signs-of-thaw-in-the-bering-sea/alaskanunivak_tmo_20260603_lrg.jpg" alt="白令海解冻——碎冰漂浮在阿拉斯加圣劳伦斯岛周围，彩色海水在育空三角洲附近涌动" loading="lazy">
+      <p class="img-cap">白令海 · 解冻信号<br>碎冰漂浮在阿拉斯加圣劳伦斯岛周围，育空三角洲的彩色海水宣告着春天——从太空看，冰与水的边界正在一笔一笔地改写。</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · Axios / TechCrunch / Reuters / CNBC / Bloomberg / BBC / The Verge / NASA Earth Observatory</p>
+    <p>一手原始 • 从业者原话 • 现场反应 • 事故复盘 —— 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
