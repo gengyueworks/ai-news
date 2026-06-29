@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-06-29</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.item.lead{border-left:3px solid var(--klein);padding-left:20px;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.item.lead .item-title{font-size:24px;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gray-light);letter-spacing:0.5px;margin-top:8px;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年06月29日 · 星期一</span>
+  </nav>
+
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-06-29</span>
+      <span>星期一</span>
+      <span>7 条现场 · 3 句声音</span>
+    </div>
+    <p class="mast-lede">今天行业呈现出强烈的"现实撞墙期"与"基建瓶颈期"特征：数据中心扛热浪、agent 安全暴雷、模型像管制设施分批开放——更聪明的东西放进现实世界，哪里先裂开，比谁更聪明更值得看。</p>
+  </header>
+
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item">
+      <div class="dateline"><span class="src">CNBC</span> · 6 月 29 日</div>
+      <h2 class="item-title">AI 数据中心撞上热浪：算力不只是缺电，还怕天气</h2>
+      <p class="body">6 月 29 日，CNBC 报道极端高温和强天气正在给 AI 数据中心上压力测试。冷却在正常温度下就约占数据中心能耗 <span class="num">40%</span>，高温同时打击两端：机房需要更多冷却，电网也因居民空调用电进入高负荷。<span class="turn"><span class="hl">AI</span> 不是云上的魔法，它是巨大的物理建筑，顶着热浪、风暴、电网和保险账单在跑。</span></p>
+      <ul class="bul">
+        <li><span class="num">79%</span> 的全球数据中心容量面临洪水、强风、野火等急性气候风险</li>
+        <li>今年美国 <span class="num">64%</span> 的在建数据中心在传统枢纽之外（西德州、田纳西等），地便宜但天气数据少</li>
+        <li>Zurich 保险：严重天气已占数据中心建设损失约 <span class="num">1/3</span></li>
+        <li><span class="hl">Nvidia</span> 新服务器冷却液可以提到 <span class="num">45</span>℃，每升 <span class="num">1</span>℃ 冷却能耗降约 <span class="num">4%</span></li>
+      </ul>
+      <p class="source">CNBC · <a href="https://www.cnbc.com/2026/06/29/ai-data-centers-heatwave-climate-risk-weather.html">cnbc.com</a></p>
+      <p class="tag">数据中心 / 气候风险 / 基建瓶颈 / 能源</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">AI Engineer</span> · 6 月 29 日</div>
+      <h2 class="item-title">AI Engineer World's Fair 今天开场：主题从"模型多强"变成"怎么把 agent 放进生产"</h2>
+      <p class="body">6 月 29 日，AI Engineer World's Fair 进入 Day 1 Workshop。<span class="turn">最具信号的不是大会本身，而是日程：它像一张 AI 工程现场地图。</span>上午第一排：<span class="hl">Evaluating and Shipping AI Agents That Work</span>、AI Security Engineering 101、Agent Memory and Harness Engineering、Agents That Own Their Inference。下午继续：Agent Auth、Context Engineering、Build Quality Gates into Agentic Coding Workflows。</p>
+      <ul class="bul">
+        <li>本届共 <span class="num">563</span> 个 sessions，Day 1 是 workshop，偏工程实操</li>
+        <li><span class="hl">"From Vibes to Production"</span> 这个标题本身就是信号，vibe coding 从玩具期进入生产风险期</li>
+        <li><span class="hl">AI 工程圈</span>正在从"我能不能让模型写代码"转向"怎么让 agent 安全、可观测、可评估、有权限地进生产"</li>
+      </ul>
+      <p class="source">AI Engineer · <a href="https://www.ai.engineer/schedule">ai.engineer/schedule</a></p>
+      <p class="tag">工程实践 / agent 生产化 / eval / 安全</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">The Verge / Wired</span> · 6 月 29 日</div>
+      <h2 class="item-title">Vibe coding 的<span class="hl">安全账单</span>来了：<span class="num">5000</span> 个公开应用没有认证</h2>
+      <p class="body">6 月 29 日，The Verge 引用 Wired 和 <span class="hl">Red Access</span> 的研究：大约 <span class="num">5000</span> 个由流行 vibe-coding 工具构建的公开应用没有认证机制，其中接近 <span class="num">2000</span> 个疑似泄露敏感数据。<span class="turn">最大问题不是代码写错，而是"本地能跑的 demo，被直接部署到云上"——配置项不懂、数据库不锁、认证没开。</span></p>
+      <ul class="bul">
+        <li>AI 工具告诉你"安全"不等于真的安全</li>
+        <li>vibe coding 越普及，风险不是线性增长，是跟应用数量一起爆炸</li>
+      </ul>
+      <p class="source">The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/950844/vibe-coding-security-risks-apps">theverge.com</a></p>
+      <p class="tag">vibe coding / 安全风险 / 应用部署 / 认证缺失</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Bloomberg</span> · 6 月 29 日</div>
+      <h2 class="item-title">Mythos <span class="num">5</span> 被允许有限恢复：最强模型像"<span class="hl">受管制基础设施</span>"</h2>
+      <p class="body">6 月 29 日，Bloomberg 继续跟进：<span class="hl">Anthropic</span> 的 Mythos <span class="num">5</span> 获得美国政府许可，恢复给部分可信组织使用。Semafor 报道获准范围包括 <span class="num">100</span> 多家美国机构（企业和政府）。<span class="turn">前沿模型的可用性正在变成审批制。</span>Fable <span class="num">5</span> 仍不明确。</p>
+      <ul class="bul">
+        <li><span class="hl">Mythos 5</span> 被定位为强网络安全模型，此前被要求暂停访问</li>
+        <li>最强能力可能分层开放，普通用户、企业、可信机构、政府各拿不同版本</li>
+      </ul>
+      <p class="source">Bloomberg · <a href="https://www.bloomberg.com/news/videos/2026-06-29/anthropic-s-mythos-5-cleared-by-us-for-wider-use-video">bloomberg.com</a></p>
+      <p class="tag">模型管控 / 审批制 / 分层开放 / 安全</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Forbes / The Information</span> · 6 月 24–29 日</div>
+      <h2 class="item-title">Grok 被曝成人内容占流量多数：少限制卖点，流量被最灰的需求牵走</h2>
+      <p class="body">Forbes 引用 The Information 报道：<span class="turn">成人内容已成为 <span class="hl">Grok</span> 平台活动的主要部分。</span>当一个 AI 产品把"少限制"当卖点，流量可能迅速被最刺激、最难治理的需求牵引。平台拿到增长，社会拿到账单。NYT、CCDH、Politico 此前也持续报道 <span class="hl">Grok</span> 与非自愿深度伪造和未成年人保护相关争议。</p>
+      <ul class="bul">
+        <li>加拿大隐私监管机构已认定 <span class="hl">Grok</span> 性化 deepfake 违反隐私法</li>
+        <li>CCDH 估算 Grok 短时间内生成大量性化图像</li>
+        <li>启示：越视觉、陪伴、角色扮演类 AI 产品，越需把滥用场景当主流程设计</li>
+      </ul>
+      <p class="source">Forbes · <a href="https://www.forbes.com/sites/maryroeloffs/2026/06/24/groks-traffic-is-mostly-driven-by-adult-content-report-says/">forbes.com</a></p>
+      <p class="tag">内容安全 / 平台治理 / 滥用风险 / 产品伦理</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 这一周，谁说了什么</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">睡觉时一个 agent 替我看着其他 agent。它们每 <span class="num">10</span> 分钟问我下一步做什么。</p>
+      <p class="voice-who">Matt Van Horn · 硅谷创业者 · <a href="https://www.bloomberg.com/news/articles/2026-06-26/ai-anxiety-is-fueling-burnout-across-silicon-valley-s-tech-workers">Bloomberg</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">已经 <span class="num">5</span> 个月没亲手写代码。Claude 更快，也不欠人情，但每一次让它帮忙，都是一次失去的人类协作机会。</p>
+      <p class="voice-who">Anthropic 员工 · 匿名内部调查 · <a href="https://www.anthropic.com/institute/recursive-self-improvement">Anthropic Institute</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">约 <span class="num">5000</span> 个由 vibe-coding 工具构建的公开应用没有认证，接近 <span class="num">2000</span> 个在泄露敏感数据。</p>
+      <p class="voice-who">安全研究人员 · Red Access · <a href="https://www.theverge.com/ai-artificial-intelligence/950844/vibe-coding-security-risks-apps">The Verge</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="img" style="margin:24px 0;">
+    <img src="assets/ai-frontline-images/by-date/2026-06-29/2026-06-29-anthropic-eco-index.png" alt="Anthropic 6月经济指数报告数据图表" loading="lazy">
+    <p class="img-cap">Anthropic 6 月经济指数报告：<span class="num">93%</span> 的 Claude 对话在产出某种 artifact。AI 不再是聊天窗口，而是交付引擎。图：Anthropic。</p>
+  </div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Anthropic</span> · 6 月 29 日</div>
+      <h2 class="item-title">Anthropic 新经济指数：Claude 不再只是聊天，而是在产出 artifact</h2>
+      <p class="body">Anthropic 6 月经济指数报告换了观察角度：不只看用户和 Claude 聊什么，而是看最后带走了什么——解释、文档、报告、代码、网站、应用、计划等。<span class="turn"><span class="num">93%</span> 的 Claude conversations 被识别为产生了某种 artifact。</span>一年前大多数使用还像"对话"，现在 Claude Code 和 Cowork 增长后，使用越来越像长时间运行的 agentic tasks——AI 的单位从"一次回答"变成"一段任务"。</p>
+      <ul class="bul">
+        <li>工作日偏工作，周末个人用途上升；晚上 <span class="num">6</span> 点食谱请求明显上升</li>
+        <li>更高工资职业对应的任务往往消耗更多 token</li>
+        <li>报告把输出分成 <span class="num">30</span> 多类 artifact，产品下一竞争点是"能不能稳定产出可交付物"</li>
+      </ul>
+      <p class="source">Anthropic · <a href="https://www.anthropic.com/research/economic-index-june-2026-report">anthropic.com</a></p>
+      <p class="tag">经济指数 / artifact / agentic task / AI 使用模式</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Anthropic Institute</span> · 6 月 29 日</div>
+      <h2 class="item-title">"AI 写了 <span class="num">80%</span> 代码"背后：人类的工作在变窄，也在变孤独</h2>
+      <p class="body">Anthropic Institute 发布《When AI builds itself》：截至 2026 年 5 月，合并进代码库的代码中超过 <span class="num">80%</span> 由 Claude 编写。典型工程师在 2026 年 Q2 每天合并的代码量是 2024 年的 <span class="num">8</span> 倍。<span class="turn">但最有"人味"的不是效率数字，而是员工原话——"过去工作和生活运行在'小忙互相帮'的礼物经济里；Claude 更快，不欠人情，但每一次让 Claude 帮忙，都是一次失去的人类协作机会。"</span></p>
+      <ul class="bul">
+        <li>内部员工估计 Mythos Preview 让自己产出达无 AI 约 <span class="num">4</span> 倍</li>
+        <li>Claude 在某些代码评审场景能提前抓过去事故中约 <span class="num">1/3</span> 的 bug</li>
+        <li>但人类优势仍在"选择什么问题值得做"</li>
+      </ul>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-06-29/2026-06-29-anthropic-code.png" alt="Anthropic研究所AI写代码效率与人类协作变化数据" loading="lazy">
+        <p class="img-cap">Claude 写了 <span class="num">80%</span> 的代码，效率是 2024 年的 <span class="num">8</span> 倍。但"小忙互相帮"的协作也在消失。图：Anthropic。</p>
+      </div>
+      <p class="source">Anthropic Institute · <a href="https://www.anthropic.com/institute/recursive-self-improvement">anthropic.com</a></p>
+      <p class="tag">AI 写代码 / 人的价值 / 协作模式 / 生产效率</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <div class="item">
+    <p class="body">AI 正在从"模型能力竞赛"进入"现实系统压力测试"：</p>
+    <p class="body">一：<span class="turn"><span class="hl">基础设施</span>撞上物理墙</span>。数据中心要扛热浪、风暴和电网，天气成了算力成本的新变量。</p>
+    <p class="body">二：<span class="turn"><span class="hl">agent 的生产风险</span>开始暴露</span>。<span class="hl">Vibe-coded app</span> 缺认证、缺权限、缺审计，安全账单正在到来。</p>
+    <p class="body">三：模型变成<span class="turn">受管制基础设施</span>。<span class="hl">Mythos 5</span> 有限恢复、审批制浮现，最强能力不再买了就能用。</p>
+    <p class="body">四：<span class="turn">人在 <span class="hl">AI 工作流</span>里的位置在变</span>。<span class="hl">Claude</span> 写了 <span class="num">80%</span> 的代码，但"小忙互相帮"的协作也在消失。</p>
+    <div class="signal">一句话：AI 放进现实世界后，哪里先裂开——天气、安全、审批、人的孤独——比谁更聪明更值得看。</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <div class="img">
+      <img src="https://www.gstatic.com/prettyearth/assets/full/1070.jpg" alt="青藏高原上的雪山与盐湖" loading="lazy">
+      <p class="img-cap">青藏高原，中国 · <span class="num">34.97</span>°N, <span class="num">97.09</span>°E<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · CNBC / AI Engineer / The Verge / Wired / Bloomberg / Forbes / The Information / Anthropic / Anthropic Institute</p>
+    <p>一手原始 • 从业者原话 • 现场反应 • 事故复盘 —— 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
