@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-06-30</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gray-light);letter-spacing:0.5px;margin-top:8px;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年06月30日 · 星期二</span>
+  </nav>
+
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-06-30</span>
+      <span>星期二</span>
+      <span>10 条现场</span>
+    </div>
+    <p class="mast-lede">今天的主线：模型趋同之后，竞争挪到了入口和地基。看完头条，记得滑到开源前线——今天新上了一个栏目，专挑普通人能拿来就用的实用工具。</p>
+  </header>
+
+  <section class="section">
+    <div class="sec-eyebrow">NEW · 栏目上新</div>
+    <div class="sec-title">今天多了一个栏目：开源前线</div>
+    <div class="item">
+      <p class="body">从今天起，AI News 增加一个新栏目——<span class="hl">开源前线</span>。</p>
+      <p class="body">每天从 GitHub 上挑 <span class="num">2</span> 个<span class="accent">普通人能拿来干嘛</span>的实用工具，看完觉得<span class="turn">"我也想试试"</span>的那种。</p>
+      <p class="body">每个工具背后是<span class="hl">一个真实的人觉得"这东西应该存在"</span>，然后动手做了它。人的发明和人的选择——正是我们一直看重的视角。</p>
+      <p class="body" style="font-size:13px;color:var(--gray-light);margin-top:16px;">栏目位置：前线之后、声音之前 · 信息源：HelloGitHub / GitHub Trending</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item">
+      <div class="dateline"><span class="src">The Verge</span> · 6 月 29 日</div>
+      <h2 class="item-title"><span class="hl">OpenAI</span> 给 <span class="hl">Codex</span> 做了一款专属键盘，<span class="num">7 月 15 日</span>发布</h2>
+      <p class="body">The Verge 独家报道：OpenAI 正在推出一款与 Codex 绑定的新硬件——<span class="accent">Codex Micro</span>，一块被描述为"designed to supercharge people's Codex usage"的键盘，<span class="turn">定于 7 月 15 日正式发布。</span>它已在 AI Engineer World's Fair 现场展示，是一个实体的、物理的硬件产品。</p>
+      <p class="body"><span class="turn">这条信号的真正重量不在"又一个周边"，而在另一层意思：</span>AI 编程工具开始长出属于自己的物理入口。如果 Codex 真的需要专门硬件来提高使用频率，说明 coding agent 正在从一个网页/IDE 功能，变成一个更常驻、更像操作系统层的工作接口。</p>
+      <div class="img">
+        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/openai-codex-hardware.png?quality=90&amp;strip=all&amp;crop=0%2C8.6878272251309%2C100%2C82.624345549738&amp;w=1200" alt="OpenAI 推出的 Codex Micro 键盘实物" loading="lazy">
+        <p class="img-cap">Codex Micro 键盘——被描述为"designed to supercharge people's Codex usage"，7 月 15 日发布。图：The Verge。</p>
+      </div>
+      <p class="source">The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder">theverge.com</a></p>
+      <p class="tag">硬件入口 / coding agent / 产品发布 / 新的工作形态</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">AI Engineer World's Fair / Uber Engineering</span> · 6 月 30 日</div>
+      <h2 class="item-title">代码评审成了新瓶颈：AI 写得飞快，人的审查没有快 <span class="num">10</span> 倍</h2>
+      <p class="body">AI Engineer World's Fair 今天进入 Day <span class="num">2</span> 主会场，<span class="turn">真正有信号的其实是议题分布——</span>563 个 session 的 track 名字就是一张"AI 工程现状图"：Software Factories、Claws & Personal Agents、Forward Deployed Engineering、Harness Engineering、Security、Data Quality。重心从"模型多强"转到了"怎么让一群 agent 在真实代码库里安全干活"。</p>
+      <p class="body">会上反复出现的一个真问题：AI 让写代码快了 <span class="num">10</span> 倍，但审代码的人没有快 <span class="num">10</span> 倍。<span class="turn">这个不对称正在变成生产事故的新来源。</span>Uber 的 uReview 系统每周处理 <span class="num">6.5万+</span> 次代码变更，<span class="num">65%</span> 评论被采纳——高于人类审查者的 <span class="num">51%</span>，每周省约 <span class="num">1500</span> 开发小时。但同时，第三方百万级 PR 分析显示 <span class="num">17%</span> 含高严重度问题，时间紧张时本会直接进生产。</p>
+      <p class="source">AI Engineer · <a href="https://www.ai.engineer/schedule">ai.engineer/schedule</a> / Uber · <a href="https://www.uber.com/en-US/blog/ureview-ai-code-review/">uber.com</a></p>
+      <p class="tag">代码审查 / agent 安全 / 工程瓶颈 / 大会现场</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">The Verge / Financial Times</span> · 6 月 28 日</div>
+      <h2 class="item-title"><span class="hl">Google</span> 开始给 <span class="hl">Meta 的 Gemini</span> 用量设上限：算力短缺传到分配层</h2>
+      <p class="body">The Verge 援引 Financial Times 报道：Google 已通知包括 Meta 在内的客户，当前无法继续提供他们想要的 Gemini 容量，开始设置使用上限。<span class="turn">连 Meta 级别的客户都被限额，说明"有钱就能无限拿模型能力"的阶段正在结束。</span>算力短缺从芯片采购层传到了模型服务分配层——"simply can't provide the capacity they want"。配额问题会直接影响企业的产品上线和内部工具可用性。</p>
+      <p class="source">The Verge / Financial Times · <a href="https://www.theverge.com/ai-artificial-intelligence/958787/google-is-putting-a-cap-on-metas-gemini-usage">theverge.com</a></p>
+      <p class="tag">算力短缺 / 配额制 / 资源分配 / 模型服务</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">CNN / CNBC</span> · 6 月 29–30 日</div>
+      <h2 class="item-title">韩国押 <span class="num">5180</span> 亿美元建晶圆厂：AI 的地基是钢筋、电力、工厂</h2>
+      <p class="body">李在明在政府大楼与三星、SK 海力士掌门人一起宣布：三星和 SK 海力士将联合供应商投资 <span class="num">800</span> 万亿韩元（约 <span class="num">5180</span> 亿美元），在韩国西南部各建两座新晶圆厂。<span class="turn">李在明把话挑明：半导体、实体 AI、AI 数据中心是"三轴"——必须比任何国家更快拿到 AI 的核心要素。</span>选址在光州和全罗南道，核心理由是"丰富、尚未充分利用的电力"。消息公布当天三星和 SK 海力士股价反跌——市场在掂量超长期回报节奏。</p>
+      <p class="source">CNN · <a href="https://www.cnn.com/2026/06/29/business/south-korea-ai-investment-samsung-skhynix">cnn.com</a></p>
+      <p class="tag">芯片制造 / 基础设施 / 国家战略 / 算力地基</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch / Bloomberg</span> · 6 月 27 日</div>
+      <h2 class="item-title">福特承认 <span class="hl">AI 质检</span>没达到效果，请回 <span class="num">350</span> 名老工程师</h2>
+      <p class="body">福特因为 AI 和自动化质检系统没达到预期质量水平，重新雇用了 <span class="num">350</span> 名资深工程师来提前发现失效点。<span class="turn">经验没有被替代，反而被重新定价——老工程师不只是回来救火，还要重新训练年轻员工和修正自动化系统。</span>福特高管承认越来越依赖自动化质量系统，但结果"不理想"。这些技术专家在零件进工厂前就能找出 failure points，调整已被高管与保修和召回成本下降联系在一起。</p>
+      <p class="source">TechCrunch / Bloomberg · <a href="https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/">techcrunch.com</a></p>
+      <p class="tag">智能制造 / AI 落地 / 人的价值 / 质检</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+    <div class="sec-title">开源前线</div>
+    <div class="item">
+      <div class="dateline"><span class="src">HelloGitHub</span> · 6 月第 123 期</div>
+      <h2 class="item-title">让浏览器标签页不再乱七八糟——<span class="hl">tab-harbor</span>，自动分组工作台</h2>
+      <p class="body">有人觉得浏览器标签页一多就找不到东西，于是做了这个。<span class="turn">装进 Chrome，自动按域名把几十个标签页分组归类，新标签页变成清爽的工作台。</span>支持快捷链接、会话保存与恢复、一键清理重复标签和标签休眠，所有数据保存在本地。</p>
+      <ul class="bul">
+        <li>Chrome 插件，装上一键用，不用注册账号</li>
+        <li>自动按域名分组 + 手动拖拽整理</li>
+        <li>标签休眠省内存，重复标签一键清</li>
+      </ul>
+      <p class="source">GitHub · <a href="https://github.com/V-IOLE-T/tab-harbor">github.com/V-IOLE-T/tab-harbor</a></p>
+      <p class="tag">实用工具 / 浏览器 / 标签管理 / 效率</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">HelloGitHub</span> · 6 月第 123 期</div>
+      <h2 class="item-title">Windows 桌面上贴一张"纸"——<span class="hl">PaperTodo</span>，极简便签工具</h2>
+      <p class="body">有人觉得系统自带的便签太复杂、要账号，于是做了这个。<span class="turn">打开就是一张纸，写完自动保存，无主窗口、无账号、无分类管理。</span>待办纸和笔记纸两种形态，可折叠成置顶小胶囊，自动贴到屏幕边缘。想记就记，不想记就关。</p>
+      <ul class="bul">
+        <li>独立无边框浮动窗口，像真的贴了一张纸在桌上</li>
+        <li>内容自动保存，不怕丢</li>
+        <li>极简到底——没有"功能"，只有"记"和"关"</li>
+      </ul>
+      <p class="source">GitHub · <a href="https://github.com/snownico0722/PaperTodo">github.com/snownico0722/PaperTodo</a></p>
+      <p class="tag">实用工具 / Windows / 便签 / 极简</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 本周声音</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">自动化质检系统没有达到预期效果。</p>
+      <p class="voice-who">引述福特内部质量评估 · <a href="https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/">TechCrunch</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">如果你有一个奇怪的小需求，你现在可以自己做那个 app 了。</p>
+      <p class="voice-who">David Pierce · The Verge 特约作者 · <a href="https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder">theverge.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch / 9to5Mac</span> · 6 月 29 日</div>
+      <h2 class="item-title"><span class="hl">Cursor</span> 出了 iPhone app：coding agent 开始往手机常驻入口走</h2>
+      <p class="body">Cursor 推出了 iPhone 应用，用户可以在手机上启动和追踪 AI agents，通过 Live Activities 实时查看 agent 进度。<span class="turn">这是 coding agent 从桌面 IDE 走向移动端的关键一步。</span>当 agent 的状态被搬进手机通知层，它就不再只是一次性的聊天工具，而更像一个持续运行的后台工人。OpenAI 在给 Codex 做键盘硬件，Cursor 把 agent 推进 iPhone——两边的信号是一样的：<span class="accent">谁先占领"随时能叫出 agent"的入口，谁就赢。</span></p>
+      <div class="img">
+        <img src="https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/06/cursor.webp?resize=1200%2C628&amp;quality=82&amp;strip=all&amp;ssl=1" alt="Cursor iPhone 应用界面" loading="lazy">
+        <p class="img-cap">Cursor 的 iPhone 应用，通过 Live Activities 实时查看 agent 进度。图：9to5Mac。</p>
+      </div>
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/06/29/cursor-now-has-a-mobile-app-for-guiding-your-coding-agent-on-the-go/">techcrunch.com</a></p>
+      <p class="tag">入口之争 / 移动端 agent / coding / Cursor</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">The Verge</span> · 6 月 29 日</div>
+      <h2 class="item-title">你可以为这件事做个 app：<span class="hl">个人软件革命</span>正在到来</h2>
+      <p class="body">The Verge 作者 David Pierce 写了一篇 <span class="accent">You Can Make an App for That</span>：AI 正在让一代 vibe coder 做出真正想要的东西——给自己做。<span class="turn">一个人想要一个只服务自己某个怪癖需求的小工具，现在真的可以做出来了。</span>软件正在从"由公司生产、卖给所有人"变成"由个人生成、只服务自己"。创造权下放，真正的机会不在"另一个通用 app"，而在帮普通人安全地做出属于自己的小软件。</p>
+      <p class="source">The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder">theverge.com</a></p>
+      <p class="tag">个人软件 / vibe coding / 创造权下放 / 工具革命</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Anthropic</span> · 6 月 30 日</div>
+      <h2 class="item-title"><span class="hl">Anthropic</span> 今天开播 AI for Science：更靠谱的工具，不是更大的模型</h2>
+      <p class="body">Anthropic 今天线上线下同步举办 The Briefing: AI for Science，迄今最正式的一次 AI+科学集中亮相。<span class="turn">行业共识在移动：病毒序列检索类任务上，模型裸跑准确率不高，一旦接上确定性检索工具准确率大幅跳升——决定成败的往往是它身后有没有可靠的确定性数据基础设施。</span>与其等更大的模型，不如先把工具接好。</p>
+      <p class="source">Anthropic · <a href="https://www.anthropic.com/news/ai-for-science">anthropic.com</a></p>
+      <p class="tag">AI for Science / 确定性工具 / 科学场景 / 基础设施</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <div class="item">
+    <p class="body">把今天串起来，主线只有一句话：<span class="turn">模型趋同之后，竞争挪到了入口和地基。</span></p>
+    <p class="body"><span class="num">一</span>：<span class="hl">入口之争</span>——OpenAI 给 Codex 做键盘硬件，Cursor 把 agent 搬进 iPhone。coding agent 不再只藏在 IDE 里，谁先占领"随时能叫出来"的入口，谁就赢。</p>
+    <p class="body"><span class="num">二</span>：<span class="hl">工程现场</span>——大会议题全是 harness、eval、forward deployed。重心从"模型多强"转到"怎么让 agent 安全进生产"。</p>
+    <p class="body"><span class="num">三</span>：<span class="hl">算力地基</span>——韩国押 <span class="num">5180</span> 亿美元建晶圆厂，电力选址是核心变量。Google 限 Meta 的 Gemini 用量，"有钱就有能力"在结束。</p>
+    <p class="body"><span class="num">四</span>：<span class="hl">经验定价</span>——福特请回 <span class="num">350</span> 名老工程师，人在真实制造业里没有被替代，反而被重新定价。</p>
+    <p class="body"><span class="num">五</span>：<span class="hl">个人软件</span>——创造权在下放。一个人想为自己做一个小工具，现在真的可以做了。</p>
+    <div class="signal">当聪明变得便宜，真正的稀缺品是入口、地基和信任。</div>
+    </div>
+  </section>
+
+
+<section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <div class="img">
+        <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-turquoise-tint-for-the-black-sea/ISS074-E-619520_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg" alt="黑海上的乳蓝色浮游生物漩涡" loading="lazy">
+      <p class="img-cap">乳蓝色浮游生物把黑海染成了绿松石色，从太空都看得见。图：NASA Earth Observatory（2026年6月22日）。<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · The Verge / AI Engineer / Uber Engineering / Financial Times / CNN / CNBC / TechCrunch / Bloomberg / 9to5Mac / Anthropic / HelloGitHub</p>
+    <p>一手原始 · 从业者原话 · 现场反应 · 事故复盘 —— 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
