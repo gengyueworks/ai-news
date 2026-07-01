@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-01</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gray-light);letter-spacing:0.5px;margin-top:8px;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年07月01日 · 星期三</span>
+  </nav>
+
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-07-01</span>
+      <span>星期三</span>
+      <span>7 条现场</span>
+    </div>
+    <p class="mast-lede">今天从定价开始讲。Sonnet 5 不是最强的模型，但它可能是最重要的那个——因为它把 agent 的入门价打下来了。看完头条，滑到前线：算力短缺到连 Meta 都被限了。</p>
+  </header>
+
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item">
+      <div class="dateline"><span class="src">Anthropic / TechCrunch</span> · 6 月 30 日</div>
+      <h2 class="item-title"><span class="hl">Anthropic</span> 发布 <span class="hl">Sonnet 5</span>：最便宜的 agent 模型，入门价 <span class="num">$2/$10</span></h2>
+      <p class="body">Anthropic 昨天发布了 Claude Sonnet 5，<span class="turn">最关键的信号是它有多便宜。</span>入门定价 <span class="num">$2</span> 输入 / <span class="num">$10</span> 输出（每百万 token），8 月 <span class="num">31</span> 日后涨到 <span class="num">$3/$15</span>。相当于在 8 月底之前，你花一杯咖啡的钱就能跑一个 agent 任务。</p>
+      <p class="body">Sonnet 5 在编码、工具调用和日常任务上表现接近 Opus 4.8，<span class="turn">但价格只有 Opus 的不到一半。</span>Anthropic 对它的定位是"最 agentic 的 Sonnet"——<span class="hl">默认给所有 Free 和 Pro 用户启用</span>，升了速率上限来容纳更高消耗级别的 token 用量。</p>
+      <p class="body"><span class="turn">把这条信号拆开看：</span>当前沿模型的推理成本降到这个水平，coding agent 从"偶尔用一下的玩具"变成"可以默认开着的东西"的临界点，可能比所有人预期的都近。Sonnet 5 不是最强的模型，但它是把 agent 的入门价打到地板上的那个。</p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-01/sonnet5-tc.jpg" alt="Claude app 图标显示在智能手机屏幕上" loading="lazy">
+        <p class="img-cap">Claude Sonnet 5 即日起成为所有 Free 和 Pro 用户的默认模型。图：TechCrunch / Rebecca Bellan。</p>
+      </div>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-01/chart01_price.png" alt="Sonnet 5 定价图表：入门价 $2/$10，8月31日后 $3/$15" loading="lazy">
+        <p class="img-cap">Sonnet 5 定价：入门价 $2/$10，8月31日后 $3/$15。输出比输入贵得多——这是 transformer 架构的底层成本结构。图：来自 @卡兹克。</p>
+      </div>
+      <p class="source">Anthropic · <a href="https://www.anthropic.com/news/claude-sonnet-5">anthropic.com</a> / TechCrunch · <a href="https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/">techcrunch.com</a></p>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Financial Times / Engadget</span> · 6 月 28–29 日</div>
+      <h2 class="item-title"><span class="hl">Google</span> 限制 <span class="hl">Meta 的 Gemini</span> 用量：<span class="turn">算力短缺传到了分配层</span></h2>
+      <p class="body">FT 报道：Google 已通知包括 Meta 在内的客户，当前无法继续提供他们想要的全部 Gemini 容量。Meta 是 Google 最大的 Gemini 客户之一，<span class="turn">受影响也最严重——</span>员工被要求更高效地使用 token，部分内部 AI 项目延迟。</p>
+      <p class="body"><span class="turn">这意味着什么：</span>连 Meta 级别的客户都被限额，说明"有钱就能无限拿模型能力"的阶段正在结束。Google Cloud CEO Sundar Pichai 在 4 月财报会上承认：如果基础设施够用，Google Cloud 收入本可以更高。Google 甚至以每月 <span class="num">9.2</span> 亿美元租用 xAI 的数据中心来补缺口。</p>
+      <p class="body">消息公布的当天，Meta 股价跌了 <span class="num">18%</span>。市场在掂量：<span class="hl">当算力变成配额，AI 公司的增长故事还能讲多大？</span></p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-01/chart02_gap.png" alt="Meta GPU 采购量与实际获得量之间的缺口示意图" loading="lazy">
+        <p class="img-cap">Meta 的 GPU 采购缺口：红色部分是想买但实际没拿到的。官方没给具体数值，所以没标刻度。图：来自 @卡兹克。</p>
+      </div>
+      <p class="source">Financial Times / Engadget · <a href="https://www.engadget.com/2203579/google-reportedly-capped-meta-use-of-gemini-ai-for-coding-chatbots/">engadget.com</a></p>
+
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Anthropic / TechCrunch</span> · 6 月 30 日</div>
+      <h2 class="item-title"><span class="hl">Claude Science</span> 发布：<span class="turn">"把工具接好"的科研工作台</span></h2>
+      <p class="body">Anthropic 昨天同步发布了 Claude Science——一款面向科研人员的 AI 工作台。<span class="turn">Anthropic 自己说得很清楚：</span>它用的就是所有人都能用的那套 Claude 模型，没改过底层结构。<span class="turn">成败的关键不在模型本身——要看它身后有没有可靠的确定性工具。</span></p>
+      <p class="body">Claude Science 可以跑在实验室自己的机器上（macOS/Linux），通过 SSH 连接 HPC 集群或 Modal 云资源。内置 <span class="num">60+</span> 科学数据库连接器和基因组学、蛋白质组学、结构生物学等专用模块，用一位协调 agent 统一调度。每个结果携带完整的溯源链——怎么做出来的、用了什么代码什么环境——可以复现验证。</p>
+      <p class="body"><span class="turn">这背后的战略信号更值得留意：</span>Anthropic 正在复制 Claude Code 的路线——模型是核心，但真正产生粘性的是模型外面的那层"工作层"。对开发者是 Claude Code，对科学家就是 Claude Science。</p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-01/claude-science-tc.jpg" alt="Claude Science——AI 工作台中的科研人员使用显微镜分析样本" loading="lazy">
+        <p class="img-cap">Claude Science 的工作场景：一个协调 agent 调度 60+ 科学数据库和专用模块。图：TechCrunch / Getty Images。</p>
+      </div>
+      <p class="source">Anthropic · <a href="https://www.anthropic.com/news/claude-science-ai-workbench">anthropic.com</a> / TechCrunch · <a href="https://techcrunch.com/2026/06/30/anthropics-claude-science-bets-on-workflow-not-a-new-model-to-win-over-scientists/">techcrunch.com</a></p>
+
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Business Insider / Startup Fortune</span> · 6 月 24–25 日</div>
+      <h2 class="item-title"><span class="hl">Gemini 3.5 Pro</span> 延期到 7 月，<span class="num">4</span> 位核心研究员同一周出走</h2>
+      <p class="body">Business Insider 独家报道：Google 将 Gemini 3.5 Pro 的公开上线从 6 月推迟到 7 月，原因是需要更多时间收集早期测试者反馈、打磨模型。<span class="turn">CEO Sundar Pichai 在 5 月 I/O 大会上亲口说"再给一个月"，现在这个承诺兑现不了了。</span></p>
+      <p class="body"><span class="turn">更致命的是同一周发生的事：</span><span class="num">4</span> 位参与 Gemini 研发的核心研究员宣布离开 Google 加入 Anthropic。其中包括 Noam Shazeer——"Attention Is All You Need"的合著者，Google 曾在 2024 年花 <span class="num">27</span> 亿美元通过 Character.AI 交易把他请回来，不到两年他又走了。还有 John Jumper——AlphaFold 之父、2024 年诺贝尔化学奖得主，也去了 Anthropic。</p>
+      <p class="body">消息公布当天 Alphabet 股价跌 <span class="num">5%</span>，市值蒸发 <span class="num">2250</span> 亿美元。<span class="turn">产品延期可以用周来度量，人才流失的账要按年算。</span></p>
+      <p class="source">Business Insider · <a href="https://www.businessinsider.com/google-3-5-pro-july-release-tokens-ai-agents-model-2026-6">businessinsider.com</a> / Startup Fortune · <a href="https://startupfortune.com/google-delays-gemini-35-pro-to-july-as-talent-exodus-deepens-the-pressure-on-its-ai-ambitions/">startupfortune.com</a></p>
+
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch</span> · 6 月 30 日</div>
+      <h2 class="item-title"><span class="hl">AI 就业数据</span>撞上直觉：高采用率公司总人头 <span class="num">+10.2%</span>，初级岗 <span class="num">+12%</span></h2>
+      <p class="body">Ramp 和 Revelio Labs 联合发布了基于近 <span class="num">22000</span> 家公司的 AI 就业报告。<span class="turn">结果跟很多人想的正好相反：</span>"高强度 AI 采用者"（定义为前 3 个月人均月花 <span class="num">$30</span> 以上在 AI 工具上的公司）整体招聘人数增长了 <span class="num">10.2%</span>，其中初级岗位反而涨了 <span class="num">12%</span>——比平均涨得还快。</p>
+      <p class="body"><span class="turn">这跟另一组数据形成对比：</span>Goldman Sachs 估算 AI 在过去一年每月净消灭约 <span class="num">16000</span> 个岗位。到 2026 年 5 月，公司公开宣称与 AI 相关的裁员已接近 <span class="num">90000</span> 人。PwC 的全球 AI 就业晴雨表也发现了一个"双轨市场"——被 AI"专业化"的岗位（人类专家+AI=更强）增速是"普惠化"岗位（AI 让人人可做）的 <span class="num">2</span> 倍，工资增速高出 <span class="num">42%</span>。</p>
+      <p class="body"><span class="turn">两组合在一起看：</span>AI 没有简单地"消灭工作"或"创造工作"——它在重新划分谁的工作值钱。能配合 AI 放大自身能力的人被重金争抢，停留在"被替代"逻辑里的岗位面临收缩。</p>
+      <p class="source">Ramp & Revelio Labs · <a href="https://contentbuffer.com/news/ais-heaviest-adopters-grew-headcount-102-report-finds-c7bfb85c">contentbuffer.com</a> / PwC · <a href="https://www.pwc.com/gx/en/services/ai/ai-jobs-barometer.html">pwc.com</a></p>
+
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch / Bloomberg</span> · 6 月 30 日</div>
+      <h2 class="item-title"><span class="hl">DeepMind</span> 扑克 AI 团队转行做量化，估值 <span class="num">5</span> 亿美元</h2>
+      <p class="body">三位前 DeepMind 研究员——Martin Schmid、Rudolf Kadlec 和 Matej Moravcik——2017 年做出了 DeepStack，第一个在无限制德州扑克中击败人类的 AI。<span class="turn">现在他们把同样的强化学习架构用到了股票交易上。</span></p>
+      <p class="body">他们创立的 EquiLibre Technologies 刚完成由 Creandum 领投的 Series A，估值 <span class="num">5</span> 亿美元。与量化机构 Tower Research Capital 合作，每天在标普 <span class="num">500</span> 和纳斯达克交易数十亿美元。公司声称自 2025 年上线加密货币市场以来，<span class="hl">零负月度</span>——每个月都没亏钱。</p>
+      <p class="body">CEO Schmid 说了一句本质的话：<span class="turn">"交易和市场的记分方式很简单：agent 赚了多少钱？"</span>扑克和市场的共同点：都奖励在信息不完全下做序列决策的 agent，都惩罚僵化的规则。</p>
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/06/30/the-deepmind-trio-who-built-a-poker-ai-are-now-making-money-for-quant-hedge-funds/">techcrunch.com</a></p>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 本周声音</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">"经验与专业能力之间的传统关系正在改变。"</p>
+      <p class="voice-who">Pete Brown · PwC 全球劳动力负责人 · <a href="https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html">pwc.com</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">"纵观全球经济，我们开始看到人才与价值创造的不同模式之间出现新的分化。"</p>
+      <p class="voice-who">Joe Atkinson · PwC 全球首席人工智能官 · <a href="https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html">pwc.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">OpenAI</span> · 6 月 30 日</div>
+      <h2 class="item-title"><span class="hl">GeneBench-Pro</span>：AI 在生物学期末考上的得分，比你想的低</h2>
+      <p class="body">OpenAI 发布了 GeneBench-Pro，一个评估 AI 在计算生物学中"研究品味"的基准评测。题目设计得很聪明：<span class="turn">它给模型一个杂乱的真实数据集、一段实验背景和一个决策目标——看它能不能像一个人一样做研究判断。</span></p>
+      <p class="body">结果：最强模型 GPT-5.6 Sol 通过率 <span class="num">28.7%</span>。半年前最强的 GPT-5 还不到 <span class="num">5%</span>。进步飞快，<span class="turn">但距离"可以信任 AI 替你做生物学研究"还远。</span>OpenAI 把这个基准评测公开了，意味着它把"科研判断力"当成一个可测量的能力维度在追踪。</p>
+      <ul class="bul">
+        <li>129 个问题，覆盖 10 个领域 21 个子领域</li>
+        <li>包括功能基因组学、调控基因组学、统计遗传学等</li>
+        <li>OpenAI 预计这个基准评测可能今年底就会被饱和</li>
+      </ul>
+      <p class="source">OpenAI · <a href="https://openai.com/index/introducing-genebench-pro">openai.com</a></p>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <div class="item">
+    <p class="body">今天的主线，写在三个图表里。</p>
+    <p class="body"><span class="num">一</span>：<span class="hl">模型变便宜了</span>——Sonnet 5 把 agent 的入门价打到一杯咖啡钱。当推理不再是瓶颈，门槛从"用不用得起"变成"想不想用"。</p>
+    <p class="body"><span class="num">二</span>：<span class="hl">算力不够分</span>——Google 限 Meta 的 Gemini 用量。有钱不一定有 GPU，算力从采购问题变成了配额问题。</p>
+    <p class="body"><span class="num">三</span>：<span class="hl">人才在搬家</span>——一周 4 位 Gemini 核心研究员去 Anthropic。Transformer 作者 27 亿请回来，不到两年又走了。</p>
+    <p class="body"><span class="num">四</span>：<span class="hl">就业的数据和直觉打架</span>——高采用率公司招人更多了，初级岗反而涨得最快。AI 没有简单地消灭工作，它在重新划分谁的工作值钱。</p>
+    <p class="body"><span class="num">五</span>：<span class="hl">扑克 AI 转行炒股</span>——三位研究人员的强化学习架构从牌桌搬到了华尔街，每月正收益。</p>
+    <div class="signal">门槛在降，算力在紧，人在流动。2026 下半年的 AI 格局，已经开始重新画线了。</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <div class="img">
+        <img src="https://www.gstatic.com/prettyearth/assets/full/5234.jpg" alt="从卫星高度俯瞰地球" loading="lazy">
+      <p class="img-cap">Jandía Natural Park, Fuerteventura, Spain · <span class="num">28.10</span>°N, <span class="num">14.47</span>°W<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · Anthropic / TechCrunch / Financial Times / Engadget / Business Insider / Startup Fortune / Ramp & Revelio Labs / PwC / Bloomberg / OpenAI</p>
+    <p>一手原始 · 从业者原话 · 现场反应 · 事故复盘 —— 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
