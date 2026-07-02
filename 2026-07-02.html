@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-02</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.accent{color:var(--accent);font-weight:600;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年07月02日 · 星期四</span>
+  </nav>
+
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-07-02</span>
+      <span>星期四</span>
+      <span>8 条现场</span>
+    </div>
+    <p class="mast-lede">今天没有大模型发布，主线是"钱和地盘"：一个坚持不存你聊天记录的 AI 平台成了独角兽、还赚钱；<span class="accent">Google</span> 的常驻 agent 爬上了 Mac 桌面；专用推理芯片卖到十亿美元；连 AI 的算力都有人想搬去太空。</p>
+  </header>
+
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch / GeekWire</span> · 7 月 1 日</div>
+      <h2 class="item-title">一个"不记录你说什么"的 AI 平台，成了赚钱的独角兽</h2>
+      <p class="body"><span class="hl">Venice AI</span> 昨天完成 <span class="num">6500 万美元</span>A 轮融资，<span class="hl">Dragonfly</span> 领投、Coinbase Ventures 跟投，估值冲到 <span class="num">10 亿美元</span>。更让人意外的数据在后面：它已经盈利了——一季度转正，年化收入超 <span class="num">7000 万美元</span>、<span class="num">300 万</span>用户，成立两年第一次拿外部钱。</p>
+      <p class="body">Venice 给用户一站式接入 <span class="num">200</span> 多个开源和商用模型，卖点很硬：服务器不记录、不存储你的提问和回答，对话留在你自己的设备上，还拿掉了同类工具里的大量内容过滤。</p>
+      <p class="body"><span class="turn">在别家都在琢磨怎么用你的数据的时候，有人把"不碰你的数据"当成产品本身，还真跑通了商业模式。</span>对在意隐私的个人和团队，这是一个能用钱投票的另类选项。</p>
+
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/">techcrunch.com</a> / GeekWire · <a href="https://www.geekwire.com/2026/private-ai-venice-ai-led-by-crypto-vet-erik-voorhees-and-seattles-jesse-proudman-raises-65m/">geekwire.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Google / Engadget</span> · 7 月 1 日</div>
+      <h2 class="item-title"><span class="accent">Google</span> 那个 <span class="num">24</span> 小时替你干活的 agent，爬上了 Mac 桌面</h2>
+      <p class="body"><span class="hl">Gemini Spark</span>——5 月发布的常驻 agent——开始进入 Mac 版应用。<span class="turn">第一次能在你的电脑本地跑任务，不再只活在浏览器对话框里。</span></p>
+      <p class="body">Spark 是个能后台长期运行的 agent：归总重要邮件、生成排好优先级的待办、在日历上占出专注时间块、整理 Drive 文件，还能把重复动作沉淀成可复用的技能，横跨 Gmail、文档、表格、日历等。这是它今年夏天两次大更新里的第一次。</p>
+      <p class="body"><span class="turn">agent 从"网页对话框"挪到了"你天天用的电脑桌面"，这一步比多一个聊天窗口更接近日常。</span>它值不值得开，取决于你愿意把多少琐事真交给它自动做。</p>
+
+      <p class="source">Google 官方 · <a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/">blog.google</a> / Engadget · <a href="https://www.engadget.com/2176556/googles-gemini-spark-is-an-agentic-ai-assistant/">engadget.com</a></p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch</span> · 6 月 30 日</div>
+      <h2 class="item-title">把 AI agent 直接塞进手机键盘，打字时随手就能用</h2>
+      <p class="body">一款叫 <span class="hl">Acti</span> 的应用把 AI agent 装进了手机键盘本身。它不是另一个 App——它接管你的输入法。</p>
+      <p class="body">无论你在哪个应用里打字，都能就地唤起 agent 帮你写、改、查、办，不用来回切到别的窗口复制粘贴。等于把助手放在了你手指最常停留的地方。</p>
+      <p class="body"><span class="turn">AI 用不用得起来，很多时候卡在"要不要专门打开一个 App"。把它放进键盘，等于把摩擦降到接近零。</span>这类"藏进现有习惯里"的做法，往往比再造一个入口更管用。</p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-02/acti-tc.jpg" alt="Acti 手机键盘上 AI agent 的界面" loading="lazy">
+        <p class="img-cap">Acti 把 AI agent 塞进手机键盘，打字时随手可用。图：TechCrunch。</p>
+      </div>
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/06/30/acti-puts-ai-agents-directly-into-your-smartphone-keyboard/">techcrunch.com</a></p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Anthropic</span> · 6 月 30 日–7 月 1 日</div>
+      <h2 class="item-title">四家对手坐下来，一起给"越狱"定一把统一的尺子</h2>
+      <p class="body">所谓越狱，就是用花招诱导模型说出或做出它本不该做的事。过去各家对"这次越狱有多严重"各说各话，没有公认标准。</p>
+      <p class="body"><span class="hl">Anthropic</span> 联合 <span class="hl">Amazon</span>、<span class="hl">Microsoft</span>、<span class="hl">Google</span> 等伙伴，提出一套给"越狱严重程度"打分的行业统一框架。想让不同公司、不同模型之间的安全问题能放在同一把尺子上比较。</p>
+      <p class="body"><span class="turn">竞争最激烈的几家在安全评估上罕见地想统一口径。</span>有了共同的尺子，模型到底安不安全才有可比性，你我作为用户才有据可依。</p>
+      <p class="source">Anthropic 官方 · <a href="https://www.anthropic.com/news">anthropic.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">xAI</span> · 7 月 1 日</div>
+      <h2 class="item-title"><span class="hl">xAI</span> 上线"语音 agent 搭建器"，让你自己拼一个会说话的助手</h2>
+      <p class="body"><span class="hl">Voice Agent Builder</span>——基于 Grok 模型自己配置、组装一个能听会说的语音 agent，不用从零写语音链路。<span class="turn">它跟 xAI 最近连推的一系列开发者工具是一条线：把"造 agent"的门槛往下压。</span></p>
+      <p class="body">语音正在从"念稿机器人"变成能真办事的入口。对做客服、做硬件、做小工具的人，自己拼一个语音 agent 的成本又低了一截。</p>
+      <p class="source">xAI 官方 · <a href="https://x.ai/news">x.ai</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">VISUAL · AI 的视觉冲击</div>
+    <div class="sec-title">视觉</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Euronews / 天文学界</span> · 7 月 1 日</div>
+      <h2 class="item-title">有人想把 AI 的算力搬去太空，代价是我们头顶的星空</h2>
+      <p class="body">天文学界发出警告：<span class="hl">SpaceX</span> 计划到 <span class="num">2028</span> 年发射超过百万颗卫星，其中一部分要充当在轨的数据中心，为 AI 提供算力。</p>
+      <p class="body"><span class="turn">天文学家担心如此密集的卫星会显著抬高夜空亮度、在长曝光影像上留下大量划痕。</span>干扰最大的是即将大规模巡天的新一代地面望远镜。</p>
+      <p class="body"><span class="turn">AI 的胃口正在从地面数据中心往天上延伸。</span>这不只是抽象的能耗数字——它可能改变你抬头看到的那片星空——一个能被普通人肉眼感知的代价。</p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-02/chart02_sat.png" alt="干净夜空与布满卫星划痕的长曝光对比示意图" loading="lazy">
+        <p class="img-cap">对比示意：一侧干净星空，一侧卫星轨迹密布。AI 算力上太空的代价，可能由每个人的夜空来付。</p>
+      </div>
+      <p class="source">Euronews · <a href="https://www.euronews.com/2026/07/01/planned-17-million-satellites-devastating-for-astronomy-by-making-night-sky-brighter">euronews.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MONEY · 钱在流动</div>
+    <div class="sec-title">投资与资金流向</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch</span> · 6 月 30 日</div>
+      <h2 class="item-title">只为一种模型结构造的芯片，卖出了 <span class="num">十亿美元</span></h2>
+      <p class="body"><span class="hl">英伟达</span>的挑战者 <span class="hl">Etched</span> 估值达到 <span class="num">50 亿美元</span>，芯片销售额突破 <span class="num">10 亿美元</span>。</p>
+      <p class="body"><span class="hl">Etched</span> 走的是一条窄而深的路：电路只为 <span class="hl">Transformer</span> 这一种模型结构做死了设计，换来的是跑这类模型时更快更省。相比通用 GPU 什么都能算，它牺牲了通用性换效率。</p>
+      <p class="body"><span class="turn">这是对"通用芯片包打天下"的一次正面挑战。</span>如果专用芯片能持续兑现性价比，推理成本的下降就不只靠英伟达一家说了算——这最终会体现在你调 API 的账单上。</p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-02/chart01_chip.png" alt="专用芯片 vs 通用芯片示意：瑞士军刀与单刃手术刀" loading="lazy">
+        <p class="img-cap">通用芯片像瑞士军刀——什么都能干；专用芯片像手术刀——专一换速度。图说了算。</p>
+      </div>
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/06/30/nvidia-competitor-etched-hits-5b-valuation-1b-in-sales-for-ai-chip/">techcrunch.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 本周声音</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">"我们在优化自由，真正把用户当成年人对待——这年头，我觉得很少见了。"</p>
+      <p class="voice-who">Erik Voorhees · Venice AI 创始人兼 CEO · <a href="https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/">techcrunch.com</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">"从安全角度看，让世界进入下一阶段、每个人都被持续监视，这其实非常危险。"</p>
+      <p class="voice-who">Erik Voorhees · Venice AI 创始人兼 CEO · <a href="https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/">techcrunch.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <div class="item">
+    <p class="body">今天的主线，不是模型，是边界在动。</p>
+    <p class="body"><span class="num">一</span>：<span class="hl">隐私可以当产品</span>——Venice AI 用"不记录你的对话"跑通了独角兽模式，说明隐私不是成本，可以是卖点。</p>
+    <p class="body"><span class="num">二</span>：<span class="hl">agent 在从网页往桌面和键盘搬家</span>——Google Spark 上了 Mac，Acti 塞进了输入法。入口越浅，习惯越深。</p>
+    <p class="body"><span class="num">三</span>：<span class="accent">算力在往外走</span>——专用芯片做到十亿销售额（Etched），太空数据中心准备好牺牲星空（SpaceX 百万卫星），AI 不再只跟地面 GPU 绑定。</p>
+    <p class="body"><span class="num">四</span>：<span class="accent">行业在给安全定统一尺子</span>——Anthropic + Amazon + Microsoft + Google 联合推出越狱严重程度打分框架。</p>
+    <p class="body"><span class="num">五</span>：<span class="accent">能力在加速</span>——国际科学家小组给联合国的报告指出，AI 能处理的任务复杂度大约每 <span class="num">4–7 个月</span>翻一倍。今天你觉得"它还搞不定"的活，可能下一个季度就变了。</p>
+    <div class="img">
+      <img src="assets/ai-frontline-images/by-date/2026-07-02/chart03_double.png" alt="AI 任务复杂度的指数增长曲线——每4-7个月翻一倍" loading="lazy">
+      <p class="img-cap">AI 任务复杂度翻倍曲线：每 4–7 个月翻一番。今天觉得"还搞不定"的活，下一个季度可能就变了。来源：独立科学家小组提交联合国的 AI 预警报告。</p>
+    </div>
+    <div class="signal">今天没有新模型，但模型需要的东西——算力、入口、安全标准、用户信任——全在重新画线。</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <div class="img">
+      <img src="https://www.gstatic.com/prettyearth/assets/full/1400.jpg" alt="从卫星高度俯瞰海岸线的潮汐纹理" loading="lazy">
+      <p class="img-cap">Mont Saint-Michel Bay, France · <span class="num">48.62</span>°N, <span class="num">1.54</span>°W<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · TechCrunch / GeekWire / Google 官方 / Engadget / Anthropic / xAI 官方 / Euronews</p>
+    <p>一手原始 · 从业者原话 · 现场反应 · 事故复盘 —— 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
