@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-03</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.accent{color:var(--accent);font-weight:600;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年07月03日 · 星期五</span>
+  </nav>
+
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-07-03</span>
+      <span>星期五</span>
+      <span>7 条现场</span>
+    </div>
+    <p class="mast-lede">今天是美国 7 月 4 日长假前一天，前沿新闻本就稀薄——但我们没有为了凑数放旧料。今天的四条主线是：<span class="hl">算力想摆脱英伟达</span>（Anthropic 找三星造芯片）、<span class="hl">价值从模型移到落地</span>（微软 25 亿新公司）、<span class="hl">小模型反超大模型</span>（微调打败前沿）、<span class="hl">Agent 开始自我进化了</span>（快手 AgentX 三周产出 10 个可发布结果）。再附两张越来越贵的环境账单。</p>
+  </header>
+
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item">
+      <div class="dateline"><span class="src">The Information / TechCrunch</span> · 7 月 2 日</div>
+      <h2 class="item-title">Anthropic 找上三星，想造一块属于自己的 AI 芯片</h2>
+      <p class="body"><span class="hl">Anthropic</span> 正在和<span class="hl">三星</span>接触，探讨合作生产一块自研 AI 芯片。The Information 7 月 2 日独家报道了这个还在早期的项目——尚未敲定芯片用途、性能规格、甚至是否最终推进。但方向已经清楚：每一家前沿 AI 公司都在减少对<span class="hl">英伟达</span>的依赖。</p>
+      <p class="body">Anthropic 从 OpenAI 挖来的芯片工程负责人 <span class="hl">Clive Chan</span>，正在组建自己的芯片团队。三星的 2nm 工艺和先进封装能力是吸引 Anthropic 的关键。三星、SK 海力士、美光此前全部参投了 Anthropic 5 月的 650 亿美元 H 轮融资。</p>
+      <p class="body"><span class="turn">算力高度依赖单一供应商的局面正在解体。从 OpenAI 的 Jalapeño 到 Anthropic 的自研芯片，每家公司都在给自己加一条后路。</span></p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-03/anthropic-samsung-chip.png" alt="Anthropic 与三星探讨自研 AI 芯片渲染图" loading="lazy">
+        <p class="img-cap">Anthropic 正在探讨与三星合作生产自研 AI 芯片，加入 OpenAI 等公司行列，减少对英伟达的单一依赖。图：The Decoder。</p>
+      </div>
+      <p class="source">The Information · <a href="https://www.theinformation.com/articles/anthropic-talks-samsung-manufacture-custom-ai-chip">theinformation.com</a> / TechCrunch · <a href="https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/">techcrunch.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch / GeekWire</span> · 7 月 2 日</div>
+      <h2 class="item-title">微软掏 <span class="num">25</span> 亿美元、<span class="num">6000</span> 名工程师，专门帮大公司把 AI 真正用起来</h2>
+      <p class="body"><span class="hl">Microsoft Frontier Company</span>——7 月 2 日宣布，投入 25 亿美元、<span class="num">6000</span> 名行业和工程专家，专门做一件事：派工程师上门，把 AI 在企业里跑通。</p>
+      <p class="body">微软商业业务 CEO <span class="hl">Judson Althoff</span> 特意撇清了"前线部署工程师"（FDE）标签，称它是"业界规模最大、以结果为导向的工程组织"。首批客户包括伦敦证交所集团、联合利华、Land O'Lakes、埃森哲。此前 AWS 刚在两天前宣布了 10 亿美元的同类计划。</p>
+      <p class="body"><span class="turn">AI 当前的真正瓶颈是"落地那一步"有没有人帮你跑通。巨头开始把"派人上门做 AI"当成一门独立的生意来投。</span></p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-03/microsoft-frontier.jpg" alt="微软 Frontier Company 宣布投入 25 亿美元部署 AI 工程师" loading="lazy">
+        <p class="img-cap">微软 Frontier Company：25 亿美元 + 6000 名工程师，专门派驻客户现场做 AI 落地。图：Getty Images via TechCrunch。</p>
+      </div>
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/">techcrunch.com</a> / GeekWire · <a href="https://www.geekwire.com/2026/microsoft-announces-2-5b-frontier-company-to-embed-ai-engineers-inside-customers/">geekwire.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">THE BIGGER PICTURE</div>
+    <div class="sec-title">认知 · 这轮 AI 的新解法与真实代价</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Thinking Machines Lab / Bridgewater</span> · 原文 6 月 30 日 · 本周热议</div>
+      <h2 class="item-title">一个微调过的小模型，在金融判断上击败了所有前沿大模型——还便宜近 <span class="num">14</span> 倍</h2>
+      <p class="body">Mira Murati 的 <span class="hl">Thinking Machines Lab</span> 与桥水基金合作的研究，给出了一个挑战直觉的结果：用高质量专家标注数据微调出的专用小模型，在真实投资判断任务上，击败了所有测试过的前沿大模型。</p>
+      <p class="body">前沿模型（Gemini、Claude、GPT 各版本）精心调过提示词后，平均准确率仅 <span class="num">78%</span>，够不到投资员愿意信赖的 80% 门槛。而微调专用小模型达到 <span class="hl">84.7%</span>，错误率比最强前沿模型低 <span class="num">29.8%</span>，每次调用成本却只有其 <span class="num">1/13.8</span>。</p>
+      <p class="body"><span class="turn">"越大越强、追最新前沿就对了"这个直觉正在被挑战。对很多具体活儿，一个自己调过的小模型，可能又准又便宜。</span></p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-03/chart-1.png" alt="微调专用小模型 84.7% vs 最强前沿模型 78.2%" loading="lazy">
+        <p class="img-cap">微调专用小模型 84.7% vs 最强前沿模型 78.2%，且成本仅为 1/13.8。数据：Thinking Machines Lab / Bridgewater AIA Labs。</p>
+      </div>
+      <p class="source"><a href="https://thinkingmachines.ai/news/learning-to-replicate-expert-judgment-in-financial-tasks/">Thinking Machines Lab 官方</a> · 原文 2026-06-30（本周被广泛讨论）</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">MacTalk via 微信</span> · 7 月 2 日</div>
+      <h2 class="item-title">快手出了 AgentX：推荐系统开始自我迭代了</h2>
+      <p class="body">快手 <span class="hl">AgentX</span>——面向工业推荐系统的 <span class="hl">Agent 驱动研发闭环</span>。它把推荐迭代拆成 4 个 Agent 模块：<span class="hl">Brainstorm Agent</span> 把模糊业务目标变成可落地方案；<span class="hl">Developing Agent</span> 把方案写成生产代码，经过特征校验、DSL 检查、dryrun 验证后才上线；<span class="hl">Evaluation Agent</span> 上 A/B 实验，安全部署、流量分桶、guardrail veto，输出 KEEP / EXTEND / DISCARD；最关键是第四个——<span class="hl">Harness Evolution</span>，它把每次失败诊断成"语义梯度"，用一套叫 <span class="hl">SGPO</span>（Semantic-Gradient-based Prompt Optimization）的机制修改 Agent 自身的工作规则和 Prompt，再用历史实验 replay 对比——新版确实好了，才进生产。</p>
+      <p class="body"><span class="turn">Agent 不只是帮你写代码的工具——它正在变成能自我进化的研发系统。</span></p>
+      <p class="body">三周生产数据：3 个 AgentX worker 推进 <span class="hl">374</span> 个想法，<span class="num">106</span> 个通过方案审核，<span class="num">100</span> 个完成上线，<span class="num">10</span> 个获得正向评估达到可发布标准。漏斗自然收敛：<span class="num">28.34%</span> idea pass rate → <span class="num">94.3%</span> code-launch rate → <span class="num">9.9%</span> positive eval rate。业务收益：主站消费时长 +<span class="num">0.561%</span>，生活服务年化超 <span class="num">1 亿元</span>人民币。</p>
+      <p class="body">更有价值的信号是自我加速——周并发从 <span class="num">15</span> 增至 <span class="num">60</span>，idea 通过率 <span class="num">15%</span>→<span class="num">45%</span>，周可发布结果 <span class="num">2</span>→<span class="num">5</span>。PCV 两轮实验展示了"自我迭代"的真实运作：第一轮 PCV boosting 弱正向但显著性不够，第二轮加入质量门控和自适应权重后拿到 +0.071% 观看时长。每一次实验都变成下一次更好的假设。</p>
+      <p class="source">池建强 / MacTalk · <a href="https://mp.weixin.qq.com/s/mSD0SPJPJpJPAFj_z2BZ0w">mp.weixin.qq.com</a></p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch</span> · 7 月 2 日</div>
+      <h2 class="item-title">谷歌、亚马逊最新财报，暴露了这轮 AI 的真实环境账单</h2>
+      <p class="body"><span class="hl">Google</span> 总碳排放同比上升 <span class="num">25%</span>，<span class="hl">Amazon</span> 上升 <span class="num">16%</span>。绿电买得不错，直接用电排放控制得还行；真正在涨的是 Scope 3（供应链间接排放）——Google 这块去年增加了 <span class="num">210 万吨</span>，已是 2019 年的两倍，主因指向数据中心。Amazon 光去年 Q4 就新增了超过 <span class="num">1.2 吉瓦</span>数据中心容量。</p>
+      <p class="body"><span class="turn">每次你调用 AI，背后都有一座正在盖、正在耗电的数据中心。这份账单第一次被拆得这么清楚。</span></p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-03/chart-2.png" alt="Google 碳排放 +25%、Amazon +16%" loading="lazy">
+        <p class="img-cap">Google 总碳排放同比 +25%、Amazon +16%；Google Scope 3 已是 2019 年的两倍。数据：Google / Amazon 可持续报告，经 TechCrunch 整理。</p>
+      </div>
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/07/02/a-warning-sign-about-ais-real-cost-courtesy-of-google-and-amazon/">techcrunch.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 本周声音</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">"我现在大部分编码工作都在手机上做。六个月前你要是跟我说这个，我会说你疯了——但确实是这么回事。"</p>
+      <p class="voice-who">Boris Cherny · Anthropic Claude Code 负责人 · <a href="https://techcrunch.com/2026/06/29/cursor-now-has-a-mobile-app-for-guiding-your-coding-agent-on-the-go/">techcrunch.com</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">"AgentX：把推荐系统最耗时、依赖经验的过程，变成持续运转的闭环——让正确的事持续发生。"</p>
+      <p class="voice-who">池建强 · MacTalk 评快手 AgentX · <a href="https://mp.weixin.qq.com/s/mSD0SPJPJpJPAFj_z2BZ0w">mp.weixin.qq.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Cursor 官方 / The Verge</span> · 6 月 29 日</div>
+      <h2 class="item-title">Cursor 出了 iPhone 版：在手机上启动 AI 编程 agent，出门也能写代码</h2>
+      <p class="body"><span class="hl">Cursor</span>（最近被 SpaceX 收购的 AI 编程平台）发布了首个 iOS 原生应用，公测版上线 App Store。你可以在手机上启动云端 agent，或者在电脑上跑了 agent 之后用手机远程指挥——查看 diff、审批 PR、用语音描述需求。</p>
+      <p class="body">Anthropic Claude Code 负责人 Boris Cherny 近期公开说"我现在大部分编码工作都在手机上做"——六个月前他还觉得这不可思议。Cursor 的移动端让这个场景对更多开发者变成了现实。</p>
+      <p class="body"><span class="turn">AI 编程从"坐在电脑前写代码"变成了"哪里都能启动 agent、审批 PR"。开发者工作流的地点在消失。</span></p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-03/cursor-ios.png" alt="Cursor iOS 手机应用界面" loading="lazy">
+        <p class="img-cap">Cursor 首款 iOS 原生应用：手机上启动 AI 编程 agent，随时随地 review 和 merge PR。图：Cursor 官方。</p>
+      </div>
+      <p class="source">Cursor 官方 · <a href="https://cursor.com/blog/ios-mobile-app">cursor.com</a> / The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/959145/cursor-launches-an-iphone-app-for-its-ai-coding-agent">theverge.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MONEY · 钱在流动</div>
+    <div class="sec-title">投资与资金流向</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Bloomberg / TechCrunch</span> · 7 月 1 日–7 月 2 日</div>
+      <h2 class="item-title">手里算力太多，Meta 想开个云服务卖给别人</h2>
+      <p class="body">Bloomberg 7 月 1 日报道，<span class="hl">Meta</span> 正在筹划一个名为 <span class="hl">Meta Compute</span> 的云基础设施业务，把过剩的 AI 算力卖给外部客户。两条路线都在考虑：一是类似 AWS Bedrock 的托管模型 API 服务（包括自家 Muse Spark 模型），二是在卖"裸算力"（raw GPU compute）。</p>
+      <p class="body">Zuckerberg 在 5 月股东会上说过：<span class="turn">"几乎每周都有外面公司来找我们，问能不能卖算力给他们。"</span>Meta 已承诺未来几年投入 <span class="num">1829 亿美元</span>建 AI 基础设施，俄亥俄州项目"规模相当于曼哈顿"。卖算力是给这笔天价投资找一个变现出口。</p>
+      <p class="body"><span class="turn">AI 基础设施的过剩产能正在变成一门新生意。继 SpaceX 之后，Meta 也在走这条路——谁是未来 AI 的房东，比谁造了最强的模型更值得关注。</span></p>
+      <p class="source">Bloomberg · <a href="https://www.bloomberg.com/news/articles/2026-07-01/meta-is-building-a-cloud-business-to-sell-excess-ai-compute">bloomberg.com</a> / TechCrunch · <a href="https://techcrunch.com/2026/07/01/meta-like-spacex-looks-to-turn-excess-ai-compute-into-cash/">techcrunch.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <div class="item">
+    <p class="body">今天的主线是三件更结构性的事：</p>
+    <p class="body"><span class="num">一</span>：<span class="hl">算力想摆脱英伟达</span>——Anthropic 找三星造自研芯片，加入 OpenAI（Jalapeño）、Google（TPU）、Amazon（Trainium）等自研芯片阵营。产业链在去中心化。</p>
+    <p class="body"><span class="num">二</span>：<span class="hl">价值从"模型多强"移到"能不能落地"</span>——微软 25 亿美元新公司专门派人上门做 AI 落地，AWS 两天前也投了 10 亿。卖模型不如帮人把模型跑起来值钱。</p>
+    <p class="body"><span class="num">三</span>：<span class="hl">"更大更前沿"未必最优</span>——Thinking Machines Lab + Bridgewater 的研究证明：微调小模型 <span class="num">84.7%</span> 准确率 vs 前沿模型 <span class="num">78%</span>，成本仅 <span class="num">1/14</span>。对具体场景，自己调的小模型可能更实用。</p>
+    <p class="body"><span class="num">四</span>：<span class="hl">Agent 正在变成能自我进化的研发系统</span>——快手 AgentX 用 4 个 Agent 模块跑完推荐实验全闭环，SGPO 用"语义梯度"让 Agent 自己改 Prompt。3 周 374 想法 → 10 可发布，周产出从 2 到 5。</p>
+    <p class="body">最后附一张越来越贵的环境账单——Google 碳排放 +<span class="num">25%</span>、Amazon +<span class="num">16%</span>。AI 的能力在涨，账单也在涨。</p>
+    <div class="signal">今天是美国长假前最后一个工作日，新闻稿少但我们没放水——5 条真新闻 + 2 张数据图表，每条都经过现场信源核实。</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <div class="img">
+      <img src="https://www.gstatic.com/prettyearth/assets/full/1430.jpg" alt="从卫星高度俯瞰极地纹理" loading="lazy">
+      <p class="img-cap">Greenland · <span class="num">71.71</span>°N, <span class="num">42.28</span>°W<br>极地荒原在夏日阳光下显露出冰与岩石交织的纹理。<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。让我们保持好奇、继续探索。</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · The Information / TechCrunch / GeekWire / Thinking Machines Lab / Bloomberg / The Verge / Cursor 官方 / MacTalk</p>
+    <p>一手原始 · 从业者原话 · 现场反应 · 事故复盘 —— 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
