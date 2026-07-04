@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-04</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.accent{color:var(--accent);font-weight:600;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年07月04日 · 星期六</span>
+  </nav>
+
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-07-04</span>
+      <span>星期六</span>
+      <span class="issue">No.055</span>
+      <span>3 条现场</span>
+    </div>
+    <p class="mast-lede">美国独立日，AI 新闻薄。但今天有几条值得细看：Anthropic 把 Claude 做成了科研工作台、阿里巴巴以安全为由反制封锁 Claude Code、Yann LeCun 离开 Meta 后的新公司拿了 10 亿美金。<span class="hl">公司不再比模型，开始抢职业场景的入口。</span></p>
+  </header>
+
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item">
+      <div class="dateline"><span class="src">Anthropic / The Verge / TechCrunch</span> · 6 月 30 日发布 · 本周热议</div>
+      <h2 class="item-title">Anthropic 把 Claude 做成了科学家的工作台</h2>
+      <p class="body"><span class="hl">Claude Science</span>——Anthropic 发布的 AI workbench，面向科研人员。它是一个整合型桌面 app，接入研究者常用工具和软件包、生成可审计产物、提供灵活的算力访问。TechCrunch 概括得准：Anthropic 押注的是 <span class="accent">workflow</span>，不是新模型。</p>
+      <p class="body">研究员可以做基因组学分析、CRISPR 筛选设计、蛋白质结构预测、化学信息学——不必在 PubMed、Jupyter、R、集群终端之间来回跳转。每个输出带完整的审计轨迹，代码、环境、过程全部可追溯。</p>
+      <p class="body">这条线不止一个产品。此前 <span class="hl">Fable 5</span> 与 <span class="hl">Mythos 5</span> 恢复可用，紧接着 Claude Science 上线。Anthropic 在回答：前沿模型恢复供给是第一步，真正要抢的是高价值职业场景的入口。</p>
+      <p class="body">Claude Science 对接了超过 <span class="num">60</span> 个经过预配置的科研技能和连接器，底层调用 NVIDIA BioNeMo 中的 Evo 2、Boltz 2、OpenFold3。Anthropic 同时为学术实验室提供折扣 Team 计划，开放 <span class="hl">50</span> 个 AI for Science 项目资助（最高 <span class="num">3</span> 万美元 credits + Modal <span class="num">2000</span> 美元算力，截至 7 月 15 日）。Pro <span class="num">20</span> 美元/月、Max <span class="num">100</span> 美元/月。</p>
+      <p class="body"><span class="turn">AI for science 过去停留在 demo 或单点能力。这次值得看的是工作流一体化——把 AI 放进现成工作流。</span></p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-04/claude-science.png" alt="Claude Science AI workbench 界面" loading="lazy">
+        <p class="img-cap">Claude Science：面向科研人员的 AI workbench，整合数据库、pipeline，生成可审计的科研产物。图：Anthropic。</p>
+      </div>
+      <p class="source">Anthropic · <a href="https://www.anthropic.com/news/claude-science-ai-workbench">anthropic.com</a> / The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/961311/anthropic-claude-science-ai-drug-development">theverge.com</a> / TechCrunch · <a href="https://techcrunch.com/2026/06/30/anthropics-claude-science-bets-on-workflow-not-a-new-model-to-win-over-scientists/">techcrunch.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">SCMP / 财新 / 36氪</span> · 7 月 3 日 · 中国视角</div>
+      <h2 class="item-title">阿里巴巴全面禁用美国 AI 开发工具，转用自研 Qoder</h2>
+      <p class="body">阿里巴巴宣布自 7 月 10 日起全员禁用外部编程智能体工具，将其列入高风险软件清单，统一转向自研产品 <span class="hl">Qoder</span>。此前该公司发现该工具内置隐匿代码，在用户不知情下检查时区、代理地址、API 地址。<span class="turn">国际 AI 工具的信任问题不再是理论风险——它已经变成了中国最大科技公司的内部安全策略。</span></p>
+      <p class="body">阿里不是个案。这轮事件后，更多中国企业可能重新评估依赖海外 AI 开发工具的供应链风险。<span class="hl">地缘政治正在重塑开发者工具的选择版图。</span></p>
+      <p class="source">SCMP · <a href="https://gugudu.cn/articles/scmp/tech_big-tech_article_3359375_alibaba-bans-staff-using-claude-code-over-anthropic-spyware-concerns">scmp.com</a> / 财新 · <a href="https://www.caixin.com/2026-07-03/102460433.html">caixin.com</a> / 36氪 · <a href="https://36kr.com/newsflashes/3879528169025542">36kr.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 信任与断裂</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">"事实应该是被 A 社曝出蒸馏后才被迫禁用的，这公关手法有点高。"</p>
+      <p class="voice-who">WRa · 财新读者 · <a href="https://www.caixin.com/2026-07-03/102460433.html">caixin.com</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">"蒸馏模型大家都用，a 社也用。给小偷贴标签，是世界警察的通行做法。"</p>
+      <p class="voice-who">拉西姆哈桑 · 财新读者（转引自 36氪） · <a href="https://36kr.com/newsflashes/3879528169025542">36kr.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">The Verge / Business Insider</span> · 7 月 2 日</div>
+      <h2 class="item-title">Meta 做了个叫 Pocket 的新 app：用 AI prompt 生成可分享的"小玩意"</h2>
+      <p class="body">Meta 推出了一款名为 <span class="hl">Pocket</span> 的新社交 app。不是旧的稍后读工具——用户通过 AI prompt 创建并分享小型互动内容，Meta 称之为 <span class="hl">gizmos</span>。</p>
+      <p class="body">Google Play 描述："刷一刷来自世界各地用户的 gizmo feed。gizmo 响应你的触摸和手机倾斜，播放音效和音乐，能调用摄像头或相册，有些甚至能感知周围世界。"Zuckerberg 此前描述过"用 AI 制作互动体验并分享"的愿景，Pocket 是第一个落地产品。当前主要在美国之外的部分区域上线。</p>
+      <p class="body"><span class="turn">AI 社交内容开始从图片/视频走向可玩的小交互单元。如果 gizmo 真的能在社交 feed 里流动，它比单纯 AI 贴图更接近下一代轻应用形态。</span></p>
+      <div class="img">
+        <img src="assets/ai-frontline-images/by-date/2026-07-04/meta-pocket.jpg" alt="Meta Pocket app 截图" loading="lazy">
+        <p class="img-cap">Meta Pocket：用 AI prompt 生成可分享的交互式 gizmos。图：The Verge / Meta。</p>
+      </div>
+      <p class="source">The Verge · <a href="https://www.theverge.com/tech/961086/meta-pocket-app-gizmo-ai">theverge.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MONEY · 钱在流动</div>
+    <div class="sec-title">投资与资金流向</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Oak Hill Gazette / Aramco Ventures / NVIDIA</span> · 7 月 1 日公布 · 4 日广泛报道</div>
+      <h2 class="item-title">Together AI 获 <span class="num">8</span> 亿美元 C 轮，开源模型需求成了新的"石油生意"</h2>
+      <p class="body">云服务商 <span class="hl">Together AI</span> 完成 <span class="num">8</span> 亿美元 C 轮融资，估值 <span class="num">83</span> 亿美元。领投方是沙特阿美的风投部门 Aramco Ventures，跟投方包括 Vista Equity、General Catalyst、NVIDIA、Emergence Capital。这家 2022 年成立的公司专做开源模型托管，年化预订收入已突破 <span class="num">11.5</span> 亿美元。</p>
+      <p class="body">客户名单包含 Cursor、Cognition、Decagon——都是这轮 AI 工具浪潮里的高频算力消耗者。<span class="turn">当沙特主权资本开始给开源 AI 堆 GPU，说明开源已经成为基础设施级别的赛道。</span></p>
+      <p class="body">同期另一条投资线：<span class="accent">Yann LeCun</span> 离开 Meta 后在巴黎创立的 <span class="hl">AMI Labs</span> 完成超 <span class="num">10</span> 亿美元种子轮，NVIDIA 和 Bezos 参投，做超越 LLM 的下一代 AI 架构。两条线指向同一个信号：<span class="hl">钱正在从聊天模型的基础设施向开源 + 前沿架构两个方向分散押注。</span></p>
+      <p class="source">Oak Hill Gazette · <a href="https://oakhillgazette.com/together-ai-800-million-series-c/">oakhillgazette.com</a> / NVIDIA PR</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <div class="item">
+    <p class="body">独立日新闻薄，但今天几条信号密度不低：</p>
+    <p class="body"><span class="num">一</span>：<span class="hl">工作台取代模型成为竞争前线</span>——Anthropic 把 Claude 做成科研 workbench，从对话走向职业场景入口。</p>
+    <p class="body"><span class="num">二</span>：<span class="hl">地缘震荡传进开发者工具层</span>——阿里巴巴因后门封锁 Claude Code，中美 AI 工具供应链加速脱钩。</p>
+    <p class="body"><span class="num">三</span>：<span class="hl">钱从 LLM 基础设施外溢</span>——Together AI 融 <span class="num">8</span> 亿做开源云、LeCun 拿 <span class="num">10</span> 亿做下一代架构，投资人在分散押注。</p>
+    <div class="signal">今日 5 条新闻覆盖 3 个方向、5 家公司，Anthropic 占比 20%。</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <div class="img">
+      <img src="https://www.gstatic.com/prettyearth/assets/full/2001.jpg" alt="从卫星高度俯瞰雨林纹理" loading="lazy">
+      <p class="img-cap">Amazon Rainforest, Brazil · <span class="num">3.46</span>°S, <span class="num">62.22</span>°W<br>地球上物种最丰富的生态系统。<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。让我们保持好奇、继续探索。</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · Anthropic / The Verge / TechCrunch / SCMP / 财新 / 36氪 / Oak Hill Gazette</p>
+    <p>一手原始 · 从业者原话 · 现场反应 · 事故复盘 —— 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
