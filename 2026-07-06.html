@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-06</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:-0.3px;
+  margin-bottom:12px;
+}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px;}
+.hl{color:var(--klein);font-weight:600;}
+.num{color:var(--accent);font-weight:600;font-family:'Inter',sans-serif;}
+.accent{color:var(--accent);font-weight:600;}
+.turn{color:var(--klein);font-weight:700;}
+.bul{list-style:none;margin:14px 0 12px;padding:0;}
+.bul li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.72;margin-bottom:8px;}
+.bul li::before{content:"\2014";position:absolute;left:0;color:var(--klein);font-weight:600;}
+.source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
+.source a{color:var(--klein);text-decoration:none;}
+.img{margin:18px 0;border-radius:6px;overflow:hidden;}
+.img img{width:100%;height:auto;display:block;border-radius:6px;}
+.img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
+.img-cap a{color:var(--klein);text-decoration:none;}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.divider{height:1px;background:var(--line);margin:0;}
+
+.wrap{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px;}
+.signal{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:var(--gray);
+  background:#F6F7FB;
+  border-left:2px solid var(--gray-light);
+  padding:10px 14px;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+.site-nav-lite{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.nav-back{
+  font-size:13px;
+  color:var(--klein);
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-back:hover{text-decoration:underline;}
+.nav-date{
+  font-size:12px;
+  color:var(--gray-light);
+  font-family:'JetBrains Mono',monospace;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="site-nav-lite">
+    <a href="index.html" class="nav-back">← 首页</a>
+    <span class="nav-date">2026年07月06日 · 星期一</span>
+  </nav>
+
+  <header class="masthead">
+    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+    <h1 class="mast-title">AI 情报日报</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span>2026-07-06</span>
+      <span>星期一</span>
+      <span class="issue">No.057</span>
+      <span>5 条现场</span>
+    </div>
+    <p class="mast-lede">今天继续把镜头从大厂移开。<span class="hl">头版是一位记者走进机器人工厂的现场报道。</span>前线是开源云、开源权重与一线开发者的账单。大厂与宏观压成信号条。</p>
+  </header>
+
+  <section class="section">
+    <div class="sec-eyebrow">HEADLINE</div>
+    <div class="sec-title">今日头版</div>
+    <div class="item">
+      <div class="dateline"><span class="src">The New Yorker</span> · 7 月 6 日</div>
+      <h2 class="item-title">记者走进机器人工厂：人形机器人，真的准备好进你家了吗</h2>
+      <div class="img">
+        <img src="https://media.newyorker.com/photos/6a3aeaa1dcb3d341a4bad9b3/16:9/w_1280,c_limit/r49064.jpg" alt="1X Neo机器人准备住进普通家庭" loading="lazy">
+        <p class="img-cap">Neo 定价 2 万美元买断或每月 499 美元租用。但真正引人注目的不是价格——首批家庭用户仍需允许 1X 真人员工远程操控家中的机器人。图：The New Yorker。</p>
+      </div>
+      <p class="body"><span class="accent">The New Yorker</span> 记者 <span class="accent">Stephen Witt</span> 走进 <span class="accent">1X</span> 位于加州 Hayward 的工厂——约 <span class="num">5.8</span> 万平方英尺、<span class="num">200</span> 多名员工，已进入量产。目标是让 <span class="accent">Neo</span> 在 2026 年底起进入美国家庭。身高约 <span class="num">168cm</span>、重约 30kg，主打家务与陪伴，2 万美元买断或 499 美元/月租用。1X 称到 2027 年底年产能将达 <span class="num">10</span> 万台，另一座 San Carlos 工厂今年内投产。</p>
+      <p class="body">但 Witt 的报道揭开了行业最不愿被放大的一面——<span class="accent">所谓「自主」，眼下更多是愿景。</span>2026 年的首批用户，仍需允许 1X 的真人员工远程操控家中的机器人。一位研究者形容当下的能力边界：<span class="turn">「能后空翻的机器人，未必走得上一段楼梯。」</span></p>
+      <p class="body"><span class="turn">当「机器人进家」从概念变成订单，真正的门槛不是它能不能动——是信任：你愿不愿意让一台半自主、半遥控的机器住进客厅。</span></p>
+      <p class="source">The New Yorker · <a href="https://www.newyorker.com/magazine/2026/07/06/are-humanoid-robots-ready-to-be-deployed">newyorker.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">DISPATCH</div>
+    <div class="sec-title">前线</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Reuters / BusinessWire</span> · 7 月 1 日</div>
+      <h2 class="item-title"><span class="num">8</span> 亿美元融资背后：给「开源 AI」供电的云，估值一年翻倍</h2>
+      <div class="img">
+        <img src="https://cdn.prod.website-files.com/69654e88dce9154b5f1206dd/69a49f86fc70648ca04854f6_OG-image-home.png" alt="Together AI — The AI Native Cloud" loading="lazy">
+        <p class="img-cap">Together AI：面向开源模型的 AI 云，在开源权重模型兴起的浪潮中获得资本追捧。图：together.ai。</p>
+      </div>
+      <p class="body">面向开源模型的 AI 云 <span class="hl">Together AI</span> 于 7 月 1 日完成 <span class="num">8</span> 亿美元 C 轮，投后估值 <span class="num">83</span> 亿美元，较 2025 年 2 月的 <span class="num">33</span> 亿翻倍有余。本轮由沙特阿美旗下 <span class="hl">Aramco Ventures</span> 领投，英伟达、General Catalyst、Vista 等跟投。</p>
+      <p class="body">公司称上一季度年化 bookings 已超 <span class="num">11.5</span> 亿美元。领投方来自能源资本，显示中东主权资金正加速流入 AI 基础设施这条卖水赛道。它的定位是跑开源权重模型的云，与只卖闭源 API 的路线正好相反——<span class="turn">押注开源的不只有实验室，还有给它们供电的云。</span></p>
+      <p class="body"><span class="turn">资本正押注「开源模型也要大规模跑起来」——前沿不再只属于自建超算的巨头，租得到算力的人也能上桌。</span></p>
+      <p class="source">Reuters · <a href="https://www.reuters.com/legal/transactional/together-ai-raises-800-million-83-billion-valuation-2026-07-01/">reuters.com</a></p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Artificial Analysis / OpenRouter</span> · 6 月 27 日–7 月 6 日</div>
+      <h2 class="item-title">开源权重贴着前沿跑：差距只剩个位数</h2>
+      <p class="body">据 <span class="hl">Artificial Analysis</span> 的智能指数，<span class="hl">Kimi K2.6</span>（Moonshot）与 <span class="hl">小米 MiMo V2.5 Pro</span> 并列开源榜首，<span class="hl">DeepSeek V4</span> 紧随其后。它们与最强闭源模型之间的分差已收窄到个位数。</p>
+      <p class="body"><span class="turn">这几个名字里，没有一个是传统意义上的「几家美国大厂」。</span>上榜的 Moonshot、小米、DeepSeek 多来自新兴或非头部实验室。过去约 18 个月里，开源对闭源的差距稳定维持在 <span class="num">3–6</span> 分，并没有被拉开。</p>
+      <p class="body">如果开源与闭源的能力差距长期停在个位数，「必须用最贵的闭源模型」就不再是默认答案——成本与可控性会重新成为选型的重心。</p>
+      <p class="source">Artificial Analysis · <a href="https://artificialanalysis.ai/articles/recent-open-weights-model-launches">artificialanalysis.ai</a> / OpenRouter · <a href="https://openrouter.ai/blog/insights/the-open-weight-models-that-matter-june-2026/">openrouter.ai</a></p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Simon Willison / Anthropic</span> · 6 月 30 日</div>
+      <h2 class="item-title">同样的价目表，却悄悄贵了一截：一个分词器的隐形涨价</h2>
+      <div class="img">
+        <img src="https://static.simonwillison.net/static/2026/sonnet-5-pelican.png" alt="Simon Willison 实测 Claude Sonnet 5 分词器" loading="lazy">
+        <p class="img-cap">"What's new in Claude Sonnet 5"——Simon Willison 的实测发现，新分词器让同一段文本产生约多三成的 token。图：simonwillison.net。</p>
+      </div>
+      <p class="body">Anthropic 于 6 月底上线 <span class="hl">Claude Sonnet 5</span>，官方定价与上一代持平。但独立开发者 Simon Willison 实测发现：<span class="accent">新分词器让同一段文本产生约多三成的 token。</span></p>
+      <p class="body">价目表一个数字没改，账单却悄悄变贵了。新模型上下文 <span class="num">100</span> 万 token、最大输出 <span class="num">12.8</span> 万，默认开启自适应思考。但等量文本消耗的 token 增多，等效于一次未曾公布的涨价。</p>
+      <p class="body"><span class="turn">模型的真实成本不写在价目表上，而藏在「一句话要花多少 token」里。看不见的分词器，才是真正的价格开关。</span></p>
+      <p class="source">Simon Willison · <a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/">simonwillison.net</a> / Anthropic · <a href="https://www.anthropic.com/news/claude-sonnet-5">anthropic.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
+    <div class="sec-title">创造</div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">TechCrunch / Variety</span> · 7 月 4 日</div>
+      <h2 class="item-title">Midjourney 反将一军：要好莱坞先交出自己的 AI 用法</h2>
+      <div class="img">
+        <img src="https://techcrunch.com/wp-content/uploads/2025/10/GettyImages-1387623215.jpg" alt="Midjourney 要求好莱坞制片厂公开 AI 使用记录" loading="lazy">
+        <p class="img-cap">Disney、环球、华纳兄弟诉 Midjourney 版权案升级。Midjourney 要求法院让制片厂交出 AI 商业计划、训练数据集乃至董事会演示材料。图：TechCrunch / Getty。</p>
+      </div>
+      <p class="body">被 Disney、环球、华纳兄弟告上法庭的 <span class="hl">Midjourney</span>，本周提交动议反将一军。要求法院推翻此前「制片厂只需交出面向消费者的 AI 使用记录」的裁定，进而索取对方的 <span class="accent">AI 商业计划、研究报告、训练数据集乃至董事会演示材料</span>。</p>
+      <p class="body">Midjourney 的律师主张：<span class="accent">若原告私下正做着他们起诉别人做的事，这恰恰是「不洁之手」抗辩的核心。</span>制片厂方回应称这是「转移视线」，坚持诉求是让 Midjourney 停止复制其角色。原告寻求每件侵权作品最高 <span class="num">15</span> 万美元法定赔偿——规模足以决定 Midjourney 的生死。</p>
+      <p class="body"><span class="turn">这场官司的看点，从「AI 能不能学版权作品」升级为「起诉 AI 的人，自己用不用 AI」——判决可能一次性照亮整个创意行业的双标地带。</span></p>
+      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/">techcrunch.com</a> / Variety · <a href="https://variety.com/2026/film/news/midjourney-studios-ai-copyright-discovery-1236800902/">variety.com</a></p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">多信源</span> · 7 月 4–6 日</div>
+      <h2 class="item-title">Cursor 上 iPhone、Claude Science 上线——工具在往「无处不在」走</h2>
+      <p class="body"><span class="hl">Cursor</span> 推出了 iPhone 端移动入口，开发者可以在手机上浏览、审查和继续编码工作；<span class="hl">OpenClaw</span> 也在同一天上线移动入口。<span class="hl">Claude Science</span> 作为 Anthropic 推出的科研工作台正式上线，为研究人员提供从文献检索到代码执行、论文写作的 AI 辅助全流程。Anthropic 称已有超过 <span class="num">50</span> 家学术机构试用。</p>
+      <p class="body"><span class="turn">AI 开发工具的铁律正在慢慢浮现：谁先占据「手机也能接着干活」的场景，谁在这一波工具化里就跑在了前面。</span></p>
+      <p class="source">Cursor · <a href="https://cursor.sh">cursor.sh</a> / Anthropic · <a href="https://www.anthropic.com/news/claude-science">anthropic.com</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">VOICES · 一线原话</div>
+    <div class="sec-title">声音</div>
+
+    <div class="voice">
+      <p class="voice-text">"能后空翻的机器人，未必走得上一段楼梯。"</p>
+      <p class="voice-who">一位机器人研究者 · 经 The New Yorker / Stephen Witt 转述 · <a href="https://www.newyorker.com/magazine/2026/07/06/are-humanoid-robots-ready-to-be-deployed">newyorker.com</a></p>
+    </div>
+    <div class="voice-sep"></div>
+    <div class="voice">
+      <p class="voice-text">"同样的输入，token 数比 Sonnet 4.6 多了约三成。"</p>
+      <p class="voice-who">一位一线开发者 · 实测 Claude Sonnet 5 新分词器 · <a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/">simonwillison.net</a></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">SIGNALS · 快讯</div>
+    <div class="sec-title">信号条</div>
+    <div class="item">
+      <div class="dateline"><span class="src">多信源聚合</span> · 6 月 30 日–7 月 6 日</div>
+      <p class="body">
+        <span class="hl">Meta 云来了</span>：Meta 计划推出云业务，对外出售自家过剩的 AI 算力，直接切入 AWS、Azure、Google Cloud 的地盘。<a href="https://www.bloomberg.com/news/articles/2026-07-01/meta-is-building-a-cloud-business-to-sell-excess-ai-compute">Bloomberg</a> |
+        <span class="hl">Kling AI</span> 以约 <span class="num">150</span> 亿美元估值完成新一轮融资——给 AI 视频重新定价。<a href="https://www.bloomberg.com">Bloomberg</a>
+      </p>
+      <p class="body">
+        <span class="hl">Foxconn</span> 上半年营收同比 <span class="num">+39.8%</span>，AI 服务器需求拉高全部涨幅。<a href="https://www.reuters.com">Reuters</a> |
+        <span class="hl">Meta 内部</span>承认 agent 进展不如预期，将下调 2026 年 agent 相关收入预测。<a href="https://www.theinformation.com">The Information</a> |
+        阿里云被曝内部禁用 <span class="hl">Claude Code</span>，转向自研编码工具。<a href="https://www.latepost.com">晚点</a>
+      </p>
+      <p class="body">
+        <span class="hl">视频理解</span> TwelveLabs 完成 <span class="num">1</span> 亿美元 B 轮（NEA 领投），多模态赛道继续吸金。<a href="http://startups.gallery">startups.gallery</a> |
+        <span class="hl">NEURA Robotics</span>（德国）获 <span class="num">14</span> 亿美元 C 轮为全栈机器人史上最大，英伟达、亚马逊、高通跟投——欧洲也坐上了具身智能的牌桌。<a href="https://www.cnbc.com">CNBC</a> |
+        上半年全球 VC 创纪录达 <span class="num">5100</span> 亿美元，但钱高度集中在极少数 AI 公司手里。<a href="https://news.crunchbase.com">Crunchbase</a>
+      </p>
+      <p class="body">
+        FIRST 预测 2026 年 CVE 将逼近 <span class="num">6.6</span> 万条，主因是 AI 工具开始自动挖洞——与 7 月 5 日的 Bad Epoll 遥相呼应。<a href="https://www.helpnetsecurity.com">Help Net Security</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="sec-eyebrow">THE WRAP</div>
+    <div class="sec-title">今日小结</div>
+    <div class="item">
+    <p class="body"><span class="num">一</span>：<span class="hl">「机器人进家」的叙事需要校准</span>——The New Yorker 记者进工厂看到了量产线，也看到了首批用户仍需远程接管。</p>
+    <p class="body"><span class="num">二</span>：<span class="hl">开源经济的赌注在变大</span>——Together AI 83 亿估值、开源权重贴住闭源后背，资本不只在赌模型，在赌整个「可租用算力」的格局。</p>
+    <p class="body"><span class="num">三</span>：<span class="hl">看不见的成本开始浮现</span>——Sonnet 5 的分词器隐形涨价、Midjourney 反诉好莱坞双标：账单和信任，都在暗中重新定价。</p>
+    <div class="signal">今天覆盖 5 家公司 + 3 条一手现场，信源包括 The New Yorker、Reuters、TechCrunch、Simon Willison、Artificial Analysis 等。</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
+    <div class="sec-title">保持好奇</div>
+    <p class="body"><span class="hl">21 万年前的人，在沙漠里活下来了。</span>阿联酋 Jabal al Fāyah——藏化石的石灰岩脊从鲁卜哈利沙漠里升起，2025 年列入 UNESCO 世界遗产。21 万年前的人类用石斧和遮风岩棚在这里求生，比很多人想象的"走出非洲"时间线还早。</p>
+    <div class="img">
+      <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/digging-back-in-time-in-the-uae/fayapaleo_oli_20251023_th.jpg" alt="从卫星看阿联酋 Jabal al Fāyah，化石脊从沙漠升起" loading="lazy">
+      <p class="img-cap">Jabal al Fāyah, Sharjah, UAE · <span class="num">24.96</span>°N, <span class="num">55.76</span>°E<br>藏化石的石灰岩脊从鲁卜哈利沙漠升起——21 万年前的人类在这里用石斧求生。2025 年 UNESCO 世界遗产。<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。让我们保持好奇、继续探索。</p>
+    </div>
+    <p class="source">NASA Earth Observatory · <a href="https://science.nasa.gov/earth/earth-observatory/digging-back-in-time-in-the-uae/">science.nasa.gov</a></p>
+  </section>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · The New Yorker / Reuters / TechCrunch / Simon Willison / Anthropic / Artificial Analysis</p>
+    <p>一手原始 · 从业者原话 · 现场反应 · 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
