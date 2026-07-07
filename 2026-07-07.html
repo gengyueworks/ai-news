@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-07</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.signal-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:16px 0;
+}
+.signal-grid > .news-item{
+  background:var(--line);
+  border-radius:8px;
+  padding:14px 16px;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  margin:0;
+}
+.signal-grid > .news-item .news-body{font-size:13.5px;color:var(--ink-soft);}
+
+.voice-block{
+  padding:18px 20px;
+  background:#F5F5F7;
+  border-radius:8px;
+  margin-bottom:20px;
+}
+.voice-block:last-child{margin-bottom:0;}
+.voice-block .quote{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink);
+  font-style:italic;
+}
+.voice-block .attribution{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:8px;
+  font-family:'JetBrains Mono',monospace;
+}
+.voice-block .attribution a{color:var(--klein);text-decoration:none;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .signal-grid{grid-template-columns:1fr;}
+  .container{padding:24px 16px 48px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-07 · 周二</span>
+<span>本期 5 条</span>
+</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Lead Story</div>
+<div class="sec-title">今日头版</div>
+
+<div class="item">
+<div class="dateline">07-06 · Reuters · <span class="src">三位知情人士</span></div>
+<div class="item-title"><span class="hl">美团开源 LongCat-2.0：国产卡训练万亿参数模型</span></div>
+<div class="body">
+<p><strong>国内第一次完全依靠国产算力完成训练与推理全流程的万亿参数大模型，</strong>今天正式开源。美团宣布开源 LongCat-2.0，总参数 <strong>1.6 万亿</strong>，平均激活约 480 亿参数，使用 <strong>MIT 许可</strong>，可在 5 万张国产算力卡集群上全流程跑通。华为昇腾、Moore Threads、MetaX 等国产芯片厂商已确认支持。</p>
+<p>这远不止一个展示品——LongCat-2.0 以匿名身份「Owl Alpha」在 OpenRouter 上跑了两个月，成为平台上使用量最大的编程模型之一，<strong>SWE-bench Pro 得分 59.5，超过 GPT-5.5 的 58.6 和 Claude Opus 4.6 的 57.3</strong>。对于日常写代码、搭 Agent 的人来说，这意味着一个 MIT 许可、接近顶尖水平、而且成本极低的选择出现了。</p>
+<p>OpenRouter 上 LongCat-2.0 定价：输入 $0.75 / 百万 token，输出 $2.95 / 百万 token，远低于闭源旗舰。</p>
+</div>
+<ul class="points">
+<li>美团 LongCat-2.0，1.6 万亿参数 MoE，MIT 许可</li>
+<li>5 万张国产卡集群（华为昇腾）训练，首次纯国产卡跑通万亿模型</li>
+<li>SWE-bench Pro 59.5（超 GPT-5.5），匿名跑两个月已是 OpenRouter 热度前几</li>
+<li>支持 100 万 token 上下文，Agentic Coding 定向强化</li>
+<li>定价：$0.75 入 / $2.95 出 每百万 token</li>
+</ul>
+<div class="image-block">
+<img src="https://img.caixin.com/2026-07-06/178334566498858_1280_720.jpg" alt="美团 7 月 6 日宣布开源 LongCat-2.0 万亿参数大模型" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://www.caixinglobal.com/2026-07-07/meituan-open-sources-16-trillion-parameter-ai-model-built-on-chinese-chips-102461495.html" target="_blank">财新 / 36氪</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">前线</div>
+
+<div class="item">
+<div class="dateline">近日 · Artificial Analysis · <span class="src">GLM-5.2 登顶</span></div>
+<div class="item-title"><span class="hl">GLM-5.2 登顶开源权重榜，与闭源差距缩至个位数</span></div>
+<div class="body">
+<p><strong>GLM-5.2</strong>（ChatGLM 团队）在 Artificial Analysis 智能指数中登顶开源权重榜，<strong>与 GPT-4o、Claude Sonnet 等头部闭源模型的得分差距已缩至个位数</strong>。MIT 许可 + 百万 token 上下文，Nathan Lambert 称之「众多可信开源替代里的第一个——很像当年 DeepSeek R1 的那个时刻」。</p>
+</div>
+<div class="image-block">
+<img src="https://the-decoder.com/wp-content/uploads/2026/06/zhipu-ai-logo-wall-nano-banana-pro.jpg" alt="智谱 AI 发布 GLM-5.2，744B 参数 MIT 许可开源" loading="lazy">
+</div>
+<ul class="points">
+<li>Artificial Analysis 智能指数登顶</li>
+<li>MIT 许可，百万 token 上下文</li>
+</ul>
+<div class="src-line">来源：<a href="https://openrouter.ai/" target="_blank">OpenRouter / Artificial Analysis</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">06-30（本周持续） · Financial Times · <span class="src">Serenity 转引</span></div>
+<div class="item-title"><span class="hl">京东预警：70 万配送工将被机器人取代</span></div>
+<div class="body">
+<p>据英国《金融时报》报道，京东 CEO 刘强东警告：公司 <strong>70 万配送人员将被机器人取代</strong>，凸显快速自动化已成为中国本就严峻的就业市场的新威胁。京东已与约 <strong>120 所学校</strong>签署协议，对配送工人进行再培训，使其转型从事机器人维修保养等新岗位。</p>
+<p><strong>北京已将追踪 AI 对就业的影响列为国家优先事项。</strong> 这一信号不止于京东：Amazon 此前同样通过机器人避免未来雇佣 60 万人。从 DoorDash 到 Uber 再到 Mercado Libre，配送/物流行业的「机器替代人」正从假设走向可量化的时间线。</p>
+</div>
+<ul class="points">
+<li>70 万配送工面临替代，已启动 120 校再培训协议</li>
+<li>北京：追踪 AI 就业影响 = 国家优先事项</li>
+<li>对比：Amazon 通过机器人避免雇佣 60 万人</li>
+</ul>
+<div class="image-block">
+<img src="https://www.cep-research.com/wp-content/uploads/2026/06/A-JD-Logistics-autonomous-delivery-vehicle-Source-JD.com_.png" alt="京东物流自动驾驶配送车，618 期间运送超过 550 万单" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://www.ft.com/" target="_blank">Financial Times</a> · 转引自 Serenity（<span class="tag">X</span>）</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">声音</div>
+
+<div class="voice">
+<p class="voice-text">"Tokenmaxxing（一味堆 token）已经彻底过时了。"</p>
+<p class="voice-who">—— Simon Willison（独立 AI 开发者 / 研究者）· 7/3 · <a href="https://simonwillison.net/notes/" target="_blank">Simon Willison Notes</a></p>
+</div>
+<div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"GLM-5.2 是众多可信开源替代里的第一个——很像当年 DeepSeek R1 的那个时刻。"</p>
+<p class="voice-who">—— Nathan Lambert（Interconnects）· 近日 · <a href="https://www.interconnects.ai/p/glm-52-is-the-step-change-for-open" target="_blank">Interconnects</a></p>
+</div>
+</div>
+
+<!-- ===== 信号条 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Signals</div>
+<div class="sec-title">信号</div>
+<div class="signal-grid">
+
+<div class="news-item"><div class="news-body">
+<strong>🔌 企业 AI Agent 落差</strong><br>
+Gartner 数据：仅 <span class="num">17%</span> 组织实际部署了 AI Agent，超 60% 计划两年内部署；预计到 2027 年底逾四成 agentic 项目将被取消。Agent 的能力在涨，放进生产系统是另一门功夫。<br>
+<span style="font-size:11px;color:var(--gray-light);">Gartner Hype Cycle 2026</span>
+</div></div>
+
+<div class="news-item"><div class="news-body">
+<strong>🛡️ Reddit 公开 AI 反垃圾战报</strong><br>
+AI 工具已将用户暴露在垃圾内容下的概率降低 <span class="num">20%</span>，每天撤销近 <span class="num">200 万</span> fake votes，拦截 <span class="num">2300 万</span> spam views。平台正在用 AI 对抗 AI 生成的操控行为。<br>
+<span style="font-size:11px;color:var(--gray-light);">Reddit / The Verge</span>
+</div></div>
+
+<div class="news-item"><div class="news-body">
+<strong>🏦 BoE：agentic AI 需要单独立规</strong><br>
+英国央行副行长 Sarah Breeden：越来越强的 agentic 系统可能需要更专门的监管框架，涉及 guardrails、circuit breakers 甚至 kill switches，尤其针对 payments 和 trading 场景。<br>
+<span style="font-size:11px;color:var(--gray-light);">Reuters · 06-30</span>
+</div></div>
+
+<div class="news-item"><div class="news-body">
+<strong>🔍 Google AI Search 回调原始链接</strong><br>
+AI Mode 在烹饪查询中把原始 recipe 链接连同图片、评分和食材数量重新前置展示——AI 搜索开始承认不能把内容源彻底吃掉。<br>
+<span style="font-size:11px;color:var(--gray-light);">The Verge</span>
+</div></div>
+
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">开源前线</div>
+
+<div class="item">
+<div class="dateline">07-01 · GitHub Changelog · <span class="src">Kimi K2.7 Code GA</span></div>
+<div class="item-title"><span class="hl">Copilot 第一次接入 open-weight 代码模型</span></div>
+<div class="body">
+<p>GitHub 宣布 <strong>Kimi K2.7 Code</strong> 作为 open-weight 模型在 GitHub Copilot 中正式 GA。这是 Copilot model picker 里第一个 open-weight 模型可选项——<strong>开发者第一次可以在 Copilot 主界面选择开源模型</strong>，不再只限 OpenAI 或 Anthropic 闭源选项。</p>
+<p>这对开发者的真实影响：模型选择权出现在正式产品界面里，不再是极客手工切换。GitHub 明确表示这是「更多选择和更低的成本选项」。Moonshot 的 Kimi K2.7 在 coding benchmark 上表现出色，创业团队和个人开发者可以用更低成本获得接近一线水平的代码辅助。</p>
+</div>
+<ul class="points">
+<li>模型：Kimi K2.7 Code（Moonshot AI）</li>
+<li>Copilot model picker 中第一个 open-weight 选项</li>
+<li>由 GitHub 托管在 Microsoft Azure</li>
+<li>先向 Pro/Pro+/Max 开放，Business/Enterprise 默认关闭</li>
+</ul>
+<div class="image-block">
+<img src="https://github.blog/wp-content/uploads/2026/06/613814616-4d64d5a2-d26c-4377-9ce6-a444b1b30840.png" alt="GitHub Copilot model picker 中 Kimi K2.7 被选中的界面截图" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/" target="_blank">GitHub Changelog</a></div>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Tools & Making</div>
+<div class="sec-title">创造</div>
+
+<div class="item">
+<div class="dateline">07-06 · Rest of World · <span class="src">Chinese web novels & AI</span></div>
+<div class="item-title"><span class="hl">网文平台收紧 AI 小说限制：读者的忍耐到了极限</span></div>
+<div class="body">
+<p><strong>用 AI 批量产出网文，曾被视为提高生产力的捷径。</strong>但读者受够了。番茄小说（字节跳动）已限制每日可发布字数，仅 6 月就拒绝了超过 <strong>10.4 万篇</strong>「低质量」投稿；晋江文学城创始人黄艳明明确要求作者仅限用 AI 做研究和校对，并请读者举报疑似 AI 写作的文章。</p>
+<p>导火索是质量失控。读者在小红书上截图分享小说中间残留的 AI prompt 词、奇怪的比喻和 AI 腔句式。一位读者说：「读到一个快速生产的东西，就是在浪费我的时间。」但另一边，北京开发者马浚贤搭建的 InkOS（多 Agent 小说自动写作系统）已有 <strong>5 万+ 下载量</strong>，有人靠 AI 生成的小说赚到了钱。</p>
+</div>
+<div class="image-block">
+<img src="https://img.36krcdn.com/hsossms/20260525/v2_1498789802e54e5a8e3ea5d02546cd02@5091053@ai_oswg958761oswg1053oswg495_img_png~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg" alt="番茄小说重拳整治 AI 低质文，批量下架 AI 生成小说" loading="lazy">
+</div>
+<ul class="points">
+<li>番茄限每日字数，6 月拒绝 10.4 万低质量投稿</li>
+<li>晋江要求作者 AI 仅限辅助，欢迎读者举报</li>
+<li>InkOS 多 Agent 写作系统 5 万+ 下载</li>
+<li>核心问题：AI 是生产力还是垃圾制造机？</li>
+</ul>
+<div class="src-line">来源：<a href="https://restofworld.org/2026/china-ai-web-novels/" target="_blank">Rest of World</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">小结</div>
+<div class="mast-lede" style="font-size:15px;">
+如果用一句话概括今天：中国 AI 模型开启密集开源周——美团 LongCat-2.0（1.6 万亿 / MIT / 国产卡）、GLM-5.2 登顶开源榜、Kimi K2.7 进 Copilot，三个重量级消息同一天出现。同时网文平台开始对 AI 内容踩刹车，创作者与平台都在找平衡点。
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>峡谷里的地质史，比任何模型训练都久。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/80000/80948/dolansprings_oli_2013088_canyon_720.jpg" alt="从卫星高度俯瞰科罗拉多河切开的大峡谷，沉积岩层层层叠叠" loading="lazy">
+<p class="img-cap">Grand Canyon, Arizona, USA · <span class="num">36.06</span>°N, <span class="num">112.14</span>°W<br>科罗拉多河用约 600 万年切开了近 2 亿年的沉积岩层——从峡谷底部到顶部的岩层跨度超过二叠纪到侏罗纪。<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+  <footer class="footer">
+    <p class="big">AI 情报日报 · 前沿信号流</p>
+    <p>SOURCES · Reuters / The Verge / GitHub / Financial Times / Simon Willison / Interconnects / Gartner / Anthropic / Artificial Analysis</p>
+    <p>一手原始 · 从业者原话 · 现场反应 · 信源越近现场，优先级越高</p>
+  </footer>
+
+</div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
