@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-10</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-10 · 周五</span>
+<span>本期 10 条</span>
+</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+
+<div class="item">
+<div class="dateline">07-09 · OpenAI · <span class="src">GPT-5.6 正式 GA</span></div>
+<div class="item-title"><span class="hl">GPT-5.6 全面可用：OpenAI 把前沿智能分成三层推向市场</span></div>
+<div class="body">
+<p><strong>OpenAI 7 月 9 日宣布 GPT-5.6 家族正式 GA——这把模型分层、价格分层、使用场景分层一次性全部公开化，远不止一次模型更新。</strong>旗舰模型 <span class="num">Sol</span> 在编码智能指数上刷出 <span class="num">80</span> 分 SOTA，超越 Claude Fable 5 的同时只用一半 token、三分之一时间、三分之二成本。均衡模型 Terra 和高性价比模型 Luna 各自覆盖不同负载。Rollout 覆盖 ChatGPT、Codex、OpenAI API，全球 24 小时内逐步完成。</p>
+</div>
+<ul class="points">
+<li>三层定价：Sol $5/$30 · Terra $2.50/$15 · Luna $1/$6（per 1M tokens）</li>
+<li>新增 ultra 模式：协调 4 agent 并行，专攻复杂长任务</li>
+<li>首个带 Programmatic Tool Calling 的模型——脚本可自行过滤中间数据，减少模型 round-trip</li>
+</ul>
+
+<div class="src-line">来源：<a href="https://openai.com/index/gpt-5-6/" target="_blank">OpenAI Blog</a> · <a href="https://www.theverge.com/ai-artificial-intelligence/963464/openai-gpt-5-6-codex-chatgpt-work" target="_blank">The Verge</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">前线</div>
+
+<div class="item">
+<div class="dateline">07-09 · OpenAI · <span class="src">ChatGPT Work 发布</span></div>
+<div class="item-title"><span class="hl">ChatGPT Work：OpenAI 正面抢"办公代理"入口</span></div>
+<div class="body">
+<p><strong>OpenAI 同日推出 ChatGPT Work——一个能跨 App 和文件执行任务的 agent，可生成文档、表格、演示文稿和 web 应用，持续处理数小时的复杂项目。</strong>它内置 Codex 技术，ultra 模式下协调 4 个 agent 并行。Web 和 mobile 先向 Pro、Enterprise、Edu 推出，Plus 和 Business 随后跟进。OpenAI 让 ChatGPT 从回答问题，变成"能替你把工作做完"的代理。</p>
+</div>
+<ul class="points">
+<li>产出类型：documents · spreadsheets · presentations · web apps</li>
+<li>跨 Slack、Notion、Microsoft 365、Google Drive 拉取上下文</li>
+<li>多 agent 并行（ultra 模式）</li>
+</ul>
+<div class="image-block">
+<img src="https://images.ctfassets.net/spoqsaf9291f/5D0rwcQf5vNL4Oy3e0jo9T/25b5aac49b9983e7c7a0669ff3ce1d95/Notion_Agents_iOS_App_Release_Cover.png" alt="ChatGPT Work - 办公代理概念图" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank">OpenAI Blog</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-10 · Reuters · <span class="src">腾讯入主 Manus</span></div>
+<div class="item-title"><span class="hl">腾讯洽谈入主 Manus，中国 AI 资本从模型层转向 agent 层</span></div>
+<div class="body">
+<p><strong>Reuters 报道腾讯正在洽谈成为 AI startup Manus 的最大股东。</strong>背景是北京近一个月与阿里、字节、Z.ai 等会面，讨论限制最先进中国 AI 模型的海外访问。中国 AI 资本正从基础模型转向更可落地、监管风险更可控的 agent/产品层公司。</p>
+</div>
+<ul class="points">
+<li>Reuters 用词：Tencent in talks to become Manus' largest shareholder</li>
+<li>北京讨论将 AI 技术泄漏纳入国家安全法</li>
+<li>模型开始被中美两边同时视为国家级资产</li>
+</ul>
+
+<div class="src-line">来源：<a href="https://www.reuters.com/technology/tencent-talks-become-ai-start-up-manus-largest-shareholder-ft-reports-2026-07-10/" target="_blank">Reuters（腾讯/Manus）</a> · <a href="https://www.reuters.com/world/beijing-is-looking-curbing-overseas-access-chinas-top-ai-models-sources-say-2026-07-07/" target="_blank">Reuters（北京限制出海）</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-08 · Sifted · <span class="src">Lovable 估值翻倍</span></div>
+<div class="item-title"><span class="hl">Lovable 不到三岁估值 132 亿——七个月翻一倍，引擎却不是自己的</span></div>
+<div class="body">
+<p><strong>瑞典 vibe-coding 公司 Lovable 正以 132 亿美元估值融资 3 亿美元，恰好是去年 12 月 66 亿估值的两倍。</strong>增长确实凶猛：6 月 ARR 已达 <span class="num">5 亿美元</span>，每周新增上百万个项目。但它的产品搭建在 Anthropic 的 Claude 与 Google 的 Gemini 之上——而这两家自己也在做竞争性的编程工具。这是一场"用别人的引擎，赌自己的分发、品牌与速度"的下注。</p>
+</div>
+<ul class="points">
+<li>估值轨迹：$1.8B（2025.7）→ $6.6B（2025.12）→ $13.2B（2026.7）</li>
+<li>用户覆盖从创始人、设计师到 Workday、Asana、Nvidia 等企业</li>
+<li>安全漏洞曾暴露用户数据 48 天未修复，与估值翻倍同时存在</li>
+</ul>
+
+<div class="src-line">来源：<a href="https://sifted.eu/articles/lovable-300m-13-2bn-valuation" target="_blank">Sifted</a> · <a href="https://techcrunch.com/2026/07/08/lovable-reportedly-in-talks-to-double-its-valuation-to-13-2b/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontline</div>
+<div class="sec-title">开源前线</div>
+
+<div class="item">
+<div class="dateline">07-10 · ZML · <span class="src">打破硬件锁定</span></div>
+<div class="item-title"><span class="hl">ZML 让开源模型跑在"任何芯片"上——推理走向解绑</span></div>
+<div class="body">
+<p><strong>法国初创 ZML（获 Yann LeCun 背书）发布推理性能软件 LLMD，让多种开源大模型跑在 Nvidia、AMD、Google TPU、Apple Metal、Intel Arc 等不同芯片上，无需为每种硬件重写。</strong>技术栈用 Zig / MLIR / Bazel，主打"从模型直达金属"的极致性能，GitHub 已 <span class="num">3.5K</span> 星。推理这场仗的一个新方向，是把 AI 负载从"绑定某一家硬件"里解绑出来。</p>
+</div>
+<ul class="points">
+<li>覆盖 Nvidia / AMD / TPU / Apple / Intel Arc</li>
+<li>技术栈：Zig + MLIR + Bazel</li>
+<li>与 Meta 自研芯片消息遥相呼应——软件到硅片都在找退路</li>
+</ul>
+
+<div class="src-line">来源：<a href="https://github.com/zml" target="_blank">ZML · GitHub（3.5K 星）</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-09 · arXiv/HF · <span class="src">SciReasoner</span></div>
+<div class="item-title"><span class="hl">SciReasoner：科学 AI 不能只"猜规律"，要"原生地懂结构"</span></div>
+<div class="body">
+<p><strong>上海 AI 实验室论文当日登上 Hugging Face 日报榜首。</strong>核心主张：科学 AI 不应停留在统计式的模式匹配，而要把领域"原生结构"直接编码进模型，才能得到可信、可解释、并能跨材料与化学等学科迁移的结论。当 AI 走进实验室，"答得对"还不够，"讲得清为什么"才是门槛。</p>
+</div>
+<ul class="points">
+<li>HF 日报首位，71 赞，arXiv 2607.07708</li>
+<li>编码原生结构 vs 统计模式匹配</li>
+<li>跨材料与化学等学科迁移</li>
+</ul>
+
+<div class="src-line">来源：<a href="https://arxiv.org/abs/2607.07708" target="_blank">arXiv 2607.07708</a> · <a href="https://huggingface.co/papers" target="_blank">Hugging Face 日报</a></div>
+</div>
+</div>
+
+<!-- ===== 信号 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Signals</div>
+<div class="sec-title">信号</div>
+
+<div class="item">
+<div class="dateline">07-09 · Reuters · <span class="src">Meta 自研芯片 9 月投产</span></div>
+<div class="item-title"><span class="hl">Meta 自研 AI 芯片 9 月投产——连买芯片最多的巨头也要自己造</span></div>
+<div class="body">
+<p><strong>据 Reuters 看到的内部备忘录，Meta 计划 9 月量产自研 AI 芯片，目标在 2026 年内大幅提升可用算力，规划计算规模达 <span class="num">7GW</span>。</strong>动机很直接：降低对 Nvidia 采购的依赖。和 ZML 的"解绑硬件"遥相呼应——从软件到硅片，整个行业都在给"英伟达唯一解"找退路。</p>
+</div>
+
+<div class="src-line">来源：<a href="https://www.reuters.com/technology/meta-build-c13-billion-alberta-data-center-its-first-canada-2026-07-08/" target="_blank">Reuters</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-09 · The Verge · <span class="src">reflect 功能</span></div>
+<div class="item-title"><span class="hl">Claude reflect：Anthropic 做了个"AI 年度总结"</span></div>
+<div class="body">
+<p>Anthropic 推出 <strong>reflect</strong> 功能，可按 1/3/6/12 个月分析用户与 Claude 的对话数据。目前 beta，面向免费、Pro、Max 用户开放。聊天产品把"使用回顾"当成新的留存机制：留住用户靠长期关系感，靠模型能力已经不够。</p>
+</div>
+
+<div class="src-line">来源：<a href="https://www.theverge.com/ai-artificial-intelligence/963105/anthropic-claude-wrapped-reflection-ai-usage" target="_blank">The Verge</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-09 · Notion · <span class="src">Notion 更新</span></div>
+<div class="item-title"><span class="hl">Notion AI Meeting Notes 终于能分清谁说了什么</span></div>
+<div class="body">
+<p>Notion 最新更新：AI Meeting Notes 新增 <strong>speaker labels</strong>；Agents 可读写 Excel 和 PowerPoint；加上之前 3.6 版本的 External Agents 和 Outlook 连接。会议纪要连谁说的都分不清，永远只是 demo——Notion 在补这条真正影响可信度的短板。</p>
+</div>
+
+<div class="src-line">来源：<a href="https://www.notion.com/releases" target="_blank">Notion Releases</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-09 · Reuters · <span class="src">亚洲资金更挑</span></div>
+<div class="item-title"><span class="hl">亚洲投资人不追高估值了——开始押"能熬过 AI 冲击"的公司</span></div>
+<div class="body">
+<p>Reuters 报道亚洲投资人对 AI 仍保持兴趣，但倾向押注能从 AI 中受益、又能承受 AI 冲击的企业。市场进入第二阶段筛选：从"买 AI"转向<strong>"买能熬过 AI 的公司"</strong>——泡沫焦虑没有消失，picks-and-shovels 策略正在回归。</p>
+</div>
+
+<div class="src-line">来源：<a href="https://www.reuters.com/world/china/asian-investors-eye-firms-benefiting-resilient-ai-2026-07-09/" target="_blank">Reuters</a></div>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Tools & Making</div>
+<div class="sec-title">创造</div>
+
+<div class="item">
+<div class="dateline">07-09 · OpenAI · <span class="src">ChatGPT Work 工具</span></div>
+<div class="item-title"><span class="hl">用自然语言生成 slides、表格和 web app，一个 agent 搞定</span></div>
+<div class="body">
+<p><strong>ChatGPT Work 把文档写作、数据分析、演示制作、应用开发统一到一个 agent 界面。</strong>内置 Codex 技术，ultra 模式下 4 agent 并行，可跨 Slack、Notion、Microsoft 365、Google Drive 拉取上下文。一旦这类代理产品稳定下来，轻度办公室软件的边界都会被重画。</p>
+</div>
+<ul class="points">
+<li>直接产出 documents · spreadsheets · presentations · web apps</li>
+<li>数小时长项目持续处理</li>
+<li>GPT-5.6 Sol 驱动</li>
+</ul>
+
+<div class="src-line">来源：<a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank">OpenAI Blog</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-09 · Notion · <span class="src">Notion 更新</span></div>
+<div class="item-title"><span class="hl">Notion Agents 补上 Excel、PowerPoint 和 External Agents</span></div>
+<div class="body">
+<p><strong>Notion 最新更新让 Agents 能读写 Excel 和 PowerPoint 文件。</strong>加上之前 3.6 版本加入的 External Agents 和 Outlook Mail/Calendar 连接。协作软件里 agent 能力的细化和工程化——谁能把会议、文件、邮件、审计缝得更顺，谁就赢了这一层。</p>
+</div>
+<ul class="points">
+<li>Meeting Notes 新增 speaker labels</li>
+<li>Agent 支持更多 Office 文件类型</li>
+<li>External Agents + Outlook Mail 和 Calendar 连接</li>
+</ul>
+
+<div class="src-line">来源：<a href="https://www.notion.com/releases" target="_blank">Notion Releases</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+
+<div class="item">
+<div class="dateline">07-07/10 · Meta · <span class="src">Muse Image 铺进社交</span></div>
+<div class="item-title"><span class="hl">Muse Image 驱动 Instagram 30+ AI 效果——生图能力住进社交编辑层</span></div>
+<div class="body">
+<p><strong>Meta Muse Image 正在驱动 Instagram Stories 的 30 多种 AI 效果，同时进入 WhatsApp 聊天中的图像生成。</strong>它把视觉生成能力直接住进了社交产品最日常的编辑层——比单个模型更强更关键。这会比独立生图网站更快改变用户的视觉表达习惯。</p>
+</div>
+
+<div class="src-line">来源：<a href="https://www.reuters.com/technology/meta-expands-generative-ai-tools-with-muse-image-rollout-2026-07-07/" target="_blank">Reuters</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-08 · Google · <span class="src">Video Remix</span></div>
+<div class="item-title"><span class="hl">Google Photos Video Remix：把视频后期做成一键功能</span></div>
+<div class="body">
+<p><strong>Google Photos 的 Video Remix 基于 Gemini Omni，可对视频加入 cinematic relighting、自定义背景以及 watercolor、sketchbook 等艺术风格。</strong>AI 视频编辑正在下沉进最普通的相册应用——真正改变大众视觉表达的，常常是默认入口，专业工具反而排在后。</p>
+</div>
+<div class="image-block">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/05_Google_Photo_Video_Remix_Social_Share.max-1440x810.png" alt="Google Photos Video Remix - AI 视频重混" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://www.theverge.com/google" target="_blank">The Verge</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Capital</div>
+<div class="sec-title">投资</div>
+
+<div class="item">
+<div class="dateline">07-08 · Reuters · <span class="src">Meta 阿尔伯塔数据中心</span></div>
+<div class="item-title"><span class="hl">Meta 阿尔伯塔数据中心 <span class="num">130</span> 亿加元——AI 算力继续往北美压</span></div>
+<div class="body">
+<p><strong>Meta 将在加拿大阿尔伯塔建设其首个加拿大数据中心，投资额 <span class="num">C$13 billion</span>，初始规模 <span class="num">1 GW</span>，可扩展到 <span class="num">1.8 GW</span>。</strong>最真实的 AI 下注，很多时候是大片电力、土地和算力基础设施，新模型反而不是重点。这是 Meta 全球第 <span class="num">33</span> 个数据中心。</p>
+</div>
+
+<div class="src-line">来源：<a href="https://www.reuters.com/world/americas/meta-build-c13-billion-alberta-data-center-its-first-canada-2026-07-08/" target="_blank">Reuters</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-08/09 · 综合 · <span class="src">Gradium 种子轮</span></div>
+<div class="item-title"><span class="hl">Gradium 种子轮追加 <span class="num">3000</span> 万——Nvidia 入局，欧洲人才争夺升级</span></div>
+<div class="body">
+<p>巴黎 AI 实验室 Kyutai 孵化的 Gradium 种子轮追加约 <span class="num">$30M</span>、累计突破 <span class="num">$100M</span>，<strong>Nvidia 入局</strong>，同时赴旧金山湾区设点抢人才。欧洲 AI 创业公司开始在硅谷设前哨站。</p>
+</div>
+
+<div class="src-line">来源：Sifted / TechCrunch · 7/8–7/9</div>
+</div>
+
+<div class="item">
+<div class="dateline">07-10 · Reuters · <span class="src">意大利邮政入局</span></div>
+<div class="item-title"><span class="hl">意大利邮政入局 AI 基建——数字主权开始找"本地代理人"</span></div>
+<div class="body">
+<p><strong>Reuters 报道意大利选择其国家邮政系统参与本国 AI 基础设施建设，以保护数字主权。</strong>AI 不只是谁做模型，还包括谁掌控底座——这是国家级 AI 基建寻找本地可控承载者的最新案例。欧洲对主权型算力/数据底座的偏好在持续加强。</p>
+</div>
+
+<div class="src-line">来源：<a href="https://www.reuters.com/business/media-telecom/special-delivery-italys-postman-joins-ai-infrastructure-race-2026-07-10/" target="_blank">Reuters</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">声音</div>
+
+<div class="voice">
+<p class="voice-text">"速度有了，护城河没证明。把核心智能'租'给未来对手，还值 132 亿。"</p>
+<p class="voice-who">—— European Business Magazine · 评 Lovable 132 亿估值 · 7/9 · <a href="https://sifted.eu/articles/lovable-300m-13-2bn-valuation" target="_blank">Sifted</a></p>
+</div>
+<div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"科学 AI 必须编码领域原生的结构，而不只是学统计模式——唯有如此，它给出的结果才可信、可解释。"</p>
+<p class="voice-who">—— Crunch AI Research · 评 SciReasoner 论文 · 7/9 · <a href="https://arxiv.org/abs/2607.07708" target="_blank">arXiv 2607.07708</a></p>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">小结</div>
+<div class="mast-lede" style="font-size:15px;">
+今天把镜头拉开看全景：钱在应用层狂飙（Lovable 七个月估值翻倍），但技术的较量仍在地基里展开——ZML 打破硬件锁定、Meta 自研推理芯片、AI+科学开始要求"懂结构"而非"猜规律"。OpenAI 把 GPT-5.6 和 ChatGPT Work 同时推向市场，是在用产品化告诉你：第一阶段的模型竞赛告一段落，第二阶段的入口竞争才刚开始。
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>大堡礁的珊瑚礁，比任何数据中心的冷却塔都古老。</strong></p>
+<div class="image-block">
+<img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/149000/149724/gbrzm_oli_2020222_th.jpg" alt="Great Barrier Reef 珊瑚礁卫星影像" loading="lazy">
+<p class="img-cap">Great Barrier Reef, Australia · <span class="num">20.3</span>°S, <span class="num">148.9</span>°E<br>世界上最大的珊瑚礁系统，覆盖 34.6 万平方公里。Epoch AI 的公开数据库（7 月 6 日更新）正用卫星影像与建筑许可，估算全球大型 AI 数据中心的算力、用电与施工进度。当模型竞赛越来越像一场"电力工程"——那些能从轨道上被看见的钢筋与冷却塔，或许才是这轮 AI 最诚实的地基。<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+<p class="big">AI 情报日报 · 前沿信号流</p>
+<p>SOURCES · OpenAI / The Verge / Reuters / Sifted / TechCrunch / Notion / ZML / Shanghai AI Lab / Hugging Face / Meta / European Business Magazine / Crunch AI Research</p>
+<p>一手原始 · 从业者原话 · 现场反应 · 信源越近现场，优先级越高</p>
+</footer>
+
+</div>
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
