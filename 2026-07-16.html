@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-16</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-16 · 周四</span>
+<span>本期 11 条</span>
+</div>
+<div class="mast-lede">今天最重的一锤，是 Mira Murati 的 Thinking Machines 把 9750 亿参数的 Inkling 完整开放权重——开放阵营又多一个正统玩家。<br><br>同日的另一条暗线是关于"归属"：纳德拉提醒企业用专有模型付了两次钱，苹果智能靠阿里 Qwen 才落地中国，Meta 则因用 AI 排裁员名单被告上法庭。<br><br>模型更强已不是唯一故事。谁握着权重、谁握着数据、谁为算法的决定负责，才是今天被摊开的三件事。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+
+<div class="item">
+<div class="dateline">07-16 · Thinking Machines · <span class="src">开放权重</span></div>
+<div class="item-title">Mira Murati 的 Thinking Machines 放出 Inkling：<span class="hl">9750 亿参数完整开放权重</span></div>
+<div class="image-block">
+<img src="https://oss.zhidx.com/uploads/2026/07/6a585956400f2_6a5859563cd1b_6a5859563cceb_token.jpg" alt="Inkling 在 Artificial Analysis 上的 token 效率对比" loading="lazy">
+</div>
+<div class="body">
+<p><strong>前 OpenAI CTO Mira Murati 的 Thinking Machines Lab 发布首款模型 Inkling：</strong>一个 <span class="num">9750 亿</span> 参数、每次激活约 <span class="num">410 亿</span> 的混合专家模型，以 Apache 2.0 上架 Hugging Face。</p>
+<p>它在 <span class="num">45 万亿</span> token 的文本、图像、音频、视频上从头训出，原生支持 <span class="num">100 万</span> token 上下文。企业可下载、微调、部署，还能拨动"思考强度"在性能与成本间取舍。</p>
+<p>公司自己承认 Inkling 不是当下最强模型，卖点是"均衡 + 可定制"。<span class="turn">当最前沿的实验室也开始交权重，闭源与开源的边界又塌了一块</span>。</p>
+</div>
+<ul class="points">
+<li>9750 亿参数，激活 410 亿</li>
+<li>45 万亿 token 多模态预训练</li>
+<li>Apache 2.0，已上架 Hugging Face</li>
+</ul>
+<div class="src-line">来源：<a href="https://thinkingmachines.ai/news/introducing-inkling/" target="_blank">Thinking Machines 博客</a> · <a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+
+<div class="item">
+<div class="dateline">07-16 · Apple · <span class="src">中国监管</span></div>
+<div class="item-title">Apple Intelligence 获中国批准上路：<span class="hl">跑在阿里 Qwen 上，不是苹果自己的云</span></div>
+<div class="body">
+<p><strong>中国监管批准 Apple Intelligence 在国内上线，但功能跑在阿里巴巴的 Qwen 模型上，而非苹果自有云模型——这是为满足本地合规要求做的取舍。</strong>此前苹果因模型与数据合规问题迟迟无法在华推出 AI 功能。</p>
+<p>这给苹果解开一个关键市场，<span class="turn">也把西方设备商对中国模型提供商的依赖摆到了台面上</span>：想进中国，得借本地的脑子。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.my2cents.ai/news/2026-07-16" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-16 · Meta · <span class="src">算法问责</span></div>
+<div class="item-title">26 名员工起诉 Meta：<span class="hl">用 AI 排的裁员名单，专挑休假的人</span></div>
+<div class="body">
+<p><strong><span class="num">26</span> 名在职与离职员工在加州联邦法院起诉 Meta，称公司用内部 AI 系统、键盘与活动监测、token 消耗仪表盘来打分排序、圈定裁员名单，而休病假、产假、育儿假或因残障产能下降的人，因积累不到有效考核数据被系统性选中。</strong>Meta 否认，称决定"由人作出，不是 AI"。</p>
+<p>这不是第一起，但可能是最具体的一起——<span class="turn">当算法替人做高利害决定，谁来审计它，成了躲不开的问题</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://fortune.com/2026/07/15/meta-workers-sue-over-ai-layoff-math" target="_blank">Fortune</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-16 · Suno · <span class="src">版权</span></div>
+<div class="item-title">Suno 泄露代码显示：<span class="hl">拿抓来的 YouTube 音频训音乐模型</span></div>
+<div class="body">
+<p><strong>一次安全漏洞曝出 Suno 的源代码中，似乎显示这家 AI 音乐生成公司从 YouTube 大批量抓取音频用于训练。</strong>Suno 本就面临音乐版权方的诉讼，这次给"生成音频是否建在未经授权的数据上"又添了一把火。</p>
+<p>训练数据的归属，是生成式模型绕不过的老账——<span class="turn">音频这条线，现在烧到了 Suno 身上</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.my2cents.ai/news/2026-07-16" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-16 · OpenAI · <span class="src">原创研究</span></div>
+<div class="item-title">GPT-5.6 Sol 帮教授推翻<span class="hl">一条 30 年的统计猜想</span></div>
+<div class="body">
+<p><strong>宾夕法尼亚大学一名教授报告，用 GPT-5.6 Sol Pro 在约 <span class="num">90</span> 分钟内推翻了关于 Benjamini-Hochberg 多重检验程序的一条已悬置数十年的猜想——此前人类尝试多年未果。</strong>结果尚待同行评议，若成立，是前沿模型产出原创数学结果的新一例。</p>
+<p>模型从"复现已知"走向"给出新结论"，<span class="turn">这条线一旦站稳，研究者的角色就要重写了</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.my2cents.ai/news/2026-07-16" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+
+<div class="item">
+<div class="dateline">07-16 · Poolside · <span class="src">开源编程模型</span></div>
+<div class="item-title">Poolside 开源 Laguna：<span class="hl">33B 跑本地，225B 扛长程</span></div>
+<div class="body">
+<p><strong>Poolside 发布 Laguna XS 2.1 与 M.1 两款开放权重智能体编程模型：XS 2.1 是 <span class="num">33B</span> MoE（每 token 激活 <span class="num">3B</span>），小到能在单张桌面 GPU 本地跑；M.1 是 <span class="num">225B</span>（激活 <span class="num">23B</span>）的旗舰，面向长程软件工程。</strong>权重以 Apache/OpenMDW 放开，接进 Ollama、vLLM 等本地推理栈。</p>
+<p>它把"写代码的模型"明确分成两层——<span class="turn">轻量留本地，重的留云端，企业按需挑</span>。</p>
+</div>
+<div class="image-block">
+<img src="https://cdn.sanity.io/images/n259s8jk/production/4f426efe2bc4b44ff3b3f2a56c5200ffe6214c57-1200x628.png" alt="Poolside Laguna 开放权重编程模型" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://www.poolside.ai/blog/introducing-laguna-xs-2-1" target="_blank">Poolside 博客</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-16 · PrismML · <span class="src">端侧推理</span></div>
+<div class="item-title">Bonsai 27B 压到 <span class="hl">4GB 以内，iPhone 本地跑推理</span></div>
+<div class="body">
+<p><strong>初创公司 PrismML 把一个 <span class="num">270 亿</span> 参数的推理模型压缩到 <span class="num">4GB</span> 以内，据称保留约 <span class="num">90</span>% 性能，小到能在 iPhone 上本地运行；团队说 Apple 正在测试这套压缩技术。</strong>这是继一连串高效端侧模型之后的又一例。</p>
+<p>推理模型第一次能塞进手机，<span class="turn">意味着强模型不再必然绑定云端和联网</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.my2cents.ai/news/2026-07-16" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+
+<div class="voice">
+<p class="voice-text">"你为智能付了两次钱——一次付钱，一次交出让模型有用的专有知识。"</p>
+<p class="voice-who">—— Satya Nadella · Microsoft CEO · <a href="https://www.techradar.com/pro/you-essentially-pay-for-intelligence-twice-once-with-money-and-again-with-something-even-more-valuable-microsoft-ceo-satya-nadella-warns-ai-users-not-to-give-away-too-much" target="_blank">TechRadar</a></p>
+</div>
+<div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"前沿模型会留作实验和高价值任务，多数生产 AI 会转向开源或私有。"</p>
+<p class="voice-who">—— Clem Delangue · Hugging Face CEO · <a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/" target="_blank">TechCrunch</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+
+<div class="item">
+<div class="dateline">07-16 · Whatnot · <span class="src">产品收购</span></div>
+<div class="item-title">直播购物平台 Whatnot 收购 Shaped：<span class="hl">把实时推荐塞进直播间</span></div>
+<div class="body">
+<p><strong>直播购物平台 Whatnot 收购机器学习公司 Shaped，把后者的实时个性化推荐基础设施直接并入自家市场，在直播过程中给观众推更对味的商品。</strong>这是消费平台"买而不是造"专业推荐 ML 的信号。</p>
+<p>推荐这件事，<span class="turn">正从大厂的自研护城河，变成可以买来的零件</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.my2cents.ai/news/2026-07-16" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+
+<div class="item">
+<div class="dateline">07-16 · 商汤 · <span class="src">统一视觉</span></div>
+<div class="item-title">商汤开源 SenseNova-Vision：<span class="hl">一个模型干完检测、分割、深度、3D</span></div>
+<div class="body">
+<p><strong>商汤发布并全面开源日日新 SenseNova-Vision 理解生成统一视觉大模型，用单一模型覆盖结构化视觉理解、稠密几何预测、图像分割与多视角 3D 几何<span class="num">四大</span>任务，登顶 Hugging Face Any-to-Any 开源榜。</strong>过去这些任务各由独立专家模型负责，系统割裂。</p>
+<p>对视觉创作者，意义在于<span class="turn">不用再为不同任务维护一堆模型，一个底座对付开放场景</span>——"缝合怪"时代的工具负担，被收进了一个模型里。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.sensetime.com/cn/news-detail/51170760?categoryId=72" target="_blank">商汤官方</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+
+<div class="item">
+<div class="dateline">07-16 · Emergent · <span class="src">融资</span></div>
+<div class="item-title">AI 编程创企 Emergent 拿下 <span class="hl">1.3 亿美元 C 轮，成独角兽</span></div>
+<div class="body">
+<p><strong>AI 编程初创 Emergent 完成 <span class="num">1.3 亿</span> 美元 C 轮，估值跻身独角兽，距成立仅一年多，背后是约 <span class="num">1.2 亿</span> 美元年化收入与 <span class="num">20 万</span>+ 客户。</strong>在 agentic coding 赛道拥挤的当下，它用营收速度证明了这类工具变现不慢。</p>
+<p>资本在用收入而不是 demo 视频，<span class="turn">重新给"会写代码的 AI"标价钱</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.my2cents.ai/news/2026-07-16" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>今天的关键词是"归属"。</p>
+<p>一边，Mira Murati 把 9750 亿参数的 Inkling 完整开放权重，开放阵营又多一个正统玩家。</p>
+<p>一边，纳德拉提醒企业用专有模型付了两次钱，苹果智能靠阿里 Qwen 才落地中国。</p>
+<p>Meta 因用 AI 排裁员名单被告上法庭，Suno 被曝拿抓来的 YouTube 音频训练。</p>
+<p>模型更强已不是唯一故事。</p>
+<p>谁握着权重、谁握着数据、谁为算法的决定负责，才是今天被摊开的三件事。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>俄罗斯北部 Severny 的两条山谷里，融水把泥沙堆成了对峙的冲积扇。</strong>卫星影像显示，山坡上的积雪消融后，溪流夹着岩屑冲出山口，在峡谷间铺开两片相向生长的扇形沉积——像一场不用裁判的拔河。</p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fans-of-the-arctic/duelingalluvialfans_oli2_20250801_th.jpg" alt="俄罗斯 Severny 两条对冲冲积扇卫星影像" loading="lazy">
+<p class="image-caption">Severny 的对冲冲积扇 · <span class="num">76.3</span>°N, <span class="num">63.0</span>°E<br>Landsat 9 拍到俄罗斯北部 Severny 两片相向生长的冲积扇，夹在峡谷之间。当我们在屏幕上争论模型谁更强，地壳另一头正用融水和泥沙慢慢重写山谷的形状。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
