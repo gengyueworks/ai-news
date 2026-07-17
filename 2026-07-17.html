@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-17</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-17 · 周五</span>
+<span>本期 10 条</span>
+</div>
+<div class="mast-lede">今天的主角是机器人——NVIDIA 把 Jetson Thor 算力做成了可插拔模组，直接焊进机器狗和工厂设备的机身。<br><br>另一条线关于"谁在端侧跑模型"：苹果、华为、OPPO、vivo 集中备案，阶跃把原生智能体手机搬上了 WAIC 前夜。<br><br>资本也没闲着，SambaNova 拿下 10 亿美元；但更耐看的是 Google 和腾讯把"自己能跑的开源工具"又往前推了一步。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+
+<div class="item">
+<div class="dateline">07-17 · NVIDIA · <span class="src">机器人模组</span></div>
+<div class="item-title">NVIDIA 把 Jetson Thor 做成模组：<span class="hl">机器人自己跑大模型，不用连云端</span></div>
+<div class="image-block">
+<img src="https://blogs.nvidia.com/wp-content/uploads/2026/07/robotics-jetson-T3000-T2000-jhh-japan-1280x680-1.jpg" alt="NVIDIA Jetson Thor T2000/T3000 机器人计算模组" loading="lazy">
+</div>
+<div class="body">
+<p><strong>NVIDIA 发布 Jetson Thor 模组系列（T2000 与 T3000），把原本要给机器人用的 Thor 算力做成了可插拔模组。</strong>单模组算力约 <span class="num">2000</span> TOPS，能直接在机器狗、机械臂、工厂巡检设备上本地跑多模态大模型，不必把数据传回数据中心。</p>
+<p>过去机器人"脑子在云上"，一断网就聋了；现在 NVIDIA 想把脑子焊进机身，整机功耗控制在 <span class="num">数千瓦</span> 量级。<span class="turn">这意味着"端侧具身智能"从演示视频走向产线配件——买块模组就能升级，不用重做整台机器。</span></p>
+</div>
+<ul class="points">
+<li>Thor 算力模组化，T2000 / T3000 两档</li>
+<li>本地跑多模态大模型，断网可用</li>
+<li>瞄准机器狗、机械臂、工厂巡检</li>
+</ul>
+<div class="src-line">来源：<a href="https://blogs.nvidia.com/blog/jetson-thor-modular-robotics/" target="_blank">NVIDIA 博客</a> · <a href="https://techcrunch.com/2026/07/16/nvidia-jetson-thor-modular-robotics/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+
+<div class="item">
+<div class="dateline">07-17 · 端侧 AI · <span class="src">集中备案</span></div>
+<div class="item-title">苹果、华为、OPPO、vivo 集体备案：<span class="hl">端侧大模型要过监管这一关</span></div>
+<div class="body">
+<p><strong>多家手机厂商的端侧大模型在本周集中完成监管备案，包括苹果、华为、OPPO、vivo 的端侧智能功能。</strong>备案意味着这些模型可以在国内设备上合规调用，端侧助手从"实验室特性"变成"默认功能"。</p>
+<p>另一边，京东的 Agent 与腾讯元宝打通，用户在京东里能直接调起元宝处理订单与售后。<span class="turn">端侧的竞争从"谁的模型快"转向"谁的模型能合法地待在用户手机里"。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.my2cents.ai/news/2026-07-17" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-17 · 阶跃 Step · <span class="src">原生智能体手机</span></div>
+<div class="item-title">阶跃 STEPX Neo 发布：<span class="hl">一部为智能体而不是为 App 设计的手机</span></div>
+<div class="body">
+<p><strong>阶跃在 WAIC 前夜发布 STEPX Neo，定位"大模型原生智能体手机"——系统层直接由智能体驱动，用户用自然语言就能让手机自己点 App、填表、跨应用串起任务。</strong>这不是把语音助手换皮，而是把智能体放在操作系统的第一层。</p>
+<p>同场还展示了多智能体协作：一个管规划，一个管执行，一个管核对。<span class="turn">当手机出厂就带着"会干活的小队"，入口之争的战场从聊天框移到了整个系统。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.stepfun.com/news/stepx-neo" target="_blank">阶跃官方</a> · <a href="https://36kr.com/newsflashes/stepx-neo-2026" target="_blank">36氪</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-17 · 小米 · <span class="src">机器人进厂</span></div>
+<div class="item-title">小米机器人实习成绩单：<span class="hl">打螺丝成功率从 90.2% 升到 98%</span></div>
+<div class="body">
+<p><strong>进厂实习约一个季度的小米机器人，自攻螺母上件工站的双侧作业成功率从年初的 <span class="num">90.2%</span> 提升到 <span class="num">98%</span>，离人工作业 99% 的合格率只差一个百分点。</strong>它还解锁了两个新工站：中控台侧盖板排序和料箱折叠回收，成功率都到 90%。</p>
+<p>更关键的是多机协同——多个机器人通过工厂系统同步节拍，稳定跑了起来。<span class="turn">离"转正"就差那 1%，而这一步靠的不是更酷的演示，是成千上万次不出错的重复。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://new.qq.com/rain/a/20260714A0AWVE00" target="_blank">腾讯新闻</a> · <a href="https://post.m.smzdm.com/p/awwx380k" target="_blank">什么值得买</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+
+<div class="item">
+<div class="dateline">07-17 · Google · <span class="src">终端智能体</span></div>
+<div class="item-title">Google 开源 Agents CLI：<span class="hl">在终端里直接跑多步智能体</span></div>
+<div class="body">
+<p><strong>Google 开源 Agents CLI，一个在命令行里调度多步智能体的工具：给它一个目标，它自己拆任务、调工具、看结果、再决定下一步，过程全程留在终端。</strong>项目上线数天已收获 <span class="num">5100</span>+ stars，面向想把 agent 编进脚本和 CI 流水线的开发者。</p>
+<p>它把"智能体"从聊天窗口拉回开发者最熟的环境。<span class="turn">当 agent 能像 grep 一样被写进一行命令，自动化才真正长进工作流里。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/google/agents-cli" target="_blank">GitHub · google/agents-cli</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-17 · 腾讯 · <span class="src">端侧量化</span></div>
+<div class="item-title">腾讯放出 Hy3 量化版：<span class="hl">295B 模型压到 85GB，单卡能跑</span></div>
+<div class="body">
+<p><strong>腾讯开源混元 Hy3 的量化版本，把 <span class="num">2950</span> 亿参数的模型压缩到约 <span class="num">85GB</span>，塞进单张高显存卡就能跑推理，权重与量化方案一并放出。</strong>对想在自己机器上部署大模型的中小团队，这是把"旗舰模型"从云上请下来的又一条路。</p>
+<p>端侧与单卡可跑，正在从卖点变成底线。<span class="turn">谁能把大模型压得又小又稳，谁就握住了私有化部署的门票。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/Tencent/llmQuant" target="_blank">GitHub · Tencent</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+
+<div class="voice">
+<p class="voice-text">"机器人真正的难点不在会不会动，在能不能一直做对。"</p>
+<p class="voice-who">—— Pieter Abbeel · UC Berkeley 机器人教授 · <a href="https://techcrunch.com/2026/07/16/robotics-reliability-not-capability/" target="_blank">TechCrunch</a></p>
+</div>
+<div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"多数生产 AI 会转向开源或私有，前沿模型留作高价值任务。"</p>
+<p class="voice-who">—— Clem Delangue · Hugging Face · <a href="https://www.theverge.com/2026/7/16/open-vs-frontier-ai" target="_blank">The Verge</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+
+<div class="item">
+<div class="dateline">07-17 · 金山办公 · <span class="src">办公智能体</span></div>
+<div class="item-title">金山办公推灵犀专业版：<span class="hl">让 WPS 自己写公式、理长文档</span></div>
+<div class="body">
+<p><strong>金山办公发布 WPS 灵犀专业版与 WPS Comate，把 AI 从"对话框"嵌进文档、表格、PPT 的编辑流程：选中一段数据就能让它写公式、做透视、生成汇报，长文档也能自动拆结构、补摘要。</strong>卖点不是"能聊天"，是"在你想改的那一行旁边就动手"。</p>
+<p>办公软件的护城河，正从排版能力变成"替你把活干完"的能力。<span class="turn">当工具开始理解你的文档而不是等你下命令，表格和幻灯片都成了可对话的对象。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.kingsoft.com/news/wps-lingxi-pro" target="_blank">金山办公官方</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+
+<div class="item">
+<div class="dateline">07-17 · 字节 · <span class="src">图像生成</span></div>
+<div class="item-title">字节 Seedream 5.0 Pro：<span class="hl">一张图里把科考站画得像个真地方</span></div>
+<div class="body">
+<p><strong>字节跳动发布 Seedream 5.0 Pro，重点不在"更美"，而在"更准"：复杂构图、长文本里的多对象、以及科学场景（如南极科考站剖面）的几何一致性明显提升。</strong>给一段带尺寸和结构的描述，它能把建筑、设备、管线摆在该在的位置，而不是随手拼贴。</p>
+<p>对视觉创作者，价值在"可控"——<span class="turn">你交代得越具体，它越像在照图施工，而不是凭印象涂鸦。</span></p>
+</div>
+<div class="image-block">
+<img src="https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/user-upload/4xfa4mrbtznw5.jpg" alt="字节 Seedream 5.0 Pro 南极科考站信息图" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://seed.bytedance.com/zh/seedream" target="_blank">字节 Seed 官方</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+
+<div class="item">
+<div class="dateline">07-17 · SambaNova · <span class="src">算力融资</span></div>
+<div class="item-title">SambaNova 拿下 <span class="hl">10 亿美元 F 轮，估值站上 110 亿</span></div>
+<div class="body">
+<p><strong>AI 算力芯片与系统公司 SambaNova 完成 <span class="num">10</span> 亿美元 F 轮融资，估值来到约 <span class="num">110</span> 亿美元，资金主要投向自研推理芯片与面向企业的部署栈。</strong>在 GPU 供给仍紧的当下，资本在用钱投票给"非英伟达"的推理路线。</p>
+<p>训练卡的格局已基本落定，推理卡的位子还空着。<span class="turn">谁能把每次推理的成本压下来，谁就接住了接下来最大的那笔单。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.my2cents.ai/news/2026-07-17" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>今天的关键词是"落地"。</p>
+<p>一边，NVIDIA 把机器人算力做成模组，小米机器人把打螺丝成功率做到 98%——具身智能从视频走向产线。</p>
+<p>一边，端侧大模型集体过备案，阶跃把智能体做进手机系统层，Google 和腾讯把能自己跑的开源工具递到开发者手边。</p>
+<p>资本也押了同一件事：SambaNova 的 10 亿美元，买的是推理侧那条还没被英伟达占满的路。</p>
+<p>模型更强已不是唯一故事。</p>
+<p>谁能合法地待在设备里、稳定地一直做对、便宜地跑起来，才是今天被摊开的三件事。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>北美大平原上，Nebraska 的沙丘随季节风向慢慢改形——草被固定了沙，沙却仍在挪动。</strong>这片沙丘是西半球最大的沙丘系统，草毯像网一样兜住绝大部分沙，但风仍会从裸露的河床里掀起细沙，年复一年把丘脊推着走。</p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/nebraska%E2%80%99s-wide%2C-rolling-domain/nebraskasandhillszm1_oli_20250819_th.jpg" alt="NASA 卫星影像：Nebraska 沙丘地貌" loading="lazy">
+<p class="image-caption">Nebraska 的沙丘 · <span class="num">42.4</span>°N, <span class="num">100.5</span>°W<br>Landsat 8 拍下北美大平原上一片随季节风向改形的沙丘，草被固定了沙，沙却仍在慢慢移动。当我们在屏幕上争论模型谁更强，地壳另一头正用风和草慢重写地貌的形状。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
