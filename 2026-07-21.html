@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-21</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-21 · 周一</span>
+<span>本期 11 条</span>
+</div>
+<div class="mast-lede">算力这周是主角的另一面。<br><br>英伟达 Vera Rubin 全面投产，把智能体推理的能效拉到 Blackwell 的 <span class="num">10</span> 倍；谷歌一夜三连发，把重点放在"更便宜"而不是"更大"。<br><br>当硬件和模型同时学会省钱，AI 工厂才真正像工厂。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">07-21 · 电网 / AI 调度 · 能源</div>
+<div class="item-title">AI 开始管电：<span class="hl">把波动的光伏变成可调度的算力</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20260606_th.jpg" alt="NASA 卫星影像：犹他州百万块光伏板组成的太阳能矩阵" loading="lazy"></div>
+<div class="body">
+<p><strong>加州与得州的数据中心开始用 AI 调度园区用电，把正午过剩的光伏存进储能、在晚高峰释放，单位算力的电费下降约 <span class="num">30</span>%。</strong>系统不再按峰值买电，改为跟着太阳和电价走。</p>
+<p><span class="turn">当 AI 工厂自己学会省电，"算力自由"的第一步不是更多芯片，是更会用电。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" target="_blank">NVIDIA / 行业报道</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">07-21 · 英伟达 · 算力底座</div>
+<div class="item-title">Vera Rubin 全面投产：<span class="hl">智能体推理能效 10 倍于 Blackwell</span></div>
+<div class="body">
+<p><strong>英伟达 Vera Rubin NVL72 进入 full production，单 GPU 配 <span class="num">288</span> GB HBM4、带宽 <span class="num">22</span> TB/s，NVLink 6 单 GPU 互连 <span class="num">3.6</span> TB/s，主打智能体推理。</strong>官方称每百万 token 成本约为上一代十分之一。</p>
+<p><span class="turn">Rubin 不为跑分设计，为"一直转"设计——agent 反复推理、调工具，吃的就是能效。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" target="_blank">NVIDIA</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · 谷歌 · 模型发布</div>
+<div class="item-title">Gemini 三连发：<span class="hl">3.6 Flash 更便宜，3.5 Cyber 专修漏洞</span></div>
+<div class="body">
+<p><strong>谷歌 DeepMind 同日发布 Gemini 3.6 Flash、3.5 Flash-Lite、3.5 Flash Cyber：3.6 Flash 输出 token 少用 <span class="num">17%</span>，DeepSWE 编码基准最高省 <span class="num">65%</span>，定价 <span class="num">1.5</span>/<span class="num">7.5</span> 美元每百万 token。</strong>3.5 Flash Cyber 是修漏洞的安全专用模型，仅向政府与受信伙伴开放。</p>
+<p><span class="turn">谷歌这波不打"最大"，打"更便宜"——生产环境里的 agent，先省下来的才是真金。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · Anthropic · 编程智能体</div>
+<div class="item-title">Claude Sonnet 4.6 发布：<span class="hl">一条命令拉起 8 个子智能体</span></div>
+<div class="body">
+<p><strong>Anthropic 的 Claude Sonnet 4.6 强化了文件系统工具与子智能体编排 API，父智能体可并行拉起最多 <span class="num">8</span> 个不同类型子智能体，单对话预算从 <span class="num">128</span> 轮提到 <span class="num">256</span> 轮。</strong></p>
+<p><span class="turn">单次对话完成一次跨模块重构，不再需要人把上下文拆成四段分头扔进四个会话。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.toutiao.com/article/7664440894468178486/" target="_blank">头条 / Anthropic</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">07-21 · 谷歌 · 安全开源</div>
+<div class="item-title">Gemini 3.5 Flash Cyber 开源思路：<span class="hl">漏洞模型先给守方用</span></div>
+<div class="body">
+<p><strong>3.5 Flash Cyber 定位"修漏洞的特种兵"，谷歌把它放进受限试点，先给政府与安全研究者，而非全盘公开。</strong>思路是让防御方先于攻击方拿到能力。</p>
+<p><span class="turn">安全模型的开源节奏，比通用模型更讲究"给谁"——能力越强，越不能一把撒出去。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/models/gemini/flash/" target="_blank">Google DeepMind</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-17 · 开源社区 · 推理框架</div>
+<div class="item-title">vLLM / SGLang 跟进 K3：<span class="hl">开源推理栈连夜适配 2.8 万亿</span></div>
+<div class="body">
+<p><strong>Kimi K3 发布的同一周，vLLM 与 SGLang 社区就提交对 Stable LatentMoE 的支持补丁，让 <span class="num">896</span> 专家、激活 <span class="num">16</span> 个的架构能在消费级集群跑起来。</strong></p>
+<p><span class="turn">模型开源的价值，一半在权重，一半在旁边那群连夜改推理框架的人。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/vllm-project/vllm" target="_blank">GitHub / 社区</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"能效才是智能体时代的真瓶颈，不是算力总量，是每度电能出多少 token。"</p>
+<p class="voice-who">—— 黄仁勋 · 英伟达 · <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" target="_blank">NVIDIA</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"模型便宜下来，agent 才进得了中小企业的后台，而不只是大厂的玩具。"</p>
+<p class="voice-who">—— Logan Kilpatrick · Google DeepMind · <a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" target="_blank">TechCrunch</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">07-21 · DeepMind · AI for Science</div>
+<div class="item-title">AlphaFold 3 进药物发现：<span class="hl">把蛋白结构预测压到几分钟</span></div>
+<div class="body">
+<p><strong>DeepMind 把 AlphaFold 3 的接口接进药物发现流水线，研究者上传序列，几分钟内拿到蛋白与分子相互作用的结构假设，原先要几周湿实验。</strong></p>
+<p><span class="turn">当结构预测快过写实验申请，生物学的迭代节奏第一次追上了软件。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/" target="_blank">Google DeepMind</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">07-21 · 纪录片导演 · 体验变化</div>
+<div class="item-title">用 AI 修复 <span class="num">1960</span> 年的林火影像：<span class="hl">黑白胶片长出烟的走向</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fighting-fire-with-fire/australiafires_amo_20260528_th.jpg" alt="NASA 卫星影像：澳大利亚林火过后的地貌" loading="lazy"></div>
+<div class="body">
+<p><strong>一位纪录片导演把 NASA 的野火烟雾卫星图和历史林火胶片一起喂给修复模型，让 <span class="num">1960</span> 年代的黑白画面长出烟的流向与城市轮廓。</strong></p>
+<p><span class="turn">创作者第一次能把"当年的火"和"今天的火"放在同一帧里比对——档案活了。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nasa.gov/" target="_blank">NASA / 创作者</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">07-21 · 半导体 · 供应链</div>
+<div class="item-title">Rubin 量产带飞供应链：<span class="hl">HBM4 与硅光成新风口</span></div>
+<div class="body">
+<p><strong>Vera Rubin 全面投产后，HBM4 内存、NVLink 6 交换芯片与硅光互连成为供应链重点，台系与全球代工厂同步扩产。</strong>机构预估 AI 服务器本季出货环比走高。</p>
+<p><span class="turn">一颗 GPU 的背后，是一整条被重新定价的材料链。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" target="_blank">NVIDIA / 报道</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>今天的关键词是"省钱"。</p>
+<p>Vera Rubin 把智能体推理能效做到 Blackwell 的 10 倍，每百万 token 成本约十分之一；谷歌三连发主打更便宜的 Flash。</p>
+<p>AI 开始管园区的电，把正午光伏存进储能、晚高峰释放，单位算力电费降约 30%。</p>
+<p>AlphaFold 3 进药物发现，结构预测压到几分钟；编程子智能体一条命令拉起 8 个。</p>
+<p>当硬件、模型、用电同时学会省钱，AI 工厂才真的像工厂。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>奥林匹克山 · 太平洋西北——NASA 的卫星在 N47.8、W123.7 一带，拍下 雪山把降水存成积雪，再慢慢放给山下的城镇与农田。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_th.jpg" alt="NASA 卫星影像：奥林匹克雪山积雪覆盖" loading="lazy">
+<p class="image-caption">奥林匹克山 · 太平洋西北 · NASA 卫星拍下 <span class="num">47.8</span>°N, <span class="num">123.7</span>°W<br>雪山把降水存成积雪，再慢慢放给山下的城镇与农田。我们在屏幕上争论谁的模型更强，山顶的雪正按千百年的节奏，管着山下人的水。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
