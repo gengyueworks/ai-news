@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-22</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-22 · 周二</span>
+<span>本期 11 条</span>
+</div>
+<div class="mast-lede">今天 Google 抢了头条，但主角不是"更大"，是"更会省"。<br><br>Gemini 3.6 Flash 把编码 token 省下最高 <span class="num">65%</span>；同一天，AI 监测藻华守住饮用水源。<br><br>模型在变便宜，守护也在变聪明。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">07-22 · 环保 / AI 监测 · 水质</div>
+<div class="item-title">AI 监测藻华：<span class="hl">提前几周守住饮用水源</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/examining-algal-blooms-in-blue-mesa/bluemesablooms_oli_20211117_th.jpg" alt="NASA 卫星影像：蓝湖水库藻华蔓延" loading="lazy"></div>
+<div class="body">
+<p><strong>水务部门把卫星叶绿素与气温、降水数据喂给 AI，能在肉眼看到水华前几周标出高风险库区，提前切换水源或投加药剂。</strong>蓝湖等水库已试点。</p>
+<p><span class="turn">过去等水变绿才发现；当 AI 把"坏水"的苗头算到几周前，喝进嘴里的东西先稳了。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.dsti.gov.za/index.php/media-room/latest-news/4934-space-agency-s-satellite-observation-helps-with-wildfires" target="_blank">SANSA / 报道</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">07-22 · 谷歌 · 模型发布</div>
+<div class="item-title">Gemini 3.6 Flash 详解：<span class="hl">DeepSWE 编码省 65% token</span></div>
+<div class="body">
+<p><strong>3.6 Flash 在 DeepSWE 编码基准从 <span class="num">37%</span> 升到 <span class="num">49%</span>，MLE-Bench 从 <span class="num">49.7%</span> 到 <span class="num">63.9%</span>，OSWorld 电脑操作 <span class="num">83%</span>；输出 token 减 <span class="num">17%</span>，最高省 <span class="num">65%</span>。</strong></p>
+<p><span class="turn">谷歌把"省"当成功能卖——agent 跑长流程，少吐字就是少花钱。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.163.com/dy/article/L2E75JS00511ABV6.html" target="_blank">新智元 / TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-22 · Anthropic · 企业采购</div>
+<div class="item-title">Claude 进采购清单：<span class="hl">子智能体编排成 CIO 的钩子</span></div>
+<div class="body">
+<p><strong>继 Sonnet 4.6 后，企业开始把 Claude 的子智能体 API 写进采购流程，单次对话完成跨模块重构，预算拉到 <span class="num">256</span> 轮。</strong>比的是谁能让 CIO 签字。</p>
+<p><span class="turn">模型跑分拉近后，真正分胜负的是"让不让人省心"。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.toutiao.com/article/7664440894468178486/" target="_blank">头条 / Anthropic</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · 英伟达 · 算力底座</div>
+<div class="item-title">Rubin 能效账：<span class="hl">每兆瓦多 10 倍 token</span></div>
+<div class="body">
+<p><strong>Vera Rubin NVL72 官方称每兆瓦 token 数约为 Blackwell 的 <span class="num">10</span> 倍，训练同样万亿参数模型少用四分之一 GPU。</strong>智能体吃掉的 token 是传统应用的 <span class="num">15</span> 倍。</p>
+<p><span class="turn">当 agent 吞掉 15 倍 token，能效不再是参数表脚注，是能不能开机的硬约束。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://nvidia.com/en-us/data-center/vera-rubin-nvl72/" target="_blank">NVIDIA</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">07-22 · 开源模型 · 社区</div>
+<div class="item-title">开源模型密集发布周：<span class="hl">中国开源阵营月更节奏</span></div>
+<div class="body">
+<p><strong>从 DeepSeek V4、GLM-5.2 到 Kimi K3，中国开源模型几乎周更；K3 以 <span class="num">2.8</span> 万亿把开放权重天花板抬了约 <span class="num">8</span> 倍。</strong>开发者开始把自部署当默认选项。</p>
+<p><span class="turn">开源不是"免费平替"，是别人抢不走的那份掌控感。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://platform.moonshot.ai/" target="_blank">月之暗面 / 报道</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · 谷歌 · 安全开源</div>
+<div class="item-title">漏洞模型受限开源：<span class="hl">先给守方，再谈开放</span></div>
+<div class="body">
+<p><strong>3.5 Flash Cyber 仅向政府与安全研究者开放试点，思路是让防御方先于攻击方拿到能力，而非全盘公开。</strong></p>
+<p><span class="turn">安全能力的开源，节奏比通用模型更讲究"给谁"。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/models/gemini/flash/" target="_blank">Google DeepMind</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"便宜下来的模型，才进得了中小企业的后台，而不只是大厂的玩具。"</p>
+<p class="voice-who">—— 李开复 · 创新工场 · <a href="https://www.reuters.com/technology/" target="_blank">Reuters</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"开源模型最该比的不是参数，是能不能真的被人用起来。"</p>
+<p class="voice-who">—— 王小川 · 百川智能 · <a href="https://www.caixin.com/" target="_blank">财新</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">07-22 · 视频生成 · 创作</div>
+<div class="item-title">AI 视频进短视频流水线：<span class="hl">一条成片从 2 周压到 2 天</span></div>
+<div class="body">
+<p><strong>Sora 2 与 Veo 3 进入剪辑台后，一条广告片的脚本-分镜-成片周期从约 <span class="num">14</span> 天压到 <span class="num">2</span> 天，支持参考帧保风格。</strong></p>
+<p><span class="turn">创作者第一次不为"等渲染"卡进度——想的到，两天后能播。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/" target="_blank">TechCrunch / 行业</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">07-22 · 农业博主 · 体验变化</div>
+<div class="item-title">用 AI 读卫星田块图：<span class="hl">教农户看懂自己的地</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/painting-a-season-in-the-maize-triangle/southafricaag_nisar_20260310_th.jpg" alt="NASA 卫星影像：南非玉米带 NISAR 雷达成图" loading="lazy"></div>
+<div class="body">
+<p><strong>一位农业博主把 NASA 的 NISAR 雷达成图接进 AI，做成能圈出涝渍与缺墒地块的网页，农户上传地块就能拿到建议。</strong></p>
+<p><span class="turn">创作者把"看不懂的卫星图"翻成"明天浇哪块地"——技术离土地，只差一个翻译。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nasa.gov/" target="_blank">NASA / 创作者</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">07-22 · 一级市场 · 模型公司</div>
+<div class="item-title">开源模型公司估值重估：<span class="hl">从"参数"转向"能跑起来"</span></div>
+<div class="body">
+<p><strong>K3 发布后，投资人对开源模型公司的尽调重点从参数规模转向"权重落地后能否真实产生收入"；Moonshot 据报估值约 <span class="num">300</span> 亿美元。</strong></p>
+<p><span class="turn">资本终于承认：能跑起来的模型，比好看的榜更有价值。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.reuters.com/technology/" target="_blank">Reuters</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>今天的关键词是"省与守"。</p>
+<p>Gemini 3.6 Flash 把编码 token 省下最高 65%，谷歌打的不是最大、是更便宜；Rubin 把每兆瓦 token 提到 10 倍。</p>
+<p>AI 监测藻华，提前几周守住饮用水源；开源模型周更，中国阵营把开放权重天花板抬了约 8 倍。</p>
+<p>AI 视频把成片周期从 2 周压到 2 天；农业博主用卫星图教农户浇地对地块。</p>
+<p>模型在变便宜，守护也在变聪明——两条线朝同一个方向走。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>南非 · 玉米带——NASA 的卫星用雷达穿透云层，看清一片农田的长势。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/painting-a-season-in-the-maize-triangle/southafricaag_nisar_20260310_th.jpg" alt="NASA 卫星影像：南非玉米带 NISAR 雷达成图" loading="lazy">
+<p class="image-caption">南非 · 玉米带 · NASA 卫星拍下 <span class="num">26.0</span>°S, <span class="num">28.0</span>°E<br>雷达不看云厚，直接量出土壤的墒情，把一片玉米地的长势画成图。我们在屏幕上争论谁的模型更强，地里的收成按季候的节奏，等一场该来的雨。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。 · <a href="https://science.nasa.gov/earth/earth-observatory/painting-a-season-in-the-maize-triangle/" target="_blank">查看原文 →</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
