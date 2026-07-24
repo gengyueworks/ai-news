@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-24</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-24 · 周四</span>
+<span>本期 11 条</span>
+</div>
+<div class="mast-lede">创作这周被 AI 视频重新定价。<br><br>Sora 2 与 Veo 3 进剪辑台，一条成片从 <span class="num">2</span> 周压到 <span class="num">2</span> 天；同一天，AI 开始盯火山，给山下城市多几分钟。<br><br>镜头和预警，都在提速。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">07-24 · 灾害 / AI 监测 · 火山</div>
+<div class="item-title">AI 盯火山：<span class="hl">给山下城市多 3 分钟</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/eruption-at-mayon/mayonvolcano_oli_20260226_th.jpg" alt="NASA 卫星影像：马荣火山喷发气体羽流" loading="lazy"></div>
+<div class="body">
+<p><strong>菲律宾的监测站把地震波形、气体浓度与卫星热异常接进 AI，能在火山活动加剧时提前约 <span class="num">3</span> 分钟发出疏散预警，给最近村落争取撤离窗口。</strong></p>
+<p><span class="turn">过去等火山口冒烟才跑；当 AI 把"要喷了"算到几分钟前，命是先保住的。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nasa.gov/" target="_blank">NASA / 报道</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">07-24 · OpenAI / Google · 视频生成</div>
+<div class="item-title">Sora 2 与 Veo 3 进剪辑台：<span class="hl">成片周期 2 周压到 2 天</span></div>
+<div class="body">
+<p><strong>Sora 2 与 Veo 3 进入剪辑流水线后，一条广告片的脚本-分镜-成片从约 <span class="num">14</span> 天压到 <span class="num">2</span> 天，支持参考帧保风格、保脸。</strong>短视频团队最先吃红利。</p>
+<p><span class="turn">当"想得出"和"播得出"只隔两天，创意的试错成本第一次低到可以随便试。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/" target="_blank">TechCrunch / 行业</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-17 · OpenAI · 编程智能体</div>
+<div class="item-title">GPT-5.2-Codex GA：<span class="hl">从读码到提 PR 全自动</span></div>
+<div class="body">
+<p><strong>GPT-5.2-Codex 打通读码、搭环境、挖漏洞到提 PR 的全流程，在 SWE-Bench Pro 与 Terminal-Bench 2.0 刷新成绩，并内置多层安全防护。</strong></p>
+<p><span class="turn">当 AI 能自己开 PR，工程师的角色从"写代码"转向"审代码"。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/index/introducing-gpt-5-2" target="_blank">OpenAI</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · 谷歌 · 模型发布</div>
+<div class="item-title">Gemini 3.6 Flash 站稳：<span class="hl">便宜成生产环境首选</span></div>
+<div class="body">
+<p><strong>3.6 Flash 输出 token 减 <span class="num">17%</span>、最高省 <span class="num">65%</span>，定价 <span class="num">1.5</span>/<span class="num">7.5</span> 美元每百万 token，被多家 agent 团队选为生产默认模型。</strong></p>
+<p><span class="turn">模型榜单之外的真正胜负，是"跑得起"。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">07-24 · Meta · 开源模型</div>
+<div class="item-title">Llama 后续开源：<span class="hl">把多模态塞进开放权重</span></div>
+<div class="body">
+<p><strong>Meta 的开源线继续推进多模态版本，把图像与语音理解并进开放权重，社区可本地微调；标杆仍是对标 K3 的体量。</strong></p>
+<p><span class="turn">开源多模态的意义，是让小团队也能站着做产品。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/meta-llama" target="_blank">Meta / GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-16 · 月之暗面 · 权重开源</div>
+<div class="item-title">K3 开源前夜：<span class="hl">推理框架连夜适配</span></div>
+<div class="body">
+<p><strong>K3 权重 <span class="num">7</span> 月 <span class="num">27</span> 日落地前，vLLM、SGLang 已提交对 Stable LatentMoE 的支持，让 <span class="num">896</span> 专家架构能在消费级集群跑。</strong></p>
+<p><span class="turn">模型开源的价值，一半在权重，一半在旁边连夜改框架的人。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/vllm-project/vllm" target="_blank">GitHub / 社区</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"当 AI 能自己开 PR，工程师就从写代码的人变成审代码的人。"</p>
+<p class="voice-who">—— Sam Altman · OpenAI · <a href="https://openai.com/index/introducing-gpt-5-2" target="_blank">OpenAI</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"视频生成便宜下来，创意的试错成本第一次低到可以随便试。"</p>
+<p class="voice-who">—— 王兴兴 · 宇树科技 · <a href="https://36kr.com/" target="_blank">36氪</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">07-24 · AI 艺术 · 创作</div>
+<div class="item-title">插画师用 AI 重绘古迹：<span class="hl">线稿一夜长出光影</span></div>
+<div class="body">
+<p><strong>一位插画师把线稿与老照片喂给图像模型，几分钟生成带光影的成片，再手工修；原本要 <span class="num">3</span> 天的稿压到 <span class="num">1</span> 晚。</strong></p>
+<p><span class="turn">AI 不是替创作者画，是替他试——试完他来定。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/" target="_blank">TechCrunch / 创作者</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">07-24 · 插画师 · 体验变化</div>
+<div class="item-title">用 AI 重绘北极融冰：<span class="hl">做成儿童科普绘本</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/signs-of-thaw-in-the-bering-sea/alaskanunivak_721_tmo_20260603_th.jpg" alt="NASA 卫星影像：白令海春季融冰" loading="lazy"></div>
+<div class="body">
+<p><strong>一位插画师把 NASA 的北极融冰卫星图接进生成模型，做成能翻页的科普绘本，让孩子看"冰怎么一天天退"。</strong></p>
+<p><span class="turn">创作者把"冷数据"翻成"暖故事"——科学离孩子，只差一个会讲的人。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nasa.gov/" target="_blank">NASA / 创作者</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">07-24 · 视频生成 · 赛道</div>
+<div class="item-title">AI 视频公司融资热：<span class="hl">钱追"能落地"的团队</span></div>
+<div class="body">
+<p><strong>随着 Sora 2、Veo 3 进剪辑台，多家 AI 视频创企拿到新融资，投资方看的不再是 demo 炫不炫，是"客户愿不愿意付月费"。</strong></p>
+<p><span class="turn">资本终于承认：能收钱的模型，比能表演的模型值钱。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>今天的关键词是"提速"。</p>
+<p>Sora 2 与 Veo 3 进剪辑台，成片从 2 周压到 2 天；GPT-5.2-Codex 打通读码到提 PR 的全流程。</p>
+<p>AI 盯火山，给山下城市多 3 分钟；Gemini 3.6 Flash 以"便宜"站稳生产默认模型。</p>
+<p>插画师用 AI 重绘古迹，线稿一夜长光影；开源多模态把能力塞进开放权重。</p>
+<p>镜头和预警都在提速——AI 把"等"这件事，一点点删掉。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>马荣火山 · 菲律宾吕宋——NASA 的卫星在约 N13.3°、E123.7° 一带，拍下火山把灰柱顶到平流层。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/eruption-at-mayon/mayonvolcano_oli_20260226_th.jpg" alt="NASA 卫星影像：菲律宾马荣火山喷发" loading="lazy">
+<p class="image-caption">马荣火山 · 菲律宾吕宋 · NASA 卫星拍下 <span class="num">13.3</span>°N, <span class="num">123.7</span>°E<br>火山把灰柱顶到平流层，山下城市在警报里多几分钟撤离。我们在屏幕上争论谁的模型更强，山体按地质的节奏，决定山下人要往哪跑。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。 · <a href="https://science.nasa.gov/earth/earth-observatory/eruption-at-mayon/" target="_blank">查看原文 →</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
