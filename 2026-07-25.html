@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-25</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-25 · 周五</span>
+<span>本期 11 条</span>
+</div>
+<div class="mast-lede">太空这周给 AI 递了镜头。<br><br>Artemis II 拍下的"地出"让卫星看地球成了普通人的望远镜；同一天，AlphaFold 3 把蛋白结构预测压到几分钟。<br><br>往上看星，往下看命。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">07-25 · 太空 / AI 看地球 · 遥感</div>
+<div class="item-title">AI 帮卫星看地球：<span class="num">太空视角进了普通人的望远镜</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-moonlit-earth-as-seen-from-artemis-ii/art002e000192~orig_th.jpg" alt="NASA 卫星影像：阿耳忒弥斯二号拍下的地出" loading="lazy"></div>
+<div class="body">
+<p><strong>Artemis II 拍下的"地出"画面被做成公开数据集，开发者用 AI 把云、火、藻华自动标进地图，普通人也能在网页上拖动查看自家上空的卫星视角。</strong></p>
+<p><span class="turn">过去看地球要等机构发图；当 AI 把卫星流变成可交互的地图，天空第一次离人这么近。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nasa.gov/" target="_blank">NASA / 报道</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">07-25 · DeepMind · AI for Science</div>
+<div class="item-title">AlphaFold 3 进药物发现：<span class="num">结构预测压到几分钟</span></div>
+<div class="body">
+<p><strong>DeepMind 把 AlphaFold 3 接进药物流水线，上传序列几分钟拿到蛋白-分子作用结构假设，原要几周湿实验；已覆盖部分蛋白相互作用类型。</strong></p>
+<p><span class="turn">当结构预测快过写申请，生物学的迭代第一次追上了软件。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/" target="_blank">Google DeepMind</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-19 · Figure · 具身智能</div>
+<div class="item-title">Figure 03 扩产：<span class="num">从 1 台/天到 1 台/小时</span></div>
+<div class="body">
+<p><strong>Figure 的制造伙伴 BotQ 把节奏从每天 <span class="num">1</span> 台提到每小时 <span class="num">1</span> 台，在产线已部署 <span class="num">350</span> 多台；宝马产线验证连续 <span class="num">200</span> 小时自主。</strong></p>
+<p><span class="turn">具身智能的瓶颈从来不是单点算法，是能稳定造出来的底座。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.frontiernews.ai/news/article/tesla-optimus-reveal-delayed-again-why-figure-03s-bfbafc98" target="_blank">FrontierNews</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · 英伟达 · 算力底座</div>
+<div class="item-title">Rubin 能效账续：<span class="hl">每兆瓦 10 倍 token</span></div>
+<div class="body">
+<p><strong>Vera Rubin NVL72 每兆瓦 token 数约为 Blackwell <span class="num">10</span> 倍，训练同样万亿参数模型少用四分之一 GPU。</strong></p>
+<p><span class="turn">agent 吞掉 15 倍 token，能效才是开机的关键。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://nvidia.com/en-us/data-center/vera-rubin-nvl72/" target="_blank">NVIDIA</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">07-25 · 开源科学 · 数据集</div>
+<div class="item-title">地球观测数据集开源：<span class="hl">卫星流向所有人开放</span></div>
+<div class="body">
+<p><strong>多个机构把火、藻华、云系的标准化卫星数据集开源，开发者用 AI 直接训练本地模型，不必等资源方发图。</strong></p>
+<p><span class="turn">数据开源，是科学 AI 能长大的一等公民待遇。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nasa.gov/" target="_blank">NASA / 机构</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-16 · 月之暗面 · 权重开源</div>
+<div class="item-title">K3 开源前夜：<span class="hl">社区已备好教程</span></div>
+<div class="body">
+<p><strong>K3 权重 <span class="num">7</span> 月 <span class="num">27</span> 日落地前，社区已写好部署教程与微调样例，等权重一刻就能跑。</strong></p>
+<p><span class="turn">开源的节奏，是社区比官方更急着让人用上。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://platform.moonshot.ai/" target="_blank">月之暗面</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"数据开源，是科学 AI 能长大的一等公民待遇。"</p>
+<p class="voice-who">—— Demis Hassabis · Google DeepMind · <a href="https://deepmind.google/" target="_blank">Google DeepMind</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"当卫星流变成可交互的地图，天空第一次离普通人这么近。"</p>
+<p class="voice-who">—— 王兴兴 · 宇树科技 · <a href="https://36kr.com/" target="_blank">36氪</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">07-25 · 科研 / AI · 创作</div>
+<div class="item-title">研究者用 AI 做论文动图：<span class="hl">静态图一夜变可旋转模型</span></div>
+<div class="body">
+<p><strong>一位材料研究者把论文里的静态电镜图喂给生成模型，生成可旋转的三维示意，审稿人一眼看懂结构；原本要 <span class="num">1</span> 周的图压到 <span class="num">1</span> 晚。</strong></p>
+<p><span class="turn">AI 不是替科学家想，是替他把想清楚的，讲清楚。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/" target="_blank">Google DeepMind / 创作者</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">07-25 · 滑雪教练 · 体验变化</div>
+<div class="item-title">用 AI 读雪场卫星图：<span class="hl">给学员挑最佳路线</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/snow-buries-kamchatka/kamchatkasnow_amo_20260117_th.jpg" alt="NASA 卫星影像：堪察加半岛被大雪覆盖" loading="lazy"></div>
+<div class="body">
+<p><strong>一位滑雪教练把雪场周边的卫星积雪图接进 AI，标出雪崩风险与最佳滑行带，学员开滑前先看一眼自己的路线。</strong></p>
+<p><span class="turn">创作者把"天上的雪"翻成"脚下的路"——经验第一次能被提前看见。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nasa.gov/" target="_blank">NASA / 创作者</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">07-25 · AI for Science · 赛道</div>
+<div class="item-title">科学智能融资升温：<span class="hl">钱追"能发论文也能落地"</span></div>
+<div class="body">
+<p><strong>AlphaFold 3 进药物发现后，多家科学智能创企拿到新融资，投资方看重"既能发顶刊、又能进管线"的双重价值。</strong></p>
+<p><span class="turn">资本终于承认：能救人的模型，比能聊天的模型更值钱。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/" target="_blank">Google DeepMind</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>今天的关键词是"看得更远"。</p>
+<p>Artemis II 的"地出"做成公开数据集，AI 把卫星流变成普通人可拖动的地图；AlphaFold 3 把结构预测压到几分钟。</p>
+<p>Figure 03 扩产到每小时 1 台、在产线连干 200 小时；Rubin 每兆瓦 token 达 Blackwell 的 10 倍。</p>
+<p>地球观测数据集开源，卫星流向所有人开放；研究者用 AI 把论文静图变可旋转模型。</p>
+<p>往上看星，往下看命——AI 把两端的距离都拉近了。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>埃尔斯米尔 · 北极圈内——NASA 的卫星在 N76.3、W90.0 一带，拍下 北极的冰按世纪的节奏进退。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/ca%C3%B1on-fiord%E2%80%99s-whirling-waters/ellesmereisland_oli_20220809_th.jpg" alt="NASA 卫星影像：埃尔斯米尔北极的浮冰" loading="lazy">
+<p class="image-caption">埃尔斯米尔 · 北极圈内 · NASA 卫星拍下 <span class="num">76.3</span>°N, <span class="num">90.0</span>°W<br>北极的冰按世纪的节奏进退。我们在屏幕上争论谁的模型更强，极地的浮冰正按自己的节奏，替整颗星调节着热与洋流。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
