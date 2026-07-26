@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-26</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-26 · 周日</span>
+<span>本期 9 条</span>
+</div>
+<div class="mast-lede">价格战打到高端了。<br><br>Anthropic 把 Opus 5 定在 Fable 5 一半的价；开源阵营里，Kimi K3 后天就把 <span class="num">2.8</span> 万亿权重交出来。<br><br>一边是更便宜的旗舰，一边是能审计的开放模型——能力的护城河，正从"参数"变成"你用不用得起"。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">07-25 · Anthropic · 模型发布</div>
+<div class="item-title">Claude Opus 5 发布：<span class="hl">性能逼近 Fable 5，价格只要一半</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-turquoise-tint-for-the-black-sea/ISS074-E-619520_th.jpg" alt="NASA 卫星影像：黑海浮游植物爆发染成的奶蓝青绿" loading="lazy"></div>
+<div class="body">
+<p><strong>7 月 25 日，Anthropic 发布 Claude Opus 5——官方称其智能水平接近自家的 Fable 5，但 API 定价只有后者的一半：输入每百万 token <span class="num">5</span> 美元、输出 <span class="num">25</span> 美元，与 Opus 4.8 持平。</strong>它一举成为 Claude Max 的默认模型，并在 Frontier-Bench、GDPval-AA 等编程与知识工作评测中登顶。</p>
+<p>同一天，AWS 宣布在 Bedrock 接入 Opus 5，TrendAI 也把它用进漏洞优先级评估。<span class="turn">当最贵的旗舰也开始拼"性价比"，前沿模型的竞争主轴，已经从"谁更强"转向"谁更便宜还能用"。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.anthropic.com/news/claude-opus-5" target="_blank">Anthropic</a> · <a href="https://finance.yahoo.com/technology/ai/articles/anthropic-rolls-opus-5-ai-170126108.html" target="_blank">Reuters</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">07-25 · 英伟达 / 微软 / Meta · 政策</div>
+<div class="item-title">三家联手上书：<span class="hl">别对开源权重搞禁运</span></div>
+<div class="body">
+<p><strong>由 Kimi K3 引发的开源权重之争继续升温。英伟达、微软、Meta 牵头，联合 <span class="num">20</span> 家企业发出联署信，警告政策制定者不要对包括中国模型在内的开源权重实施禁运或限制。</strong>信中说，能下载、修改、自己部署的开放模型，是维持美国技术领导力的关键。</p>
+<p>值得注意：OpenAI 与 Anthropic 都没有签字——两家都主推闭源。<span class="turn">一边是闭源巨头准备 IPO，一边是硬件厂和开源阵营要守住阵地，AI 治理的第一场公开博弈，已经摆上台面。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://malpass.co/top-ai-stories-2026-07-25" target="_blank">Malpass / Politico</a> · <a href="https://www.163.com/dy/article/L2MKQB9D05561FZO.html" target="_blank">网易</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-27（倒计时 1 天）· 月之暗面 · 权重开源</div>
+<div class="item-title">Kimi K3 权重后天公开：<span class="hl">开放模型第一次摸到 3T 级</span></div>
+<div class="body">
+<p><strong>月之暗面确认，K3 全权重将于 7 月 27 日以 Modified MIT 许可证公开——<span class="num">2.8</span> 万亿参数、<span class="num">896</span> 个专家每 token 只激活 <span class="num">16</span> 个、百万 token 上下文。</strong>API 已上线；综合评测里，K3 紧追 Claude Fable 5 与 GPT-5.6 Sol，明显超过 Opus 4.8。</p>
+<p><span class="turn">开放模型第一次站到 3T 级门口——闭源实验室"只有我能跑前沿"的杠杆，松了一扣。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.kimi.com/zh-cn/blog/kimi-k3" target="_blank">月之暗面</a> · <a href="https://aiweekly.co/alerts/moonshot-releases-kimi-k3-largest-open-weight-model-to-date" target="_blank">AI Weekly</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">07-27 · 社区 · 可审计</div>
+<div class="item-title">K3 最值钱的不是参数，是<span class="hl">你能自己跑、自己查</span></div>
+<div class="body">
+<p><strong>K3 真正让研究者兴奋的，是权重公开后独立审计成为可能。Moonshot 声称的 Kimi Delta Attention（KDA）能把百万 token 的解码速度提升 <span class="num">6.3</span> 倍——这种"高效注意力"的宣称，过去常被证伪，而这次所有人都能下载下来自己验。</strong></p>
+<p><span class="turn">开放权重的意义，从来不只是免费；是有人能对你说的"我很高效"当场较真。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-open-wei" target="_blank">Hugging Face</a> · <a href="https://theaidude.net/blog/kimi-k3-moonshots-28t-open-model-launches" target="_blank">The AI Dude</a></div>
+</div>
+<div class="item">
+<div class="dateline">07 月 · DeepSeek · 价格</div>
+<div class="item-title">DeepSeek 把 V4-Pro 降价<span class="hl">做成永久</span></div>
+<div class="body">
+<p><strong>在 K3 之前，中国开放模型的价格战已经打响。DeepSeek 将 V4-Pro 的降价转为永久，继续把"便宜且够用"当成开放模型的默认姿态；同月的 GLM-5.2 也冲上多个编程榜首。</strong></p>
+<p><span class="turn">开放模型彼此较劲的下半场，比的不是谁先发，是同样的钱你能跑多大的模型。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://theaidude.net/blog/kimi-k3-moonshots-28t-open-model-launches" target="_blank">The AI Dude</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"Opus 5 是我们对齐最到位的模型，鲁莽和欺骗行为的发生率最低。"</p>
+<p class="voice-who">—— Anthropic 官方声明 · <a href="https://www.sohu.com/a/1054580847_114984" target="_blank">Anthropic（经 Sohu 转述）</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Figure 02 那 11 个月的部署证明：人形机器人不再是展品，成了能撑起产线的人力资产。"</p>
+<p class="voice-who">—— Brett Adcock · Figure AI 创始人兼 CEO · <a href="https://bmwblog.com/2026/06/26/bmw-figure-03-humanoid-robot-spartanburg-plant" target="_blank">BMW Blog</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">07 月 · Figure / 宝马 · 物理 AI</div>
+<div class="item-title">Figure 03 进宝马产线：<span class="hl">机器人从展厅走向物流线</span></div>
+<div class="body">
+<p><strong>新一代 Figure 03 已进驻宝马美国斯帕坦堡工厂的 52 号厂房，干起了物流分拣：把乱序到货的零件挑出来、排好顺序送上线。首批 <span class="num">40</span> 台，宝马计划年内扩到 <span class="num">200</span> 台；按 RaaS 租赁算 <span class="num">25</span> 美元/小时，低于当地工人的时薪。</strong></p>
+<p><span class="turn">上一代 Figure 02 在车身车间干了 11 个月、参与了 3 万台 X3 的制造；这一代被挪到更繁琐的物流环节——机器人先接手的，是人最不想干的活。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.figure.ai/news/f-03-at-bmw" target="_blank">Figure AI</a> · <a href="https://bmwblog.com/2026/06/26/bmw-figure-03-humanoid-robot-spartanburg-plant" target="_blank">BMW Blog</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">07-25 · 开发者 · 体验变化</div>
+<div class="item-title">Opus 5 自己写 CV 流水线：<span class="hl">从原始像素重建出 3D 模型</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/where-venezuela%E2%80%99s-earthquakes-shifted-the-ground/venezuela_nisar_20260630_th.jpg" alt="NASA 卫星影像：卫星测得的地表位移，被做成可播放的动画" loading="lazy"></div>
+<div class="body">
+<p><strong>有开发者在测试里给 Opus 5 一张机械零件图，却不让它直接看图——它自己写了一套计算机视觉流水线，从原始像素里抠出几何，最终用 FreeCAD 重建出三维模型；另一个人让它做幻灯片，它干脆从零写了个幻灯片渲染引擎。</strong></p>
+<p><span class="turn">模型开始自己造工具，而不只是用工具——创作者和工程师之间的那道墙，正被这类"顺手自己搭一个"的瞬间悄悄推平。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://malpass.co/top-ai-stories-2026-07-25" target="_blank">Malpass</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">06 月 · 英伟达 · 算力</div>
+<div class="item-title">Vera Rubin 全面投产：<span class="hl">为"智能体"重做的算力底座</span></div>
+<div class="body">
+<p><strong>英伟达确认 Vera Rubin NVL72 已进入全面生产：单 GPU 集成 <span class="num">288</span> GB HBM4、聚合带宽 22 TB/s；面向智能体时代，它在相同功耗下可比上一代多塞 <span class="num">40%</span> 的 GPU，推理能效约 <span class="num">10</span> 倍于 Blackwell。</strong></p>
+<p><span class="turn">算力竞争的下半场，比的不再是"谁 GPU 多"，是"同样的电，你能吐出多少有用的 token"。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" target="_blank">NVIDIA</a> · <a href="https://new.qq.com/rain/a/20260719A052RZ00" target="_blank">腾讯新闻</a></div>
+</div>
+<div class="item">
+<div class="dateline">07 月 · 五大巨头 · 财务</div>
+<div class="item-title">隐藏的 <span class="num">1.65</span> 万亿表外债务</div>
+<div class="body">
+<p><strong>《日经》调查称，Alphabet、微软、亚马逊、Meta、甲骨文五家巨头把约 <span class="num">1.65</span> 万亿美元债务藏在资产负债表外，大多绑在数据中心和算力租赁上——比它们季报里披露的还多出 <span class="num">3000</span> 亿。</strong></p>
+<p><span class="turn">AI 的算力胃口，正把"借钱建机房"变成一门越来越精巧的财技；万一这些债渗进养老金和寿险组合，就是系统风险。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://malpass.co/top-ai-stories-2026-07-25" target="_blank">Malpass / Nikkei</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>Opus 5 来了，价格是 Fable 5 的一半。</p>
+<p>Kimi K3 后天交权重，开放模型第一次摸到 3T 级。</p>
+<p>英伟达、微软、Meta 联手反对禁开源权重——闭源巨头准备 IPO，开源阵营要守住阵地。</p>
+<p>Figure 03 进宝马物流线，40 台年内扩到 200 台。</p>
+<p>Vera Rubin 全面投产，同样的电多吐 40% 的算力。</p>
+<p class="turn">便宜的旗舰、能审计的开放模型、自己造工具的 AI——三股力往同一个方向推：让能力不再锁在少数人的机房里。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>犹他州棉花木大火 · 比弗县一带——NASA 的卫星在 N38.3°、W112.4° 拍下一片烧焦的林子。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/cottonwood-fire-chars-utah/utcottonwoodfire_oli_20260629_th.jpg" alt="NASA 卫星影像：犹他州棉花木大火烧过的森林痕迹" loading="lazy">
+<p class="image-caption">犹他州棉花木大火 · 比弗县一带 · NASA 卫星拍下 <span class="num">38.3</span>°N, <span class="num">112.4</span>°W<br>火曾在这里烧过 150 平方英里，1289 名消防员上去扑了快一个月。我们在屏幕上争论谁的模型更强、谁的权重更开放，山里的林子按自己的节奏，烧过、留下焦痕、再等下一代绿回来。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。 · <a href="https://science.nasa.gov/earth/earth-observatory/cottonwood-fire-chars-utah/" target="_blank">查看原文 →</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
