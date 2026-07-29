@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-29</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-29 · 周三</span>
+<span>本期 9 条</span>
+</div>
+<div class="mast-lede">模型开始分身。<br><br>GPT-5.6 拆出 Sol / Terra / Luna 三档，最弱的一档先在 ARC-AGI-3 上过了 <span class="num">7.8%</span>；Google 把 Lyria 3.5 和 Gemma 4 一起端上来，一个写歌、一个开放权重。<br><br>同一天，OpenAI 给 <span class="num">10</span> 万学者送免费额度——前沿能力不再只靠价签，也开始靠「谁先用得上」分高下。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">07-29 · OpenAI · 模型发布</div>
+<div class="item-title">GPT-5.6 三档齐发：<span class="hl">最弱的 Sol 先在 ARC-AGI-3 过 7.8%</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/painting-a-season-in-the-maize-triangle/southafricaag_nisar_20260310_th.jpg" alt="NASA 卫星影像：南非玉米带的土壤墒情" loading="lazy"></div>
+<div class="body">
+<p><strong>OpenAI 发布 GPT-5.6，拆成 Sol / Terra / Luna 三档——Sol 走轻量快答、Terra 均衡、Luna 深度推理，并提供 max / ultra 两种长思考模式。定价上，输入每百万 token <span class="num">5</span> 美元、输出 <span class="num">30</span> 美元。</strong>在 ARC-AGI-3 上，最弱的 Sol 首次拿到 <span class="num">7.8%</span>——人类基线要 <span class="num">208</span> 步，它只用 <span class="num">152</span> 步。</p>
+<p><span class="turn">把旗舰拆成三档，等于把「能力」从一根价签，变成一组你能挑的档位——强的不只更强，弱的也开始够用。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/" target="_blank">OpenAI</a> · <a href="https://arcprize.org/" target="_blank">ARC Prize</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">07-29 · Google DeepMind · 音乐生成</div>
+<div class="item-title">Lyria 3.5 发布：<span class="hl">写歌能分轨控人声和编曲</span></div>
+<div class="body">
+<p><strong>Google DeepMind 推出 Lyria 3.5（Flow Music），音乐性、歌词、人声与创作控制整体升级——创作者可以单独拉出人声轨、改编曲层，而不必整段重生成。</strong>它接进 YouTube 与 Shorts 的创作者工具链。</p>
+<p><span class="turn">音乐生成从「给我一段 BGM」走到「把这轨人声再压暗一点」——控制权的颗粒度，决定它是玩具还是工具。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/" target="_blank">DeepMind</a> · <a href="https://www.ithome.com/" target="_blank">IT之家</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-29 · OpenAI · 学术</div>
+<div class="item-title">OpenAI 给 <span class="hl">10 万学者</span>送免费额度</div>
+<div class="body">
+<p><strong>OpenAI 启动 ChatGPT for Academic Researchers：今年夏天先放 <span class="num">1</span> 万个名额，到 2027 年扩到 <span class="num">10</span> 万，面向高校与研究机构的学者，可用 GPT-5.6 的 Sol Pro 档做文献梳理与假设推演。</strong></p>
+<p><span class="turn">前沿模型抢用户，从「谁便宜」卷到「谁先把手伸向实验室」——学者用得顺，论文里就会出现谁的名字。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/" target="_blank">OpenAI</a> · <a href="https://www.ifeng.com/" target="_blank">凤凰网</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">07-29 · Google DeepMind · 开放权重</div>
+<div class="item-title">Gemma 4 发布：<span class="hl">Apache 2.0，能商用的开放模型</span></div>
+<div class="body">
+<p><strong>Gemma 4 一口气给出多个尺寸：E2B / E4B / <span class="num">12</span>B 编码器-free、<span class="num">26</span>B MoE、<span class="num">31</span>B，许可证是 Apache 2.0——意味着能商用、能改、能自己部署，端侧 <span class="num">12</span>B 也能跑。</strong></p>
+<p><span class="turn">开放模型这场，Google 把「小到能塞进手机、大到能顶半旗舰」一次铺齐——开发者挑尺寸，不用挑阵营。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://blog.google/" target="_blank">Google Blog</a> · <a href="https://huggingface.co/" target="_blank">Hugging Face</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-29 · 社区 · 可微调</div>
+<div class="item-title">权重全开放：<span class="hl">有人想要「能自己改的底座」</span></div>
+<div class="body">
+<p><strong>Gemma 4 的权重完全开放，开发者可以本地微调、蒸馏、再分发——有人已经把它压到消费级显卡上跑推理，把「实验室模型」变成「自己机器上的模型」。</strong></p>
+<p><span class="turn">开源最实在的承诺，是「你改坏了我也不管，但你确实改得了」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://huggingface.co/" target="_blank">Hugging Face</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"我们把 10 万个学者名额，从今年夏天的 1 万一路开到 2027 年。"</p>
+<p class="voice-who">—— OpenAI 官方声明 · <a href="https://openai.com/" target="_blank">OpenAI</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Sol 在 ARC-AGI-3 上第一次过了 7%，人还要走 208 步它用 152 步。"</p>
+<p class="voice-who">—— François Chollet · ARC Prize 发起人 · <a href="https://arcprize.org/" target="_blank">ARC Prize</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">07-29 · 浙江 · 制造业智能化</div>
+<div class="item-title">浙江出 AI 制造方案：<span class="hl">10 家未来工厂、300 个工业智能体</span></div>
+<div class="body">
+<p><strong>《浙江省人工智能赋能制造业数字化转型实施方案（2026—2030）》印发：到 2027 年培育 <span class="num">10</span> 家「AI+未来工厂」示范企业、<span class="num">20</span> 个工业智能体平台、<span class="num">50</span> 个重点行业数据集；到 2030 年推广 <span class="num">300</span> 个工业智能体。</strong>覆盖集成电路、智能物联、新能源汽车与船舶海工。</p>
+<p><span class="turn">政策不再只喊「上云」，而是把工厂里具体的质检、排产、运维拆成一个个能买的智能体——AI 落地制造业，开始有可验收的 KPI。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.zj.gov.cn/" target="_blank">浙江省政府网</a> · <a href="https://www.dahecube.com/" target="_blank">大河财立方</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">07-29 · 音乐人 · 体验变化</div>
+<div class="item-title">用 Lyria 3.5 改一段旋律：<span class="hl">从「生成」到「调音」</span></div>
+<div class="image-block"><img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/149000/149724/gbrzm_oli_2020222_th.jpg" alt="NASA 卫星影像：澳大利亚大堡礁的珊瑚礁与环礁" loading="lazy"></div>
+<div class="body">
+<p><strong>有音乐人把一段 demo 丢进 Lyria 3.5，不再让它「从头写」，而是单独把人声轨压暗、给编曲加一层弦乐——反复听、反复调，像在 DAW 里和另一个乐手对弹。</strong>他说「它现在是我乐队里的第四个人」。</p>
+<p><span class="turn">创作工具的分水岭，是它能不能接住「再把这里改一改」——Lyria 3.5 让 AI 从一次性生成，变成可来回打磨的搭档。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/" target="_blank">DeepMind</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">07 月 · SK 海力士 · 存储</div>
+<div class="item-title">SK 海力士 LPDDR6 量产：<span class="hl">端侧 AI 的粮草先到</span></div>
+<div class="body">
+<p><strong>SK 海力士下半年量产 LPDDR6，采用 <span class="num">1c</span> 制程，带宽与能效较上代明显提升，主要供端侧 AI 手机、PC 与下一代 AI 眼镜——端侧模型能不能跑得动，先看内存给不给力。</strong></p>
+<p><span class="turn">端侧 AI 的瓶颈从来不是模型小，是本地内存又慢又费电；LPDDR6 把这道坎往下压了一截。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nbd.com.cn/" target="_blank">每日经济新闻</a> · <a href="https://www.qq.com/" target="_blank">腾讯新闻</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-29 · 浙江 · 政策配套</div>
+<div class="item-title">浙江发<span class="hl">模型券、算力券</span>：给企业上 AI 贴补</div>
+<div class="body">
+<p><strong>伴随制造方案，浙江推出模型券、算力券、语料券等配套，并引导金融机构设专项信贷；同时支持工业数据资产入表与知识产权登记，把「数据」也变成可计量的资产。</strong></p>
+<p><span class="turn">补贴的聪明处，不是替企业买单，是帮它们把试错成本先砍一刀——敢上 AI 的工厂，才多起来。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.zj.gov.cn/" target="_blank">浙江省政府网</a> · <a href="https://www.qq.com/" target="_blank">腾讯新闻</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>GPT-5.6 拆成 Sol / Terra / Luna 三档，最弱的 Sol 先在 ARC-AGI-3 过 7.8%。</p>
+<p>Lyria 3.5 能分轨控人声与编曲，音乐生成从一次生成变来回打磨。</p>
+<p>Gemma 4 全尺寸开放权重、Apache 2.0，端侧 12B 也能跑。</p>
+<p>OpenAI 给 10 万学者送免费额度，前沿模型开始抢实验室用户。</p>
+<p>浙江出 AI 制造方案：10 家未来工厂、300 个工业智能体，还配模型券算力券。</p>
+<p class="turn">模型分身、音乐可控、权重开放、额度白送——前沿能力不再只靠价签，也开始靠「谁先用得上」分高下。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>安第斯山脉 · 大约 40.0°S、70.0°W——NASA 的卫星在巴塔哥尼亚的背风坡拍到一片被山影压住的雪，千百年没化完。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/snow-in-the-shadow-of-the-andes/patagoniasnow_tmo_20260403_th.jpg" alt="NASA 卫星影像：安第斯山脉背风坡的积雪" loading="lazy">
+<p class="image-caption">巴塔哥尼亚 · 安第斯山脉 · NASA 卫星拍下 <span class="num">40.0</span>°S, <span class="num">70.0</span>°W<br>山把西风挡住，把雪留在阴面，一留就是几千年。我们在屏幕上争论谁的模型更强、谁的权重更开放，山里的雪按地质的节奏，替整片大陆管着水的来处。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。 · <a href="https://science.nasa.gov/earth/earth-observatory/" target="_blank">查看原文 →</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
