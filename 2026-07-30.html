@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-30</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-30 · 周四</span>
+<span>本期 9 条</span>
+</div>
+<div class="mast-lede">智能经济写进报告。<br><br>「十五五」末 AI 产业冲 <span class="num">10</span> 万亿以上，浙江把「一人公司」写进政策——一个人带几个 Agent，能干过去百人团队的活。<br><br>同一周，国家知识产权局给 AI 生成物、脑机接口专利开了制度口子。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">07-30 · 政策 / 智能经济</div>
+<div class="item-title">智能经济写进报告：<span class="hl">一个人带 Agent 能干百人团队的活</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-ni%C3%B1o-is-underway/elnino_sen6_20260608_th.jpg" alt="NASA 卫星影像：厄尔尼诺发展期的海表温度异常" loading="lazy"></div>
+<div class="body">
+<p><strong>政府工作报告首提「智能经济」新形态；发改委主任郑栅洁在记者会上说，「十五五」末人工智能相关产业规模将增长到 <span class="num">10</span> 万亿元以上。浙江顺势喊出「一人公司（OPC）」模式，到 2030 年 AI 核心产业目标 <span class="num">1.2</span> 万亿。</strong></p>
+<p><span class="turn">当「一个人+几个 Agent」被写进政策语言，创业的门槛从「凑齐一支队伍」降成「接好几个工具」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://5g.cctv.com/2026/03/12/ARTIdF7aUVPINDBWLIHYLhpB260312.shtml" target="_blank">央视网</a> · <a href="https://tidenews.com.cn/news.html?id=3465240" target="_blank">潮新闻</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">07-29 · 国家知识产权局 · 制度</div>
+<div class="item-title">十五五给 AI 专利开制度口子：<span class="hl">脑机接口也能申请</span></div>
+<div class="body">
+<p><strong>7 月 29 日国新办「十五五」发布会，国家知识产权局副局长芮文彪表示，将完善「人工智能+」具身智能、脑机接口等新兴产业的专利审查标准，研究 AI 生成物的可专利性，并指导建设 AI 领域专利池。目前涉 AI、大数据的商品服务项目已 <span class="num">900</span> 余项。</strong></p>
+<p><span class="turn">专利审查标准往前挪一步，等于给实验室里的脑机接口、具身智能发了张「能保护」的票。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.cnstock.com/commonDetail/752640" target="_blank">上海证券报</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-30 · 知识产权 · 落地</div>
+<div class="item-title">数据知识产权登记：<span class="hl">浙江先跑出 1000 件</span></div>
+<div class="body">
+<p><strong>《知识产权保护和运用「十五五」规划》近期印发；浙江全国率先出台 AI 领域数据知识产权登记申请指引，已登记高质量数据集超 <span class="num">1000</span> 件，并落地数据资产入表、跨境流通等案例。</strong></p>
+<p><span class="turn">数据开始有「产权证」，意味着模型喂的料，也能算资产、能抵押、能流通。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://big5.china.com.cn/gate/big5/finance.china.com.cn/industry/20260729/6318320.shtml" target="_blank">中国网</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">07-30 · 浙江 · 工业数据</div>
+<div class="item-title">浙江开放工业数据集：<span class="hl">首批 35 个，奔着 200 个去</span></div>
+<div class="body">
+<p><strong>浙江《工业领域高质量数据集建设行动方案（2025—2027）》推进中：首批 <span class="num">35</span> 个行业数据集已落地，到 2027 年底计划遴选 <span class="num">50</span> 个省级重点、培育 <span class="num">200</span> 个高质量数据集，并建工业可信数据空间。</strong></p>
+<p><span class="turn">工业数据的价值不在囤，在能喂给模型——浙江把「数据集」当成和厂房一样的生产要素在铺。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://jxt.zj.gov.cn/col/col1229123456/art/2026/art_ee607e6fd6b24b98a896b9fe2741d615.html" target="_blank">浙江省经信厅</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-30 · 数据要素 · 流通</div>
+<div class="item-title">数据上架交易：<span class="hl">浙江大数据交易中心挂了 687 个工业产品</span></div>
+<div class="body">
+<p><strong>浙江省大数据交易中心、杭州数据交易所已汇聚流通主体超 <span class="num">1000</span> 家，累计上架数据产品 <span class="num">5841</span> 个，其中工业数据产品 <span class="num">687</span> 个。</strong></p>
+<p><span class="turn">让企业自主办数据市场，比政府统一发号施令更快摸到真实需求。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.21jingji.com/article/20260331/herald/0c4dd80e2c3f58155311d4c073a63fbe.html" target="_blank">21世纪经济报道</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"持续完善「人工智能+」具身智能、脑机接口等新兴产业的专利审查标准。"</p>
+<p class="voice-who">—— 芮文彪 · 国家知识产权局副局长 · <a href="https://www.cnstock.com/commonDetail/752640" target="_blank">上海证券报</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"今天的一个超级个体，带着几台电脑、接入几个顶级 AI Agent，就能完成过去一个百人团队才能做到的事。"</p>
+<p class="voice-who">—— 周国辉 · 浙江省科协 · <a href="https://tidenews.com.cn/news.html?id=3465240" target="_blank">潮新闻</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">07-30 · 杭州 · 一人公司</div>
+<div class="item-title">杭州开 OPC 专属社区：<span class="hl">一个人注册，Agent 当员工</span></div>
+<div class="body">
+<p><strong>杭州多地设 OPC（One Person Company）专属创新社区，配算力券压低初创成本、商事制度走「极简审批」——一个自然人注册公司、部署好 Agent，就能开展研发、营销与客服全流程，过去要凑 <span class="num">10</span> 人才能跑起来的业务，现在一个人能接。</strong></p>
+<p><span class="turn">政策把「一个人就是一家公司」从段子变成可注册的现实——个体第一次和公司站在同一条起跑线。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://tidenews.com.cn/news.html?id=3465240" target="_blank">潮新闻</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">07-30 · 独立开发者 · 体验变化</div>
+<div class="item-title">用 Agent 搭产品：<span class="hl">我公司的全体员工，就是几个 Agent</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/pumice-rafts-encroach-on-admiralty-islands/bismarkpumicezm2_oli_20260604_th.jpg" alt="NASA 卫星影像：俾斯麦群岛附近的火山浮石筏" loading="lazy"></div>
+<div class="body">
+<p><strong>一位独立开发者把产品调研、前端、文案、客服分别交给不同 Agent，几天做出过去小团队要几周的东西，说「现在我是公司的全部，也是公司的全部员工」。</strong></p>
+<p><span class="turn">当工具能替你开会、写代码、回客户，一个人公司的瓶颈不再是人力，是想象力。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://tidenews.com.cn/news.html?id=3465240" target="_blank">潮新闻</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">07-28 · 百度 · 上市</div>
+<div class="item-title">百度冲刺港股主要上市：<span class="hl">8 月 26 日股东特别大会</span></div>
+<div class="body">
+<p><strong>百度（09888.HK / NASDAQ:BIDU）7 月 16 日启动香港双重主要上市转换，7 月 22 日获港交所确认收悉；拟于 <span class="num">8</span> 月 <span class="num">26</span> 日召开股东特别大会审议，投行预计最快今年 <span class="num">9</span> 月纳入港股通。</strong></p>
+<p><span class="turn">从美股存托到港股主要上市，百度把筹码摆到离内地资金和文心大模型估值更近的桌面上。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_5036a684c4604352" target="_blank">腾讯新闻</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-24 · 智象未来 · 融资</div>
+<div class="item-title">智象未来 15 亿 C 轮：<span class="hl">社保基金领投，冲世界模型</span></div>
+<div class="body">
+<p><strong>多模态大模型公司智象未来（HiDream.ai）完成 <span class="num">15</span> 亿元 C 轮，社保基金四川振兴科创基金、工银资本领投，近三个月三轮累计超 <span class="num">21</span> 亿元，跻身独角兽。</strong></p>
+<p><span class="turn">长期资本第一次扎进多模态大模型，说明这条赛道从「烧钱」被看成「基础设施」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.163.com/dy/article/L2JCHLG20511CQLG.html" target="_blank">网易</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>智能经济写进政府工作报告，十五五末 AI 产业冲 10 万亿以上；浙江把「一人公司」写进政策。</p>
+<p>国家知识产权局给 AI 生成物、脑机接口专利开制度口子，浙江数据知识产权登记破 1000 件。</p>
+<p>浙江开放工业数据集，首批 35 个、奔着 200 个去。</p>
+<p>百度冲刺港股主要上市，8 月 26 日股东特别大会；智象未来 15 亿 C 轮，社保基金领投。</p>
+<p class="turn">当一个人带 Agent 能办公司、数据能当资产、专利能护脑机接口——AI 落地的地基，正一块块被铺平。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>奈瓦沙湿地 · 东非大裂谷——NASA 的卫星在 S0.8、E36.4 一带，拍下湿地像天然水库，旱季放水、雨季存水。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/rising-waters-swamp-lake-naivasha/kenyawater_oli_20260126_th.jpg" alt="NASA 卫星影像：肯尼亚奈瓦沙周边湿地" loading="lazy">
+<p class="image-caption">奈瓦沙湿地 · 东非大裂谷 · NASA 卫星拍下 <span class="num">0.8</span>°S, <span class="num">36.4</span>°E<br>湿地像天然水库，旱季放水、雨季存水。我们在屏幕上争论谁的模型更强、谁的政策更松，奈瓦沙的芦苇正按自己的节奏，替一片谷地调着水的呼吸。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
