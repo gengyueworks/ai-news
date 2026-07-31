@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-31</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-31 · 周五</span>
+<span>本期 9 条</span>
+</div>
+<div class="mast-lede">国产大模型这一天同时甩出两张牌。<br><br>DeepSeek V4-Flash 正式版 API 公测，Agent 能力反超自家 Pro 预览版；MiniMax H3 发布，首款开源多模态模型，视频 <span class="num">0.8</span> 元/秒。<br><br>同一天，Thinking Machines 把 Inkling-Small 全量权重甩了出来。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">07-31 · DeepSeek · 模型</div>
+<div class="item-title">DeepSeek V4-Flash 正式版公测：<span class="hl">Flash 的 Agent 能力，反超 Pro 预览版</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ever-restless-mount-dukono-erupts/dukonovolcano_oli2_20260513_th.jpg" alt="NASA 卫星影像：印尼杜科诺火山喷发" loading="lazy"></div>
+<div class="body">
+<p><strong>7 月 31 日 DeepSeek-V4-Flash 正式版 API 上线公测。总参数 <span class="num">2840</span> 亿、激活 <span class="num">130</span> 亿，结构和预览版一致、只重做了后训练；在 TerminalBench 2.1 拿 <span class="num">82.7</span>、Cybergym <span class="num">76.7</span>、Toolathlon <span class="num">70.3</span>，Agent 能力<span class="hl">全面超过三个月前的 V4-Pro 预览版</span>。Harness 能力也首次亮相。</strong></p>
+<p><span class="turn">同一副骨架、换套训练策略就能跃迁——模型竞赛的下半场，拼的是后训练，不是堆参数。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.163.com/dy/article/L36B9LOQ0514R9P4.html" target="_blank">澎湃新闻</a> · <a href="https://www.toutiao.com/article/7668656578425340431" target="_blank">北京日报</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">07-31 · MiniMax · 多模态</div>
+<div class="item-title">MiniMax H3 发布：<span class="hl">首款开源多模态模型，0.8 元/秒</span></div>
+<div class="body">
+<p><strong>MiniMax 7 月 31 日发布 H3，支持文、图、音、视频输入，2K 直出、最长 <span class="num">15</span> 秒音画；视频生成 <span class="num">0.8</span> 元/秒（2K），约为同类旗舰的三分之一，并宣布近期开源——这是 MiniMax <span class="hl">第一款开源多模态模型</span>。</strong></p>
+<p><span class="turn">价格战从文本烧到视频，H3 把「开源+低价」绑在一起，创作门槛又被砍了一刀。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.toutiao.com/article/7668530303677268480/" target="_blank">证券时报</a> · <a href="https://stock.10jqka.com.cn/hks/20260731/c678596846.shtml" target="_blank">每日经济新闻</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">07-31 · Thinking Machines · 开源</div>
+<div class="item-title">Inkling-Small 全量开源：<span class="hl">四分之一体量，反超万亿大哥</span></div>
+<div class="body">
+<p><strong>Thinking Machines 发布 Inkling-Small：MoE 架构，总参 <span class="num">2760</span> 亿、激活 <span class="num">120</span> 亿、百万 token 上下文，放出全量权重。体量只剩初代 Inkling 的<span class="hl">四分之一</span>，却在数学、推理、智能体编码上追平甚至超过初代，ARC-AGI-2 刷新开源 SOTA。</strong></p>
+<p><span class="turn">小模型反超大模型，靠的是把前一轮踩过的坑全吃进后训练——开源社区这次连方法都摊开了。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.163.com/dy/article/L35NVJKL0511ABV6.html" target="_blank">新智元</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"H3 将于未来几天内开源，企业可以在本地灵活部署。"</p>
+<p class="voice-who">—— MiniMax 相关负责人 · <a href="https://www.toutiao.com/article/7668530303677268480/" target="_blank">证券时报</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"H3 能作为统一的基础设施，深入到更复杂的商业工作流中。"</p>
+<p class="voice-who">—— 田丰 · 快思慢想研究院院长 · <a href="https://stock.10jqka.com.cn/hks/20260731/c678596846.shtml" target="_blank">每日经济新闻</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">07-31 · 字节 · 视频模型</div>
+<div class="item-title">字节 Seedance 2.5 发布：<span class="hl">长叙事 + 多模态参考</span></div>
+<div class="body">
+<p><strong>7 月 31 日字节跳动发布 Seedance 2.5，延续统一的多模态音视频联合生成架构，重点突破长叙事能力、多模态参考与编辑能力，面向广告、影视后期等专业创作。</strong></p>
+<p><span class="turn">视频模型从「生成一段」走向「讲完一个故事」，工具开始往创作流里嵌。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://c.m.163.com/news/a/L3AU884605118O92.html" target="_blank">数智周报（网易）</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">07-31 · 创作者 · 体验变化</div>
+<div class="item-title">用 H3 跑产品分镜：<span class="hl">十分钟，一段能用的广告动态</span></div>
+<div class="image-block"><img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/destructive-fires-char-western-europe/spainfires_oli2_20260729_th.jpg" alt="NASA 卫星影像：西班牙与法国野火" loading="lazy"></div>
+<div class="body">
+<p><strong>一位视频创作者用 H3 按分镜脚本加参考图生成转场与动态特效，说文字和 UI 细节的呈现比预期稳，过去要等后期团队两天的活，现在自己<span class="hl">十分钟出初稿</span>。</strong></p>
+<p><span class="turn">当生成模型接得住「分镜」这种专业语言，创作者和工具的关系，从代工变成搭档。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://stock.10jqka.com.cn/hks/20260731/c678596846.shtml" target="_blank">每日经济新闻</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">07-31 · DeepSeek · 融资</div>
+<div class="item-title">DeepSeek 首轮融资超 74 亿美元：<span class="hl">资本加持下的第一次技术兑现</span></div>
+<div class="body">
+<p><strong>据媒体报道，DeepSeek 于 6 月完成首轮外部融资，总额超 <span class="num">74</span> 亿美元（约 <span class="num">500</span> 亿元），投后估值超 <span class="num">500</span> 亿美元（约 <span class="num">3380</span> 亿元），创下中国 AI 行业单轮融资纪录；V4-Flash 正是这笔钱之后的第一次技术兑现。</strong></p>
+<p><span class="turn">融到钱和交出货，中间隔的是后训练能力——Flash 版的成绩单，是资本最先看见的那张。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.toutiao.com/article/7668656578425340431" target="_blank">北京日报</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>DeepSeek V4-Flash 正式版公测，Agent 能力反超 Pro 预览版；MiniMax H3 发布，首款开源多模态、0.8 元/秒。</p>
+<p>Thinking Machines 开源 Inkling-Small，四分之一体量反超初代。</p>
+<p>字节 Seedance 2.5 发布，视频模型攻长叙事。</p>
+<p>DeepSeek 首轮融资超 74 亿美元，创中国 AI 单轮纪录。</p>
+<p class="turn">国产大模型这一天同时出牌——开源、低价、Agent，三件事一起压了过来。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>洪阿汤加—洪阿哈阿帕伊火山口外的珊瑚礁 · 汤加——NASA 的卫星在 S18.9、W174.6 一带，拍下珊瑚礁像水下的城市，鱼群进进出出，不因岸上的模型发布停顿。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/home-reef-adds-on/homereef_oli2_20260128_th.jpg" alt="NASA 卫星影像：汤加附近珊瑚礁" loading="lazy">
+<p class="image-caption">洪阿汤加珊瑚礁 · 汤加 · NASA 卫星拍下 <span class="num">18.9</span>°S, <span class="num">174.6</span>°W<br>珊瑚礁像水下的城市，鱼群进进出出，不因岸上的模型发布停顿。我们在屏幕上争论谁的 Agent 更强，汤加的珊瑚正按洋流的节奏，养着一片生机。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+</body>
+</html>
