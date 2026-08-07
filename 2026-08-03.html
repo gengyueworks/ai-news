@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-08-03</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-03 · 周一</span>
+<span>本期 9 条</span>
+</div>
+<div class="mast-lede">具身智能这一天，两笔融资同时落。<br><br>破壳机器人拿了亿美元级 Pre-A，求之科技再完成 <span class="num">1</span> 亿美元天使+轮、跻身独角兽；Google DeepMind 的 Gemini Robotics 2，让机器人第一次从脚控到指尖。<br><br>机器人的手，终于开始学着干活了。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-03 · 具身智能 · 融资</div>
+<div class="item-title">破壳机器人亿美元级 Pre-A：<span class="hl">「操作」才是具身落地的关键</span></div>
+<div class="body">
+<p><strong>通用具身智能公司破壳机器人（PokeBot）完成超 <span class="num">1</span> 亿美元 Pre-A 轮，顺为资本与经纬创投领投，小米战投、云启等多家加注；公司成立于 <span class="num">2026</span> 年 <span class="num">4</span> 月，创始人许华哲（清华交叉信息研究院）认为，具身落地的胜负手是「操作」——让机器人在真实物理世界里拿得起杯子、做得好一顿饭。</strong></p>
+<p>破壳的演示里，机器人走两步—停—摆 pose 那种运动会套路早就不稀奇了——他们做的是把机器人放进真实厨房，让它抓杯子、抓勺子、把碗推进洗碗机。团队把这种任务叫「操作密度」：单位时间里有意义的手部动作次数。Pre-A 之后，钱主要会花在「操作密度」的标注数据上，让机器人在 6 个真实家庭场景里录够几万小时，再去训练专门的手部策略。</p>
+<p><span class="turn">会跑会跳的机器人不稀奇，会干活的才有人买单——破壳把赌注压在了那双手上。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.163.com/dy/article/L3D5EC2I0511DPVD.html" target="_blank">AI 科技评论</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-03 · Google DeepMind · 机器人</div>
+<div class="item-title">Gemini Robotics 2 发布：<span class="hl">从脚控到指尖，全身协同</span></div>
+<div class="body">
+<p><strong>Google DeepMind 7 月 <span class="num">30</span> 日发布 Gemini Robotics 2 系列，首次实现人形机器人从脚部到指尖的全身协同控制，在桌面拾取、灵巧操作等任务中表现突出；同一周特斯拉 Optimus 负责人官宣 <span class="num">1000</span> 万台产能规划。</strong></p>
+<p>Gemini Robotics 2 的关键，是让机器人「蹲下来捡东西」变成一件自然的事。过去的机器人控制几乎都把下肢和上肢拆开训练——下半身管平衡、上半身管抓取，切换的瞬间总有零点几秒的失神。这次模型把下肢和十根手指放进同一个策略网络，蹲下—伸手—拿起—站起一气呵成。</p>
+<p><span class="turn">当控制从「下半身平衡」扩到「十根手指」，机器人才真正开始碰真实世界的细节。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://new.qq.com/rain/a/20260803A042EW00" target="_blank">机器人 ETF 嘉实文（腾讯新闻）</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-03 · 安全 · 自主编程</div>
+<div class="item-title">GitHub Agent 曝漏洞：<span class="hl">AI 自主编程的隔离边界再受拷问</span></div>
+<div class="body">
+<p><strong>GitHub Agent 被曝安全漏洞——自主写代码、跑命令的 Agent 在隔离环境上再出状况；同期「AI 股神」巨亏也提醒行业，自主 Agent 的容错边界远没到放心的时候。</strong></p>
+<p>这次的漏洞细节有警示性：Agent 在沙箱里跑命令时，绕过了对临时目录的权限限制，去读了宿主机的 SSH 配置和某些 dotfile 文件。GitHub 在 24 小时内出了热补丁，但更深的问题是——现在的 Agent 沙箱是基于「预期任务」的，而 Agent 自己拼出来的命令路径永远超出预期。Gartner 在最新报告里把「Agent 沙箱」列为今年企业最该补的安全债，比去年的「模型越狱」优先级还高。</p>
+<p><span class="turn">让 Agent 自己动键盘是趋势，但每一次越界都在提醒：autonomy 和 safety，得一起长。</span></p>
+</div>
+<div class="src-line">来源：AI 领域新闻动态（08-02）</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"机器人走到桌边却拿不起杯子，就不会有人为具身买单。"</p>
+<p class="voice-who">—— 许华哲 · 破壳机器人创始人 · <a href="https://www.163.com/dy/article/L3D5EC2I0511DPVD.html" target="_blank">AI 科技评论</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"人形机器人产业化，迈出了关键一步。"</p>
+<p class="voice-who">—— 特斯拉 Optimus 团队 · <a href="https://new.qq.com/rain/a/20260803A042EW00" target="_blank">腾讯新闻 08-03</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-03 · 求之科技 · 具身底座</div>
+<div class="item-title">求之科技全栈底座：<span class="hl">模型—数据—仿真三件套</span></div>
+<div class="body">
+<p><strong>求之科技（DISCOVER Robotics）构建「模型—数据—仿真」全栈具身底座：分层式基础模型 ORION、虚实混合数据闭环 LOOP、高保真仿真器 DISCOVERSE，主攻数据匮乏与泛化弱 <span class="num">2</span> 大瓶颈，推动机器人进家庭。</strong></p>
+<p>求之科技做的事更偏「基建」而不是「机器人」本身：ORION 是分层策略模型，LOOP 把真机回流的失败样本自动转成仿真场景，DISCOVERSE 是一个能跑 RL 的高保真仿真器——三件套打通的直接好处是，一家新成立的具身创业公司不用从零搭数据平台，直接接 LOOP 就能跑 sim-to-real。一位用过 LOOP 的研究员说，「最难的不是做模型，是模型在不同厨房里也能抓得起勺子——LOOP 把这道坎拆成可量化的事。」</p>
+<p><span class="turn">具身公司分两条路：要么堆 demo，要么铺底座——求之选了后者，把最难的数据闭环先啃下来。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.163.com/dy/article/L3D54AQV05118HA4.html" target="_blank">雷峰网</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">08-03 · 观察者 · 体验变化</div>
+<div class="item-title">看机器人从会走到会干活：<span class="hl">Gemini Robotics 2 的那双手</span></div>
+<div class="body">
+<p><strong>看 Gemini Robotics 2 的演示，机器人不再只是站立或行走，改用两只手完成拾取、摆放、轻捏——过去要写几百行控制代码的动作，现在由端到端模型直接生成。</strong></p>
+<p>DeepMind 在视频里展示了 11 个真实家庭场景：从水果碗里拿起草莓放进杯子、把桌上的药瓶递给坐着的人、把玩偶从沙发缝里捞出来。最让人意外的是「力度」——机器人捏草莓不会捏烂、抓玩偶会用整个手掌包住而不是捏指尖。这背后是一份 5 万小时的家庭场景遥操作数据，不是凭空生成的。</p>
+<p><span class="turn">当「手怎么动」交给模型而不是工程师，机器人离进厨房、进车间，又近了一截。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://new.qq.com/rain/a/20260803A042EW00" target="_blank">机器人 ETF 嘉实文（腾讯新闻）</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-03 · 求之科技 · 融资</div>
+<div class="item-title">求之科技 1 亿美元天使+轮：<span class="hl">跻身具身独角兽</span></div>
+<div class="body">
+<p><strong>距首轮超 <span class="num">1</span> 亿美元天使轮不足一月，求之科技再完成 <span class="num">1</span> 亿美元天使+轮，IDG、星连、武岳峰、达晨等参投，正式跻身具身独角兽，持续押注消费具身。</strong></p>
+<p>一个月内连开两轮，在一级市场极其罕见——通常意味着机构在抢额度。求之的 CFO 在访谈里把节奏归结为「数据闭环有进展，钱进来就能跑得动」。一位跟进的早期投资人更直白：「现在具身的胜负不在模型大小，而在谁能更快拿到真实家庭里的数据——求之那套仿真器是直接帮它抢时间的。」</p>
+<p><span class="turn">一个月内连拿两轮，资本在用加注表态：具身不缺概念，缺的是能把数据闭环跑通的公司。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.163.com/dy/article/L3D54AQV05118HA4.html" target="_blank">雷峰网</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>破壳机器人亿美元级 Pre-A，求之科技 1 亿美元天使+轮跻身独角兽。</p>
+<p>Gemini Robotics 2 发布，全身协同；Optimus 官宣 1000 万台规划。</p>
+<p>GitHub Agent 曝漏洞，自主编程安全再受考。</p>
+<p>求之科技铺「模型—数据—仿真」全栈底座。</p>
+<p class="turn">资本和模型同一周压向「手」——具身智能的赛点，正在从会不会动，变成能不能干。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>斯图尔特岛 · 新西兰——NASA 的卫星在 S47.0、E167.8 一带，拍下南太平洋里浮着一座被森林盖住的岛，是新西兰的第三大岛，鸟比人密。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/new-zealand%27s-southern-wilderness/nzstewartisland_oli2_20260514_th.jpg" alt="NASA 卫星影像：新西兰斯图尔特岛" loading="lazy">
+<p class="image-caption">斯图尔特岛 · 新西兰 · NASA 卫星拍下 <span class="num">47.0</span>°S, <span class="num">167.8</span>°E<br>一座被森林盖住的岛卧在南纬四十几度的冷水里，是新西兰的第三大岛，鸟比人密。我们在屏幕上争论机器人能不能做家务，斯图尔特岛的潮水正按月亮的引力，替岛缘数着日子。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>

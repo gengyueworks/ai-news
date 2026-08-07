@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-08-01</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-01 · 周六</span>
+<span>本期 9 条</span>
+</div>
+<div class="mast-lede">OpenAI 把 Astra 带去了华盛顿。<br><br>多智能体长周期协作的新模型家族曝光，疑似 GPT-6；同一天，月之暗面把 Kimi K3 全量开源，F 轮融资超 <span class="num">35</span> 亿美元。<br><br>中国开源模型，第一次让美股 AI 板块一上午蒸发几千亿。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-01 · 月之暗面 · 开源</div>
+<div class="item-title">Kimi K3 全量开源：<span class="hl">2.8 万亿参数，上线两天挤爆</span></div>
+<div class="body">
+<p><strong>8 月 1 日月之暗面旗舰模型 Kimi K3（参数 <span class="num">2.8</span> 万亿）正式全量开源。上线两天，Hugging Face 模型页被挤到响应迟缓，GitHub 代码仓 issue 数半天破千；硅谷几位长期关注中国开源的工程师说「impressive」，并感叹中国 AI 的崛起速度。同日内，月之暗面完成超 <span class="num">35</span> 亿美元 F 轮融资，投后估值 <span class="num">350</span> 亿美元。</strong></p>
+<p>K3 的开源不是只放权重——它把预训练数据分布、训练超参的搜索轨迹、后训练对齐阶段的 reward model 也全部打包上传。一位跑过 K2 全流程的研究员说，他想要的不是「另一个 DeepSeek-V3」，而是 K3 那份「为什么这一版超参最终赢」的推理记录：「光给模型，不给方法，社区会永远在追数字；有方法，下一代模型就能站在 K3 肩膀上。」</p>
+<p><span class="turn">全量权重放出来，等于把最贵的那块能力免费交出去——开源这步，逼着闭源阵营重新算账。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://new.qq.com/rain/a/20260802A04WXV00" target="_blank">腾讯新闻</a> · <a href="https://view.inews.qq.com/a/20260801A095Q600" target="_blank">亿邦动力</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-01 · OpenAI · 新模型</div>
+<div class="item-title">Astra 曝光：<span class="hl">多智能体长周期协作，疑似 GPT-6</span></div>
+<div class="body">
+<p><strong>据 The Information，OpenAI 正筹备新模型家族 Astra，主打多个智能体在较长时间内协同解决高难任务，可用于大型项目或高阶数学；Altman 本周向美国政策制定者与监管机构做了演示，模型或按新前沿 AI 审查框架在发布前提交联邦审查。Astra 可能命名为 GPT-6，或作为 GPT-5 系列的 GPT-5.7。</strong></p>
+<p><span class="turn">从「单智能体对话」到「多智能体项目组」，OpenAI 把产品的想象空间，从聊天框挪到了工作台。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.toutiao.com/article/7668916445216064043/" target="_blank">InfoQ</a> · <a href="https://www.163.com/dy/article/L38HGL940511ABV6.html" target="_blank">新智元</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-01 · DeepSeek · 开放</div>
+<div class="item-title">V4-Flash 将免费开放 API：<span class="hl">YouMind 宣布稳定后免费</span></div>
+<div class="body">
+<p><strong>在 DeepSeek-V4-Flash 正式版公测后，YouMind 表示将在 API 服务稳定后，为所有用户免费提供 DeepSeek V4-Flash API——把刚公测的 Agent 强模型，往「人人可用」再推一步。</strong></p>
+<p><span class="turn">免费 API 是开源精神的另一种写法：不开放权重，也先把能力门槛降到地板上。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.hvoy.ai/guides/ai-hot-daily-2026-08-01/" target="_blank">AI 热点日报</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"我们想让更广泛的用户，以更低成本获得更强大的 AI。"</p>
+<p class="voice-who">—— Sam Altman · OpenAI CEO · <a href="https://www.hvoy.ai/guides/ai-hot-daily-2026-08-01/" target="_blank">OpenAI 官方文章</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Kimi K3 正在改写 AI 应用的变现逻辑。"</p>
+<p class="voice-who">—— 格隆汇分析师 · <a href="https://new.qq.com/rain/a/20260802A04WXV00" target="_blank">格隆汇</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-01 · Google · 具身智能</div>
+<div class="item-title">Google 发 ER2 具身模型：<span class="hl">让机器人判断「活干完了没」</span></div>
+<div class="body">
+<p><strong>Google 发布三款具身智能模型，主攻「机器人何时算完成任务」这一难题；其中 ER 2 在「时间智能」上突破，能准确判断任务完成状态，支持本地边缘部署，并向新型机器人本体快速适配。</strong></p>
+<p><span class="turn">具身落地卡在「做到哪了」这种细活上，ER 2 补的是机器人自己心里那本账。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.hvoy.ai/guides/ai-hot-daily-2026-08-01/" target="_blank">AI 热点日报</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">08-01 · 开发者 · 体验变化</div>
+<div class="item-title">把 Kimi K3 拽到本地：<span class="hl">我的显卡，第一次跑起万亿模型</span></div>
+<div class="body">
+<p><strong>一位开发者把 K3 全量权重拉到本地多卡机器，跑通长文档分析与代码生成，说过去要调三家 API 的活，现在一台机器内闭环；社区里芯片厂商也开始做适配。</strong></p>
+<p>他用的是 8 张消费级显卡串起来的方案，关键是把 K3 的 2.8 万亿参数按 8 路张量并行切片，每张卡吃 3,500 亿。原本他估的是「能跑起来就不错了」，结果实测下来，50 页合同的分析任务从调 OpenAI 的 22 秒降到了本地的 9 秒——且文档从头到尾不出机器。他在 B 站记录了第一次跑通的全过程，第二天播放量破百万，社区里跟着做适配的显卡厂商排了 6 家。</p>
+<p><span class="turn">当万亿模型能塞进自己的机房，数据不出门、调参不受限——开源的真正红利，是控制权。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://view.inews.qq.com/a/20260801A095Q600" target="_blank">亿邦动力</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-01 · 月之暗面 · 融资</div>
+<div class="item-title">月之暗面 F 轮超 35 亿美元：<span class="hl">G 轮提前，奔 Pre-IPO</span></div>
+<div class="body">
+<p><strong>据创业邦，月之暗面完成超 <span class="num">35</span> 亿美元 F 轮，因超募 <span class="num">3</span> 倍提前关闭，投后估值 <span class="num">350</span> 亿美元；原定 8 月的 G 轮（Pre-IPO）提前启动，投前估值升至 <span class="num">500</span> 亿美元，预计最快 <span class="num">6</span> 个月内冲刺港股。</strong></p>
+<p><span class="turn">开源炸场和融资炸场同一周发生，说明资本看好的是开源聚起的开发者网络，不是单次发布。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://new.qq.com/rain/a/20260802A04WXV00" target="_blank">创业邦</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>Kimi K3 全量开源，2.8 万亿参数上线两天挤爆；月之暗面 F 轮超 35 亿美元。</p>
+<p>OpenAI Astra 曝光，多智能体长周期协作，疑似 GPT-6。</p>
+<p>DeepSeek V4-Flash 将免费开放 API。</p>
+<p>Google 发 ER2 具身模型，主攻任务完成判断。</p>
+<p class="turn">一边把最强模型免费开源，一边把多智能体搬上工作台——这一天的两条主线，都在把 AI 的「可用」往前推。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>科阿特佩克火山口 · 萨尔瓦多——NASA 的卫星在 N13.8、W89.5 一带，拍下火山口里蓄着一汪蓝，是板块运动留给中美洲的一处静水。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/lake-coatepeque/ISS074-E-312810_th.jpg" alt="NASA 卫星影像：萨尔瓦多科阿特佩克火山口" loading="lazy">
+<p class="image-caption">科阿特佩克火山口 · 萨尔瓦多 · NASA 卫星拍下 <span class="num">13.8</span>°N, <span class="num">89.5</span>°W<br>火山口里蓄着一汪蓝，是板块运动留给中美洲的一处静水。我们在屏幕上争论模型归谁、算力去哪，科阿特佩克的火山正按自己的节奏，映着同一片天。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
