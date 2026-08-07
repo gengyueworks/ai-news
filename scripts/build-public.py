@@ -77,7 +77,7 @@ def inject_banner():
 """
     count = 0
     skipped = 0
-    files = sorted(list(DST.glob("2026-*.html")) + list(DST.glob("ai-weekly-*.html")))
+    files = sorted(list(DST.glob("2026-*/2026-*.html")) + list(DST.glob("2026-*/ai-weekly-*.html")))
     for html_file in files:
         html = html_file.read_text(encoding="utf-8")
         if "开放查阅版" in html:
