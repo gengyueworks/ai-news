@@ -69,18 +69,32 @@ def patch_index():
 
 
 def inject_banner():
-    """给每份日报注入底部固定订阅 banner"""
+    """给每份日报注入底部订阅 banner（不 fixed 浮窗，避免遮挡正文）
+    改为 inline 块紧跟正文，divider 与背景色清晰可读但不再盖内容。"""
     banner = """
-<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
-  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+<div class="public-subscribe-banner">
+  <div class="public-subscribe-inner">
+    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
+    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
+    <a href="index.html" class="public-subscribe-back">返回首页</a>
+  </div>
 </div>
+
+<style>
+.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
+.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
+.public-subscribe-text{color:#fff;}
+.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
+.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
+.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
+</style>
 """
     count = 0
     skipped = 0
     files = sorted(list(DST.glob("2026-*/2026-*.html")) + list(DST.glob("2026-*/ai-weekly-*.html")))
     for html_file in files:
         html = html_file.read_text(encoding="utf-8")
-        if "开放查阅版" in html:
+        if "public-subscribe-banner" in html:
             skipped += 1
             continue
         if "</body>" in html:
