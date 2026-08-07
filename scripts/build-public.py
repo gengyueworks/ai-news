@@ -43,12 +43,12 @@ def patch_index():
         )
         changes.append("最新→订阅完整版（regex）")
 
-    # 3. hero：加公开版说明 + 订阅 CTA
+    # 3. hero：加公开版说明 + 订阅 CTA（幂等：已存在则不重复插入）
     old_hero = '<p class="hero-sub">前沿信号流——AI每天在变什么，人在怎么选</p>'
     new_hero = '''<p class="hero-sub">前沿信号流——AI每天在变什么，人在怎么选</p>
             <p class="edition-note">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整版含 8 月起最新日报</p>
             <a href="#" class="subscribe-cta">订阅完整版 →</a>'''
-    if old_hero in html:
+    if old_hero in html and ".edition-note" not in html:
         html = html.replace(old_hero, new_hero)
         changes.append("hero 加公开版说明 + CTA")
 
