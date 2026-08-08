@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>任务完成，然后呢：谷歌为什么解散了 AlphaFold 团队 · AI News 专题</title>
+<meta name="description" content="八年前为了一个科学难题成立，八年后带着两亿次预测和一项诺贝尔奖解散。谷歌 DeepMind 亲手拆掉了自己的 AlphaFold 团队，科学界说这不算意外。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+</style></head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="agent-tooling.html" class="active">专题</a></li>
+      <li><a href="../2026-08-07.html">最新</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="special-badge">SPECIAL REPORT · 专题</div>
+<div class="mast-title">Agent 工具革命：<br>从「聊天」到「干活」</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+  <span class="issue">2026-06 → 08 · 专题</span>
+  <span>30+ 条报道 · 1 条主线</span>
+</div>
+<div class="mast-lede">上半年，Agent 还是「能聊天的模型」。<br><br>这个夏天，它开始真的干活：MCP 让工具接入变成一次请求，Claude Code 能跑进企业内网，本地小模型在手机上跑 Agent，DeepMind 的 AlphaFold 团队解散后，人才流向 AI for Science 的 Agent。<br><br>聊天框正在变成工作台，Agent 正在从「对话」走向「同事」。</div>
+
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">Agent 从聊天到干活，一条时间线</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · 操作系统级 Agent</div>
+<div class="tl-body"><strong>Microsoft Build 2026：操作系统重新设计，Agent 成为一级公民。</strong>微软把 Agent 从「功能」提到「操作系统层」，同场发布 OpenClaw Windows 预览、Aion 1.0（本地跑 Agent 的小模型）。</div>
+<p class="tl-src">出处 · <a href="../2026-06-02.html">看 06-02 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-09 · 工具汇合</div>
+<div class="tl-body"><strong>语音、代码和 Agent 开始汇合到同一套工作流。</strong>Apple WWDC26 更新 Xcode Agent，Claude Managed Agents 进入公开测试，GitHub Copilot CLI 支持自定义 Agent，Hugging Face 发布语音 Agent 基准。Perplexity 与哈佛研究 Agent 如何改变知识工作。</div>
+<p class="tl-src">出处 · <a href="../2026-06-09.html">看 06-09 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-18 · 落地中国</div>
+<div class="tl-body"><strong>微信 AI Agent：一句「明天中午 3 人粤菜馆」直接帮你下单。</strong>Agent 从「演示」走进真实生活场景，用一句话完成找店、订座、下单整条链路。</div>
+<p class="tl-src">出处 · <a href="../2026-06-18.html">看 06-18 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-23 · 常驻同事</div>
+<div class="tl-body"><strong>Anthropic 让 Claude 常驻 Slack。</strong>Agent 从被动问答变成团队里的数字同事；AI 进入「Loop 时代」，agent 在后台持续自己跑。</div>
+<p class="tl-src">出处 · <a href="../2026-06-23.html">看 06-23 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-07-14 · 协议升级</div>
+<div class="tl-body"><strong>MCP v2 走向无状态。</strong>这是 MCP 规范自推出以来最重大的一次变化，为后面「工具接入变成一次 HTTP 请求」埋下伏笔。</div>
+<p class="tl-src">出处 · <a href="../2026-07-14.html">看 07-14 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-07-31 · 关键转折</div>
+<div class="tl-body"><strong>MCP 2.0 无状态化，agent 工具接入门槛骤降。</strong>旧版要先初始化 session 再发工具调用，新版一次请求就能完成。Simon Willison 当天就做了 <span class="hl">mcp-explorer</span>、<span class="hl">datasette-mcp</span>、<span class="hl">llm-mcp-client</span> 三个项目。</div>
+<p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">Simon Willison</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank">MCP 规范</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-03 · 人机分工</div>
+<div class="tl-body"><strong>「别做 meat proxy」与「夜间自动 rebase」。</strong>社区开始讨论人该把哪部分工作交给 agent：Niklas Gruhn 提出 meat proxy（别把 AI 输出原封不动转发给别人），David Crawshaw 让 agent 每晚自动 rebase、自动验证。</div>
+<p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">meat proxy</a> · <a href="https://simonwillison.net/2026/Aug/3/david-crawshaw/" target="_blank">夜间 rebase</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-04 · 工具链成熟</div>
+<div class="tl-body"><strong>LLM 0.32 发布：推理轨迹、服务端工具、SQLite 日志一起上桌。</strong>Simon Willison 称这是 LLM 项目初始发布以来最重要的一次升级。MCP 工具链开始围绕「无状态」重组。</div>
+<p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Aug/4/new-release-of-llm/" target="_blank">Simon Willison</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · 企业内网</div>
+<div class="tl-body"><strong>Anthropic Inference Hooks 上线，企业可以在 Claude 推理前先拦一刀。</strong>每条受管控 prompt 先经过企业自己的安全服务器判定，覆盖 Claude.ai、Cowork、Claude Code。安全控制从「事后审计」挪到「推理前拦截」。</div>
+<p class="tl-src">出处 · <a href="https://docs.anthropic.com/en/release-notes/api" target="_blank">Anthropic 文档</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-06 · 自托管</div>
+<div class="tl-body"><strong>Claude Code 可以跑在企业自己的机器上了。</strong>Team 和 Enterprise 用户能把会话跑在自己的 compute 上，支持内部网络访问、容器隔离、凭据留在企业环境里。</div>
+<p class="tl-src">出处 · <a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute" target="_blank">Claude 官方博客</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · 本地小模型</div>
+<div class="tl-body"><strong>Liquid AI 发布 LFM2.5-2.6B：一个能跑在手机和浏览器里的 agent 模型。</strong>2.6B 开放权重，128K 上下文，原生 tool calling；M5 Max 上 220 tokens/s，支持 GGUF、MLX、WebGPU。</div>
+<p class="tl-src">出处 · <a href="https://docs.liquid.ai/lfm/models/lfm25-2.6b" target="_blank">Liquid AI</a></p>
+</div>
+</div>
+
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
+<div class="sec-title">Agent 的夏天，发生了什么</div>
+
+<div class="item">
+<div class="body">
+<span class="h2">一、从「对话」到「工作流」</span>
+<p>上半年 Agent 的想象空间在「能聊」：能回答问题、能写代码、能生成图片。这个夏天，重心挪到了「能干」：能调用工具、能进企业内网、能自己跑一晚上。</p>
+<p>标志性变化是 <span class="hl">MCP 2.0 无状态化</span>：工具接入从「先握手再调用」变成「一次 HTTP 请求」。这看起来是协议小事，实际是让「给 agent 接工具」的成本降了一个量级。<span class="turn">当接工具像调 API 一样简单，Agent 就不再是实验室玩具，而是可以长进任何系统的部件</span>。</p>
+
+<span class="h2">二、边界在哪里：meat proxy 与自托管</span>
+<p>Agent 变强的同时，人在重新划边界。Niklas Gruhn 的 <span class="hl">meat proxy</span> 提醒：别把 AI 输出原封不动转给别人，那不是用 AI，是当转发器。David Crawshaw 的夜间 rebase 展示另一面：机械的维护活，确实该交给 agent。</p>
+<p>Anthropic 的两步动作更有代表性：先是 <span class="hl">Inference Hooks</span> 让企业能在推理前拦截，再是 <span class="hl">Claude Code 自托管</span> 让会话跑进企业内网。<span class="turn">「AI 能用」和「AI 敢用」之间，隔着一道企业自己说了算的闸门</span>。</p>
+
+<span class="h2">三、本地化：Agent 的下一站</span>
+<p>Liquid AI 的 2.6B 模型能在手机和浏览器里跑 Agent，配合 MCP 的本地工具接入，<span class="hl">「离线也能干活」的 Agent 正在成形</span>。对隐私敏感、网络不稳、数据不出门的场景，本地 Agent 是唯一解。</p>
+<p>这个方向的信号已经很多：微软 Aion 本地跑 Agent、Apple 系统模型、LLM 0.32 的本地日志。<span class="turn">Agent 的战场，正在从「谁的模型聪明」转向「谁的 Agent 能真正跑在用户自己的设备上」</span>。</p>
+</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"别做 meat proxy，别把 AI 输出原封不动转给别人。"</p>
+<p class="voice-who">—— Niklas Gruhn · 提出「meat proxy」 · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"相比给 agent 一个 shell，MCP 更容易审计和控制。"</p>
+<p class="voice-who">—— Simon Willison · AI 研究者 · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">simonwillison.net</a></p>
+</div>
+</div>
+
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">相关报道 · 本专题的全部足迹</div>
+<a class="rel-card" href="../2026-08-07.html">
+<span class="rc-title">Meta 发布 Muse Code；Cloudflare 发布 Kitesurf（Agent 浏览器）</span>
+<span class="rc-date">2026-08-07</span>
+</a>
+<a class="rel-card" href="../2026-08-03.html">
+<span class="rc-title">别做 meat proxy；夜间自动 rebase</span>
+<span class="rc-date">2026-08-03</span>
+</a>
+<a class="rel-card" href="../2026-07-31.html">
+<span class="rc-title">MCP 2.0 无状态化；smevals 评测工具</span>
+<span class="rc-date">2026-07-31</span>
+</a>
+<a class="rel-card" href="../2026-07-14.html">
+<span class="rc-title">MCP v2 走向无状态</span>
+<span class="rc-date">2026-07-14</span>
+</a>
+<a class="rel-card" href="../2026-06-23.html">
+<span class="rc-title">Claude 常驻 Slack；AI 进入 Loop 时代</span>
+<span class="rc-date">2026-06-23</span>
+</a>
+<a class="rel-card" href="../2026-06-09.html">
+<span class="rc-title">语音、代码和 Agent 汇合；Claude Managed Agents</span>
+<span class="rc-date">2026-06-09</span>
+</a>
+<a class="rel-card" href="../2026-06-02.html">
+<span class="rc-title">Microsoft Build：Agent 成为操作系统级公民</span>
+<span class="rc-date">2026-06-02</span>
+</a>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选 · 本专题由 AI News 编辑部整理
+</div>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>

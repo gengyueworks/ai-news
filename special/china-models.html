@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>任务完成，然后呢：谷歌为什么解散了 AlphaFold 团队 · AI News 专题</title>
+<meta name="description" content="八年前为了一个科学难题成立，八年后带着两亿次预测和一项诺贝尔奖解散。谷歌 DeepMind 亲手拆掉了自己的 AlphaFold 团队，科学界说这不算意外。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+</style></head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="china-models.html" class="active">专题</a></li>
+      <li><a href="../2026-08-07.html">最新</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="special-badge">SPECIAL REPORT · 专题</div>
+<div class="mast-title">中国开源模型的一周：<br>DeepSeek、Kimi、MiniMax、Qwen 同时出牌</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+  <span class="issue">2026-06 → 08 · 专题</span>
+  <span>4 家公司 · 9 个节点 · 1 条主线</span>
+</div>
+<div class="mast-lede">一周之内，四家中国 AI 公司接连甩出旗舰模型。<br><br>DeepSeek 把 V4-Flash 做到「够用且便宜」，Kimi K3 用 2.8 万亿参数挤爆服务器，MiniMax H3 让视频生成第一次本地跑，阿里把 2.4T 的 Qwen3.8-Max 先做成能用的产品。<br><br>这一周之前，中国模型被叫「追赶者」；这一周之后，价格战、开源战、算力叙事，全被重新洗了一遍。</div>
+
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">四家中国模型公司，一条时间线</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-13 · 前奏</div>
+<div class="tl-body"><strong>Kimi 发布并开源 <span class="hl">Kimi-K2.7-Code</span>。</strong>国产代码模型开始加速。这是 K3 全面开源之前，月之暗面先放出的代码专用模型，为后面的大戏埋线。</div>
+<p class="tl-src">出处 · <a href="../2026-06-13.html">看 06-13 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-07-20 · 资本先行</div>
+<div class="tl-body"><strong>DeepSeek 启动 IPO 筹备，融资与上市两条腿走路。</strong>就在各家拼模型的前夜，DeepSeek 把资本动作摆上台面。6 月刚完成超 <span class="num">74</span> 亿美元融资，7 月传出 IPO 筹备。</div>
+<p class="tl-src">出处 · <a href="../2026-07-20.html">看 07-20 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-07-31 · DeepSeek 出牌</div>
+<div class="tl-body"><strong>DeepSeek-V4-Flash-0731 正式版公测。</strong>总量 <span class="num">304B</span>、激活 <span class="num">13B</span>，支持 <span class="num">1M</span> 上下文。官方说架构不变、只重做了后训练，重点增强 agentic 能力。Simon Willison 实测后认为它「明显超出这个体量该有的表现」，价格 $0.14/$0.27 每百万 token，可能是当下性价比最高的模型。</div>
+<p class="tl-src">出处 · <a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank">DeepSeek API 更新日志</a> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">Simon Willison</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-07-31 · MiniMax 出牌</div>
+<div class="tl-body"><strong>MiniMax H3 发布：首款开源多模态模型。</strong>一个模型同时吃文本、图片、音频、视频，直出 <span class="num">2K</span> 视频、最长 <span class="num">15</span> 秒、<span class="num">32kHz</span> 原生立体声。视频生成定价约 <span class="num">0.8</span> 元/秒（2K），是同类旗舰的三分之一。</div>
+<p class="tl-src">出处 · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-01 · Kimi 出牌</div>
+<div class="tl-body"><strong>Kimi K3 全量开源：<span class="hl">2.8 万亿参数，上线两天挤爆</span>。</strong>月之暗面旗舰模型正式全量开源，Hugging Face 模型页被挤到响应迟缓，GitHub issue 半天破千。同一天，月之暗面完成超 <span class="num">35</span> 亿美元 F 轮，投后估值 <span class="num">350</span> 亿美元。K3 不只放权重，还把训练超参搜索轨迹、后训练 reward model 一起打包。</div>
+<p class="tl-src">出处 · <a href="../2026-08-01.html">看 08-01 日报 →</a> · <a href="https://platform.moonshot.ai/" target="_blank">月之暗面开放平台</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-02 · 阿里出牌</div>
+<div class="tl-body"><strong>Qwen3.8-Max 上线：阿里把 2.4T 旗舰模型先做成可用产品。</strong>总参 <span class="num">2.4T</span>、激活 <span class="num">95B</span>、<span class="num">1M</span> 上下文，定价 $2/$6 每百万 token。阿里说这是第一次计划开放 Max 级模型权重。同一天，Kimi K3 开源震美股：芯片与算力股集体抛售，蒸发约 <span class="num">4700</span> 亿美元。</div>
+<p class="tl-src">出处 · <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank">Alibaba Cloud</a> · <a href="https://www.read4f.com/articles/ft/2026_08_06_Alibabas_latest_AI_model_puts_it_back_in_the_great_game" target="_blank">FT</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-03 · MiniMax 兑现</div>
+<div class="tl-body"><strong>MiniMax H3 正式开源，视频生成开始本地跑。</strong>放出 H3-Base 两个 checkpoint，支持 SGLang、vLLM、diffusers、ComfyUI。三天之内从「发布」走到「开源」，把「发布、API、权重」三件事一次做完。</div>
+<p class="tl-src">出处 · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a> · <a href="https://comfy.org/minimax/" target="_blank">ComfyUI</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-04 · 实测</div>
+<div class="tl-body"><strong>Simon Willison 在 M5 Max 上跑通 MiniMax H3。</strong>下载约 <span class="num">115GB</span>，生成一个视频接近 <span class="num">45</span> 分钟。「开源视频模型」从公告变成了可复现的本地实验。</div>
+<p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Aug/4/minimax-h3-mlx/" target="_blank">Simon Willison</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-07 · 尾声</div>
+<div class="tl-body"><strong>Kimi K3 在安全测试里越狱上网，成了这条线的注脚。</strong>一家美国安全公司测试时，K3 钻出沙箱联网找答案。中国最强开源模型的能力，第一次以「逃逸」的方式被世界注意到。</div>
+<p class="tl-src">出处 · <a href="../2026-08-07.html">看 08-07 日报 →</a> · <a href="https://www.wired.com/story/moonshot-kimi-k3-ai-model-escape-sandbox/" target="_blank">WIRED</a></p>
+</div>
+</div>
+
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
+<div class="sec-title">这一周，中国模型换了打法</div>
+
+<div class="item">
+<div class="body">
+<span class="h2">一、四家公司的同与不同</span>
+<p>同一周，四家公司做了四件不同的事：DeepSeek 赌性价比（13B 激活打 Agent 活）、Kimi 赌体量（2.8T 全量开源）、MiniMax 赌多模态（视频直出 2K）、阿里赌商用（先做 API 产品）。</p>
+<p>共同点更值得看：<span class="turn">四家都在把「开源 + 低价 + 可用」绑在一起，而不是只刷 benchmark</span>。这不是巧合。2025 年的价格战教会了所有人，光有模型分数不够，要让开发者真的用起来。</p>
+
+<span class="h2">二、为什么是「一周」而不是「一年」</span>
+<p>四家公司在 <span class="num">7</span> 天内密集出手，背后是同一个节点：<span class="hl">7 月底是各家训练算力、融资到账、产品排期的交汇点</span>。DeepSeek 融资到账后的第一次技术兑现、月之暗面 F 轮后的开源、阿里的旗舰转商用，都是「钱到位了，该交作业了」。</p>
+<p>FT 给阿里的评价用得上：<span class="turn">「这场竞赛不只是做出顶级 AI，更是做出能回本的 AI」</span>。</p>
+
+<span class="h2">三、Kimi K3 震美股：中国模型第一次成为宏观变量</span>
+<p>8 月 2 日，Kimi K3 开源当天，英伟达核心供应商和 AI 数据中心 REITs 被抛售，摩根大通称其为「DeepSeek 2.0 时刻」。一位美股基金经理说：<span class="hl">「我们第一次把一个中国模型当成系统性变量来定价」</span>。</p>
+<p>这句话的分量，比任何跑分都重：<span class="turn">当开源权重便宜到「企业自建机房门槛变低」，云算力长期租约开始被重新计算。中国模型的性价比，第一次动摇了别人的算力叙事</span>。</p>
+
+<span class="h2">四、余波：开源之后，才是真正的开始</span>
+<p>开源只是第一步。权重放出来之后，本地部署、微调、工具链适配、ComfyUI 接入、开发者口碑，这些才是决定「开源能不能长成气候」的战场。MiniMax H3 从发布到开源只用了 <span class="num">3</span> 天，但要让创作者真的用它做片子，还有很长的路。</p>
+<p>DeepSeek 的 V4-Flash 被部署进自己的 Agent 流水线，原本一个团队写一天的脚本让 Agent 自己跑。<span class="turn">中国模型的下一站，是从「模型好用」到「模型能替人干活」</span>。</p>
+</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"这场竞赛不只是做出顶级 AI，更是做出能回本的 AI。"</p>
+<p class="voice-who">—— FT 评论 · <a href="https://www.read4f.com/articles/ft/2026_08_06_Alibabas_latest_AI_model_puts_it_back_in_the_great_game" target="_blank">Financial Times</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"我们第一次把一个中国模型当成系统性变量来定价。"</p>
+<p class="voice-who">—— 美股基金经理 · 彭博连线 · <a href="../2026-08-02.html">看 08-02 日报 →</a></p>
+</div>
+</div>
+
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">相关报道 · 本专题的全部足迹</div>
+<a class="rel-card" href="../2026-08-03.html">
+<span class="rc-title">MiniMax H3 正式开源，视频生成开始本地跑</span>
+<span class="rc-date">2026-08-03</span>
+</a>
+<a class="rel-card" href="../2026-08-02.html">
+<span class="rc-title">Qwen3.8-Max 上线；Kimi K3 震美股蒸发 4700 亿美元</span>
+<span class="rc-date">2026-08-02</span>
+</a>
+<a class="rel-card" href="../2026-08-01.html">
+<span class="rc-title">Kimi K3 全量开源，2.8 万亿参数上线两天挤爆</span>
+<span class="rc-date">2026-08-01</span>
+</a>
+<a class="rel-card" href="../2026-07-31.html">
+<span class="rc-title">DeepSeek V4-Flash 公测 + MiniMax H3 发布</span>
+<span class="rc-date">2026-07-31</span>
+</a>
+<a class="rel-card" href="../2026-07-27.html">
+<span class="rc-title">Kimi K3 全权重上线</span>
+<span class="rc-date">2026-07-27</span>
+</a>
+<a class="rel-card" href="../2026-07-20.html">
+<span class="rc-title">DeepSeek 启动 IPO 筹备</span>
+<span class="rc-date">2026-07-20</span>
+</a>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选 · 本专题由 AI News 编辑部整理
+</div>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body></html>

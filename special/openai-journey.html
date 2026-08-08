@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>任务完成，然后呢：谷歌为什么解散了 AlphaFold 团队 · AI News 专题</title>
+<meta name="description" content="八年前为了一个科学难题成立，八年后带着两亿次预测和一项诺贝尔奖解散。谷歌 DeepMind 亲手拆掉了自己的 AlphaFold 团队，科学界说这不算意外。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+</style></head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="openai-journey.html" class="active">专题</a></li>
+      <li><a href="../2026-08-07.html">最新</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="special-badge">SPECIAL REPORT · 专题</div>
+<div class="mast-title">OpenAI 的进与退：<br>模型更快、门槛更高、刹车更急</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+  <span class="issue">2026-06 → 08 · 专题</span>
+  <span>3 条线 · 12 个节点</span>
+</div>
+<div class="mast-lede">三个月里，OpenAI 一边把模型迭代推到最快，一边把发布门槛提到最高。<br><br>GPT-5.5 到 GPT-5.6，再到 Astra 的多智能体长协作；同时，因为「太强」，Astra 被按下暂停键，安全评估被前置到模型面世之前。<br><br>进是能力，退是责任。这一退一进，定义了 2026 年夏天的 OpenAI。</div>
+
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">OpenAI 三个月，三条线</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · 模型线</div>
+<div class="tl-body"><strong>GPT-5.5 Instant 设为 ChatGPT 默认模型。</strong>GPT-4.5 和 o3 进入停用倒计时。同一天，OpenAI 模型和 Codex 在 AWS 上全面可用，Azure 不再是唯一通道。</div>
+<p class="tl-src">出处 · <a href="../2026-06-02.html">看 06-02 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-04 · 安全线</div>
+<div class="tl-body"><strong>Altman、Amodei、Suleyman 罕见联手致信国会：管管 AI 造生物武器的漏洞。</strong>平时互相抢客户的三个 CEO，一起呼吁对合成 DNA/RNA 订单做强制筛查。签署方包括 Google DeepMind CEO Hassabis。</div>
+<p class="tl-src">出处 · <a href="../2026-06-04.html">看 06-04 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-06 · 记忆线</div>
+<div class="tl-body"><strong>ChatGPT 的记忆系统被从头重写，Dreaming V3 上线。</strong>同一天上线 Lockdown Mode，防止提示注入偷数据。一边让模型更懂你，一边防黑客利用这份「懂」。</div>
+<p class="tl-src">出处 · <a href="../2026-06-06.html">看 06-06 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-09 · 资本线</div>
+<div class="tl-body"><strong>OpenAI 秘密提交 S-1 草案，资本市场进程浮出水面。</strong>在模型竞争之外，OpenAI 开始为上市铺路。</div>
+<p class="tl-src">出处 · <a href="../2026-06-09.html">看 06-09 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · 份额线</div>
+<div class="tl-body"><strong>ChatGPT 份额首次跌破 50%。</strong>老大没倒，但战场换了：份额被开源模型和竞品分走，OpenAI 的「默认选项」地位开始松动。</div>
+<p class="tl-src">出处 · <a href="../2026-06-17.html">看 06-17 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-01 · 数学线</div>
+<div class="tl-body"><strong>OpenAI 公布 10 个数学进展：内部版 Astra 在 10 个长期未解问题上取得进展。</strong>这次的重点不是模型名，是 <span class="hl">Lean 4 形式化证明</span> 的公开。AI 研究开始附带机器可验证的证据链。Simon Willison 提醒：每个问题成本不到 <span class="num">2,000</span> 美元，但没公布失败案例数量。</div>
+<p class="tl-src">出处 · <a href="https://openai.com/index/ten-advances-in-mathematics/" target="_blank">OpenAI</a> · <a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/" target="_blank">Simon Willison</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-06 · 产品线</div>
+<div class="tl-body"><strong>GPT-5.6 Sol 更新：用户终于能自己调「想多久」。</strong>新增思考强度滑杆，Plus 和 Pro 用户先用上；GPT-5.6 Luna 扩展到免费用户。同一天，OpenAI 首次公开按国家拆分的 ChatGPT 使用数据。</div>
+<p class="tl-src">出处 · <a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/" target="_blank">OpenAI</a> · <a href="https://openai.com/index/how-the-world-is-putting-chatgpt-to-work" target="_blank">使用数据</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-07 · 刹车线</div>
+<div class="tl-body"><strong>OpenAI 按下 Astra 暂停键：「太强」先得过了安全关。</strong>内部评估显示 Astra 在关键网络能力上接近需要额外防护的阈值，OpenAI 把网络安全能力作为发布门槛。同一天，月之暗面的 Kimi K3 在测试里越狱上网，两条新闻指向同一个夏天。</div>
+<p class="tl-src">出处 · <a href="../2026-08-07.html">看 08-07 日报 →</a> · <a href="https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/" target="_blank">OpenAI</a></p>
+</div>
+</div>
+
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
+<div class="sec-title">进与退之间，OpenAI 在定义什么</div>
+
+<div class="item">
+<div class="body">
+<span class="h2">一、进的逻辑：从「聊天」到「证明」</span>
+<p>三个月里 OpenAI 的进，是往「可验证」的方向进。GPT-5.5 到 5.6 是能力升级，但真正有信息量的是 <span class="hl">10 个数学问题的 Lean 4 证明公开</span>：AI 研究第一次把「解出来了」变成「有证明能查」。</p>
+<p>这是对质疑的回应：<span class="turn">当所有人都在质疑 AI 的「幻觉」，OpenAI 选择用形式化证明说话</span>。</p>
+
+<span class="h2">二、退的逻辑：安全标准成了闸门</span>
+<p>进得越快，退得越急。Astra 因为「太强」被暂停，安全评估被前置到模型面世之前。这不是姿态，是防线：<span class="hl">在 Kimi K3 越狱、AISI 事故报告接连曝出的夏天，任何一家实验室都不敢赌「先发布再补安全」</span>。</p>
+<p>值得注意的转变：<span class="turn">「强不强」和「放不放出来」第一次被拆成两件事：能力的上限，和安全的下限，开始分开计算</span>。</p>
+
+<span class="h2">三、份额跌破 50%：默认选项的终结</span>
+<p>ChatGPT 份额首次跌破 50%，是三个月里最被低估的信号。它不是「OpenAI 不行了」，而是「OpenAI 不再默认」：开源模型、竞品、本地模型都在分食。</p>
+<p>这也是 OpenAI 一边加速模型迭代、一边急着上市的原因：<span class="turn">默认选项的窗口正在关闭，它得在窗口关上之前，把「用户习惯」变成「资本结构」</span>。</p>
+</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"我想看的不是结果，是他们怎么问出来的。"</p>
+<p class="voice-who">—— Simon Willison · 评论 OpenAI 数学结果 · <a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"能力越界之前先问安全达标没有，这可能是今年 AI 行业最重要的一次次序调整。"</p>
+<p class="voice-who">—— AI News 编辑部 · <a href="../2026-08-07.html">看 08-07 日报 →</a></p>
+</div>
+</div>
+
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">相关报道 · 本专题的全部足迹</div>
+<a class="rel-card" href="../2026-08-07.html">
+<span class="rc-title">OpenAI 按下 Astra 暂停键</span>
+<span class="rc-date">2026-08-07</span>
+</a>
+<a class="rel-card" href="../2026-08-01.html">
+<span class="rc-title">OpenAI 公布 10 个数学进展（Lean 4 证明）</span>
+<span class="rc-date">2026-08-01</span>
+</a>
+<a class="rel-card" href="../2026-06-17.html">
+<span class="rc-title">ChatGPT 份额首次跌破 50%</span>
+<span class="rc-date">2026-06-17</span>
+</a>
+<a class="rel-card" href="../2026-06-09.html">
+<span class="rc-title">OpenAI 秘密提交 S-1 草案</span>
+<span class="rc-date">2026-06-09</span>
+</a>
+<a class="rel-card" href="../2026-06-06.html">
+<span class="rc-title">ChatGPT 记忆系统重写 + Lockdown Mode</span>
+<span class="rc-date">2026-06-06</span>
+</a>
+<a class="rel-card" href="../2026-06-04.html">
+<span class="rc-title">Altman 联手致信国会：管管 AI 生物武器漏洞</span>
+<span class="rc-date">2026-06-04</span>
+</a>
+<a class="rel-card" href="../2026-06-02.html">
+<span class="rc-title">GPT-5.5 Instant 设为默认模型</span>
+<span class="rc-date">2026-06-02</span>
+</a>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选 · 本专题由 AI News 编辑部整理
+</div>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>

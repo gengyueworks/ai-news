@@ -161,18 +161,6 @@
             color: var(--text-dark);
             line-height: 1.5;
             margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-        }
-
-        .status-dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            background-color: #002FA7;
-            border-radius: 50%;
-            margin-right: 8px;
-            flex-shrink: 0;
         }
         .day-card-meta {
             font-size: 11px;
@@ -187,6 +175,48 @@
         }
         .day-card:hover .day-card-meta {
             opacity: 0.85;
+        }
+
+        /* ===== 专题入口 ===== */
+        .special-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: linear-gradient(135deg, #002FA7 0%, #0044FF 100%);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            transition: opacity 0.15s ease;
+        }
+        .special-card:hover { opacity: 0.92; }
+        .special-card .sc-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            color: rgba(255,255,255,0.75);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .special-card .sc-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.5;
+            letter-spacing: -0.2px;
+            margin-bottom: 6px;
+        }
+        .special-card .sc-meta {
+            font-size: 12px;
+            color: rgba(255,255,255,0.75);
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            line-height: 1.5;
+        }
+        .special-card .sc-arrow {
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 6px;
         }
 
         /* ===== 最新的卡片高亮 ===== */
@@ -250,48 +280,6 @@
         .subscribe-cta { display: inline-block; margin-top: 14px; padding: 9px 22px; background: var(--klein); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 4px; transition: opacity 0.15s ease; }
         .subscribe-cta:hover { opacity: 0.88; }
         .subscribe-nav { color: var(--klein) !important; font-weight: 600; }
-
-        /* ===== 专题入口 ===== */
-        .special-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background: linear-gradient(135deg, #002FA7 0%, #0044FF 100%);
-            border-radius: 6px;
-            padding: 20px 24px;
-            margin-bottom: 32px;
-            transition: opacity 0.15s ease;
-        }
-        .special-card:hover { opacity: 0.92; }
-        .special-card .sc-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 2.5px;
-            color: rgba(255,255,255,0.75);
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .special-card .sc-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: #FFFFFF;
-            line-height: 1.5;
-            letter-spacing: -0.2px;
-            margin-bottom: 6px;
-        }
-        .special-card .sc-meta {
-            font-size: 12px;
-            color: rgba(255,255,255,0.75);
-            font-family: 'Inter', 'Noto Sans SC', sans-serif;
-            line-height: 1.5;
-        }
-        .special-card .sc-arrow {
-            color: #FFFFFF;
-            font-size: 14px;
-            font-weight: 600;
-            margin-left: 6px;
-        }
     </style>
 </head>
 <body>
@@ -302,7 +290,7 @@
             <ul class="site-nav-links">
                 <li><a href="index.html" class="active" data-zh="首页" data-en="Home">首页</a></li>
                 
-                <li><a href="#" class="subscribe-nav" data-zh="订阅完整版" data-en="Subscribe">订阅完整版</a></li>
+                <li><a href="2026-08/2026-08-07.html" data-zh="最新" data-en="Latest">最新</a></li>
                 <li><span class="lang-toggle" id="langToggle" onclick="toggleLang()">EN</span></li>
             </ul>
         </div>
@@ -317,16 +305,41 @@
             <a href="#" class="subscribe-cta">订阅完整版 →</a>
         </header>
 
-        <!-- 2026年7月 -->
-        <!-- 2026年8月 -->
+        <!-- ===== 专题入口 ===== -->
+        <a class="special-card" href="special/china-models.html">
+            <div class="sc-badge">SPECIAL REPORT · 专题</div>
+            <div class="sc-title">中国开源模型的一周：DeepSeek、Kimi、MiniMax、Qwen 同时出牌</div>
+            <div class="sc-meta">4 家公司 · 9 个节点 · 一条主线<span class="sc-arrow">→</span></div>
+        </a>
+        <a class="special-card" href="special/agent-tooling.html">
+            <div class="sc-badge">SPECIAL REPORT · 专题</div>
+            <div class="sc-title">Agent 工具革命：从「聊天」到「干活」</div>
+            <div class="sc-meta">MCP 2.0 · Claude Code · 本地 agent · 30+ 条报道<span class="sc-arrow">→</span></div>
+        </a>
+        <a class="special-card" href="special/openai-journey.html">
+            <div class="sc-badge">SPECIAL REPORT · 专题</div>
+            <div class="sc-title">OpenAI 的进与退：模型更快、门槛更高、刹车更急</div>
+            <div class="sc-meta">GPT-5.5→5.6 · Astra 暂停 · 份额跌破 50%<span class="sc-arrow">→</span></div>
+        </a>
+        <a class="special-card" href="special/ai-arms-race.html">
+            <div class="sc-badge">SPECIAL REPORT · 专题</div>
+            <div class="sc-title">AI 军备竞赛：钱在往哪里流</div>
+            <div class="sc-meta">Alphabet $800亿 · SpaceX IPO · Meta 143亿买 Scale AI<span class="sc-arrow">→</span></div>
+        </a>
+        <a class="special-card" href="special/anthropic-rise.html">
+            <div class="sc-badge">SPECIAL REPORT · 专题</div>
+            <div class="sc-title">Anthropic 的上升期：从实验室到 1 万亿美元</div>
+            <div class="sc-meta">IPO 申请 · Claude 写 80% 代码 · Jumper 投奔<span class="sc-arrow">→</span></div>
+        </a>
         <a class="special-card" href="special/alphafold-breakup.html">
             <div class="sc-badge">SPECIAL REPORT · 专题</div>
             <div class="sc-title">任务完成，然后呢：谷歌为什么解散了 AlphaFold 团队</div>
-            <div class="sc-meta">诺奖团队解散 · 5 条报道串联 · 深度解读<span class="sc-arrow">→</span></div>
+            <div class="sc-meta">诺奖团队解散 · 8 条报道串联 · 深度解读<span class="sc-arrow">→</span></div>
         </a>
 
-        <div class="month-group" id="monthGroup8">
-            <div class="month-label" data-zh="2026 · 8月" data-en="2026 · August">2026 · 8月</div>
+        <!-- 2026年6月 -->
+        <div class="month-group" id="monthGroup">
+            <div class="month-label" data-zh="2026 · 6月" data-en="2026 · June">2026 · 6月</div>
 
             <!-- 08-07 -->
             <a class="day-card latest" href="2026-08/2026-08-07.html">
@@ -344,8 +357,8 @@
                     <span class="day-card-date"><strong>03</strong> · 08·2026</span>
                     <span class="day-card-arrow">→</span>
                 </div>
-                <p class="day-card-headline" data-zh="破壳机器人亿美元级 Pre-A，Gemini Robotics 2 从脚控到指尖" data-en="PokeBot $100M+ Pre-A; Gemini Robotics 2 From Feet to Fingertips">破壳机器人亿美元级 Pre-A，Gemini Robotics 2 从脚控到指尖</p>
-                <p class="day-card-meta" data-zh="破壳Pre-A · Gemini Robotics 2 · 求之科技底座 · GitHub Agent漏洞" data-en="PokeBot Pre-A · Gemini Robotics 2 · DISCOVER Base · GitHub Agent Flaw">破壳Pre-A · Gemini Robotics 2 · 求之科技底座 · GitHub Agent漏洞</p>
+                <p class="day-card-headline" data-zh="具身智能单日两笔融资，Gemini Robotics 2 让机器人从脚控到指尖" data-en="Embodied AI Two Rounds in a Day; Gemini Robotics 2 From Feet to Fingertips">具身智能单日两笔融资，Gemini Robotics 2 让机器人从脚控到指尖</p>
+                <p class="day-card-meta" data-zh="破壳Pre-A · 求之独角兽 · Gemini Robotics 2 · GitHub Agent漏洞" data-en="PokeBot Pre-A · DISCOVER Unicorn · Gemini Robotics 2 · GitHub Agent Bug">破壳Pre-A · 求之独角兽 · Gemini Robotics 2 · GitHub Agent漏洞</p>
             </a>
 
             <!-- 08-02 -->
@@ -355,7 +368,7 @@
                     <span class="day-card-arrow">→</span>
                 </div>
                 <p class="day-card-headline" data-zh="字节并起飞书与豆包，Kimi K3 震美股蒸发 4700 亿" data-en="ByteDance Merges Feishu & Doubao; Kimi K3 Wipes $470B Off US AI Stocks">字节并起飞书与豆包，Kimi K3 震美股蒸发 4700 亿</p>
-                <p class="day-card-meta" data-zh="字节ToB重组 · K3震美股 · 开放权重遇冷 · 贝索斯投CuspAI" data-en="ByteDance ToB Reorg · K3 Shakes Stocks · Open-Weights Cold · Bezos CuspAI">字节ToB重组 · K3震美股 · 开放权重遇冷 · 贝索斯投CuspAI</p>
+                <p class="day-card-meta" data-zh="字节ToB重组 · K3震美股 · 开放权重遇冷 · 贝索斯投CuspAI" data-en="ByteDance ToB Reorg · K3 Shakes Stocks · Open-Weights Cold · Bezos→CuspAI">字节ToB重组 · K3震美股 · 开放权重遇冷 · 贝索斯投CuspAI</p>
             </a>
 
             <!-- 08-01 -->
@@ -367,10 +380,6 @@
                 <p class="day-card-headline" data-zh="Kimi K3 全量开源挤爆服务器，OpenAI Astra 疑是 GPT-6" data-en="Kimi K3 Full OSS Crashes Servers; OpenAI Astra Suspected GPT-6">Kimi K3 全量开源挤爆服务器，OpenAI Astra 疑是 GPT-6</p>
                 <p class="day-card-meta" data-zh="Kimi K3开源 · 月之暗面F轮35亿 · Astra多智能体 · ER2具身" data-en="Kimi K3 OSS · Moonshot F $3.5B · Astra Multi-Agent · ER2 Embodied">Kimi K3开源 · 月之暗面F轮35亿 · Astra多智能体 · ER2具身</p>
             </a>
-        </div>
-
-        <div class="month-group" id="monthGroup7">
-            <div class="month-label" data-zh="2026 · 7月" data-en="2026 · July">2026 · 7月</div>
 
             <!-- 07-31 -->
             <a class="day-card" href="2026-07/2026-07-31.html">
@@ -378,7 +387,7 @@
                     <span class="day-card-date"><strong>31</strong> · 07·2026</span>
                     <span class="day-card-arrow">→</span>
                 </div>
-                <p class="day-card-headline" data-zh="<span class=\"status-dot\"></span>DeepSeek V4-Flash 公测反超 Pro，MiniMax H3 首发开源多模态" data-en="<span class=\"status-dot\"></span>DeepSeek V4-Flash Beats Pro; MiniMax H3 First OSS Multimodal"><span class="status-dot"></span>DeepSeek V4-Flash 公测反超 Pro，MiniMax H3 首发开源多模态</p>
+                <p class="day-card-headline" data-zh="DeepSeek V4-Flash 公测反超 Pro，MiniMax H3 首发开源多模态" data-en="DeepSeek V4-Flash Beats Pro; MiniMax H3 First OSS Multimodal">DeepSeek V4-Flash 公测反超 Pro，MiniMax H3 首发开源多模态</p>
                 <p class="day-card-meta" data-zh="V4-Flash公测 · MiniMax H3开源 · Inkling-Small · Seedance 2.5" data-en="V4-Flash Beta · MiniMax H3 OSS · Inkling-Small · Seedance 2.5">V4-Flash公测 · MiniMax H3开源 · Inkling-Small · Seedance 2.5</p>
             </a>
 
@@ -672,12 +681,6 @@
                 <p class="day-card-meta" data-zh="模型定价 · 算力缺口 · 人才流动 · AI就业" data-en="Model Pricing · Compute Gap · Talent Flow · AI Jobs">模型定价 · 算力缺口 · 人才流动 · AI就业</p>
             </a>
 
-        </div>
-
-        <!-- 2026年6月 -->
-        <div class="month-group" id="monthGroup6">
-            <div class="month-label" data-zh="2026 · 6月" data-en="2026 · June">2026 · 6月</div>
-
             <!-- 06-30 -->
             <a class="day-card" href="2026-06/2026-06-30.html">
                 <div class="day-card-head">
@@ -729,7 +732,7 @@
             </a>
 
             <!-- 周回顾 06-15至06-21 -->
-            <a class="day-card" href="2026-06/ai-weekly-2026-06-15-to-06-21.html">
+            <a class="day-card" href="ai-weekly-2026-06-15-to-06-21.html">
                 <div class="day-card-head">
                     <span class="day-card-date">06·15 — 06·21 · 2026</span>
                     <span class="day-card-arrow">→</span>
@@ -859,7 +862,7 @@
             </a>
 
             <!-- 周回顾 06-01至06-07 -->
-            <a class="day-card" href="2026-06/ai-weekly-2026-06-01-to-06-07.html">
+            <a class="day-card" href="ai-weekly-2026-06-01-to-06-07.html">
                 <div class="day-card-head">
                     <span class="day-card-date">06·01 — 06·07 · 2026</span>
                     <span class="day-card-arrow">→</span>
