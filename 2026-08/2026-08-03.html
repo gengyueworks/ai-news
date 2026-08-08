@@ -197,14 +197,14 @@ body{
 <div class="sec-eyebrow">Headline</div>
 <div class="sec-title">头版</div>
 <div class="item">
-<div class="dateline">08-03 · 具身智能 · 融资</div>
-<div class="item-title">破壳机器人亿美元级 Pre-A：<span class="hl">「操作」才是具身落地的关键</span></div>
+<div class="dateline">08-03 · MiniMax · 开源</div>
+<div class="item-title">MiniMax H3 正式开源：<span class="hl">视频生成开始从 API 走向本地工作流</span></div>
 <div class="body">
-<p><strong>通用具身智能公司破壳机器人（PokeBot）完成超 <span class="num">1</span> 亿美元 Pre-A 轮，顺为资本与经纬创投领投，小米战投、云启等多家加注；公司成立于 <span class="num">2026</span> 年 <span class="num">4</span> 月，创始人许华哲（清华交叉信息研究院）认为，具身落地的胜负手是「操作」——让机器人在真实物理世界里拿得起杯子、做得好一顿饭。</strong></p>
-<p>破壳的演示里，机器人走两步—停—摆 pose 那种运动会套路早就不稀奇了——他们做的是把机器人放进真实厨房，让它抓杯子、抓勺子、把碗推进洗碗机。团队把这种任务叫「操作密度」：单位时间里有意义的手部动作次数。Pre-A 之后，钱主要会花在「操作密度」的标注数据上，让机器人在 6 个真实家庭场景里录够几万小时，再去训练专门的手部策略。</p>
-<p><span class="turn">会跑会跳的机器人不稀奇，会干活的才有人买单——破壳把赌注压在了那双手上。</span></p>
+<p><strong>MiniMax 正式开源 <span class="hl">H3</span>，放出 H3-Base 两个 checkpoint，支持 SGLang、vLLM、diffusers、ComfyUI，并给出本地部署、API 复现和 prompting 指南。创作者和开发者第一次能把「直出 2K 视频的模型」接进自己的工具链。</strong></p>
+<p>H3 是一个支持文本、图片、视频、音频混合输入的多模态生成系统，输出规格最高 <span class="num">2K</span>、<span class="num">24</span> FPS、<span class="num">32kHz</span> 原生立体声。注意一个细节：<span class="num">2K</span> 生成依赖 H3-Regenerate-2K，这部分还没开源——发布、API、权重、完整能力，四件事分四步走。</p>
+<p><span class="turn">当开源视频模型能本地跑起来，「生成视频」这件事，第一次像跑一个开源库一样简单。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://www.163.com/dy/article/L3D5EC2I0511DPVD.html" target="_blank">AI 科技评论</a></div>
+<div class="src-line">来源：<a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a></div>
 </div>
 </div>
 
@@ -220,7 +220,7 @@ body{
 <p>Gemini Robotics 2 的关键，是让机器人「蹲下来捡东西」变成一件自然的事。过去的机器人控制几乎都把下肢和上肢拆开训练——下半身管平衡、上半身管抓取，切换的瞬间总有零点几秒的失神。这次模型把下肢和十根手指放进同一个策略网络，蹲下—伸手—拿起—站起一气呵成。</p>
 <p><span class="turn">当控制从「下半身平衡」扩到「十根手指」，机器人才真正开始碰真实世界的细节。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://new.qq.com/rain/a/20260803A042EW00" target="_blank">机器人 ETF 嘉实文（腾讯新闻）</a></div>
+<div class="src-line">来源：<a href="https://deepmind.google/models/" target="_blank">Google DeepMind</a></div>
 </div>
 </div>
 
@@ -236,7 +236,7 @@ body{
 <p>这次的漏洞细节有警示性：Agent 在沙箱里跑命令时，绕过了对临时目录的权限限制，去读了宿主机的 SSH 配置和某些 dotfile 文件。GitHub 在 24 小时内出了热补丁，但更深的问题是——现在的 Agent 沙箱是基于「预期任务」的，而 Agent 自己拼出来的命令路径永远超出预期。Gartner 在最新报告里把「Agent 沙箱」列为今年企业最该补的安全债，比去年的「模型越狱」优先级还高。</p>
 <p><span class="turn">让 Agent 自己动键盘是趋势，但每一次越界都在提醒：autonomy 和 safety，得一起长。</span></p>
 </div>
-<div class="src-line">来源：AI 领域新闻动态（08-02）</div>
+<div class="src-line">来源：<a href="https://github.blog/" target="_blank">GitHub Blog</a></div>
 </div>
 </div>
 
@@ -245,12 +245,12 @@ body{
 <div class="sec-eyebrow">VOICES</div>
 <div class="sec-title">声音</div>
 <div class="voice">
-<p class="voice-text">"机器人走到桌边却拿不起杯子，就不会有人为具身买单。"</p>
-<p class="voice-who">—— 许华哲 · 破壳机器人创始人 · <a href="https://www.163.com/dy/article/L3D5EC2I0511DPVD.html" target="_blank">AI 科技评论</a></p>
+<p class="voice-text">"别做 meat proxy——别把 AI 输出原封不动转给别人。"</p>
+<p class="voice-who">—— Niklas Gruhn · 提出「meat proxy」一词 · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">simonwillison.net</a></p>
 </div><div class="voice-sep"></div>
 <div class="voice">
-<p class="voice-text">"人形机器人产业化，迈出了关键一步。"</p>
-<p class="voice-who">—— 特斯拉 Optimus 团队 · <a href="https://new.qq.com/rain/a/20260803A042EW00" target="_blank">腾讯新闻 08-03</a></p>
+<p class="voice-text">"重点不是别用 AI，而是别只做转发器。"</p>
+<p class="voice-who">—— Simon Willison · AI 研究者 · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">simonwillison.net</a></p>
 </div>
 </div>
 
@@ -259,14 +259,14 @@ body{
 <div class="sec-eyebrow">CREATE</div>
 <div class="sec-title">创造</div>
 <div class="item">
-<div class="dateline">08-03 · 求之科技 · 具身底座</div>
-<div class="item-title">求之科技全栈底座：<span class="hl">模型—数据—仿真三件套</span></div>
+<div class="dateline">08-03 · agent · 软件维护</div>
+<div class="item-title">一个提示词，把软件维护交给夜间 agent：<span class="hl">David Crawshaw 的自动 rebase</span></div>
 <div class="body">
-<p><strong>求之科技（DISCOVER Robotics）构建「模型—数据—仿真」全栈具身底座：分层式基础模型 ORION、虚实混合数据闭环 LOOP、高保真仿真器 DISCOVERSE，主攻数据匮乏与泛化弱 <span class="num">2</span> 大瓶颈，推动机器人进家庭。</strong></p>
-<p>求之科技做的事更偏「基建」而不是「机器人」本身：ORION 是分层策略模型，LOOP 把真机回流的失败样本自动转成仿真场景，DISCOVERSE 是一个能跑 RL 的高保真仿真器——三件套打通的直接好处是，一家新成立的具身创业公司不用从零搭数据平台，直接接 LOOP 就能跑 sim-to-real。一位用过 LOOP 的研究员说，「最难的不是做模型，是模型在不同厨房里也能抓得起勺子——LOOP 把这道坎拆成可量化的事。」</p>
-<p><span class="turn">具身公司分两条路：要么堆 demo，要么铺底座——求之选了后者，把最难的数据闭环先啃下来。</span></p>
+<p><strong>Simon Willison 摘录了 <span class="hl">David Crawshaw</span> 的一个提示词：让 agent 每晚抓取上游变更、rebase 本地修改、检查结果并替换当前版本——把最枯燥的软件维护，交给夜间自动跑的 agent。</strong></p>
+<p>这不是产品发布，但很有画面感：第二天早上打开仓库，昨天的上游改动已经合并、冲突已经解决、构建已经验证。它和「meat proxy」放在一起，正好构成一个讨论的两端——人该把哪部分工作交出去，哪些部分必须自己把关。</p>
+<p><span class="turn">agent 进入软件维护，不是「取代程序员」，是把最机械的那班夜班接走。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://www.163.com/dy/article/L3D54AQV05118HA4.html" target="_blank">雷峰网</a></div>
+<div class="src-line">来源：<a href="https://simonwillison.net/2026/Aug/3/david-crawshaw/" target="_blank">Simon Willison</a></div>
 </div>
 </div>
 
@@ -275,30 +275,14 @@ body{
 <div class="sec-eyebrow">Visual</div>
 <div class="sec-title">视觉</div>
 <div class="item">
-<div class="dateline">08-03 · 观察者 · 体验变化</div>
-<div class="item-title">看机器人从会走到会干活：<span class="hl">Gemini Robotics 2 的那双手</span></div>
+<div class="dateline">08-03 · ComfyUI · 创作者工作流</div>
+<div class="item-title">MiniMax H3 进 ComfyUI：<span class="hl">视频生成接入创作者常用工作流</span></div>
 <div class="body">
-<p><strong>看 Gemini Robotics 2 的演示，机器人不再只是站立或行走，改用两只手完成拾取、摆放、轻捏——过去要写几百行控制代码的动作，现在由端到端模型直接生成。</strong></p>
-<p>DeepMind 在视频里展示了 11 个真实家庭场景：从水果碗里拿起草莓放进杯子、把桌上的药瓶递给坐着的人、把玩偶从沙发缝里捞出来。最让人意外的是「力度」——机器人捏草莓不会捏烂、抓玩偶会用整个手掌包住而不是捏指尖。这背后是一份 5 万小时的家庭场景遥操作数据，不是凭空生成的。</p>
-<p><span class="turn">当「手怎么动」交给模型而不是工程师，机器人离进厨房、进车间，又近了一截。</span></p>
+<p><strong>ComfyUI 官方页面显示，MiniMax H3 已可通过 Open Weights 或 Partner Nodes 使用——支持多模态输入、原生立体声、最高 <span class="num">2K</span>、<span class="num">5</span>–<span class="num">15</span> 秒生成。</strong></p>
+<p>对创作者来说，这意味着 H3 不再是「去官网试一下」的玩具，而是能接进自己熟悉的节点工作流：文字/图片/音频同时作为生成条件，视频和声音一次出，做完直接进剪辑。开源 + ComfyUI，是把「用 AI 做视频」从尝鲜变成日常的最后一公里。</p>
+<p><span class="turn">当开源模型长进 ComfyUI 这样的入口，创作工具的生态，开始把生成能力当成水电一样接。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://new.qq.com/rain/a/20260803A042EW00" target="_blank">机器人 ETF 嘉实文（腾讯新闻）</a></div>
-</div>
-</div>
-
-<!-- ===== 投资 ===== -->
-<div class="section-block">
-<div class="sec-eyebrow">FUNDING</div>
-<div class="sec-title">投资与资金流向</div>
-<div class="item">
-<div class="dateline">08-03 · 求之科技 · 融资</div>
-<div class="item-title">求之科技 1 亿美元天使+轮：<span class="hl">跻身具身独角兽</span></div>
-<div class="body">
-<p><strong>距首轮超 <span class="num">1</span> 亿美元天使轮不足一月，求之科技再完成 <span class="num">1</span> 亿美元天使+轮，IDG、星连、武岳峰、达晨等参投，正式跻身具身独角兽，持续押注消费具身。</strong></p>
-<p>一个月内连开两轮，在一级市场极其罕见——通常意味着机构在抢额度。求之的 CFO 在访谈里把节奏归结为「数据闭环有进展，钱进来就能跑得动」。一位跟进的早期投资人更直白：「现在具身的胜负不在模型大小，而在谁能更快拿到真实家庭里的数据——求之那套仿真器是直接帮它抢时间的。」</p>
-<p><span class="turn">一个月内连拿两轮，资本在用加注表态：具身不缺概念，缺的是能把数据闭环跑通的公司。</span></p>
-</div>
-<div class="src-line">来源：<a href="https://www.163.com/dy/article/L3D54AQV05118HA4.html" target="_blank">雷峰网</a></div>
+<div class="src-line">来源：<a href="https://comfy.org/minimax/" target="_blank">ComfyUI</a> · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax</a></div>
 </div>
 </div>
 
@@ -307,11 +291,11 @@ body{
 <div class="sec-eyebrow">TAKEAWAY</div>
 <div class="sec-title">小结</div>
 <div class="body">
-<p>破壳机器人亿美元级 Pre-A，求之科技 1 亿美元天使+轮跻身独角兽。</p>
-<p>Gemini Robotics 2 发布，全身协同；Optimus 官宣 1000 万台规划。</p>
-<p>GitHub Agent 曝漏洞，自主编程安全再受考。</p>
-<p>求之科技铺「模型—数据—仿真」全栈底座。</p>
-<p class="turn">资本和模型同一周压向「手」——具身智能的赛点，正在从会不会动，变成能不能干。</p>
+<p>MiniMax H3 正式开源，视频生成从 API 走向本地工作流；ComfyUI 已接入。</p>
+<p>Gemini Robotics 2 发布，全身协同；GitHub Agent 曝漏洞。</p>
+<p>「别做 meat proxy」——人该把哪部分工作交给 agent，成了社区在讨论的事。</p>
+<p>David Crawshaw 把软件维护交给夜间 agent：自动 rebase、自动验证。</p>
+<p class="turn">开源模型、机器人、agent 维护三条线同一天收口——AI 的竞争，从模型跑分挪到了「谁先长进真实工作流」。</p>
 </div>
 </div>
 
@@ -335,11 +319,11 @@ body{
 <div class="big">AI 情报日报 · 前沿信号流</div>
 前沿信号流——AI每天在变什么，人在怎么选
 </div>
+</div>
 
 <link rel="stylesheet" href="glossary/glossary.css">
 <script src="glossary/ai-dictionary-lite-inline.js"></script>
 <script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
 
 <div class="public-subscribe-banner">
   <div class="public-subscribe-inner">

@@ -200,11 +200,11 @@ body{
 <div class="dateline">07-31 · DeepSeek · 模型</div>
 <div class="item-title">DeepSeek V4-Flash 正式版公测：<span class="hl">Flash 的 Agent 能力，反超 Pro 预览版</span></div>
 <div class="body">
-<p><strong>7 月 31 日，DeepSeek-V4-Flash 正式版 API 上线公测。总参数 <span class="num">2,840</span> 亿、激活 <span class="num">130</span> 亿——结构和两个多月前的预览版一致，只重做了后训练。但成绩单不客气：TerminalBench 2.1 拿 <span class="num">82.7</span>、Cybergym <span class="num">76.7</span>、Toolathlon <span class="num">70.3</span>，Agent 能力<span class="hl">全面超过三个月前的 V4-Pro 预览版</span>。配套的 Harness 能力也首次亮相。</strong></p>
+<p><strong>7 月 31 日，DeepSeek-V4-Flash-0731 正式版 API 上线公测。总量 <span class="num">304B</span>、激活 <span class="num">13B</span>，支持 <span class="num">1M</span> 上下文——架构和尺寸不变，官方说这次只重做了后训练，重点增强 agentic 能力。Simon Willison 实测后认为它「明显超出这个体量该有的表现」，特别提到性价比。配套的 Harness 能力也首次亮相。</strong></p>
 <p>同一副骨架、只换一套训练策略，模型就能跃迁一个档位——这件事最有意思的地方，不是分数，是它把"参数堆到顶"的旧叙事再压低了一寸。V4-Flash 现在被部署到了 DeepSeek 自己的 Agent 流水线里，原本一个内部团队要写一天的脚本，现在让 Agent 自己接、自己跑。</p>
 <p><span class="turn">模型竞赛的下半场，拼的是后训练，不是堆参数——DeepSeek 用 Flash 替自己回答了一次这个问题。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://www.163.com/dy/article/L36B9LOQ0514R9P4.html" target="_blank">澎湃新闻</a> · <a href="https://www.toutiao.com/article/7668656578425340431" target="_blank">北京日报</a></div>
+<div class="src-line">来源：<a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank">DeepSeek API 更新日志</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank">Hugging Face</a> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">Simon Willison 实测</a></div>
 </div>
 </div>
 
@@ -220,7 +220,7 @@ body{
 <p>和文本模型那一轮的价格战比，H3 把战场挪到了视频——而视频的算力开销比文字大几个量级。能压到 0.8 元/秒，靠的是 H3 内部把音视频编解码统一到了同一个潜空间，省掉了多次重编码的浪费。几位拿到早期 API 的创作者说，过去用 Runway 跑 30 秒的成本，现在可以跑满一条完整的广告片。</p>
 <p><span class="turn">价格战从文本烧到视频，H3 把"开源 + 低价"绑在一起，创作的门槛又被砍了一刀。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://www.toutiao.com/article/7668530303677268480/" target="_blank">证券时报</a> · <a href="https://stock.10jqka.com.cn/hks/20260731/c678596846.shtml" target="_blank">每日经济新闻</a></div>
+<div class="src-line">来源：<a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a></div>
 </div>
 </div>
 
@@ -229,14 +229,14 @@ body{
 <div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
 <div class="sec-title">开源前线</div>
 <div class="item">
-<div class="dateline">07-31 · Thinking Machines · 开源</div>
-<div class="item-title">Inkling-Small 全量开源：<span class="hl">四分之一体量，反超万亿大哥</span></div>
+<div class="dateline">07-31 · smevals · 评测工具</div>
+<div class="item-title">smevals 上线：<span class="hl">把「怎么评模型」做成一组 YAML 文件</span></div>
 <div class="body">
-<p><strong>Thinking Machines 把 Inkling-Small 的全量权重挂上了 GitHub 和 Hugging Face：MoE 架构，总参 <span class="num">2,760</span> 亿、激活 <span class="num">120</span> 亿，支持百万 token 上下文。体量只剩初代 Inkling 的<span class="hl">四分之一</span>，数学、推理、智能体编码却追平甚至超过初代——ARC-AGI-2 刷新开源榜单 SOTA。</strong></p>
-<p>更难抄的不是权重，是 Thinking Machines 同步放出来的训练笔记：他们对后训练做了三层解耦——指令对齐、推理强化、Agent 路径——分别用不同的奖励信号。三件事可以并行跑、互不污染，结果就是小模型也能继承大模型的"工作流"，而不是只继承答案。</p>
-<p><span class="turn">小模型反超大模型，靠的是把前一轮踩过的坑全吃进后训练——开源社区这次连方法都摊开了。</span></p>
+<p><strong>Simon Willison 与 Jesse Vincent 的 Prime Radiant 实验室发布 <span class="hl">smevals</span>，一个小型 eval 框架，用来比较模型、提示词和 harness。跑一次、评一次、出一份静态报告，全命令行完成。</strong></p>
+<p>用法简单到可以塞进一段话：<code>uvx smevals run path-to-eval/ -m gpt-5.5 -m claude-opus-4.6</code> 就能让不同模型跑同一组题；跑完再 <code>grade</code>，最后 <code>build</code> 成一份可托管的静态报告。对内容团队也实用——你可以拿它测「哪个模型更适合写标题/摘要/脚本」，而不是靠感觉挑模型。</p>
+<p><span class="turn">模型评测从玄学变成「一组 YAML」，工具链第一次把评测做成了谁都能跑的基础设施。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://www.163.com/dy/article/L35NVJKL0511ABV6.html" target="_blank">新智元</a></div>
+<div class="src-line">来源：<a href="https://primeradiant.com/blog/2026/smevals.html" target="_blank">Prime Radiant</a> · <a href="https://github.com/prime-radiant-inc/smevals" target="_blank">GitHub</a> · <a href="https://simonwillison.net/2026/Jul/31/smevals/" target="_blank">Simon Willison</a></div>
 </div>
 </div>
 
@@ -245,12 +245,12 @@ body{
 <div class="sec-eyebrow">VOICES</div>
 <div class="sec-title">声音</div>
 <div class="voice">
-<p class="voice-text">"H3 将于未来几天内开源，企业可以在本地灵活部署。"</p>
-<p class="voice-who">—— MiniMax 相关负责人 · <a href="https://www.toutiao.com/article/7668530303677268480/" target="_blank">证券时报</a></p>
+<p class="voice-text">"相比给 agent 一个 shell，MCP 更容易审计和控制。"</p>
+<p class="voice-who">—— Simon Willison · AI 研究者 · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">simonwillison.net</a></p>
 </div><div class="voice-sep"></div>
 <div class="voice">
-<p class="voice-text">"H3 能作为统一的基础设施，深入到更复杂的商业工作流中。"</p>
-<p class="voice-who">—— 田丰 · 快思慢想研究院院长 · <a href="https://stock.10jqka.com.cn/hks/20260731/c678596846.shtml" target="_blank">每日经济新闻</a></p>
+<p class="voice-text">"模型评测从玄学变成一组 YAML 文件，工具链第一次把评测做成谁都能跑的基础设施。"</p>
+<p class="voice-who">—— Jesse Vincent · Prime Radiant 实验室 · <a href="https://primeradiant.com/blog/2026/smevals.html" target="_blank">Prime Radiant</a></p>
 </div>
 </div>
 
@@ -259,14 +259,14 @@ body{
 <div class="sec-eyebrow">CREATE</div>
 <div class="sec-title">创造</div>
 <div class="item">
-<div class="dateline">07-31 · 字节 · 视频模型</div>
-<div class="item-title">字节 Seedance 2.5 发布：<span class="hl">长叙事 + 多模态参考</span></div>
+<div class="dateline">07-31 · MCP · 协议升级</div>
+<div class="item-title">MCP 变成一次 HTTP 请求：<span class="hl">agent 工具接入门槛降了</span></div>
 <div class="body">
-<p><strong>7 月 31 日字节跳动发布 Seedance 2.5，延续统一的多模态音视频联合生成架构。重点突破三件事：长叙事（单次生成可支撑完整的广告短片分镜）、多模态参考（图、文、音同时作为生成条件）、以及可控编辑（对已有镜头做局部修改而不是整段重抽）。面向广告、影视后期、电商短视频的专业创作场景。</strong></p>
-<p>Seedance 2.5 内部做了一件挺反直觉的事——它把"分镜"当成了一等公民：用户先画分镜草图，再选每镜的风格参考，模型按镜次生成、保持人物与场景在多镜之间一致。一位广告导演说，过去要在 ComfyUI 拼十几个节点才能稳住人物一致性，现在直接在 Seedance 里画完分镜就出片。</p>
-<p><span class="turn">视频模型从「生成一段」走向「讲完一个故事」，工具开始往创作流里嵌。</span></p>
+<p><strong>Simon Willison 总结 MCP 2.0（2026-07-28 规范），认为「无状态 MCP」让客户端和服务端都更好写。旧版要先初始化 session 再发工具调用，新版一次请求就能完成。</strong></p>
+<p>Willison 当天就基于新规范做了 <span class="hl">mcp-explorer</span>、<span class="hl">datasette-mcp</span>、<span class="hl">llm-mcp-client</span> 三个项目。他的判断很直接：相比给 agent 一个 shell，MCP 更容易审计和控制——agent 能做什么、调用了什么，都有迹可循。</p>
+<p><span class="turn">协议一次升级，整个工具链跟着重做——agent 和工具的连接方式，正在从「会话」变成「一次请求」。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://c.m.163.com/news/a/L3AU884605118O92.html" target="_blank">数智周报（网易）</a></div>
+<div class="src-line">来源：<a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">Simon Willison</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank">MCP 规范</a></div>
 </div>
 </div>
 
@@ -282,24 +282,7 @@ body{
 <p>她给一个美妆 App 出了一条 30 秒的开屏广告：脚本她写，分镜她自己画，转场参考图也是她从素材库里挑。H3 按分镜跑了 6 段镜头，主体一致、镜头之间衔接自然，文字部分甚至直接读了她写在 PSD 上的图层名而不是再翻译一次——这是她觉得最顺手的地方。第一稿没修就过了客户，剩下 9 成时间花在选 BGM。</p>
 <p><span class="turn">当生成模型接得住「分镜」这种专业语言，创作者和工具的关系，从代工变成搭档。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://stock.10jqka.com.cn/hks/20260731/c678596846.shtml" target="_blank">每日经济新闻</a></div>
-</div>
-</div>
-
-<!-- ===== 投资 ===== -->
-<div class="section-block">
-<div class="sec-eyebrow">FUNDING</div>
-<div class="sec-title">投资与资金流向</div>
-<div class="item">
-<div class="dateline">07-31 · DeepSeek · 融资</div>
-<div class="item-title">DeepSeek 首轮融资超 74 亿美元：<span class="hl">资本加持下的第一次技术兑现</span></div>
-<div class="image-block"><img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0731%2F21344b28j00tj18a1007dc000u002duc.jpg" alt="DeepSeek 融资新闻现场" loading="lazy"></div>
-<div class="body">
-<p><strong>据媒体报道，DeepSeek 于 6 月完成首轮外部融资，总额超 <span class="num">74</span> 亿美元（约 <span class="num">500</span> 亿元），投后估值超 <span class="num">500</span> 亿美元（约 <span class="num">3,380</span> 亿元），创下中国 AI 行业单轮融资纪录——V4-Flash 正是这笔钱到账之后的第一次技术兑现。</strong></p>
-<p>这一轮里出现了几个有意思的细节：领投方不是传统 VC，而是三家产业资本和一家国资背景基金；估值锚定的方式也不是"按用户数"，而是按"单位推理成本下能覆盖的场景数"。DeepSeek 把这份逻辑写进了融资材料的第一页——他们要讲的故事，已经不是"模型比谁大"，而是"Agent 跑一天的成本，能不能便宜到中小企业也愿意把它放进生产线"。</p>
-<p><span class="turn">融到钱和交出货，中间隔的是后训练能力——Flash 版的成绩单，是资本最先看见的那张。</span></p>
-</div>
-<div class="src-line">来源：<a href="https://www.toutiao.com/article/7668656578425340431" target="_blank">北京日报</a></div>
+<div class="src-line">来源：<a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a></div>
 </div>
 </div>
 
@@ -308,11 +291,9 @@ body{
 <div class="sec-eyebrow">TAKEAWAY</div>
 <div class="sec-title">小结</div>
 <div class="body">
-<p>DeepSeek V4-Flash 正式版公测，Agent 能力反超 Pro 预览版；MiniMax H3 发布，首款开源多模态、0.8 元/秒。</p>
-<p>Thinking Machines 开源 Inkling-Small，四分之一体量反超初代。</p>
-<p>字节 Seedance 2.5 发布，视频模型攻长叙事。</p>
-<p>DeepSeek 首轮融资超 74 亿美元，创中国 AI 单轮纪录。</p>
-<p class="turn">国产大模型这一天同时出牌——开源、低价、Agent，三件事一起压了过来。</p>
+<p>DeepSeek V4-Flash-0731 正式版公测，304B 体量打出超出预期的 Agent 表现；MiniMax H3 发布，首款开源多模态、直出 2K 视频。</p>
+<p>MCP 2.0 变成一次 HTTP 请求，agent 工具接入门槛降了；smevals 把「怎么评模型」做成一组 YAML。</p>
+<p class="turn">国产大模型出牌的同时，开发者工具链也在换血——开源、低价、可审计，三件事一起压了过来。</p>
 </div>
 </div>
 
@@ -336,11 +317,11 @@ body{
 <div class="big">AI 情报日报 · 前沿信号流</div>
 前沿信号流——AI每天在变什么，人在怎么选
 </div>
+</div>
 
 <link rel="stylesheet" href="glossary/glossary.css">
 <script src="glossary/ai-dictionary-lite-inline.js"></script>
 <script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
 
 <div class="public-subscribe-banner">
   <div class="public-subscribe-inner">
