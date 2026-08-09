@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-08-10</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-10 · 周一</span>
+<span>本期 8 条</span>
+</div>
+<div class="mast-lede">人形机器人公司，今天在 A 股敲开申购的门。<br><br>宇树科技以 150.80 元/股启动申购，发行市盈率 219 倍，战略配售里坐着深度求索；同一天，OpenAI 取消免费版纯文本限制，Anthropic 说基本治好了提示注入。<br><br>资本、产品、安全，三条线各进一步。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-10 · 宇树科技 · A股</div>
+<div class="item-title">机器人估值变了，宇树先上市：<span class="hl">A 股开始给「喂模型的机器人」定价</span></div>
+<div class="body">
+<p><strong>宇树科技今日启动申购，发行价 <span class="num">150.80</span> 元/股，对应市值约 <span class="num">610</span> 亿元，拟募资约 <span class="num">61</span> 亿元；发行市盈率 <span class="num">219</span> 倍。战略配售名单里，坐着<span class="hl">社保基金</span>和<span class="hl">深度求索</span>。</strong></p>
+<p>看点不只是「人形机器人第一股」。宇树 2023 到 2025 年营收从 <span class="num">1.59</span> 亿涨到 <span class="num">16.99</span> 亿元，2025 年首次盈利 <span class="num">2.78</span> 亿——而且募资近半投向 <span class="hl">AI 模型研发</span>，不是产能。一家机器人公司把融资重心压在「软件和模型」而不是「工厂」上，这在 A 股是第一回。</p>
+<p><span class="turn">当机器人的估值逻辑开始从「造硬件」转向「喂模型」，A 股的第一只人形机器人股，其实是在给整个赛道定价。</span></p>
+<div class="image-block">
+<img src="https://www.unitree.com/images/11d0a76afbb74e8fb7f692652b4c33e0_800x800.png" alt="宇树科技人形机器人产品图" loading="lazy">
+<p class="image-caption">宇树科技 · 官方产品图 · 一只 A 股的人形机器人</p>
+</div>
+</div>
+<div class="src-line">来源：<a href="https://www.reuters.com/technology/unitree-prices-shanghai-ipo" target="_blank">Reuters</a> · <a href="https://www.unitree.com/" target="_blank">宇树科技官方</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-10 · OpenAI · 产品</div>
+<div class="item-title">ChatGPT 免费版不限文字次数：<span class="hl">OpenAI 开始抢「日常聊天」入口</span></div>
+<div class="body">
+<p><strong>OpenAI 从今天起取消免费版和 Go 版账户的纯文本对话次数限制，免费用户默认模型换成更小的 <span class="accent">GPT-5.6 Luna</span>，并新增「Think」按钮支持更深入的回复。</strong></p>
+<p>图片生成、文件上传、语音仍保留独立额度。<span class="turn">把最常用的文字聊天做到不限量，瞄准的是<span class="hl">「每天都打开」的习惯</span>——入口之争，从模型能力挪到了使用成本。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/index/" target="_blank">OpenAI 官方</a> · <a href="https://www.reuters.com/" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-10 · Anthropic · 安全</div>
+<div class="item-title">Anthropic 说基本治好了提示注入：<span class="hl">agent 上桌的门槛，又低了一截</span></div>
+<div class="body">
+<p><strong>Anthropic 工程师 <span class="accent">Boris Cherny</span> 表示，通过模型训练已基本解决 Claude 在实际使用中的提示注入威胁；独立基准显示，叠加多层防御后，未见过的间接注入攻击成功率接近 <span class="num">0</span>。</strong></p>
+<p>同时 Claude Code 的自动模式将于下周默认开启。<span class="turn">提示注入是「agent 敢不敢放出来干活」的拦路虎之一——这一关松动，<span class="hl">企业用 agent 的犹豫会少一截</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.anthropic.com/news" target="_blank">Anthropic 官方</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-10 · GitHub Models · 退役</div>
+<div class="item-title">GitHub Models 退役了：<span class="hl">一个时代的侧写，也是下一个时代的注脚</span></div>
+<div class="body">
+<p><strong><span class="accent">Simon Willison</span> 记录：GitHub Models 已完成退役，模型 playground 和跨 LLM 提供商的统一 API 服务正式关闭。</strong></p>
+<p>这个服务曾让 GitHub Actions 里的代码直接用环境内的 API key 调各家模型。它的关闭更像一个信号：<span class="turn">开发者调模型的姿势，已经从「平台搭桥」走向「自带额度直连」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://simonwillison.net/2026/Aug/9/github-models-is-now-retired" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"提示注入是骗子攻击用户和智能体最常用的方式——你的智能体访问一个网站，里面的恶意文本让它把密钥发出去。"</p>
+<p class="voice-who">—— Boris Cherny · Anthropic 工程师 · <a href="https://www.anthropic.com/news" target="_blank">Anthropic</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"DeepSeek V4 Flash 在智能体任务上大幅超越 Nemotron3 Ultra，活跃参数还少了 4.2 倍。"</p>
+<p class="voice-who">—— SemiAnalysis · 芯片产业分析机构 · <a href="https://semianalysis.com/" target="_blank">SemiAnalysis</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-08 · xAI · 图像生成</div>
+<div class="item-title">Grok Imagine Image 2.0 上线：<span class="hl">生图进入「指哪改哪」</span></div>
+<div class="body">
+<p><strong>xAI 发布 <span class="accent">Grok Imagine Image 2.0</span>，作为全新质量模式上线 Grok 网页端，新增区域编辑、背景移除、Smart Resize，支持最多 <span class="num">5</span> 张参考图。</strong></p>
+<p>上一代还在比「生成得漂不漂亮」，这一代直接比「能不能改到位」。<span class="turn">图像模型的竞争点，正从「一次生成」转向「可控编辑」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://x.ai/" target="_blank">xAI 官方</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">08-10 · 观察 · 趋势</div>
+<div class="item-title">AI 正在学会「自己看自己」：<span class="hl">智能体的眼睛，长在数据流里</span></div>
+<div class="body">
+<p><strong>从 Claude Code 自动模式到多智能体协作，2026 年夏天的 agent 不再只是「聊天」，开始真正「看」数据、调工具、自己改代码。</strong></p>
+<p>Meta 的 EvoHarness-RL 让智能体自主学习工具编排；GitHub Models 退役背后，是开发者越来越习惯自带模型直连。<span class="turn">当 AI 从「回答问题」进化到「自己干活」，真正稀缺的，是给它划边界的人。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://simonwillison.net/2026/Aug/9/github-models-is-now-retired" target="_blank">Simon Willison</a> · <a href="https://www.anthropic.com/news" target="_blank">Anthropic</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-09 · 对冲基金 · 芯片</div>
+<div class="item-title">AI 对冲基金下注芯片新势力：<span class="hl">Situational Awareness 投 4 亿美元给 Source Foundry</span></div>
+<div class="body">
+<p><strong>AI 对冲基金 <span class="accent">Situational Awareness</span> 本周向芯片初创 <span class="accent">Source Foundry</span> 投资 <span class="num">4</span> 亿美元，累计投入达 <span class="num">5</span> 亿。后者由斯坦福研究人员创立，目标是让芯片制造更快、更便宜。</strong></p>
+<p>这家基金上月刚把大部分公开持仓卖给 Citadel，管理资产从 <span class="num">200</span> 亿缩到 <span class="num">100</span> 亿美元——卖了组合，仍<span class="hl">重仓下注芯片</span>。<span class="turn">AI 的钱正从<span class="hl">「买已上市的算力」</span>转向「押还没出厂的硅」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/08/09/embattled-hedge-fund-situational-awareness-invests-400m-in-chip-startup-source-foundry" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>宇树科技今日申购，A 股迎来人形机器人第一股，深度求索坐进战略配售席。</p>
+<p>OpenAI 取消免费版纯文本限制，默认模型换 Luna；Anthropic 基本解决提示注入。</p>
+<p>GitHub Models 退役，对冲基金 4 亿美元押注芯片新势力。</p>
+<p class="turn">资本在定价「机器人的模型」，产品在抢「日常对话的入口」，安全在给 agent 松绑——AI 的 2026，三条线一起加速。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>巴塔哥尼亚的安第斯山脉 · 智利——NASA 卫星拍下一条绵延的白色山脊，在云影里忽明忽暗，比任何模型基准都安静。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/snow-in-the-shadow-of-the-andes/patagoniasnow_tmo_20260403_th.jpg" alt="NASA 卫星影像：巴塔哥尼亚安第斯山脉" loading="lazy">
+<p class="image-caption">Snow in the Shadow of the Andes · 智利 · NASA 卫星拍下 <span class="num">45.0</span>°S, <span class="num">72.0</span>°W<br>这条白色山脊在云影里忽明忽暗，雪线按自己的节奏落了又化，不关心任何基准。我们在屏幕上争论谁的模型更强、谁的 agent 更听话，这座山正按千万年的节奏，管着山下的水和风。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
