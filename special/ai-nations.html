@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic 的上升期：从实验室到 1 万亿美元 · AI News 专题</title>
+<meta name="description" content="三个月前 Anthropic 还是「OpenAI 的挑战者」，现在它提交上市申请、估值逼近 1 万亿美元。不关注 AI 也能看懂：它凭什么上升。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
+</style></head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="ai-nations.html" class="active">专题</a></li>
+      <li><a href="../2026-08-08.html">最新</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="special-badge">GLOBAL VIEW · 各国 AI 现状</div>
+<div class="mast-title">各国的 AI：<br>一条赛道，不同的跑法</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+  <span class="issue">持续更新 · 全球 AI 系列</span>
+  <span>开篇 · 4 个国家/地区</span>
+</div>
+<div class="mast-lede">AI 是全球竞赛，但每个国家跑法不同。<br><br>英国靠脱欧红利当「欧洲 AI 独角兽之家」，却连美国的零头都不到；中国靠开源和性价比冲击美国算力叙事；美国一边军备竞赛一边出口管制；非洲和拉美连入场券都还没拿到。<br><br>这一系列讲各国在 AI 赛道上的位置和处境。</div>
+
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">先读懂这篇 · 大白话版</div>
+<div class="pg-body">
+<p><strong>先讲三句人话：</strong><br>
+<span class="pg-point">第一，AI 强国就三个：美国、中国，加半个欧洲</span>，其他国家要么在追赶，要么在看。<br>
+<span class="pg-point">第二，每个国家的「打法」不一样</span>，美国烧钱堆算力，中国开源拼性价比，英国想做应用的中间层。<br>
+<span class="pg-point">第三，AI 的差距是全球性的</span>，挤进供应链的吃肉，没挤进去的连电都不够用。</p>
+<div class="pg-glossary">
+<strong>术语白话对照：</strong>
+<p><span class="pg-term">独角兽</span>≈ 估值超过 10 亿美元的创业公司，是衡量一个国家 AI 活力的指标。</p>
+<p><span class="pg-term">算力</span>≈ 训练 AI 的「发动机」，谁算力多谁跑得快，但非常烧钱、烧电。</p>
+<p><span class="pg-term">开源模型</span>≈ 把 AI 的「图纸」免费公开，谁都能下载用。中国的打法。</p>
+<p><span class="pg-term">AI 供应链</span>≈ 造 AI 需要的链条：芯片、算力、数据中心。挤进去的国家吃肉。</p>
+</div>
+<p class="pg-note">如果你想知道「世界上各国 AI 都发展到哪了」，读完这块有个全貌。</p>
+</div>
+</div>
+
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">各国 AI，不同的位置</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · 英国</div>
+<div class="tl-body"><strong>英国：脱欧红利下的「欧洲 AI 独角兽之家」。</strong>今年科技初创融资超 <span class="num">145</span> 亿美元，超欧洲其他主要市场总和；<span class="num">33</span> 家 AI 独角兽，Wayve 无人车进伦敦。但对比美国，英国 <span class="num">81</span> 亿 vs 美国四大云厂商今年资本开支 <span class="num">7000</span> 亿，差 <span class="num">86</span> 倍。OpenAI 还因电价太高（德州的 <span class="num">4</span> 倍）暂停了 Stargate UK。<span class="tl-plain">白话：英国是欧洲 AI 的老大，但跟美国比，只是零头。而且特朗普一纸令下，连最新的 AI 都不让英国人用。</span></div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/economist/20260617_2026_06_17_what-britain-needs-to-do-to-grasp-its-big-opportunities-in-ai/06688" target="_blank">The Economist（read4f 译）</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · 中国</div>
+<div class="tl-body"><strong>中国：用开源和性价比，冲击美国的算力叙事。</strong>DeepSeek V4 Pro 提供顶级模型 <span class="num">四分之三</span> 的性能，成本不到 <span class="num">六十分之一</span>。英国经济学家都承认：多数应用不需要最新模型，便宜好用的就够。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/economist/20260617_2026_06_17_what-britain-needs-to-do-to-grasp-its-big-opportunities-in-ai/06688" target="_blank">The Economist</a> · <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank">Qwen</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-01 · 美国</div>
+<div class="tl-body"><strong>美国：一边军备竞赛，一边出口管制。</strong>Alphabet 一次性融资 <span class="num">800</span> 亿美元；Anthropic 估值反超 OpenAI 成全球最有价值 AI 公司。同时，特朗普命令禁止非美国人访问 Anthropic 最新模型。<span class="turn">美国既是 AI 的领跑者，也把 AI 当成了地缘武器。</span></div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/guardian/2026_jun_01_anthropic-openai-techscape" target="_blank">Guardian</a> · <a href="https://www.read4f.com/articles/ft/2026_06_02_Googles_80bn_equity_raise_adds_to_that_giant_AI_sucking_sound" target="_blank">FT</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · 非洲/拉美</div>
+<div class="tl-body"><strong>被 AI 甩下的国家：非洲缺电，拉美缺资本。</strong>Rogoff 的观察：真正被 AI 落下的人不在美国，在没挤进 AI 供应链的国家。<span class="num">90%</span> 的 AI 算力集中在美国和中国。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/guardian/2026_jun_02_will-the-ai-economy-create-a-permanent-underclass" target="_blank">Guardian / Project Syndicate</a></p>
+</div>
+</div>
+
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
+<div class="sec-title">AI 的世界版图</div>
+
+<div class="item">
+<div class="body">
+<span class="h2">一、美国：领跑者，也是守门人</span>
+<p>美国有最烧钱的军备竞赛（四大云厂商一年 <span class="num">7000</span> 亿资本开支），也有 Anthropic 反超 OpenAI 的竞争。但更重要的是：<span class="hl">特朗普禁止非美国人访问 Anthropic 最新模型，前沿 AI 的访问权，由美国政府决定</span>。</p>
+<p><span class="turn">美国不只是 AI 强国，还是 AI 的「看门人」。谁能用最新的 AI，美国说了算</span>。</p>
+
+<span class="h2">二、中国：开源和性价比，绕开算力围堵</span>
+<p>买不到英伟达最好的芯片，中国自己造（华为昇腾比 H20 快 <span class="num">50-150%</span>）；同时用开源 + 低价冲击市场。DeepSeek V4 Pro 四分之三的性能、六十分之一的成本，让英国经济学家都说：<span class="hl">多数应用不需要最新模型</span>。</p>
+<p><span class="turn">中国的策略是「够用 + 便宜 + 开源」，用性价比绕开美国的算力封锁</span>。</p>
+
+<span class="h2">三、英国：中间层的野心与尴尬</span>
+<p>英国有 33 家 AI 独角兽、脱欧红利、黄仁勋说的「最佳应用层位置」。但对比美国是零头，电价是德州 <span class="num">4</span> 倍，连最新模型都访问不了。<span class="turn">英国想在「应用层」分一杯羹，但夹在美国的算力和中国的性价比之间</span>。</p>
+
+<span class="h2">四、被甩下的：非洲和拉美</span>
+<p>Rogoff 的观察最冷：<span class="hl">非洲缺电、拉美缺资本、印度外包业首当其冲</span>。90% 的 AI 算力集中在美国和中国。<span class="turn">AI 的世界版图，正在分成「吃肉的国家」和「连电都不够用」的国家</span>。</p>
+</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"脱欧绝对是英国 AI 的红利。"</p>
+<p class="voice-who">—— Keegan McBride · 托尼·布莱尔研究所 · <a href="https://www.read4f.com/articles/economist/20260617_2026_06_17_what-britain-needs-to-do-to-grasp-its-big-opportunities-in-ai/06688" target="_blank">The Economist</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"技术革命已经来了，英国有机会成为玩家，但也可能沦为看客。"</p>
+<p class="voice-who">—— Keegan McBride · 托尼·布莱尔研究所 · <a href="https://www.read4f.com/articles/economist/20260617_2026_06_17_what-britain-needs-to-do-to-grasp-its-big-opportunities-in-ai/06688" target="_blank">The Economist</a></p>
+</div>
+</div>
+
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">相关报道 · 本专题的全部足迹</div>
+<a class="rel-card" href="https://www.read4f.com/articles/economist/20260617_2026_06_17_what-britain-needs-to-do-to-grasp-its-big-opportunities-in-ai/06688" target="_blank">
+<span class="rc-title">The Economist：英国如何抓住 AI 重大机遇</span>
+<span class="rc-date">2026-06-17</span>
+</a>
+<a class="rel-card" href="https://www.read4f.com/articles/guardian/2026_jun_02_will-the-ai-economy-create-a-permanent-underclass" target="_blank">
+<span class="rc-title">Guardian：AI 经济会制造永久下层阶级吗（全球视角）</span>
+<span class="rc-date">2026-06-02</span>
+</a>
+<a class="rel-card" href="https://www.read4f.com/articles/scmp/tech_tech-trends_article_3355294_beyond-nvidia-how-us-export-curbs-are-forcing-china-redesign-its-ai-chip-industry" target="_blank">
+<span class="rc-title">SCMP：美国出口管制如何迫使中国重塑 AI 芯片产业</span>
+<span class="rc-date">2026-06-01</span>
+</a>
+<a class="rel-card" href="https://www.read4f.com/articles/guardian/2026_jun_01_anthropic-openai-techscape" target="_blank">
+<span class="rc-title">Guardian：Anthropic 冲刺，OpenAI 艰难追赶</span>
+<span class="rc-date">2026-06-02</span>
+</a>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选 · 本专题为全球 AI 系列，持续更新
+</div>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>

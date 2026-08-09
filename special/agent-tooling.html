@@ -281,10 +281,10 @@ body{
 <div class="plain-guide">
 <div class="pg-label">先读懂这篇 · 大白话版</div>
 <div class="pg-body">
-<p><strong>先讲三句人话：</strong><br><span class="pg-point">第一，AI 从「回答问题」变成「替人干活」</span>——它能自己调用软件、查资料、操作电脑，像雇了个数字助理，只是更便宜更快。<br><span class="pg-point">第二，这些能力正在「长进你的日常工具」</span>——微信、企业软件、代码工具都在接入，你可能已经在用，只是没意识到那是 AI Agent。<br><span class="pg-point">第三，「干活」的边界在收紧</span>——能干的越来越多，该不该让它干的讨论也越来越多，安全成了新门槛。<br></p>
+<p><strong>先讲三句人话：</strong><br><span class="pg-point">第一，AI 从「回答问题」变成「替人干活」</span>，它能自己调用软件、查资料、操作电脑，像雇了个数字助理，只是更便宜更快。<br><span class="pg-point">第二，这些能力正在「长进你的日常工具」</span>，微信、企业软件、代码工具都在接入，你可能已经在用，只是没意识到那是 AI Agent。<br><span class="pg-point">第三，「干活」的边界在收紧</span>，能干的越来越多，该不该让它干的讨论也越来越多，安全成了新门槛。<br></p>
 <div class="pg-glossary">
 <strong>术语白话对照：</strong>
-<p><span class="pg-term">Agent（智能体）</span> ≈ 能自己「想步骤、调工具、干活」的 AI，不是问一句答一句，而是像员工一样把事做完。</p><p><span class="pg-term">MCP（模型上下文协议）</span> ≈ 让 AI 接工具的「标准插座」，有了它，接任何软件都像插电一样简单。</p><p><span class="pg-term">本地部署 / 自托管</span> ≈ 把 AI 装进你自己的电脑或服务器，数据不出门，隐私可控。</p><p><span class="pg-term">无状态</span> ≈ 每次干活不用先「打招呼建立连接」，一次请求直接干，更快更省。</p>
+<p><span class="pg-term">Agent（智能体）</span> ≈ 能自己「想步骤、调工具、干活」的 AI，能自己把事做完，像员工一样。</p><p><span class="pg-term">MCP（模型上下文协议）</span> ≈ 让 AI 接工具的「标准插座」，有了它，接任何软件都像插电一样简单。</p><p><span class="pg-term">本地部署 / 自托管</span> ≈ 把 AI 装进你自己的电脑或服务器，数据不出门，隐私可控。</p><p><span class="pg-term">无状态</span> ≈ 每次干活不用先「打招呼建立连接」，一次请求直接干，更快更省。</p>
 </div>
 <p class="pg-note">如果你只想知道「AI Agent 现在到什么程度了」，读完这块就够了。下面是给想深挖的人的时间线。</p>
 </div>
@@ -332,7 +332,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-07-31 · 关键转折</div>
-<div class="tl-body"><strong>MCP 2.0 无状态化，agent 工具接入门槛骤降。</strong>旧版要先初始化 session 再发工具调用，新版一次请求就能完成。<br><span class="tl-plain">白话：以前 AI 接一个新工具要写一堆「握手代码」，现在像插 U 盘一样即插即用。</span>Simon Willison 当天就做了 <span class="hl">mcp-explorer</span>、<span class="hl">datasette-mcp</span>、<span class="hl">llm-mcp-client</span> 三个项目。<br><span class="tl-plain">白话：协议一升级，最懂工具的开发者当天就做出三个新工具——这速度说明「接工具」真的变简单了。</span></div>
+<div class="tl-body"><strong>MCP 2.0 无状态化，agent 工具接入门槛骤降。</strong>旧版要先初始化 session 再发工具调用，新版一次请求就能完成。<br><span class="tl-plain">白话：以前 AI 接一个新工具要写一堆「握手代码」，现在像插 U 盘一样即插即用。</span>Simon Willison 当天就做了 <span class="hl">mcp-explorer</span>、<span class="hl">datasette-mcp</span>、<span class="hl">llm-mcp-client</span> 三个项目。<br><span class="tl-plain">白话：协议一升级，最懂工具的开发者当天就做出三个新工具，这速度说明「接工具」真的变简单了。</span></div>
 <p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">Simon Willison</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank">MCP 规范</a></p>
 </div>
 
@@ -369,7 +369,19 @@ body{
 <div class="tl-item">
 <div class="tl-date">2026-08-09 · 调度架构</div>
 <div class="tl-body"><strong>微软论文：编码智能体不该按聊天请求调度。</strong>对 13.5M 次 GitHub Copilot 会话的分析显示，<span class="num">87%</span> 的 LLM 调用来自智能体自身而非用户。<span class="turn">当 agent 自己调自己成为主流，基础设施的调度逻辑要从「按用户请求」改成「按 agent 轮次」。</span></div>
-<p class="tl-src">出处 · <a href="https://arxiv.org/" target="_blank">arXiv / Microsoft（AIHOT 线索）</a></p>
+<p class="tl-src">出处 · <a href="https://arxiv.org/" target="_blank">arXiv / Microsoft</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-08 · 会话协作</div>
+<div class="tl-body"><strong>Claude Code 的会话现在可以互相发消息了。</strong>不用在另一个会话里重新解释，Claude 会代为传达一份摘要，另一个会话在任务进行中接收。<span class="turn">多个 agent 并行干活，第一次能像同事一样互相同步上下文。</span></div>
+<p class="tl-src">出处 · <a href="https://x.com/ClaudeDevs" target="_blank">X @ClaudeDevs</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-08 · 托管 Deep Agents</div>
+<div class="tl-body"><strong>LangChain 推出 Managed Deep Agents 公开测试版。</strong>把 Deep Agents 部署到托管运行时，提供持久化执行、记忆、沙箱、评测和生产级基础设施。<span class="turn">深度 agent 从「自己搭」变成「托管直接用」，企业接 agent 的门槛又降一截。</span></div>
+<p class="tl-src">出处 · <a href="https://blog.langchain.com/" target="_blank">LangChain Blog</a></p>
 </div>
 </div>
 
