@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic 的上升期：从实验室到 1 万亿美元 · AI News 专题</title>
+<meta name="description" content="三个月前 Anthropic 还是「OpenAI 的挑战者」，现在它提交上市申请、估值逼近 1 万亿美元。不关注 AI 也能看懂：它凭什么上升。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
+</style></head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="ai-workplace.html" class="active">专题</a></li>
+      <li><a href="../2026-08-08.html">最新</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="special-badge">WORKPLACE WATCH · AI 职场</div>
+<div class="mast-title">AI 职场：<br>人在公司里的位置，正在被重排</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+  <span class="issue">持续更新 · AI 职场系列</span>
+  <span>开篇 · 5 条线索</span>
+</div>
+<div class="mast-lede">AI 进公司，最先改变的不是产品，是人的日常。<br><br>员工花在「看顾 AI」上的时间比用它干活还多；一半人靠 AI 变强，四分之一反而变弱；企业一边被 AI 账单吓到，一边被便宜的中国模型吸引。<br><br>这一系列讲的是 AI 职场里，人具体在经历什么。</div>
+
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">先读懂这篇 · 大白话版</div>
+<div class="pg-body">
+<p><strong>先讲三句人话：</strong><br>
+<span class="pg-point">第一，用 AI 不一定省时间</span>，员工每周花 6.4 小时「看顾」AI（喂资料、修错误、检查输出），比真正用 AI 干活还多。<br>
+<span class="pg-point">第二，AI 不拉平人的差距，它放大差距</span>，同样用 AI，一半人变强、四分之一原地踏步、四分之一反而变弱。<br>
+<span class="pg-point">第三，AI 的账单正在改变公司的选择</span>，美国企业被 AI 成本吓到，开始转向便宜好几倍的中国模型。</p>
+<div class="pg-glossary">
+<strong>术语白话对照：</strong>
+<p><span class="pg-term">Botsitting（看顾机器人）</span>≈ 员工花时间「伺候」AI：喂资料、修错误、检查它干得对不对。这是没人统计过的隐形劳动。</p>
+<p><span class="pg-term">AI Agent（智能体）</span>≈ 不只聊天、还能替你干活的 AI：写代码、订行程、处理表格。</p>
+<p><span class="pg-term">token</span>≈ AI 处理文字的最小单位，也是按量计费的「用量」。用得越多，账单越贵。</p>
+<p><span class="pg-term">前向部署工程师（FDE）</span>≈ 专门帮企业把 AI 用好的人，OpenAI、Anthropic 都在招。</p>
+</div>
+<p class="pg-note">如果你只想知道「AI 在职场里到底发生了什么」，读完这块就够了。下面是展开的线索。</p>
+</div>
+</div>
+
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">AI 职场，几条线索</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-04 · 账单来了</div>
+<div class="tl-body"><strong>Uber 几个月烧光全年 AI 预算，给员工设了使用上限。</strong>Walmart 限制生成表格工具的 token；一家公司全员部署 Claude 没设限，一个月意外花了 <span class="num">5</span> 亿美元 token 费。去年的 tokenmaxxing（拼命用 AI）退潮，企业开始算账。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/bloomberg/2026-06-04_the-ai-boom-s-next-test-is-the-roi-worth-the-cost" target="_blank">Bloomberg（read4f 译）</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-05 · 人还做什么</div>
+<div class="tl-body"><strong>Anthropic 公开：Claude 写了公司 <span class="num">80%</span> 的代码。</strong>内部员工开始问「我还做什么」。</div>
+<p class="tl-src">出处 · <a href="../2026-06-05.html">看 06-05 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · 需求膨胀</div>
+<div class="tl-body"><strong>Karpathy：软件像自来水一样随开随用，我的需求在 10 倍膨胀。</strong>AI 没有让会写代码的人失业，反而让「会指挥 AI 写代码」的人需求暴涨。</div>
+<p class="tl-src">出处 · <a href="../2026-06-17.html">看 06-17 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-07-07 · 价格冲击</div>
+<div class="tl-body"><strong>中国的 GLM-5.2 来了：够好，还便宜好几倍。</strong>硅谷称之为「奇迹」，Vercel CEO「几乎震惊」。OpenRouter 上最火的 6 个模型全是中国的；Coinbase 用 GLM-5.2 + Kimi 把 AI 花费砍半。RAND 研究员说：<span class="hl">「担心的场景是中国有够好又只要四分之一价格的模型」</span>。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/atlantic/2026_07_07_glm-5-2-china-cheap-ai-agents" target="_blank">The Atlantic（read4f 译）</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-07-23 · 差距放大</div>
+<div class="tl-body"><strong>KPMG 研究：同样面对 AI，<span class="num">50.1%</span> 的人超过基线，<span class="num">25.8%</span> 持平，<span class="num">24.1%</span> 反而变弱。</strong>决定差距的不是基础技能，是「怎么和 AI 协作」。AI 不标准化工作，它放大差异。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/hbr/2026_07_research-why-some-junior-employees-work-well-with-ai-and-others-dont" target="_blank">HBR（read4f 译）</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · 隐形劳动</div>
+<div class="tl-body"><strong>HBR：员工每周花 <span class="num">6.4</span> 小时「看顾」AI，比真正用 AI 干活还多。</strong>喂 AI 上下文 <span class="num">2.3</span> 小时、修错误 <span class="num">2.2</span> 小时、审查输出 <span class="num">1.7</span> 小时。人从「用 AI」变成了「AI 的保姆」。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/hbr/2026_08_how-much-time-do-your-employees-spend-botsitting" target="_blank">HBR（read4f 译）</a></p>
+</div>
+</div>
+
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
+<div class="sec-title">AI 职场里，人具体在经历什么</div>
+
+<div class="item">
+<div class="body">
+<span class="h2">一、AI 没省时间，它换了时间</span>
+<p>Botsitting 是这半年职场最被忽视的现象：<span class="hl">员工每周花 6.4 小时「伺候」AI，比真正用它干活的时间还多</span>。喂资料、修错误、检查输出，全是没人统计、没人给钱的隐形劳动。</p>
+<p>讽刺的是：<span class="turn">企业以为买了 AI 就买回了员工的时间，结果员工用省下的时间，去当 AI 的保姆</span>。</p>
+
+<span class="h2">二、AI 放大差距，而不是拉平</span>
+<p>KPMG 的 523 人研究给了一个反直觉结论：<span class="hl">基础技能（批判思维、AI 素养、领域知识）不能预测谁用 AI 用得好</span>。真正区分的是「怎么和 AI 协作」：主动编排工作流、质疑输出、把 AI 当思想伙伴的人（放大器）远超基线；接受 AI 输出不加审视的人（委托者）持平；越帮越忙的人（学徒）反而更差。</p>
+<p><span class="turn">AI 没有标准化工作，它把「会协作的人」和「不会协作的人」之间的差距，放大了</span>。</p>
+
+<span class="h2">三、账单在改变公司的选择</span>
+<p>Uber 烧光预算、Walmart 限 token、一家公司月花 5 亿 token 费。<span class="hl">美国的 AI 账单第一次大到企业不得不算账</span>。而这时，中国的 GLM-5.2 来了：够好，还便宜好几倍。</p>
+<p>RAND 研究员一句话点破：<span class="turn">「担心的场景是中国有够好又只要四分之一价格的模型」</span>。当企业被账单逼着选，价格就成了最大的变量。</p>
+</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"担心的场景是中国有够好、又只要四分之一价格的模型，我觉得我们正朝那个未来走。"</p>
+<p class="voice-who">—— Kyle Siler-Evans · RAND AI 研究员 · <a href="https://www.read4f.com/articles/atlantic/2026_07_07_glm-5-2-china-cheap-ai-agents" target="_blank">The Atlantic</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI 不标准化工作，它放大人们运用技能的差异。"</p>
+<p class="voice-who">—— KPMG / 德州大学奥斯汀分校研究 · <a href="https://www.read4f.com/articles/hbr/2026_07_research-why-some-junior-employees-work-well-with-ai-and-others-dont" target="_blank">HBR</a></p>
+</div>
+</div>
+
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">相关报道 · 本专题的全部足迹</div>
+<a class="rel-card" href="https://www.read4f.com/articles/hbr/2026_08_how-much-time-do-your-employees-spend-botsitting" target="_blank">
+<span class="rc-title">HBR：员工每周花 6.4 小时看顾 AI</span>
+<span class="rc-date">2026-08-05</span>
+</a>
+<a class="rel-card" href="https://www.read4f.com/articles/atlantic/2026_07_07_glm-5-2-china-cheap-ai-agents" target="_blank">
+<span class="rc-title">The Atlantic：中国对 AI 价格震惊的回应（GLM-5.2）</span>
+<span class="rc-date">2026-07-07</span>
+</a>
+<a class="rel-card" href="https://www.read4f.com/articles/hbr/2026_07_research-why-some-junior-employees-work-well-with-ai-and-others-dont" target="_blank">
+<span class="rc-title">HBR：为何部分初级员工与 AI 协作良好</span>
+<span class="rc-date">2026-07-23</span>
+</a>
+<a class="rel-card" href="https://www.read4f.com/articles/bloomberg/2026-06-04_the-ai-boom-s-next-test-is-the-roi-worth-the-cost" target="_blank">
+<span class="rc-title">Bloomberg：AI 热潮的下一个考验（Uber/Walmart 限用）</span>
+<span class="rc-date">2026-06-04</span>
+</a>
+<a class="rel-card" href="../2026-06-17.html">
+<span class="rc-title">Karpathy：软件像自来水，我的需求 10 倍膨胀</span>
+<span class="rc-date">2026-06-17</span>
+</a>
+<a class="rel-card" href="../2026-06-05.html">
+<span class="rc-title">Claude 写了 Anthropic 80% 的代码</span>
+<span class="rc-date">2026-06-05</span>
+</a>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选 · 本专题为 AI 职场系列，持续更新
+</div>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
