@@ -213,6 +213,45 @@ body{
   .container{padding:24px 16px 48px;}
   .tl-item{padding-left:26px;}
 }
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
 </style></head>
 <body>
 
@@ -222,7 +261,7 @@ body{
     <ul class="site-nav-links">
       <li><a href="../index.html">首页</a></li>
       <li><a href="alphafold-breakup.html" class="active">专题</a></li>
-      <li><a href="../2026-08/2026-08-07.html">最新</a></li>
+      <li><a href="../2026-08-07.html">最新</a></li>
     </ul>
   </div>
 </nav>
@@ -238,6 +277,25 @@ body{
 </div>
 <div class="mast-lede">八年前为了一个科学难题成立，八年后带着 <span class="num">2 亿</span> 次预测和一项诺贝尔奖解散。<br><br>谷歌 DeepMind 亲手拆掉了自己的 AlphaFold 团队。<br><br>科学界说，这不算意外。</div>
 
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">先读懂这篇 · 大白话版</div>
+<div class="pg-body">
+<p><strong>先讲三句人话：</strong><br>
+<span class="pg-point">第一，有个叫 AlphaFold 的 AI，拿了诺贝尔奖</span>——它解决的问题是「猜出蛋白质长什么样」，这是生物学几十年的大难题。<br>
+<span class="pg-point">第二，这个 AI 的团队，被谷歌解散了</span>——不是因为做砸了，恰恰是因为做成了，任务完成了。<br>
+<span class="pg-point">第三，这背后是谷歌 AI 战略的大转弯</span>——从「伦敦的实验室」回到「加州的生意」，连 CEO 都换了。</p>
+<div class="pg-glossary">
+<strong>术语白话对照：</strong>
+<p><span class="pg-term">AlphaFold</span> ≈ 谷歌做的 AI，能用电脑预测蛋白质的 3D 形状，2024 年拿了诺贝尔化学奖。</p>
+<p><span class="pg-term">蛋白质折叠问题</span> ≈ 生物学悬了几十年的难题：光看一串氨基酸，猜出它折叠后长什么样。</p>
+<p><span class="pg-term">DeepMind</span> ≈ 谷歌旗下的 AI 实验室，AlphaFold 就是它做的，总部在伦敦。</p>
+<p><span class="pg-term">Isomorphic Labs</span> ≈ 谷歌另起炉灶的「用 AI 做药」公司，建立在 AlphaFold 的研究之上。</p>
+</div>
+<p class="pg-note">如果你只想知道「谷歌为什么解散了诺奖团队」，读完这块就够了。下面是给想深挖的人的时间线。</p>
+</div>
+</div>
+
 <!-- ===== 时间线 ===== -->
 <div class="timeline">
 <div class="tl-title">这件事，AI News 一路报道过</div>
@@ -245,41 +303,49 @@ body{
 <div class="tl-item">
 <div class="tl-date">2018 → 2024</div>
 <div class="tl-body"><strong>DeepMind 立项 AlphaFold，挑战「蛋白质折叠问题」。</strong>目标是用氨基酸序列直接预测蛋白质的三维结构。2020 年 AlphaFold2 在 CASP 盲测中碾压全场；2024 年 AlphaFold3 把预测范围扩展到蛋白质与 <span class="hl">DNA、RNA</span> 和候选药物的相互作用。同一年，<span class="hl">约翰·江珀</span>（John Jumper）与 CEO <span class="hl">德米斯·哈萨比斯</span>（Demis Hassabis）共享诺贝尔化学奖。</div>
+<p class="tl-src">出处 · <a href="https://www.nobelprize.org/prizes/chemistry/2024/summary/" target="_blank">诺贝尔奖官网</a> · <a href="https://deepmind.google/discover/blog/alphafold/" target="_blank">DeepMind</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-06-19 · 我们报道过</div>
-<div class="tl-body"><strong>AlphaFold 之父离开 DeepMind，投奔 Anthropic。</strong>江珀在谷歌做了近九年，宣布转投 <span class="hl">Anthropic</span>。同一天，Transformer 作者之一 Shazeer 去了 OpenAI，48 小时内谷歌连走两人。当时 SignalFire 报告说，DeepMind 工程师跳槽 Anthropic 的概率是反方向的 <span class="num">11 倍</span>。<a href="../2026-06/2026-06-20.html">看 06-20 日报 →</a></div>
+<div class="tl-body"><strong>AlphaFold 之父离开 DeepMind，投奔 Anthropic。</strong>江珀在谷歌做了近九年，宣布转投 <span class="hl">Anthropic</span>。同一天，Transformer 作者之一 Shazeer 去了 OpenAI，48 小时内谷歌连走两人。当时 SignalFire 报告说，DeepMind 工程师跳槽 Anthropic 的概率是反方向的 <span class="num">11 倍</span>。<a href="../2026-06-20.html">看 06-20 日报 →</a></div>
+<p class="tl-src">出处 · <a href="https://www.cnbc.com/2026/06/19/john-jumper-to-leave-google-deepmind-for-anthropic.html" target="_blank">CNBC</a> · <a href="https://www.techtimes.com/articles/318754/20260620/alphafold-nobel-laureate-john-jumper-joins-anthropic-after-nine-years-deepmind.htm" target="_blank">TechTimes</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-07-29 · FT 报道</div>
 <div class="tl-body"><strong>DeepMind 解散专门的 AlphaFold 团队。</strong>英国《金融时报》报道，过去一年里，AlphaFold 论文的大部分署名作者被调往其他项目，近 <span class="num">1/4</span> 已彻底离开公司。有人去了药物发现公司 Isomorphic Labs，有人转向 Gemini 相关的工作。</div>
+<p class="tl-src">出处 · <a href="https://www.ft.com/content/61b2953d-ee0d-45de-af6e-a9c1cf524b33" target="_blank">Financial Times</a> · <a href="https://the-decoder.com/deepmind-dismantles-its-alphafold-team-as-key-authors-leave-for-anthropic/" target="_blank">The Decoder</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-05 · 人事变动</div>
 <div class="tl-body"><strong>哈萨比斯卸任 DeepMind CEO，转任 Alphabet 首席科学家。</strong>谷歌宣布哈萨比斯升任母公司 Alphabet 的首席科学家。他坚持让 AlphaFold 免费开放，据说在谷歌内部种下了摩擦：突破带来了声望，却没带来直接收入。</div>
+<p class="tl-src">出处 · <a href="https://www.reuters.com/technology/" target="_blank">Reuters</a> · <a href="https://blog.google/" target="_blank">Google Blog</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-06 · 权力交接</div>
 <div class="tl-body"><strong>谁是下一个掌门人：<span class="hl">科拉伊·卡武克库奥卢</span>（Koray Kavukcuoglu）。</strong>彭博社报道，DeepMind 前二号人物卡武克库奥卢（曾担任谷歌首席 AI 架构师）现在直接向 CEO <span class="hl">桑达尔·皮查伊</span>（Sundar Pichai）汇报，被外界视为皮查伊的潜在接班人。谷歌的问题一句话说透：<span class="turn">「科学很行，执行拉胯」</span>。2025 年在 AI 上花了 <span class="num">900</span> 亿美元，2026 年翻倍到约 <span class="num">1900</span> 亿美元，但发明 Transformer 的是谷歌，先商用 ChatGPT 的是 OpenAI。</div>
+<p class="tl-src">出处 · <a href="https://gugudu.cn/articles/bloomberg/2026-08-06_google_deepmind-new-ai-boss-has-big-problems-to-fix-after-hassabis-move" target="_blank">Bloomberg（咕咕读译）</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-06 · 双重解读</div>
 <div class="tl-body"><strong>FT 与彭博社从两个角度解读同一场人事变动。</strong>FT 说，谷歌的 AI 布局是全硅谷最广的（芯片、云、前沿模型、搜索全占），正因为太广，需要更聚焦的战略。哈萨比斯退居二线、杰夫·迪恩（Jeff Dean）等 <span class="num">4</span> 位顶尖 AI 人物出走创业，都是同一个信号：谷歌还在纠结怎么用好自己的资源。彭博社的视角更尖锐：哈萨比斯曾是唯一一个在加州总部之外管理美国科技巨头 AI 研发的人，他卸任后，DeepMind 的 AI 领导权重新收回了加州：<span class="turn">英国留在 AI 竞赛里的底气，又被抽走一块</span>。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/ft/2026_08_06_Google_seeks_a_sharper_focus_in_AI_after_Hassabis_move" target="_blank">FT（read4f译）</a> · <a href="https://www.read4f.com/articles/bloomberg/2026-08-06_google-s-deepmind-shakeup-weakens-uk-bid-to-stay-in-ai-race" target="_blank">Bloomberg（read4f译）</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-06 · Jeff Dean</div>
 <div class="tl-body"><strong>最「谷歌」的那个人也走了：<span class="hl">杰夫·迪恩</span>（Jeff Dean）创办 Discovery Loop。</strong>1999 年加入谷歌、第 <span class="num">30</span> 号员工的迪恩，和桑杰·格玛瓦特（Sanjay Ghemawat）、黎良（Quoc Le）、奥里奥尔·维尼亚尔斯（Oriol Vinyals）一起离职创业。他是 Google Brain 联合创始人、<span class="hl">TensorFlow</span> 和 <span class="hl">MapReduce</span> 的发明者之一，被同事称为「谷歌最像谷歌的人」。新公司 Discovery Loop 用 AI 自动化困难的科学与工程任务（硬件/材料设计、药物发现、清洁能源），Alphabet 自己就是投资人。谷歌员工说，迪恩的离开让内部士气下滑，也让招聘顶尖 AI 人才更难。AI2 创始 CEO 奥伦·埃齐奥尼（Oren Etzioni）的比喻被传得很广：<span class="turn">失去一个 Jeff Dean，又在 Alphabet 家族的其他地方得到一个 Jeff Dean</span>。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/bloomberg/2026-08-06_google-grapples-with-exit-of-ai-pioneer-and-most-google-person" target="_blank">Bloomberg（read4f译）</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-07 · 本篇</div>
 <div class="tl-body"><strong>《科学美国人》深度报道：为什么解散，科学界为什么不吃惊。</strong>科学家们说，AlphaFold 基本完成了它被造出来要解决的问题，而且谷歌之外的研究者早就接过了接力棒。<a href="#deep">看解读 ↓</a></div>
+<p class="tl-src">出处 · <a href="https://www.scientificamerican.com/article/why-google-deepmind-broke-up-the-alphafold-team/" target="_blank">Scientific American</a></p>
 </div>
 </div>
 
@@ -361,15 +427,15 @@ body{
 <span class="rc-title">彭博社：谷歌新 AI 掌门人面临一堆难题</span>
 <span class="rc-date">2026-08-06</span>
 </a>
-<a class="rel-card" href="../2026-06/2026-06-20.html">
+<a class="rel-card" href="../2026-06-20.html">
 <span class="rc-title">AlphaFold 之父离开 DeepMind，去了 Anthropic</span>
 <span class="rc-date">2026-06-20</span>
 </a>
-<a class="rel-card" href="../2026-06/2026-06-04.html">
+<a class="rel-card" href="../2026-06-04.html">
 <span class="rc-title">Altman、Amodei、Suleyman 联手致信国会：哈萨比斯也在签署方之列</span>
 <span class="rc-date">2026-06-04</span>
 </a>
-<a class="rel-card" href="../2026-07/2026-07-22.html">
+<a class="rel-card" href="../2026-07-22.html">
 <span class="rc-title">Gemini 3.6 Flash 省 65% token，AI 监测藻华守饮用水源（含 AlphaFold 3）</span>
 <span class="rc-date">2026-07-22</span>
 </a>

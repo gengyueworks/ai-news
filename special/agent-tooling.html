@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>任务完成，然后呢：谷歌为什么解散了 AlphaFold 团队 · AI News 专题</title>
-<meta name="description" content="八年前为了一个科学难题成立，八年后带着两亿次预测和一项诺贝尔奖解散。谷歌 DeepMind 亲手拆掉了自己的 AlphaFold 团队，科学界说这不算意外。">
+<title>Agent 工具革命：从「聊天」到「干活」 · AI News 专题</title>
+<meta name="description" content="上半年 Agent 还是「能聊天的模型」，这个夏天它开始真的干活。不关注 AI 也能看懂：Agent 是什么、能干什么、为什么和你有关。">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -213,6 +213,45 @@ body{
   .container{padding:24px 16px 48px;}
   .tl-item{padding-left:26px;}
 }
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
 </style></head>
 <body>
 
@@ -237,6 +276,19 @@ body{
   <span>30+ 条报道 · 1 条主线</span>
 </div>
 <div class="mast-lede">上半年，Agent 还是「能聊天的模型」。<br><br>这个夏天，它开始真的干活：MCP 让工具接入变成一次请求，Claude Code 能跑进企业内网，本地小模型在手机上跑 Agent，DeepMind 的 AlphaFold 团队解散后，人才流向 AI for Science 的 Agent。<br><br>聊天框正在变成工作台，Agent 正在从「对话」走向「同事」。</div>
+
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">先读懂这篇 · 大白话版</div>
+<div class="pg-body">
+<p><strong>先讲三句人话：</strong><br><span class="pg-point">第一，AI 从「回答问题」变成「替人干活」</span>——它能自己调用软件、查资料、操作电脑，像雇了个数字助理，只是更便宜更快。<br><span class="pg-point">第二，这些能力正在「长进你的日常工具」</span>——微信、企业软件、代码工具都在接入，你可能已经在用，只是没意识到那是 AI Agent。<br><span class="pg-point">第三，「干活」的边界在收紧</span>——能干的越来越多，该不该让它干的讨论也越来越多，安全成了新门槛。<br></p>
+<div class="pg-glossary">
+<strong>术语白话对照：</strong>
+<p><span class="pg-term">Agent（智能体）</span> ≈ 能自己「想步骤、调工具、干活」的 AI，不是问一句答一句，而是像员工一样把事做完。</p><p><span class="pg-term">MCP（模型上下文协议）</span> ≈ 让 AI 接工具的「标准插座」，有了它，接任何软件都像插电一样简单。</p><p><span class="pg-term">本地部署 / 自托管</span> ≈ 把 AI 装进你自己的电脑或服务器，数据不出门，隐私可控。</p><p><span class="pg-term">无状态</span> ≈ 每次干活不用先「打招呼建立连接」，一次请求直接干，更快更省。</p>
+</div>
+<p class="pg-note">如果你只想知道「AI Agent 现在到什么程度了」，读完这块就够了。下面是给想深挖的人的时间线。</p>
+</div>
+</div>
 
 <!-- ===== 时间线 ===== -->
 <div class="timeline">
@@ -274,7 +326,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-07-31 · 关键转折</div>
-<div class="tl-body"><strong>MCP 2.0 无状态化，agent 工具接入门槛骤降。</strong>旧版要先初始化 session 再发工具调用，新版一次请求就能完成。Simon Willison 当天就做了 <span class="hl">mcp-explorer</span>、<span class="hl">datasette-mcp</span>、<span class="hl">llm-mcp-client</span> 三个项目。</div>
+<div class="tl-body"><strong>MCP 2.0 无状态化，agent 工具接入门槛骤降。</strong>旧版要先初始化 session 再发工具调用，新版一次请求就能完成。<br><span class="tl-plain">白话：以前 AI 接一个新工具要写一堆「握手代码」，现在像插 U 盘一样即插即用。</span>Simon Willison 当天就做了 <span class="hl">mcp-explorer</span>、<span class="hl">datasette-mcp</span>、<span class="hl">llm-mcp-client</span> 三个项目。<br><span class="tl-plain">白话：协议一升级，最懂工具的开发者当天就做出三个新工具——这速度说明「接工具」真的变简单了。</span></div>
 <p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">Simon Willison</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank">MCP 规范</a></p>
 </div>
 
@@ -298,7 +350,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-08-06 · 自托管</div>
-<div class="tl-body"><strong>Claude Code 可以跑在企业自己的机器上了。</strong>Team 和 Enterprise 用户能把会话跑在自己的 compute 上，支持内部网络访问、容器隔离、凭据留在企业环境里。</div>
+<div class="tl-body"><strong>Claude Code 可以跑在企业自己的机器上了。</strong>Team 和 Enterprise 用户能把会话跑在自己的 compute 上，支持内部网络访问、容器隔离、凭据留在企业环境里。<br><span class="tl-plain">白话：企业最怕 AI 干活时把内部数据传出去，现在 AI 可以「住在」企业自己的服务器里干活。</span></div>
 <p class="tl-src">出处 · <a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute" target="_blank">Claude 官方博客</a></p>
 </div>
 
