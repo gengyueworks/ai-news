@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic 的上升期：从实验室到 1 万亿美元 · AI News 专题</title>
+<meta name="description" content="三个月前 Anthropic 还是「OpenAI 的挑战者」，现在它提交上市申请、估值逼近 1 万亿美元。不关注 AI 也能看懂：它凭什么上升。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
+</style></head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="ai-and-people.html" class="active">专题</a></li>
+      <li><a href="../2026-08-08.html">最新</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="special-badge">TREND WATCH · 趋势思考</div>
+<div class="mast-title">AI 经济，会把人的位置变成什么样</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+  <span class="issue">持续更新 · 趋势思考系列</span>
+  <span>开篇 · 3 条线索</span>
+</div>
+<div class="mast-lede">AI 不只是技术，它正在重新排人和工作的位置。<br><br>一边是硅谷顶尖工程师拿几亿美元年薪、35 岁前考虑退休；另一边，白领工作在焦虑中看着 AI 把自己那份活接走。<br><br>这不是「AI 会不会取代人」的问题，是「AI 会把人分成几层」的问题。</div>
+
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">先读懂这篇 · 大白话版</div>
+<div class="pg-body">
+<p><strong>先讲三句人话：</strong><br>
+<span class="pg-point">第一，AI 正在重新分配「谁值钱」</span>，会写代码的顶尖工程师更值钱了，普通白领的岗位开始被 AI 接走。<br>
+<span class="pg-point">第二，这个鸿沟是全球性的</span>，吃到 AI 红利的是美国、中国、韩国这些挤进供应链的国家，非洲、拉美可能被甩得更远。<br>
+<span class="pg-point">第三，没人知道这个新世界长什么样</span>，连写这篇文章的经济学家也说，不知道这个世界会不会自己撕裂。</p>
+<div class="pg-glossary">
+<strong>术语白话对照：</strong>
+<p><span class="pg-term">白领工作</span>≈ 坐办公室的工作（写代码、做分析、搞财务），这类工作最容易被 AI 替代。</p>
+<p><span class="pg-term">AI 供应链</span>≈ 造 AI 需要的链条：芯片、算力、数据中心。挤进去的国家吃肉，没挤进去的喝汤都难。</p>
+<p><span class="pg-term">UBI（全民基本收入）</span>≈ 政府定期给每个人发一笔钱，不管有没有工作。硅谷人焦虑时爱提它。</p>
+<p><span class="pg-term">外包行业</span>≈ 发达国家把 IT 活外包给印度等国做，AI 可能第一个吃掉的行业。</p>
+</div>
+<p class="pg-note">如果你只想知道「AI 会怎么改变人的位置」，读完这块就够了。下面是展开的线索。</p>
+</div>
+</div>
+
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">AI 重排人的位置，几条线索</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · 裂痕出现</div>
+<div class="tl-body"><strong>哈佛经济学家 Rogoff 提出：AI 经济会制造「永久下层阶级」吗？</strong>硅谷的狂热之下是焦虑：顶尖程序员拿几亿美元年薪，年轻工程师 35 岁前考虑退休；但没挤进 AI 供应链的国家（非洲、拉美），连基本盘都没有。</div>
+<p class="tl-src">出处 · <a href="https://www.read4f.com/articles/guardian/2026_jun_02_will-the-ai-economy-create-a-permanent-underclass" target="_blank">Guardian / Project Syndicate（read4f 译）</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-05 · 「人还做什么」</div>
+<div class="tl-body"><strong>Anthropic 公开：Claude 写了公司 <span class="num">80%</span> 的代码。</strong>内部员工开始问「我还做什么」。这是第一家敢公开「AI 干掉了自己多少活」的头部实验室。<span class="tl-plain">白话：一家顶级 AI 公司承认，自家 80% 的代码是 AI 写的，员工开始焦虑自己的位置。</span></div>
+<p class="tl-src">出处 · <a href="../2026-06-05.html">看 06-05 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · 人的价值重估</div>
+<div class="tl-body"><strong>Karpathy：软件像自来水一样随开随用，我的需求在 10 倍膨胀。</strong>AI 没有让写代码的人失业，反而让会写代码的人需求暴涨。<span class="turn">人的位置变了，从生产软件变成判断和指挥 AI 生产。</span></div>
+<p class="tl-src">出处 · <a href="../2026-06-17.html">看 06-17 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · 全球分化</div>
+<div class="tl-body"><strong>DeepSeek 74 亿融资，梁文锋个人出资 <span class="num">200</span> 亿。</strong>中国 AI 的资本格局成形，中美双雄格局下，其他国家的位置被进一步压缩。</div>
+<p class="tl-src">出处 · <a href="../2026-06-17.html">看 06-17 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-22 · 人的创造力</div>
+<div class="tl-body"><strong>Anthropic 黑客马拉松，<span class="num">310</span> 人、12 小时、一杯咖啡认识。</strong>前三名让你看见人的创造力。当 AI 承担重复劳动，人剩下的价值是创造和协作。</div>
+<p class="tl-src">出处 · <a href="../2026-06-22.html">看 06-22 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · 边界讨论</div>
+<div class="tl-body"><strong>「别做 meat proxy」：别把 AI 输出原封不动转给别人。</strong>社区开始讨论人的位置：「别只做转发器」，人该把哪部分交出去、哪部分必须自己把关。</div>
+<p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">Simon Willison</a></p>
+</div>
+</div>
+
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
+<div class="sec-title">人的位置，正在被 AI 重排</div>
+
+<div class="item">
+<div class="body">
+<span class="h2">一、赢家：会指挥 AI 的人更值钱了</span>
+<p>硅谷顶尖工程师年薪几亿美元、35 岁前考虑退休，Karpathy 说「我的需求 10 倍膨胀」。<span class="hl">AI 没有消灭「会写代码的人」，而是让「会写代码又会指挥 AI 的人」更值钱</span>。</p>
+<p>人的位置从「生产」变成「指挥」：<span class="turn">以前人写代码，现在人告诉 AI 写什么、检查它写得对不对</span>。</p>
+
+<span class="h2">二、焦虑层：白领工作的位置在松动</span>
+<p>Anthropic 承认 Claude 写了 80% 代码，员工问「我还做什么」；Rogoff 写「AI 吞掉白领工作像浮游生物」。<span class="hl">坐办公室的中间层，是 AI 最先接手的对象</span>。</p>
+<p>这层人不是「失业」，是「位置被重估」：<span class="turn">如果 80% 的活 AI 能干，那这 80% 的人的价值从哪来？</span></p>
+
+<span class="h2">三、全球层：被甩下的国家</span>
+<p>Rogoff 的观察最冷：<span class="hl">真正被 AI 落下的人不在美国，在没挤进 AI 供应链的国家</span>。非洲缺电、拉美缺资本、印度外包业首当其冲。</p>
+<p>中国的处境特殊：既是 AI 强国，也要面对 AI 替代就业的社会稳定问题。<span class="turn">AI 的鸿沟不只是人和人之间，更是国家和国家之间</span>。</p>
+
+<span class="h2">四、未知数：没人知道这个世界长什么样</span>
+<p>Rogoff 在文末说得很诚实：<span class="hl">「没有人真正知道这样的世界会是什么样，更别说怎么阻止它自我撕裂」</span>。</p>
+<p>这个专题会持续更新。<span class="turn">每一次人才流动、每一次「人还做什么」的讨论、每一次就业数据，都是这个问题的注脚</span>。</p>
+</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"要么你的公司五年到十年内做成了，要么你祈祷政府发全民基本收入。"</p>
+<p class="voice-who">—— Kenneth Rogoff · 哈佛经济学教授、IMF 前首席经济学家 · <a href="https://www.read4f.com/articles/guardian/2026_jun_02_will-the-ai-economy-create-a-permanent-underclass" target="_blank">Guardian</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Claude 写了我们 80% 的代码，我们已经开始问：我还做什么？"</p>
+<p class="voice-who">—— Anthropic 内部开发者 · <a href="../2026-06-05.html">看 06-05 日报 →</a></p>
+</div>
+</div>
+
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">相关报道 · 本专题的全部足迹</div>
+<a class="rel-card" href="../2026-06-22.html">
+<span class="rc-title">310 人、12 小时：Anthropic 黑客马拉松让你看见人的创造力</span>
+<span class="rc-date">2026-06-22</span>
+</a>
+<a class="rel-card" href="../2026-06-17.html">
+<span class="rc-title">Karpathy：软件像自来水，我的需求 10 倍膨胀</span>
+<span class="rc-date">2026-06-17</span>
+</a>
+<a class="rel-card" href="../2026-06-05.html">
+<span class="rc-title">Claude 写了 Anthropic 80% 的代码</span>
+<span class="rc-date">2026-06-05</span>
+</a>
+<a class="rel-card" href="https://www.read4f.com/articles/guardian/2026_jun_01_anthropic-openai-techscape" target="_blank">
+<span class="rc-title">Guardian：Anthropic 冲刺，OpenAI 艰难追赶（人才与估值视角）</span>
+<span class="rc-date">2026-06-02</span>
+</a>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选 · 本专题为趋势思考系列，持续更新
+</div>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
