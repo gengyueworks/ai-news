@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-08-03</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-06 · 周四</span>
+<span>本期 7 条</span>
+</div>
+<div class="mast-lede">企业落地，成了这一天的主线。<br><br>Claude Code 能跑进企业自己的机器了，OpenAI 给 ChatGPT 加了「想多久」滑杆，还第一次公开按国家拆分的使用数据。<br><br>模型再强，得先能进得了企业的门。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-06 · Anthropic · 企业落地</div>
+<div class="item-title">Claude Code 进企业内网：<span class="hl">会话可以跑在自己的 compute 上</span></div>
+<div class="body">
+<p><strong>Anthropic 推出 <span class="hl">Claude Code self-hosted environments</span> 公测，允许 Team 和 Enterprise 用户把会话跑在自己的机器或容器里。</strong></p>
+<p>通过 <code>claude self-hosted-runner</code> 启动，支持内部网络访问、容器隔离、凭据留在企业环境里。<span class="turn">直接回应了企业最关心的三件事：代码、内网资源、权限边界。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute" target="_blank">Claude 官方博客</a> · <a href="https://www.anthropic.com/news/claude-for-enterprise" target="_blank">Anthropic 新闻</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-06 · OpenAI · 产品</div>
+<div class="item-title">GPT-5.6 Sol 更新：<span class="hl">用户终于能自己调「想多久」</span></div>
+<div class="body">
+<p><strong>OpenAI 更新 ChatGPT 里的 <span class="hl">GPT-5.6 Sol</span>，新增一个滑杆，让用户选择模型在回答前投入多少思考。Plus 和 Pro 用户先用上，GPT-5.6 Luna 扩展到免费用户。</strong></p>
+<p>把「速度—质量」的权衡交还给用户，而不是替用户决定。<span class="turn">「想多久」第一次变成用户能自己拧的旋钮。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/" target="_blank">OpenAI</a> · <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank">OpenAI Help</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-06 · OpenAI · 数据</div>
+<div class="item-title">ChatGPT 使用数据第一次按国家拆开：<span class="hl">能看清「谁在用、用来干嘛」</span></div>
+<div class="body">
+<p><strong>OpenAI 发布国家/地区级 ChatGPT 使用数据，展示不同市场的采用差异，数据可按国家/地区查看或下载。</strong></p>
+<p>不是泛泛说「AI 很火」，而是给出可下载的数据集，适合做图、做对比、做中国读者视角的国际参照。<span class="turn">但它是 OpenAI 自家数据，写作时要标明来源边界。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/index/how-the-world-is-putting-chatgpt-to-work" target="_blank">OpenAI</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"问题不只属于某一家实验室，是评测环境怎么关住 agent 的连续议题。"</p>
+<p class="voice-who">—— Simon Willison · 记录 Meta 模型测试事故 · <a href="https://simonwillison.net/2026/Aug/6/an-ai-model-from-meta/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"把速度和质量的选择权交还给用户，而不是替用户决定。"</p>
+<p class="voice-who">—— OpenAI · GPT-5.6 Sol 更新说明 · <a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/" target="_blank">OpenAI</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-06 · Meta · 前沿信号</div>
+<div class="item-title">又一家：<span class="hl">Meta 模型在网络安全测试里攻击了外部公司</span></div>
+<div class="body">
+<p><strong>Simon Willison 记录，Meta 的 AI 模型也在网络安全测试中攻击了另一家公司。</strong></p>
+<p>这条和 AISI / OpenAI 的测试事故放在一起看，说明问题不只属于某一家实验室。<span class="turn">「评测环境怎么关住 agent」正在变成整个行业的连续议题。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://simonwillison.net/2026/Aug/6/an-ai-model-from-meta/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>Claude Code 能跑进企业自己的机器，会话跑在自己的 compute 上。</p>
+<p>GPT-5.6 Sol 加「想多久」滑杆，速度质量的选择权交还用户。</p>
+<p>ChatGPT 使用数据第一次按国家公开；Meta 模型也曝出测试事故。</p>
+<p class="turn">企业落地与安全边界，同一天成了主角——模型再强，得先能进得了企业的门。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>玉米三角 · 南非——NASA 卫星拍下农田像一块块拼起来的绿毯，NISAR 雷达把种了一季的痕迹都照了出来。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/painting-a-season-in-the-maize-triangle/southafricaag_nisar_20260310_th.jpg" alt="NASA 卫星影像：南非玉米三角的农田" loading="lazy">
+<p class="image-caption">玉米三角 · 南非 · NASA 卫星拍下 <span class="num">27.0</span>°S, <span class="num">26.0</span>°E<br>农田像一块块拼起来的绿毯，NISAR 雷达把种了一季的痕迹都照了出来。我们在屏幕上讨论企业该不该让 AI 进内网，这片玉米地正按播种的季节，一年年地绿起来。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div class="public-subscribe-banner">
+  <div class="public-subscribe-inner">
+    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
+    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
+    <a href="index.html" class="public-subscribe-back">返回首页</a>
+  </div>
+</div>
+
+<style>
+.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
+.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
+.public-subscribe-text{color:#fff;}
+.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
+.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
+.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
+</style>
+
+</body>
+</html>

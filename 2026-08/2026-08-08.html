@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-08-03</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-08 · 周六</span>
+<span>本期 6 条</span>
+</div>
+<div class="mast-lede">AI 的入口，开始换成本地模型。<br><br>Apple 在中国把 Mac 的 AI 接到 Qwen，AI 入口的区域化落地又进一步；另一边，工具调用的论文、AI 数据中心的光互连、模型仓库的漏洞，各自往前推。<br><br>入口、基建、安全，三条线并行。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-08 · Apple · 本地化</div>
+<div class="item-title">Apple 在中国把 Mac 的 AI 接到 Qwen：<span class="hl">AI 入口开始本地化</span></div>
+<div class="body">
+<p><strong>Reuters 报道，<span class="accent">Apple</span> 发布指南，说明中国大陆符合条件的 Mac 用户可以把阿里 <span class="accent">Qwen</span> 接到 Apple Intelligence / Siri 相关能力里。</strong></p>
+<p>这不是「苹果又发新功能」，而是 AI 入口在区域市场开始换成本地模型。<span class="turn">苹果要在中国卖 AI，就得接中国公司能合规提供的模型。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.reuters.com/business/retail-consumer/apple-says-mac-users-china-can-connect-alibabas-qwen-ai-service-2026-08-08/" target="_blank">Reuters</a> · <a href="https://www.reuters.com/technology/apple-intelligence-ai-service-registered-with-chinas-cyberspace-regulator-2026-07-15/" target="_blank">Reuters 备案报道</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-08 · arXiv · 工具调用</div>
+<div class="item-title">论文：<span class="hl">写代码比填 JSON 更有效</span>——agent 调工具的新结论</div>
+<div class="body">
+<p><strong>arXiv 论文《The Bitter Lesson of Tool Calling》比较了 programmatic tool calling 和传统 JSON tool calling，覆盖 <span class="num">14</span> 个模型在 BFCL v4 上的表现。</strong></p>
+<p>结论是程序化调用在不少场景下优于 JSON 调用。<span class="turn">对做 agent、MCP、工作流编排的人很实用：调工具的姿势，可能整个要换。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://arxiv.org/abs/2608.06370" target="_blank">arXiv</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-08 · 安全 · 模型仓库</div>
+<div class="item-title">Diffusers 漏洞提醒：<span class="hl">模型仓库也可能变成代码执行入口</span></div>
+<div class="body">
+<p><strong>The Hacker News 报道，Hugging Face 的 <span class="accent">Diffusers</span> 库存在高危漏洞，恶意模型仓库可能诱导执行任意代码。</strong></p>
+<p>对经常从 Hugging Face 拉模型的人很实际：模型文件、仓库、加载器都属于攻击面。<span class="turn">下载模型就像下载软件，来源不明的包，别乱跑。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://thehackernews.com/2026/08/hugging-face-diffusers-flaws-could-let.html" target="_blank">The Hacker News</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"AI 入口的区域化，正在让中国模型走进国际设备的默认选项。"</p>
+<p class="voice-who">—— Reuters · 报道 Apple 接 Qwen · <a href="https://www.reuters.com/business/retail-consumer/apple-says-mac-users-china-can-connect-alibabas-qwen-ai-service-2026-08-08/" target="_blank">Reuters</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI 基建的钱，开始流向连芯片的线。"</p>
+<p class="voice-who">—— WSJ · 报道 Lumilens 融资 · <a href="https://www.wsj.com/tech/startup-raises-700-million-to-replace-data-center-wires-with-light-adc74358" target="_blank">WSJ</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-08 · 编程 · 工作流</div>
+<div class="item-title">工具调用的新姿势：<span class="hl">让 agent 直接写代码，而不是填 JSON</span></div>
+<div class="body">
+<p><strong>arXiv 论文《The Bitter Lesson of Tool Calling》比较了两种让 agent 调工具的方式：programmatic tool calling（写代码）和传统 JSON tool calling（填表单）。</strong></p>
+<p>结论是写代码的方式在不少场景下更有效。<span class="turn">对做 agent 产品的人，这意味着「让模型自己写调用代码」可能比「让模型填结构化表单」更靠谱。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://arxiv.org/abs/2608.06370" target="_blank">arXiv</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">08-08 · 创作 · 游戏原型</div>
+<div class="item-title">同一个游戏，换一组模型再做一遍：<span class="hl">Raccoon Heist 的续集 Moonlight &amp; Mayhem</span></div>
+<div class="body">
+<p><strong>Simon Willison 用 Codex 和 GPT-5.6 Sol Ultra 重新生成了 Raccoon Heist 的变体 <span class="hl">Moonlight &amp; Mayhem</span>。</strong></p>
+<p>这是 8 月 5 日那条实验的续集，提供了一个很好的横向比较：同一个创意，不同模型/agent 会做出什么差别。<span class="turn">同一提示词，不同 agent 的交付差异，比模型参数更值得看。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://simonwillison.net/2026/Aug/7/moonlight-mayhem/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-06 · Lumilens · 融资</div>
+<div class="item-title">Lumilens 融资超 <span class="num">7</span> 亿美元：<span class="hl">用光互连替代数据中心铜线</span></div>
+<div class="body">
+<p><strong><span class="accent">Lumilens</span> 走出隐身，宣布超 <span class="num">7</span> 亿美元融资，估值 <span class="num">55.1</span> 亿美元，主打用光互连替代数据中心铜连接。</strong></p>
+<p>这不是「谁又融资了」的空消息，背后对应的是 AI 集群带宽和能耗瓶颈。<span class="turn">钱不只在模型层，也在往 AI 基建的瓶颈环节流。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.wsj.com/tech/startup-raises-700-million-to-replace-data-center-wires-with-light-adc74358" target="_blank">WSJ</a> · <a href="https://thenextweb.com/news/lumilens-700m-stealth-5-51bn-ai-optical-interconnect" target="_blank">The Next Web</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>Apple 在中国把 Mac 的 AI 接到 Qwen，AI 入口开始本地化。</p>
+<p>工具调用论文：写代码比填 JSON 更有效；Diffusers 曝高危漏洞。</p>
+<p>Lumilens 融资 7 亿美元，AI 基建的钱流向光互连。</p>
+<p class="turn">入口、基建、安全三条线并行——AI 的竞争，已经从模型层蔓延到每一个环节。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>汤加附近珊瑚礁 · 南太平洋——NASA 卫星拍下珊瑚礁像水下的城市，鱼群进进出出，不因岸上的发布停顿。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/home-reef-adds-on/homereef_oli2_20260128_th.jpg" alt="NASA 卫星影像：汤加附近珊瑚礁" loading="lazy">
+<p class="image-caption">洪阿汤加珊瑚礁 · 汤加 · NASA 卫星拍下 <span class="num">18.9</span>°S, <span class="num">174.6</span>°W<br>珊瑚礁像水下的城市，鱼群进进出出，不因岸上的模型发布停顿。我们在屏幕上讨论 AI 入口该接谁家的模型，汤加的珊瑚正按洋流的节奏，养着一片生机。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div class="public-subscribe-banner">
+  <div class="public-subscribe-inner">
+    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
+    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
+    <a href="index.html" class="public-subscribe-back">返回首页</a>
+  </div>
+</div>
+
+<style>
+.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
+.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
+.public-subscribe-text{color:#fff;}
+.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
+.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
+.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
+</style>
+
+</body>
+</html>
