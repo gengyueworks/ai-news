@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-08-11</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style></head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-11 · 周二</span>
+<span>本期 12 条</span>
+</div>
+<div class="mast-lede">AI 算力，第一次被当成「资产」来融资。<br><br>黄仁勋宣布 NVIDIA 联合六大金融机构，撬动 5000 亿美元第三方资本，把 AI 工厂做成可投资的基础设施；同一天，Claude 攻下了黎曼猜想的下界，GPT-5.6 挖出了 Chrome 的零日漏洞。<br><br>钱、能力、风险，同一天集中爆发。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-11 · NVIDIA · 算力金融化</div>
+<div class="item-title">黄仁勋要把算力变成「资产」：<span class="hl">5000 亿美元，AI 工厂开始被当基建融资</span></div>
+<div class="body">
+<p><strong>黄仁勋发布长文：NVIDIA 联合 <span class="accent">Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs、KKR</span> 六大金融机构，建立独立算力融资平台，计划撬动超 <span class="num">5000</span> 亿美元第三方资本支持全球 AI 基建。</strong></p>
+<p>过去企业买芯片、逐个建数据中心；现在 <span class="hl">AI 工厂可以像电力、通信一样获得长期机构资本</span>。NVIDIA 在部分项目中提供最高 <span class="num">25%</span> 的残值支持。黄仁勋直言：「在 AI 时代，算力就是收入。」针对「循环融资」担忧，他强调 5000 亿不是 NVIDIA 收入、不是单一基金，各家机构独立评估。</p>
+<p><span class="turn"><span class="hl">当算力从「企业采购」变成「可投资资产」</span>，华尔街第一次能用买电厂的方式，买 AI 的未来。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.the-decoder.com/" target="_blank">The Decoder</a> · <a href="https://www.reuters.com/" target="_blank">Reuters</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-11 · Anthropic · 数学</div>
+<div class="item-title">Claude 研究版攻下黎曼猜想下界：<span class="hl">数十年未动的数字，被 AI 推了一格</span></div>
+<div class="body">
+<p><strong>Anthropic 披露未发布的研究版 Claude：在 Claude Code 内调度约 <span class="num">60</span> 个子代理、执行 <span class="num">2400</span> 条 shell 命令、烧掉 <span class="num">3100</span> 万输出 token，把黎曼猜想零点下界从 <span class="num">41.6%</span> 推进到 <span class="num">67.2%</span>。</strong></p>
+<p>这不是「AI 解出黎曼猜想」，而是 AI 用穷举+协作，把一个数十年没人动的数学下界推高了一截——<span class="hl">科研加速器第一次真实转起来</span>。<span class="turn">当 AI 开始「改进数学证明的技术细节」，科研的加速器第一次真实转起来了。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.anthropic.com/research" target="_blank">Anthropic Research</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-11 · OpenAI · 安全</div>
+<div class="item-title">GPT-5.6-Cyber 挖出 Chrome 零日：<span class="hl">AI 的安全能力，第一次达到「High」阈值</span></div>
+<div class="body">
+<p><strong>OpenAI 的 <span class="accent">GPT-5.6-Cyber</span> 发现两个可串联绕过 V8 堆沙箱的 Chrome 漏洞（<span class="num">CVE-2026-15903</span>，Google 已修复），是 OpenAI 首个达到「High」网络能力阈值的模型。</strong></p>
+<p>这是 Daybreak 计划的一部分。<span class="turn">当 AI 开始「主动找漏洞」，<span class="hl">安全攻防的天平，第一次明显向 AI 倾斜</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://the-decoder.com/" target="_blank">The Decoder</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-11 · Meta · 开源</div>
+<div class="item-title">Muse Glimmer 30B 开源：<span class="hl">笔记本能跑的 agent，还带了 10 亿美元社区基金</span></div>
+<div class="body">
+<p><strong>Meta 开源 <span class="accent">Muse Glimmer</span>：<span class="num">30B</span> 代理模型，<span class="num">131K</span> 上下文、<span class="num">100+</span> 语言，4-bit 量化后可在笔记本运行；扎克伯格承诺数周内开源 Muse Spark 1.2，并设 <span class="num">10</span> 亿美元数据中心社区基金。</strong></p>
+<p>开源 + 能本地跑 + 配套资金，Meta 把「开源 agent」从口号做成了生态——<span class="hl">最强的开源模型跑进普通人的电脑</span>。<span class="turn">当最强的开源模型跑进普通人的电脑，云厂商的护城河，又浅了一截。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://research.meta.ai/" target="_blank">Meta Research</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"在 AI 时代，算力就是收入。"</p>
+<p class="voice-who">—— 黄仁勋 · NVIDIA CEO · <a href="https://x.com/nvidia" target="_blank">NVIDIA / X</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI 是推动人类前进的激动人心的机会，但若管理不当，将对社会运作和就业未来构成实质风险。"</p>
+<p class="voice-who">—— Peter Malinauskas · 南澳大利亚州长 · <a href="https://www.abc.net.au/news/2026-08-11/why-is-south-australia-holding-royal-commission-into-ai/107018396" target="_blank">ABC News</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-11 · 模型 · 成本</div>
+<div class="item-title">1.5 亿参数小模型刷 ARC 纪录：<span class="hl">单题 0.07 美分，小模型的反击</span></div>
+<div class="body">
+<p><strong><span class="accent">BDH-CQ</span> 用递归潜空间推理（不输出文字步骤），在 ARC-AGI-1 达到 <span class="num">29.5%</span> pass@2、单题成本 <span class="num">$0.0007</span>，打破成本/准确率帕累托前沿。</strong></p>
+<p>当所有人堆参数时，小模型用「想」代替「说」——不输出思考步骤，<span class="hl">直接在潜空间推理</span>。<span class="turn">大模型的军备竞赛里，一条「小而省」的路线正在偷偷往前跑。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://huggingface.co/papers" target="_blank">HuggingFace Daily Papers</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">08-11 · 平台 · 反击</div>
+<div class="item-title">平台开始反击 AI slop：<span class="hl">「可验证的人类创作」成了溢价商品</span></div>
+<div class="body">
+<p><strong>Wired 报道：LinkedIn 和 Snap 上线标签、限流和封禁，iHeartMedia 打出「保证真人」标签作卖点，YouTube CEO 把 slop 治理列为 <span class="num">2026</span> 头号任务。</strong></p>
+<p>当 AI 内容泛滥，平台第一次把「这是人写的」当成功能——<span class="hl">AI 时代的稀缺品，正在从「内容」变成「真人」</span>。<span class="turn">AI 时代的稀缺品，正在从「内容」变成「真人」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.wired.com/" target="_blank">WIRED</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-11 · Anthropic · 算力</div>
+<div class="item-title">Anthropic 锁定 <span class="num">20</span> 年算力：<span class="hl">91 亿美元、191MW，价值或达 161 亿</span></div>
+<div class="body">
+<p><strong>Anthropic 与 <span class="accent">Riot Platforms</span> 签署 <span class="num">20</span> 年、<span class="num">191MW</span>、<span class="num">91</span> 亿美元的算力协议，2028 年 6 月满负荷交付，估值或达 <span class="num">161</span> 亿美元。</strong></p>
+<p>一家 AI 公司把未来 20 年的算力提前锁定——<span class="hl">当算力变成资产，合同也变成了军备竞赛的弹药</span>。<span class="turn">AI 公司的资产负债表上，「算力合约」正在成为最重的一项。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.theblock.co/" target="_blank">The Block</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-11 · xAI · 融资</div>
+<div class="item-title">xAI 联创的新公司 River AI：<span class="hl">50 亿估值，要对抗一体化前沿模型</span></div>
+<div class="body">
+<p><strong>NYT 报道，xAI 联创 <span class="accent">Babuschkin</span> 的新公司 <span class="accent">River AI</span> 以 <span class="num">50</span> 亿美元估值融资 <span class="num">11</span> 亿，尚无产品和收入，主张做「个人可拥有、可训练」的 AI；General Catalyst 与 Amp PBC 领投，Nvidia、AMD 跟投。</strong></p>
+<p>没有产品、没有收入，仅凭理念融 11 亿——<span class="hl">资本在赌「个人 AI」对抗大实验室</span>。<span class="turn">当所有人都在做更大的模型，有人开始做「属于你的模型」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.nytimes.com/" target="_blank">NYT</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>黄仁勋联合六大金融机构，撬动 5000 亿美元把 AI 算力做成可投资资产。</p>
+<p>Claude 攻下黎曼猜想下界，GPT-5.6-Cyber 挖出 Chrome 零日，能力在突进。</p>
+<p>Meta 开源 Muse Glimmer，Anthropic 锁定 91 亿算力，平台开始反击 AI slop。</p>
+<p class="turn">钱在给算力定价，能力在突破边界，风险在敲响警钟——<span class="hl">AI 的 2026，三条线同时加速</span>。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>阿根廷查科森林 · 南美洲——NASA 卫星拍下过火后的森林，焦黑与残绿交错，比任何榜单都诚实。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/fire-threatens-rare-forests-in-argentina/argentinafires_amo_20260108_th.jpg" alt="NASA 卫星影像：阿根廷查科森林" loading="lazy">
+<p class="image-caption">查科森林 · 阿根廷 · NASA 卫星拍下 <span class="num">27.0</span>°S, <span class="num">64.0</span>°W<br>原本连片的稀有阔叶林，被旱季延长后的大火切成斑驳的焦黑与残绿。我们在屏幕上争论谁的模型更强、谁的算力更贵，这片森林正按自己的周期枯荣，不关心任何榜单。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
