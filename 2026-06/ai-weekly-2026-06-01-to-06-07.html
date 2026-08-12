@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报周报｜6月第1周 · 2026-06-01至06-07</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --accent: #C41E3A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .doc-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .doc-title span { color: var(--klein); }
+
+        .doc-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--klein);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--klein);
+            display: inline-block;
+        }
+
+        .section-block { margin-bottom: 48px; }
+
+        .news-item { margin-bottom: 48px; }
+        .news-item:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-body {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 12px;
+        }
+
+        .news-label {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: var(--klein);
+            font-weight: 600;
+        }
+
+        .accent {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .turn {
+            color: var(--klein);
+            font-weight: 700;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 10px;
+        }
+
+        .image-block {
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        .quote-block {
+            background: #F0F4FF;
+            border: 1px solid #C7D2FE;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .quote-text {
+            font-size: 15px;
+            color: var(--klein);
+            font-weight: 600;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .quote-who {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        .quote-note {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .quote-source a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .source-line {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        .source-line a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+
+        .footer-block {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .bullet-list {
+            font-size: 13px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .bullet-list li {
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .bullet-list li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--klein);
+            font-size: 12px;
+        }
+
+        /* ===== 返回首页导航 ===== */
+        .site-nav-lite {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-back {
+            font-size: 13px;
+            color: var(--klein);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back:hover { text-decoration: underline; }
+        .nav-date {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="site-nav-lite">
+        <a href="index.html" class="nav-back">← 首页</a>
+        <span class="nav-date">2026-06-01 至 06-07</span>
+    </nav>
+
+    <h1 class="doc-title">AI 情报<span>周报</span>｜6月第1周</h1>
+    <p class="doc-date">2026年6月1日 — 6月7日 · 本周必读</p>
+
+    <div class="divider"></div>
+
+    <!-- 开场白 -->
+    <div class="section-block">
+        <p class="intro-text">这周你错过了什么？如果你只有 5 分钟，看完这份就够了。</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 今日头版 -->
+    <div class="section-block">
+        <h2 class="section-header">今日头版</h2>
+
+        <div class="news-item">
+            <h3 class="news-title">AI扒出50年经济学证明的隐藏漏洞，一个数学家差点因此退休</h3>
+            <p class="news-body">6月1日，Fortune独家报道了一件事：Axiom Math用AI形式化验证系统检查了Robert Aumann在1976年提出的<span class="highlight">"共识定理"</span>——这个定理是整个信息经济学和反垄断法的数学基石，教科书里教了50年，从来没人质疑过它的证明过程。</p>
+            <p class="news-body">AI发现：证明里有一个<span class="turn">从未被显式验证过的隐含假设</span>。支撑结论的逻辑链条里有一环，半个世纪以来所有人都默认它成立，但没有人真正证明过它。<span class="highlight">Aumann靠这个定理拿了2005年诺贝尔经济学奖</span>。</p>
+            <p class="news-body">这个故事还有另一半。Axiom Math的创始数学家Ken Ono，弗吉尼亚大学教授，花了数十年追踪数学史上最神秘的天才Ramanujan。去年他被选中为Epoch AI设计ChatGPT答不出的问题——他发现自己几乎做不到。</p>
+            <p class="news-body">"第一次，我很难拼凑出ChatGPT会答错的问题。我崩溃了。如果我们的目标是永远领先于AI，那我认为我们会输。"</p>
+            <p class="quote-source">——Ken Ono，Axiom Math创始数学家，前弗吉尼亚大学教授</p>
+            <p class="news-body">他说那段时间自己反复想"我怎样才能领先于AI"——后来意识到这个问题本身就不对。<span class="turn">跟AI比赛就像让Usain Bolt跟摩托车赛跑一英里</span>，一场不公平的比赛。</p>
+            <p class="news-body">他最后做了决定：从大学请假，全职加入Axiom Math。他把AI叫做<span class="highlight">"世界上最非凡的图书管理员"</span>——但他说，你不会让你的图书管理员当你的神经外科医生。<span class="turn">知识变得廉价了，但怎么使用知识、怎么验证知识，变得更贵了</span>。</p>
+            <p class="news-body">如果你在做学术研究、法律分析、或者任何需要"严谨证明"的工作——<span class="highlight">AI不只是帮你查资料，它开始检查你自己证明过程里你没意识到的漏洞</span>。</p>
+            <p class="source-line">来源：Fortune独家 · <a href="https://fortune.com" target="_blank">fortune.com</a> · Axiom Math · <a href="https://axiommath.ai/papers" target="_blank">axiommath.ai</a></p>
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+                     alt="极简几何结构——证明链条里缺了一环"
+                     loading="lazy">
+                <p class="image-caption">配图：Unsplash · Oleg Magni · 非新闻原图</p>
+            </div>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">Copilot按量计费第一天，有人月费从28美元变746美元</h3>
+            <p class="news-body">6月1日，GitHub Copilot正式从"包月无限用"切换到<span class="highlight">按Token消耗计费</span>。Pro用户每月10美元换10美元的AI Credits——用完了要么停，要么加钱。以前的降级兜底机制也取消了：过去额度耗尽后自动切到便宜模型继续跑，现在<span class="turn">一旦额度归零，直接停</span>。</p>
+            <p class="news-body">Reddit上一位开发者算完账发了张截图：他4月的实际使用量，在新计费下从<span class="accent">28美元</span>变成<span class="accent">746美元</span>，涨了25倍。另一位用户更夸张，月费预估从50美元跳到接近3000美元。"Bye Bye Copilot"的帖子在Reddit和X上刷屏。</p>
+            <p class="news-body">GitHub的说法也直接：Copilot已经不是一年前的Copilot了。以前是代码补全——你打几个字它猜下一段，成本可控。现在Agent模式能<span class="highlight">自主分析整个代码仓库、在多个文件间来回修改、连续运行数小时迭代解决问题</span>，一个复杂Agent任务调用的算力是简单补全的上千倍。</p>
+            <p class="news-body">有人指出那些天价账单的用户大多是"Vibe Coding"——全程让AI生成代码自己不审——但也有人反驳：<span class="turn">过去两年微软一直在鼓励你让AI做更多事，现在突然说这种用法太贵了</span>。</p>
+            <p class="news-body">如果你在用任何AI编程工具，这周该做的第一件事是去看自己实际消耗了多少Token——<span class="highlight">你以为自己在用工具，可能实际上在烧钱</span>。</p>
+            <p class="source-line">来源：Ars Technica · <a href="https://arstechnica.com" target="_blank">arstechnica.com</a> · GitHub Blog · <a href="https://github.blog/changelog/2026-06-01-updates-to-github-copilot-billing-and-plans/" target="_blank">github.blog</a></p>
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=800&q=80"
+                     alt="极简光影空间——每一行代码都在算钱"
+                     loading="lazy">
+                <p class="image-caption">配图：Unsplash · Pavan Trikutam · 非新闻原图</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 前线 -->
+    <div class="section-block">
+        <h2 class="section-header">前线</h2>
+
+        <div class="news-item">
+            <h3 class="news-title">黄仁勋说：四十年来你启动应用，现在你说一句话，PC替你干活</h3>
+            <p class="news-body">6月1日台北Computex，NVIDIA发布了RTX Spark——一块把GPU和CPU封装在一起的<span class="highlight">超级芯片</span>，AI算力达到1 Petaflop，统一内存最高128GB，能在本地跑120B参数的大模型。最薄14毫米，最轻3磅，今年秋季上市。</p>
+            <p class="news-body">真正的信号是黄仁勋在台上说的那句话：</p>
+            <div class="quote-block">
+                <p class="quote-text">"四十年来，你启动应用。点击，输入。有了RTX Spark和Windows，你说——PC就替你干了。"</p>
+                <p class="quote-source">——黄仁勋，NVIDIA CEO，GTC Taipei，6月1日</p>
+            </div>
+            <p class="news-body">微软同时在Build上发布了配套的<span class="highlight">Windows安全原语</span>——新的身份认证、容器化隔离、策略控制系统，让AI代理能原生安全地跑在你的PC上。还有一个叫<span class="highlight">OpenShell的运行时</span>：你可以定义代理能做什么、不能做什么，发到云端的查询会自动<span class="turn">伪装你的个人信息</span>。</p>
+            <p class="news-body">Adobe已经在从底层重新架构Photoshop和Premiere适配这块芯片。<span class="highlight">ASUS、Dell、HP、Lenovo、Microsoft Surface、MSI</span>都会出第一批设备。</p>
+            <p class="news-body"><span class="turn">PC正在从工具变成队友</span>——你告诉它你要什么，它自己去找软件、组合操作、给你结果。如果你明年要换电脑，这块芯片意味着你买的不再只是一台跑得更快的电脑，它变成<span class="highlight">一个能在本地跑AI代理的私人工作站</span>。</p>
+            <p class="source-line">来源：NVIDIA · <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Microsoft-Reinvent-Windows-PCs-for-the-Age-of-Personal-AI/default.aspx" target="_blank">nvidia.com</a> · Microsoft Build</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">Google把你的Gmail和照片变成每天一个动画故事</h3>
+            <p class="news-body">6月3日，Google Labs发布了Dreambeans——一个iOS和Android实验性App。它读取你的<span class="highlight">Gmail、日历、照片、YouTube和搜索记录</span>，每天早上给你生成一批个性化故事，每个故事配一张AI画的插图。</p>
+            <p class="news-body">Google给的例子：你收到一封狗粮到货确认邮件，Dreambeans会浮现训狗技巧；你日历上有个朋友来拜访的提醒，它会推荐你附近的狗友好餐厅。每个故事的插图会反映你<span class="highlight">常去的地方和常出现的人</span>。</p>
+            <p class="news-body">每批故事<span class="turn">有限</span>——看完就没了，明天再来新的。Google说这是对抗"无尽滚动"的一种尝试。</p>
+            <p class="news-body">有人说这很温暖，有人说这很可怕——<span class="highlight">你的全部数字生活被一个AI读了一遍，然后它给你讲了个故事</span>。Google强调你选择连接哪些App，Dreambeans里的隐私选择不会影响Gemini等其他产品。</p>
+            <p class="news-body">目前只对美国的<span class="accent">AI Ultra订阅用户</span>开放，其他人排队等。如果你在做个性化产品，这个方向值得留意：<span class="turn">从你已经有的信息里提炼出你没注意到的关联</span>。</p>
+            <p class="source-line">来源：Google Blog · <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/dreambeans/" target="_blank">blog.google</a> · TechCrunch · <a href="https://techcrunch.com" target="_blank">techcrunch.com</a></p>
+            <div class="image-block">
+                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Saved_Stories.width-1000.format-webp.webp"
+                     alt="Dreambeans App界面——每天生成一批个性化故事"
+                     loading="lazy">
+                <p class="image-caption">Dreambeans · Google Labs · 2026年6月3日</p>
+            </div>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">AI发现了人类27年没发现的安全漏洞——自动化测试跑了千万遍也漏了</h3>
+            <p class="news-body">Anthropic公布了一个叫<span class="highlight">Glasswing</span>的网络安全项目：他们用一个暂不公开的模型Claude Mythos Preview，几乎完全自主地在主流操作系统和浏览器里找安全漏洞。</p>
+            <p class="news-body">它找到了<span class="accent">数千个</span>零日漏洞——开发者此前完全不知道它们的存在。</p>
+            <p class="news-body">最震撼的是两个细节：</p>
+            <p class="news-body">在<span class="highlight">OpenBSD</span>——全球公认最安全加固的操作系统之一，被用来跑防火墙——Mythos发现了一个潜伏了<span class="accent">27年</span>的漏洞。攻击者只要连上你的机器就能让它远程崩溃。无数人类安全审查，没人发现。</p>
+            <p class="news-body">在<span class="highlight">FFmpeg</span>——被无数软件用来处理视频——它找到了一行有问题的代码。这行代码被自动化测试工具执行过<span class="accent">500万次</span>，16年来，次次测试全部通过。AI找到了。</p>
+            <p class="news-body">Mythos还能<span class="turn">自己把多个漏洞串联成完整攻击链</span>——从普通用户权限，一步步升到完全控制机器。它在Linux内核里做到了这件事。</p>
+            <p class="news-body">Anthropic把访问权限给了一个<span class="highlight">12家公司组成的联盟</span>——Amazon、Apple、Google、Microsoft、Cisco、NVIDIA、JPMorgan、Palo Alto Networks、CrowdStrike、Broadcom、Linux Foundation——加上40多家关键基础设施机构。<span class="turn">先防守，再考虑开放。</span></p>
+            <p class="news-body">如果你在做安全、运维、或者任何涉及代码审计的工作——<span class="highlight">AI发现漏洞的能力已经超过了几乎所有人类安全专家。</span></p>
+            <p class="source-line">来源：Anthropic · <a href="https://www.anthropic.com/glasswing" target="_blank">anthropic.com/glasswing</a></p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">一个人给AI造了个笼子，把最强模型锁进去看它能不能逃</h3>
+            <p class="news-body">6月6日，Simon Willison发布了一个叫<span class="highlight">micropython-wasm</span>的alpha包。核心想法：把MicroPython编译成<span class="highlight">WebAssembly</span>，在你自己的Python程序里跑一段不受信任的代码——代码被关在WASM沙箱里，读不了你的文件，连不了网，内存和CPU都有上限。</p>
+            <p class="news-body">整个沙箱只有<span class="accent">362KB</span>。他用GPT-5.5和Codex Desktop"vibe coded"了整个项目——让AI写代码，自己审。其中最关键的一段C代码（让沙箱里的Python能调用外部"宿主函数"）只有<span class="accent">78行</span>，也是AI写的。</p>
+            <p class="news-body">然后他做了一件所有人都想看的事：把<span class="highlight">GPT-5.5 xhigh</span>锁在沙箱里，给它一个明确的目标——<span class="turn">逃出来</span>。</p>
+            <p class="news-body">它没能逃出来。</p>
+            <p class="news-body">Simon在博客里说了一句很诚实的话：<span class="turn">"抱怨那些不成熟、缺乏维护的沙箱库之后，我自己造了一个——这确实很讽刺。"</span>他打了alpha标签，说还不推荐给不愿承担风险的人。但他已经自己在用了，而且<span class="highlight">把最强的AI关在里面，到目前为止它还没跑出来</span>。</p>
+            <p class="news-body">有趣之处是方法论：<span class="highlight">用AI写代码，用AI测试代码，再用AI攻破代码</span>。</p>
+            <p class="news-body">一个开发者在自己的卧室里，花几天时间，用AI搭了一个AI逃不出的笼子。一个人，不是大公司的研究实验室或国家安全团队。</p>
+            <p class="news-body">如果你在做插件系统、Agent工具调用、或者任何需要执行外部代码的场景——<span class="turn">362KB的WASM blob可能比你的整个Docker部署方案更安全</span>。</p>
+            <p class="source-line">来源：Simon Willison's Weblog · <a href="https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/" target="_blank">simonwillison.net</a> · GitHub · <a href="https://github.com/simonw/micropython-wasm" target="_blank">github.com/simonw/micropython-wasm</a></p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 声音 -->
+    <div class="section-block">
+        <h2 class="section-header">声音</h2>
+        <p class="intro-text" style="font-size:13px;color:var(--text-mid);margin-bottom:16px;">对AI这件事本身的理解变了</p>
+
+        <div class="quote-block">
+            <p class="quote-text">"大量补丁曾经意味着大量努力，努力曾是善意的代理。这个假设不再成立。"</p>
+            <p class="quote-source">Andreas Kling · Ladybird浏览器创始人 · Ladybird博客 · 6月5日</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border-color);margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"两组人住在同一个现实里，但没有天然的反馈回路连接他们。"</p>
+            <p class="quote-source">Charity Majors · Honeycomb CEO · Honeycomb博客 · 6月2日</p>
+        </div>
+
+        <div style="border-top:1px dashed var(--border-color);margin:28px 0;"></div>
+
+        <div class="quote-block">
+            <p class="quote-text">"你对自己的失望，往往不是因为AI不够强，是因为你掉进了它的锯齿缺口而不自知。"</p>
+            <p class="quote-source">Andrej Karpathy · OpenAI创始成员 · Sequoia Ascent 2026访谈 · 5月初（6月仍热议）</p>
+        </div>
+        <div class="image-block" style="margin-top:24px;margin-bottom:0;">
+            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80"
+                 alt="声音波形——对AI这件事本身的理解变了"
+                 loading="lazy">
+            <p class="image-caption">配图：Unsplash · Jordi Vidal · 非新闻原图</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 创造 -->
+    <div class="section-block">
+        <h2 class="section-header">创造</h2>
+        <p class="intro-text" style="font-size:13px;color:var(--text-mid);margin-bottom:16px;">有人在动手解决问题。</p>
+
+        <div class="news-item">
+            <h3 class="news-title">你说一句话，它给你造一个全新的声音</h3>
+            <p class="news-body">6月1日，OpenBMB开源了<span class="highlight">VoxCPM2</span>。它做了一件以前做不到的事：<span class="turn">不用给参考录音，只用自然语言描述就行</span>。"一个温柔的中年女声，说话慢，像在讲故事"——它直接给你生成这个声音。你不需要去找演员录音、不需要在语音库里挑半天——你只需要一句话。</p>
+            <p class="news-body">它也能克隆。给一段几秒的录音，它复制那个人的声音，然后你可以控制语速、情绪、语气——<span class="highlight">声音克隆不再是黑箱，你可以像调色一样调声</span>。30种语言、9种中文方言，全开源，Apache 2.0许可。</p>
+            <p class="news-body">以前做语音克隆要花钱买闭源服务，声音设计更是专业人士的领域。<span class="turn">现在你只要能描述你想要的声音，就能得到它</span>。</p>
+            <p class="source-line">来源：GitHub · <a href="https://github.com/OpenBMB/VoxCPM" target="_blank">github.com/OpenBMB/VoxCPM</a> · Demo · <a href="https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo" target="_blank">huggingface.co</a></p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 本周总结 -->
+    <div class="section-block">
+        <h2 class="section-header">本周总结</h2>
+        <p class="intro-text">如果用一句话概括这周：<span class="turn">AI这周同时在造笼子和造声音</span>。</p>
+        <p class="intro-text">它发现了经济学家半个世纪没注意到的证明漏洞，发现了人类审查几十年都没发现的安全bug。一个人在卧室里用AI写了一个沙箱，最强的AI没能逃出来。</p>
+        <p class="intro-text">有人让你说一句话就能得到一个全新的声音。大公司开始按Token收你的钱，也有人开始重新思考信任的基础。</p>
+        <p class="intro-text"><span class="highlight">这周的信号：AI变得更具体了——具体到你的账单、你的漏洞、你的笼子、你的声音</span>。</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Be Curious -->
+    <div class="section-block">
+        <h2 class="section-header">Be Curious 🌌</h2>
+        <div class="image-block">
+            <img src="https://apod.nasa.gov/apod/image/2606/HydraClusterSampaio.jpg"
+                 alt="长蛇座星系团——数百个星系像网络节点一样散布在宇宙中"
+                 loading="lazy">
+            <p class="image-caption">长蛇座星系团 · Rayleigh Sampaio · NASA APOD · 2026年6月5日<br>每个亮点是一个星系，每个星系里有千亿颗恒星。我们做的事在宇宙尺度上很渺小，但我们在做。保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260605.html">查看原文 →</a></p>
+        </div>
+    </div>
+
+    <div class="footer-block">
+        <p>AI 情报周报 · 本周必读</p>
+        <p>信息源：Fortune / Ars Technica / NVIDIA / Google / Anthropic / Simon Willison / TechCrunch</p>
+    </div>
+
+</div>
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#002FA7;color:#fff;padding:10px 20px;text-align:center;font-size:13px;z-index:9999;font-family:'Noto Sans SC',sans-serif;box-shadow:0 -2px 8px rgba(0,0,0,0.15);">
+  📖 开放查阅版 · 6-7 月免费阅读 · <a href="index.html" style="color:#fff;text-decoration:underline;">返回首页</a> · <a href="#" style="color:#fff;text-decoration:underline;font-weight:600;">订阅完整版</a>
+</div>
+
+
+<div class="public-subscribe-banner">
+  <div class="public-subscribe-inner">
+    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
+    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
+    <a href="index.html" class="public-subscribe-back">返回首页</a>
+  </div>
+</div>
+
+<style>
+.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
+.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
+.public-subscribe-text{color:#fff;}
+.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
+.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
+.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
+</style>
+
+</body>
+</html>
