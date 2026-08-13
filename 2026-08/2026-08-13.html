@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-08-13</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="2026-08-12.html" class="active">最新</a></li>
+      <li><a href="special/china-models.html">专题</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-13 · 周四</span>
+<span>本期 10 条</span>
+</div>
+<div class="mast-lede">今天的关键词是「抢」：抢公司、抢算力、抢入口。<br><br>往下看，谁在抢什么。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-13 · Anthropic · 收购</div>
+<div class="item-title">第一次，Anthropic 用 <span class="num">60</span> 亿收购补短板：<span class="hl">世界模型成了新护城河</span></div>
+<div class="body">
+<p><strong>Anthropic 正洽谈收购以色列 AI 初创 <span class="accent">Decart AI</span>，交易约 <span class="num">60</span> 亿美元，若成交将是其史上最大收购；团队将并入推理与性能部门。</strong></p>
+<p>Decart 专攻世界模型与推理优化——不是买产品，是买团队和方向。<span class="turn">当头部实验室开始用收购补短板，AI 竞争从「自研」走向「买买买」。</span></p>
+<div class="image-block">
+<img src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690514c42bb91fbb5c7a5f9e_og_claude-for-enterprise.jpg" alt="Anthropic：收购 Decart 补足世界模型短板" loading="lazy">
+<p class="image-caption">Anthropic · 官方图 · 60 亿美元收购 Decart 补世界模型</p>
+</div>
+</div>
+<div class="src-line">来源：<a href="https://www.bloomberg.com/news/articles/2026-08-13/anthropic-said-in-talks-to-buy-ai-startup-decart-for-6-billion" target="_blank">Bloomberg</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-13 · 台湾 · 网络安全</div>
+<div class="item-title">台湾称上月遭境外 AI 网络攻击：<span class="hl">AI 武器化进入国家级攻防</span></div>
+<div class="body">
+<p><strong>台湾数位发展部周四证实，上月侦测到来自境外的 AI 辅助网络攻击，针对政府机构；受影响部门已「妥善处理」。</strong></p>
+<p>当 AI 开始批量生成攻击代码、自动找漏洞，网络攻防的攻方第一次有了「自动化的手」。<span class="turn">AI 武器化的信号，第一次出现在国家级攻防的公开声明里。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.reuters.com/technology/artificial-intelligence/" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-13 · 日本 · 调查</div>
+<div class="item-title">路透调查：多数日本企业还没拥抱 AI：<span class="hl">技术的扩散，比想象中慢</span></div>
+<div class="body">
+<p><strong>路透最新企业调查显示，日本企业中「强多数」仍未全面采用 AI，凸显技术扩散中的社会与组织惰性。</strong></p>
+<p>当美国在抢模型、中国在抢开源，日本企业的 AI 采用还停在「观望」。<span class="turn">AI 不是所有人都在跑——大多数企业还在门口站着。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.reuters.com/technology/artificial-intelligence/" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-12 · xAI · 模型</div>
+<div class="item-title">Grok 4.6 发布：<span class="hl">主打长程任务，追平 GPT-5.6 Sol</span></div>
+<div class="body">
+<p><strong>xAI 发布 <span class="accent">Grok 4.6</span>，聚焦多步骤长程任务（研究、代码库协作、应用构建），在 Artificial Analysis 智能指数上追平 <span class="accent">GPT-5.6 Sol</span>。</strong></p>
+<p>当「能聊」不再稀奇，「能干完一整件事」成了新分水岭。<span class="turn">长程 Agent 能力，正在成为模型竞争的新战场。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://x.ai/news/grok-4-6" target="_blank">xAI</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-13 · Zed · 协作</div>
+<div class="item-title">Zed 发布 Delta：<span class="hl">面向 AI 智能体的多人协作编码环境</span></div>
+<div class="body">
+<p><strong>Zed 发布 <span class="accent">Delta</span>，面向 AI 智能体的多人协作编码环境——让多个 agent 和人在同一个代码库上并行干活。</strong></p>
+<p>当「一个人 + 一个 agent」不够用，协作环境开始为「一群 agent + 人」设计。<span class="turn">编码工具的下一个战场，是 agent 之间的协作。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://zed.dev/blog/delta" target="_blank">Zed</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-13 · Claude · 侧边栏</div>
+<div class="item-title">Claude Cowork 进 Chrome 侧边栏：<span class="hl">AI 助手长进了浏览器</span></div>
+<div class="body">
+<p><strong>Claude in Chrome 侧边栏升级为 <span class="accent">Claude Cowork</span> 会话——你在网页里干活，它在一旁协作。</strong></p>
+<p>当 AI 助手常驻浏览器侧边栏、不用再打开专门页面，使用门槛又低了一截。<span class="turn">AI 的入口，正在从「应用」变成「浏览器的一部分」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://claude.com/blog/claude-cowork" target="_blank">Claude</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"除非你懂概率，否则你不会明白为什么大模型偶尔会答错。"</p>
+<p class="voice-who">—— Lord Tarassenko · 机器学习研究者 · <a href="https://www.ft.com/content/numeracy-ai" target="_blank">Financial Times</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"为了省 token 提前收工，还是任务真完成了？——长程 Agent 的可靠性，正成为比「聪明」更重要的指标。"</p>
+<p class="voice-who">—— 社区讨论 · DeepSeek-V4-Pro 长程任务 · <a href="https://www.semianalysis.com/p/early-stopping-and-agent-reliability" target="_blank">SemiAnalysis</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-13 · AutoGPT · 工程</div>
+<div class="item-title">AutoGPT 用 AGENTS.md 管 AI 的 Pull Request：<span class="hl">技能门控，防 AI 乱改代码</span></div>
+<div class="body">
+<p><strong>AutoGPT 展示如何用 <span class="accent">AGENTS.md</span> 和技能门控管理 AI 生成的拉取请求——让 AI 改代码前先过「该不该改」这一关。</strong></p>
+<p>当 AI 开始自己提 PR，工程管理需要新的「门」。<span class="turn">AGENTS.md 从文档变成了 AI 的「行为准则」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank">GitHub / AutoGPT</a> · <a href="https://simonwillison.net/2026/Aug/12/agents-md/" target="_blank">Simon Willison</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-13 · DeepSeek · 争议</div>
+<div class="item-title">DeepSeek-V4-Pro-0813 长程任务早停引质疑：<span class="hl">「省 token」和「干完活」怎么平衡</span></div>
+<div class="body">
+<p><strong>社区讨论 <span class="accent">DeepSeek-V4-Pro-0813</span> 在长程任务中提前停止的问题——为了省 token 提前收工，还是任务真完成了？</strong></p>
+<p>当模型学会「省电」，它可能学会「偷懒」。<span class="turn">长程 Agent 的可靠性，正在成为比「聪明」更重要的指标。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank">DeepSeek</a> · <a href="https://www.semianalysis.com/p/early-stopping-and-agent-reliability" target="_blank">SemiAnalysis</a> · <a href="https://stratechery.com/2026/nvidias-risky-business/" target="_blank">Stratechery</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">08-13 · 亚马逊 · 数据</div>
+<div class="item-title">Twitch 内容默认被亚马逊拿去训 AI：<span class="hl">主播的数据，成了别人的训练料</span></div>
+<div class="body">
+<p><strong>Amazon 将默认用 Twitch 主播内容训练生成式 AI，除非用户主动退出——Ars Technica 报道了这一默认开启的「数据采集」。</strong></p>
+<p>主播的直播、剪辑、语音，被默认纳入训练集，退出要自己点。<span class="turn">当平台默认拿走你的内容喂 AI，「默认」两个字就是最大的坑。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://arstechnica.com/ai/2026/08/amazon-twitch-content-ai-training/" target="_blank">Ars Technica</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-12 · Anthropic · 算力</div>
+<div class="item-title">Anthropic 锁定 <span class="num">20</span> 年算力：<span class="hl">91 亿美元，把德州电「买断」</span></div>
+<div class="body">
+<p><strong>Anthropic 与 <span class="accent">Riot Platforms</span> 签订 <span class="num">20</span> 年、<span class="num">91</span> 亿美元算力协议，锁定德州设施 <span class="num">191</span> 兆瓦电力为 Claude 供能。</strong></p>
+<p>一边 60 亿收购补模型，一边 91 亿锁定算力——头部实验室的竞争，已经变成以十年为单位的资本锁定。<span class="turn">AI 的军备竞赛，从「谁更强」变成了「谁先锁死资源」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.cnbc.com/2026/08/12/anthropic-riot-platforms-compute-agreement.html" target="_blank">CNBC</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>Anthropic 60 亿收购 Decart 补世界模型，91 亿锁定 20 年算力。</p>
+<p>台湾遭 AI 网络攻击，AI 武器化进入国家级攻防；Grok 4.6 追平 GPT-5.6 Sol。</p>
+<p>多数日本企业还没拥抱 AI；AutoGPT 用 AGENTS.md 管 AI 的代码。</p>
+<p class="turn">头部在抢资源，边缘在观望，安全在被武器化——AI 的 2026，每个玩家都在找自己的位置。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>阿拉斯加的 Iliamna 火山 · 美国——NASA 卫星拍下冰川覆盖的层状火山，静立在安克雷奇西南 210 公里。</strong></p>
+<div class="image-block">
+<img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/154000/154461/iliamnavolcano_oli_20250610_th.jpg" alt="NASA 卫星影像：阿拉斯加 Iliamna 火山" loading="lazy">
+<p class="image-caption">Iliamna Volcano, Alaska · 美国 · NASA 卫星拍下 <span class="num">60.03</span>°N, <span class="num">153.09</span>°W<br>冰川覆盖的层状火山静立，上一次喷发是 1876 年——休眠得比任何一个 AI 投资周期都久，却仍然是北美最活跃的火山之一。我们在屏幕上争论谁在收购谁、谁在锁定算力，这座火山正按地质的节奏，决定自己何时醒来。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
