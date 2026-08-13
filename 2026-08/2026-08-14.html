@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-08-13</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="2026-08-12.html" class="active">最新</a></li>
+      <li><a href="special/china-models.html">专题</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-13 · 周四</span>
+<span>本期 10 条</span>
+</div>
+<div class="mast-lede">今天的关键词是「抢」：抢公司、抢算力、抢入口。<br><br>往下看，谁在抢什么。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-14 · OpenAI · Cerebras</div>
+<div class="image-block">
+<img src="assets/ai-frontline-images/by-date/2026-08-14/openai-ultrafast.jpg" alt="GPT-5.6 Sol Ultrafast 模式" loading="lazy">
+<p class="image-caption">GPT-5.6 Sol Ultrafast 模式 · 由 Cerebras 驱动 · 14 倍提速</p>
+</div>
+<div class="item-title">OpenAI 不训更强的，但先跑更快的：<span class="hl">最强模型提速 14 倍，速度成了回击「贵」的方式</span></div>
+<div class="body">
+<p><strong>OpenAI 发布 <span class="accent">Ultrafast</span> 预览——一个让 <span class="accent">GPT-5.6 Sol</span> 提速 <span class="num">14</span> 倍的 API 服务层级，由 <span class="accent">Cerebras</span> 芯片驱动，输出速度最高 <span class="num">750</span> token/秒。</strong></p>
+<p>这不是新模型，是把现有最强模型「跑得更快」：<span class="hl">企业客户用同样的模型，响应时间从「等几秒」变成「等零点几秒」。</span>Cerebras 的专有晶圆级芯片，第一次成为 OpenAI 官方推荐的加速方案——英伟达之外，算力格局多了一个名字。</p>
+<p><span class="turn">当模型能力的差距开始收窄，「<span class="hl">谁先出结果</span>」就成了新的分水岭。<span class="hl">速度，正在变成 OpenAI 回击「贵」的方式。</span></span></p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/index/previewing-ultrafast" target="_blank">OpenAI 官方</a> · <a href="https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai" target="_blank">Cerebras</a> · <a href="https://simonwillison.net/2026/Aug/12/agents-md/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-14 · Databricks · 融资</div>
+<div class="item-title">Databricks 想融 10 亿，投资人塞来 150 亿：<span class="hl">最后拿了 50 亿，估值 1900 亿</span></div>
+<div class="body">
+<p><strong><span class="accent">Databricks</span> 最新一轮融资：本来想融 <span class="num">10</span> 亿美元，投资人想给 <span class="num">150</span> 亿，最终定了 <span class="num">50</span> 亿、估值 <span class="num">1900</span> 亿美元。CEO Ali Ghodsi 说：「AI 很贵。」</strong></p>
+<p>「想要 10 亿、来了 150 亿」——这个数字差本身就是信号：<span class="hl">钱在追着 AI 基建跑</span>，<span class="hl">而不是 AI 在求钱。</span>Databricks 的定位是「AI 时代的数据层」，投资人在为它下注未来十年的数据入口。</p>
+<p><span class="turn">当一轮融资能从 10 亿扩到 50 亿还嫌少，说明钱多到开始「通胀」——而通胀的钱，迟早会推高所有 AI 资产的价格。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/" target="_blank">TechCrunch</a> · <a href="https://stratechery.com/2026/nvidias-risky-business/" target="_blank">Stratechery</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-14 · Cursor · 团队</div>
+<div class="item-title">Firetiger 团队加入 Cursor：<span class="hl">做 Agent 的人，开始被做 Agent 工具的人收编</span></div>
+<div class="body">
+<p><strong><span class="accent">Cursor</span> 官宣 <span class="accent">Firetiger</span> 团队加入——这是一次典型的人才收购（acqui-hire），Firetiger 的独立产品将关停，技术并入 Cursor。</strong></p>
+<p>Firetiger 由两位前 Cloudflare/Twitch 工程师 <span class="accent">Rustam Lalkaka</span> 和 <span class="accent">Achille Roussel</span> 创立，此前完成 <span class="num">760</span> 万美元种子轮（<span class="accent">Sequoia</span> 领投），核心产品是面向生产环境的 AI agent：<span class="hl">监控发布、捕获回归、调查事故</span>——也就是「Change Monitors」。收购后，这部分能力会并入 Cursor 的 Origin 平台，打通「写代码—生产运行」的闭环。</p>
+<p>代价是付费客户：Firetiger 已停止新注册，现有客户收到服务终止通知，数据将被删除。<span class="turn">最顶级的 Agent 人才已经贵到「买比招划算」——而每一次人才收购背后，都有一批被「合并」掉的用户。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://x.com/cursor_ai" target="_blank">Cursor 官方 X</a> · <a href="https://x.com/swyx" target="_blank">@swyx</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-14 · Writer · 模型</div>
+<div class="item-title">Writer 推新模型省 token：<span class="hl">企业 AI 的钱，开始花在「省」上</span></div>
+<div class="body">
+<p><strong><span class="accent">Writer</span> 发布新模型和升级后的 harness——基于 <span class="accent">Z.ai</span> 开源的 <span class="accent">GLM-5.2</span> 做后训练，主打「部署可用 + 控制 token 成本」。</strong></p>
+<p>当所有模型都在卷「更强」，Writer 卷的是「更省」：企业客户最痛的从来不是模型笨，是 token 账单。把开源模型调教成「够用且便宜」，正在成为企业市场的新打法。</p>
+<p><span class="turn">「省钱」从运营指标变成了产品卖点——<span class="hl">AI 进入精打细算的时代，谁先帮企业省下钱，谁就赢下预算。</span></span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-14 · MiniMax · 开源</div>
+<div class="item-title">MiniMax 开源 Music 3：<span class="hl">「AGI 到来之前，我们一直开源」</span></div>
+<div class="body">
+<p><strong><span class="accent">MiniMax</span> 开源 <span class="accent">Music 3</span>，已在 <span class="accent">ComfyUI</span> 本地可用——官方原话：「在 AGI 到来之前，我们将一直保持开源。」</strong></p>
+<p>音乐生成模型开源到什么程度？本地能跑，意味着不用上传、不用排队、不用按次付费——<span class="hl">创作者第一次能「拥有」自己的 AI 配乐工具。</span>这延续了 MiniMax 从 H2 到 Music 3 的路线：把旗舰能力开源，靠生态换声量。</p>
+<p><span class="turn">当中国公司的开源从「模型参数」卷到「创作工具」，开源战场的定义被拓宽了——不再专属开发者，每个创作者都能摸到。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://x.com/MiniMax_AI" target="_blank">MiniMax 官方</a></div>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-14 · Gemini · 3D</div>
+<div class="item-title">一句话生成 3D 手表，成本 4 分钱：<span class="hl">Gemini 3.7 把 3D 建模打成白菜价</span></div>
+<div class="body">
+<p><strong><span class="accent">Gemini 3.7</span> 演示一句话生成可用的 <span class="num">3D</span> 手表模型，单次成本约 <span class="num">$0.038</span>——不足 4 美分。</strong></p>
+<p>过去 3D 建模是设计师按小时收费的活，现在一句话 + 4 美分。当生成成本低到可以忽略，<span class="hl">「会不会建模」不再是门槛，「想不想做」才是。</span><span class="turn">3D 内容的生产成本塌缩，可能比图像生成的影响更深——因为 3D 是制造业、游戏、电商的地基。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://blog.google/technology/ai/" target="_blank">Google AI 官方博客</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-14 · OpenAI · 产品</div>
+<div class="item-title">ChatGPT 记住你的电脑操作：<span class="hl">历史记忆从「对话」扩展到「屏幕」</span></div>
+<div class="body">
+<p><strong><span class="accent">ChatGPT</span> 上线电脑历史记忆功能——记录你在 Mac 上的操作，让 AI 从「记得你说过什么」进化到「记得你做过什么」。</strong></p>
+<p>当 AI 开始记住你的屏幕，<span class="hl">个性化的边界被推进一步，隐私的边界也被推进一步</span>——你让 AI 记住操作，等于把一部分「使用习惯」交给它。<span class="turn">记忆功能的每一次扩展，都是一次「便利换隐私」的交易，而用户往往还没看清条款就点了同意。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/index/previewing-ultrafast" target="_blank">OpenAI 官方</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">08-14 · Suno · 音乐</div>
+<div class="item-title">Suno Studio 2 升级：<span class="hl">AI 音乐从「能听」到「能商用」</span></div>
+<div class="body">
+<p><strong><span class="accent">Suno</span> Studio 2 带来专业级升级——更精细的混音控制、更长曲目、更贴近专业制作工具的输出。</strong></p>
+<p>当 AI 音乐开始对标专业 DAW 工作流，<span class="hl">创作者的「灵感到成曲」时间被压缩到分钟级。</span><span class="turn">音乐行业的门槛第一次被工具本身打穿——会写旋律的不再是稀缺，会「指挥 AI」的才是。</span></p>
+<div class="img">
+<img src="assets/ai-frontline-images/by-date/2026-08-14/suno-studio-2.jpg" alt="Suno Studio 2" loading="lazy">
+<p class="img-cap">Suno Studio 2：AI 音乐走向专业制作。图：Suno 官方。</p>
+</div>
+</div>
+<div class="src-line">来源：<a href="https://x.com/suno" target="_blank">Suno 官方 X</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-12 · Anthropic · 算力</div>
+<div class="item-title">Anthropic 锁定 <span class="num">20</span> 年算力：<span class="hl">91 亿美元，把德州电「买断」</span></div>
+<div class="body">
+<p><strong>Anthropic 与 <span class="accent">Riot Platforms</span> 签订 <span class="num">20</span> 年、<span class="num">91</span> 亿美元算力协议，锁定德州设施 <span class="num">191</span> 兆瓦电力为 Claude 供能。</strong></p>
+<p>一边 60 亿收购补模型，一边 91 亿锁定算力——头部实验室的竞争，已经变成以十年为单位的资本锁定。<span class="turn">AI 的军备竞赛，从「谁更强」变成了「谁先锁死资源」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.cnbc.com/2026/08/12/anthropic-riot-platforms-compute-agreement.html" target="_blank">CNBC</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"扎克伯格写了 6,500 字的 AI 宣言——但几乎什么也没说。"</p>
+<p class="voice-who">—— Wired 评论 · Zuckerberg AI Manifesto · <a href="https://www.wired.com/story/mark-zuckerbergs-ai-manifesto-is-6500-words-and-barely-says-anything/" target="_blank">Wired</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI 很贵。"—— Databricks CEO Ali Ghodsi 解释为什么想融 10 亿、最后拿了 50 亿。</p>
+<p class="voice-who">—— Ali Ghodsi · Databricks CEO · <a href="https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/" target="_blank">TechCrunch</a></p>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<p>今天的关键词是「快」：模型提速 14 倍、一句话出 3D、AI 音乐能商用。</p>
+<p>钱也在追：想融 10 亿来了 150 亿，数据层的估值被抬到 1900 亿。</p>
+<p class="turn">当能力开始够用，速度、成本和门槛，成了新一轮竞赛的起跑线。</p>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>马尾藻带 · 大西洋——NASA 卫星拍下横跨大洋的浮藻带，像一条会呼吸的河。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg" alt="NASA 卫星影像：马尾藻带" loading="lazy">
+<p class="image-caption">Sargassum Belt · 大西洋 · NASA 卫星拍下 <span class="num">15.0</span>°N, <span class="num">45.0</span>°W<br>这片藻类带横跨大西洋，最宽处几千公里——它不靠任何公司喂养，只靠阳光和洋流，自己长成一条「漂浮的森林」。我们在屏幕上争论谁提速 14 倍、谁估值 1900 亿，这片藻带正按海流的节奏，决定今年漂到哪里、覆盖哪片海岸。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+
+</div>
+
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
