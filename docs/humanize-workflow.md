@@ -32,7 +32,7 @@ grep -rn "小红书\|xiaohongshu" . --exclude-dir=.git   # 平台来源红线自
 
 | 脚本 | 检查什么 | 退出码 |
 |---|---|---|
-| `scripts/humanize-gate.py` | AI 味残留：破折号、中文句英文标点、AI 腔词、英文直引号（默认查暂存区改动） | 0 通过 / 1 未通过 |
+| `scripts/humanize-gate.py` | AI 味残留：破折号、中文句英文标点、AI 腔词、英文直引号、**首页卡片标题冒号**（默认查暂存区改动） | 0 通过 / 1 未通过 |
 | `scripts/humanize.py` | 调用本机反代 + gemini-3.1-pro-low 做中文润色（输出 [DELETE]=空话段，人工审校后写回） | — |
 | `scripts/index-order-check.py` | 首页排序：分组不混月、分组按月倒序、组内日期倒序、标题无前导零 | 0 通过 / 1 未通过 |
 
