@@ -14,6 +14,7 @@
     B. 中文句子里混英文标点（, . ! ? ; 紧跟汉字）
     C. AI 腔关键词（本质上 / 综上所述 / 赋能 / 抓手 / 闭环 等）
     D. 中文正文里的英文直引号 " "（应统一用「」或“”）
+    E. 首页卡片标题里的冒号「：」（de-ai-flavor 规则：标题「事实：总结」结构是 AI 味，2026-08-14 已全量清理）
 
 只检查「含中文的行」，HTML 属性、链接 URL、script/style 里的英文不误报。
 """
@@ -60,6 +61,13 @@ def check_file(path):
     with open(path, encoding="utf-8", errors="replace") as f:
         content = f.read()
     issues = []
+    # E. 首页日报卡标题冒号（day-card-headline 文本里的「：」；special 专题卡是品牌栏目名，豁免）
+    if path.endswith("index.html"):
+        for m in re.finditer(r'<p class="day-card-headline"[^>]*>([^<]*)</p>', content):
+            t = (m.group(1) or "").strip()
+            if "：" in t:
+                ln = content[:m.start()].count("\n") + 1
+                issues.append((ln, "E.标题冒号", f"「{t[:40]}」 → 去掉冒号，用逗号/重构"))
     for ln, line in enumerate(extract_cn_lines(content), 1):
         for exempt in DASH_EXEMPT:
             line = line.replace(exempt, "")
