@@ -96,9 +96,10 @@ def main():
         print("humanize-gate: 没有需要检查的文件（暂存区为空或未指定文件）")
         return 0
 
-    html_files = [f for f in files if f.endswith((".html", ".htm", ".md"))]
+    # 只查发布内容（HTML 页面）；.md 是说明文档，命令示例/规则说明会被误报
+    html_files = [f for f in files if f.endswith((".html", ".htm"))]
     if not html_files:
-        print("humanize-gate: 本次改动无 HTML/MD 内容文件，跳过")
+        print("humanize-gate: 本次改动无 HTML 内容文件，跳过")
         return 0
 
     total = 0
