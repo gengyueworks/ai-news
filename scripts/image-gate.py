@@ -29,10 +29,14 @@ REPO = Path(__file__).resolve().parent.parent
 MAX_WH = 1600          # 最大边长（px）
 MIN_W_NEWS = 400       # 新闻正文图最小宽度（px）
 MAX_KB = 300           # 最大体积（KB）
-# 允许直接外链的图源白名单（其余外链 = FAIL）
-EXT_ALLOW = ["assets.science.nasa.gov", "eol.jsc.nasa.gov"]  # NASA Be Curious 收尾图
+# 允许直接外链的图源白名单
+EXT_ALLOW = ["assets.science.nasa.gov", "eol.jsc.nasa.gov"]           # NASA Be Curious（WARN）
+COS_HOST = "ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com"  # 腾讯 COS 图床（正常，不报）
 
 IMG_SRC_RE = re.compile(r'''<img[^>]*\bsrc=["']([^"']+)["']''', re.I)
+# 新闻条目容器（配图率检查用）
+ITEM_RE = re.compile(r'''<div class="item"''', re.I)
+MIN_COVERAGE = 0.8  # 每条新闻 ≥1 张正文图，配图率 ≥80%
 
 
 def get_size_kb(p: Path) -> int:
@@ -59,10 +63,12 @@ def scan_html(html_path: Path):
         name = src.split('/')[-1][:40]
         # --- 外链图 ---
         if src.startswith('http'):
+            if COS_HOST in src:
+                continue  # COS 图床正常，不检查
             if any(a in src for a in EXT_ALLOW):
                 issues.append((ln, 'I6.WARN', '[%s] NASA 外链，建议下载本地化（国内访问慢/挂）' % name))
             else:
-                issues.append((ln, 'I6.FAIL', '[%s] 外链非白名单 → 必须下载本地（fetch_official_image.py）' % name))
+                issues.append((ln, 'I6.FAIL', '[%s] 外链非白名单 → 必须走 COS 图床（fetch_official_image.py）' % name))
             continue
         # --- 本地图 ---
         if not src.startswith('../assets/'):
@@ -88,6 +94,16 @@ def scan_html(html_path: Path):
             issues.append((ln, 'I4.FAIL', '[%s] %dKB 超限 >%dKB → 压缩（image-gate --fix）' % (name, kb, MAX_KB)))
         if fmt == 'WEBP':
             issues.append((ln, 'I5.FAIL', '[%s] webp 格式 → 转 jpg（image-gate --fix）' % name))
+    # --- 配图率检查（2026-08-14：一条新闻一张图，防超长纯文字墙）---
+    items = len(ITEM_RE.findall(content))
+    srcs = IMG_SRC_RE.findall(content)
+    news_imgs = [s for s in srcs if 'nasa.gov' not in s and 'science.nasa' not in s]
+    if items >= 4:
+        coverage = len(news_imgs) / items
+        if coverage < MIN_COVERAGE:
+            issues.append((0, 'I7.FAIL',
+                '配图率 %d%%（%d 条新闻 %d 张正文图）< 要求 %d%% → 每条新闻补 ≥1 张图（fetch_official_image.py 抓图→COS）'
+                % (int(coverage * 100), items, len(news_imgs), int(MIN_COVERAGE * 100))))
     return issues
 
 

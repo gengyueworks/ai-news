@@ -43,6 +43,10 @@ DASH = "——"
 DASH_EXEMPT = [
     "前沿信号流——AI每天在变什么",   # footer 品牌语
 ]
+# Be Curious 标准结尾句（AGENTS.md 定稿文案，含「让我们」非 AI 腔，豁免）
+AI_EXEMPT = [
+    "让我们保持好奇", "让我们继续探索",
+]
 
 
 def extract_cn_lines(text):
@@ -71,6 +75,8 @@ def check_file(path):
                 issues.append((ln, "E.标题冒号", f"「{t[:40]}」 → 去掉冒号，用逗号/重构"))
     for ln, line in enumerate(extract_cn_lines(content), 1):
         for exempt in DASH_EXEMPT:
+            line = line.replace(exempt, "")
+        for exempt in AI_EXEMPT:
             line = line.replace(exempt, "")
         # 引语署名行「—— 人名」是常规排版，非 AI 味
         line = re.sub(r"——\s*[A-Za-z]", "", line)
