@@ -61,10 +61,11 @@ def check_file(path):
     with open(path, encoding="utf-8", errors="replace") as f:
         content = f.read()
     issues = []
-    # E. 首页日报卡标题冒号（day-card-headline 文本里的「：」；special 专题卡是品牌栏目名，豁免）
+    # E. 首页日报卡标题冒号（data-zh 属性 + 显示文本里的「：」；special 专题卡是品牌栏目名，豁免）
     if path.endswith("index.html"):
-        for m in re.finditer(r'<p class="day-card-headline"[^>]*>([^<]*)</p>', content):
-            t = (m.group(1) or "").strip()
+        for m in re.finditer(
+                r'<p class="day-card-headline" data-zh="([^"]*)"[^>]*>([^<]*)</p>', content):
+            t = (m.group(1) + " " + m.group(2)).strip()
             if "：" in t:
                 ln = content[:m.start()].count("\n") + 1
                 issues.append((ln, "E.标题冒号", f"「{t[:40]}」 → 去掉冒号，用逗号/重构"))
