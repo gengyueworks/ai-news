@@ -138,7 +138,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap, .image-caption{
   font-size:12.5px;
   color:var(--gray);
@@ -186,7 +186,7 @@ body{
 <div class="mast-rule"></div>
 <div class="mast-meta">
 <span class="issue">2026-07-23 · 周三</span>
-<span>本期 11 条</span>
+<span>本期 12 条</span>
 </div>
 <div class="mast-lede">政策这周把话挑明了。<br><br>工信部说"人工智能+制造"是主战场，要让人形机器人和脑机接口进产线；同期 AI 预测厄尔尼诺，给农业早预警。<br><br>一边是国家队铺场景，一边是算法盯天气。</div>
 </div>
@@ -238,7 +238,31 @@ body{
 </div>
 <div class="src-line">来源：<a href="https://nvidia.com/en-us/data-center/vera-rubin-nvl72/" target="_blank">NVIDIA</a></div>
 </div>
+
+<div class="item">
+<div class="dateline">07-23 · 政策 · <span class="src">地缘</span></div>
+<div class="item-title">美国官方点名指控月之暗面：<span class="hl">「大规模、隐蔽的工业级蒸馏」——给 K3 贴的标签</span></div>
+<div class="body">
+<p><strong>美国科技与科学顾问 Michael Kratsios 公开指控 <span class="accent">月之暗面</span>用蒸馏 Anthropic Fable 的方式造出了 Kimi K3，原话用了「大规模、隐蔽的工业级蒸馏」。</strong>这是美国政府首次在公开层面给「中国模型靠蒸馏」盖官方章。</p>
+<p>技术圈立刻反击。Kimi 社区和多位研究者指出时间线对不上：Fable 5 是 <span class="num">7</span> 月 <span class="num">1</span> 日发布的，K3 在 <span class="num">15</span> 天后就亮相，<span class="hl">靠蒸馏在 <span class="num">15</span> 天内复现一个前沿级模型，技术上不现实</span>。</p>
+<p>更实际的变化在市场端：Cline 数据显示 K3 的 token 用量在 <span class="num">3</span> 天内从 <span class="num">0</span> 涨到 <span class="num">16%</span>，一跃成为它平台上第三大开源模型。<span class="turn">当官方用「盗窃」去定性一个已经能商用的开源模型，真正的风向标是开发者用脚投票的速度——他们已经不看了。</span></p>
 </div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-laguna-s-21-released-cheaper" target="_blank">AINews</a> · <a href="https://www.theinformation.com/" target="_blank">The Information</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-23 · Cursor · <span class="src">工具</span></div>
+<div class="item-title">Cursor 出模型路由：<span class="hl">声称便宜 60%，还看不出质量损失</span></div>
+<div class="body">
+<p><strong><span class="accent">Cursor</span>发布 Cursor Router，一个自动选模型的智能路由：把每道任务派给最适合的模型，早期访问里声称保持前沿级质量的同时省下约 <span class="num">60%</span> 成本。</strong></p>
+<p>它踩的其实是行业共识：没有任何一个模型能在所有任务、所有价格带宽上通吃，路由是「模型过剩」之后的必然工程。同一天 OpenAI 给全部 API 账户加上了硬性支出上限，<span class="hl">「控制成本」正在从优化项变成默认项</span>。</p>
+<p>真正的信号是生态位：<span class="turn">当模型变成可替换的零件，「选谁、何时选谁」本身成了产品——下一轮竞争在路由层，不在模型厂之间。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-laguna-s-21-released-cheaper" target="_blank">AINews</a> · <a href="https://cursor.com/" target="_blank">Cursor</a></div>
+</div>
+</div>
+
+
 
 <!-- ===== 开源前线 ===== -->
 <div class="section-block">
@@ -362,23 +386,5 @@ body{
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

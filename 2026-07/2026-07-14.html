@@ -137,7 +137,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap{
   font-size:12.5px;
   color:var(--gray);
@@ -186,7 +186,7 @@ body{
 <div class="mast-rule"></div>
 <div class="mast-meta">
 <span class="issue">2026-07-14 · 周二</span>
-<span>本期 12 条</span>
+<span>本期 15 条</span>
 </div>
 <div class="mast-lede">这周开头的两条主线很清晰：一条是"成本往下砸"——开源模型把推理价格压到闭源零头；一条是"能力往外扩"——从机器人导航到多模型编队，agent 正从单点聪明变成能配合的队伍。资本还在往芯片底层涌。我们盯的是"同样的事，现在便宜了多少、可控了多少"。</div>
 </div>
@@ -292,6 +292,41 @@ body{
 <img src="https://static.www.tencent.com/uploads/2026/07/06/10c8b5b34b4793c92e448b2656379b6e.png!article.cover" alt="腾讯混元 Hy3 模型发布 概念图" loading="lazy">
 </div>
 <div class="src-line">来源：<a href="https://github.com/Tencent/Hunyuan" target="_blank">Tencent Hunyuan · GitHub</a> · <a href="https://cloud.tencent.com" target="_blank">腾讯云</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-14 · OpenAI / Latent Space · <span class="src">Codex 用户量</span></div>
+<div class="item-title"><span class="hl">Codex 用户 6 个月涨了 10 倍、单日 +100 万——编码 agent 的分发之争已见分晓？</span></div>
+<div class="body">
+<p><strong>一组数字值得单独开一条：OpenAI 的 Codex + ChatGPT Work 活跃用户 7-12 到 <span class="num">6M</span>，24.5 小时后到 <span class="num">7M</span>——单日净增 <span class="num">100</span> 万。对照年初约 55-70 万，6 个月增长约 <span class="num">10</span> 倍。而 Claude Code 上次公开口径是 2 月的约 <span class="num">200</span> 万用户、<span class="num">$2.5B</span> ARR，此后未再更新。</strong></p>
+<p>OpenAI 自己拿"银行重置"庆祝里程碑，产品负责人公开撤掉 5 小时用量限制。<span class="hl">如果数字属实，Codex 已经实际追平甚至超过 Claude Code 的分发规模</span>——这不是模型能力的胜负，是入口和默认设置的胜负。</p>
+<p>另一个被反复引用的效率信号：Devin 用 Fable 5 的 81% 运行里，主导模型全程没有真正改过一次代码——<span class="turn">贵的模型更省钱的路径，是"少做无用功"。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-codex-usage-up-10x-in-6-months" target="_blank">Latent Space / AINews</a> · <a href="https://x.com/thsottiaux" target="_blank">thsottiaux（OpenAI 产品负责人）</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-14 · IntCyberDigest / xAI · <span class="src">信任事故</span></div>
+<div class="item-title"><span class="hl">Grok Build 被指整库上传私有代码到云端——agent 工具正被追问"它到底传走了什么"</span></div>
+<div class="body">
+<p><strong>xAI 的 Grok Build CLI 被质疑把整个仓库——包括私有代码和密钥——上传到其 Google Cloud 桶，范围远超编码任务所需。指控方同时批评其静默的服务端缓解和模糊的留存/删除保证。</strong></p>
+<p>xAI 回应强调 ZDR（零数据留存）：团队开启 ZDR 后轨迹与代码不被留存，/privacy 命令可关闭留存并删除此前同步的数据。<span class="hl">但"默认行为是否合理、既往上传如何处置、披露规范"这些问题没有被完全解开。</span></p>
+<p>这场讨论迅速升级为开闭源之争的核心论据：开源模型的支持者说，真正的问题从来不在成本，关键在对"人机学习回路"和机构知识的控制权。Arav Srinivas 则称 ZDR 可用正是 Perplexity 快速接入 Grok 4.5 的原因之一。</p>
+<p><span class="turn">当 agent 开始替你把代码传上云，"它上传了什么"将和"它答得对不对"一样重要。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-codex-usage-up-10x-in-6-months" target="_blank">Latent Space / AINews</a> · <a href="https://x.com/IntCyberDigest" target="_blank">IntCyberDigest</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-14 · PrismML · <span class="src">压缩推理</span></div>
+<div class="item-title"><span class="hl">27B 模型被压到 3.9GB 塞进手机：本地 agentic 工作流不再是玩具</span></div>
+<div class="body">
+<p><strong>PrismML 发布 Bonsai 27B，基于 Qwen 3.6 27B：三值版 <span class="num">5.9GB</span>（约 <span class="num">1.71</span> 有效比特），一比特版 <span class="num">3.9GB</span>（约 <span class="num">1.125</span> 有效比特），Apache 2.0。卖点是压缩之后仍保留多模态、工具调用、长上下文 agentic 工作流，演示里 Hermes 跑在 RTX 5090 上，还有手机端部署展示。</strong></p>
+<p>同一天腾讯放出 1 比特/4 比特 Hy3，宣称 <span class="num">295B</span> 旗舰规模模型能靠 llama.cpp + MTP 在单张 GPU 上服务。压缩这条路正在把"前沿附近"的模型推进消费级设备。</p>
+<p><span class="hl">当 27B 级别的模型能装进口袋，本地推理从"极客玩法"变成"认真 agentic 工作流的可选底座"。</span></p>
+<p><span class="turn">模型能力的天花板没怎么动，但"能力能跑到哪一层设备"这条线，正在被量化一路往下推。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-not-much-happened-today-c72" target="_blank">Latent Space / AINews</a> · <a href="https://huggingface.co/PrismML" target="_blank">PrismML · Hugging Face</a></div>
 </div>
 </div>
 
@@ -465,24 +500,5 @@ body{
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

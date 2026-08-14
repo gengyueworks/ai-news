@@ -137,7 +137,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap{
   font-size:12.5px;
   color:var(--gray);
@@ -210,7 +210,7 @@ body{
 <div class="mast-rule"></div>
 <div class="mast-meta">
 <span class="issue">2026-07-07 · 周二</span>
-<span>本期 5 条</span>
+<span>本期 8 条</span>
 </div>
 </div>
 
@@ -278,6 +278,40 @@ body{
 <img src="https://www.cep-research.com/wp-content/uploads/2026/06/A-JD-Logistics-autonomous-delivery-vehicle-Source-JD.com_.png" alt="京东物流自动驾驶配送车，618 期间运送超过 550 万单" loading="lazy">
 </div>
 <div class="src-line">来源：<a href="https://www.ft.com/" target="_blank">Financial Times</a> · 转引自 Serenity（<span class="tag">X</span>）</div>
+</div>
+
+<div class="item">
+<div class="dateline">07-07 · 腾讯 / Hugging Face / vLLM · <span class="src">Apache 2.0 全面放开</span></div>
+<div class="item-title"><span class="hl">腾讯混元 Hy3 开源：295B 模型第一天就能跑在 vLLM 上，许可比参数更值钱</span></div>
+<div class="body">
+<p><strong>腾讯发布混元 Hy3：<span class="num">295B</span> 总参数、<span class="num">21B</span> 激活的 MoE，<span class="num">192</span> 专家 top-8 路由，256K 上下文，附 <span class="num">3.8B</span> MTP 投机解码层，采用 Apache 2.0 许可。</strong></p>
+<p>许可变化才是这次发布的重点：<span class="hl">旧的社区许可以把韩国、英国、欧盟排除在外，Apache 2.0 一次性全部放开</span>。发布当天 vLLM 就原生支持，腾讯的生产级内核直接进 vLLM 主线——混合长度解码吞吐最高提升 <span class="num">2.95</span> 倍，TTFT 降约 <span class="num">24%</span>。Teknium 随即把 Hy3 在 Nous Portal 免费开放两周。</p>
+<p>社区立刻把它和 GLM-5.2 摆到一起比：有人判断腾讯若实测达标将挤进开源第一梯队，也有人坚持 GLM-5.2 仍是"实际最好用的开源模型"。<span class="turn">开源前沿的天花板在一个月内被抬高两次，竞争重点已经从榜单分数转向部署稳健性。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-the-field-guide-to-fable" target="_blank">Latent Space / AINews</a> · <a href="https://huggingface.co/tencent" target="_blank">Hugging Face</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-07 · Anthropic · <span class="src">机制可解释性</span></div>
+<div class="item-title"><span class="hl">Anthropic 找到 Claude 内部的"全局工作区"——但不是为了让模型更聪明</span></div>
+<div class="body">
+<p><strong>Anthropic 发表研究：Claude 内部存在一个"全局工作区"样式的结构，集中在很小一撮激活上，他们称为 <span class="num">J-space</span>。核心主张不在"思维链提取"，而在于识别一个特权内部表征层——它可被报告、可被调节、参与灵活推理。</strong></p>
+<p>为什么研究圈震动：Neel Nanda 称之为"工作记忆机制迄今最好的证据"，Lindsey 认为理解这个特权空间可能是理解 LLM 认知的关键。实用角度更直接——研究称它能提前暴露隐藏概念、检出提示注入、在言语化之前暴露内部"破坏相关"特征。<span class="hl">它给出的是审计和干预模型的抓手，不是哲学命题。</span></p>
+<p>争议也随之而来：Anthropic 的宣传框架用了"意识"字眼，被批评者指为过度主张。社区用 CKA 相似度在 <span class="num">38</span> 个开源模型里对比，发现层/深度组织高度普适——跨 Llama 和 OLMo 这种不相干家族都成立。</p>
+<p><span class="turn">无论"意识"之争如何收场，一条新的干预路径已经被打开，这才是这篇研究的分量所在。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-the-field-guide-to-fable" target="_blank">Latent Space / AINews</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-07 · General Intuition × Kyutai × Epic · <span class="src">世界模型</span></div>
+<div class="item-title"><span class="hl">MIRA：5B 模型在单张显卡上实时跑《火箭联盟》——世界模型第一次能玩</span></div>
+<div class="body">
+<p><strong>General Intuition 与 Kyutai、Epic Games 发布 MIRA，一个可游玩的多人世界模型：在 <span class="num">1</span> 万小时机器人自采数据上训练，实时 <span class="num">20fps</span> 运行，<span class="num">5B</span> 参数就能在单张 B200 上完整跑一场 <span class="num">2v2</span> 对战，全程没有显式物理或渲染引擎。</strong></p>
+<p>看点不在画面多好，关键在<span class="hl">世界模型从"生成一段像视频的片段"变成了"一个可交互的模拟器"</span>——你控制车，模型负责整个世界规则。</p>
+<p><span class="turn">当世界模型能实时交互，游戏、机器人训练、自动驾驶仿真的底层规则都要重写。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-the-field-guide-to-fable" target="_blank">Latent Space / AINews</a> · <a href="https://github.com/genintuition" target="_blank">General Intuition · GitHub</a></div>
 </div>
 </div>
 
@@ -416,24 +450,5 @@ AI Mode 在烹饪查询中把原始 recipe 链接连同图片、评分和食材�
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

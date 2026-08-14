@@ -138,7 +138,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap, .image-caption{
   font-size:12.5px;
   color:var(--gray);
@@ -199,21 +199,17 @@ body{
 
 <div class="item">
 <div class="dateline">07-16 · Thinking Machines · <span class="src">开放权重</span></div>
-<div class="item-title">Mira Murati 的 Thinking Machines 放出 Inkling：<span class="hl">9750 亿参数完整开放权重</span></div>
+<div class="item-title">Inkling 成了<span class="hl">美国开源新标杆</span>：AI Index 41，但还不是全球最强</div>
 <div class="image-block">
 <img src="https://oss.zhidx.com/uploads/2026/07/6a585956400f2_6a5859563cd1b_6a5859563cceb_token.jpg" alt="Inkling 在 Artificial Analysis 上的 token 效率对比" loading="lazy">
 </div>
 <div class="body">
-<p><strong>前 OpenAI CTO Mira Murati 的 Thinking Machines Lab 发布首款模型 Inkling：</strong>一个 <span class="num">9750 亿</span> 参数、每次激活约 <span class="num">410 亿</span> 的混合专家模型，以 Apache 2.0 上架 Hugging Face。</p>
-<p>它在 <span class="num">45 万亿</span> token 的文本、图像、音频、视频上从头训出，原生支持 <span class="num">100 万</span> token 上下文。企业可下载、微调、部署，还能拨动"思考强度"在性能与成本间取舍。</p>
-<p>公司自己承认 Inkling 不是当下最强模型，卖点是"均衡 + 可定制"。<span class="turn">当最前沿的实验室也开始交权重，闭源与开源的边界又塌了一块</span>。</p>
+<p><strong>Mira Murati 的 <span class="accent">Thinking Machines</span> 放出首款完整开源模型 Inkling：<span class="num">9750</span> 亿参数、每 token 激活 <span class="num">410</span> 亿的<span class="hl">混合专家架构</span>，<span class="hl">Apache 2.0 许可</span>，<span class="num">45</span> 万亿 token 多模态预训练，权重版上下文最长 <span class="num">100</span> 万 token。</strong>第三方评测机构 <span class="hl">Artificial Analysis</span> 把它放上自家智能指数，得分 <span class="num">41</span>，成为<span class="hl">美国开源权重阵营的第一名</span>——压过 <span class="hl">NVIDIA Nemotron 3 Ultra</span> 的 <span class="num">38</span>、<span class="hl">Gemma 4 31B</span> 的 <span class="num">29</span>、gpt-oss-120b 的 <span class="num">24</span>。</p>
+<p>但它不是今天最强的模型。同一份指数里，它仍落后中国开源阵营的 GLM-5.2 和 Kimi K2.6，也追不上顶级闭源。<span class="hl">它是 TML 的「第一块基石」，不是「压轴旗舰」</span>。</p>
+<p>两个数据点值得单独说。一是效率：Artificial Analysis 测出 Inkling 每个智能指数任务平均只吐 <span class="num">2.5</span> 万 output token，GLM-5.2 max 要 <span class="num">4.3</span> 万、Kimi K2.6 要 <span class="num">3.8</span> 万。二是定价：Tinker 上 64K 上下文输入每百万 token <span class="num">1.87</span> 美元、输出 <span class="num">4.68</span> 美元。同场还预告了 Inkling-Small，<span class="num">2760</span> 亿总参、<span class="num">120</span> 亿激活。</p>
+<p>上线当天生态就铺开了：vLLM 说 4×GB200 上最高跑到 <span class="num">380</span> token/秒/用户，NVIDIA 确认它是用 GB300 NVL72 训的。<span class="turn">当最前沿的实验室也开始交权重、而且承认「我不是最强」，闭源与开源之间那层膜，又被戳破了一角。</span></p>
 </div>
-<ul class="points">
-<li>9750 亿参数，激活 410 亿</li>
-<li>45 万亿 token 多模态预训练</li>
-<li>Apache 2.0，已上架 Hugging Face</li>
-</ul>
-<div class="src-line">来源：<a href="https://thinkingmachines.ai/news/introducing-inkling/" target="_blank">Thinking Machines 博客</a> · <a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/" target="_blank">TechCrunch</a></div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-thinkys-inkling-975b-a41b" target="_blank">AINews</a> · <a href="https://artificialanalysis.ai/models/inkling" target="_blank">Artificial Analysis</a></div>
 </div>
 </div>
 
@@ -391,27 +387,10 @@ body{
 前沿信号流——AI每天在变什么，人在怎么选
 </div>
 
+</div>
+
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

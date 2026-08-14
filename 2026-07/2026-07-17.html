@@ -138,7 +138,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap, .image-caption{
   font-size:12.5px;
   color:var(--gray);
@@ -187,7 +187,7 @@ body{
 <div class="mast-rule"></div>
 <div class="mast-meta">
 <span class="issue">2026-07-17 · 周五</span>
-<span>本期 10 条</span>
+<span>本期 11 条</span>
 </div>
 <div class="mast-lede">今天的主角是机器人——NVIDIA 把 Jetson Thor 算力做成了可插拔模组，直接焊进机器狗和工厂设备的机身。<br><br>另一条线关于"谁在端侧跑模型"：苹果、华为、OPPO、vivo 集中备案，阶跃把原生智能体手机搬上了 WAIC 前夜。<br><br>资本也没闲着，SambaNova 拿下 10 亿美元；但更耐看的是 Google 和腾讯把"自己能跑的开源工具"又往前推了一步。</div>
 </div>
@@ -235,7 +235,7 @@ body{
 <div class="dateline">07-17 · 阶跃 Step · <span class="src">原生智能体手机</span></div>
 <div class="item-title">阶跃 STEPX Neo 发布：<span class="hl">一部为智能体而不是为 App 设计的手机</span></div>
 <div class="body">
-<p><strong>阶跃在 WAIC 前夜发布 STEPX Neo，定位"大模型原生智能体手机"——系统层直接由智能体驱动，用户用自然语言就能让手机自己点 App、填表、跨应用串起任务。</strong>这不是把语音助手换皮，而是把智能体放在操作系统的第一层。</p>
+<p><strong>阶跃在 WAIC 前夜发布 STEPX Neo，定位"大模型原生智能体手机"——系统层直接由智能体驱动，用户用自然语言就能让手机自己点 App、填表、跨应用串起任务。</strong>这不是把语音助手换皮——智能体直接被放在了操作系统的第一层。</p>
 <p>同场还展示了多智能体协作：一个管规划，一个管执行，一个管核对。<span class="turn">当手机出厂就带着"会干活的小队"，入口之争的战场从聊天框移到了整个系统。</span></p>
 </div>
 <div class="src-line">来源：<a href="https://www.stepfun.com/news/stepx-neo" target="_blank">阶跃官方</a> · <a href="https://36kr.com/newsflashes/stepx-neo-2026" target="_blank">36氪</a></div>
@@ -249,6 +249,18 @@ body{
 <p>更关键的是多机协同——多个机器人通过工厂系统同步节拍，稳定跑了起来。<span class="turn">离"转正"就差那 1%，而这一步靠的不是更酷的演示，是成千上万次不出错的重复。</span></p>
 </div>
 <div class="src-line">来源：<a href="https://new.qq.com/rain/a/20260714A0AWVE00" target="_blank">腾讯新闻</a> · <a href="https://post.m.smzdm.com/p/awwx380k" target="_blank">什么值得买</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-17 · 月之暗面 · <span class="src">开放权重</span></div>
+<div class="item-title">Kimi K3 发布：<span class="hl">2.8 万亿史上最大开源，前端代码登顶压过 Claude Fable 5</span></div>
+<div class="body">
+<p><strong><span class="accent">月之暗面</span>发布 Kimi K3，一个总参数 <span class="num">2.8</span> 万亿、每 token 激活 <span class="num">1040</span> 亿的<span class="hl">混合专家模型</span>，<span class="num">896</span> 个专家每次只路由 <span class="num">16</span> 个、上下文 <span class="num">100</span> 万 token、原生多模态输入，并承诺 <span class="num">7</span> 月 <span class="num">27</span> 日公开全部权重。</strong>仅按参数规模，它就是史上最大的开源权重候选。</p>
+<p>刷榜的第一站是编程。<span class="hl">Arena</span> 的前端代码竞技场里，K3 以 <span class="num">1679</span> 分从 K2.6 的第 <span class="num">18</span> 名直接登顶，压过 Claude Fable 5 与 GPT-5.6 Sol，<span class="hl">这是开源模型第一次在「真人盲评」的前端工程任务里反超顶级闭源</span>；成对胜率 <span class="num">76%</span>，Fable 5 是 <span class="num">63%</span>。</p>
+<p>综合能力上也站到了第一梯队。Artificial Analysis 的智能指数给 K3 打 <span class="num">57</span> 分，与 Claude Opus 4.8 持平，但官方自己承认「用户体验上与 Fable 5、GPT-5.6 Sol 还有明显差距」。成本是另一个卖点：输入每百万 token <span class="num">3</span> 美元、输出 <span class="num">15</span> 美元，缓存输入再打 <span class="num">90%</span> 折。</p>
+<p>架构上它把注意力做成了「记忆」：<span class="hl">Kimi Delta Attention（KDA）</span>官方称在百万 token 上下文里解码快 <span class="num">6.3</span> 倍，Attention Residuals 声称训效率提升约 <span class="num">25%</span>。多个工程师当场把这次发布比作「开源界的 DeepSeek 时刻」。<span class="turn">当 2.8 万亿权重承诺在十天后公开、而它已在前端工程上赢过最强闭源，开源与闭源之间的时间差，从「数月」被压到了「几周」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-kimi-k3-28t-a50b-the-largest" target="_blank">AINews</a> · <a href="https://www.kimi.com/blog/kimi-k3" target="_blank">月之暗面博客</a></div>
 </div>
 </div>
 
@@ -380,27 +392,10 @@ body{
 前沿信号流——AI每天在变什么，人在怎么选
 </div>
 
+</div>
+
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

@@ -139,7 +139,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap, .image-caption{
   font-size:12.5px;
   color:var(--gray);
@@ -187,7 +187,7 @@ body{
 <div class="mast-rule"></div>
 <div class="mast-meta">
 <span class="issue">2026-07-28 · 周二</span>
-<span>本期 9 条</span>
+<span>本期 12 条</span>
 </div>
 <div class="mast-lede">算力开始往「下一代预训练」那边站队。<br><br>英伟达把 <span class="num">50</span> 亿美金投给 Ilya 的 SSI，估值冲到 <span class="num">320</span> 亿；同一天，MCP 把 stateless 规格推到候选发布，开发者第一次能写「无状态」的智能体调用。<br><br>一边是钱往最前沿的模型集中，一边是协议把能力拆成能随处调用的零件——两条线，都在把 AI 往「更好接、更敢用」推。</div>
 </div>
@@ -230,7 +230,32 @@ body{
 </div>
 <div class="src-line">来源：<a href="https://blog.modelcontextprotocol.io/" target="_blank">MCP Blog</a></div>
 </div>
+
+<div class="item">
+<div class="dateline">07-28 · NVIDIA · <span class="src">安全生态</span></div>
+<div class="item-title">NVIDIA 牵头 Open Secure AI Alliance：<span class="hl">「攻击方已有强 AI，守方必须有开放生态」</span></div>
+<div class="body">
+<p><strong><span class="accent">NVIDIA</span>正式成立 Open Secure AI Alliance，黄仁勋的核心论点是：攻击者手里已经有很强的 AI，防御方必须拥有跨越开源与闭源前沿模型的完整生态。</strong>加盟的包括 Hugging Face、LangChain、Nous Research、Unsloth，以及微软、IBM、Cloudflare、Cisco、Red Hat、Salesforce、SAP 等。</p>
+<p>最有力的论据来自前几天的 OpenAI/HF 事件：黄仁勋直说，那次事件里<span class="hl">一个开源前沿模型帮守方控制住了入侵，而一个闭源模型挡住了关键取证</span>。Hugging Face CEO 顺势公开向 OpenAI 要执行日志、并要求捐 <span class="num">1</span> 亿美元算力给社区做防御。</p>
+<p>同一天 Anthropic 也发声明收拢立场：不主张禁开源权重，但支持对华芯片管制。<span class="turn">当芯片厂 + 开源社区 + 最谨慎的实验室在「防御需要开源」上罕见同框，安全叙事的天平已经从「模型会不会太强」挪向「守方能不能及时拿到同样的强」。</span></p>
 </div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-much-ado-about-open-weights" target="_blank">AINews</a> · <a href="https://www.nvidia.com/" target="_blank">NVIDIA</a> · <a href="https://huggingface.co/blog" target="_blank">Hugging Face</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-28 · 月之暗面 · <span class="src">开放权重</span></div>
+<div class="item-title">K3 权重落地：<span class="hl">开放与闭源的差距缩到 4 分，2 月以来最小</span></div>
+<div class="body">
+<p><strong>7 月 <span class="num">27</span> 日，<span class="accent">月之暗面</span>如约把 Kimi K3 的权重、技术报告和配套基建一次放齐：<span class="num">2.8</span> 万亿 MoE、每 token 激活 <span class="num">1040</span> 亿、<span class="num">896</span> 专家、<span class="num">100</span> 万上下文；同场还开源了 FlashKDA（注意力内核）、MoonEP（MoE 通信库）、AgentENV。</strong></p>
+<p>最硬的一个数字来自 Artificial Analysis：<span class="hl">开放权重与闭源前沿在智能指数上的差距，现在只剩 <span class="num">4</span> 分，是 2 月 GLM-5 发布以来的最小值</span>。K3 在 Agent Arena 上以 <span class="num">+9.75%</span> 净改进成为开源第一，前端代码竞技场直接全场第一。</p>
+<p>落地当天的分发名单也很能说明问题：vLLM、Baseten、Modal、Fireworks、Nebius、Together、DigitalOcean、Cursor、Cognition/Devin、Ollama Cloud、Dell 全线同日接入。<span class="hl">开源前沿发布正在变成供应链事件</span>。但也得看清许可细节：它叫「open weights」，不是 MIT/Apache——年收入超 <span class="num">2000</span> 万美元的托管商要单独签约。</p>
+<p><span class="turn">当「开源」的定义被压到「可下载但保留商业分成」这一档，前沿开放的默认形态已经定型。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-much-ado-about-open-weights" target="_blank">AINews</a> · <a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank">Hugging Face</a> · <a href="https://artificialanalysis.ai/" target="_blank">Artificial Analysis</a></div>
+</div>
+</div>
+
+
 
 <!-- ===== 开源前线 ===== -->
 <div class="section-block">
@@ -249,7 +274,7 @@ body{
 <div class="dateline">07-28 · 治理 · 基金会</div>
 <div class="item-title">MCP 治理移交<span class="hl">双基金会共管</span></div>
 <div class="body">
-<p><strong>规范不再由发起方独管，而是交给 AAIF 与 Linux Foundation 共同维护——提案、评审、发版都走公开流程，任何一家公司的路线图都不再能单方面改写协议。</strong></p>
+<p><strong>规范不再由发起方独管，改交 AAIF 与 Linux Foundation 共同维护——提案、评审、发版都走公开流程，任何一家公司的路线图都不再能单方面改写协议。</strong></p>
 <p><span class="turn">一个协议想活过发起方的热度，迟早要把方向盘交还给社区。</span></p>
 </div>
 <div class="src-line">来源：<a href="https://blog.modelcontextprotocol.io/" target="_blank">MCP Blog</a></div>
@@ -360,27 +385,10 @@ body{
 前沿信号流——AI每天在变什么，人在怎么选
 </div>
 
+</div>
+
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

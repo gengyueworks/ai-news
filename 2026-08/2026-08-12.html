@@ -139,7 +139,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap, .image-caption{
   font-size:12.5px;
   color:var(--gray);
@@ -219,7 +219,7 @@ body{
 <span class="issue">2026-08-12 · 周三</span>
 <span>本期 9 条</span>
 </div>
-<div class="mast-lede">今天的关键词是「抢」：抢入口、抢习惯、抢效率。<br><br>往下看，谁在抢什么。</div>
+<div class="mast-lede">今天的关键词是「变」：入口在变、习惯在变、效率在变。<br><br>往下看，谁在适应变化。</div>
 </div>
 
 <!-- ===== 头版 ===== -->
@@ -270,14 +270,17 @@ body{
 <div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
 <div class="sec-title">开源前线</div>
 <div class="item">
-<div class="dateline">08-12 · NVIDIA · 开源</div>
-<div class="item-title">Nvidia 发布 Nemotron 3.5：<span class="hl">闪电系统 + NeMo Switchyard</span></div>
+<div class="dateline">08-12 · NVIDIA · 开源模型</div>
+<div class="item-title">Nvidia Nemotron 3.5 Lightning：<span class="hl">3B 激活的 30B 模型，把 agent 的单价打成「几乎不要钱」</span></div>
 <div class="body">
-<p><strong>Nvidia 发布 <span class="accent">Nemotron 3.5</span> 闪电系统与 <span class="accent">NeMo Switchyard</span>，瞄准推理与部署效率。</strong></p>
-<p>当模型能力见顶，效率成为新战场——Nvidia 把注意力从「训练更聪明」转向「跑得更省」。<span class="turn">算力巨头的下一张牌，是让同样的电跑出更多活。</span></p>
+<p><strong><span class="accent">NVIDIA</span> 发布 <span class="accent">Nemotron 3.5 Lightning</span>：<span class="num">30B</span> 总参数、约 <span class="num">3B</span> 激活的稀疏 MoE，<span class="num">1M</span> 上下文，主打常驻 agent 工作负载，宣称吞吐最高 4 倍。</strong></p>
+<p>Artificial Analysis 给出了最细的第三方数据：31.6B 总 / 3.6B 激活，OpenMDW-1.1 许可，NVFP4 和 BF16 双权重，预发布端点测试里中位服务速度约 <span class="num">670</span> token/秒，AI 指数 24，和 gpt-oss-120b 一个水平线，但小得多也快得多。<span class="hl">agent 向的指标更突出：GDPval-AA v2 Elo <span class="num">824</span>，Terminal-Bench v2.1 24%，两个都比 Nemotron 3 Nano 跳了一大截。</span><span class="hl">分数落在哪里，跟评测吃不吃这套密切相关。</span></p>
+<p>Harvey 用它做了个实证：在 Legal Agent Bench 上后训练，Lightning 从 0% 涨到 <span class="num">8.3%</span>，赢了 Opus 4.6 和 Nemotron 3 Ultra，同时把平均输出从 9 万 token 砍到 3.7 万。<span class="hl">它印证了这轮开源模型的共识：小、快、便宜，为高频工具调用而生。</span><span class="hl">同一个模型，配不同的后训练，能在评测榜上掉一个身位。</span><span class="hl">模型定能力上限，后训练定你实际拿到的那一档。</span></p>
+<p><span class="turn">当「3B 激活跑 agent」成为标配，算力的战场从「训更大的模型」挪到了「用更少的电干更多的活」。</span></p>
 </div>
-<div class="src-line">来源：<a href="https://nvidianews.nvidia.com/news/nemotron-3-5" target="_blank">NVIDIA Newsroom</a></div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-how-to-steal-a-reasoning-trace" target="_blank">AINews</a> · <a href="https://x.com/ArtificialAnlys" target="_blank">Artificial Analysis</a> · <a href="https://x.com/NVIDIAAI" target="_blank">NVIDIA AI</a></div>
 </div>
+
 <div class="item">
 <div class="dateline">08-12 · Lightricks · 视频</div>
 <div class="item-title">LTX-2.5 发布：<span class="hl">视频制作栈，压进一张桌面</span></div>

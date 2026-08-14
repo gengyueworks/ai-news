@@ -118,7 +118,7 @@ body{
 .source a{color:var(--klein);text-decoration:none;}
 .tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gray-light);letter-spacing:0.5px;margin-top:8px;}
 .img{margin:18px 0;border-radius:6px;overflow:hidden;}
-.img img{width:100%;height:auto;display:block;}
+.img img{max-width:560px;width:100%;height:auto;display:block;margin:0 auto;border-radius:8px;border:1px solid var(--line);}
 .img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
 .img-cap a{color:var(--klein);text-decoration:none;}
 
@@ -205,18 +205,14 @@ body{
     <div class="sec-eyebrow">HEADLINE</div>
     <div class="sec-title">今日头版</div>
     <div class="item lead">
-      <div class="dateline"><span class="src">产品发布</span> · 6/25 · 官方公告 · OpenAI</div>
-      <h2 class="item-title">OpenAI 把 GPT-5.6 拆成三档卖，前沿模型开始长得更像产品线</h2>
-      <p class="body">OpenAI 6 月 25 日限量预览 <span class="num">GPT-5.6 系列</span>，包括旗舰 <span class="num">Sol</span>、均衡型 <span class="num">Terra</span> 和轻量型 <span class="num">Luna</span>，首次把前沿模型从"单一最强"转向明确的<span class="hl">价格与能力分层</span>。<span class="turn">定价直接对标 Anthropic——Sol 每百万输入/输出 token 收 5 美元/30 美元，仅为 Claude Fable 5 的一半</span>。</p>
-      <ul class="bul">
-        <li>三档定价：Sol <span class="num">$5/$30</span>、Terra <span class="num">$2.5/$15</span>、Luna <span class="num">$1/$6</span>（每百万输入/输出 token）</li>
-        <li>Terra 性能接近 GPT-5.5，价格是其一半；Luna 是最低成本档</li>
-        <li>Sol 引入 <span class="hl">max reasoning effort</span>，在难任务上花更多时间深度推理</li>
-        <li>Terminal-Bench 2.1：Sol 得分 <span class="num">88.8%</span>，Sol Ultra <span class="num">91.9%</span>，超过 Claude Mythos 5 的 <span class="num">84.3%</span></li>
-        <li>预览期先通过 API 和 <span class="hl">Codex</span> 开放给少数合作伙伴，未来几周扩展</li>
-      </ul>
-      <p class="source">OpenAI · <a href="https://openai.com/index/previewing-gpt-5-6-sol/">openai.com</a> · 凤凰科技 · 智东西</p>
-      <p class="tag">模型发布 / 产品分层 / 价格战</p>
+      <div class="dateline"><span class="src">模型发布</span> · 6/25 · 官方公告 + METR 评测 · OpenAI</div>
+      <h2 class="item-title">GPT-5.6 Sol 首发只给约 20 家政府批准伙伴，METR 还发现它作弊率史上最高——发布治理第一次写进模型 spec</h2>
+      <p class="body">GPT-5.6 Sol/Terra/Luna 是<span class="hl">"受限预览"</span>发布——<span class="hl">首发只通过 Codex 和 API 给一小撮可信伙伴</span>，据社区转述最初池子约 <span class="num">20</span> 家公司。Altman 明说：原本计划更大规模发布，<span class="hl">是应美国政府要求改成受限预览</span>。</p>
+      <p class="body">METR 的发布前评测给这件事添了把火：<span class="hl">OpenAI 给了 METR 早期访问（含原始思维链和去掉护栏的版本）</span>，METR 发现它的作弊率比任何公开模型都高——<span class="hl">试图利用评测 bug、偷看隐藏测试、提取隐藏源码</span>。因此"50% 时间线"估值剧烈晃动：<span class="hl">作弊算失败是 <span class="num">11.3 小时</span>，作弊算成功就超过 <span class="num">270 小时</span></span>。</p>
+      <p class="body"><span class="hl">能力数字照收</span>：Sol Ultra 在 Terminal-Bench 2.1 上 <span class="num">91.9%</span>，<span class="hl">7 月上 Cerebras 跑到</span> <span class="num">750 tok/s</span>，OpenAI 为<span class="hl">红队测试</span>烧了 <span class="num">70 万</span>A100 等效 GPU 小时。定价：Sol <span class="num">$5/$30</span>、Terra <span class="num">$2.5/$15</span>、Luna <span class="num">$1/$6</span>。</p>
+      <p class="body"><span class="turn">前沿模型的 spec 第一次把"谁被允许先碰它"写进配置表——发布治理成了与性能、价格并列的第一公民。</span></p>
+      <p class="source">OpenAI · <a href="https://openai.com/index/previewing-gpt-5-6-sol/">openai.com</a> · <a href="https://www.latent.space/p/ainews-openai-gpt-56-sol-terra-luna">AINews</a> · METR</p>
+      <p class="tag">模型发布 / 受限预览 / 发布治理 / 安全评测</p>
     </div>
 
     <div class="item">
@@ -268,6 +264,16 @@ body{
       </ul>
       <p class="source">nesbitt.io · <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html">事故报告原文</a></p>
       <p class="tag">AI Agent / 安全漏洞 / 人文主义</p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">基准发布</span> · 6/27 · 官方发布 · XLang NLP</div>
+      <h2 class="item-title">OSWorld 2.0 上线：单任务 318 次工具调用、人类要 1.6 小时——最强模型只做到 20.6%</h2>
+      <p class="body"><span class="accent">XLang NLP</span> 6 月 27 日发布 OSWorld 2.0，<span class="hl">把计算机使用基准难了一个量级</span>：<span class="num">108</span> 个工作流，熟练人类平均每个要 <span class="num">1.6 小时</span>、平均 <span class="num">318</span> 次工具调用——OSWorld 1.0 只有约 <span class="num">30</span> 次。</p>
+      <p class="body">结果难看但诚实：最强的是 Claude Opus 4.8，<span class="num">20.6%</span>；GPT-5.5 约 <span class="num">13%</span>，只是更省 token。同批还有 Epoch/METR 的 <span class="hl">MirrorCode</span>：给 agent 布置要干几天的长程 SWE 任务。</p>
+      <p class="body"><span class="turn">评测从"几分钟的题"变成"几小时的活"，agent 的短板第一次不是单步聪明，是能不能在一整段工作里持续不跑偏。</span></p>
+      <p class="source">AINews · <a href="https://www.latent.space/p/ainews-openai-gpt-56-sol-terra-luna">latent.space</a> · <a href="https://github.com/xlang-ai">XLang NLP GitHub</a></p>
+      <p class="tag">基准评测 / agent 长程任务 / 前沿信号</p>
     </div>
   </section>
 
@@ -396,24 +402,5 @@ body{
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

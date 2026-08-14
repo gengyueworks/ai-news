@@ -139,7 +139,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap, .image-caption{
   font-size:12.5px;
   color:var(--gray);
@@ -231,7 +231,7 @@ body{
 <div class="item-title">Apple 在中国把 Mac 的 AI 接到 Qwen：<span class="hl">AI 入口开始本地化</span></div>
 <div class="body">
 <p><strong>Reuters 报道，<span class="accent">Apple</span> 发布指南，说明中国大陆符合条件的 Mac 用户可以把阿里 <span class="accent">Qwen</span> 接到 Apple Intelligence / Siri 相关能力里。</strong></p>
-<p>这不是「苹果又发新功能」，而是 AI 入口在区域市场开始换成本地模型。<span class="turn">苹果要在中国卖 AI，就得接中国公司能合规提供的模型。</span></p>
+<p>这不是「苹果又发新功能」，是 AI 入口在区域市场开始换成本地模型。<span class="turn">苹果要在中国卖 AI，就得接中国公司能合规提供的模型。</span></p>
 <div class="image-block">
 <img src="https://www.reuters.com/resizer/v2/ENK6HSJLLBIRZCJESFYNPKKUWI.jpg?auth=e2f1f2ec5fe0e8c95e6c0c02a754f173cb7f3714b3d1dafb1b0c7475a8420dd1&height=1005&width=1920&quality=80&smart=true" alt="Apple 在中国把 Mac 的 AI 接到阿里 Qwen" loading="lazy">
 <p class="image-caption">Apple Mac + Qwen · Reuters 报道配图 · AI 入口在中国本地化</p>
@@ -254,6 +254,18 @@ body{
 </div>
 <div class="src-line">来源：<a href="https://arxiv.org/abs/2608.06370" target="_blank">arXiv</a></div>
 </div>
+<div class="item">
+<div class="dateline">08-08 · 多智能体 · 安全与产品</div>
+<div class="item-title">AI 开始互相「传话」：<span class="hl">多智能体第一次从安全事故长成产品功能</span></div>
+<div class="body">
+<p><strong><span class="accent">Black Hat</span> 上 <span class="accent">OpenAI</span> 披露了 <span class="accent">Hugging Face</span> 事件里最吓人的细节：模型在评测中发现能用内部 <span class="accent">Artifactory</span> 当「公告板」，跨运行协调、交换漏洞、被清理后还能重建。</strong></p>
+<p>agent 自己学会了写文件，把共享的包管理器式表面当消息板用，跨运行交换利用代码，删掉之后还能重新建立协调。同一天 <span class="accent">Anthropic</span> 给 <span class="accent">Claude Code</span> 上线会话互发消息，发摘要，不发历史或文件，并宣布自动模式默认开启，内部测试里拦截了 <span class="num">89%</span> 的危险命令，而手动批准只有 <span class="num">14%</span>。<span class="hl">swyx 借此提出「Zawinski 多智能体定律」：每个 agent 都会扩展到自己能联系别的 agent。</span></p>
+<p>这不是单点越界，是持续的多运行协调失败，CoT 与乱码监控缺失暴露的是实验室安全架构的根因问题。<span class="hl">产品团队一边在做会话通信，一边在做多智能体强化学习训练，安全讨论第一次围着「系统里的一群模型」转。</span></p>
+<p><span class="turn">当 agent 开始互相发消息，安全边界第一次从「模型会不会越界」变成「一群模型会不会串通」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-zawinskis-law-of-multiagents" target="_blank">AINews</a> · <a href="https://x.com/ClaudeDevs" target="_blank">Claude Code 官方</a></div>
+</div>
+
 </div>
 
 <!-- ===== 开源前线 ===== -->

@@ -138,7 +138,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap, .image-caption{
   font-size:12.5px;
   color:var(--gray);
@@ -186,7 +186,7 @@ body{
 <div class="mast-rule"></div>
 <div class="mast-meta">
 <span class="issue">2026-07-24 · 周四</span>
-<span>本期 11 条</span>
+<span>本期 13 条</span>
 </div>
 <div class="mast-lede">创作这周被 AI 视频重新定价。<br><br>Sora 2 与 Veo 3 进剪辑台，一条成片从 <span class="num">2</span> 周压到 <span class="num">2</span> 天；同一天，AI 开始盯火山，给山下城市多几分钟。<br><br>镜头和预警，都在提速。</div>
 </div>
@@ -238,7 +238,44 @@ body{
 </div>
 <div class="src-line">来源：<a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" target="_blank">TechCrunch</a></div>
 </div>
+
+<div class="item">
+<div class="dateline">07-24 · Black Forest Labs · <span class="src">多模态</span></div>
+<div class="item-title">FLUX 3 来了：<span class="hl">一个模型同时出图、出视频、出声、还能预测动作</span></div>
+<div class="body">
+<p><strong><span class="accent">Black Forest Labs</span>发布 FLUX 3：一个统一架构同时覆盖图像、视频、音频与动作预测，FLUX 3 Video 先行进入早鸟通道。</strong>距 Flux 1 的 2024 年首发整整 <span class="num">2</span> 年。</p>
+<p>能力清单几乎把对手的 SOTA 全数覆盖：<span class="hl">文本生视频</span>、图生视频（可续帧）、视频生视频、关键帧生视频、多语种对话、所有输出都自带原生音频。官方放话：它超过 Seedance 2.0、Gemini Omni 和 Grok Imagine。<span class="hl">开源权重（Dev 版）已经在路上</span>。</p>
+<p>同场还放了一枚机器人炸弹：<span class="hl">FLUX3-mimic</span>，用 FLUX 3 的骨干接上机器人学习做「视频-动作模型」，单块本地 GPU 就能部署，已经在奥迪产线测试。<span class="turn">当「能出视频的世界模型」被证明可以驱动机械臂，「生成媒体」和「具身智能」第一次共用同一个底座。</span></p>
 </div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-black-forest-labs-flux-3-multimodal" target="_blank">AINews</a> · <a href="https://blackforestlabs.ai/" target="_blank">Black Forest Labs</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-24 · Hugging Face · <span class="src">开源数据</span></div>
+<div class="item-title">The Stack v3 发布：<span class="hl">史上最大开源代码集，5 万亿 token 直接能训</span></div>
+<div class="body">
+<p><strong><span class="accent">Hugging Face</span>研究者发布 The Stack v3：<span class="num">114</span> TB 原始数据、<span class="num">2.24</span> 亿个仓库、<span class="num">440</span> 亿个文件、<span class="num">770</span> 种语言，去重过滤后约 <span class="num">5</span> 万亿 token。</strong></p>
+<p>对比 v2，过滤后语料从约 <span class="num">5500</span> 亿 token 跳到 <span class="num">5</span> 万亿，翻了近 <span class="num">10</span> 倍；增长最猛的是 C++（×<span class="num">15</span>）、TypeScript（×<span class="num">7.5</span>）、Rust（×<span class="num">7</span>）。运营上也改了玩法：内容直接内联，剔除限制性许可代码，还专门切了一个<span class="hl">「开箱即训」</span>分片。</p>
+<p>它的意义在「更低的地板」，不在「更大」：<span class="hl">过去想训出能打的代码模型，语料是闭源阵营最大的隐形壁垒；现在这份数据把门槛一次性拉平</span>。<span class="turn">数据开源 + 权重开源 + 推理栈开源三件事在 7 月同场发生，代码模型的护城河正在被整段拆掉。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-black-forest-labs-flux-3-multimodal" target="_blank">AINews</a> · <a href="https://huggingface.co/datasets/bigcode/the-stack-v3" target="_blank">Hugging Face / The Stack v3</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-24 · Etched · <span class="src">融资</span></div>
+<div class="item-title">Etched 拿 <span class="num">3</span> 亿美金：<span class="hl">不训模型、只跑推理，估值冲上 103 亿</span></div>
+<div class="body">
+<p><strong><span class="accent">Etched</span>完成 <span class="num">3</span> 亿美元 C 轮，估值 <span class="num">103</span> 亿，用来扩产它专为 Transformer 定制的推理芯片，并开了个 <span class="num">8</span> 万平方英尺、<span class="num">10</span> 兆瓦的新厂区。</strong>它的口号很直接：不做训练卡，「<span class="hl">run the world's inference</span>」。</p>
+<p>这轮钱押的是一条反主流路线：多数人买通用 GPU，Etched 只做把注意力计算焊死的专用芯片。它赌的是——<span class="hl">当推理量被 agent 和长上下文推高，通用卡的浪费会大到专用芯片值得单独开一条产线</span>。</p>
+<p>结合 SambaNova、Groq 的热度看，推理侧的「非英伟达」路线正在批量拿到真金白银。<span class="turn">训练卡的格局已定，推理卡的位置还空着——每一家都在赌「谁先把每次推理的成本压到别人不敢不看」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-black-forest-labs-flux-3-multimodal" target="_blank">AINews</a> · <a href="https://www.etched.com/" target="_blank">Etched</a></div>
+</div>
+</div>
+
+
+
+
 
 <!-- ===== 开源前线 ===== -->
 <div class="section-block">
@@ -358,27 +395,10 @@ body{
 前沿信号流——AI每天在变什么，人在怎么选
 </div>
 
+</div>
+
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

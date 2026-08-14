@@ -65,7 +65,7 @@ body{
   border-left:3px solid var(--klein);
 }
 
-.section{margin:48px 0;}
+.section,.section-block{margin:48px 0;}
 .sec-eyebrow{
   font-family:'JetBrains Mono',monospace;
   font-size:11px;
@@ -113,7 +113,7 @@ body{
 .source{font-size:12px;color:var(--gray-light);margin-top:8px;font-family:'JetBrains Mono',monospace;}
 .source a{color:var(--klein);text-decoration:none;}
 .img{margin:18px 0;border-radius:6px;overflow:hidden;}
-.img img{width:100%;height:auto;display:block;}
+.img img{max-width:560px;width:100%;height:auto;display:block;margin:0 auto;border-radius:8px;border:1px solid var(--line);}
 .img-cap{font-size:12px;color:var(--gray-light);margin-top:8px;line-height:1.6;}
 .img-cap a{color:var(--klein);text-decoration:none;}
 
@@ -186,12 +186,12 @@ body{
     <div class="mast-meta">
       <span>2026-07-02</span>
       <span>星期四</span>
-      <span>8 条现场</span>
+      <span>10 条现场</span>
     </div>
     <p class="mast-lede">今天没有大模型发布，主线是"钱和地盘"：一个坚持不存你聊天记录的 AI 平台成了独角兽、还赚钱；<span class="accent">Google</span> 的常驻 agent 爬上了 Mac 桌面；专用推理芯片卖到十亿美元；连 AI 的算力都有人想搬去太空。</p>
   </header>
 
-  <section class="section">
+  <div class="section-block">
     <div class="sec-eyebrow">HEADLINE</div>
     <div class="sec-title">今日头版</div>
     <div class="item">
@@ -203,11 +203,11 @@ body{
 
       <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/">techcrunch.com</a> / GeekWire · <a href="https://www.geekwire.com/2026/private-ai-venice-ai-led-by-crypto-vet-erik-voorhees-and-seattles-jesse-proudman-raises-65m/">geekwire.com</a></p>
     </div>
-  </section>
+  </div>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <div class="section-block">
     <div class="sec-eyebrow">DISPATCH</div>
     <div class="sec-title">前线</div>
 
@@ -242,11 +242,30 @@ body{
       <p class="body"><span class="turn">竞争最激烈的几家在安全评估上罕见地想统一口径。</span>有了共同的尺子，模型到底安不安全才有可比性，你我作为用户才有据可依。</p>
       <p class="source">Anthropic 官方 · <a href="https://www.anthropic.com/news">anthropic.com</a></p>
     </div>
-  </section>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Anthropic / Cursor / Perplexity</span> · 07-02 · 解禁首日</div>
+      <h2 class="item-title"><span class="hl">Fable 5 回归，但这次不是原样回归——它被装了"安全路由"</span></h2>
+      <p class="body"><span class="accent">Anthropic</span> 官宣 Fable 5 回来了。但细节比标题更值得看：<span class="hl">更新后的网络安全防护会部分请求直接路由到 Opus 4.8</span>，生物与化学分类器"仍然过宽"，意味着监管接口还没完全放开。这不是一次干净的回归，是一次带安全闸门回归。</p>
+      <p class="body">回归立刻传导到整个工具链：Cursor 说 Fable 5 在其评测里领先、但单任务成本最高；Devin 在 Cloud/Desktop/CLI 全线接上；Perplexity 把它重新设为编排模型；Anthropic 同时重置了用户的速率限制。一天之内全线就位。</p>
+      <p class="body">更有信息量的是社区的反应方式：没人再迷信单模型。Theo 的做法是 Fable 只用于高价值推理与规划，实现、验证、操作电脑交给别的模型，端到端 PR 产出率大幅提升。Remote Labor Index 上 Fable 5 拿到 <span class="num">16.10%</span>。<span class="turn">"哪个模型最强"的问题正在变成"怎么组合才最强"。</span></p>
+      <p class="source">Latent Space / AINews · <a href="https://www.latent.space/p/ainews-not-much-happened-today-900" target="_blank">latent.space</a></p>
+    </div>
+
+    <div class="item">
+      <div class="dateline"><span class="src">Together AI</span> · 07-02 · C 轮 · 估值 83 亿美元</div>
+      <h2 class="item-title"><span class="hl">Together AI 融 8 亿美元：开源模型的"推理通道"正在被资本加厚</span></h2>
+      <p class="body"><span class="accent">Together AI</span> 完成 <span class="num">8</span> 亿美元 C 轮融资，估值 <span class="num">83</span> 亿美元。这家公司不做模型，专做开源模型推理平台——GLM、Llama、Qwen 这些开源权重，很多人的第一反应都是跑在 Together 上。</p>
+      <p class="body">它的涨价节奏像一面镜子：成立 <span class="num">3</span> 年估值从 <span class="num">10</span> 亿级爬到 <span class="num">83</span> 亿。背后是 <span class="hl">开源模型从"能跑"到"好用"的通道生意被重新定价</span>——模型开源了，但让千万人低延迟、低价格地用起来，需要专门的基建，这门生意正在被资本重估。</p>
+      <p class="body">同一天 vLLM 给 GLM-5.2 加了 DSpark 投机解码预览（约 <span class="num">1.5</span> 倍解码提速），GitHub Copilot 首次接入开源代码模型。开源推理链条上的每一环都在同步变粗。</p>
+      <p class="body"><span class="turn">当闭源模型打价格战，开源阵营选择把"跑模型的路"修得越来越宽。</span></p>
+      <p class="source">Latent Space / AINews · <a href="https://www.latent.space/p/ainews-not-much-happened-today-900" target="_blank">latent.space</a></p>
+    </div>
+  </div>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <div class="section-block">
     <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
     <div class="sec-title">创造</div>
 
@@ -257,11 +276,11 @@ body{
       <p class="body">语音正在从"念稿机器人"变成能真办事的入口。对做客服、做硬件、做小工具的人，自己拼一个语音 agent 的成本又低了一截。</p>
       <p class="source">xAI 官方 · <a href="https://x.ai/news">x.ai</a></p>
     </div>
-  </section>
+  </div>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <div class="section-block">
     <div class="sec-eyebrow">VISUAL · AI 的视觉冲击</div>
     <div class="sec-title">视觉</div>
 
@@ -277,11 +296,11 @@ body{
       </div>
       <p class="source">Euronews · <a href="https://www.euronews.com/2026/07/01/planned-17-million-satellites-devastating-for-astronomy-by-making-night-sky-brighter">euronews.com</a></p>
     </div>
-  </section>
+  </div>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <div class="section-block">
     <div class="sec-eyebrow">MONEY · 钱在流动</div>
     <div class="sec-title">投资与资金流向</div>
 
@@ -297,11 +316,11 @@ body{
       </div>
       <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/06/30/nvidia-competitor-etched-hits-5b-valuation-1b-in-sales-for-ai-chip/">techcrunch.com</a></p>
     </div>
-  </section>
+  </div>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <div class="section-block">
     <div class="sec-eyebrow">VOICES · 本周声音</div>
     <div class="sec-title">声音</div>
 
@@ -314,11 +333,11 @@ body{
       <p class="voice-text">"从安全角度看，让世界进入下一阶段、每个人都被持续监视，这其实非常危险。"</p>
       <p class="voice-who">Erik Voorhees · Venice AI 创始人兼 CEO · <a href="https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/">techcrunch.com</a></p>
     </div>
-  </section>
+  </div>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <div class="section-block">
     <div class="sec-eyebrow">THE WRAP</div>
     <div class="sec-title">今日小结</div>
     <div class="item">
@@ -334,16 +353,16 @@ body{
     </div>
     <div class="signal">今天没有新模型，但模型需要的东西——算力、入口、安全标准、用户信任——全在重新画线。</div>
     </div>
-  </section>
+  </div>
 
-  <section class="section">
+  <div class="section-block">
     <div class="sec-eyebrow">BE CURIOUS 🌌</div>
     <div class="sec-title">保持好奇</div>
     <div class="img">
       <img src="https://www.gstatic.com/prettyearth/assets/full/1400.jpg" alt="从卫星高度俯瞰海岸线的潮汐纹理" loading="lazy">
       <p class="img-cap">Mont Saint-Michel Bay, France · <span class="num">48.62</span>°N, <span class="num">1.54</span>°W<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
     </div>
-  </section>
+  </div>
 
   <footer class="footer">
     <p class="big">AI 情报日报 · 前沿信号流</p>
@@ -355,24 +374,5 @@ body{
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

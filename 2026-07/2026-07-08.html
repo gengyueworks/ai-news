@@ -137,7 +137,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap{
   font-size:12.5px;
   color:var(--gray);
@@ -213,7 +213,7 @@ body{
 <div class="mast-rule"></div>
 <div class="mast-meta">
 <span class="issue">2026-07-08 · 周三</span>
-<span>本期 9 条</span>
+<span>本期 11 条</span>
 </div>
 </div>
 
@@ -303,6 +303,29 @@ body{
 <img src="https://ec.europa.eu/commission/presscorner/static/sm_ec_logo_big.jpg" alt="欧盟委员会发布《网络安全与 AI 行动计划》" loading="lazy">
 </div>
 <div class="src-line">来源：<a href="https://digital-strategy.ec.europa.eu/en/news/commission-presents-eu-action-plan-cybersecurity-and-artificial-intelligence" target="_blank">欧盟委员会新闻稿</a> · <a href="https://commission.europa.eu/news-and-media/news/new-eu-plan-address-risks-and-opportunities-advanced-ai-cybersecurity-2026-07-07_en" target="_blank">委员会官网</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-08 · Liquid AI · <span class="src">开源训练方法 · FTPO</span></div>
+<div class="item-title"><span class="hl">Liquid AI 把"复读死循环"砍掉九成：小模型终于不原地打转了</span></div>
+<div class="body">
+<p><strong>Liquid AI 开源 Antidoom，针对的是推理小模型的著名翻车：陷入循环反复输出同一 token，直到把上下文耗尽。方法叫 FTPO（最终 token 偏好优化），把触发循环的那个 token 重新标注、把概率重分配给替代项。</strong></p>
+<p>数字很硬：greedy 采样下 LFM2.5-2.6B 的死循环率从 <span class="num">10.2%</span> 降到 <span class="num">1.4%</span>，Qwen3.5-4B 从 <span class="num">22.9%</span> 降到 <span class="num">1%</span>，且下游评测同步受益。<span class="hl">这是当下研究转向的缩影：不堆参数，精准拆特定失败模式。</span></p>
+<p><span class="turn">当模型尺寸不再增长，把每个已知失败模式拆掉，就是新的提升路径。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-lilian-weng-summarizes-35" target="_blank">Latent Space / AINews</a> · <a href="https://github.com/LiquidAI-org" target="_blank">Liquid AI · GitHub</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-08 · Harvey × Artificial Analysis · <span class="src">法律 agent 基准</span></div>
+<div class="item-title"><span class="hl">法律 AI 测出残酷真相：最强模型全过率只有 14.2%——但资本照样砸 1.2 亿美元估值</span></div>
+<div class="body">
+<p><strong>Harvey 与 Artificial Analysis 发布 Harvey LAB-AA 法律 agent 基准：<span class="num">120</span> 道私有法律任务、24 个执业领域，要求端到端产出合规交付物。结果最强模型 Fable 5 全过率也只有 <span class="num">14.2%</span>，Opus 4.8 与 GLM-5.2 并列 <span class="num">7.5%</span>——而 GLM 的单任务成本只有 Fable 的约 6%。</strong></p>
+<p>消息本身很扎心：<span class="hl">模型能通过大量单项评分，却仍交不出合格的端到端成果</span>。单项强不等于能用，这层差距第一次被一个垂直基准量化。</p>
+<p>但资本没等。同一天 Norm Ai 完成 <span class="num">$1.2B</span> 估值、1.2 亿美元 C 轮，主打"全栈 agentic law"。法律 AI 的两条线同时推进：评测在揭短，钱在加注。</p>
+<p><span class="turn">垂直行业的胜负手不是模型总分，是能不能把最后一段交付做好。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-lilian-weng-summarizes-35" target="_blank">Latent Space / AINews</a></div>
 </div>
 </div>
 
@@ -475,24 +498,5 @@ body{
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

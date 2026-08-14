@@ -291,13 +291,37 @@
 
         <!-- Midjourney Scanner -->
         <div class="news-item">
-            <h3 class="news-title">Midjourney从猫图到全身扫描仪——你站上去它看遍你全身</h3>
+            <h3 class="news-title">Midjourney 推出全身超声波 CT：35.8 万阵元、号称 50 年首个新模态——但还没有任何诊断验证</h3>
             <div class="image-block">
                 <img src="https://www.engadget.com/img/gallery/midjourney-the-ai-image-generator-is-developing-a-full-body-ultrasonic-scanner/intro-1781762608.jpg" alt="Midjourney Scanner 全身超声波扫描仪" loading="lazy">
             </div>
-            <p class="news-body">Midjourney CEO David Holz展示了公司第一个硬件产品：<span class="highlight">Midjourney Scanner</span>——一个超声波全身扫描仪。你站上平台，平台降入水中，一圈<span class="accent">40个</span>传感器从上到下扫过你全身，看你的<span class="highlight">肌肉、脂肪、骨骼和器官</span>怎么变化。Holz说目标是<span class="turn">"在许多方面比MRI更好"</span>。跟Butterfly Network合作开发，用的是他们的Ultrasound-on-Chip模块。定位不是诊断——是预防性扫描，他叫它<span class="highlight">"magical spa"</span>。</p>
-            <p class="source-line">来源：The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/952011/midjourney-medical-ai-ultrasound-scan" target="_blank">theverge.com</a></p>
+            <p class="news-body">6 月 17 日 <span class="accent">Midjourney</span> 发布 Midjourney Scanner：环形水浸式全身超声波 CT。结构上，<span class="num">8960</span> 个传感器 × <span class="num">40</span> 套系统组成一圈，总共 <span class="num">358,000</span> 个超声波阵元，直径 70 厘米，扫描时每秒产出约 <span class="num">17GB</span> 数据，单块身体切片约 40GB，重建要用 21 台服务器。CEO David Holz 称这是<span class="hl">"50 年来第一个新的全身医学成像模态"</span>。</p>
+            <p class="news-body">现状很诚实：团队约 <span class="num">9</span> 人，至今只扫过约 12 个人，一次扫描要 20 分钟（卡在带宽、算法、DSP），分辨率宣称到 0.5mm。公司同时宣布在旧金山 Union Square 开 Midjourney Spa——约 <span class="num">25000</span> 平方英尺、四层楼、9-10 台扫描仪，目标 <span class="num">2027</span> 年底开业。已和 FDA 启动讨论。</p>
+            <p class="news-body">远景数字很大：目标 <span class="num">5 万台</span>扫描仪、每月 <span class="num">10 亿次</span>扫描；Holz 说不到 12 台满速机器就能扫出全球 MRI 的总量，单次成本可能比 MRI 便宜几个数量级，但铺几千家 Spa 需要约 <span class="num">200 亿美元</span>前期投入。质疑同样硬：<span class="hl">没有临床验证、没有灵敏度/特异度数字</span>。</p>
+            <p class="news-body"><span class="turn">这台机器能不能真看病还早，但它意味着 AI 实验室开始造"给 AI 喂身体数据的设备"——模型之后再抢数据管道。</span></p>
+            <p class="source-line">来源：<a href="https://www.latent.space/p/ainews-midjourney-medical-scan-your" target="_blank">AINews</a> · <a href="https://www.theverge.com/ai-artificial-intelligence/952011/midjourney-medical-ai-ultrasound-scan" target="_blank">The Verge</a></p>
             <p class="card-tag">前线·AI设计·产品转折·人的代价</p>
+        </div>
+
+        <!-- GLM-5.2 手感检验 -->
+        <div class="news-item">
+            <h3 class="news-title">GLM-5.2 通过"手感检验"：知识工作基准排第三、成本只要 Fable 的 1/13——但这不是跑分刷出来的</h3>
+            <p class="news-body"><strong>AINews 把 6 月 19 日称为 GLM-5.2 的突破日。圈内对开源模型一向有<span class="hl">"benchmaxxed"</span>的警惕。这次是<span class="hl">真实使用手感</span>：<span class="accent">Jeremy Howard</span>（以不吹牛著称）说它"至少和 Opus 4.8、GPT-5.5 一样好"，短板是没有视觉；<span class="accent">Mat Velloso</span> 说它是第一个通过他"日常主力"标准的开源模型。</strong></p>
+            <p class="news-body"><span class="accent">Artificial Analysis</span> 的新基准 AA-Briefcase 给出硬数据：它围绕跨数周的项目、上千份碎片化输入模拟真实知识工作。GLM-5.2 拿 <span class="num">1266</span> Elo，排 Fable 5（<span class="num">1587</span>）和 Opus 4.8（<span class="num">1356</span>）之后，是非 Anthropic 系最强。更值钱的是经济学：Fable 5 平均 <span class="num">$31</span>/任务，Opus 4.8 <span class="num">$10.40</span>，GPT-5.5 xhigh <span class="num">$3.68</span>，GLM-5.2 只要 <span class="num">$2.40</span>——约 Fable 的 <span class="num">1/13</span>。</p>
+            <p class="news-body">架构上靠的是 <span class="hl">IndexShare</span>：在 MLA、DSA 之外把稀疏注意力的 top-k 索引跨层复用，压低了 100 万 token 上下文的推理成本。整体 <span class="num">753B</span> 参数 MoE（每 token 约 40B 激活）、MIT 许可、28.5T 预训练、1M 上下文。</p>
+            <p class="news-body">Z.ai 自己放话，年内可能见到"开源的 Fable 级模型"。<span class="turn">如果差距按这个速度收窄，"谁是前沿"这个问题的答案会从一家公司变成一群实验室。</span></p>
+            <p class="source-line">来源：<a href="https://www.latent.space/p/ainews-glm-gpt-glm-52-passes-vibe" target="_blank">AINews</a> · Artificial Analysis</p>
+            <p class="card-tag">前线·开源模型·前沿信号</p>
+        </div>
+
+        <!-- Poolside Laguna M.1 -->
+        <div class="news-item">
+            <h3 class="news-title">Poolside 开源 225B 编程模型 Laguna M.1：Apache 2.0、256K 上下文——主打长程 agent 编码，不是跑分</h3>
+            <p class="news-body"><strong>法国 <span class="accent">Poolside</span> 把 Laguna M.1 权重以 <span class="hl">Apache 2.0</span> 开源，256K 上下文。结构是 70 层稀疏 MoE：总参数 <span class="num">225B</span>、每 token 激活 <span class="num">23B</span>、<span class="num">256</span> 个专家、top-k=16，明显冲着<span class="hl">长程 agent 编码</span>优化。</strong></p>
+            <p class="news-body">给本地玩家看的演示：3-bit MLX 量化在 M3 Max <span class="num">128GB</span> 机器上跑到约 <span class="num">26 tok/s</span>、峰值内存约 <span class="num">100GB</span>。</p>
+            <p class="news-body"><span class="turn">一周内开源侧冒出 GLM-5.2、Laguna M.1、North Mini Code 三条线——编程 agent 的开源底座从"缺人用"变成"挤破头"。</span></p>
+            <p class="source-line">来源：<a href="https://www.latent.space/p/ainews-glm-gpt-glm-52-passes-vibe" target="_blank">AINews</a> · Poolside</p>
+            <p class="card-tag">前线·开源模型·前沿信号</p>
         </div>
     </div>
 
@@ -417,24 +441,5 @@
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

@@ -137,7 +137,7 @@ body{
 .figure{margin:18px 0 24px;}
 .figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
 .image-block{margin:18px 0 24px;}
-.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
 .img-cap{
   font-size:12.5px;
   color:var(--gray);
@@ -186,7 +186,7 @@ body{
 <div class="mast-rule"></div>
 <div class="mast-meta">
 <span class="issue">2026-07-11 · 周六</span>
-<span>本期 12 条</span>
+<span>本期 14 条</span>
 </div>
 <div class="mast-lede">这一周，前沿模型继续往"默认入口"沉，开源侧却把"自己搭、自己管"的零件备齐了。周末这版，我们把镜头从大厂发布会挪开，看看社区和学校里那些不喧哗、但正在改变门槛的事。</div>
 </div>
@@ -245,6 +245,30 @@ body{
 </ul>
 
 <div class="src-line">来源：<a href="https://www.anthropic.com" target="_blank">Anthropic</a> · <a href="https://github.com/anthropics/claude-cookbook" target="_blank">Claude Cookbook · GitHub</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-11 · OpenAI / 社区实测 · <span class="src">发布后运营</span></div>
+<div class="item-title"><span class="hl">GPT-5.6 出了名难选：36 个变体把用户绕晕，OpenAI 两天重置两次额度</span></div>
+<div class="body">
+<p><strong>OpenAI 把 Sol/Terra/Luna 三档乘上多档 effort，API 用户面对的是 <span class="num">36</span> 个配置组合。社区只好互相教学："日常编码用 luna high，仓库级改动用 terra high，别碰 Sol Extra。"Sebastian Raschka 的结论很直接：<span class="hl">除非你真需要 Terra Ultra 的性能，否则永远用 Luna 加更高 effort，效果一样还更便宜</span>。</strong></p>
+<p>更麻烦的是隐藏成本：子 agent 默认继承主会话的设置，spawn 出的 Sol Ultra 又去 spawn Sol Ultra，额度肉眼可见地烧。多个用户反馈"5.6 让我开始怀疑 $200 的 Pro 值不值"。OpenAI 的反应少见地直接：两次重置额度、承认默认值把用户推向昂贵配置、承诺改回熟悉的侧边栏导航。</p>
+<p>同一天的数据支撑了"用对模型很值"：Code Arena Frontend 上 GPT-5.6 与 Fable 5 并列第一、表价便宜约 <span class="num">2</span> 倍；Presentation 基准比 GPT-5.5 高约 <span class="num">500</span> Elo。</p>
+<p><span class="turn">模型越强，"选对档位"越是一门必修课——浪费的不是分数，是预算。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-not-much-happened-today-f5c" target="_blank">Latent Space / AINews</a> · <a href="https://openai.com/index/gpt-5-6/" target="_blank">OpenAI Blog</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-11 · OpenAI · <span class="src">健康 + 科学</span></div>
+<div class="item-title"><span class="hl">GPT-5.6 的健康叙事很具体：Luna 最低档打平 GPT-5.5 最高档，成本差 25 倍</span></div>
+<div class="body">
+<p><strong>OpenAI 给 GPT-5.6 铺了两条新叙事。健康：Luna 在最低 effort 下的表现打平 GPT-5.5 的最高 effort，成本却低 <span class="num">25</span> 倍；在 <span class="num">2</span> 万项医生盲评里，医生给 GPT-5.6 找出的错误比医生自己写的回答还少。科学：GPT-5.6 Sol Ultra 被传用 <span class="num">64</span> 个子 agent 在一小时内产出了 Cycle Double Cover 猜想的证明（仍待独立验证）。</strong></p>
+<p>这两条合起来指向一个动作：<span class="hl">把并行研究 agent 包装成"科学计算原语"，把健康包装成"便宜到可以规模化的垂直能力"</span>。前者尚未验证，后者有数据背书。</p>
+<p>安全侧也在同步收紧：生物漏洞赏金翻倍到 <span class="num">$50K</span> 并转为常设项目。</p>
+<p><span class="turn">一个模型同时被包装成科研原语、医疗助手和安全热点，GPT-5.6 的战场远不止编码。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-not-much-happened-today-f5c" target="_blank">Latent Space / AINews</a> · <a href="https://openai.com/index/gpt-5-6/" target="_blank">OpenAI Blog</a></div>
 </div>
 </div>
 
@@ -461,24 +485,5 @@ body{
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

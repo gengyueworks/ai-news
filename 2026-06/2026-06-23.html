@@ -216,11 +216,12 @@
         <h2 class="section-header">今日头版</h2>
 
         <div class="news-item">
-            <h3 class="news-title">Anthropic让Claude常驻Slack——agent从被动问答变成了团队里的数字同事</h3>
-            <p class="intro-text">Anthropic推出<span class="highlight">Claude Tag</span>，面向Enterprise和Team客户，让Claude在Slack里被@唤起、读取对话、拆任务、主动标记更新。</p>
-            <p class="intro-text">Claude Tag被定位为<span class="highlight">Claude Code</span>的演化起点——在Slack线程里@Claude，它能读上下文、拆任务、标记更新。agent开始从"你问我答"往长期待在工作流里、共享上下文、异步追任务的方向走。</p>
-            <p class="intro-text">如果这条线走通，<span class="turn">企业之后会为一个能长期待在工作流里的数字同事买单</span>。</p>
-            <p class="source-line">来源：Anthropic · <a href="https://www.anthropic.com/news/introducing-claude-tag" target="_blank">anthropic.com</a> · Reuters</p>
+            <h3 class="news-title">Claude Tag 内部已写掉 65% 的 PR——Anthropic 说这是"Claude Code 变多人在线"，但安全、记忆、成本全是问号</h3>
+            <p class="intro-text"><span class="accent">Anthropic</span> 说 Claude Tag 团队用了一整年，现在 <span class="num">65%</span> 的产品 PR 是它写的，包括<span class="hl">"构建 Claude Tag 本身的绝大部分代码"</span>。产品是 beta 版，面向 Enterprise 和 Team 套餐，<span class="hl">Claude 作为团队成员进 Slack</span>，<span class="hl">被授予你选的频道、工具、数据和代码库</span>。</p>
+            <p class="intro-text">真正的差异化在<span class="hl">"主动"</span>：tag 它可以点名懂相关代码的同事；<span class="hl">git webhook 能等阻塞依赖好几天</span>，实现"叠 prompt"而不是"叠 diff"；能把线程总结成带行动项的文档；<span class="hl">环境（ambient）模式下不用 @ 也会扫频道决定要不要回应</span>、跨频道同步信息、盯阈值自动触发修复。</p>
+            <p class="intro-text"><span class="accent">Karpathy</span> 说这是 LLM UI/UX 的第三次重大重设计：网站 → 桌面 app → 常驻的异步实体。<span class="hl">Anthropic 补了身份模型</span>：Claude 用自己的凭证、动作可审计、可集中撤销。质疑同样多：跨频道记忆怎么分、权限细到什么程度、token 成本看不看得见。</p>
+            <p class="intro-text"><span class="turn">Claude Tag 不是又一个小功能，它把 agent 的竞争从"模型多强"拉到"能不能安全地住进一个组织的日常"。</span></p>
+            <p class="source-line">来源：<a href="https://www.anthropic.com/news/introducing-claude-tag" target="_blank">Anthropic</a> · <a href="https://www.latent.space/p/ainews-claude-tag-multiplayer-proactive" target="_blank">AINews</a></p>
             <div class="image-block">
                 <img src="https://cdn.sanity.io/images/4zrzovbb/website/b296093596b38f0a5fb56b85760baed37ea6798b-2400x1260.png" alt="Claude Tag——agent开始常驻团队协作场景" loading="lazy">
                 <p class="image-caption">Claude Tag：agent从被动问答到常驻团队协作 · Anthropic</p>
@@ -235,10 +236,11 @@
         <h2 class="section-header">前线</h2>
 
         <div class="news-item">
-            <h3 class="news-title">OpenAI Daybreak开始从概念变成安全生态里的协作层——IBM加入了 <span style="font-size:12px;font-weight:400;color:var(--text-light);">#前沿信号</span></h3>
-            <p class="news-body"><span class="accent">IBM</span>宣布加入<span class="highlight">OpenAI Daybreak Cyber Partner Program</span>，把AI网络安全从单一模型推向了协作生态。<span class="highlight">GPT-5.5-Cyber</span>的能力也在往漏洞发现、验证和修复方向扩展。</p>
-            <p class="news-body">这不是发布一个新模型，<span class="turn">更像在搭一层真正会被企业买单的AI安全基础设施</span>——插件、伙伴计划、工作流嵌入，目标是把AI安全做成能接进已有安全流程的协作层。<span class="accent">IBM</span>入场，意味着这个生态开始从构想往落地走。</p>
-            <p class="source-line">来源：IBM · <a href="https://www.channelnewsasia.com/media-release/ibm-and-openai-bring-frontier-ai-cyber-defense-helping-enterprises-keep-pace-machine-speed-threats-5180306" target="_blank">channelnewsasia.com</a></p>
+            <h3 class="news-title">OpenAI 把网络安全从"找漏洞"升级成"闭环节修复"：扫 3000 万次提交、出 7 万处人工复核修复——但最强的模型偏偏逃不过同等的管控拷问</h3>
+            <p class="news-body"><span class="accent">OpenAI</span> 这轮是把网络安全从"发现漏洞"推进到<span class="hl">"生成补丁、交人复核"的闭环</span>。范围数据：扫描 <span class="num">3000 万+</span> 次提交、覆盖 <span class="num">3 万+</span> 代码库、<span class="num">7 万+</span> 处人工复核过的修复、另有 <span class="num">50 万+</span> 处自动检测的修复；cURL、Go、Python、Sigstore、pyca/cryptography <span class="hl">都在保护名单上</span>。</p>
+            <p class="news-body">产品栈：<span class="hl">完整 GPT-5.5-Cyber 模型开放给可信防御者</span>、<span class="hl">Codex Security 插件、Cyber Partner Program、Patch the Planet</span>（保护关键开源软件）。<span class="accent">Altman</span> 直接称 GPT-5.5-Cyber 在 CyberGym 上是 SOTA。<span class="hl">但矛盾立刻被抛出</span>：Anthropic 的 Mythos/Fable 因政府要求受限，OpenAI 的最强网络模型凭什么不受同等管控？</p>
+            <p class="news-body"><span class="turn">OpenAI 在"能力声明"和"治理标准"之间撕开的口子越来越大——网络攻防能力开始变成和模型参数一样需要审批的东西。</span></p>
+            <p class="source-line">来源：<a href="https://www.latent.space/p/ainews-spacex-is-already-a-28byr" target="_blank">AINews</a> · OpenAI</p>
         </div>
 
         <div class="news-item">
@@ -246,6 +248,15 @@
             <p class="news-body"><span class="highlight">Claude Code创建者Boris Cherny</span>在Meta @Scale大会上说"Loop时代来了"——agent从被动执行变成持续自主循环：一个agent持续找架构改进机会，另一个持续合并重复抽象，代码一直在变，它们永远不停。</p>
             <p class="news-body">头条说agent常驻Slack，这条说agent循环——<span class="turn">两个信号指向同一个方向：agent正在从工具变成后台生产力引擎</span>。<span class="accent">Loop时代</span>来了，<span class="accent">Karpathy</span>也说他每天花<span class="accent">16小时</span>在指挥agents——人在变，AI也在变。</p>
             <p class="source-line">来源：TechCrunch · <a href="https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/" target="_blank">techcrunch.com</a> · Meta @Scale</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">SpaceX 拿下第三个 GPU 租约：Reflection 出 63 亿美元租 GB300——Neocloud 年化 280 亿美元，已是 CoreWeave 两倍</h3>
+            <p class="news-body"><strong>6 月 22 日，<span class="accent">SpaceX/xAI</span> 与开源模型公司 <span class="accent">Reflection AI</span> 签下价值 <span class="num">63 亿美元</span> 的算力协议：<span class="hl">Reflection 获得 GB300 优先使用权</span>，<span class="hl">从 2026 年 7 月 1 日起每月付 <span class="num">1.5 亿美元</span>，一直付到 2029 年</span>。这是 SpaceX 的第三个大型 GPU 租约——<span class="hl">前两个分别来自 Anthropic 和 Google</span>。</strong></p>
+            <p class="news-body"><span class="accent">Jamin Ball</span>（Clouded Judgement）<span class="hl">把三笔账加总</span>：Anthropic 的 Colossus 1 和 2 协议每月约 <span class="num">12.5 亿美元</span>、约 32.5 万张芯片，加上 Google 和这笔新账，合计每月 <span class="num">23.2 亿美元</span>，Blackwell 折算每小时单价超过 <span class="num">10 美元</span>——<span class="hl">年化 <span class="num">280 亿美元</span>，大约是刚上市一年、目前估值 600 亿美元的 CoreWeave 营收的两倍</span>。</p>
+            <p class="news-body"><span class="hl">值得注意的缺席者：这笔客户名单里没有 OpenAI</span>——OpenAI 自己的算力从哪来，成了公开的悬念。</p>
+            <p class="news-body"><span class="turn">GPU 租赁和算力经纪正在变成夹在模型公司与硬件供应之间的独立战略层，<span class="hl">"谁能把 GB300 变成钱"</span>本身就是一门 280 亿美元级别的生意。</span></p>
+            <p class="source-line">来源：<a href="https://www.latent.space/p/ainews-spacex-is-already-a-28byr" target="_blank">AINews</a> · CNBC</p>
         </div>
     </div>
 
@@ -359,24 +370,5 @@
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>

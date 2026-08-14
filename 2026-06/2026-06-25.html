@@ -241,6 +241,22 @@
             <p class="news-body"><span class="turn">人的判断力、跨多个产品周期的经验直觉——这些东西没法数字化。</span>当有经验的人走了，AI用不完整的数据训练，问题就悄悄渗进了系统。Ford的教训：没有人的AI不行。</p>
             <p class="source-line">来源：The Verge · <a href="https://www.theverge.com/transportation/956316/ford-quality-jd-power-ranking-ai-automated-mistakes" target="_blank">theverge.com</a> · Bloomberg</p>
         </div>
+
+        <div class="news-item">
+            <h3 class="news-title">Anthropic 指控阿里系用 2.5 万个假账号、2880 万次对话蒸馏 Claude——"对抗式蒸馏"从传闻变成执法级事件</h3>
+            <p class="news-body"><strong><span class="accent">Anthropic</span> 6 月 25 日提出指控：与阿里有关联的运营方使用约 <span class="num">25000</span> 个欺诈账号、进行 <span class="num">2880 万</span> 次 Claude 对话，试图把前沿能力蒸馏进 Qwen 级系统。<span class="hl">这个规模意味着不是零星爬取，是组织化、工业化的蒸馏作业</span>。</strong></p>
+            <p class="news-body">它的分量在时间线上：今年 2 月 Anthropic 出过一份"工业规模蒸馏"报告，点名了几家中国实验室，唯独没点 Z.ai——这后来成了 GLM-5.2 团队被圈内高看一眼的旁证。现在指控落到阿里系头上，讨论从"传闻"升到<span class="hl">"执法与国策"层面</span>。同日还有一个相关案子：<span class="accent">Legion</span> 对前政府时期的 AI 出口限制提出首个法律挑战。</p>
+            <p class="news-body"><span class="turn">当最强模型的防线变成"谁家数据出口在哪"，蒸馏不再只是技术议题，已经变成两个实验室体系之间的攻防前线。</span></p>
+            <p class="source-line">来源：<a href="https://www.latent.space/p/ainews-its-meta-harness-summer" target="_blank">AINews</a> · Anthropic</p>
+        </div>
+
+        <div class="news-item">
+            <h3 class="news-title">阿里开源 AgentWorld：一个模型内置 7 个环境——单轮环境预测能迁移到多轮 agent 任务</h3>
+            <p class="news-body"><strong><span class="accent">阿里 Qwen</span> 6 月 25 日开源 Qwen-AgentWorld，主打<span class="hl">"原生语言世界模型"</span>：在单个模型里模拟 <span class="num">7</span> 种环境——MCP、Search、Terminal、SWE、Web、OS、Android。发布的是 <span class="num">35B</span> MoE（<span class="num">3B</span> 激活）+ 256K 上下文的 Qwen-AgentWorld-35B-A3B 和配套的 AgentWorldBench。</strong></p>
+            <p class="news-body">关键结果：单轮环境预测能迁移到多轮 agent 任务，跨 in-domain 和 out-of-domain 都有增益。同批还有 OpenThoughts-Agent——一个开源 agent 数据配方：<span class="num">100+</span> 受控消融、<span class="num">10 万</span> 条训练集，微调 Qwen3-32B 在 7 个 agent 基准平均 <span class="num">44.8%</span>。</p>
+            <p class="news-body"><span class="turn">阿里把 agent 训练从"喂数据"往<span class="hl">"让模型先学会模拟环境"</span>挪了一步——这可能才是开源 agent 真正欠的那块数据地基。</span></p>
+            <p class="source-line">来源：<a href="https://www.latent.space/p/ainews-its-meta-harness-summer" target="_blank">AINews</a> · <a href="https://github.com/QwenLM" target="_blank">Qwen GitHub</a></p>
+        </div>
     </div>
 
     <div class="divider"></div>
@@ -297,10 +313,11 @@
         <h2 class="section-header">投资与资金流向</h2>
 
         <div class="news-item">
-            <h3 class="news-title">OpenAI推出自研推理芯片Jalapeño——IPO前把最贵的成本项变成自己的</h3>
-            <p class="news-body"><span class="accent">OpenAI</span>与<span class="accent">Broadcom</span>合作开发了专用推理芯片<span class="highlight">Jalapeño</span>，为LLM推理优化，被视为<span class="accent">IPO</span>路演期间对抗<span class="accent">Anthropic</span>的关键差异化资产。<span class="turn">把推理成本变成自己手里的牌——NVIDIA定价表上的数字，不如自己手里造的芯片。</span></p>
-            <p class="news-body">同一时间，<span class="accent">Micron</span>和<span class="accent">Qualcomm</span>发布强劲预测，芯片板块市值一夜暴涨<span class="accent">4000亿</span>美元——底层硬件的吸金能力依然是整个行业最确定的增长引擎。</p>
-            <p class="source-line">来源：SiliconANGLE · <a href="https://siliconangle.com/2026/06/24/openai-broadcom-debut-custom-jalapeno-chip-llm-inference/" target="_blank">siliconangle.com</a> · TechCrunch · Reuters</p>
+            <h3 class="news-title">OpenAI 自研推理芯片 Jalapeño：9 个月出 tapeout、约 10 PFLOPS——但图纸未公开，全是社区逆向</h3>
+            <p class="news-body">6 月 24 日 <span class="accent">OpenAI</span> 与 <span class="accent">Broadcom</span> 发布 Jalapeño——OpenAI 第一颗为 LLM 推理定制的芯片，服务 ChatGPT、Codex、API 和未来的 agent 产品。OpenAI 强调性能功耗比，<span class="hl">社区逆向工程估计它长得像 TPU</span>：接近 reticle 极限的 die、约 <span class="num">216GB</span> HBM3E、带宽约 <span class="num">7.1~7.4 TB/s</span>、FP4 下约 <span class="num">10 PFLOPS</span>。这些数字均未经官方确认。</p>
+            <p class="news-body">真正的信号是周期：<span class="hl">从设计到 tapeout 只用了 <span class="num">9 个月</span>，对高性能 ASIC 快得不正常</span>，OpenAI 暗示是拿自己的模型加速了芯片设计。同日 <span class="accent">Chris Lattner</span> 宣布 Qualcomm 收购 Modular（Mojo 开源计划不变）。</p>
+            <p class="news-body"><span class="turn">OpenAI 自造芯片 + 高通吃编译器，推理层正在从"买卡"变成"自研全栈"——NVIDIA 的定价表不再是唯一选项。</span></p>
+            <p class="source-line">来源：<a href="https://siliconangle.com/2026/06/24/openai-broadcom-debut-custom-jalapeno-chip-llm-inference/" target="_blank">SiliconANGLE</a> · <a href="https://www.latent.space/p/ainews-its-meta-harness-summer" target="_blank">AINews</a></p>
         </div>
     </div>
 
@@ -343,24 +360,5 @@
 <link rel="stylesheet" href="../glossary/glossary.css">
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
 <script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-
-
-<div class="public-subscribe-banner">
-  <div class="public-subscribe-inner">
-    <span class="public-subscribe-text">📖 开放查阅版 · 6-7 月日报免费阅读 · 完整订阅版含 8 月起最新日报</span>
-    <a href="#" class="public-subscribe-link">订阅完整版 →</a>
-    <a href="../index.html" class="public-subscribe-back">返回首页</a>
-  </div>
-</div>
-
-<style>
-.public-subscribe-banner{background:#002FA7;color:#fff;padding:18px 20px;margin-top:48px;font-family:'Noto Sans SC',sans-serif;}
-.public-subscribe-inner{max-width:680px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:center;font-size:13px;line-height:1.6;}
-.public-subscribe-text{color:#fff;}
-.public-subscribe-link,.public-subscribe-back{color:#fff;text-decoration:underline;}
-.public-subscribe-link{font-weight:600;background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:3px;text-decoration:none;}
-.public-subscribe-link:hover{background:rgba(255,255,255,0.22);}
-</style>
-
 </body>
 </html>
