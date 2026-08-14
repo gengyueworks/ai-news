@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报日报｜2026-07-15</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-07-15 · 周三</span>
+<span>本期 11 条</span>
+</div>
+<div class="mast-lede">今天的主线很清楚：一边是把"自主"攥紧——美团用国产 5 万卡集群把 LongCat-2.0 从头训到跑，微软把自研 MAI 塞进 Office 替换掉 OpenAI；一边是把"能力"压到端侧——Xmax 让实时交互视频在 iPhone 上本地跑，阶跃星辰把原生智能体塞进手机。模型更强已经不是唯一看点，能不能自主可控、端侧跑得动、把 agent 嵌进日常，才是今天真正被摊开的事。</div>
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+
+<div class="item">
+<div class="dateline">07-15 · 美团 · <span class="src">开源·国产集群</span></div>
+<div class="item-title">美团开源 LongCat-2.0：<span class="hl">1.6 万亿参数跑在国产 5 万卡集群上</span></div>
+<div class="body">
+<p><strong>美团开源 LongCat-2.0，总参数 <span class="num">1.6 万亿</span>、激活 <span class="num">480 亿</span>。</strong>它用自研的 LongCat 稀疏注意力与 N-gram Embedding，原生支持 100 万 token 上下文，从零预训练，全程跑在国产 5 万卡集群上，还附了针对国产 GPU 优化的推理代码——这是第一个在这个体量上把训练到推理的生命周期都放在国产算力上的开源模型。</p>
+<p>过去一年大家口中那个"算力卡脖子"的担心，在这里被换成了一条能走通的路径：不依赖海外卡，也能自己造、自己跑。<span class="turn">把"能不能自己造、自己跑"往前推了一大步</span>。</p>
+</div>
+<ul class="points">
+<li>1.6 万亿参数，激活 480 亿</li>
+<li>国产 5 万卡集群全周期</li>
+<li>含国产 GPU 推理代码</li>
+</ul>
+<div class="image-block">
+<img src="https://p0.meituan.net/meituantechblog/3a15143344d034d9911c1ce45b003297631735.jpg" alt="美团 LongCat 2.0 模型界面" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://techblog.meituan.com" target="_blank">美团技术博客</a> · <a href="https://github.com/Meituan-AutoML" target="_blank">Meituan-AutoML · GitHub</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-15 · 微软 · <span class="src">自研模型·去依赖</span></div>
+<div class="item-title">微软把自研 MAI 塞进 Excel 和 Outlook：<span class="hl">悄悄替换掉 OpenAI 与 Anthropic</span></div>
+<div class="body">
+<p><strong>微软开始在 Excel 和 Outlook 里用自研 MAI 替换 OpenAI 与 Anthropic 模型。</strong>据 Bloomberg，每周 <span class="num">数十万</span> 次 AI 请求已经改由自家模型处理。直接动因是钱——微软 AI 负责人苏莱曼直言，每年付给 Anthropic 的费用太高，目标是逐步取消这笔开支。</p>
+<p>这背后是一条裂缝：微软和 OpenAI 那段"绑定即共赢"的关系，开始松动。自研模型已经接进 GitHub Copilot，下一步还要进 Teams 的语音转写。对用 Office 的人，模型换了体验未必变，<span class="turn">但背后的账单和主导权已经改写</span>。</p>
+</div>
+<ul class="points">
+<li>Excel/Outlook 替换 OpenAI·Anthropic</li>
+<li>每周数十万次请求</li>
+<li>MAI 已接进 GitHub Copilot</li>
+</ul>
+<div class="image-block">
+<img src="https://office-watch.com/fredagg/uploads/2026/07/microsoft-excel-outlook-ai-swap.webp" alt="Office 套件 AI 模型切换示意" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://www.bloomberg.com" target="_blank">Bloomberg</a> · <a href="https://www.microsoft.com" target="_blank">Microsoft</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">前线</div>
+
+<div class="item">
+<div class="dateline">07-15 · Meta · <span class="src">编码 agent·价格战</span></div>
+<div class="item-title">Meta 放 Muse Spark 1.1 进编码价格战：<span class="hl">每百万输入 1.25 美元</span></div>
+<div class="body">
+<p><strong>Meta 超级智能实验室发布 Muse Spark 1.1，一个为多步编码优化的多模态模型。</strong>定价每百万输入 <span class="num">1.25</span> 美元、输出 <span class="num">4.25</span> 美元，低于 Claude Haiku 4.5 与 GPT-5.6 Luna；配套的 Meta Model API 还拉来了 Replit、Cline、Box 等伙伴，扎克伯格时隔三年亲自发帖站台。</p>
+<p>同一周 Meta 披露自研 Iris 芯片完成测试、9 月在台积电量产。模型降价叠自研芯片，打法很直白：用更低的价格把开发者拉进自己的栈——<span class="turn">先用便宜和芯片把人圈住，再谈生态</span>。</p>
+</div>
+<ul class="points">
+<li>1.25 / 4.25 美元每百万 token</li>
+<li>低于 Claude Haiku 与 GPT-5.6</li>
+<li>Iris 芯片 9 月量产</li>
+</ul>
+<div class="image-block">
+<img src="https://www.xmsumi.com/storage/picture/20260710/11221446c597068773bbb36446201962.png" alt="Muse Spark 基准对比图表" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://www.techcrunch.com" target="_blank">TechCrunch</a> · <a href="https://www.meta.com" target="_blank">Meta</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-15 · 阶跃星辰 · <span class="src">原生智能体手机</span></div>
+<div class="item-title">阶跃星辰推出 STEPX Neo：<span class="hl">全球首款大模型原生智能体手机</span></div>
+<div class="body">
+<p><strong>阶跃星辰发布 STEPX Neo，号称全球首款大模型原生智能体手机。</strong>努比亚确认其 AI 智能体手机将于 <span class="num">17</span> 日 WAIC 首发，中兴高级副总裁倪飞还提出"听得懂、能干活、记得住、够安全"四标尺。</p>
+<p>行业正从"装一个 AI 助手"走向"系统级原生 agent"——手机出厂就带着能替你跑任务的智能，而不是事后下载个 App。对普通用户，<span class="turn">差别在于以前要自己一步步操作，以后说一句就行</span>。</p>
+</div>
+<ul class="points">
+<li>STEPX Neo 原生智能体手机</li>
+<li>努比亚 7·17 WAIC 首发</li>
+<li>四标尺：听得懂·能干活·记得住·够安全</li>
+</ul>
+<div class="image-block">
+<img src="https://qimg.ithome.com/image/2026/07/14/20260714_163230_729.png" alt="STEPX Neo 智能体手机实拍" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://www.ithome.com" target="_blank">IT之家</a> · <a href="https://www.fastcompany.com" target="_blank">Fast Company</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-15 · 网信办 · <span class="src">端侧备案·合规</span></div>
+<div class="item-title">网信办新增 7 款手机端侧生成式 AI 备案：<span class="hl">Apple 智能、小艺、蓝心在列</span></div>
+<div class="body">
+<p><strong>7 月 15 日，网信办公告新增 <span class="num">7</span> 款手机端侧生成式 AI 服务备案。</strong>名单涵盖 Apple 智能、华为小艺、vivo 蓝心、小米澎湃、努比亚豆包——基本是把主流手机的本地 AI 都收进了监管框架。</p>
+<p>端侧 AI 的合规化明显加速：模型跑在手机本地、数据不出设备，监管也更好落地。同一天，《人工智能拟人化互动服务管理暂行办法》正式施行，豆包、千问在此之前已先下线用户自定义拟人智能体。备案加上新规，<span class="turn">端侧 AI 正在变成手机出厂就必须过的那道门槛</span>。</p>
+</div>
+<ul class="points">
+<li>7 款端侧生成式 AI 备案</li>
+<li>Apple 智能·小艺·蓝心·澎湃·豆包</li>
+<li>拟人化互动新规同日施行</li>
+</ul>
+<div class="src-line">来源：<a href="https://www.cls.cn" target="_blank">财联社</a> · <a href="https://www.ifeng.com" target="_blank">凤凰网</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontline</div>
+<div class="sec-title">开源前线</div>
+
+<div class="item">
+<div class="dateline">07-15 · NVIDIA × Hugging Face · <span class="src">机器人·开源工具链</span></div>
+<div class="item-title">NVIDIA 与 Hugging Face 打通 GR00T 1.7：<span class="hl">给机器人一套开源工具链</span></div>
+<div class="body">
+<p><strong>NVIDIA 与 Hugging Face 把 GR00T 1.7 和 Isaac Teleop 接进了 LeRobot 库。</strong>GR00T 1.7 是用于人形机器人的视觉-语言-动作模型，Isaac Teleop 是采集人类演示数据的开源框架；开发者能借 LeRobot 工作流对 GR00T 做后训练、再部署到真实机器人，两端数据还能互通。</p>
+<p>拼起来看，这是一条从远程采集、仿真训练、模型微调到实机部署的完整开源链路。把 <span class="num">300 万</span> 机器人开发者与 <span class="num">1600 万</span> AI 开发者连起来，<span class="turn">具身智能的研究门槛又被削了一截</span>。</p>
+</div>
+<ul class="points">
+<li>GR00T 1.7 + Isaac Teleop 接入 LeRobot</li>
+<li>端到端开源机器人链路</li>
+<li>NVIDIA×HF 开发者打通</li>
+</ul>
+<div class="image-block">
+<img src="https://blogs.nvidia.com/wp-content/uploads/2026/07/nv-gr00t-e2r-letobot-2up-KV-r2-1600x900-1.jpg" alt="GR00T 机械臂遥操作演示" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://blogs.nvidia.com" target="_blank">NVIDIA Blog</a> · <a href="https://huggingface.co" target="_blank">Hugging Face Blog</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-15 · Mistral · <span class="src">形式化验证·开放权重</span></div>
+<div class="item-title">Mistral 放出 Leanstral 1.5：<span class="hl">形式化验证跑满 miniF2F</span></div>
+<div class="body">
+<p><strong>Mistral 发布 Leanstral 1.5，一个专为 Lean 4 形式化验证打造的混合专家模型。</strong>总参数 <span class="num">1190 亿</span>、激活 60 亿，Apache 2.0 开放；它在 miniF2F 的验证集和测试集上都拿到 <span class="num">100</span>%，解出 PutnamBench 672 题中的 587 题，并在 FATE-H、FATE-X 上刷新成绩。</p>
+<p>把"能不能证明数学命题"做成开源模型的能力，受益的不只是数学——代码正确性、协议验证这类硬核场景，正需要这种可验证的可靠性。小激活参数也让它能在更省的算力下跑，<span class="turn">把证明从少数人的手艺变成能调用的能力</span>。</p>
+</div>
+<ul class="points">
+<li>1190 亿/激活 60 亿，Apache 2.0</li>
+<li>miniF2F 双集 100%</li>
+<li>解出 PutnamBench 587/672</li>
+</ul>
+<div class="image-block">
+<img src="https://mistral.ai/cms-media/api/media/file/OG-mistral-main_1x.jpg" alt="Mistral Leanstral 1.5 形式化验证 模型" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://mistral.ai" target="_blank">Mistral AI</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">声音</div>
+
+<div class="voice">
+<p class="voice-text">"用日活智能体数衡量智能经济，比盯着 Token 消耗更实在。"</p>
+<p class="voice-who">—— 李彦宏 · 百度创始人 · 7/15 · <a href="https://www.people.com.cn" target="_blank">人民日报</a></p>
+</div>
+<div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"把人的'回忆'本能工程化，才是长时记忆该做的事。"</p>
+<p class="voice-who">—— Shadoweave 团队 · 全息记忆系统 · 7/15 · <a href="https://www.360doc.com" target="_blank">新智元</a></p>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Tools & Making</div>
+<div class="sec-title">创造</div>
+
+<div class="item">
+<div class="dateline">07-15 · 研究 · <span class="src">长时记忆·开源</span></div>
+<div class="item-title">00 后团队做 HMS 全息记忆：<span class="hl">长时记忆登顶双榜 SOTA</span></div>
+<div class="body">
+<p><strong>Shadoweave 团队（CMU、清华、上海 AI Lab 等机构的 00 后学者）发布 HMS 全息记忆系统，把人的"回忆"本能工程化。</strong>它在 LongMemEval 与 LoCoMo 两个长时记忆基准上同时登顶（准确率 <span class="num">92.8</span>% / <span class="num">93.5</span>%），已开源 SDK，并提出了做"AI 时代记忆协议"的愿景。</p>
+<p>多数 AI 的"记忆"还停在短期对话窗口，HMS 把跨天、跨任务的长期动态建模当成核心问题。agent 要真正懂一个用户，<span class="turn">先得学会记住他</span>。</p>
+</div>
+<ul class="points">
+<li>LongMemEval 92.8% / LoCoMo 93.5% 双榜 SOTA</li>
+<li>已开源 SDK</li>
+<li>"AI 时代记忆协议"愿景</li>
+</ul>
+<div class="image-block">
+<img src="https://raw.githubusercontent.com/Shadow-Weave/HMS/main/docs/assets/memory_pipeline_demo.svg" alt="HMS 全息记忆 架构示意图" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://github.com/Shadow-Weave/HMS" target="_blank">Shadow-Weave · GitHub</a> · <a href="https://www.360doc.com" target="_blank">新智元</a></div>
+</div>
+</div>
+
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+
+<div class="item">
+<div class="dateline">07-15 · 派拉蒙 / 迪士尼 · <span class="src">流媒体战略·视觉巨头</span></div>
+<div class="item-title">视觉巨头们的流媒体困局：<span class="hl">旧王亲手拆了自己的护城河</span></div>
+<div class="body">
+<p>派拉蒙和迪士尼都曾靠"做内容、卖版权"安稳赚钱。流媒体大战改写了这一切——它们砸钱自建平台对抗 Netflix，结果赛道严重过剩。如今转折点来了：派拉蒙 Skydance 以 <span class="num">1100</span> 亿美元吞下华纳兄弟探索，却遭 12 个州联合起诉阻挡；富国银行则建议迪士尼干脆砍掉 Disney+、只做内容授权，称这样市值能多 <span class="num">40</span>%。</p>
+<p>连开创流媒体模式的 Netflix 今年股价都跌了五分之一。这些"视觉巨头"亲手拆掉了自己的好日子——当渠道自己也能做内容，旧王的城墙比想象中浅。对做画面的人，这是个提醒：别把命运押在别人建的平台上。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.ft.com/media" target="_blank">Financial Times</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Capital</div>
+<div class="sec-title">投资</div>
+
+<div class="item">
+<div class="dateline">07-15 · 宇树科技 · <span class="src">IPO·具身智能</span></div>
+<div class="item-title">宇树科技 IPO 注册获批：<span class="hl">科创板迎具身智能第一股</span></div>
+<div class="body">
+<p><strong>证监会同意宇树科技科创板 IPO 注册申请。</strong>凭借四足机器人与人形机器人的量产能力，宇树把"能走能跳的机器人"从实验室推到了消费与工业场景。</p>
+<p>在 AI 热度从软件卷向硬件的当口，宇树上市让"机器人能不能成一门生意"有了更清晰的定价。对同赛道公司，这也是一记信号：资本开始用营收和交付能力，而不是 demo 视频，来衡量谁值得投。</p>
+</div>
+<ul class="points">
+<li>科创板 IPO 注册获批</li>
+<li>四足+人形机器人量产</li>
+<li>具身智能标志性一步</li>
+</ul>
+<div class="src-line">来源：<a href="https://www.chinanews.com.cn" target="_blank">中国新闻网</a></div>
+</div>
+
+<div class="item">
+<div class="dateline">07-15 · 求之科技 · <span class="src">天使轮·消费级机器人</span></div>
+<div class="item-title">求之科技拿超 1 亿美元天使轮：<span class="hl">押注消费级具身智能机器人</span></div>
+<div class="body">
+<p><strong>专注消费级具身智能的求之科技完成超 <span class="num">1 亿</span> 美元天使轮，由君联资本、联想创投等联合领投。</strong>资金用于核心技术研发、样机量产和家庭服务机器人落地。</p>
+<p>一周之内，从宇树 IPO 到求之天使轮，资本在"会干活的实体"上连续下注。和前两年扎堆大模型不同，钱正在往能摸得着、走得动、进家庭的机器人身上聚——具身智能从论文里的概念，变成投资人账上的头寸。</p>
+</div>
+<ul class="points">
+<li>超 1 亿美元天使轮</li>
+<li>君联·联想创投领投</li>
+<li>家庭服务机器人落地</li>
+</ul>
+<div class="image-block">
+<img src="https://jcdn.xhby.net/dams-res/editing/image/202607/09/6a4f8a61e4b084d2d0a608a4.jpg" alt="多台人形机器人工作室合影" loading="lazy">
+</div>
+<div class="src-line">来源：<a href="https://www.xhby.net" target="_blank">新华报业网</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">小结</div>
+<div class="mast-lede" style="font-size:15px;">
+<p>今天的关键词是"自主"与"成本"。</p>
+<p>一边，美团用国产 5 万卡集群把 LongCat-2.0 从头训到跑，微软把自研 MAI 塞进 Office 替换掉 OpenAI。</p>
+<p>一边，Xmax 把实时交互视频压到 iPhone 本地，阶跃星辰把原生智能体塞进手机。</p>
+<p>开源侧，NVIDIA 与 Hugging Face 给机器人接上 LeRobot 工具链，Mistral 用 Leanstral 把形式化验证做成开源能力。</p>
+<p>监管上，端侧生成式 AI 备案扩容、拟人化互动新规施行。</p>
+<p>模型更强已不是唯一看点，<span class="hl">能不能自主可控、端侧跑得动、把 agent 嵌进日常，才是今天真正被摊开的事</span>。</p>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+
+<div class="curiosity">
+<div class="body">
+<p><strong>阿塞拜疆的泥火山群，是地球上少有的"会冒泡的地形"——地下高压把泥浆和气体推到地表，堆出一座座矮锥。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-school-of-mud-volcano-islands-in-azerbaijan/azmudvolcanozm_oli_20250830_th.jpg" alt="阿塞拜疆泥火山群 卫星影像" loading="lazy">
+<p class="img-cap">Mud Volcanoes, Azerbaijan · <span class="num">40.3</span>°N, <span class="num">50.3</span>°E<br>NASA 在 2025 年拍到阿塞拜疆的泥火山群——地下高压把泥浆与气体推到地表，堆出一座座矮锥，远远看像被按下暂停键的小火山。这是欧亚交界的火山地貌，和地震带、油气田缠在同一片地下。当我们在屏幕上争论哪个模型又省了多少算力，这片泥火山按自己的节奏吐着泡，不关心任何榜单。Epoch AI 的公开数据库（7 月 6 日更新）正用卫星影像估算全球大型 AI 数据中心的用电，而这里的泥浆仍在缓慢流动。<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+<p class="big">AI 情报日报 · 前沿信号流</p>
+<p>SOURCES · 美团 / 微软 / Meta / 阶跃星辰 / 网信办 / NVIDIA / Hugging Face / Mistral / Shadoweave / Xmax / 宇树科技 / 求之科技 / Bloomberg / 人民日报</p>
+<p>一手原始 · 从业者原话 · 现场反应 · 信源越近现场，优先级越高</p>
+</footer>
+
+</div>
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
