@@ -36,7 +36,7 @@ COS_HOST = "ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com"  # 腾讯 CO
 IMG_SRC_RE = re.compile(r'''<img[^>]*\bsrc=["']([^"']+)["']''', re.I)
 # 新闻条目容器（配图率检查用）
 ITEM_RE = re.compile(r'''<div class="item"''', re.I)
-MIN_COVERAGE = 0.8  # 每条新闻 ≥1 张正文图，配图率 ≥80%
+MIN_COVERAGE = 0.8  # 每条新闻 ≥1 张正文图，配图率 ≥80%（历史回补可用 --coverage 放宽）
 
 
 def get_size_kb(p: Path) -> int:
@@ -95,15 +95,23 @@ def scan_html(html_path: Path):
         if fmt == 'WEBP':
             issues.append((ln, 'I5.FAIL', '[%s] webp 格式 → 转 jpg（image-gate --fix）' % name))
     # --- 配图率检查（2026-08-14：一条新闻一张图，防超长纯文字墙）---
+    global MIN_COVERAGE
+    cov = MIN_COVERAGE
+    for a in sys.argv[1:]:
+        if a.startswith('--coverage'):
+            try:
+                cov = float(a.split('=')[1])
+            except Exception:
+                pass
     items = len(ITEM_RE.findall(content))
     srcs = IMG_SRC_RE.findall(content)
     news_imgs = [s for s in srcs if 'nasa.gov' not in s and 'science.nasa' not in s]
     if items >= 4:
         coverage = len(news_imgs) / items
-        if coverage < MIN_COVERAGE:
+        if coverage < cov:
             issues.append((0, 'I7.FAIL',
                 '配图率 %d%%（%d 条新闻 %d 张正文图）< 要求 %d%% → 每条新闻补 ≥1 张图（fetch_official_image.py 抓图→COS）'
-                % (int(coverage * 100), items, len(news_imgs), int(MIN_COVERAGE * 100))))
+                % (int(coverage * 100), items, len(news_imgs), int(cov * 100))))
     return issues
 
 
@@ -182,7 +190,7 @@ def main():
         print('修复完成。重新跑 image-gate 验证。')
         return 0
 
-    args = [a for a in sys.argv[1:] if a != '--all']
+    args = [a for a in sys.argv[1:] if a != '--all' and not a.startswith('--coverage')]
     if args:
         html_files = [Path(a).resolve() for a in args]
     else:
