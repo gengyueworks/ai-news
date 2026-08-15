@@ -33,6 +33,12 @@ MAX_KB = 300           # 最大体积（KB）
 EXT_ALLOW = ["assets.science.nasa.gov", "eol.jsc.nasa.gov"]           # NASA Be Curious（WARN）
 COS_HOST = "ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com"  # 腾讯 COS 图床（正常，不报）
 
+# 禁用的文件名/路径关键字（大头照、头像、证件照防漏网）
+PORTRAIT_BANNED_KEYWORDS = [
+    "portrait", "headshot", "profile", "avatar", "ali_ghodsi", "ghodsi", 
+    "zuckerberg", "altman", "sutskever", "ceo", "founder", "executive"
+]
+
 IMG_SRC_RE = re.compile(r'''<img[^>]*\bsrc=["']([^"']+)["']''', re.I)
 # 新闻条目容器（配图率检查用）
 ITEM_RE = re.compile(r'''<div class="item"''', re.I)
@@ -85,6 +91,17 @@ def scan_html(html_path: Path):
         if w == 0:
             issues.append((ln, 'I1.FAIL', '[%s] 无法解码（损坏/格式错）: %s' % (name, src)))
             continue
+            
+        # --- 大头照关键字与比例安全拦截 ---
+        src_lower = src.lower()
+        if any(k in src_lower for k in PORTRAIT_BANNED_KEYWORDS):
+            issues.append((ln, 'I8.FAIL', '[%s] 文件名命中人像敏感词（%s）→ 严禁人像/大头照' % (name, src)))
+            continue
+        if abs(w - h) < 10 and w > 200:
+            # 社交正方形头像/大头照拦截（CEO头像常为1:1比例）
+            issues.append((ln, 'I8.FAIL', '[%s] 1:1 正方形图片（%dx%d）极易为大头照/头像 → 严禁使用' % (name, w, h)))
+            continue
+
         kb = get_size_kb(img_path)
         if w > MAX_WH or h > MAX_WH:
             issues.append((ln, 'I2.FAIL', '[%s] %dx%d 超限 >%dpx → 压缩（image-gate --fix）' % (name, w, h, MAX_WH)))
