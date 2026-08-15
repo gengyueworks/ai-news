@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News 进化故事 · 从30天到持续进化</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --text-primary: #e8e8ed;
+            --text-secondary: #9090a0;
+            --accent-blue: #4a9eff;
+            --accent-green: #22c55e;
+            --accent-purple: #a855f7;
+            --accent-orange: #f97316;
+            --accent-pink: #ec4899;
+            --border-color: #2a2a3a;
+            --glow-blue: rgba(74, 158, 255, 0.15);
+            --glow-green: rgba(34, 197, 94, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            padding: 80px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, var(--glow-blue) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #a8c0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Progress Timeline */
+        .progress-section {
+            background: var(--bg-secondary);
+            padding: 40px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .progress-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .progress-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 0;
+        }
+
+        .day-marker {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .day-marker.active {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: white;
+            box-shadow: 0 0 20px var(--glow-green);
+        }
+
+        .day-marker.milestone {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-color: var(--accent-blue);
+            color: white;
+            box-shadow: 0 0 20px var(--glow-blue);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* Week Section */
+        .week-section {
+            margin-bottom: 60px;
+        }
+
+        .week-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .week-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--accent-blue);
+            background: rgba(74, 158, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .week-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Day Card */
+        .day-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-blue);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .day-card:hover::before {
+            opacity: 1;
+        }
+
+        .day-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateX(4px);
+        }
+
+        .day-card.featured {
+            border-color: var(--accent-purple);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), transparent);
+        }
+
+        .day-card.featured::before {
+            background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));
+            opacity: 1;
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .day-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--accent-green);
+        }
+
+        .day-tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--accent-green);
+        }
+
+        .day-tag.major {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--accent-purple);
+        }
+
+        .day-tag.breakthrough {
+            background: rgba(249, 115, 22, 0.15);
+            color: var(--accent-orange);
+        }
+
+        .day-updates {
+            list-style: none;
+        }
+
+        .day-updates li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .day-updates li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+        }
+
+        .day-updates li strong {
+            color: var(--text-primary);
+        }
+
+        .highlight-box {
+            background: rgba(74, 158, 255, 0.08);
+            border-left: 3px solid var(--accent-blue);
+            padding: 12px 16px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+        }
+
+        .highlight-box.lesson {
+            background: rgba(249, 115, 22, 0.08);
+            border-left-color: var(--accent-orange);
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.05));
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: '"';
+            font-size: 48px;
+            color: var(--accent-purple);
+            opacity: 0.3;
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            font-style: italic;
+            margin-bottom: 8px;
+            padding-left: 24px;
+        }
+
+        .quote-source {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding-left: 24px;
+        }
+
+        /* Milestone Card */
+        .milestone-card {
+            background: linear-gradient(135deg, var(--bg-card), rgba(168, 85, 247, 0.05));
+            border: 1px solid var(--accent-purple);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .milestone-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .milestone-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .milestone-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-brand {
+            margin-top: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats-bar {
+                gap: 24px;
+            }
+            
+            .progress-bar {
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .day-marker {
+                min-width: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">PRODUCT EVOLUTION</div>
+            <h1>AI News 进化故事</h1>
+            <p class="hero-subtitle">从零到一，30天迭代全记录，之后持续进化<br>每一天都在发现问题、解决问题、找到灵魂</p>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">76</div>
+                    <div class="stat-label">持续天数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">140</div>
+                    <div class="stat-label">提交次数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">核心突破</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">产品灵魂</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Timeline -->
+    <section class="progress-section">
+        <div class="progress-container">
+            <div class="progress-title">30 DAYS EVOLUTION · AND BEYOND</div>
+            <div class="progress-bar">
+                <div class="day-marker active">1</div>
+                <div class="day-marker active">2</div>
+                <div class="day-marker active">3</div>
+                <div class="day-marker active">4</div>
+                <div class="day-marker active">5</div>
+                <div class="day-marker milestone">6</div>
+                <div class="day-marker active">7</div>
+                <div class="day-marker active">8</div>
+                <div class="day-marker milestone">9</div>
+                <div class="day-marker active">10</div>
+                <div class="day-marker active">11</div>
+                <div class="day-marker active">12</div>
+                <div class="day-marker active">13</div>
+                <div class="day-marker milestone">14</div>
+                <div class="day-marker active">15</div>
+                <div class="day-marker active">16</div>
+                <div class="day-marker milestone">17</div>
+                <div class="day-marker active">18</div>
+                <div class="day-marker active">19</div>
+                <div class="day-marker milestone">21</div>
+                <div class="day-marker active">22</div>
+                <div class="day-marker milestone">23</div>
+                <div class="day-marker active">24</div>
+                <div class="day-marker active">25</div>
+                <div class="day-marker active">26</div>
+                <div class="day-marker active">27</div>
+                <div class="day-marker active">28</div>
+                <div class="day-marker active">29</div>
+                <div class="day-marker milestone">30</div>
+                <div class="day-marker milestone">75+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Week 1 -->
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-number">WEEK 01</span>
+                <h2 class="week-title">从零起步 · 找到核心方法论</h2>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-01</span>
+                    <span class="day-tag">起点</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>项目启动</strong>，AI News 日报正式开始制作</li>
+                    <li>建立基础文件结构：<code>index.html</code> + 每日HTML</li>
+                    <li>确定初始栏目：头版/前线/声音/创造/投资</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-02</span>
+                    <span class="day-tag breakthrough">核心方法论诞生</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>发现“跟我有什么关系”的价值判断标准</strong></li>
+                    <li>用户原话：“这是行业新闻，跟读者有什么关系？”</li>
+                    <li>确立核心方法论：<strong>跟我有什么关系 > 行业多重要</strong></li>
+                </ul>
+                <div class="highlight-box">
+                    这个方法论成为整个产品的灵魂，每一篇新闻都要回答“跟读者有什么关系”
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-03 ~ 06-05</span>
+                    <span class="day-tag">探索期</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>06-03</strong>：尝试不同的新闻选择标准，发现“参数堆砌”问题</li>
+                    <li><strong>06-04</strong>：确立“不硬凑”原则，没有好内容就不放</li>
+                    <li><strong>06-05</strong>：首次品牌句讨论：“从AI前线寄回的信”</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-06</span>
+                    <span class="day-tag major">里程碑</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>发现“不满意=继续搜”的核心工作方法</strong></li>
+                    <li>用户原话：“每一次我说我不喜欢，你去找都能找到更好的”</li>
+                    <li>确立方法论：<strong>不满意≠终点，不满意=继续搜</strong></li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-07</span>
+                    <span class="day-tag">规则初建</span>
+                </div>
+                <ul class="day-updates">
+                    <li>创建<strong>第一条写稿铁律</strong>：数字唯一（每组≤2次）</li>
+                    <li>确立主语不重复原则（同新闻人名/公司名≤2次）</li>
+                    <li>建立素材库机制：<code>ai-news-site/素材库</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Week 2 -->
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-number">WEEK 02</span>
+                <h2 class="week-title">品质标准 · 三色标记系统诞生</h2>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-08</span>
+                    <span class="day-tag">排版规则</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>三色标记系统诞生</strong>：highlight(蓝·概念) / accent(红·数字+实体名) / turn(蓝加粗·转折)</li>
+                    <li>建立平衡原则：红蓝差距≤2，不能全蓝无红</li>
+                    <li>每条新闻accent至少1个，没有数字就标关键实体名</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-09</span>
+                    <span class="day-tag breakthrough">标杆确立</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>声音栏目标杆确立</strong>：Fei-Fei Li的“人类创造力比AI自动化更重要”</li>
+                    <li>确立声音栏目灵魂：<strong>真人说出来的原话，自己有力量</strong></li>
+                    <li>声音栏目规则：没有quote-note（AI点评说不到点子上）</li>
+                </ul>
+            </div>
+
+            <div class="quote-block">
+                <div class="quote-text">声音栏目是难得有活人感的地方，不要把活人的话变成标本</div>
+                <div class="quote-source">— 06-09 编辑部讨论</div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-10 ~ 06-13</span>
+                    <span class="day-tag">迭代期</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>06-10</strong>：确立段落叙事优先，bullet不是凑数</li>
+                    <li><strong>06-11</strong>：建立“英文必须翻译”规则</li>
+                    <li><strong>06-12</strong>：发现“AI腔禁令”，装饰性动作描写全部禁止</li>
+                    <li><strong>06-13</strong>：创建完整的5个核心标准文档</li>
+                </ul>
+            </div>
+
+            <div class="milestone-card">
+                <div class="milestone-icon">🎯</div>
+                <div class="milestone-title">品质稳定区间确立</div>
+                <div class="milestone-desc">90分 = 科技深度+画面感+跟读者有关系。不爹味，不小报。<br>爹味端→扔（政策/领导人/IPO）；小报端→扔（消费趣味/娱乐数据）；中间→入选</div>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-14</span>
+                    <span class="day-tag breakthrough">教训深刻</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>Jack Clark引语事件</strong>：只取前半句丢了灵魂</li>
+                    <li>原话：“只有油门没有刹车，我们正争分夺秒地造刹车”</li>
+                    <li>只取前半=无力抱怨，加上后半=紧迫行动</li>
+                    <li>建立规则：<strong>引语截取不能只取醒目半句，后半句可能才是灵魂</strong></li>
+                </ul>
+                <div class="highlight-box lesson">
+                    这个教训深刻影响了声音栏目的规则，必须读完整原话→理解完整意思→再决定截取范围
+                </div>
+            </div>
+        </section>
+
+        <!-- Week 3 -->
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-number">WEEK 03</span>
+                <h2 class="week-title">灵魂宣言 · 人文主义视角确立</h2>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-15 ~ 06-16</span>
+                    <span class="day-tag">探索期</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>06-15</strong>：视觉栏目定位讨论，从创作者前线寄回的信</li>
+                    <li><strong>06-16</strong>：确立视觉信息源优先级（Runway/Kling/Veo/Pika/Luma/Hailuo）</li>
+                    <li>建立“文字自足原则”：即使不看视频也知道发生了啥</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-17</span>
+                    <span class="day-tag breakthrough">灵魂诞生</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>产品灵魂宣言诞生</strong>：人文主义视角</li>
+                    <li>新闻选择里要有人，人的选择、人的审美、人的反应</li>
+                    <li>机器和人至少一半一半，或者人是灵魂</li>
+                    <li><strong>这是我们跟其他AI日报的核心区别</strong></li>
+                </ul>
+            </div>
+
+            <div class="quote-block">
+                <div class="quote-text">永远有一个独特视角，注重人的灵魂，注重人本身，不只是机器本身</div>
+                <div class="quote-source">— 06-21 产品灵魂宣言</div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-18 ~ 06-20</span>
+                    <span class="day-tag">迭代期</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>06-18</strong>：声音栏目专项指引创建</li>
+                    <li><strong>06-19</strong>：日报制作手册v7发布，3个阻断点确立</li>
+                    <li><strong>06-20</strong>：配图规则讨论，官方图优先，不放隐喻图</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-21</span>
+                    <span class="day-tag major">里程碑</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>产品灵魂宣言完整版发布</strong></li>
+                    <li>一句话灵魂：<strong>AI News是前沿信号流，不是战报，不是简报</strong></li>
+                    <li>气质来源：前线感 / 活人感 / 人文主义</li>
+                    <li>创建“大脑核心”文件夹（5个标准文档+索引）</li>
+                </ul>
+            </div>
+
+            <div class="milestone-card">
+                <div class="milestone-icon">💡</div>
+                <div class="milestone-title">品牌句定型</div>
+                <div class="milestone-desc">AI 情报日报 · 前沿信号流<br>hero-sub: 前沿信号流——AI每天在变什么，人在怎么选</div>
+            </div>
+        </section>
+
+        <!-- Week 4 -->
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-number">WEEK 04</span>
+                <h2 class="week-title">工程化落地 · 门禁系统建立</h2>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-22</span>
+                    <span class="day-tag">工程化</span>
+                </div>
+                <ul class="day-updates">
+                    <li>创建<strong>daily-schema-v1.json</strong>：数据层单一真相源</li>
+                    <li>建立首页卡片生成器逻辑</li>
+                    <li>确立工程化原则：先稳定结构→再稳定检查→再增加生成比例</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-23</span>
+                    <span class="day-tag breakthrough">质量门禁</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>质量门禁系统建立</strong>：<code>quality_gate.py</code></li>
+                    <li>3个阻断点：FB1候选门禁 / FB2自动门禁 / FB3人工核实</li>
+                    <li>30项自动检查规则，exit 0=通过，exit 1=阻断修修</li>
+                    <li>创建规则合约：<code>quality-contract-v1.json</code></li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                门禁系统的建立标志着从“靠人记住”到“靠系统保证”的转变
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-24</span>
+                    <span class="day-tag">迭代期</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>四轮标签改造完成</strong>：card-tag灰色标签最终废弃</li>
+                    <li>卡片思维确立：日报是入口，卡片是资产，标签是导航</li>
+                    <li>创建CardMind方法论文档</li>
+                    <li>声音栏目禁止重复：同一人不能反复出现（Simon Willison教训）</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-06-25</span>
+                    <span class="day-tag">迭代期</span>
+                </div>
+                <ul class="day-updates">
+                    <li>拓展阅读功能废弃，用户反馈：堆在新闻底下密、打断阅读节奏</li>
+                    <li>确立尾部配图收尾原则，不再塞拓展链接层</li>
+                    <li>创建<strong>流程阻断铁律</strong>文档</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Week 5 -->
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-number">WEEK 05</span>
+                <h2 class="week-title">困境诊断 · 规则体系固化</h2>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-26 ~ 06-28</span>
+                    <span class="day-tag breakthrough">大清洗</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>配图规则大清洗</strong>：Pexels/Unsplash盲配彻底废弃</li>
+                    <li>06-27实例：彩色粉末实际是木板、霓虹长廊实际是马路</li>
+                    <li>建立原则：<strong>没有视觉内容就不放图，也不开天窗</strong></li>
+                    <li>空栏目也删，没有内容就整个section都不写，不摆空壳</li>
+                    <li>确立CDN直引方案，零本地缓存</li>
+                </ul>
+                <div class="highlight-box lesson">
+                    这轮清洗彻底解决了“配图跟新闻无关”的问题，建立了“配图跟新闻内容相关，不是装饰”的核心原则
+                </div>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-29</span>
+                    <span class="day-tag major">新栏目</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>「开源前线」栏目正式上线</strong></li>
+                    <li>灵魂：有人觉得“这东西应该存在”，于是做了它</li>
+                    <li>筛选标准：普通人能拿来干嘛，不选CLI/纯开发者工具</li>
+                    <li>信息源：HelloGitHub（主）/ 知乎GitHub热榜周报（补充）</li>
+                    <li>条数：2条为主（≥1条），不硬凑</li>
+                </ul>
+            </div>
+
+            <div class="milestone-card">
+                <div class="milestone-icon">🚀</div>
+                <div class="milestone-title">用户偏好明确</div>
+                <div class="milestone-desc">
+                    <strong>喜欢</strong>：亮眼、颜色好看、抽象 — 科技感+色彩鲜艳+有视觉冲击的图<br>
+                    <strong>不喜欢</strong>：几个老男人填满画面 / 有美国国旗 / Be Curious地球图和昨天看起来差不多
+                </div>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-06-30</span>
+                    <span class="day-tag breakthrough">完整重写</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>06-30日报完整重写</strong>：用户发现0张配图，要求用CDN直引</li>
+                    <li>新增新栏目预告格式：<code>NEW · 栏目上新</code>放在开头</li>
+                    <li>Be Curious换NASA EO黑海绿松石色浮游生物漩涡</li>
+                    <li>确立地球图结尾句必带原则</li>
+                    <li>门禁检查：37/1/0 PASS</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Beyond 30 Days -->
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-number">BEYOND 30</span>
+                <h2 class="week-title">30天之后 · 持续进化</h2>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-07</span>
+                    <span class="day-tag">稳定期</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>每日不断更</strong>，从30天走到60+天，7月每天一条提交</li>
+                    <li>WorkBuddy 自动产出日报，人工审校后发布</li>
+                    <li>固定栏目规则落地：头版/前线/声音/创造/信号/Be Curious 每天必须有</li>
+                    <li>内容红线生效：政府宏观叙事、州级立法不进头版</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-08-07</span>
+                    <span class="day-tag breakthrough">结构升级</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>日报按月归档</strong>：<code>2026-08/2026-08-07.html</code>，站点根目录不再平铺</li>
+                    <li>导航与资源链接统一 <code>../</code> 前缀，为后续 404 根治打基础</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-08-08</span>
+                    <span class="day-tag breakthrough">专题体系</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>AlphaFold 专题</strong>：单主题深挖，配订阅 banner 修复</li>
+                    <li>开始探索 special 专题页结构</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-08-09</span>
+                    <span class="day-tag breakthrough">内容体系成型</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>special 专题批量上线</strong>：China models / Agent tooling / OpenAI journey / AI arms race / Anthropic rise / AI-and-people / enterprise AI / AI nations</li>
+                    <li>AIHOT 批次 + 白话指南 + glossary 术语表</li>
+                    <li><strong>一手源替换</strong>：9 份 7 月日报从聚合转载换成官方源（公司官网/量子位原创/GitHub）</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-date">2026-08-12</span>
+                    <span class="day-tag">联动</span>
+                </div>
+                <ul class="day-updates">
+                    <li>日报与 AI 词典联动，术语登记制落地（<code>add_term_candidate.py</code>）</li>
+                    <li>质量合约升级到 v2，门禁按 standard 正式版运行</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">2026-08-13 ~ 08-14</span>
+                    <span class="day-tag breakthrough">工程根治</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>404 根治</strong>：monthly 目录结构 + <code>../</code> 路径三层防御，导航不再断链</li>
+                    <li><strong>图片迁移腾讯 COS</strong>：本地下载压缩 + 相对路径引用，省 8.7MB，杜绝外链打不开</li>
+                    <li><strong>humanize.py 去 AI 味流水线</strong>：破折号/英文标点/AI腔词自动清理</li>
+                    <li><strong>push 三道门禁</strong>：humanize-gate + index-order-check + git 卫生检查，0 FAIL 才允许 push</li>
+                    <li>index 按月分组修复，candidate signal flow 上线（<code>data-signal="timeline"</code>）</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Core Lessons -->
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-number">CORE LESSONS</span>
+                <h2 class="week-title">核心教训 · 30天沉淀</h2>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">选新闻</span>
+                    <span class="day-tag major">核心原则</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>跟我有什么关系 > 行业多重要</strong></li>
+                    <li>雷区：爹味 / 参数堆砌 / 集成公告（又一个X接入Y）</li>
+                    <li>头条判断：有画面感的转折 > 企业策略 > 参数更新</li>
+                    <li>重复禁令：做过的绝不重复，选题前扫近7天</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">写新闻</span>
+                    <span class="day-tag major">核心原则</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>不满意=继续搜，总能找到更好的</strong></li>
+                    <li>数字唯一（每组≤2次）、单源不拆、读者价值指向未来</li>
+                    <li>主语不重复、产品发布要翻译参数</li>
+                    <li>抽象要具体、bullet不是凑数、段落叙事优先</li>
+                    <li><strong>“不是而是”永远不出现</strong>，只保留后半句</li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">配图</span>
+                    <span class="day-tag major">核心原则</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>配图跟新闻内容相关，不是装饰，不是隐喻</strong></li>
+                    <li>官方图优先→不放图，也不开天窗</li>
+                    <li>禁令：巨头大头照❌ / NASA天文图做新闻配图❌ / 无关隐喻❌ / 重复用图❌</li>
+                    <li><strong>静态装饰图❌</strong> / <strong>Pexels/Unsplash盲配❌</strong> / <strong>无视觉内容硬塞图❌</strong> / <strong>开天窗❌</strong> / <strong>空栏目❌</strong></li>
+                </ul>
+            </div>
+
+            <div class="day-card featured">
+                <div class="day-header">
+                    <span class="day-date">工作方式</span>
+                    <span class="day-tag major">核心原则</span>
+                </div>
+                <ul class="day-updates">
+                    <li><strong>先修工作流，不先追求定时发布</strong></li>
+                    <li>先系统化（schema+门禁+生成器），再自动化</li>
+                    <li>宁可半自动稳定，不要全自动失控</li>
+                    <li>所有高频失误必须进入系统（脚本/模板/数据字段/门禁），不能继续留在聊天里</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Stats Summary -->
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-number">STATISTICS</span>
+                <h2 class="week-title">迭代统计 · 数字说话</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-blue);">7</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">声音栏目规则迭代</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-green);">5</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">配图规则大版本</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-purple);">4</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">标签系统改造轮次</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-orange);">3</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">品牌句迭代</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-pink);">3</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">栏目顺序调整</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-blue);">30</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">门禁检查项</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-green);">76</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">持续天数</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-purple);">140</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">提交次数</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-orange);">8</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">special 专题</div>
+                </div>
+                <div class="day-card">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--accent-pink);">3</div>
+                    <div style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">push 门禁</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">从30天到持续进化，我们一直在发现问题、解决问题、找到灵魂</p>
+        <p class="footer-brand">AI 情报日报 · 前沿信号流</p>
+    </footer>
+
+</body>
+</html>
