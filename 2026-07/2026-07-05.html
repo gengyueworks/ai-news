@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AI 情报日报｜2026-07-05</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -173,186 +174,163 @@ body{
 </head>
 <body>
 <div class="container">
-
-  <nav class="site-nav-lite">
-    <a href="../index.html" class="nav-back">← 首页</a>
-    <span class="nav-date">2026年07月05日 · 星期日</span>
-  </nav>
-
-  <header class="masthead">
-    <div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
-    <h1 class="mast-title">AI 情报日报</h1>
-    <div class="mast-rule"></div>
-    <div class="mast-meta">
-      <span>2026-07-05</span>
-      <span>星期日</span>
-      <span class="issue">No.056</span>
-      <span>5 条现场</span>
-    </div>
-    <p class="mast-lede">今天刻意把镜头从几个大厂移开。<span class="hl">头版是一个独立研究者找到了 Mythos 漏掉的 Linux 内核漏洞。</span>前线是中国开源模型、初创机器人数据工厂、以及特斯拉给 AI 账单踩刹车。大厂动态压成信号条。</p>
-  </header>
-
-  <section class="section">
-    <div class="sec-eyebrow">HEADLINE</div>
-    <div class="sec-title">今日头版</div>
-    <div class="item">
-      <div class="dateline"><span class="src">The Hacker News / kernelCTF</span> · 7 月 3 日披露</div>
-      <h2 class="item-title">一个人找到了顶级 AI「看漏」的 Linux 提权漏洞</h2>
-      <div class="img">
-        <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/bad-epoll-hn.jpg" alt="Bad Epoll: Linux root提权漏洞概念图" loading="lazy">
-        <p class="img-cap">Bad Epoll（CVE-2026-46242）：藏在 epoll 系统调用中的 use-after-free 竞态条件。图：The Hacker News。</p>
-      </div>
-      <p class="body">新披露的 Linux 内核漏洞 <span class="accent">Bad Epoll</span>（CVE-2026-46242）允许一个无特权用户直接获取 root 权限。它藏在 <span class="hl">epoll 子系统</span>的竞态代码里，属于 <span class="hl">use-after-free</span> 类型——同一段代码中，Anthropic 的旗舰模型 Mythos 此前找到过另一个 bug，却漏掉了这一个。</p>
-      <p class="body">漏洞由独立安全研究员 <span class="hl">Jaeyoung Chung</span> 发现并作为 <span class="hl">0-day</span> 提交给 <span class="hl">Google</span> 的 <span class="hl">kernelCTF</span> 计划——该计划对内核 exploit 的奖励为 <span class="num">71,337</span> 美元起。Chung 在 <span class="hl">GitHub</span> 上发布了完整的技术复盘，指出竞态窗口「只有约 6 条指令宽」，需要精确控制 CPU 调度和 slab 分配器的状态才能稳定触发。</p>
-      <p class="body">漏洞影响 Linux <span class="num">6.4</span> 及以上版本——覆盖主流桌面发行版、服务器和较新 Android 设备。Chung 给出的 PoC 可靠性达 <span class="num">99</span>%。补丁由内核社区在数月内完成，但首次修复不完整，最终正确补丁用了近两个月才落地。这起事件再次暴露了一个现实：即使最先进的 AI 代码审查系统，也无法替代人类对复杂竞态条件的直觉。</p>
-      <p class="body"><span class="turn">当全世界都在说「AI 会自动挖洞」时，这条给出了最锋利的反例——同一段代码，AI 看过、漏了，人补上了。判断力仍然稀缺。</span></p>
-      <p class="source">The Hacker News · <a href="https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html">thehackernews.com</a> / 作者复盘 · <a href="https://github.com/J-jaeyoung/bad-epoll">github.com</a></p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="sec-eyebrow">DISPATCH</div>
-    <div class="sec-title">前线</div>
-
-    <div class="item">
-      <div class="dateline"><span class="src">Simon Willison / Z.ai</span> · 6 月 13–16 日</div>
-      <h2 class="item-title">GLM-5.2：目前最强的纯文本开源权重模型，来自中国</h2>
-      <div class="img">
-        <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/glm-52.jpg" alt="智谱AI GLM-5.2 模型示意图" loading="lazy">
-        <p class="img-cap">GLM-5.2：753B MoE、100万 token 上下文、MIT 许可。图：Z.ai。</p>
-      </div>
-      <p class="body">不是 OpenAI、不是 Anthropic——被一线开发者反复点名最强开源权重的，是北京 <span class="hl">智谱 AI</span>（Z.ai）的 <span class="hl">GLM-5.2</span>。<span class="num">753B</span> 参数 MoE（每次推理约激活 <span class="num">40B</span>），支持 <span class="num">100</span> 万 token 上下文，以 <span class="accent">MIT 许可</span>放出完整权重——这意味着商用几乎无限制。</p>
-      <p class="body"><span class="hl">Simon Willison</span> 在评测中称其「可能是最强的纯文本开源权重 LLM」。在多个中文和英文基准测试中，GLM-5.2 在代码生成、数学推理和长文档理解等维度上超越了同量级竞品。<span class="hl">智谱 AI</span> 是 GLM 系列的长期推动者——从 2023 年的 <span class="hl">ChatGLM</span> 一路迭代到今天的 5.2，并始终保持着开源路线。</p>
-      <p class="body"><span class="turn">开源权重正在把「只有大厂能做前沿模型」的假设一点点凿穿。MIT 许可意味着任何人都可以基于它构建产品——这对全球 AI 生态的格局影响可能比某个闭源模型的发布更深。</span></p>
-      <p class="source">Simon Willison · <a href="https://simonwillison.net/2026/jun/17/glm-52/">simonwillison.net</a> / Z.ai · <a href="https://z.ai/blog/glm-5.2">z.ai</a></p>
-    </div>
-
-    <div class="item">
-      <div class="dateline"><span class="src">Electrek / The Information</span> · 7 月 2 日</div>
-      <h2 class="item-title">特斯拉给每位工程师的 AI 开销封顶 <span class="num">200</span> 美元/周</h2>
-      <div class="img">
-        <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/tesla-ai-cap.jpg" alt="特斯拉 AI 花费上限政策" loading="lazy">
-        <p class="img-cap">特斯拉从 7 月 6 日起对全体员工实行每周 200 美元 AI 花费上限。图：Electrek。</p>
-      </div>
-      <p class="body">连把未来押在 AI 上的公司，也开始为 token 账单踩刹车。特斯拉从 7 月 <span class="num">6</span> 日起对全体员工实行每周 <span class="num">200</span> 美元的 AI 花费上限，超出部分需经理审批。此前部分工程师在 AI 工具上的每周开销达到数千美元。</p>
-      <p class="body">这条消息引发了行业内的广泛共鸣——AI 能力的提升速度远超公司治理体系的跟进速度。最常被引用的反面案例是 <span class="hl">Uber</span>：该公司曾给约 <span class="num">5000</span> 名工程师无护栏铺开 Claude Code 的使用权限，结果四个月内烧掉了 <span class="num">34</span> 亿美元的 AI 预算。最终 Uber 不得不紧急叫停并重新设计预算管控流程。</p>
-      <p class="body"><span class="turn">真正的问题：AI 的投入回报变成了一笔糊涂账。每个工程师都能在几分钟内消耗数千美元，成本缺乏可见性——这才是根因。这不是技术问题，是管理问题。</span></p>
-      <p class="source">Electrek · <a href="https://electrek.co/2026/07/02/tesla-caps-employee-ai-spending-200-week/">electrek.co</a> / The Information</p>
-    </div>
-
-    <div class="item">
-      <div class="dateline"><span class="src">Reuters / Apptronik</span> · 6 月 30 日</div>
-      <h2 class="item-title">Apptronik 开「机器人公园」：用真实数据工厂喂养人形机器人</h2>
-      <div class="img">
-        <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/apollo-robot.jpg" alt="Apptronik Apollo 2 人形机器人在Robot Park中作业" loading="lazy">
-        <p class="img-cap">Apptronik 的 Apollo 2 人形机器人。图中为双足版本，此外还有轮式变体。图：Apptronik。</p>
-      </div>
-      <p class="body">机器人公司 <span class="hl">Apptronik</span> 在奥斯汀启用了一座近 <span class="num">9</span> 万平方英尺的 <span class="hl">Robot Park</span>，让成队的 <span class="hl">Apollo 2</span> 人形机器人在逼真的物流、制造和零售环境中反复执行真实操作任务，同时采集训练数据。Apollo 2 提供双足与轮式两种形态，以适应不同场景需求。</p>
-      <p class="body">Robot Park 的数据采集链路与 Google <span class="hl">DeepMind</span> 的具身智能模型训练管线直接打通。Apptronik 同时预告了首个真正意义上的产品级版本 <span class="hl">Apollo 3</span>，称其将在可靠性、成本和部署便捷性上达到商业量产标准。人形机器人的最大瓶颈始终是数据——实验室模拟数据和真机操作数据之间存在巨大的 Sim-to-Real 鸿沟。Robot Park 的赌注是：规模化采集真实操作数据，是跨越这道鸿沟的唯一路径。</p>
-      <p class="body"><span class="turn">大模型的下一个战场是物理世界的数据。谁能规模化采到真实操作数据，谁就握住了具身智能的燃料。</span></p>
-      <p class="source">Reuters · <a href="https://www.reuters.com/technology/apptronik-launches-robot-training-hub-unveils-apollo-2-humanoid-robot-2026-06-30/">reuters.com</a> / Apptronik · <a href="https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work">apptronik.com</a></p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="sec-eyebrow">VOICES · 一线原话</div>
-    <div class="sec-title">声音</div>
-
-    <div class="voice">
-      <p class="voice-text">"你得把代码理解到能够继续参与的深度。"</p>
-      <p class="voice-who">Geoffrey Litt · 经 Simon Willison 转述 · <a href="https://simonwillison.net/2026/jul/2/understand-to-participate/">simonwillison.net</a></p>
-    </div>
-    <div class="voice-sep"></div>
-    <div class="voice">
-      <p class="voice-text">"The race window is tiny, only about six instructions wide."</p>
-      <p class="voice-who">Jaeyoung Chung · 报告 Bad Epoll 漏洞的研究者 · <a href="https://github.com/J-jaeyoung/bad-epoll">github.com</a></p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
-    <div class="sec-title">创造</div>
-
-    <div class="item">
-      <div class="dateline"><span class="src">Variety / Deadline</span> · 6 月 10 日首映 · 本周热议</div>
-      <h2 class="item-title">首部全 AI 生成长片登上翠贝卡电影节，也点燃了抵制</h2>
-      <div class="img">
-        <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/violets.jpg" alt="Dreams of Violets 电影画面截图" loading="lazy">
-        <p class="img-cap">《Dreams of Violets》剧照：影片使用 AI 视频工具根据新闻报道和目击者证词重建了 2026 年伊朗抗议事件。图：Variety。</p>
-      </div>
-      <p class="body">一部每一帧都由 AI 生成的 <span class="num">75</span> 分钟纪实剧情片《<span class="hl">Dreams of Violets</span>》，成为纽约 <span class="hl">翠贝卡电影节</span>史上首部全 AI 长片。影片由科技创业者兄弟 <span class="hl">Ash 与 Pooya Koosha</span> 执导，取材自 2026 年 1 月伊朗全国抗议与安全部队镇压事件——国际组织估算死亡人数超过 <span class="num">7000</span> 人。全部影像基于新闻报道、照片和目击者证词由 AI 视频工具生成。</p>
-      <p class="body">影片在电影节上引发了激烈争论。一面是技术探索者的欢呼——认为这是 AI 叙事能力的里程碑；另一面是大量电影人和伊朗裔艺术家的公开抵制，指责影片「窃取了真实受害者的故事，并用 AI 替代了人类创作者」。Koosha 兄弟辩护称他们希望通过 AI 让被主流媒体忽视的悲剧获得关注，而批评者则认为这恰恰剥夺了当事人和记者用自己的声音讲述的权利。</p>
-      <p class="body"><span class="turn">生产门槛塌掉之后，稀缺的变成了谁有权讲、讲什么、代价谁来担。</span></p>
-      <p class="source">Variety · <a href="https://variety.com/2026/film/festivals/tribeca-festival-ai-film-dreams-of-violets-fountain-0-1236759724/">variety.com</a> / Deadline · <a href="https://deadline.com/2026/05/ai-film-dreams-of-violets-tribeca-festival-premiere-1236921663/">deadline.com</a></p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="sec-eyebrow">MONEY · 钱在流动</div>
-    <div class="sec-title">投资与资金流向</div>
-
-    <div class="item">
-      <div class="dateline"><span class="src">TechCrunch / Menlo Ventures</span> · 7 月 4 日</div>
-      <h2 class="item-title">Patronus AI 的 <span class="num">5000</span> 万美元 Series B：用数字孪生世界压力测试 AI agents</h2>
-      <p class="body"><span class="hl">Patronus AI</span> 完成 <span class="num">5000</span> 万美元 Series B，估值不详。它的方法很独特：用 <span class="accent">digital world models</span>——对真实系统的高保真数字孪生——来压力测试 AI agents。传统 AI 安全测试依赖静态基准集，Patronus 的做法是让 AI agent 在一个模拟的完整业务环境中自主运行，观察它是否会在复杂场景下做出危险行为。</p>
-      <p class="body">这项技术的价值在 agent 大规模部署的当下尤为突出——你不可能让一个可能出错的 agent 在真实客户数据上试错。Patronus 的 investors 包括 Lightspeed 和 NEA。公司称其客户覆盖金融、医疗和电商领域，部分客户已将 digital world model 测试嵌入 CI/CD 管线。</p>
-      <p class="body"><span class="turn">当 agent 从 demo 走向生产，验证层的价值会越来越大——谁负责安全验证，谁就有定价权。</span></p>
-      <p class="source">TechCrunch · <a href="https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/">techcrunch.com</a></p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="sec-eyebrow">SIGNALS · 快讯</div>
-    <div class="sec-title">信号条</div>
-    <div class="item">
-      <div class="dateline"><span class="src">多信源聚合</span> · 7 月 3–5 日</div>
-      <p class="body"><span class="hl">Five Eyes 联合警告</span>：前沿 AI 让「能发动重大网络攻击」的时间表以月计而非以年计；CISA 要求联邦机构 <span class="num">3</span> 天内打补丁。6 月非农仅 +<span class="num">5.7</span> 万（预期 <span class="num">18.5</span> 万），AI 被列为结构性因素之一。</p>
-      <p class="body"><span class="hl">Menlo Ventures</span> 募得 <span class="num">30</span> 亿美元新基金，其持股的模型公司股权已值近 <span class="num">140</span> 亿美元。<span class="hl">LiteLLM</span> 曝安全漏洞，泄露多家供应商 API key。GPT-5.6 Sol 仍被政府锁在限量预览，约 <span class="num">20</span> 家机构可用。Mythos Fable <span class="num">5</span> 计费悬崖 7 月 <span class="num">7</span> 日到期，订阅内 <span class="num">50</span>% 额度福利结束。</p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="sec-eyebrow">THE WRAP</div>
-    <div class="sec-title">今日小结</div>
-    <div class="item">
-    <p class="body">今天刻意求杂，信源覆盖独立研究者、中国开源实验室、初创机器人公司、好莱坞、VC 战场：</p>
-    <p class="body"><span class="num">一</span>：<span class="hl">「AI 找漏洞」的叙事需要校准</span>——Bad Epoll 证明同一段代码 Mythos 看过、漏了，人补上了。</p>
-    <p class="body"><span class="num">二</span>：<span class="hl">开源权重正在凿穿只有大厂能做前沿的假设</span>——GLM-5.2 以 MIT 许可放出 753B 参数，商用无限制。</p>
-    <p class="body"><span class="num">三</span>：<span class="hl">AI 的成本治理正在成为显学</span>——特斯拉封顶、Uber 烧掉 34 亿，入口和验证层成为资本新猎物。</p>
-    <div class="signal">今天覆盖 5 家公司 + 1 位独立研究者，信源包括 The Hacker News、Reuters、TechCrunch、Variety、Electrek、Simon Willison 等。</div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="sec-eyebrow">BE CURIOUS 🌌</div>
-    <div class="sec-title">保持好奇</div>
-    <div class="img">
-      <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/cape-verde-nasa.jpg" alt="从卫星看佛得角，西非萨赫勒地带" loading="lazy">
-      <p class="img-cap">Cape Verde · <span class="num">15.0</span>°N, <span class="num">23.5</span>°W<br>人口 52 万、面积比崇明岛还小——佛得角却是本届世界杯最让人尊敬的球队。法定时间对西班牙、乌拉圭、阿根廷三支前冠军保持不败。场外更猛：华为给他们建了数据中心和电子政务平台，12 月要办 Web Summit（首次登陆非洲），目标是当「西非的爱沙尼亚」，用 AI 和数字经济逆转人才外流。<br>看了一天 AI 的新闻，还有更大的世界等着探索。</p>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p class="big">AI 情报日报 · 前沿信号流</p>
-    <p>SOURCES · The Hacker News / Reuters / TechCrunch / Variety / Electrek / Simon Willison / GitHub</p>
-    <p>一手原始 · 从业者原话 · 现场反应 · 事故复盘 —— 信源越近现场，优先级越高</p>
-  </footer>
-
+<nav class="site-nav-lite">
+<a class="nav-back" href="../index.html">← 首页</a>
+<span class="nav-date">2026年07月05日 · 星期日</span>
+</nav>
+<header class="masthead">
+<div class="mast-eyebrow">AI 情报日报 · 前沿信号流</div>
+<h1 class="mast-title">AI 情报日报</h1>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span>2026-07-05</span>
+<span>星期日</span>
+<span class="issue">No.056</span>
+<span>5 条现场</span>
 </div>
-<link rel="stylesheet" href="../glossary/glossary.css">
+<p class="mast-lede">今天刻意把镜头从几个大厂移开。<span class="hl">头版是一个独立研究者找到了 Mythos 漏掉的 Linux 内核漏洞。</span>前线是中国开源模型、初创机器人数据工厂、以及特斯拉给 AI 账单踩刹车。大厂动态压成信号条。</p>
+</header>
+<section class="section">
+<div class="sec-eyebrow">HEADLINE</div>
+<div class="sec-title">今日头版</div>
+<div class="item">
+<div class="dateline"><span class="src">The Hacker News / kernelCTF</span> · 7 月 3 日披露</div>
+<h2 class="item-title">一个人找到了顶级 AI「看漏」的 Linux 提权漏洞</h2>
+<div class="img">
+<img alt="Bad Epoll: Linux root提权漏洞概念图" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/bad-epoll-hn-b57ed5c9.jpg"/>
+<p class="img-cap">Bad Epoll（CVE-2026-46242）：藏在 epoll 系统调用中的 use-after-free 竞态条件。图：The Hacker News。</p>
+</div>
+<p class="body">新披露的 Linux 内核漏洞 <span class="accent">Bad Epoll</span>（CVE-2026-46242）允许一个无特权用户直接获取 root 权限。它藏在 <span class="hl">epoll 子系统</span>的竞态代码里，属于 <span class="hl">use-after-free</span> 类型——同一段代码中，Anthropic 的旗舰模型 Mythos 此前找到过另一个 bug，却漏掉了这一个。</p>
+<p class="body">漏洞由独立安全研究员 <span class="hl">Jaeyoung Chung</span> 发现并作为 <span class="hl">0-day</span> 提交给 <span class="hl">Google</span> 的 <span class="hl">kernelCTF</span> 计划——该计划对内核 exploit 的奖励为 <span class="num">71,337</span> 美元起。Chung 在 <span class="hl">GitHub</span> 上发布了完整的技术复盘，指出竞态窗口「只有约 6 条指令宽」，需要精确控制 CPU 调度和 slab 分配器的状态才能稳定触发。</p>
+<p class="body">漏洞影响 Linux <span class="num">6.4</span> 及以上版本——覆盖主流桌面发行版、服务器和较新 Android 设备。Chung 给出的 PoC 可靠性达 <span class="num">99</span>%。补丁由内核社区在数月内完成，但首次修复不完整，最终正确补丁用了近两个月才落地。这起事件再次暴露了一个现实：即使最先进的 AI 代码审查系统，也无法替代人类对复杂竞态条件的直觉。</p>
+<p class="body">当全世界都在说「AI 会自动挖洞」时，这条给出了最锋利的反例——同一段代码，AI 看过、漏了，人补上了。判断力仍然稀缺。</p>
+<p class="source">The Hacker News · <a href="https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html">thehackernews.com</a> / 作者复盘 · <a href="https://github.com/J-jaeyoung/bad-epoll">github.com</a></p>
+</div>
+</section>
+<div class="divider"></div>
+<section class="section">
+<div class="sec-eyebrow">DISPATCH</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline"><span class="src">Simon Willison / Z.ai</span> · 6 月 13–16 日</div>
+<h2 class="item-title">GLM-5.2：目前最强的纯文本开源权重模型，来自中国</h2>
+<div class="img">
+<img alt="智谱AI GLM-5.2 模型示意图" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/glm-52-cc00e2ce.jpg"/>
+<p class="img-cap">GLM-5.2：753B MoE、100万 token 上下文、MIT 许可。图：Z.ai。</p>
+</div>
+<p class="body">不是 OpenAI、不是 Anthropic——被一线开发者反复点名最强开源权重的，是北京 <span class="hl">智谱 AI</span>（Z.ai）的 <span class="hl">GLM-5.2</span>。<span class="num">753B</span> 参数 MoE（每次推理约激活 <span class="num">40B</span>），支持 <span class="num">100</span> 万 token 上下文，以 <span class="accent">MIT 许可</span>放出完整权重——这意味着商用几乎无限制。</p>
+<p class="body"><span class="hl">Simon Willison</span> 在评测中称其「可能是最强的纯文本开源权重 LLM」。在多个中文和英文基准测试中，GLM-5.2 在代码生成、数学推理和长文档理解等维度上超越了同量级竞品。<span class="hl">智谱 AI</span> 是 GLM 系列的长期推动者——从 2023 年的 <span class="hl">ChatGLM</span> 一路迭代到今天的 5.2，并始终保持着开源路线。</p>
+<p class="body">开源权重正在把「只有大厂能做前沿模型」的假设一点点凿穿。MIT 许可意味着任何人都可以基于它构建产品——这对全球 AI 生态的格局影响可能比某个闭源模型的发布更深。</p>
+<p class="source">Simon Willison · <a href="https://simonwillison.net/2026/jun/17/glm-52/">simonwillison.net</a> / Z.ai · <a href="https://z.ai/blog/glm-5.2">z.ai</a></p>
+</div>
+<div class="item">
+<div class="dateline"><span class="src">Electrek / The Information</span> · 7 月 2 日</div>
+<h2 class="item-title">特斯拉给每位工程师的 AI 开销封顶 <span class="num">200</span> 美元/周</h2>
+<div class="img">
+<img alt="特斯拉 AI 花费上限政策" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/tesla-ai-cap-a4b6037f.jpg"/>
+<p class="img-cap">特斯拉从 7 月 6 日起对全体员工实行每周 200 美元 AI 花费上限。图：Electrek。</p>
+</div>
+<p class="body">连把未来押在 AI 上的公司，也开始为 token 账单踩刹车。特斯拉从 7 月 <span class="num">6</span> 日起对全体员工实行每周 <span class="num">200</span> 美元的 AI 花费上限，超出部分需经理审批。此前部分工程师在 AI 工具上的每周开销达到数千美元。</p>
+<p class="body">这条消息引发了行业内的广泛共鸣——AI 能力的提升速度远超公司治理体系的跟进速度。最常被引用的反面案例是 <span class="hl">Uber</span>：该公司曾给约 <span class="num">5000</span> 名工程师无护栏铺开 Claude Code 的使用权限，结果四个月内烧掉了 <span class="num">34</span> 亿美元的 AI 预算。最终 Uber 不得不紧急叫停并重新设计预算管控流程。</p>
+<p class="body">真正的问题：AI 的投入回报变成了一笔糊涂账。每个工程师都能在几分钟内消耗数千美元，成本缺乏可见性——这才是根因。这不是技术问题，是管理问题。</p>
+<p class="source">Electrek · <a href="https://electrek.co/2026/07/02/tesla-caps-employee-ai-spending-200-week/">electrek.co</a> / The Information</p>
+</div>
+<div class="item">
+<div class="dateline"><span class="src">Reuters / Apptronik</span> · 6 月 30 日</div>
+<h2 class="item-title">Apptronik 开「机器人公园」：用真实数据工厂喂养人形机器人</h2>
+<div class="img">
+<img alt="Apptronik Apollo 2 人形机器人在Robot Park中作业" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/apollo-robot-c902475c.jpg"/>
+<p class="img-cap">Apptronik 的 Apollo 2 人形机器人。图中为双足版本，此外还有轮式变体。图：Apptronik。</p>
+</div>
+<p class="body">机器人公司 <span class="hl">Apptronik</span> 在奥斯汀启用了一座近 <span class="num">9</span> 万平方英尺的 <span class="hl">Robot Park</span>，让成队的 <span class="hl">Apollo 2</span> 人形机器人在逼真的物流、制造和零售环境中反复执行真实操作任务，同时采集训练数据。Apollo 2 提供双足与轮式两种形态，以适应不同场景需求。</p>
+<p class="body">Robot Park 的数据采集链路与 Google <span class="hl">DeepMind</span> 的具身智能模型训练管线直接打通。Apptronik 同时预告了首个真正意义上的产品级版本 <span class="hl">Apollo 3</span>，称其将在可靠性、成本和部署便捷性上达到商业量产标准。人形机器人的最大瓶颈始终是数据——实验室模拟数据和真机操作数据之间存在巨大的 Sim-to-Real 鸿沟。Robot Park 的赌注是：规模化采集真实操作数据，是跨越这道鸿沟的唯一路径。</p>
+<p class="body">大模型的下一个战场是物理世界的数据。谁能规模化采到真实操作数据，谁就握住了具身智能的燃料。</p>
+<p class="source">Reuters · <a href="https://www.reuters.com/technology/apptronik-launches-robot-training-hub-unveils-apollo-2-humanoid-robot-2026-06-30/">reuters.com</a> / Apptronik · <a href="https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work">apptronik.com</a></p>
+</div>
+</section>
+<div class="divider"></div>
+<section class="section">
+<div class="sec-eyebrow">VOICES · 一线原话</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">“你得把代码理解到能够继续参与的深度。<br/>
+“</p>
+<p class="voice-who">Geoffrey Litt · 经 Simon Willison 转述 · <a href="https://simonwillison.net/2026/jul/2/understand-to-participate/">simonwillison.net</a></p>
+</div>
+<div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"The race window is tiny, only about six instructions wide."</p>
+<p class="voice-who">Jaeyoung Chung · 报告 Bad Epoll 漏洞的研究者 · <a href="https://github.com/J-jaeyoung/bad-epoll">github.com</a></p>
+</div>
+</section>
+<div class="divider"></div>
+<section class="section">
+<div class="sec-eyebrow">MAKERS · AI 产出了什么</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline"><span class="src">Variety / Deadline</span> · 6 月 10 日首映 · 本周热议</div>
+<h2 class="item-title">首部全 AI 生成长片登上翠贝卡电影节，也点燃了抵制</h2>
+<div class="img">
+<img alt="Dreams of Violets 电影画面截图" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/violets-912d2882.jpg"/>
+<p class="img-cap">《Dreams of Violets》剧照：影片使用 AI 视频工具根据新闻报道和目击者证词重建了 2026 年伊朗抗议事件。图：Variety。</p>
+</div>
+<p class="body">一部每一帧都由 AI 生成的 <span class="num">75</span> 分钟纪实剧情片《<span class="hl">Dreams of Violets</span>》，成为纽约 <span class="hl">翠贝卡电影节</span>史上首部全 AI 长片。影片由科技创业者兄弟 <span class="hl">Ash 与 Pooya Koosha</span> 执导，取材自 2026 年 1 月伊朗全国抗议与安全部队镇压事件——国际组织估算死亡人数超过 <span class="num">7000</span> 人。全部影像基于新闻报道、照片和目击者证词由 AI 视频工具生成。</p>
+<p class="body">影片在电影节上引发了激烈争论。一面是技术探索者的欢呼——认为这是 AI 叙事能力的里程碑；另一面是大量电影人和伊朗裔艺术家的公开抵制，指责影片「窃取了真实受害者的故事，并用 AI 替代了人类创作者」。Koosha 兄弟辩护称他们希望通过 AI 让被主流媒体忽视的悲剧获得关注，而批评者则认为这恰恰剥夺了当事人和记者用自己的声音讲述的权利。</p>
+<p class="body">生产门槛塌掉之后，稀缺的变成了谁有权讲、讲什么、代价谁来担。</p>
+<p class="source">Variety · <a href="https://variety.com/2026/film/festivals/tribeca-festival-ai-film-dreams-of-violets-fountain-0-1236759724/">variety.com</a> / Deadline · <a href="https://deadline.com/2026/05/ai-film-dreams-of-violets-tribeca-festival-premiere-1236921663/">deadline.com</a></p>
+</div>
+</section>
+<div class="divider"></div>
+<section class="section">
+<div class="sec-eyebrow">MONEY · 钱在流动</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline"><span class="src">TechCrunch / Menlo Ventures</span> · 7 月 4 日</div>
+<h2 class="item-title">Patronus AI 的 <span class="num">5000</span> 万美元 Series B：用数字孪生世界压力测试 AI agents</h2>
+<p class="body"><span class="hl">Patronus AI</span> 完成 <span class="num">5000</span> 万美元 Series B，估值不详。它的方法很独特：用 <span class="accent">digital world models</span>——对真实系统的高保真数字孪生——来压力测试 AI agents。传统 AI 安全测试依赖静态基准集，Patronus 的做法是让 AI agent 在一个模拟的完整业务环境中自主运行，观察它是否会在复杂场景下做出危险行为。</p>
+<p class="body">这项技术的价值在 agent 大规模部署的当下尤为突出——你不可能让一个可能出错的 agent 在真实客户数据上试错。Patronus 的 investors 包括 Lightspeed 和 NEA。公司称其客户覆盖金融、医疗和电商领域，部分客户已将 digital world model 测试嵌入 CI/CD 管线。</p>
+<p class="body">当 agent 从 demo 走向生产，验证层的价值会越来越大——谁负责安全验证，谁就有定价权。</p>
+<div class_="img"><img alt="Patronus AI 的 5000 万美元 Series B：用数字孪生世界压力测试 AI agents" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/patronus-ai---5000-----series--4cc72d75.jpg"/><p class_="img-cap">Patronus AI 的 5000 万美元 Series B：用数字孪生世界压力测试 AI agents。</p></div><p class="source">TechCrunch · <a href="https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/">techcrunch.com</a></p>
+</div>
+</section>
+<div class="divider"></div>
+<section class="section">
+<div class="sec-eyebrow">SIGNALS · 快讯</div>
+<div class="sec-title">信号条</div>
+<div class="item">
+<div class="dateline"><span class="src">多信源聚合</span> · 7 月 3–5 日</div>
+<p class="body"><span class="hl">Five Eyes 联合警告</span>：前沿 AI 让「能发动重大网络攻击」的时间表以月计而非以年计；CISA 要求联邦机构 <span class="num">3</span> 天内打补丁。6 月非农仅 +<span class="num">5.7</span> 万（预期 <span class="num">18.5</span> 万），AI 被列为结构性因素之一。</p>
+<p class="body"><span class="hl">Menlo Ventures</span> 募得 <span class="num">30</span> 亿美元新基金，其持股的模型公司股权已值近 <span class="num">140</span> 亿美元。<span class="hl">LiteLLM</span> 曝安全漏洞，泄露多家供应商 API key。GPT-5.6 Sol 仍被政府锁在限量预览，约 <span class="num">20</span> 家机构可用。Mythos Fable <span class="num">5</span> 计费悬崖 7 月 <span class="num">7</span> 日到期，订阅内 <span class="num">50</span>% 额度福利结束。</p>
+</div>
+</section>
+<div class="divider"></div>
+<section class="section">
+<div class="sec-eyebrow">THE WRAP</div>
+<div class="sec-title">今日小结</div>
+<div class="item">
+<p class="body">今天刻意求杂，信源覆盖独立研究者、中国开源实验室、初创机器人公司、好莱坞、VC 战场：</p>
+<p class="body"><span class="num">一</span>：<span class="hl">「AI 找漏洞」的叙事需要校准</span>——Bad Epoll 证明同一段代码 Mythos 看过、漏了，人补上了。</p>
+<p class="body"><span class="num">二</span>：<span class="hl">开源权重正在凿穿只有大厂能做前沿的假设</span>——GLM-5.2 以 MIT 许可放出 753B 参数，商用无限制。</p>
+<p class="body"><span class="num">三</span>：<span class="hl">AI 的成本治理正在成为显学</span>——特斯拉封顶、Uber 烧掉 34 亿，入口和验证层成为资本新猎物。</p>
+<div class="signal">今天覆盖 5 家公司 + 1 位独立研究者，信源包括 The Hacker News、Reuters、TechCrunch、Variety、Electrek、Simon Willison 等。</div>
+</div>
+</section>
+<section class="section">
+<div class="sec-eyebrow">BE CURIOUS 🌌</div>
+<div class="sec-title">保持好奇</div>
+<div class="img">
+<img alt="从卫星看佛得角，西非萨赫勒地带" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/cape-verde-nasa.jpg"/>
+<p class="img-cap">Cape Verde · <span class="num">15.0</span>°N, <span class="num">23.5</span>°W<br/>人口 52 万、面积比崇明岛还小—佛得角却是本届世界杯最让人尊敬的球队。法定时间对西班牙、乌拉圭、阿根廷三支前冠军保持不败。场外更猛：华为给他们建了数据中心和电子政务平台，12 月要办 Web Summit（首次登陆非洲），目标是当「西非的爱沙尼亚」，用 AI 和数字经济逆转人才外流。<br/>看了一天 AI 的新闻，还有更大的世界等着探索。</p>
+</div>
+</section>
+<footer class="footer">
+<p class="big">AI 情报日报 · 前沿信号流</p>
+<p>SOURCES · The Hacker News / Reuters / TechCrunch / Variety / Electrek / Simon Willison / GitHub</p>
+<p>一手原始 · 从业者原话 · 现场反应 · 事故复盘 —— 信源越近现场，优先级越高</p>
+</footer>
+</div>
+<link href="../glossary/glossary.css" rel="stylesheet"/>
 <script src="../glossary/ai-dictionary-lite-inline.js"></script>
-<script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+<script data-dict="glossary/ai-dictionary-lite.json" src="../glossary/glossary.js"></script>
 </body>
 </html>

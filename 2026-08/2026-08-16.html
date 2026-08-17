@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI 情报日报｜2026-08-14</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.enhanced-badge{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid #C41E3A;color:#C41E3A;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;vertical-align:1px;}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.img img{max-width:560px;width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;border:1px solid var(--line);}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">首页</a></li>
+<li><a class="active" href="2026-08-14.html">最新</a></li>
+<li><a href="../special/china-models.html">专题</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-14 · 周五</span>
+<span class="enhanced-badge">✦ 升维版</span>
+<span>本期 10 条</span>
+</div>
+<div class="mast-lede">今天的关键词是「快」：模型提速 14 倍、一句话出 3D、AI 音乐能商用。<br/><br/>往下看，谁在跑得更快。</div>
+</div>
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-15 · SpaceX · 收购</div>
+<div class="item-title">SpaceX 正式完成收购 Cursor：<span class="hl">火箭公司把编码工具收进自家版图</span></div>
+<div class="body">
+<p><strong><span class="accent">SpaceX</span> 正式完成对 <span class="accent">Cursor</span> 的收购——之前传闻已久的交易尘埃落定。</strong></p>
+<p>这不是普通的收购：SpaceX 是发射火箭的公司，Cursor 是开发者最爱的 AI 编码工具。<span class="hl">「代码 IDE 进火箭公司」的组合，让 AI 工具的真正去向第一次这么直白</span>——不是卖给竞争对手，是卖给要用它造火箭的人。</p>
+<p>对开发者来说，Cursor 易主的影响要等尘埃落定：订阅价格、产品方向、与 xAI 模型的关系（Grok 已在 Cursor 里）。但短期看，<span class="hl">「火箭公司需要最强的编码 AI」这件事本身，就是行业信号</span>——顶级硬科技公司开始把 AI 编码工具当战略资产。</p>
+<p><span class="turn">当造火箭的公司开始收购写代码的工具，AI 编码的战争已经从「开发者工具」升级到「国家战略资产」。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/08/15/spacex-officially-closes-its-cursor-acquisition/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-15 · Grok · 评测</div>
+<div class="item-title">Grok 4.6 登顶新闻可靠性评测：<span class="hl">「会编」的模型，这次被证「更可靠」</span></div>
+<div class="body">
+<p><strong><span class="accent">Grok 4.6</span> 在新闻可靠性评测中登顶——在一众被批评「会编造」的模型里，它拿到了新闻准确性第一。</strong></p>
+<p>这跟 Grok 一直以来的口碑形成反差：xAI 的模型常被质疑「口无遮拦」，但这次评测的是<span class="hl">「给出的事实可不可信」</span>——Grok 在事实性上压过了一批以「谨慎」著称的对手。</p>
+<p><span class="turn">当「最敢说的模型」成了「最可靠的模型」，评测标准本身也在变——不是谁更安全，是谁更接近真相。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://x.ai" target="_blank">xAI</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-15 · Anthropic · 水印</div>
+<div class="item-title">Anthropic 公布 Claude 水印工作原理：<span class="hl">不是加个记号，是统计指纹</span></div>
+<div class="body">
+<p><strong><span class="accent">Anthropic</span> 公布 Claude 文本水印的更多技术细节——</strong>此前 8 月初 Claude 已内置不可见水印，现在官方详解了它的工作原理。</p>
+<p>核心是<span class="hl">「采样统计指纹」</span>：生成文本时轻微偏向某些 token，形成只有检测器能识别的统计模式——复制粘贴删不掉、改写删不掉、AI 重写才能破坏。不是肉眼可见的标记，是藏在词频里的指纹。</p>
+<p><span class="turn">当「AI 写的」从肉眼难辨变成统计可查，内容可信度的天平正在向「可验证」倾斜。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-14 · MiniMax · 开源</div>
+<div class="item-title">MiniMax 开源 Music 3：<span class="hl">「AGI 到来之前，我们一直开源」</span></div>
+<div class="body">
+<p><strong><span class="accent">MiniMax</span> 开放 <span class="accent">Music 3.0</span> 权重，上架 Hugging Face（<span class="accent">MiniMaxAI/MiniMax-Music3</span>），<span class="accent">ComfyUI 0.33</span> 同日原生支持，官方原话：「在 AGI 到来之前，我们将一直保持开源。」<br/>
+</strong></p>
+<p>参数上它是个「多模块」模型：<span class="num">8B</span> 全局 LLM（初始化自 Qwen3.5-8B）+ 0.6B 局部 LLM + 2.4B flow-matching 模块 + 123M Flow-VAE，能生成长达 <span class="num">5</span> 分钟的完整歌曲，输出 32kHz 立体声。<br/>
+API 版 7 月已上线，这次是权重开放，本地能跑，意味着不用上传、不用排队、不用按次付费，<span class="hl">创作者第一次能「拥有」自己的 AI 配乐工具。<br/>
+</span></p>
+<p><span class="hl">开源音乐模型的生态位很微妙</span>：闭源有 Suno、Udio 这类商业产品，开源此前只有一些小模型。<br/>
+Music 3 的 8B 全局 LLM + 2.4B flow-matching 架构，把「能生成 5 分钟完整歌曲」的能力放进了本地可跑的范围，配合 ComfyUI 工作流，一个普通创作者能在自己电脑上搭出完整的 AI 音乐流水线。</p>
+<p><span class="hl">MiniMax 的逻辑是「开源换生态」</span>：从 H2 到 Music 3，它一直在把旗舰能力开源，靠开发者生态反哺品牌。<br/>
+对比 Suno 的付费订阅模式，开源路线赌的是「更多人用 → 更多人改进 → 模型迭代更快」的飞轮。<br/>
+对创作者来说，这是选择权，不想按次付费、不想上传数据的，本地跑一个。</p>
+<p><span class="turn">当中国公司的开源从「模型参数」卷到「创作工具」，开源战场的定义被拓宽了，<span class="hl">不再专属开发者，每个创作者都能摸到</span>。<br/>
+</span></p>
+</div>
+<div class="src-line">来源：<a href="https://x.com/MiniMax_AI" target="_blank">MiniMax 官方</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-12 · 阿里 · 开源</div>
+<div class="item-title">Qwen3.8-Max 开源：<span class="hl">2.4T 总参 / 95B 活跃，阿里放出「史上最大开源」之一</span></div>
+<div class="body">
+<p><strong>阿里发布 <span class="accent">Qwen3.8-Max</span> 开放权重：<span class="num">2.4T</span> 总参 / <span class="num">95B</span> 活跃 MoE，激活率仅约 <span class="num">4%</span>，API 定价 <span class="num">$2/$6</span> 每百万 token，社区评价「迄今最大的开源权重发布之一」。<br/>
+</strong></p>
+<p>第三方评测很硬：Frontend Code Arena <span class="num">#4</span>（Elo <span class="num">1668</span>，仅次于 Claude Opus 5 和 Kimi K3），Vision Arena <span class="num">#2</span>（<span class="num">1305</span>，只差 Claude Fable 13 分）；Vals 综合指数 <span class="num">66.1</span>，开源模型第 <span class="num">2</span>、全部 43 家第 <span class="num">10</span>；SWE-bench <span class="num">87.3%</span>，压过 GPT-5.5（<span class="num">82.6%</span>）和 GLM-5.2（<span class="num">83.3%</span>）。<br/>
+更值钱的是提速曲线：Vals 指数从 3.7 Max 的 <span class="num">57.5</span> 涨到 <span class="num">66.1</span>，<span class="hl">两个半月涨了 8.6 分</span>，价格还从 <span class="num">$2.5/$7.5</span> 降到 <span class="num">$2/$6</span>。</p>
+<p>上线当天生态就位：vLLM day-0 支持 + NVIDIA B300/AMD MI355X 专用 4-bit 量化，Together、Baseten 立刻可跑。<br/>
+但 Jamin Ball 泼了冷水：<span class="hl">K3 光加载权重就超 <span class="num">1TB</span> 内存、至少 <span class="num">8</span> 张 H100，开放权重不等于能本地跑</span>；且首发权重是纯文本版，视觉未放开；许可条款疑似限制美欧英韩下载，阿里当天未澄清。</p>
+<p><span class="turn">当 2.4T 的开源模型评测逼近闭源旗舰、价格只有零头，<span class="hl">「开源和闭源的差距」正在变成「谁能真正用起来」</span>。<br/>
+</span></p>
+</div>
+<div class="img">
+<img alt="Qwen3.8-Max 开源" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/qwen.jpg"/>
+<p class="img-cap">Qwen3.8-Max 开源。</p>
+</div>
+<div class="src-line">来源：<a href="https://huggingface.co/Qwen" target="_blank">HuggingFace / Qwen</a> · <a href="https://github.com/vllm-project/vllm" target="_blank">vLLM</a></div>
+</div>
+</div>
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-14 · Gemini · 3D</div>
+<div class="item-title">Gemini 3.7 Flash 发布：<span class="hl">距 3.6 仅三周，速度迭代快到「月更」</span></div>
+<div class="body">
+<p><strong>Google 发布 <span class="accent">Gemini 3.7 Flash</span>，距 3.6 Flash 仅三周，<span class="num">100</span> 万 token 上下文、<span class="num">64K</span> 输出，WebDev Arena Elo <span class="num">1588</span> 分，API 定价输入 <span class="num">$0.75</span>/百万 token（2027 年起涨到 <span class="num">$1.50</span>）。<br/>
+</strong></p>
+<p>官方演示里最抓眼球的是 3D 生成：一句话生成可用的 3D 手表模型，成本约 <span class="num">$0.038</span>，不足 4 美分。<br/>
+<span class="hl">过去 3D 建模是设计师按小时收费的活</span>，现在一句话 + 4 美分。<br/>
+<span class="hl">当生成成本低到可以忽略</span>，<span class="hl">「会不会建模」不再是门槛，「想不想做」才是</span>。</p>
+<p>但更需要留心的是迭代节奏：<span class="num">3.6</span> 到 <span class="num">3.7</span> 只隔三周。<br/>
+Google 正在把模型发布从「季度」压缩到「月更」，<span class="hl">Flash 系列成了试验新能力的快车道</span>：价格便宜、迭代快、能力不断往上加。<br/>
+同场配套发布 Nano Banana 图像模型和 Gemini Omni，形成完整产品矩阵。</p>
+<p>对开发者的直接含义：<span class="hl">模型能力按「月」在涨，选型决策也得按「月」重做</span>，<span class="hl">三个月前的最优解，可能已经被更便宜的新版本取代</span>。</p>
+<p><span class="turn">3D 内容的生产成本塌缩，可能比图像生成的影响更深，因为 3D 是制造业、游戏、电商的地基，而它正在变成一句「帮我做个 XX」的事。<br/>
+</span></p>
+</div>
+<div class="src-line">来源：<a href="https://blog.google/technology/ai/" target="_blank">Google AI 官方博客</a> · <a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-14 · OpenAI · 产品</div>
+<div class="item-title">ChatGPT 上线「电脑历史」：<span class="hl">不再截图，直接记录你点了什么、打了什么</span></div>
+<div class="body">
+<p><strong>OpenAI 在 ChatGPT Mac 桌面版推出 <span class="accent">Computer History</span>（电脑历史）功能，取代此前基于截图的 Chronicle 研究预览，面向 Pro、Business、Enterprise 用户，默认关闭，企业需管理员授权。<br/>
+</strong></p>
+<p>它的工作方式：不再截屏，改经 macOS 辅助功能记录你的点击、输入、快捷键、应用切换等事件，生成记忆和时间线供 ChatGPT/Codex 引用。<br/>
+事件会上传服务器生成记忆，OpenAI 称处理后不保留、不用于训练；交互事件本地保存最长 <span class="num">48</span> 小时，首批不含 EEA、瑞士、英国。</p>
+<p>为什么值得注意：这是「AI 记住你」从对话层扩展到屏幕层的第一步。<br/>
+<span class="hl"><span class="hl">以前 AI 只记得你说过什么，现在它记得你做过什么</span></span>，这对 Agent 场景是质变：ChatGPT 可以接着你上次的浏览器操作继续干活，不用你重新交代上下文。</p>
+<p>媒体反应很直接：<span class="hl">The Register 称它是「友好的键盘记录器」</span>，它能提升个性化，也增加 token 消耗与提示注入风险，OpenAI 文档自己都提示了这一点，建议涉及他人通信时暂停。<br/>
+批评者指出：<span class="hl">提示注入攻击可以借这个记忆通道污染 AI 的长期上下文</span>。</p>
+<p><span class="turn">当 AI 开始记录你的屏幕，「便利换隐私」的交易，用户往往还没看清条款就点了同意，这次的条款里，写着「键盘记录器」四个字。<br/>
+</span></p>
+</div>
+<div class="img">
+<img alt="ChatGPT 上线「电脑历史」" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/ainews-spacexai-grok-46-and-grok.jpg"/>
+<p class="img-cap">ChatGPT 上线「电脑历史」。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div class="item">
+<div class="dateline">08-14 · Suno · 音乐</div>
+<div class="item-title">Suno Studio 2.0 上线：<span class="hl">AI 音乐编辑器，长成了专业 DAW</span></div>
+<div class="body">
+<p><strong><span class="accent">Suno</span> 发布 <span class="accent">Studio 2.0</span>，新增 MIDI 导入/录制/编辑（可当生成提示）、双振荡器波表合成器、轨道自动化曲线、内置效果器（失真、延迟、混响、压缩、EQ），当日向 Premier 用户开放。<br/>
+</strong></p>
+<p>最值得注意的更新是 <span class="accent">Chat 栏</span>：用自然语言就能创建自定义插件，上线初期不消耗 credits，AI 音乐工具开始把「调音」也变成对话。<br/>
+Premier 用户可无限导出 <span class="num">32-bit/48kHz</span> 多轨与分轨，高级分轨分离也来了。</p>
+<p>Suno 说 MIDI 是 Studio 最受需求的功能，2.0 基于过去一年用户反馈开发，<span class="hl">目标是把 Studio 从「简易 AI 编辑器」升级为「完整 DAW 式制作环境」。<br/>
+</span> MIDI 加入意味着什么？<br/>
+<span class="hl"><span class="hl">你可以把亲手弹的旋律导入，AI 在此基础上编曲</span></span>，人机协作从「给一句话」变成「给一段真实的演奏」。</p>
+<p>对创作者的分层是清晰的：Pro 用户能用新合成器和效果器精修；Premier 用户拿无限多轨导出做商用级混音。<br/>
+<span class="hl">AI 音乐工具的竞争，正在从「谁能生成更长的歌」转向「谁能接进专业工作流」</span>，DAW 式能力成了分水岭。</p>
+<p><span class="turn"><span class="hl">当 AI 音乐开始对标专业制作工具</span>，「灵感到成曲」被压缩到分钟级，会写旋律的不再是稀缺，会「指挥 AI」的才是。<br/>
+</span></p>
+<div class="img">
+<img alt="Suno Studio 2" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/suno-studio-2.jpg"/>
+<p class="img-cap">Suno Studio 2.0：AI 音乐走向专业 DAW 式制作。<br/>
+图：Suno 官方。</p>
+</div>
+</div>
+<div class="src-line">来源：<a href="https://www.theverge.com/2026/8/13/suno-studio-2" target="_blank">The Verge</a> · <a href="https://www.latent.space/p/ainews-muse-glimmer-and-spark-open" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-12 · Anthropic · 算力</div>
+<div class="item-title">Anthropic 锁定 <span class="num">20</span> 年算力：<span class="hl">91 亿美元，把德州电「买断」到 2048</span></div>
+<div class="body">
+<p><strong>Anthropic 与比特币矿商 <span class="accent">Riot Platforms</span> 签订 <span class="num">20</span> 年算力租约（至 2048 年 6 月）：<span class="num">191</span> MW 关键 IT 容量，初始合同收入约 <span class="num">91</span> 亿美元，两次 5 年续约后最高 161 亿。<br/>
+</strong></p>
+<p><span class="hl">这笔交易的细节很硬核</span>：<span class="hl">Riot 的德州设施 2027 年 12 月交付</span> 96 MW，2028 年 6 月前交付剩余 95 MW；Morgan Stanley 提供过渡贷款；AMD 是同一园区的另一租户，矿场正在变成 AI 算力园区。</p>
+<p><span class="hl">为什么找矿商买电？<br/>
+</span><span class="hl">矿场有现成的工业电力、冷却和场地，转型 AI 数据中心的成本比新建低得多</span>。<br/>
+Anthropic 一边 60 亿收购补模型，一边 91 亿锁定算力，<span class="hl">头部实验室的竞争，已经变成以十年为单位的资本锁定。<br/>
+</span></p>
+<p><span class="turn"><span class="hl">AI 的军备竞赛，从「谁更强」变成了「谁先锁死资源」</span>，而这一次，锁的是德州 2048 年之前的电。<br/>
+</span></p>
+</div>
+<div class="img">
+<img alt="Anthropic 锁定 20 年算力" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/anthropic-compute.jpg"/>
+<p class="img-cap">Anthropic 锁定 20 年算力。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.cnbc.com/2026/08/12/anthropic-riot-platforms-compute-agreement.html" target="_blank">CNBC</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">“扎克伯格写了 6,500 字的 AI 宣言—但几乎什么也没说。<br/>
+“</p>
+<p class="voice-who">— Wired 评论 · Zuckerberg AI Manifesto · <a href="https://www.wired.com/story/mark-zuckerbergs-ai-manifesto-is-6500-words-and-barely-says-anything/" target="_blank">Wired</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“AI 很贵。”<br/>
+— Databricks CEO Ali Ghodsi 解释为什么想融 10 亿、最后拿了 50 亿。</p>
+<p class="voice-who">— Ali Ghodsi · Databricks CEO · <a href="https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/" target="_blank">TechCrunch</a></p>
+</div>
+</div>
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<p>今天的关键词是「快」：模型提速 14 倍、一句话出 3D、AI 音乐能商用。</p>
+<p>钱也在追：想融 10 亿来了 150 亿，数据层的估值被抬到 1900 亿。</p>
+<p class="turn">当能力开始够用，速度、成本和门槛，成了新一轮竞赛的起跑线。</p>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>马尾藻带 · 大西洋，NASA 卫星拍下横跨大洋的浮藻带，像一条会呼吸的河。<br/>
+</strong></p>
+<div class="image-block">
+<img alt="NASA 卫星影像：马尾藻带" loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg"/>
+<p class="image-caption">Sargassum Belt · 大西洋 · NASA 卫星拍下 <span class="num">15.0</span>°N, <span class="num">45.0</span>°W<br/>这片藻类带横跨大西洋，最宽处几千公里—它不靠任何公司喂养，只靠阳光和洋流，自己长成一条「漂浮的森林」。<br/>
+我们在屏幕上争论谁提速 14 倍、谁估值 1900 亿，这片藻带正按海流的节奏，决定今年漂到哪里、覆盖哪片海岸。<br/>
+看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<span class="hl">山川湖海，让我们保持好奇、继续探索。</span>
+</p></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+</div>
+<link href="../glossary/glossary.css" rel="stylesheet"/>
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script data-dict="glossary/ai-dictionary-lite.json" src="../glossary/glossary.js"></script>
+</body>
+</html>
