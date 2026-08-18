@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI 情报日报｜2026-08-18</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.enhanced-badge{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid #C41E3A;color:#C41E3A;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;vertical-align:1px;}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.img img{max-width:560px;width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;border:1px solid var(--line);}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">首页</a></li>
+<li><a class="active" href="2026-08-18.html">最新</a></li>
+<li><a href="../special/china-models.html">专题</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-18 · 周二</span>
+<span class="enhanced-badge">✦ 升维版</span>
+<span>本期 9 条</span>
+</div>
+<div class="mast-lede">今天的关键词是「算力军备」：芯片公司打不过英伟达，转行去卖英伟达的算力；英伟达 15 亿锁死 OpenAI 的数据中心；亚马逊把珍本书销毁喂给 AI。<br/><br/>往下看，钱和算力在往哪流。</div>
+</div>
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div class="item">
+<div class="dateline">08-17 · Groq · 融资转型</div>
+<div class="image-block">
+<img src="../assets/ai-frontline-images/by-date/2026-08-18/groq-neocloud-f142cfd8.jpg" alt="Groq 转型 neocloud" loading="lazy">
+<p class="image-caption">Groq 融 3.5 亿美元转型 neocloud · 从 AI 芯片制造商转向卖算力</p>
+</div>
+<div class="item-title">但这次，Groq 融 <span class="num">3.5</span> 亿转型「neocloud」——<span class="hl">AI 芯片创业公司，转行去卖英伟达的算力</span></div>
+<div class="body">
+<p><strong><span class="accent">Groq</span> 完成 <span class="num">3.5</span> 亿美元融资，估值 <span class="num">35</span> 亿，正式从 AI 芯片制造商转型为 <span class="accent">neocloud</span>（新一代云服务商），并扩大英伟达驱动的数据中心。</strong></p>
+<p>Groq 曾是「挑战英伟达」的明星：自研 <span class="accent">LPU</span> 芯片，推理速度一度是行业标杆。<span class="hl">但芯片创业的终局，是打不过就加入</span>——这次融资的核心用途，是买英伟达的卡、建自己的云，把算力卖给开发者。</p>
+<p>这不是个例。<span class="hl">「造芯片」的壁垒高到只有英伟达能玩</span>，曾经的挑战者开始集体转向「卖算力」：Groq 转型 neocloud，<span class="accent">Cerebras</span> 也在做云服务。<span class="hl">芯片战场的输家，正在变成<span class="accent">云市场</span>的玩家</span>。</p>
+<p><span class="turn">当挑战者开始卖英伟达的卡，「AI 芯片战争」的结局已经写了一半——<span class="hl">真正的战场从「造芯片」转移到了「谁把算力卖得更好」</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/08/17/groq-raises-350m-to-fuel-its-pivot-from-ai-chips-to-neocloud/" target="_blank">TechCrunch</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div class="item">
+<div class="dateline">08-17 · Nvidia · 投资</div>
+<div class="image-block">
+<img src="../assets/ai-frontline-images/by-date/2026-08-18/nvidia-softbank-dc-94f48ef9.jpg" alt="Nvidia 投资软银数据中心" loading="lazy">
+<p class="image-caption">Nvidia 投 15 亿美元给软银数据中心开发商 · OpenAI 项目背后</p>
+</div>
+<div class="item-title">Nvidia 投 <span class="num">15</span> 亿给软银数据中心开发商：<span class="hl">OpenAI 的数据中心，芯片锁定英伟达</span></div>
+<div class="body">
+<p><strong><span class="accent">Nvidia</span> 向软银旗下的数据中心开发商投资 <span class="num">15</span> 亿美元——这家公司正是 OpenAI 数据中心项目的承建方。</strong></p>
+<p>这笔投资的意义不在钱，在绑定：<span class="hl">英伟达<span class="num">15</span> 亿换一个「我的芯片进 OpenAI 数据中心」的保证</span>。算力供应链正在从「买卖关系」变成「<span class="accent">股权关系</span>」。</p>
+<p>对 OpenAI 来说，数据中心是它摆脱对单一云厂商依赖的关键一步；对英伟达来说，<span class="hl">投资承建商 = 提前锁死未来几年的芯片订单</span>。<span class="hl">算力军备的下一层，是资本绑定</span>。</p>
+<p><span class="turn">当芯片厂开始投资数据中心开发商，「谁给谁供芯片」不再是一纸合同，<span class="hl">是<span class="accent">股权</span>上的一家人</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/08/17/nvidia-investing-1-5b-in-softbank-data-center-developer-behind-openai-project/" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Amazon · 争议</div>
+<div class="image-block">
+<img src="../assets/ai-frontline-images/by-date/2026-08-18/amazon-rare-books-d9c09a3d.jpg" alt="亚马逊销毁珍本图书" loading="lazy">
+<p class="image-caption">AirTag 追踪证实：亚马逊把珍本图书销毁，喂给 AI 训练</p>
+</div>
+<div class="item-title">AirTag 追踪证实：<span class="hl">亚马逊把珍本图书销毁，喂给 AI 训练</span></div>
+<div class="body">
+<p><strong>记者在一批珍本图书里藏了 <span class="accent">AirTag</span>，追踪发现它们最终被送进 <span class="accent">亚马逊</span> 的 AI 训练设施——<span class="hl">这家从卖书起家的公司，正在销毁珍本书来训练模型</span>。</strong></p>
+<p>为什么是珍本书？<span class="hl">网上能抓到的文本，模型早就训练过了</span>；珍本书里的内容稀缺、未数字化，是「<span class="accent">增量数据</span>」——对训练高质量模型价值极高。</p>
+<p>争议在于：<span class="hl">这些书是<span class="accent">图书馆和收藏家</span>的资产，被亚马逊买走或借走，然后销毁</span>。<span class="accent">书商和藏书界</span>愤怒：为了 AI 的「<span class="accent">数据饥饿</span>」，人类的文化遗产正在被物理消灭。</p>
+<p><span class="turn">当 AI 训练的数据需求撞上实体文化遗产，<span class="hl">「数据饥饿」第一次有了物理代价——被销毁的书，不会再回来</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://simonwillison.net/2026/Aug/17/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-tra/" target="_blank">Simon Willison</a> · <a href="https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Anthropic · 水印</div>
+<div class="item-title">Anthropic 详解 Claude 水印原理：<span class="hl">采样统计指纹，肉眼不可见但机器可查</span></div>
+<div class="body">
+<p><strong><span class="accent">Anthropic</span> 公布 Claude 文本水印（<span class="accent">SynthID</span> 式）的工作原理：<span class="hl">不是藏字，是藏在「选词概率」里</span>。</strong></p>
+<p>机制：模型生成每个词时，在概率分布里做「<span class="accent">有偏采样</span>」——某些词被系统性地多选或少选，形成统计指纹。<span class="hl"><span class="accent">人眼</span>看不出任何区别，但检测器能通过统计检验识别</span>。</p>
+<p>为什么重要：这是「AI 内容可溯源」从口号变成工程的第一步。<span class="hl">当水印可检测，AI 生成的文本第一次有了「身份证」</span>——防伪造、防滥用、防<span class="accent">深度伪造</span>文本。</p>
+<p>局限也诚实：<span class="hl"><span class="accent">改写、翻译、重排</span>都能破坏水印</span>，它不是万能的，但足以让「AI 生成内容」在多数场景可被识别。<span class="turn"><span class="hl">当 AI 内容开始带指纹，「这到底是不是 AI 写的」第一次有了可验证的答案</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.theverge.com/ai-artificial-intelligence/980869/anthropic-claude-watermarks-synthid-text-system" target="_blank">The Verge</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div class="item">
+<div class="dateline">08-17 · DeepSeek · 开源</div>
+<div class="item-title">DeepSeek 开源 Harness：<span class="hl">MIT 许可的 agent 框架，一切皆插件</span></div>
+<div class="body">
+<p><strong><span class="accent">DeepSeek</span> 发布 <span class="accent">DeepSeek Harness</span> 开发者预览版：<span class="hl">MIT 许可的 agent 框架，核心设计是「一切皆插件」</span>。</strong></p>
+<p>它解决的是 agent 开发的碎片化问题：<span class="accent">工具、模型、记忆、执行器</span>全部插件化，<span class="hl">开发者不用重写框架，<span class="accent">只写自己的插件</span></span>。<span class="accent">MIT</span> 许可意味着可以商用、可以改、可以闭源。</p>
+<p>DeepSeek 的开源节奏在加速：模型开源 → 推理框架开源 → 现在 agent 框架开源。<span class="hl">它赌的是「开源生态反哺模型采用」</span>——用你的框架，自然用你的模型。</p>
+<p><span class="turn">当中国模型厂商从「开源模型」卷到「开源 agent 框架」，<span class="hl">开源战场的定义再次被拓宽——不只是模型，是整个开发栈</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.marktechpost.com/2026/08/17/deepseek-ai-releases-deepseek-harness-in-developer-preview/" target="_blank">MarkTechPost</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · MiniMax · 开源</div>
+<div class="item-title">MiniMax 开源 Music3：<span class="hl">歌词一句话，生成 5 分钟完整歌曲</span></div>
+<div class="body">
+<p><strong><span class="accent">MiniMax</span> 发布 <span class="accent">MiniMax-Music3</span> 开源权重：<span class="hl">从歌词和结构化描述生成最长 <span class="num">5</span> 分钟的完整歌曲</span>，输出 <span class="num">32kHz</span> 立体声。</strong></p>
+<p>架构是「<span class="accent">多模块</span>」：<span class="num">8B</span> 全局 LLM + 0.6B 局部 LLM + <span class="num">2.4B</span> flow-matching 模块 + 123M Flow-VAE。<span class="hl">开源意味着本地能跑，不用上传、不用排队、不用按次付费</span>。</p>
+<p>对比 Suno、Udio 的付费订阅，<span class="hl">开源音乐模型赌的是「创作者生态」</span>：更多人用 → 更多人改进 → 模型迭代更快。<span class="hl">创作者第一次能「拥有」自己的 AI 配乐工具</span>。</p>
+<p><span class="turn">当开源从「模型参数」卷到「创作工具」，<span class="hl">开源战场的定义被拓宽——不再专属开发者，每个创作者都能摸到</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.marktechpost.com/2026/08/17/minimax-releases-minimax-music3/" target="_blank">MarkTechPost</a></div>
+</div>
+</div>
+
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div class="item">
+<div class="dateline">08-17 · PixVerse · 竞赛</div>
+<div class="item-title">PixVerse 启动全球 AI 电影人竞赛：<span class="hl">AI 电影从「玩票」走向「竞赛」</span></div>
+<div class="body">
+<p><strong><span class="accent">PixVerse</span> 启动全球 AI 电影人竞赛 <span class="accent">PixLight</span>，面向全球创作者征集 AI 短片。</strong></p>
+<p>同场还有 Grok Imagine 的荷马史诗短片大赛（头奖 <span class="num">10</span> 万美元）。<span class="hl">AI 视频从「个人玩票」进入「有奖竞赛」阶段</span>——平台用<span class="accent">奖金</span>换优质内容，创作者用 AI 工具换曝光。</p>
+<p>MiniMax H3 模型在 PixVerse 上被大量用于电影级预告片制作，<span class="hl">「AI 电影」的质感正在逼近<span class="accent">传统预告片</span></span>。<span class="hl">当生成工具成熟，门槛从「会不会做」变成「有没有想法」</span>。</p>
+<p><span class="turn">当平台开始为 AI 短片发奖金，<span class="hl">AI 电影工业化的第一块拼图——「变现路径」——正在被拼上</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://aihot.virxact.com/items/cmsxrtvy908curoz06xff1zxv" target="_blank">PixVerse</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · 世界模型 · 有声</div>
+<div class="item-title">世界模型进入「有声时代」：<span class="hl">24FPS 画面 + 48kHz 立体声实时生成</span></div>
+<div class="body">
+<p><strong>新一代世界模型实现 <span class="num">24</span>FPS 画面 + <span class="num">48</span>kHz 立体声的实时生成，<span class="hl">即将完全开源</span>。</strong></p>
+<p><span class="accent">此前</span>世界模型只能生成无声画面，声音是后期配的。<span class="hl">「有声」意味着模型开始理解「声音和画面同时发生」的世界</span>——雨声跟着雨、脚步声跟着人，这是世界模型从「视觉模拟器」走向「世界模拟器」的关键一步。</p>
+<p>实时生成的意义更大：<span class="hl">交互式世界不再是「生成一段视频」，是「生成一个能响应的世界」</span>——<span class="accent">游戏、电影、训练模拟</span>，都在这条线上。</p>
+<p><span class="turn">当世界模型开始「听见」，<span class="hl">AI 对世界的模拟从「看」进化到「听」——离真正的世界模拟器，又近了一步</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.qbitai.com/2026/08/474334.html" target="_blank">量子位</a></div>
+</div>
+</div>
+
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div class="item">
+<div class="dateline">08-17 · Wispr · 融资</div>
+<div class="item-title">Wispr 融 <span class="num">2.8</span> 亿：<span class="hl">口述工具公司，估值冲到 20 亿</span></div>
+<div class="body">
+<p><strong><span class="accent">Wispr</span> 完成 <span class="num">2.8</span> 亿美元融资，估值 <span class="num">20</span> 亿——这家以语音输入（dictation）起家的公司，正在向会议场景扩张。</strong></p>
+<p>Wispr 的路径很典型：<span class="hl">从一个「<span class="accent">小而锋利</span>」的工具（语音输入）切入，融到钱后向相邻场景扩张</span>——刚发布的会议记录工具，是它从「打字」到「开会」的第一步。</p>
+<p>语音输入是 AI 应用里少有的「高频刚需」场景：<span class="hl">谁掌握了语音入口，谁就掌握了「说话比打字快」的那批用户</span>。20 亿估值说明资本认可这个入口的价值。</p>
+<p><span class="turn">当语音工具公司开始融 2.8 亿做会议，<span class="hl">「AI 语音」从输入法级别的工具，正在变成办公场景的基础设施</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/08/17/wispr-raises-280m-at-2b-valuation-as-it-looks-beyond-dictation/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">“Stripe 收购 OpenRouter，本质是「聚合 AI」——<br/>所有模型从同一入口出去，入口的所有者就掌握定价权。”<br/></p>
+<p class="voice-who">— Ben Thompson · Stratechery · <a href="https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/" target="_blank">Stratechery</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“教每个人「钓 token」——<br/>理解 token 经济学，比理解模型架构更重要。”<br/></p>
+<p class="voice-who">— Nathan Lambert · Interconnects · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a></p>
+</div>
+</div>
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<p>今天的关键词是「算力军备」：芯片公司打不过英伟达，转行去卖英伟达的算力；英伟达 15 亿锁死 OpenAI 的数据中心。</p>
+<p>数据也在变贵：亚马逊销毁珍本书喂 AI，AI 训练的数据饥饿第一次有了物理代价。</p>
+<p class="turn">当算力和数据都开始「锁死」，AI 竞争的下半场，拼的是谁先握住资源。</p>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>巴塔哥尼亚的 Tyndall 冰川 · 智利——冰崩后散落的碎冰浮在 Lago Geikie 湖面，一片正在以每年数公里速度退去的冰。</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tyndall%E2%80%99s-trail-of-bergs/ISS074-E-582898_th.jpg" alt="NASA 卫星影像：Tyndall 冰川" loading="lazy">
+<p class="image-caption">Tyndall 冰川 · 巴塔哥尼亚 · NASA 卫星拍下 <span class="num">51.0</span>°S, <span class="num">73.3</span>°W<br>冰川以每年数公里的速度退去，碎冰散落在湖面，像一场缓慢的告别。我们在屏幕上争论谁收购谁、谁的模型更强，这片冰正按自己的节奏融化，不问任何人的意见。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流——AI每天在变什么，人在怎么选
+</div>
+</div>
+<link href="../glossary/glossary.css" rel="stylesheet"/>
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script data-dict="glossary/ai-dictionary-lite.json" src="../glossary/glossary.js"></script>
+</body>
+</html>
