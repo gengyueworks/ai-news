@@ -87,7 +87,7 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <div class="mast-meta">
 <span class="issue">2026-08-20 · 周四</span>
 <span class="enhanced-badge">✦ 升维版</span>
-<span>本期 13 条</span>
+<span>本期 15 条</span>
 </div>
 <div class="mast-lede">今天的关键词是「<span class="hl">全链路账</span>」：更好的搜索把任务总价打下来了，<span class="hl">可复现的方差</span>让单次训练不再可信，<span class="hl">公共观测站</span>把真实使用搬到了台前。<br/><br/>往下看，钱、证据和方法，都在找更诚实的位置。</div>
 </div>
@@ -145,6 +145,16 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 </div>
 <div class="src-line">来源：<a href="https://arxiv.org/abs/2608.23456" target="_blank">arXiv · Multi-Agent Networks</a> · <a href="https://www.pragmaticengineer.com/p/multi-agent-coordination" target="_blank">The Pragmatic Engineer</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
 </div>
+<div class="item" data-signal="timeline">
+<div class="dateline">08-20 · 智谱 · 后训练定律</div>
+<div class="item-title">参数已死，但不是不重要：<span class="hl">Jie Tang 的 <span class="num">5</span> 旋钮把扩展定律搬到了后训练</span></div>
+<div class="body">
+<p><strong><span class="accent">Z.ai（智谱）CEO Jie Tang</span> 在 <span class="accent">X</span> 长文中抛出<span class="hl">后训练扩展定律</span>：<span class="hl">参数必须与数据、算力投向、运行条件、MoE 稀疏（XA-YB）联动</span>，记忆与推理是此消彼长的权衡，单点做大不再成立；<span class="accent">GLM-5.3</span> 以同基座<span class="num"> 1 个月</span>强化学习验证了这套配方。</strong></p>
+<p><span class="turn">关键在于把 RL 做在真实环境里</span>：覆盖<span class="hl">生产级工作流</span>而非玩具任务，横跨数天工程师工作量的长周期链路，以<span class="hl">合成环境、合成 verifier 与合成 reward</span>持续供给信号；高级能力需要<span class="num"> 20+</span> 步因果链，要么在训练时用环境与 verifier 把长程推理教会，要么就只能靠复制粘贴。</p>
+<p><span class="turn">当扩展从预训练转向后训练</span>，扩的是环境、校验器与时域，而非单纯的 token 与参数——这正是各家实验室 CEO 现在在 <span class="accent">X</span> 上争论的焦点。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-death-of-params-glm53" target="_blank">Latent Space · AINews Death of Params</a> · <a href="https://x.com/jietang" target="_blank">@jietang · X</a> · <a href="https://artificialanalysis.ai/search-index" target="_blank">Artificial Analysis</a></div>
+</div>
 </div>
 <!-- ===== 开源前线 ===== -->
 <div class="section-block">
@@ -169,6 +179,16 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><span class="turn">当 harness 越做越像产品，谁把编排与可观测性做扎实，谁就先拿到留存。</span></p>
 </div>
 <div class="src-line">来源：<a href="https://github.com/cloudflare/tiller" target="_blank">GitHub · cloudflare/tiller</a> · <a href="https://vercel.com/blog/harness-agent-cline" target="_blank">Vercel Blog</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-20 · 基建 · Harness</div>
+<div class="item-title">省的是 token，算的是总账：<span class="hl">TrueForge 把 harness 做成了降本层</span></div>
+<div class="body">
+<p><strong><span class="accent">TrueForge</span> 公布一套 Agent harness 优化层，宣称同等任务上 token 消耗压掉<span class="num"> 30%</span>、任务总成本下降约<span class="num"> 75%</span>，靠压缩冗余推理与检索调用而非换更大模型；数据来自团队自测仍待复现，但在<span class="hl">harness 成为产品界面</span>的当下，这类以<span class="hl">总账为目标</span>的优化正被反复提及。</strong></p>
+<p><span class="turn">这与本周的 harness 主线同频</span>：<span class="accent">DeepSeek Cordis</span> 推出<span class="num"> 100+</span> 插件的 harness 架构，把 <span class="accent">harness 本身当作产品</span>，与头版<span class="hl">Search Index 的总成本拐点</span>呼应——当 harness 与检索决定 token 与步数，省 token 就是省钱，编排比参数更直接地改变账单。</p>
+<p><span class="turn">当模型能力趋近，竞争就从参数转向编排</span>——<span class="hl">谁把 harness 做得更省、更可复现，谁先把全链路账算清</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-death-of-params-glm53" target="_blank">Latent Space · AINews Death of Params</a> · <a href="https://github.com/trueforge/trueforge" target="_blank">GitHub · TrueForge</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a></div>
 </div>
 </div>
 <!-- ===== 声音 ===== -->
