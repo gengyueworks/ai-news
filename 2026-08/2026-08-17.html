@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI 情报日报｜2026-08-14</title>
+<title>AI 情报日报｜2026-08-17</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -207,7 +207,7 @@ body{
 <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
 <ul class="site-nav-links">
 <li><a href="../index.html">首页</a></li>
-<li><a class="active" href="2026-08-14.html">最新</a></li>
+<li><a class="active" href="2026-08-17.html">最新</a></li>
 <li><a href="../special/china-models.html">专题</a></li>
 </ul>
 </div>
@@ -218,9 +218,9 @@ body{
 <div class="mast-title">AI 情报日报</div>
 <div class="mast-rule"></div>
 <div class="mast-meta">
-<span class="issue">2026-08-14 · 周五</span>
+<span class="issue">2026-08-17 · 周一</span>
 <span class="enhanced-badge">✦ 升维版</span>
-<span>本期 10 条</span>
+<span>本期 16 条</span>
 </div>
 <div class="mast-lede">今天的关键词是「快」：模型提速 14 倍、一句话出 3D、AI 音乐能商用。<br/><br/>往下看，谁在跑得更快。</div>
 </div>
@@ -271,6 +271,52 @@ body{
 </div>
 </div>
 
+<!-- ===== 基础设施 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">INFRA · 基建信号</div>
+<div class="sec-title">基础设施</div>
+<div class="item">
+<div class="dateline">08-17 · Modular · 开源</div>
+<div class="item-title">Mojo 正式开源（Apache 2.0）：<span class="hl">AI 语言的下半场，赌在「可移植」上</span></div>
+<div class="body">
+<p><strong><span class="accent">Modular</span> 正式开源 <span class="accent">Mojo</span>，采用 <span class="accent">Apache 2.0</span> 许可，同时把整个平台定位成「跨加速器可移植层」，覆盖到高通的数据中心 AI 加速器。</strong></p>
+<p>对基础设施工程师来说，这件事的重点<span class="hl">不在「新语言」本身，而在工具链开放与硬件抽象同时到来</span>：写一次代码，能跑在 NVIDIA、AMD、高通、自研芯片上，不用为每个加速器重写一遍。</p>
+<p>为什么现在做？<span class="hl">加速器正在碎片化</span>——芯片战争让「为单一硬件优化」变成高风险押注，<span class="hl">可移植层反而成了稀缺品</span>。<span class="turn">当硬件越来越分裂，谁提供「一次编写、到处运行」的中间层，谁就站在了生态的入口。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · NVIDIA · 工具链</div>
+<div class="item-title">NVIDIA 把模型部署压到「两条命令」：<span class="hl">从 Hugging Face 直接到 TensorRT，跳过 ONNX</span></div>
+<div class="body">
+<p><strong><span class="accent">NVIDIA</span> 发布 <span class="accent">TensorRT Model Connect</span> 公开预览：受支持的 Hugging Face 模型可直接转换成端到端 TensorRT 推理，<span class="hl">不再需要中间的 ONNX 导出</span>，产物用原生 C++ API 部署。</strong></p>
+<p>部署链路每短一步，<span class="hl">从模型到生产的时间成本就降一截</span>。<span class="hl">「两条命令」意味着中小团队也能把开源模型快速跑进生产环境</span>，而不必养一个推理优化团队。</p>
+<p>更值得注意的细节：NVIDIA 自己说，这个项目大部分由 <span class="accent">Codex agent</span> 在人工审查下构建——实现、调优、测试、集成、文档都有 agent 参与。<span class="turn">当基建厂商开始公开承认「agent 写了我们的工具链」，AI 开发 AI 从演示变成了日常。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Cursor · 基建复盘</div>
+<div class="item-title">Cursor 把 Git 存储「当数据库设计」：<span class="hl">agent 时代，代码托管成了 AI 基础设施</span></div>
+<div class="body">
+<p><strong><span class="accent">Cursor</span> 发布 Git 托管大规模基建复盘：<span class="hl">把 Git 存储当作数据库来设计</span>——可靠性、扩展性、一致性，按数据库的标准要求它。</strong></p>
+<p>背景是 agent 的普及：<span class="hl">代码仓库的变动频率、后台自动化、分支与会话的激增，都在指数级放大</span>。<span class="hl">Git 托管从「通用的开发运维原语」，变成了编码 agent 后端依赖的核心 AI 基础设施</span>。</p>
+<p>对普通开发者的含义很直接：<span class="hl">你 IDE 里每一次 agent 补全、每一个自动分支，背后都是 Git 在承受新的负载</span>。<span class="turn">当代码托管开始为 agent 重新设计，开发工具链的下一轮重构，已经悄悄开始了。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · 推理 · 速度战</div>
+<div class="item-title">推理速度战升级：<span class="hl">本地 70 tok/s，数据中心喊出 1000 tok/s</span></div>
+<div class="body">
+<p><strong>端侧与数据中心同时提速：<span class="accent">DFlash 2</span> 声称在 <span class="accent">M5 Max</span> 上把 Qwen3.8-27B 跑到 <span class="num">70</span> tok/s，自回归解码最多快 <span class="num">4.6</span> 倍「同样的输出」；<span class="accent">Cerebras</span> 发布 <span class="accent">CS-4</span>，声称 <span class="num">10T</span> 参数模型跑到 <span class="num">1000</span> tok/s、GPT-5.6 Sol 约 <span class="num">1300</span> tok/s、每兆瓦吞吐高 <span class="num">10</span> 倍。</strong></p>
+<p>厂商口径要打折听，但方向很清楚：<span class="hl">推理速度正在同时变成产品体验、单位经济学和国家竞争力政策</span>——<span class="hl">快，本身就是卖点</span>。</p>
+<p>端侧 70 tok/s 的意义在「本地」：<span class="hl">不联网、不上传、隐私留在设备上</span>，还能跑出接近实时的速度。<span class="turn">当「快」从数据中心卷到笔记本，AI 的使用方式正在被改写。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+</div>
+
 <!-- ===== 开源前线 ===== -->
 <div class="section-block">
 <div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
@@ -306,6 +352,16 @@ Music 3 的 8B 全局 LLM + 2.4B flow-matching 架构，把「能生成 5 分钟
 但 Jamin Ball 泼了冷水：<span class="hl">K3 光加载权重就超 <span class="num">1TB</span> 内存、至少 <span class="num">8</span> 张 H100，开放权重不等于能本地跑</span>；且首发权重是纯文本版，视觉未放开；许可条款疑似限制美欧英韩下载，阿里当天未澄清。</p>
 <p><span class="turn">当 2.4T 的开源模型评测逼近闭源旗舰、价格只有零头，<span class="hl">「开源和闭源的差距」正在变成「谁能真正用起来」</span>。<br/>
 </span></p>
+</div>
+<div class="item">
+<div class="dateline">08-14 · Z.ai · 开源</div>
+<div class="item-title">GLM-5.3 上线 API：<span class="hl">参数没变，变的是「怎么训练」——post-training 时代来了</span></div>
+<div class="body">
+<p><strong><span class="accent">Z.ai</span> 发布 <span class="accent">GLM-5.3</span> API，面向编码、防御性网络安全和长周期 agent，价格与 GLM-5.2 持平；Artificial Analysis 智能指数 <span class="num">60</span> 分追平 Kimi K3，GDPval-AA v2 跳升 <span class="num">246</span> 分到 <span class="num">1770</span> Elo。</strong></p>
+<p>架构没动：仍是 <span class="num">753B</span> 总参 / <span class="num">40B</span> 激活的 MoE、<span class="num">1M</span> 上下文，<span class="hl">权重落地后保持 MIT 许可</span>。<span class="hl">同样的骨架，更强的结果——提升来自 post-training</span>。</p>
+<p>知乎上的长文解读给出了技术细节：<span class="hl">异步强化学习（SAO）、可执行沙箱训练、on-policy 蒸馏防止灾难性遗忘</span>，三者叠加撑起了这次跃升。<span class="turn">当模型厂商开始用「训练方法」而不是「参数规模」拉开差距，agent 能力的竞争，正从堆参数转向堆 RL 系统与环境质量。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
 </div>
 
 </div>
@@ -372,6 +428,21 @@ Anthropic 一边 60 亿收购补模型，一边 91 亿锁定算力，<span class
 </div>
 </div>
 </div>
+<!-- ===== 观察 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OBSERVATION · 趋势观察</div>
+<div class="sec-title">观察</div>
+<div class="item">
+<div class="dateline">08-17 · 内存 · 趋势</div>
+<div class="item-title">内存价格 12 个月涨 <span class="num">500</span>%：<span class="hl">AI 的下一场瓶颈，是 DRAM</span></div>
+<div class="body">
+<p><strong>Tom's Hardware 用「RAMageddon」形容当下：<span class="accent">128GB DDR5</span> 套件比历史最低价贵了整整 <span class="num">10</span> 倍，内存价格 12 个月涨了约 <span class="num">500</span>%。</strong></p>
+<p>更硬核的是供给端：<span class="hl">超大规模买家据报已锁定 2027 年几乎全部的全球 DRAM 产能</span>，预付定金只为保证供应——主流 DRAM 芯片按重量算，每公斤价值已超过纯金的一半。</p>
+<p>Daniel Lemire 的观察最扎心：<span class="hl">内存单价回到了 2007 年的水平，抹掉了约 20 年的进步</span>，这是历史级异常。<span class="turn">当「摩尔定律」在内存上反向运行，<span class="hl">AI 的成本结构正在被悄悄改写</span>——算力之外，存储成了新的稀缺资源。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+</div>
 <!-- ===== 声音 ===== -->
 <div class="section-block">
 <div class="sec-eyebrow">VOICES</div>
@@ -392,7 +463,8 @@ Anthropic 一边 60 亿收购补模型，一边 91 亿锁定算力，<span class
 <div class="sec-eyebrow">TAKEAWAY</div>
 <div class="sec-title">小结</div>
 <p>今天的关键词是「快」：模型提速 14 倍、一句话出 3D、AI 音乐能商用。</p>
-<p>钱也在追：想融 10 亿来了 150 亿，数据层的估值被抬到 1900 亿。</p>
+<p>基建也在提速：Mojo 开源、两条命令部署、Git 当数据库用。</p>
+<p>但内存涨了 500%，回到 2007 年——快，是有代价的。</p>
 <p class="turn">当能力开始够用，速度、成本和门槛，成了新一轮竞赛的起跑线。</p>
 </div>
 <!-- ===== Be Curious ===== -->
