@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI News · Daily Briefing (English)</title>
+<meta name="description" content="Frontier signal stream — what changed in AI today, and how people chose.">
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #1A1A1A;
+            --text-mid: #6B6B6B;
+            --text-light: #9CA3AF;
+            --border: #E5E7EB;
+            --accent: #C41E3A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== 导航 ===== */
+        .site-nav {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+        .site-nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-nav-brand {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        .site-nav-brand span { color: var(--klein); }
+        .site-nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+        }
+        .site-nav-links a {
+            font-size: 13px;
+            color: var(--text-mid);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .site-nav-links a:hover { color: var(--klein); }
+        .site-nav-links a.active { color: var(--klein); font-weight: 600; }
+
+        /* ===== 容器 ===== */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        /* ===== 首页标题 ===== */
+        .hero {
+            margin-bottom: 32px;
+        }
+        .hero-title {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        .hero-title span { color: var(--klein); }
+        .hero-sub {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        /* ===== 月份分组 ===== */
+        .month-group {
+            margin-bottom: 40px;
+        }
+        .month-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--klein);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.04em;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--klein);
+            margin-bottom: 16px;
+        }
+
+        /* ===== 日期卡片 ===== */
+        .day-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            transition: border-color 0.15s ease, background 0.15s ease, opacity 0.2s ease;
+        }
+        .day-card:hover {
+            border-color: var(--klein);
+            background: var(--bg-light);
+        }
+        .enhanced-badge{display:inline-block;margin-left:6px;color:#C41E3A;font-size:12px;font-weight:700;}
+        .day-card-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .day-card-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-mid);
+            letter-spacing: 0.03em;
+        }
+        .day-card-date strong {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        .day-card-arrow {
+            color: var(--klein);
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+        .day-card:hover .day-card-arrow { opacity: 1; }
+
+        .day-card-headline {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        .day-card-meta {
+            font-size: 11px;
+            font-weight: 400;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #002FA7;
+            opacity: 0.55;
+            letter-spacing: 0.02em;
+            line-height: 1.4;
+            margin-top: 4px;
+            transition: opacity 0.15s ease;
+        }
+        .day-card:hover .day-card-meta {
+            opacity: 0.85;
+        }
+
+        /* ===== 专题入口 · B 横滑轨道 — Mobile Silk Pass 2026-08-21 =====
+           保留 B 轻量白卡语言，不回退蓝墙；丝滑优化清单：
+           ① -webkit-overflow-scrolling:touch + overscroll-behavior-x:contain + scroll-padding-inline
+           ② snap 保持 mandatory 但加 snap-stop:normal，惯性更顺
+           ③ <480px 卡宽 74vw，露下一张 12-16px peek，拇指一滑即懂可滑
+           ④ 左右渐变遮罩仅在可滚时显示（.has-left/.has-right 控制透明度）
+           ⑤ 左右 36px 轻量箭头（桌面显示，移动端半透明/隐藏），热区 ≥44px
+           ⑥ 卡片窄屏内边距与字号微缩，保留圆角与克莱因点缀
+        */
+        .special-rail { margin-bottom: 28px; }
+        .special-rail-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; letter-spacing: 0.08em;
+            color: var(--text-mid); margin-bottom: 10px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .special-rail-label::before {
+            content: ""; width: 22px; height: 2px;
+            background: var(--klein); border-radius: 1px; display: inline-block;
+        }
+        .special-rail-label span { color: var(--text-light); font-family: 'Inter','Noto Sans SC',sans-serif; letter-spacing: 0; font-size: 11px; }
+        .rail-wrap { position: relative; }
+        .rail-track {
+            display: flex; gap: 12px; overflow-x: auto; overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: normal;
+            scroll-padding-inline: 16px;
+            padding: 4px 2px 10px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+            overscroll-behavior-y: auto;
+            touch-action: pan-x;
+        }
+        .rail-track::-webkit-scrollbar { display: none; }
+        .rail-card {
+            flex: 0 0 220px; scroll-snap-align: start;
+            scroll-snap-stop: normal;
+            display: flex; flex-direction: column; justify-content: space-between;
+            min-height: 110px; padding: 14px 14px 12px;
+            background: #fff; border: 1px solid var(--border); border-radius: 10px;
+            text-decoration: none; color: inherit;
+            transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .rail-card:hover { border-color: var(--klein); background: #F5F7FF; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,47,167,0.08); }
+        .rail-card:active { transform: translateY(0); background: #EEF2FF; }
+        .rail-card .rc-badge {
+            font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em;
+            color: var(--text-mid); font-weight: 600; margin-bottom: 8px;
+        }
+        .rail-card .rc-title { font-size: 13.5px; font-weight: 700; line-height: 1.45; letter-spacing: -0.2px; }
+        .rail-card .rc-meta { margin-top: 8px; font-size: 11px; color: var(--text-mid); line-height: 1.4; }
+        .rail-card .rc-foot { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .rc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--klein); opacity: 0.9; }
+        .rc-arrow { font-size: 12px; color: var(--klein); font-weight: 600; }
+        .rail-fade {
+            position: absolute; top: 0; right: 0; bottom: 8px; width: 72px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #FFFFFF 78%);
+            pointer-events: none; border-radius: 0 12px 12px 0;
+            opacity: 0; transition: opacity 0.2s ease;
+        }
+        .rail-fade-left {
+            position: absolute; top: 0; left: 0; bottom: 8px; width: 32px;
+            background: linear-gradient(90deg, #FFFFFF 28%, rgba(255,255,255,0) 100%);
+            pointer-events: none; border-radius: 12px 0 0 12px;
+            opacity: 0; transition: opacity 0.2s ease;
+        }
+        .rail-wrap.has-right .rail-fade { opacity: 1; }
+        .rail-wrap.has-left .rail-fade-left { opacity: 1; }
+        .rail-hint {
+            display: flex; align-items: center; gap: 8px; margin-top: 6px;
+            font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-light); letter-spacing: 0.06em;
+        }
+        .rail-hint span { border: 1px solid var(--border); padding: 2px 6px; border-radius: 999px; background: #fff; }
+        /* 轻量箭头按钮 · 36px 容器，44px 热区 */
+        .rail-arrow-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 36px; height: 36px; border-radius: 50%;
+            display: grid; place-items: center;
+            background: rgba(255,255,255,0.92); border: 1px solid var(--border);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            color: var(--klein); font-size: 16px; font-weight: 600; line-height: 1;
+            cursor: pointer; z-index: 2;
+            transition: opacity 0.2s ease, transform 0.15s ease, background 0.15s ease;
+            backdrop-filter: blur(6px);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .rail-arrow-btn::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; }
+        .rail-arrow-btn:hover { background: #fff; transform: translateY(-50%) scale(1.04); border-color: var(--klein); }
+        .rail-arrow-btn:active { transform: translateY(-50%) scale(0.98); }
+        .rail-arrow-btn.left { left: 6px; }
+        .rail-arrow-btn.right { right: 6px; }
+        .rail-arrow-btn[hidden] { display: none !important; }
+
+        /* ===== 最新的卡片高亮 ===== */
+        .day-card.latest {
+            border-color: var(--klein);
+            background: linear-gradient(135deg, rgba(0,47,167,0.03) 0%, rgba(0,47,167,0.01) 100%);
+        }
+        .day-card.latest .day-card-arrow { opacity: 1; }
+
+        /* ===== Footer ===== */
+        .footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer p {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .footer a {
+            color: var(--klein);
+            text-decoration: none;
+        }
+        .footer a:hover { text-decoration: underline; }
+
+        /* ===== 语言切换按钮 ===== */
+        .lang-toggle {
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--klein);
+            border: 1px solid var(--klein);
+            border-radius: 4px;
+            padding: 4px 10px;
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease;
+            user-select: none;
+            letter-spacing: 0.03em;
+        }
+        .lang-toggle:hover {
+            background: var(--klein);
+            color: var(--white);
+        }
+        .lang-toggle.active-en {
+            background: var(--klein);
+            color: var(--white);
+        }
+
+        /* ===== Mobile ===== */
+        @media (max-width: 560px) {
+            .container { padding: 32px 18px 48px; }
+            .hero-title { font-size: 26px; }
+            .day-card { padding: 14px 16px; }
+            .day-card-headline { font-size: 14px; }
+        }
+        /* ===== Mobile Silk Pass · 整站丝滑（520/480 断点） ===== */
+        @media (max-width: 520px) {
+            .site-nav-inner { padding: 10px 16px; }
+            .site-nav-brand { font-size: 17px; }
+            .site-nav-links { gap: 12px; }
+            .container { padding: 24px 16px 40px; }
+            .hero { margin-bottom: 20px; }
+            .hero-title { font-size: 34px; letter-spacing: -0.8px; line-height: 1.05; }
+            .hero-sub { font-size: 14px; }
+            .month-label { font-size: 12px; position: sticky; top: 44px; background: rgba(255,255,255,0.92); backdrop-filter: blur(6px); z-index: 3; padding-top: 6px; margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
+            .day-card { border-radius: 10px; margin-bottom: 10px; }
+            .day-card:hover { transform: none; box-shadow: none; }
+            .day-card:active { background: #F8F9FB; border-color: #D1D5DB; }
+            .day-card-arrow { opacity: 1; font-size: 13px; }
+            /* 日报名图在窄屏不溢出，圆角保留 */
+            .img img, .image-block img { max-width: 100%; border-radius: 10px; }
+        }
+        /* 轨道窄屏：74vw 露下一张 12-16px peek，提示可滑；箭头隐藏用渐变与 hint */
+        @media (max-width: 480px) {
+            .rail-track { gap: 10px; padding-bottom: 10px; scroll-padding-inline: 16px; }
+            .rail-card { flex: 0 0 74vw; min-height: 106px; padding: 12px 12px 11px; border-radius: 12px; }
+            .rail-card .rc-title { font-size: 13px; line-height: 1.4; }
+            .rail-card .rc-meta { font-size: 10.5px; }
+            .rail-card .rc-badge { font-size: 8.5px; margin-bottom: 6px; }
+            .rail-fade { width: 36px; }
+            .rail-fade-left { width: 20px; }
+            .rail-arrow-btn { opacity: 0; pointer-events: none; }
+            .rail-hint { font-size: 9.5px; }
+            .special-rail-label { font-size: 10.5px; }
+        }
+        @media (min-width: 481px) and (max-width: 720px) {
+            .rail-card { flex: 0 0 200px; }
+        }
+        /* 减少动效偏好 */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .rail-track { scroll-behavior: auto; }
+            .rail-card, .day-card { transition: none; }
+        }
+
+        /* ===== 公开版订阅样式 ===== */
+        .edition-note { font-size: 13px; color: var(--klein); margin-top: 12px; line-height: 1.6; }
+        .subscribe-cta { display: inline-block; margin-top: 14px; padding: 9px 22px; background: var(--klein); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 4px; transition: opacity 0.15s ease; }
+        .subscribe-cta:hover { opacity: 0.88; }
+        .subscribe-nav { color: var(--klein) !important; font-weight: 600; }
+    </style>
+
+.zh-tag{font-size:10px;font-family:'JetBrains Mono',monospace;color:#9CA3AF;border:1px solid var(--border);border-radius:10px;padding:0 6px;margin-left:6px;vertical-align:1px;}
+
+</style>
+</head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="index.html" class="active">Home</a></li>
+<li><a href="../2026-08/2026-08-21.html">Latest</a></li>
+<li><a href="../index.html">中文版</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<header class="hero">
+<h1 class="hero-title">AI<span>News</span></h1>
+<p class="hero-sub">Frontier signal stream — what changed in AI today, and how people chose.</p>
+<p class="edition-note">📖 English edition · Days marked 中文 still point to the Chinese original; translations land day by day.</p>
+</header>
+<div class="month-group">
+<div class="month-label">2026 · August</div>
+<a class="day-card" href="../2026-08/2026-08-21.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>21</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">One-Shot RAG Survives, but Hard Documents Have a New Champion: Mistral Lifts Accuracy by 50 Points <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Agentic Search · Agent API · Mojo</p>
+</a>
+<a class="day-card" href="2026-08/2026-08-20.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>20</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Search Beats Model: Better Retrieval Cuts Total Task Cost</p>
+    <p class="day-card-meta">Search Index 75 · Observatory 24K · Training Variance · Stirrup OSS</p>
+</a>
+<a class="day-card" href="2026-08/2026-08-19.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>19</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">RAM Surge But Battlefield Shifts: 500% in a Year, Moore's Law Back 20 Years</p>
+    <p class="day-card-meta">Memory 500% · OpenAI RL Pause · Qwen3.8-27B · GLM-5.3 · Mojo OSS</p>
+</a>
+<a class="day-card" href="2026-08/2026-08-18.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>18</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">OpenAI Chooses Speed Over Size: AI Enters the Speed Race</p>
+    <p class="day-card-meta">OpenAI Speed · Databricks $15B · Qwen3.8-Max Open · MiniMax Music3</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-17.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>17</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Stripe Buys OpenRouter for $7B+: The Real Prize Is the AI Checkout <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Stripe×OpenRouter · Mathematicians on LLM · Anthropic on Trust</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-16.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>16</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">SpaceX Completes Cursor Acquisition: A Rocket Company Absorbs a Coding Tool <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">SpaceX×Cursor · Grok 4.6 Reliability · Claude Watermark Explained</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-15.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>15</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Qwen3.8-27B Open-Sourced: Runs on Home GPUs, Beats Opus 4.6 Max <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Qwen3.8-27B · Watermark API · X Opens For You Algorithm</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-14.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>14</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">OpenAI Chooses Speed: Fastest Model Gets 14x Faster <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">OpenAI 14x Speed · Databricks Raise · Firetiger Joins Cursor</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-13.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>13</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Ilya SSI Model Leaks: TTT Reasoning Engine <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Ilya SSI · Decart Deal · Grok 4.6 · Japan Hesitates</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-12.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>12</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Gemini Hits 1B MAU, Google's Fastest-Growing Product Ever <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Gemini 1B · Musk AI>SpaceX · OpenAI for Students · London Tube Facial</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-11.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>11</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Huang Renxun Turns Compute Into an Asset: $500B for AI Factories <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Compute as Asset · Claude Riemann Bound · GPT-5.6 Chrome 0day · Muse Glimmer</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-10.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>10</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Robot Valuations Shift as Unitree Goes Public: Pricing the Model-Fed Robot <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Unitree IPO · ChatGPT Free Unlimited · Anthropic Prompt-Injection · GitHub Models Retired</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-09.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>9</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">AI Agent Energy Use Measured First Time: 600x a Chat <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Agent 600x Energy · Sydney Goes Chinese Models · DiffusionGemma · Evo2 Phages</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-08.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>8</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Apple Connects Mac AI to Qwen in China; AI Entry Goes Local <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Apple×Qwen · Tool-Calling Paper · Lumilens $700M · Diffusers Flaw</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-07.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>7</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">OpenAI Pauses Astra; ByteDance Bets on 10T-Param Model <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Astra Paused · ByteDance 10T · WeatherNext · Muse Code · Avernet</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-06.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>6</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Claude Code Enters the Enterprise: Sessions Run on Your Own Compute <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Claude Code Enterprise · GPT-5.6 Sol Thinking Dial · DeepMind Exodus</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-05.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>5</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">AISI Discloses 19 Boundary Violations: The Testers Left the Gate Open <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">AISI 19 Violations · Meta Muse Spark 1.2 · Luna Price Cut 80%</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-04.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>4</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">LLM 0.32 Ships: Reasoning Traces, Server Tools, SQLite Logs <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">LLM 0.32 · MiniMax H3 on MacBook · Qwen3.8-Max 2.4T OSS</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-03.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>3</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Embodied AI Two Rounds in a Day; Gemini Robotics 2 From Feet to Fingertips <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">PokeBot Pre-A · DISCOVER Unicorn · Gemini Robotics 2 · GitHub Agent Bug</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-02.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>2</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">ByteDance Merges Feishu & Doubao; Kimi K3 Wipes $470B Off US AI Stocks <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">ByteDance ToB Reorg · K3 Shakes Stocks · Open-Weights Cold · Bezos→CuspAI</p>
+</a>
+<a class="day-card" href="../2026-08/2026-08-01.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>1</strong> · 2026·08</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Kimi K3 Full OSS Crashes Servers; OpenAI Astra Suspected GPT-6 <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Kimi K3 OSS · Moonshot F $3.5B · Astra Multi-Agent · ER2 Embodied</p>
+</a>
+</div>
+<div class="month-group">
+<div class="month-label">2026 · July</div>
+<a class="day-card" href="../2026-07/2026-07-31.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>31</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">DeepSeek V4-Flash Beats Pro; MiniMax H3 First OSS Multimodal <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">V4-Flash Beta · MiniMax H3 OSS · Inkling-Small · Seedance 2.5</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-30.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>30</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Smart Economy in the Report; Zhejiang Writes 'One-Person Company' Into Policy <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Smart Economy 10T · OPC · AI Patents · Baidu HK Listing</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-29.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>29</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">GPT-5.6 Ships in Three Tiers; Lyria 3.5 Controls Vocals Per Track <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">GPT-5.6 Tiers · Lyria 3.5 · Gemma 4 · Zhejiang AI Mfg · 100K Scholars</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-28.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>28</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">NVIDIA Puts $5B Into SSI; MCP Stateless Spec Makes Tools Verifiable <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">NVIDIA→SSI · MCP Stateless · Agility 10K Digit · Dual Foundation</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-27.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>27</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Kimi K3 Full Weights on Hugging Face; Microsoft MAI-Cyber-1-Flash for Cyber <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">K3 Full Weights · MAI Cyber · DeepSeek Cut · Agile Robots · AiShi C</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-26.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>26</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Frontier Models Ship Guardrails by Default; AI Animation Makes Quakes Kid-Friendly <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Trusted Access · Event Crowds · AI Video · Quake Explainers</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-25.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>25</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Artemis II Captures Earthrise; AlphaFold 3 Cuts Structure Prediction to Minutes <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Earthrise · AlphaFold 3 · Figure Scale-up · Rubin Efficiency</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-24.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>24</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Sora 2 and Veo 3 Hit the Edit Bay; a Cut Drops from 2 Weeks to 2 Days <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">AI Video 2wk to 2d · AI Watches Volcanoes · GPT-5.2-Codex · Cheap Wins</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-23.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>23</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">MIIT Sets AI+Manufacturing; Humanoids and BCIs onto the Factory Floor <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">AI+Manufacturing · Humanoids · El Niño Early Warning · Rubin Ramp</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-22.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>22</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Gemini 3.6 Flash Saves 65% Tokens; AI Watches Algae to Guard Drinking Water <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Gemini 3.6 Flash · 65% Saved · Algae Watch · AlphaFold 3</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-21.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>21</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">NVIDIA Vera Rubin in Full Production; Google's Triple Launch Leans Cheap <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Vera Rubin Ships · 10x Efficiency · Gemini Triple · Claude 4.6</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-20.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>20</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Europe's AI Fire Model Hits Dispatch; Kimi K3 2.8T Opens End of Month <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">AI Fire Forecast · Kimi K3 2.8T · GPT-5.2 · Figure 03</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-19.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>19</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Qiji T1000 Ton-Class Robot Horse Debuts at WAIC, Kimi K3 Tops Front-End Coding <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Robot Horse 1 Ton · Kimi K3 2.8T · Tencent ADP Global · Kunlun 4 Models · Dukono Volcano</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-18.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>18</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Step STEPX Neo Native-Agent Phone Debuts at WAIC, State Council Sets 70% AI Adoption Target <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Step Agent Phone · WAIC Opens · State Council 70% · Xiaomi Multi-Robot · On-device OSS · Tyndall Glacier</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-17.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>17</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">NVIDIA Jetson Thor Modular, Xiaomi Robot 98% on Screws, SambaNova Raises $1B <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Jetson Thor Module · On-device Filing · Step STEPX · Xiaomi 98% · Google/Tencent OSS · Nebraska Dunes</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-16.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>16</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Thinking Machines Opens Inkling 975B Weights, Apple Intelligence Lands in China via Alibaba Qwen <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Inkling Open Weights · Apple Qwen China · Meta Layoff Suit · Suno Scrapes YouTube · Emergent Unicorn</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-15.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>15</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Meituan LongCat-2.0 on 50K Local Chips, Microsoft MAI Replaces OpenAI in Office, Xmax On-Device Video <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">LongCat-2.0 · MAI swaps OpenAI · StepX Native-Agent Phone · On-device Filing · Mud Volcano</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-14.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>14</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">NVIDIA Nemotron Cuts Open Inference to Fraction of Closed, GPT-5.6 Three Tiers, Mistral Robot Nav OSS <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Nemotron Cost Drop · GPT-5.6 Tiers · SWE-1.7 · Grok 4.5 · MCP v2 · Hunyuan Hy3 · Chip Funding · Chaco Forest</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-13.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>13</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Enterprises Push Agents Into Real Flows, Research Cools: Long-Horizon Planning Still Weak <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">OpenAI Computer Use · Microsoft Multi-Agent · Sovereign AI · Third-Party Audit · Alaska Tundra</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-12.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>12</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">GPT-5.6 in M365 Copilot, ChatGPT Work for Office, GitHub Copilot on GPT-5.6 <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">GPT-5.6 Ship · BoE Watch · Beijing Model Export · Billing Fix · Black Sea Bloom</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-11.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>11</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Open-Source Agent Ecosystem Matures: Controllable, Portable, Self-Running <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Portable Agents · Local-First · OSS Toolchain · Andes Snow</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-10.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>10</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">GPT-5.6 GA, ChatGPT Work Launch, Tencent in Talks for Manus, Lovable $13.2B <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">GPT-5.6 Tiers · ChatGPT Work · Tencent/Manus · Lovable 2x · ZML Unlock · Meta Chip · GBR</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-09.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>9</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">GPT-Live Default Voice, Mistral First Robotics Model, Meta Muse Image on Instagram & WhatsApp <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">GPT-Live Voice · Mistral Robot · Muse Social · AI Tools Go Mobile</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-08.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>8</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">GPT-5.6 Cleared for Global Rollout, EU Unveils AI Cybersecurity Plan, LeRobot v0.6.0 Out <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">GPT-5.6 Clear · EU AI Security · LeRobot OSS · Picky Capital</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-07.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>7</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">CISA Uses Anthropic Mythos to Audit Government Code, GitHub Copilot Gets First Open-Weight Model <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Gov AI Deployment · State AI Law · 700K Robot Substitution · Anti-Spam AI</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-06.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>6</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">1X Neo Robot Factory, Be Curious UAE Desert <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Embodied AI · Trust Cost · Open-Source Cloud · Hidden Costs</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-05.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>5</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Independent Researcher Finds Linux Flaw AI Missed, GLM-5.2 Strongest Open-Weight Model <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Human-Discovered Bug · Open-Weight Rise · AI Cost Control</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-04.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>4</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Anthropic Claude Science for Researchers, Meta Pocket AI Gizmos <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Science Workbench · AI Social Gizmos · Tools Over Models</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-03.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>3</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Anthropic Talks Samsung for Custom AI Chip, Microsoft $2.5B for AI Deployment, Fine-tuned Small Model Beats Frontier <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Compute Decentralization · AI Deployment Business · Small Model Rise · AI Carbon Cost</p>
+</a>
+<a class="day-card" href="../2026-07/2026-07-01.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>1</strong> · 2026·07</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Sonnet 5 Launches: Cheapest Agent Model at $2/$10 Entry <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Model Pricing · Compute Gap · Talent Flow · AI Jobs</p>
+</a>
+</div>
+<div class="month-group">
+<div class="month-label">2026 · June</div>
+<a class="day-card" href="../2026-06/2026-06-30.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>30</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">OpenAI Builds a Keyboard for Codex, Cursor Launches iPhone App — The Access Point War <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">Access Point · Engineering Bottleneck · Compute Base · Creation Rights</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-27.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>27</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">GPT-5.6 Splits Into 3 Tiers, AI Code Security Debt Comes Due <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">model · security · creation · human</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-26.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>26</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Running Cheap, Doing It Right Is Expensive — Sail Raises $80M for 10x Cheaper Inference <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">cost · security · creation · human</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-25.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>25</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">AI Doesn't Work Without People — Ford Rehires 350 Engineers <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">human choice · creation · vision</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-21.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>21</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">How Deep Is Your Name in AI's Subconscious? <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">visibility · music · agent · craft</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-20.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>20</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">AlphaFold Creator Leaves DeepMind for Anthropic <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">talent · robotics · safety</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-19.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>19</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">No Human Around: AI Agent Taught a Robot to Install GPUs — 99% Success <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">creation · robotics · agent</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-18.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>18</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Before WAIC Opens, Shanghai Streets Are Already Full of AI-Generated Ads <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">creation · agent</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-17.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>17</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Anthropic Model Banned at G7 — But the Real Signal Is AI at the Diplomacy Table <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">talent · models · agent</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-16.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>16</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Meta's $14.3B Scale AI Deal, 28-Year-Old Founder to Lead Superintelligence <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">robotics · creation · models</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-14.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>14</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">📋 Weekly｜Week 2 of June: Fable 5 Launched, Then Got Blocked <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">weekly · safety · models</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-13.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>13</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Fable 5 Guardrails Pulled + Anthropic's 52K Survey: AI Moves from Capability Race to Social Adoption <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">jobs · safety · models</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-12.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>12</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Anthropic Spent $150M to Put Claude in Ordinary People's Hands <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">agent · safety · creation</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-11.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>11</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Google Generates Text Like Generating Images — 4x Faster <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">creation · agent · models</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-10.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>10</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">Mollick Spent a Day on Mythos — Maps, Writing, Creation Connected Into One Line <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">creation · agent · models</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-09.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>9</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">WWDC26: Apple Embeds AI in the OS Layer — Siri + Xcode Agent Updated <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">platform · agent</p>
+</a>
+<a class="day-card" href="../2026-06/2026-06-08.html">
+    <div class="day-card-head">
+        <span class="day-card-date"><strong>8</strong> · 2026·06</span>
+        <span class="day-card-arrow">→</span>
+    </div>
+    <p class="day-card-headline">AI Changes Are Landing on Specific Work Slots — Persona Atlas Maps Minds <span class="zh-tag">中文</span></p>
+    <p class="day-card-meta">thinking · agent · models</p>
+</a>
+</div>
+</div>
+</body>
+</html>
