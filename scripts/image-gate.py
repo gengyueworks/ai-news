@@ -220,17 +220,25 @@ def main():
 
     total = 0
     n_fail = 0
+
+    def _disp(f):
+        # 兼容仓库外路径（SSOT 源头日报）：能取相对路径就取，否则显示文件名
+        try:
+            return str(f.relative_to(REPO))
+        except ValueError:
+            return f.name
+
     for f in html_files:
         issues = scan_html(f)
         if issues:
             fails = [i for i in issues if 'FAIL' in i[1]]
-            print('  X %s  (%d 处, FAIL %d)' % (f.relative_to(REPO), len(issues), len(fails)))
+            print('  X %s  (%d 处, FAIL %d)' % (_disp(f), len(issues), len(fails)))
             for ln, kind, msg in issues:
                 print('      L%d [%s] %s' % (ln, kind, msg))
             total += len(issues)
             n_fail += len(fails)
         else:
-            print('  OK %s' % f.relative_to(REPO))
+            print('  OK %s' % _disp(f))
 
     if n_fail:
         print('\nimage-gate: 未通过（%d 个 FAIL，共 %d 处）。先修图再提交：' % (n_fail, total))

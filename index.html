@@ -178,47 +178,100 @@
             opacity: 0.85;
         }
 
-        /* ===== 专题入口 ===== */
-        .special-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background: linear-gradient(135deg, #002FA7 0%, #0044FF 100%);
-            border-radius: 6px;
-            padding: 20px 24px;
-            margin-bottom: 32px;
-            transition: opacity 0.15s ease;
-        }
-        .special-card:hover { opacity: 0.92; }
-        .special-card .sc-badge {
+        /* ===== 专题入口 · B 横滑轨道 — Mobile Silk Pass 2026-08-21 =====
+           保留 B 轻量白卡语言，不回退蓝墙；丝滑优化清单：
+           ① -webkit-overflow-scrolling:touch + overscroll-behavior-x:contain + scroll-padding-inline
+           ② snap 保持 mandatory 但加 snap-stop:normal，惯性更顺
+           ③ <480px 卡宽 74vw，露下一张 12-16px peek，拇指一滑即懂可滑
+           ④ 左右渐变遮罩仅在可滚时显示（.has-left/.has-right 控制透明度）
+           ⑤ 左右 36px 轻量箭头（桌面显示，移动端半透明/隐藏），热区 ≥44px
+           ⑥ 卡片窄屏内边距与字号微缩，保留圆角与克莱因点缀
+        */
+        .special-rail { margin-bottom: 28px; }
+        .special-rail-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 2.5px;
-            color: rgba(255,255,255,0.75);
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 8px;
+            font-size: 11px; letter-spacing: 0.08em;
+            color: var(--text-mid); margin-bottom: 10px;
+            display: flex; align-items: center; gap: 8px;
         }
-        .special-card .sc-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: #FFFFFF;
-            line-height: 1.5;
-            letter-spacing: -0.2px;
-            margin-bottom: 6px;
+        .special-rail-label::before {
+            content: ""; width: 22px; height: 2px;
+            background: var(--klein); border-radius: 1px; display: inline-block;
         }
-        .special-card .sc-meta {
-            font-size: 12px;
-            color: rgba(255,255,255,0.75);
-            font-family: 'Inter', 'Noto Sans SC', sans-serif;
-            line-height: 1.5;
+        .special-rail-label span { color: var(--text-light); font-family: 'Inter','Noto Sans SC',sans-serif; letter-spacing: 0; font-size: 11px; }
+        .rail-wrap { position: relative; }
+        .rail-track {
+            display: flex; gap: 12px; overflow-x: auto; overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: normal;
+            scroll-padding-inline: 16px;
+            padding: 4px 2px 10px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+            overscroll-behavior-y: auto;
+            touch-action: pan-x;
         }
-        .special-card .sc-arrow {
-            color: #FFFFFF;
-            font-size: 14px;
-            font-weight: 600;
-            margin-left: 6px;
+        .rail-track::-webkit-scrollbar { display: none; }
+        .rail-card {
+            flex: 0 0 220px; scroll-snap-align: start;
+            scroll-snap-stop: normal;
+            display: flex; flex-direction: column; justify-content: space-between;
+            min-height: 110px; padding: 14px 14px 12px;
+            background: #fff; border: 1px solid var(--border); border-radius: 10px;
+            text-decoration: none; color: inherit;
+            transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+            -webkit-tap-highlight-color: transparent;
         }
+        .rail-card:hover { border-color: var(--klein); background: #F5F7FF; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,47,167,0.08); }
+        .rail-card:active { transform: translateY(0); background: #EEF2FF; }
+        .rail-card .rc-badge {
+            font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.12em;
+            color: var(--text-mid); font-weight: 600; margin-bottom: 8px;
+        }
+        .rail-card .rc-title { font-size: 13.5px; font-weight: 700; line-height: 1.45; letter-spacing: -0.2px; }
+        .rail-card .rc-meta { margin-top: 8px; font-size: 11px; color: var(--text-mid); line-height: 1.4; }
+        .rail-card .rc-foot { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .rc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--klein); opacity: 0.9; }
+        .rc-arrow { font-size: 12px; color: var(--klein); font-weight: 600; }
+        .rail-fade {
+            position: absolute; top: 0; right: 0; bottom: 8px; width: 72px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #FFFFFF 78%);
+            pointer-events: none; border-radius: 0 12px 12px 0;
+            opacity: 0; transition: opacity 0.2s ease;
+        }
+        .rail-fade-left {
+            position: absolute; top: 0; left: 0; bottom: 8px; width: 32px;
+            background: linear-gradient(90deg, #FFFFFF 28%, rgba(255,255,255,0) 100%);
+            pointer-events: none; border-radius: 12px 0 0 12px;
+            opacity: 0; transition: opacity 0.2s ease;
+        }
+        .rail-wrap.has-right .rail-fade { opacity: 1; }
+        .rail-wrap.has-left .rail-fade-left { opacity: 1; }
+        .rail-hint {
+            display: flex; align-items: center; gap: 8px; margin-top: 6px;
+            font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-light); letter-spacing: 0.06em;
+        }
+        .rail-hint span { border: 1px solid var(--border); padding: 2px 6px; border-radius: 999px; background: #fff; }
+        /* 轻量箭头按钮 · 36px 容器，44px 热区 */
+        .rail-arrow-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 36px; height: 36px; border-radius: 50%;
+            display: grid; place-items: center;
+            background: rgba(255,255,255,0.92); border: 1px solid var(--border);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            color: var(--klein); font-size: 16px; font-weight: 600; line-height: 1;
+            cursor: pointer; z-index: 2;
+            transition: opacity 0.2s ease, transform 0.15s ease, background 0.15s ease;
+            backdrop-filter: blur(6px);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .rail-arrow-btn::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; }
+        .rail-arrow-btn:hover { background: #fff; transform: translateY(-50%) scale(1.04); border-color: var(--klein); }
+        .rail-arrow-btn:active { transform: translateY(-50%) scale(0.98); }
+        .rail-arrow-btn.left { left: 6px; }
+        .rail-arrow-btn.right { right: 6px; }
+        .rail-arrow-btn[hidden] { display: none !important; }
 
         /* ===== 最新的卡片高亮 ===== */
         .day-card.latest {
@@ -275,6 +328,45 @@
             .day-card { padding: 14px 16px; }
             .day-card-headline { font-size: 14px; }
         }
+        /* ===== Mobile Silk Pass · 整站丝滑（520/480 断点） ===== */
+        @media (max-width: 520px) {
+            .site-nav-inner { padding: 10px 16px; }
+            .site-nav-brand { font-size: 17px; }
+            .site-nav-links { gap: 12px; }
+            .container { padding: 24px 16px 40px; }
+            .hero { margin-bottom: 20px; }
+            .hero-title { font-size: 34px; letter-spacing: -0.8px; line-height: 1.05; }
+            .hero-sub { font-size: 14px; }
+            .month-label { font-size: 12px; position: sticky; top: 44px; background: rgba(255,255,255,0.92); backdrop-filter: blur(6px); z-index: 3; padding-top: 6px; margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
+            .day-card { border-radius: 10px; margin-bottom: 10px; }
+            .day-card:hover { transform: none; box-shadow: none; }
+            .day-card:active { background: #F8F9FB; border-color: #D1D5DB; }
+            .day-card-arrow { opacity: 1; font-size: 13px; }
+            /* 日报名图在窄屏不溢出，圆角保留 */
+            .img img, .image-block img { max-width: 100%; border-radius: 10px; }
+        }
+        /* 轨道窄屏：74vw 露下一张 12-16px peek，提示可滑；箭头隐藏用渐变与 hint */
+        @media (max-width: 480px) {
+            .rail-track { gap: 10px; padding-bottom: 10px; scroll-padding-inline: 16px; }
+            .rail-card { flex: 0 0 74vw; min-height: 106px; padding: 12px 12px 11px; border-radius: 12px; }
+            .rail-card .rc-title { font-size: 13px; line-height: 1.4; }
+            .rail-card .rc-meta { font-size: 10.5px; }
+            .rail-card .rc-badge { font-size: 8.5px; margin-bottom: 6px; }
+            .rail-fade { width: 36px; }
+            .rail-fade-left { width: 20px; }
+            .rail-arrow-btn { opacity: 0; pointer-events: none; }
+            .rail-hint { font-size: 9.5px; }
+            .special-rail-label { font-size: 10.5px; }
+        }
+        @media (min-width: 481px) and (max-width: 720px) {
+            .rail-card { flex: 0 0 200px; }
+        }
+        /* 减少动效偏好 */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .rail-track { scroll-behavior: auto; }
+            .rail-card, .day-card { transition: none; }
+        }
 
         /* ===== 公开版订阅样式 ===== */
         .edition-note { font-size: 13px; color: var(--klein); margin-top: 12px; line-height: 1.6; }
@@ -291,7 +383,7 @@
             <ul class="site-nav-links">
                 <li><a href="index.html" class="active" data-zh="首页" data-en="Home">首页</a></li>
                 
-                <li><a href="2026-08/2026-08-20.html" data-zh="最新" data-en="Latest">最新</a></li>
+                <li><a href="2026-08/2026-08-21.html" data-zh="最新" data-en="Latest">最新</a></li>
                 <li><span class="lang-toggle" id="langToggle" onclick="toggleLang()">EN</span></li>
             </ul>
         </div>
@@ -306,62 +398,42 @@
             <a href="#" class="subscribe-cta">订阅完整版 →</a>
         </header>
 
-        <!-- ===== 专题入口 ===== -->
-        <a class="special-card" href="special/ai-nations.html">
-            <div class="sc-badge">GLOBAL VIEW · 各国 AI 现状</div>
-            <div class="sc-title">各国的 AI：一条赛道，不同的跑法</div>
-            <div class="sc-meta">持续更新 · 英国 · 中国 · 美国 · 非洲/拉美<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/ai-enterprise.html">
-            <div class="sc-badge">ENTERPRISE WATCH · 企业如何运用 AI</div>
-            <div class="sc-title">企业用 AI：提效还是增长，是两回事</div>
-            <div class="sc-meta">持续更新 · 增长盲区 · 账单失控 · 隐形成本<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/ai-workplace.html">
-            <div class="sc-badge">WORKPLACE WATCH · AI 职场</div>
-            <div class="sc-title">AI 职场：人在公司里的位置，正在被重排</div>
-            <div class="sc-meta">持续更新 · Botsitting · 差距放大 · 账单压力<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/ai-and-people.html">
-            <div class="sc-badge">TREND WATCH · 趋势思考</div>
-            <div class="sc-title">AI 经济，会把人的位置变成什么样</div>
-            <div class="sc-meta">持续更新 · 白领重估 · 全球分化 · 人的价值<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/china-models.html">
-            <div class="sc-badge">SPECIAL REPORT · 专题</div>
-            <div class="sc-title">中国开源模型的攻坚：DeepSeek、Kimi、智谱、MiniMax、Qwen 同时出牌</div>
-            <div class="sc-meta">5 家公司 · 10 个节点 · 一条主线<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/agent-tooling.html">
-            <div class="sc-badge">SPECIAL REPORT · 专题</div>
-            <div class="sc-title">Agent 工具革命：从「聊天」到「干活」</div>
-            <div class="sc-meta">MCP 2.0 · Claude Code · 本地 agent · 30+ 条报道<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/openai-journey.html">
-            <div class="sc-badge">SPECIAL REPORT · 专题</div>
-            <div class="sc-title">OpenAI 的进与退：模型更快、门槛更高、刹车更急</div>
-            <div class="sc-meta">GPT-5.5→5.6 · Astra 暂停 · 份额跌破 50%<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/ai-arms-race.html">
-            <div class="sc-badge">SPECIAL REPORT · 专题</div>
-            <div class="sc-title">AI 军备竞赛：钱在往哪里流</div>
-            <div class="sc-meta">Alphabet $800亿 · SpaceX IPO · Meta 143亿买 Scale AI<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/anthropic-rise.html">
-            <div class="sc-badge">SPECIAL REPORT · 专题</div>
-            <div class="sc-title">Anthropic 的上升期：从实验室到 1 万亿美元</div>
-            <div class="sc-meta">IPO 申请 · Claude 写 80% 代码 · Jumper 投奔<span class="sc-arrow">→</span></div>
-        </a>
-        <a class="special-card" href="special/alphafold-breakup.html">
-            <div class="sc-badge">SPECIAL REPORT · 专题</div>
-            <div class="sc-title">任务完成，然后呢：谷歌为什么解散了 AlphaFold 团队</div>
-            <div class="sc-meta">诺奖团队解散 · 8 条报道串联 · 深度解读<span class="sc-arrow">→</span></div>
-        </a>
+        <!-- ===== 专题入口 · B 横滑轨道 ===== -->
+        <section class="special-rail" aria-label="专题脉络">
+            <div class="special-rail-label">专题脉络 · 10 条 <span>— 横滑查看</span></div>
+            <div class="rail-wrap has-right" id="railWrap">
+                <button class="rail-arrow-btn left" id="railPrev" aria-label="向左滑动" hidden>‹</button>
+                <div class="rail-track" id="railTrack">
+                    <a class="rail-card" href="special/ai-nations.html"><div><div class="rc-badge">GLOBAL · 各国 AI</div><div class="rc-title">各国的 AI：一条赛道，不同的跑法</div><div class="rc-meta">英国 · 中国 · 美国 · 非洲/拉美</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/ai-enterprise.html"><div><div class="rc-badge">ENTERPRISE · 企业</div><div class="rc-title">企业用 AI：提效还是增长，是两回事</div><div class="rc-meta">增长盲区 · 账单失控</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/ai-workplace.html"><div><div class="rc-badge">WORKPLACE · 职场</div><div class="rc-title">AI 职场：人在公司里的位置被重排</div><div class="rc-meta">Botsitting · 差距放大</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/ai-and-people.html"><div><div class="rc-badge">TREND · 趋势</div><div class="rc-title">AI 经济，会把人的位置变成什么样</div><div class="rc-meta">白领重估 · 全球分化</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/china-models.html"><div><div class="rc-badge">SPECIAL · 中国模型</div><div class="rc-title">中国开源模型的攻坚：五家同时出牌</div><div class="rc-meta">5 家公司 · 10 个节点</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/agent-tooling.html"><div><div class="rc-badge">SPECIAL · Agent</div><div class="rc-title">Agent 工具革命：从「聊天」到「干活」</div><div class="rc-meta">MCP 2.0 · Claude Code</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/openai-journey.html"><div><div class="rc-badge">SPECIAL · OpenAI</div><div class="rc-title">OpenAI 的进与退：更快、更高、更急</div><div class="rc-meta">GPT-5.6 · Astra 暂停</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/ai-arms-race.html"><div><div class="rc-badge">SPECIAL · 军备</div><div class="rc-title">AI 军备竞赛：钱在往哪里流</div><div class="rc-meta">Alphabet $800亿 · SpaceX</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/anthropic-rise.html"><div><div class="rc-badge">SPECIAL · Anthropic</div><div class="rc-title">Anthropic 的上升期：实验室到万亿</div><div class="rc-meta">IPO · Claude 写 80% 代码</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                    <a class="rail-card" href="special/alphafold-breakup.html"><div><div class="rc-badge">SPECIAL · AlphaFold</div><div class="rc-title">任务完成，然后呢：解散 AlphaFold</div><div class="rc-meta">诺奖团队 · 8 条报道</div></div><div class="rc-foot"><span class="rc-dot"></span><span class="rc-arrow">→</span></div></a>
+                </div>
+                <button class="rail-arrow-btn right" id="railNext" aria-label="向右滑动">›</button>
+                <div class="rail-fade" aria-hidden="true"></div>
+                <div class="rail-fade-left" aria-hidden="true"></div>
+            </div>
+            <div class="rail-hint"><span>← 横滑查看 10 条 →</span> 拖动或滑动查看全部</div>
+        </section>
 
         <!-- 2026年6月 -->
                 <div class="month-group">
             <div class="month-label" data-zh="2026 · 8月" data-en="2026 · August">2026 · 8月</div>
-            <a class="day-card latest" href="2026-08/2026-08-20.html">
+            <a class="day-card latest" href="2026-08/2026-08-21.html">
+                <div class="day-card-head">
+                    <span class="day-card-date"><strong>21</strong> · 08·2026</span><span class="enhanced-badge">✦</span>
+                    <span class="day-card-arrow">→</span>
+                </div>
+                <p class="day-card-headline" data-zh="一次性 RAG 没死，但复杂文档的战场换人了：Mistral 五工具循环把准确率拉高 50 个百分点" data-en="One-Shot RAG Survives, but Hard Documents Have a New Champion: Mistral Lifts Accuracy by 50 Points">一次性 RAG 没死，但复杂文档的战场换人了：Mistral 五工具循环把准确率拉高 50 个百分点</p>
+                <p class="day-card-meta" data-zh="Agentic Search · Agent API 41模型 · Mojo 开源 · Micro1 五亿流水" data-en="Agentic Search · Agent API · Mojo OSS · Micro1 $500M">Agentic Search · Agent API 41模型 · Mojo 开源 · Micro1 五亿流水</p>
+            </a>
+            <a class="day-card" href="2026-08/2026-08-20.html">
                 <div class="day-card-head">
                     <span class="day-card-date"><strong>20</strong> · 08·2026</span><span class="enhanced-badge">✦</span>
                     <span class="day-card-arrow">→</span>
@@ -899,6 +971,8 @@
                 });
             }
         })();
+        // ===== 轨道丝滑：渐变遮罩 + 箭头显隐（≤10 行核心） =====
+        (function(){const t=document.getElementById('railTrack'),w=document.getElementById('railWrap'),l=document.getElementById('railPrev'),r=document.getElementById('railNext');if(!t||!w)return;const u=()=>{const a=t.scrollLeft>8,b=t.scrollLeft+t.clientWidth<t.scrollWidth-8;w.classList.toggle('has-left',a);w.classList.toggle('has-right',b);if(l)l.hidden=!a;if(r)r.hidden=!b;};const go=d=>t.scrollBy({left:d,behavior:'smooth'});if(l)l.onclick=()=>go(-240);if(r)r.onclick=()=>go(240);t.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();})();
     </script>
 
 <!-- AI News 知识卡片浮层 -->
