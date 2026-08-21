@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Intelligence Daily | 2026-08-15</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.enhanced-badge{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid #C41E3A;color:#C41E3A;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;vertical-align:1px;}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.img img{max-width:560px;width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;border:1px solid var(--line);}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../../index.html">中文版</a></li>
+<li><a class="active" href="../../2026-08/2026-08-21.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI Intelligence Daily</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-15 · Saturday</span>
+<span class="enhanced-badge">✦ Enhanced Edition</span>
+<span>10 stories</span>
+</div>
+<div class="mast-lede">Today's keyword is "fast": models sped up 14-fold, one sentence yields a 3D model, and AI music went commercial.<br/><br/>Below, who is running faster.</div>
+</div>
+<!-- ===== Top Story ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-13 · Alibaba · Open Source</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/qwen.jpg" alt="Qwen3.8-27B open source" loading="lazy">
+<p class="image-caption">Qwen3.8-27B: an open model that runs on a home GPU</p>
+</div>
+<div class="item-title">Qwen3.8-27B open-sourced: <span class="hl">runs on a home GPU, and still beats Claude Opus 4.6 Max on benchmarks</span></div>
+<div class="body">
+<p><strong>Alibaba's Qwen team open-sourced <span class="accent">Qwen3.8-27B</span>, with weights live on Hugging Face and ModelScope. Benchmarks surpass <span class="accent">Claude Opus 4.6 Max</span>, yet the model is small enough to <span class="hl">run locally on a consumer GPU</span>.</strong></p>
+<p>The timeline is worth noting: on August 12 Qwen released its 2.4T flagship <span class="accent">Qwen3.8-2.4T-A95B</span> (hyperscale, datacenter-only), on the 13th the 27B weights went live (briefly pulled, sparking delay rumors), and on the 14th international outlets like The Decoder picked it up. <span class="hl">A big flagship for brand, a small model for adoption: two moves in as many days</span>.</p>
+<p>What does 27B mean? It is not another "downloadable but unrunnable" giant; it lands squarely in <strong>the "actually usable by ordinary people" range</strong>: local deployment, no API fees, no data leaving your machine, while benchmarking above top-tier closed models like Claude Opus 4.6 Max.</p>
+<p><span class="turn">When "open weights plus runs at home" starts beating closed flagships, the logic of model distribution inverts: you no longer buy access; whatever you can run is yours.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://huggingface.co/Qwen" target="_blank">Hugging Face</a> · <a href="https://www.the-decoder.com" target="_blank">The Decoder</a></div>
+</div>
+</div>
+<!-- ===== Front Line ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-14 · Anthropic · Watermarks</div>
+<div class="item-title">Anthropic launches a watermark-detection API: <span class="hl">third parties can now identify "this was written by Claude"</span></div>
+<div class="body">
+<p><strong><span class="accent">Anthropic</span> launched a watermark-detection API: external services can now check whether a text was generated by Claude.</strong></p>
+<p>It continues August's Claude text-watermark rollout: now it is not just Claude that knows; <span class="hl">any service plugged into the API can verify a text's origin</span>. For content platforms (detecting AI submissions), schools (checking homework) and enterprises (verifying output), this is the turn from "check it yourself" to "anyone can check".</p>
+<p>Google meanwhile went the other way: <span class="hl">allowing users to remove visible watermarks from its AI generations</span>. The two watermark strategies are diverging: one opens up detection, the other opens up removal.</p>
+<p><span class="turn">When "AI-generated" becomes publicly verifiable, "was this written by AI" turns from a trust question into a technical one, and whoever holds detection holds judgment.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/14/google-will-now-allow-users-to-remove-visible-watermark-from-its-ai-generations/" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-14 · X · Open Source</div>
+<div class="item-title">X open-sources its For You algorithm: <span class="hl">a recommendation system shows its cards for the first time</span></div>
+<div class="body">
+<p><strong><span class="accent">X</span> (formerly Twitter) open-sourced the For You feed algorithm, publishing recommendation weights and training code.</strong></p>
+<p>Recommendation algorithms have been social platforms' blackest box: they decide what you see and never explain why. By publishing For You's weights and training code, <span class="hl">X has become the first major platform to lay its cards on the table</span>.</p>
+<p>For developers the direct value: study the mechanism, build third-party analyses, even train your own recommender. <span class="turn">When "the algorithm" turns from black box to open component, "why did I see these posts" gets a verifiable answer for the first time.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://github.com/x" target="_blank">X / GitHub</a></div>
+</div>
+</div>
+<!-- ===== Open Source ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · PRACTICAL TOOLS</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-14 · MiniMax · Open Source</div>
+<div class="item-title">MiniMax open-sources Music 3: <span class="hl">"we stay open source until AGI arrives"</span></div>
+<div class="body">
+<p><strong><span class="accent">MiniMax</span> released <span class="accent">Music 3.0</span> weights on Hugging Face (<span class="accent">MiniMaxAI/MiniMax-Music3</span>), with <span class="accent">ComfyUI 0.33</span> adding native support the same day. Official words: "We will keep everything open source until AGI arrives."</strong></p>
+<p>On paper it is a multi-module model: an <span class="num">8B</span> global LLM (initialized from Qwen3.5-8B) plus a 0.6B local LLM plus a 2.4B flow-matching module plus a 123M Flow-VAE, generating full songs up to <span class="num">5</span> minutes in 32kHz stereo. The API version shipped in July; this release opens the weights. Running locally means no uploads, no queues, no per-track fees: <span class="hl">creators can finally own their AI scoring tool</span>.</p>
+<p><span class="hl">The ecological niche of open music models is subtle</span>: closed products like Suno and Udio dominate, while open source previously had only small models. Music 3's architecture puts "five-minute full songs" within local reach, and with ComfyUI workflows an ordinary creator can assemble a complete AI music pipeline on their own machine.</p>
+<p><span class="hl">MiniMax's logic is open source in exchange for ecosystem</span>: from H2 to Music 3 it keeps open-sourcing flagship capabilities, feeding its brand through the developer ecosystem. Against Suno's subscription model, the open route bets on the flywheel of more users leading to more improvements leading to faster iteration. For creators, it is optionality: those who dislike per-track fees or uploading data can just run it locally.</p>
+<p><span class="turn">When Chinese companies' open source spreads from "model parameters" to "creative tools", the battlefield widens past developers to every creator</span>.</p>
+</div>
+<div class="src-line">Sources: <a href="https://x.com/MiniMax_AI" target="_blank">MiniMax official</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-12 · Alibaba · Open Source</div>
+<div class="item-title">Qwen3.8-Max open-sourced: <span class="hl">2.4T total / 95B active parameters, one of the largest open releases ever</span></div>
+<div class="body">
+<p><strong>Alibaba released <span class="accent">Qwen3.8-Max</span> open weights: <span class="num">2.4T</span> total / <span class="num">95B</span> active MoE with only about <span class="num">4%</span> activation, priced at <span class="num">$2/$6</span> per million tokens via API. Community verdict: "one of the largest open-weight releases ever".</strong></p>
+<p>Third-party evaluations are strong: Frontend Code Arena <span class="num">#4</span> (Elo <span class="num">1668</span>, behind only Claude Opus 5 and Kimi K3), Vision Arena <span class="num">#2</span> (<span class="num">1305</span>, 13 points from Claude Fable); Vals composite index <span class="num">66.1</span>, second among open models and tenth of all 43; SWE-bench <span class="num">87.3%</span>, ahead of GPT-5.5 (<span class="num">82.6%</span>) and GLM-5.2 (<span class="num">83.3%</span>). More valuable is the improvement curve: Vals rose from 3.7 Max's <span class="num">57.5</span> to <span class="num">66.1</span>, <span class="hl">an 8.6-point gain in two and a half months</span>, while prices fell from $2.5/$7.5 to $2/$6.</p>
+<p>The ecosystem was ready on day one: vLLM day-0 support plus dedicated 4-bit quantizations for NVIDIA B300 and AMD MI355X; Together and Baseten could run it immediately. But Jamin Ball poured cold water: <span class="hl">K3 alone needs over <span class="num">1TB</span> of memory to load weights, at least <span class="num">8</span> H100s; open weights do not mean locally runnable</span>. The initial release is also text-only, vision not yet unlocked, and license terms appear to restrict downloads from the US, EU, UK and Korea, unclarified by Alibaba at press time.</p>
+<p><span class="turn">When a 2.4T open model scores near closed flagships at a fraction of the price, <span class="hl">"the gap between open and closed" becomes "who can actually run it"</span>.</span></p>
+</div>
+<div class="img">
+<img alt="Qwen3.8-Max open source" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/qwen.jpg"/>
+<p class="img-cap">Qwen3.8-Max open weights.</p>
+</div>
+<div class="src-line">Sources: <a href="https://huggingface.co/Qwen" target="_blank">HuggingFace / Qwen</a> · <a href="https://github.com/vllm-project/vllm" target="_blank">vLLM</a></div>
+</div>
+</div>
+<!-- ===== Create ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-14 · Gemini · 3D</div>
+<div class="item-title">Gemini 3.7 Flash ships: <span class="hl">three weeks after 3.6, iteration has gone monthly</span></div>
+<div class="body">
+<p><strong>Google released <span class="accent">Gemini 3.7 Flash</span> just three weeks after 3.6 Flash: <span class="num">1M</span>-token context, <span class="num">64K</span> output, WebDev Arena Elo of <span class="num">1588</span>, API pricing at <span class="num">$0.75</span> per million input tokens (rising to <span class="num">$1.50</span> from 2027).</strong></p>
+<p>The eye-catcher in the official demos is 3D generation: a usable 3D watch model from one sentence, at about <span class="num">$0.038</span>, under four cents. <span class="hl">3D modeling used to be billed by the designer-hour</span>; now it is one sentence plus four cents. <span class="hl">When generation cost becomes negligible, "can you model" stops being the barrier and "do you want to make it" becomes the question</span>.</p>
+<p>Watch the iteration cadence even more than the features: only three weeks between 3.6 and 3.7. Google is compressing releases from quarterly to monthly, and <span class="hl">the Flash line has become the fast lane for trialing new capabilities</span>: cheap, quick to iterate, steadily gaining abilities. The same event added the Nano Banana image model and Gemini Omni, completing a full product matrix.</p>
+<p>For developers the direct implication: <span class="hl">capability grows by the month, so vendor choices must be remade by the month</span>. <span class="hl">Last quarter's optimum may already be displaced by a cheaper new version</span>.</p>
+<p><span class="turn">The collapse of 3D content production cost may cut deeper than image generation did, because 3D is the foundation of manufacturing, games and e-commerce, and it is turning into a sentence: "make me one of these".</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://blog.google/technology/ai/" target="_blank">Google AI Blog</a> · <a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-14 · OpenAI · Product</div>
+<div class="item-title">ChatGPT launches "Computer History": <span class="hl">no more screenshots; it records what you clicked and typed</span></div>
+<div class="body">
+<p><strong>OpenAI introduced <span class="accent">Computer History</span> in ChatGPT for Mac desktop, replacing the screenshot-based Chronicle research preview. It targets Pro, Business and Enterprise users, is off by default, and requires admin authorization on enterprise plans.</strong></p>
+<p>How it works: instead of screenshots, it uses macOS accessibility APIs to record clicks, keystrokes, shortcuts and app switches, producing memories and timelines that ChatGPT/Codex can reference. Events upload to servers to generate memories; OpenAI says they are not retained after processing and not used for training. Interaction events stay local for up to <span class="num">48</span> hours; the first rollout excludes the EEA, Switzerland and the UK.</p>
+<p>Why it matters: this is the first step from "AI remembers what you said" to "AI remembers what you did" at screen level. <span class="hl">Before, AI remembered your conversations; now it remembers your actions</span>. For agent scenarios that is a qualitative change: ChatGPT can pick up where your last browser session left off, without you re-explaining context.</p>
+<p>Media reaction was blunt: <span class="hl">The Register called it "a friendly keylogger"</span>. It improves personalization but raises token consumption and prompt-injection risk, which OpenAI's own docs acknowledge, suggesting pausing it when others' communications are involved. Critics note <span class="hl">prompt injection can poison long-term context through this memory channel</span>.</p>
+<p><span class="turn">When AI starts recording your screen, users usually click "agree" before reading the terms of the convenience-for-privacy trade. This time, the terms read "keylogger".</span></p>
+</div>
+<div class="img">
+<img alt="ChatGPT launches Computer History" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/ainews-spacexai-grok-46-and-grok.jpg"/>
+<p class="img-cap">ChatGPT launches "Computer History".</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== Vision ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">08-14 · Suno · Music</div>
+<div class="item-title">Suno Studio 2.0 arrives: <span class="hl">the AI music editor grows into a professional DAW</span></div>
+<div class="body">
+<p><strong><span class="accent">Suno</span> released <span class="accent">Studio 2.0</span>, adding MIDI import/recording/editing (usable as generation prompts), a dual-oscillator wavetable synthesizer, track automation curves and built-in effects (distortion, delay, reverb, compression, EQ), available to Premier users the same day.</strong></p>
+<p>The most notable update is the <span class="accent">Chat panel</span>: custom plugins can be created in natural language, free of credits during launch. AI music tools are turning "mixing" into conversation too. Premier users get unlimited <span class="num">32-bit/48kHz</span> multitrack and stem exports, with advanced stem separation also arriving.</p>
+<p>Suno says MIDI was Studio's most requested feature, and 2.0 was built on a year of user feedback, <span class="hl">aiming to upgrade Studio from "simple AI editor" to "full DAW-style production environment"</span>. What does MIDI change? <span class="hl">You can import a melody you played yourself and have AI arrange on top of it</span>: human-AI collaboration moves from "giving a sentence" to "giving a real performance".</p>
+<p>The creator tiers are clear: Pro users refine with the new synths and effects; Premier users take unlimited multitrack exports into commercial-grade mixing. <span class="hl">Competition among AI music tools is shifting from "who generates longer songs" to "who plugs into professional workflows"</span>, and DAW-grade capability is the dividing line.</p>
+<p><span class="turn"><span class="hl">When AI music starts benchmarking against professional production tools</span>, inspiration-to-finished-track compresses to minutes. Writing melodies stops being scarce; conducting AI becomes the skill.</span></p>
+<div class="img">
+<img alt="Suno Studio 2" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/suno-studio-2.jpg"/>
+<p class="img-cap">Suno Studio 2.0: AI music goes professional DAW-style.<br/>Image: Suno official.</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://www.theverge.com/2026/8/13/suno-studio-2" target="_blank">The Verge</a> · <a href="https://www.latent.space/p/ainews-muse-glimmer-and-spark-open" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== Funding ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-12 · Anthropic · Compute</div>
+<div class="item-title">Anthropic locks in 20 years of compute: <span class="hl">$9.1B buys Texas power through 2048</span></div>
+<div class="body">
+<p><strong><span class="accent">Anthropic</span> signed a <span class="num">20</span>-year compute lease (through June 2048) with bitcoin miner <span class="accent">Riot Platforms</span>: <span class="num">191</span> MW of critical IT capacity, about <span class="num">$9.1B</span> in initial contract revenue, up to $16.1B with two five-year extensions.</strong></p>
+<p><span class="hl">The deal details are hardcore</span>: Riot's Texas facility delivers 96 MW in December 2027 and the remaining 95 MW by June 2028; Morgan Stanley provides bridge financing; AMD is another tenant in the same park. The mining farm is becoming an AI compute campus.</p>
+<p><span class="hl">Why buy power from miners?</span> <span class="hl">Mining sites have industrial power, cooling and land ready-made; converting them to AI data centers costs far less than building new</span>. Anthropic spent $6B on acquisitions while locking $9.1B of compute: <span class="hl">competition among top labs has become capital lock-up measured in decades</span>.</p>
+<p><span class="turn"><span class="hl">The AI arms race has shifted from "who is stronger" to "who locks up resources first"</span>, and this time the lock is on Texas electricity through 2048.</span></p>
+</div>
+<div class="img">
+<img alt="Anthropic locks in 20 years of compute" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-14/anthropic-compute.jpg"/>
+<p class="img-cap">Anthropic locks in 20 years of compute.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.cnbc.com/2026/08/12/anthropic-riot-platforms-compute-agreement.html" target="_blank">CNBC</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== Voices ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"Zuckerberg wrote 6,500 words of AI manifesto, and said almost nothing."</p>
+<p class="voice-who">— Wired review · Zuckerberg AI Manifesto · <a href="https://www.wired.com/story/mark-zuckerbergs-ai-manifesto-is-6500-words-and-barely-says-anything/" target="_blank">Wired</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI is expensive."</p>
+<p class="voice-who">— Ali Ghodsi · Databricks CEO, on wanting to raise $1B and taking $5B instead · <a href="https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/" target="_blank">TechCrunch</a></p>
+</div>
+</div>
+<!-- ===== Takeaway ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">Takeaway</div>
+<p>Today's keyword was "fast": models sped up 14-fold, one sentence yields a 3D model, and AI music went commercial.</p>
+<p>Money chased too: hoping for $1B, Databricks took $15B, and the data layer's valuation climbed to $190B.</p>
+<p class="turn">Once capability is good enough, speed, cost and barriers become the starting line of the next race.</p>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>The Sargassum Belt, Atlantic Ocean — NASA's satellite captured a floating algae belt spanning the ocean, like a river that breathes.</strong></p>
+<div class="image-block">
+<img alt="NASA satellite image: the Sargassum Belt" loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg"/>
+<p class="image-caption">Sargassum Belt · Atlantic Ocean · photographed by NASA · <span class="num">15.0</span>°N, <span class="num">45.0</span>°W<br/>This algae belt stretches across the Atlantic, thousands of kilometers at its widest. No company feeds it; sunlight and currents alone grow it into a "floating forest". While we argue on screens about who sped up 14-fold and whose valuation hit $190B, this belt follows the ocean's rhythm, deciding where to drift this year and which shores to reach. After a day of AI news, Earth still has places that need no GPU cooling. <span class="hl">Mountains and seas — stay curious, keep exploring.</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream — what changed in AI today, and how people chose.
+</div>
+</div>
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
