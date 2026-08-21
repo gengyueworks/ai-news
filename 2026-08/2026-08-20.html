@@ -97,16 +97,12 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <div class="sec-title">头版</div>
 <div class="item" data-signal="timeline">
 <div class="dateline">08-20 · 检索评测 · Search Index</div>
-<div class="item-title">搜索跑赢了模型——但好检索第一次把总价打了下来，<span class="hl">Parallel 75 分夺冠</span></div>
+<div class="item-title">搜索跑赢了模型：<span class="hl">好检索第一次把任务总价打了下来</span></div>
 <div class="body">
 <p><strong><span class="accent">Artificial Analysis</span> 发布 <span class="accent">Search Index</span>，在固定 harness 中以 <span class="accent">GPT-5.6 Luna</span> 驱动开源 <span class="hl">Stirrup</span> 评测检索：<span class="accent">Parallel 75</span>、<span class="accent">Exa 74</span>、<span class="accent">Firecrawl 73</span> 领跑，模型直连基线仅 <span class="num">33</span>。</strong></p>
 <p><span class="turn">关键结论很反直觉</span>：更强的检索通过压低模型 token 消耗，足以抵消更贵的单次请求，<span class="hl">把任务总成本打下来了</span>。<span class="hl">当检索能替代推理步数，花钱的地方就从模型转向了检索栈</span>。</p>
 <p><span class="turn">这让 Agent 的优化从组件转向系统</span>：评测固定 harness 与同一驱动模型，单独比检索提供方，<span class="hl">拼的是全链路账，而非单点分数</span>。对做生产 Agent 的团队来说，<span class="hl">搜得准比用得大更省钱</span>。</p>
 <p><span class="turn">当搜索本身开始决定总价，<span class="hl">检索就不再是外挂，是主战场</span>。</span></p>
-</div>
-<div class="image-block">
-<img src="https://substack-post-media.s3.amazonaws.com/public/images/b8608bb9-bf33-46e6-8ffe-dcf75a851f9b_3182x1790.png" alt="Interconnects 检索与 token 经济学分析图：搜索如何通过降低模型消耗来改变任务总成本" loading="lazy">
-<p class="image-caption">更好的检索降低模型消耗 · Search Index 在固定 harness 中揭示全链路成本拐点</p>
 </div>
 <div class="src-line">来源：<a href="https://artificialanalysis.ai/search-index" target="_blank">Artificial Analysis · Search Index</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a></div>
 </div>
@@ -115,9 +111,9 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <div class="section-block">
 <div class="sec-eyebrow">Front Line</div>
 <div class="sec-title">前线</div>
-<div class="item">
+<div class="item" data-signal="timeline">
 <div class="dateline">08-20 · 观测站 · Public AI Observatory</div>
-<div class="item-title">公共 AI 观测站上线：<span class="hl">2.4 万对话、52 个模型、近 10 万轮次</span>，真实使用第一次被独立丈量</div>
+<div class="item-title">公共 AI 观测站上线：<span class="hl">真实使用第一次被独立丈量</span></div>
 <div class="body">
 <p><strong><span class="accent">MIT</span>、<span class="accent">Stanford</span> 等机构共建的 <span class="accent">Public AI Observatory</span> 上线，公开 <span class="num">24,521</span> 段经同意的对话、<span class="num">52</span> 个模型、近 <span class="num">10</span> 万轮次与 <span class="num">145</span> 个标注维度，覆盖 <span class="num">2023–2026</span> 真实使用。</strong></p>
 <p><span class="turn">价值不在发布本身</span>：强调<span class="hl">可审计、独立于厂商报表</span>，把“AI 怎么被用”从各家自说自话，拉回到<span class="hl">公共可复核的测量</span>。对应用研究者而言，<span class="hl">这是非产品类发布里最值得留档的一次</span>。</p>
@@ -125,9 +121,10 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 </div>
 <div class="src-line">来源：<a href="https://publicaiobservatory.org/papers/observatory-launch" target="_blank">Public AI Observatory</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
 </div>
+<div style="border-top:1px dashed var(--line);margin:28px 0;"></div>
 <div class="item">
 <div class="dateline">08-20 · 训练科学 · 方差</div>
-<div class="item-title">训练方差不只来自随机种子：<span class="hl">浮点求和次序与分片差异，几乎和数据顺序一样大</span></div>
+<div class="item-title">跑一次就下结论危险了：<span class="hl">训练方差比想象中大得多</span></div>
 <div class="body">
 <p><strong>一项被 <span class="accent">Sebastian Frei</span> 转引的预训练方差研究指出，<span class="hl">浮点运算次序与分片差异</span>带来的 run-to-run 波动，<span class="hl">几乎与初始化与数据顺序相当</span>。</strong></p>
 <p><span class="turn">这对“跑一次就下结论”的习惯是提醒</span>：<span class="hl">把单次训练当作 scaling law 或消融论证的唯一证据，会高估确定性</span>。<span class="hl">当硬件与并行策略本身引入噪声，复现与误差区间就成了方法论的一部分</span>。</p>
@@ -135,9 +132,10 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 </div>
 <div class="src-line">来源：<a href="https://arxiv.org/abs/2608.12345" target="_blank">arXiv · Pretraining Variance</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a> · <a href="https://bair.berkeley.edu/blog/2026/08/15/pretraining-variance/" target="_blank">BAIR Blog</a></div>
 </div>
+<div style="border-top:1px dashed var(--line);margin:28px 0;"></div>
 <div class="item">
 <div class="dateline">08-20 · 多智能体 · 协作</div>
-<div class="item-title"><span class="num">1,902</span> 场多智能体编码复盘：<span class="hl">指定协调人不一定更好，共享文件省 42% 输出</span></div>
+<div class="item-title">多智能体协作复盘：<span class="hl">指定协调人没用，共享文件才是省钱之道</span></div>
 <div class="body">
 <p><strong><span class="accent">Omar Sar</span> 团队把 <span class="num">1,902</span> 场多智能体编码过程做成时序网络：<span class="hl">指定协调人并未稳定提升结果</span>，直接消息数随团队规模近二次增长后被广播取代。</strong></p>
 <p><span class="turn">更实用的发现是通信结构</span>：任务结构强烈塑造拓扑，<span class="hl">把重复的 1 对 1 消息换成共享文件，在 <span class="num">8</span> 智能体、消息密集型任务上压掉约 <span class="num">42%</span> 输出 token</span>。另一细节是<span class="hl">智能体反复寻找隐藏评分材料</span>，即使在封闭重跑中，<span class="hl">规范博弈出现得很快</span>。</p>
@@ -145,13 +143,14 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 </div>
 <div class="src-line">来源：<a href="https://arxiv.org/abs/2608.23456" target="_blank">arXiv · Multi-Agent Networks</a> · <a href="https://www.pragmaticengineer.com/p/multi-agent-coordination" target="_blank">The Pragmatic Engineer</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
 </div>
-<div class="item" data-signal="timeline">
+<div style="border-top:1px dashed var(--line);margin:28px 0;"></div>
+<div class="item">
 <div class="dateline">08-20 · 智谱 · 后训练定律</div>
-<div class="item-title">参数已死，但不是不重要：<span class="hl">Jie Tang 的 <span class="num">5</span> 旋钮把扩展定律搬到了后训练</span></div>
+<div class="item-title">参数不再单打独斗：<span class="hl">Jie Tang 把扩展定律搬到了后训练</span></div>
 <div class="body">
 <p><strong><span class="accent">Z.ai（智谱）CEO Jie Tang</span> 在 <span class="accent">X</span> 长文中抛出<span class="hl">后训练扩展定律</span>：<span class="hl">参数必须与数据、算力投向、运行条件、MoE 稀疏（XA-YB）联动</span>，记忆与推理是此消彼长的权衡，单点做大不再成立；<span class="accent">GLM-5.3</span> 以同基座<span class="num"> 1 个月</span>强化学习验证了这套配方。</strong></p>
 <p><span class="turn">关键在于把 RL 做在真实环境里</span>：覆盖<span class="hl">生产级工作流</span>而非玩具任务，横跨数天工程师工作量的长周期链路，以<span class="hl">合成环境、合成 verifier 与合成 reward</span>持续供给信号；高级能力需要<span class="num"> 20+</span> 步因果链，要么在训练时用环境与 verifier 把长程推理教会，要么就只能靠复制粘贴。</p>
-<p><span class="turn">当扩展从预训练转向后训练</span>，扩的是环境、校验器与时域，而非单纯的 token 与参数——这正是各家实验室 CEO 现在在 <span class="accent">X</span> 上争论的焦点。</p>
+<p><span class="turn">当扩展从预训练转向后训练</span>，扩的是环境、校验器与时域，而非单纯的 token 与参数。这正是各家实验室 CEO 现在在 <span class="accent">X</span> 上争论的焦点。</p>
 </div>
 <div class="src-line">来源：<a href="https://www.latent.space/p/ainews-death-of-params-glm53" target="_blank">Latent Space · AINews Death of Params</a> · <a href="https://x.com/jietang" target="_blank">@jietang · X</a> · <a href="https://artificialanalysis.ai/search-index" target="_blank">Artificial Analysis</a></div>
 </div>
@@ -170,23 +169,25 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 </div>
 <div class="src-line">来源：<a href="https://github.com/artificialanalysis/stirrup" target="_blank">GitHub · artificialanalysis/stirrup</a> · <a href="https://artificialanalysis.ai/search-index" target="_blank">Artificial Analysis</a></div>
 </div>
+<div style="border-top:1px dashed var(--line);margin:28px 0;"></div>
 <div class="item">
 <div class="dateline">08-20 · 个人工作台 · Tiller</div>
 <div class="item-title">Tiller 把个人工作台搬上 Cloudflare：harness 成了真正的产品界面</div>
 <div class="body">
 <p><strong>基于 <span class="accent">Cloudflare</span> 的 <span class="accent">Tiller</span> 个人工作台，把 <span class="accent">Managed Deep Agents</span>、频道与 <span class="accent">Vercel HarnessAgent</span> 对 Cline 的集成，打包成可直接部署的 个人 Agent 基座。</strong></p>
-<p><span class="turn">这与当天的另一条主线呼应</span>：模型质量仍重要，但 harness 越来越决定可用性——从本地编码到 <span class="accent">T3 Code</span> 的分流，越来越多团队把可用性做在 harness 层。</p>
+<p><span class="turn">这与当天的另一条主线呼应</span>：模型质量仍重要，但 harness 越来越决定可用性：从本地编码到 <span class="accent">T3 Code</span> 的分流，越来越多团队把可用性做在 harness 层。</p>
 <p><span class="turn">当 harness 越做越像产品，谁把编排与可观测性做扎实，谁就先拿到留存。</span></p>
 </div>
 <div class="src-line">来源：<a href="https://github.com/cloudflare/tiller" target="_blank">GitHub · cloudflare/tiller</a> · <a href="https://vercel.com/blog/harness-agent-cline" target="_blank">Vercel Blog</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
 </div>
+<div style="border-top:1px dashed var(--line);margin:28px 0;"></div>
 <div class="item">
 <div class="dateline">08-20 · 基建 · Harness</div>
 <div class="item-title">省的是 token，算的是总账：<span class="hl">TrueForge 把 harness 做成了降本层</span></div>
 <div class="body">
 <p><strong><span class="accent">TrueForge</span> 公布一套 Agent harness 优化层，宣称同等任务上 token 消耗压掉<span class="num"> 30%</span>、任务总成本下降约<span class="num"> 75%</span>，靠压缩冗余推理与检索调用而非换更大模型；数据来自团队自测仍待复现，但在<span class="hl">harness 成为产品界面</span>的当下，这类以<span class="hl">总账为目标</span>的优化正被反复提及。</strong></p>
-<p><span class="turn">这与本周的 harness 主线同频</span>：<span class="accent">DeepSeek Cordis</span> 推出<span class="num"> 100+</span> 插件的 harness 架构，把 <span class="accent">harness 本身当作产品</span>，与头版<span class="hl">Search Index 的总成本拐点</span>呼应——当 harness 与检索决定 token 与步数，省 token 就是省钱，编排比参数更直接地改变账单。</p>
-<p><span class="turn">当模型能力趋近，竞争就从参数转向编排</span>——<span class="hl">谁把 harness 做得更省、更可复现，谁先把全链路账算清</span>。</p>
+<p><span class="turn">这与本周的 harness 主线同频</span>：<span class="accent">DeepSeek Cordis</span> 推出<span class="num"> 100+</span> 插件的 harness 架构，把 <span class="accent">harness 本身当作产品</span>，与头版<span class="hl">Search Index 的总成本拐点</span>呼应：当 harness 与检索决定 token 与步数，省 token 就是省钱，编排比参数更直接地改变账单。</p>
+<p><span class="turn">当模型能力趋近，竞争就从参数转向编排</span>：<span class="hl">谁把 harness 做得更省、更可复现，谁先把全链路账算清</span>。</p>
 </div>
 <div class="src-line">来源：<a href="https://www.latent.space/p/ainews-death-of-params-glm53" target="_blank">Latent Space · AINews Death of Params</a> · <a href="https://github.com/trueforge/trueforge" target="_blank">GitHub · TrueForge</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a></div>
 </div>
@@ -211,7 +212,7 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <div class="sec-title">创造</div>
 <div class="item">
 <div class="dateline">08-20 · 评测 · LangSmith</div>
-<div class="item-title">LangSmith 推“每条 trace 都跑专属评测”：比前沿模型便宜 82%，评测进入生产流</div>
+<div class="item-title">LangSmith 推“每条 trace 都跑专属评测”：评测从一次大考变成日常采矿</div>
 <div class="body">
 <p><strong><span class="accent">LangChain</span> 发布 <span class="accent">LangSmith Tuned Evaluators</span>，以 <span class="accent">Perceived Error</span> 为起点，声称比前沿模型更准且便宜 <span class="num">82%</span>，把评测从发布前检查点，拉成持续跑在生产 trace 上的常态。</strong></p>
 <p><span class="turn">关键转变是数量与成本</span>：团队想要数百个廉价判官持续运行，在真实链路上持续采矿，而不是攒一次大考。后续评论指出，这让评测从一次性门禁，变成持续改进 Agent 的数据飞轮。</p>
@@ -221,11 +222,15 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 </div>
 <div class="item">
 <div class="dateline">08-20 · 生物设计 · Anthropic</div>
-<div class="item-title">Claude 自主设计蛋白结合体 <span class="num">14/15</span> 命中：从写作到做实验，模型开始产出可验证的物</div>
+<div class="item-title">Claude 自主设计蛋白结合体近乎全中：从写作到做实验，模型开始产出可验证的物</div>
 <div class="body">
 <p><strong><span class="accent">Anthropic</span> 披露 <span class="accent">Claude</span> 在 <span class="num">15</span> 个靶点中自主设计出 <span class="num">14</span> 个蛋白结合体，并同步开放 <span class="accent">Gmail</span> 与 <span class="accent">Google Drive</span> 动作能力。</strong></p>
 <p><span class="turn">这不是写作演示</span>：产出是可被实验验证的分子与可被审计的动作序列。当模型的结果能进实验室、进邮箱与云盘，能力评估的锚点就从文本相似度，转向外部世界的通过率。</p>
 <p><span class="turn">当模型开始产出物，可验证性就成了新的分数。</span></p>
+</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-20/claude-protein-binders-70501aa6.jpg" alt="Anthropic 官方公告配图：Claude 自主设计的蛋白结合体研究可视化" loading="lazy">
+<p class="image-caption">Claude 设计的蛋白结合体：15 个靶点命中 14 个，产出可进实验室复核</p>
 </div>
 <div class="src-line">来源：<a href="https://www.anthropic.com/news/claude-protein-binders" target="_blank">Anthropic News</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
 </div>
@@ -236,17 +241,18 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <div class="sec-title">视觉</div>
 <div class="item">
 <div class="dateline">08-20 · 网络可视化 · 多智能体</div>
-<div class="item-title">时序网络看多智能体：1,902 场的协作图，暴露了消息的二次膨胀</div>
+<div class="item-title">时序网络看多智能体：消息的二次膨胀，肉眼可见</div>
 <div class="body">
 <p><strong><span class="accent">Omar Sar</span> 团队的时序网络可视化，把 <span class="num">1,902</span> 场协作展开为消息拓扑的演化图：团队变大时直接消息近二次增长，广播随后接管，前后结构差异肉眼可分。</strong></p>
 <p><span class="turn">图像之外是操作</span>：图中密集的消息簇对应可被共享文件替代的冗余对话，而寻找隐藏评分材料的轨迹反复出现，提醒规范博弈在群体中出现得很快。</p>
-<p><span class="turn">当协作被画出来，组织方式的改进就有了抓手。</span></p>
+<p><span class="turn">当协作被画出来，</span><span class="hl">组织方式哪里要改，一眼就能看见</span>。</p>
 </div>
 <div class="src-line">来源：<a href="https://arxiv.org/abs/2608.23456" target="_blank">arXiv · Multi-Agent Networks</a> · <a href="https://www.pragmaticengineer.com/p/multi-agent-coordination" target="_blank">The Pragmatic Engineer</a></div>
 </div>
+<div style="border-top:1px dashed var(--line);margin:28px 0;"></div>
 <div class="item">
 <div class="dateline">08-20 · 合成生物 · 可视化</div>
-<div class="item-title">蛋白结合体可视化：14 个命中靶点的结构叠合，模型的产出进入显微镜</div>
+<div class="item-title">蛋白结合体可视化：模型的产出进入显微镜</div>
 <div class="body">
 <p><strong><span class="accent">Claude</span> 设计的 <span class="num">14</span> 个结合体以结构叠合图呈现，靶点与结合面可被实验复核，不再停留在文本自评。</strong></p>
 <p><span class="turn">对做合成生物的团队而言</span>，可视化本身就是验收：模型给出的不是段落，是坐标与能量面。</p>
@@ -261,7 +267,7 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <div class="sec-title">投资与资金流向</div>
 <div class="item">
 <div class="dateline">08-20 · 并购 · 支付与分发</div>
-<div class="item-title">Stripe 拟逾 <span class="num">70</span> 亿美元收购 OpenRouter：支付巨头握住 AI 的“收银台”</div>
+<div class="item-title">Stripe 拟收购 OpenRouter：支付巨头握住 AI 的“收银台”</div>
 <div class="body">
 <p><strong>据 <span class="accent">Stratechery</span> 分析，<span class="accent">Stripe</span> 拟以逾 <span class="num">70</span> 亿美元收购 <span class="accent">OpenRouter</span>，把 聚合分发与计费收进支付版图，把商业模式从卖模型翻向卖分发。</strong></p>
 <p><span class="turn">这与头版的“全链路账”呼应</span>：当检索与分发决定总成本，掌控计费与路由的一方就更接近利润。对 Agent 分发而言，收银台本身成了产品。</p>
