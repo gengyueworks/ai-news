@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Intelligence Daily | 2026-08-17</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.enhanced-badge{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid #C41E3A;color:#C41E3A;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;vertical-align:1px;}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+.item-sep{border-top:1px dashed var(--line);margin:28px 0;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.img img{max-width:560px;width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;border:1px solid var(--line);}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../../index.html">中文版</a></li>
+<li><a class="active" href="../../2026-08/2026-08-21.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI Intelligence Daily</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-17 · Monday</span>
+<span class="enhanced-badge">✦ Enhanced Edition</span>
+<span>16 stories</span>
+</div>
+<div class="mast-lede">Today's keyword is "fast": models sped up 14-fold, one sentence yields a 3D model, and AI music went commercial.<br/><br/>Below, who is running faster.</div>
+</div>
+<!-- ===== Top Story ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-16 · Stripe · Acquisition</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-17/stripe-openrouter-25fc01ac.jpg" alt="Stripe acquires OpenRouter" loading="lazy">
+<p class="image-caption">Stripe buys OpenRouter for over $7B · a payments giant grabs AI's cash register</p>
+</div>
+<div class="item-title">Stripe pays $7B-plus for OpenRouter, but what it really bought is "AI's cash register": <span class="hl">the money flowing to models now has a gate</span></div>
+<div class="body">
+<p><strong><span class="accent">Stripe</span> finalized its acquisition of <span class="accent">OpenRouter</span>, the AI model aggregation and routing platform, for over <span class="num">$7</span> billion. The Wall Street Journal had reported talks around <span class="num">$10</span> billion; the final price came in below the rumors.</strong></p>
+<p>What does OpenRouter do? <span class="hl">It is a "model interchange": developers call hundreds of models through one API</span>, auto-routed to the best provider, with price comparison and switching built in. It makes no models; it owns the entrance to the model market.</p>
+<p>Why would Stripe buy it? Stripe is a payments company becoming the "money layer" of the AI era: model calls are billed per token, and OpenRouter is the entrance through which all of it gets paid. <span class="hl">Owning OpenRouter means holding the gate on "who pays for AI"</span>.</p>
+<p><span class="turn">When a payments company starts buying model routers, "where AI's money flows" gets a clear checkout counter for the first time, and OpenRouter is that counter.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/" target="_blank">TechCrunch</a> · <a href="https://simonwillison.net/2026/Aug/16/openrouter/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<!-- ===== Front Line ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-16 · Mathematician · Commentary</div>
+<div class="item-title">A top mathematician on LLMs: <span class="hl">powerful calculators, short on creative thinking</span></div>
+<div class="body">
+<p><strong>A leading mathematician publicly assessed LLMs: powerful calculators, lacking genuine creative thought.</strong></p>
+<p>A sobering counterweight to the "AI solves hard math" narrative: <span class="hl">what AI excels at is extreme execution of known rules</span>, computation, derivation, pattern matching, while real breakthroughs in mathematics come from the creativity of "defining new problems", exactly what LLMs lack.</p>
+<p>Notably, this is not disparagement: calculating, deriving and verifying already make a formidable research tool. <span class="turn"><span class="hl">"AI is a calculator, not a mathematician"</span>: the true dividing line is whether it can ask new questions.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.quantamagazine.org/llms-are-powerful-calculators-but-lack-creative-thinking-20260816/" target="_blank">Quanta Magazine</a> · <a href="https://www.latent.space/p/ainews-how-to-steal-a-reasoning-trace" target="_blank">AINews</a></div>
+</div>
+<div class="item-sep"></div>
+<div class="item">
+<div class="dateline">08-16 · Anthropic · Trust</div>
+<div class="item-title">Anthropic CEO: the AI backlash is a "crisis of trust": <span class="hl">not a technology problem, a credibility problem</span></div>
+<div class="body">
+<p><strong>The <span class="accent">Anthropic</span> CEO on the current AI backlash: at bottom a <span class="hl">"crisis of trust"</span>, not a crisis of technology.</strong></p>
+<p>The core argument: public resistance to AI is not about it being too strong or too weak; it is about <span class="hl">not knowing whether to trust it</span>. How data is used, whether content is AI-written, where capability boundaries lie: these trust questions are eroding the whole industry's credibility.</p>
+<p>It echoes recent moves: Anthropic shipping watermark detection and publishing how it works are both plays in "rebuilding trust". <span class="turn"><span class="hl">When the industry shifts from competing on capability to competing on trust</span>, whoever reassures users first holds the ticket to the next stage.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<!-- ===== Infrastructure ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">INFRA · INFRASTRUCTURE SIGNALS</div>
+<div class="sec-title">Infrastructure</div>
+<div class="item">
+<div class="dateline">08-17 · Modular · Open Source</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-17/mojo-open-source-04756b4a.jpg" alt="Mojo open-sourced under Apache 2.0 · portability layer across accelerators including Qualcomm hardware" loading="lazy">
+<p class="image-caption">Mojo open source · Apache 2.0 · a portability layer that runs across accelerators</p>
+</div>
+<div class="item-title">Mojo officially open source (Apache 2.0): <span class="hl">the second half of the AI language race bets on portability</span></div>
+<div class="body">
+<p><strong><span class="accent">Modular</span> formally open-sourced <span class="accent">Mojo</span> under the <span class="accent">Apache 2.0</span> license, positioning the whole platform as a "portability layer across accelerators", covering Qualcomm's datacenter AI accelerators.</strong></p>
+<p>For infrastructure engineers, the point is <span class="hl">not the "new language" itself but toolchain openness and hardware abstraction arriving together</span>: write once, run on NVIDIA, AMD, Qualcomm and custom silicon, without rewriting per accelerator.</p>
+<p>Why now? <span class="hl">Accelerators are fragmenting</span>. The chip war has made "optimize for one piece of hardware" a high-risk bet, and <span class="hl">a portability layer has become the scarce good</span>. <span class="turn">As hardware splinters, whoever provides the write-once-run-anywhere middle layer stands at the entrance to the ecosystem.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item-sep"></div>
+<div class="item">
+<div class="dateline">08-17 · NVIDIA · Toolchain</div>
+<div class="item-title">NVIDIA compresses model deployment to "two commands": <span class="hl">Hugging Face straight to TensorRT, skipping ONNX</span></div>
+<div class="body">
+<p><strong><span class="accent">NVIDIA</span> released the <span class="accent">TensorRT Model Connect</span> public preview: supported Hugging Face models convert directly to end-to-end TensorRT inference, <span class="hl">no intermediate ONNX export needed</span>, deployed via native C++ APIs.</strong></p>
+<p>Every step cut from the deployment path lowers the time cost from model to production. <span class="hl">"Two commands" means small teams can push open-source models into production quickly</span>, without staffing an inference-optimization team.</p>
+<p>The detail worth noting: NVIDIA itself says the project was largely built by a <span class="accent">Codex agent</span> under human review; implementation, tuning, testing, integration and docs all had agent participation. <span class="turn">When an infra vendor openly admits "agents wrote our toolchain", AI developing AI goes from demo to daily routine.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item-sep"></div>
+<div class="item">
+<div class="dateline">08-17 · Cursor · Infra Retrospective</div>
+<div class="item-title">Cursor designs Git storage "like a database": <span class="hl">in the agent era, code hosting becomes AI infrastructure</span></div>
+<div class="body">
+<p><strong><span class="accent">Cursor</span> published a large-scale retrospective on Git hosting: <span class="hl">designing Git storage to database standards</span>, holding it to database-grade reliability, scalability and consistency.</strong></p>
+<p>The backdrop is agent adoption: <span class="hl">repo churn, background automation, branch and session proliferation are all growing exponentially</span>. <span class="hl">Git hosting has moved from "generic devops primitive" to core AI infrastructure that coding-agent backends depend on</span>.</p>
+<p>For ordinary developers the implication is direct: <span class="hl">every agent completion in your IDE and every automatic branch rests on Git absorbing new load</span>. <span class="turn">When code hosting gets redesigned for agents, the next rebuild of the dev toolchain has quietly begun.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item-sep"></div>
+<div class="item">
+<div class="dateline">08-17 · Inference · Speed Race</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-17/cerebras-cs4-7fb565dc.jpg" alt="Cerebras CS-4 supercomputer launch · 1000 tok/s inference on 10T-parameter models and 10x throughput per megawatt" loading="lazy">
+<p class="image-caption">Cerebras CS-4 · 10T parameters at 1000 tok/s, 10x throughput per megawatt · the speed race reaches the datacenter</p>
+</div>
+<div class="item-title">The inference speed war escalates: <span class="hl">70 tok/s locally, 1000 tok/s claimed in the datacenter</span></div>
+<div class="body">
+<p><strong>Edge and datacenter sped up simultaneously: <span class="accent">DFlash 2</span> claims <span class="num">70</span> tok/s running Qwen3.8-27B on an <span class="accent">M5 Max</span>, up to <span class="num">4.6</span>x faster autoregressive decoding with "identical output"; <span class="accent">Cerebras</span> launched the <span class="accent">CS-4</span>, claiming <span class="num">1000</span> tok/s on <span class="num">10T</span>-parameter models, about <span class="num">1300</span> tok/s for GPT-5.6 Sol, and <span class="num">10</span>x throughput per megawatt.</strong></p>
+<p>Vendor claims deserve a discount, but the direction is clear: <span class="hl">inference speed is becoming product experience, unit economics and national competitiveness policy all at once</span>. <span class="hl">Fast is itself the selling point</span>.</p>
+<p>The meaning of 70 tok/s on-device is "local": <span class="hl">no network, no uploads, privacy stays on the device</span>, at near-real-time speed. <span class="turn">When "fast" competes from the datacenter down to the laptop, the way AI gets used is being rewritten.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+</div>
+<!-- ===== Open Source ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · PRACTICAL TOOLS</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-14 · MiniMax · Open Source</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-17/minimax-music-3-9a1b2c3d.png" alt="MiniMax Music 3 open source · five-minute stereo song generation with native ComfyUI integration" loading="lazy">
+<p class="image-caption">MiniMax Music 3 · 8B global LLM + 2.4B flow model, five-minute stereo running locally · native support in ComfyUI 0.33</p>
+</div>
+<div class="item-title">MiniMax open-sources Music 3: <span class="hl">"we stay open source until AGI arrives"</span></div>
+<div class="body">
+<p><strong><span class="accent">MiniMax</span> released <span class="accent">Music 3.0</span> weights on Hugging Face (<span class="accent">MiniMaxAI/MiniMax-Music3</span>), with <span class="accent">ComfyUI 0.33</span> adding native support the same day. Official words: "We will keep everything open source until AGI arrives."</strong></p>
+<p>On paper it is a multi-module model: an <span class="num">8B</span> global LLM (initialized from Qwen3.5-8B) plus a 0.6B local LLM plus a 2.4B flow-matching module plus a 123M Flow-VAE, generating full songs up to <span class="num">5</span> minutes in 32kHz stereo. The API version shipped in July; this release opens the weights. Running locally means no uploads, no queues, no per-track fees: <span class="hl">creators can finally own their AI scoring tool</span>.</p>
+<p><span class="hl">The ecological niche of open music models is subtle</span>: closed products like Suno and Udio dominate, while open source previously had only small models. Music 3's architecture puts "five-minute full songs" within local reach, and with ComfyUI workflows an ordinary creator can assemble a complete AI music pipeline on their own machine.</p>
+<p><span class="hl">MiniMax's logic is open source in exchange for ecosystem</span>: from H2 to Music 3 it keeps open-sourcing flagship capabilities, feeding its brand through the developer ecosystem. Against Suno's subscription model, the open route bets on the flywheel of more users leading to more improvements leading to faster iteration. For creators, it is optionality: those who dislike per-track fees or uploading data can just run it locally.</p>
+<p><span class="turn">When Chinese companies' open source spreads from "model parameters" to "creative tools", the battlefield widens past developers to every creator</span>.</p>
+</div>
+<div class="src-line">Sources: <a href="https://x.com/MiniMax_AI" target="_blank">MiniMax official</a></div>
+</div>
+<div class="item-sep"></div>
+<div class="item">
+<div class="dateline">08-12 · Alibaba · Open Source</div>
+<div class="item-title">Qwen3.8-Max open-sourced: <span class="hl">2.4T total / 95B active parameters, one of the largest open releases ever</span></div>
+<div class="body">
+<p><strong>Alibaba released <span class="accent">Qwen3.8-Max</span> open weights: <span class="num">2.4T</span> total / <span class="num">95B</span> active MoE with only about <span class="num">4%</span> activation, priced at <span class="num">$2/$6</span> per million tokens via API. Community verdict: "one of the largest open-weight releases ever".</strong></p>
+<p>Third-party evaluations are strong: Frontend Code Arena <span class="num">#4</span> (Elo <span class="num">1668</span>, behind only Claude Opus 5 and Kimi K3), Vision Arena <span class="num">#2</span> (<span class="num">1305</span>, 13 points from Claude Fable); Vals composite index <span class="num">66.1</span>, second among open models and tenth of all 43; SWE-bench <span class="num">87.3%</span>, ahead of GPT-5.5 (<span class="num">82.6%</span>) and GLM-5.2 (<span class="num">83.3%</span>). More valuable is the improvement curve: Vals rose from 3.7 Max's <span class="num">57.5</span> to <span class="num">66.1</span>, <span class="hl">an 8.6-point gain in two and a half months</span>, while prices fell from $2.5/$7.5 to $2/$6.</p>
+<p>The ecosystem was ready on day one: vLLM day-0 support plus dedicated 4-bit quantizations for NVIDIA B300 and AMD MI355X; Together and Baseten could run it immediately. But Jamin Ball poured cold water: <span class="hl">K3 alone needs over <span class="num">1TB</span> of memory to load weights, at least <span class="num">8</span> H100s; open weights do not mean locally runnable</span>. The initial release is also text-only, vision not yet unlocked, and license terms appear to restrict downloads from the US, EU, UK and Korea, unclarified by Alibaba at press time.</p>
+<p><span class="turn">When a 2.4T open model scores near closed flagships at a fraction of the price, <span class="hl">"the gap between open and closed" becomes "who can actually run it"</span>.</span></p>
+</div>
+<div class="item-sep"></div>
+<div class="item">
+<div class="dateline">08-14 · Z.ai · Open Source</div>
+<div class="item-title">GLM-5.3 ships via API: <span class="hl">same parameters, new training method; the post-training era begins</span></div>
+<div class="body">
+<p><strong><span class="accent">Z.ai</span> released the <span class="accent">GLM-5.3</span> API targeting coding, defensive cybersecurity and long-horizon agents at GLM-5.2 prices; Artificial Analysis scores it <span class="num">60</span>, tying Kimi K3, after a <span class="num">246</span>-point jump to <span class="num">1770</span> Elo on GDPval-AA v2.</strong></p>
+<p>The architecture did not move: still a <span class="num">753B</span>-total / <span class="num">40B</span>-active MoE with <span class="num">1M</span> context, <span class="hl">MIT license preserved when weights land</span>. <span class="hl">Same skeleton, stronger results: the gains come from post-training</span>.</p>
+<p>A long-form Zhihu analysis supplied the technical details: <span class="hl">asynchronous RL (SAO), executable sandbox training, and on-policy distillation against catastrophic forgetting</span>, stacked together to power the jump. <span class="turn">When model makers differentiate by training method rather than parameter count, competition in agent capability shifts from stacking parameters to stacking RL systems and environment quality.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+</div>
+</div>
+<!-- ===== Create ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-14 · Gemini · 3D</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-17/gemini-3-flash-98da7eb0.jpg" alt="Gemini 3.7 Flash launch · one-million-token context and a usable 3D watch model from one sentence for about four cents" loading="lazy">
+<p class="image-caption">Gemini 3.7 Flash · three weeks after 3.6, one-million-token context with 64K output · usable 3D models from one sentence at about $0.038</p>
+</div>
+<div class="item-title">Gemini 3.7 Flash ships: <span class="hl">three weeks after 3.6, iteration has gone monthly</span></div>
+<div class="body">
+<p><strong>Google released <span class="accent">Gemini 3.7 Flash</span> just three weeks after 3.6 Flash: <span class="num">1M</span>-token context, <span class="num">64K</span> output, WebDev Arena Elo of <span class="num">1588</span>, API pricing at <span class="num">$0.75</span> per million input tokens (rising to <span class="num">$1.50</span> from 2027).</strong></p>
+<p>The eye-catcher in the official demos is 3D generation: a usable 3D watch model from one sentence, at about <span class="num">$0.038</span>, under four cents. <span class="hl">3D modeling used to be billed by the designer-hour</span>; now it is one sentence plus four cents. <span class="hl">When generation cost becomes negligible, "can you model" stops being the barrier and "do you want to make it" becomes the question</span>.</p>
+<p>Watch the iteration cadence even more than the features: only three weeks between 3.6 and 3.7. Google is compressing releases from quarterly to monthly, and <span class="hl">the Flash line has become the fast lane for trialing new capabilities</span>: cheap, quick to iterate, steadily gaining abilities. The same event added the Nano Banana image model and Gemini Omni, completing a full product matrix.</p>
+<p>For developers the direct implication: <span class="hl">capability grows by the month, so vendor choices must be remade by the month</span>. <span class="hl">Last quarter's optimum may already be displaced by a cheaper new version</span>.</p>
+<p><span class="turn">The collapse of 3D content production cost may cut deeper than image generation did, because 3D is the foundation of manufacturing, games and e-commerce, and it is turning into a sentence: "make me one of these".</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://blog.google/technology/ai/" target="_blank">Google AI Blog</a> · <a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" target="_blank">AINews</a></div>
+</div>
+<div class="item-sep"></div>
+<div class="item">
+<div class="dateline">08-14 · OpenAI · Product</div>
+<div class="item-title">ChatGPT launches "Computer History": <span class="hl">no more screenshots; it records what you clicked and typed</span></div>
+<div class="body">
+<p><strong>OpenAI introduced <span class="accent">Computer History</span> in ChatGPT for Mac desktop, replacing the screenshot-based Chronicle research preview. It targets Pro, Business and Enterprise users, is off by default, and requires admin authorization on enterprise plans.</strong></p>
+<p>How it works: instead of screenshots, it uses macOS accessibility APIs to record clicks, keystrokes, shortcuts and app switches, producing memories and timelines that ChatGPT/Codex can reference. Events upload to servers to generate memories; OpenAI says they are not retained after processing and not used for training. Interaction events stay local for up to <span class="num">48</span> hours; the first rollout excludes the EEA, Switzerland and the UK.</p>
+<p>Why it matters: this is the first step from "AI remembers what you said" to "AI remembers what you did" at screen level. <span class="hl">Before, AI remembered your conversations; now it remembers your actions</span>. For agent scenarios that is a qualitative change: ChatGPT can pick up where your last browser session left off, without you re-explaining context.</p>
+<p>Media reaction was blunt: <span class="hl">The Register called it "a friendly keylogger"</span>. It improves personalization but raises token consumption and prompt-injection risk, which OpenAI's own docs acknowledge, suggesting pausing it when others' communications are involved. Critics note <span class="hl">prompt injection can poison long-term context through this memory channel</span>.</p>
+<p><span class="turn">When AI starts recording your screen, users usually click "agree" before reading the terms of the convenience-for-privacy trade. This time, the terms read "keylogger".</span></p>
+</div>
+</div>
+</div>
+<!-- ===== Funding ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-12 · Anthropic · Compute</div>
+<div class="item-title">Anthropic locks in 20 years of compute: <span class="hl">$9.1B buys Texas power through 2048</span></div>
+<div class="body">
+<p><strong><span class="accent">Anthropic</span> signed a <span class="num">20</span>-year compute lease (through June 2048) with bitcoin miner <span class="accent">Riot Platforms</span>: <span class="num">191</span> MW of critical IT capacity, about <span class="num">$9.1B</span> in initial contract revenue, up to $16.1B with two five-year extensions.</strong></p>
+<p><span class="hl">The deal details are hardcore</span>: Riot's Texas facility delivers 96 MW in December 2027 and the remaining 95 MW by June 2028; Morgan Stanley provides bridge financing; AMD is another tenant in the same park. The mining farm is becoming an AI compute campus.</p>
+<p><span class="hl">Why buy power from miners?</span> <span class="hl">Mining sites have industrial power, cooling and land ready-made; converting them to AI data centers costs far less than building new</span>. Anthropic spent $6B on acquisitions while locking $9.1B of compute: <span class="hl">competition among top labs has become capital lock-up measured in decades</span>.</p>
+<p><span class="turn"><span class="hl">The AI arms race has shifted from "who is stronger" to "who locks up resources first"</span>, and this time the lock is on Texas electricity through 2048.</span></p>
+</div>
+</div>
+</div>
+<!-- ===== Observation ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OBSERVATION · TRENDS</div>
+<div class="sec-title">Observation</div>
+<div class="item">
+<div class="dateline">08-17 · Memory · Trend</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-17/memory-dram-chart-77560737.jpg" alt="Memory prices up 500% in 12 months · DRAM supply locked by hyperscale buyers through 2027 trend chart" loading="lazy">
+<p class="image-caption">DRAM RAMageddon · 128GB DDR5 kits at 10x their lows; hyperscalers have locked nearly all 2027 capacity</p>
+</div>
+<div class="item-title">Memory prices rose <span class="num">500</span>% in 12 months: <span class="hl">AI's next bottleneck is DRAM</span></div>
+<div class="body">
+<p><strong>Tom's Hardware calls it "RAMageddon": <span class="accent">128GB DDR5</span> kits cost ten times their historical low, and memory prices rose roughly <span class="num">500</span>% in twelve months.</strong></p>
+<p>The supply side is harder still: <span class="hl">hyperscale buyers have reportedly locked nearly all global DRAM capacity for 2027</span>, paying deposits just to guarantee supply. By weight, mainstream DRAM chips are worth more than half as much as pure gold.</p>
+<p>Daniel Lemire's observation stings most: <span class="hl">memory pricing is back to 2007 levels, erasing about twenty years of progress</span>, a historical anomaly. <span class="turn">When Moore's Law runs backwards in memory, <span class="hl">AI's cost structure is being quietly rewritten</span>: beyond compute, storage has become the new scarce resource.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+</div>
+<!-- ===== Voices ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"Zuckerberg wrote 6,500 words of AI manifesto, and said almost nothing."</p>
+<p class="voice-who">— Wired review · Zuckerberg AI Manifesto · <a href="https://www.wired.com/story/mark-zuckerbergs-ai-manifesto-is-6500-words-and-barely-says-anything/" target="_blank">Wired</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI is expensive."</p>
+<p class="voice-who">— Ali Ghodsi · Databricks CEO, on wanting to raise $1B and taking $5B instead · <a href="https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/" target="_blank">TechCrunch</a></p>
+</div>
+</div>
+<!-- ===== Takeaway ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">Takeaway</div>
+<p>Today's keyword was "fast": models sped up 14-fold, one sentence yields a 3D model, and AI music went commercial.</p>
+<p>Infrastructure sped up too: Mojo open-sourced, deployment in two commands, Git treated as a database.</p>
+<p>But memory rose 500% back to 2007 levels. Fast has a price.</p>
+<p class="turn">Once capability is good enough, speed, cost and barriers become the starting line of the next race.</p>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>Utah desert solar array, USA — NASA's satellite captured a million solar panels laid out like a blue ocean, a man-made oasis.</strong></p>
+<div class="image-block">
+<img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20260606_th.jpg" alt="NASA satellite image: Utah desert solar array" loading="lazy">
+<p class="image-caption">Million Panel Project · Utah · photographed by NASA · <span class="num">38.0</span>°N, <span class="num">113.0</span>°W<br/>A million solar panels spread across the desert as a blue matrix, turning the least hospitable land into a power source. While we argue over acquisitions and model rankings, this array generates electricity at the sun's pace and asks no one's opinion. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream — what changed in AI today, and how people chose.
+</div>
+</div>
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
