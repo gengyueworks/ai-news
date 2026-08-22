@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Intelligence Daily | 2026-08-09</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../../index.html">中文版</a></li>
+<li><a class="active" href="../../2026-08/2026-08-21.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI Intelligence Daily</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-09 · Sunday</span>
+<span class="enhanced-badge">✦ Enhanced Edition</span>
+<span>11 stories</span>
+</div>
+<div class="mast-lede">Today's throughline is "cost": running the numbers, swapping models, comparing power bills.<br/><br/>Below, where AI's money actually goes.</div>
+</div>
+<!-- ===== Top Story ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-09 · Energy · Measurement</div>
+<div class="item-title">AI agent energy use, counted properly for the first time: <span class="hl">600 times an ordinary chat</span></div>
+<div class="body">
+<p><strong>Climate scientist <span class="accent">Zeke Hausfather</span> analyzed eight weeks of his own Claude Code usage logs: <span class="num">1,138</span> inputs triggered over <span class="num">14,000</span> model calls processing <span class="num">3.2B</span> tokens; a median coding session consumed about <span class="num">41</span> watt-hours, and a single input averaged <span class="num">150</span> Wh, roughly <span class="num">600</span> times an ordinary Gemini query (0.24 Wh).</strong></p>
+<p>This is not a paper's estimate; it is one real user spreading out eight weeks of logs and doing the math. Official figures like to quote "energy per query", but an agent actually calls the model dozens of times per task. <span class="turn">When "having AI work for you" becomes daily routine, AI's name appears on the electricity bill for the first time.</span></p>
+<div class="img">
+<img alt="Zeke Hausfather measured: AI agent energy use is 600 times ordinary chat" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-09/agent-energy-use.jpg"/>
+<p class="img-cap">AI agent energy use measured · Zeke Hausfather · chart: one session equals 600 ordinary chats</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://www.theclimatebrink.com/p/the-real-energy-use-of-agentic-ai" target="_blank">Zeke Hausfather · The Climate Brink</a> · <a href="https://arstechnica.com/ai/2026/08/ai-agents-may-consume-600-times-more-energy-per-input-than-chatbots/" target="_blank">Ars Technica</a></div>
+</div>
+</div>
+<!-- ===== Front Line ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-09 · Chinese Models · Going Global</div>
+<div class="item-title">A Sydney startup swapped its models for Chinese open source: <span class="hl">cost is the hard reason</span></div>
+<div class="body">
+<p><strong>Australian startups like <span class="accent">Relevance AI</span>, previously dependent on US closed models from OpenAI and others, are switching to Chinese models for "affordability and openness", building agents for clients including Kuaishou and KPMG.</strong></p>
+<p>Front-line integrators voting with their feet, not out of sentiment but because of the bill. <span class="turn">When Chinese open models' price-performance sits on the table, the inertia of "default to American closed models" starts to loosen.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://english.news.cn/" target="_blank">Xinhua, Sydney</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-09 · Talent · AI Safety</div>
+<div class="item-title">A Fields Medalist joins OpenAI: <span class="hl">top mathematicians start serving as "witnesses" for AI safety</span></div>
+<div class="body">
+<p><strong>University of Toronto number theorist <span class="accent">Jacob Tsimerman</span> (Fields Medalist) joined OpenAI to work on AI safety research; last year he published a paper discussing "extinction events" scenarios where AI causes human extinction.</strong></p>
+<p>He argues AI remains largely empirical today, and mathematicians can provide formal guarantees for safety. <span class="turn">When the most demanding prover walks into the most advanced lab, AI safety gains the hope of being "verifiable" for the first time.</span></p>
+</div>
+<div class="img">
+<img alt="Fields Medalist joins OpenAI" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-09/www-the-decoder-com.jpg"/>
+<p class="img-cap">Fields Medalist joins OpenAI: top mathematicians vouch for AI safety.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.the-decoder.com/" target="_blank">The Decoder</a></div>
+</div>
+</div>
+<!-- ===== Open Source ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · PRACTICAL TOOLS</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-09 · Google DeepMind · Open Source</div>
+<div class="item-title">DiffusionGemma open-sourced: <span class="hl">language models start "diffusing" too</span></div>
+<div class="body">
+<p><strong>Google DeepMind released <span class="accent">DiffusionGemma</span>, an experimental open-weight model based on a <span class="num">26B</span>-total / 4B-active MoE that generates text via discrete diffusion, shifting the decoding bottleneck from memory bandwidth to compute.</strong></p>
+<p>Traditional models generate word by word; diffusion models "form" all at once, then refine step by step. <span class="turn">Text generation's technical routes are branching. When diffusion models learn to write prose, generation gains another option.</span></p>
+</div>
+<div class="img">
+<img alt="Google DiffusionGemma open source" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-09/diffusiongemma-model.jpg"/>
+<p class="img-cap">Google DiffusionGemma open-sourced.</p>
+</div>
+<div class="src-line">Sources: <a href="https://deepmind.google/discover/blog/diffusiongemma/" target="_blank">Google DeepMind</a> · <a href="https://huggingface.co/google/diffusiongemma-26B-A4B-it" target="_blank">Hugging Face</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-09 · Anthropic · Developers</div>
+<div class="item-title">Claude Code sessions start "talking to each other": <span class="hl">agent collaboration turns from vulnerability into feature</span></div>
+<div class="body">
+<p><strong>Anthropic launched cross-terminal session communication for Claude Code: developers can pass summaries between sessions on different terminals and coordinate parallel workflows, with Claude deciding autonomously when to message other sessions.</strong></p>
+<p>Communication between agents used to be an "out-of-bounds vulnerability" in security tests; now it ships as an official feature. <span class="turn">When AI starts scheduling other groups of AI by itself, "agent collaboration" moves from concept to infrastructure.</span></p>
+</div>
+<div class="img">
+<img alt="Claude Code cross-terminal session communication" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-09/claude-code-sessions-talk.jpg"/>
+<p class="img-cap">Claude Code sessions talk across terminals.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.the-decoder.com/" target="_blank">The Decoder</a> · <a href="https://www.anthropic.com/" target="_blank">Anthropic</a></div>
+</div>
+</div>
+<!-- ===== Voices ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"Time saved by AI should go into product development, not into restoring canceled vacations."</p>
+<p class="voice-who">— Andrew Bosworth · Meta CTO · <a href="https://www.businessinsider.com/" target="_blank">Business Insider</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"To be precise, I was only unemployed for one second."</p>
+<p class="voice-who">— Jeff Dean · former head of Google Research · <a href="https://www.stanford.edu/" target="_blank">Stanford event</a></p>
+</div>
+</div>
+<!-- ===== Create ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-09 · Science · Gene Design</div>
+<div class="item-title">AI designs 16 new viruses: <span class="hl">they kill resistant bacteria, and they lower the bioweapon bar</span></div>
+<div class="body">
+<p><strong>Stanford and the Arc Institute used <span class="accent">Evo 2</span> to design phage genomes, synthesizing and testing nearly <span class="num">300</span>, of which <span class="num">16</span> were active and could kill antibiotic-resistant E. coli. The paper appeared in Science.</strong></p>
+<p>Generative AI, trained on millions of genome sequences, screened usable candidates out of AI-generated genomes. <span class="turn">Accelerating drug development and lowering the bioweapon threshold are two edges of the same blade: the technology is neutral; the choice is human.</span></p>
+</div>
+<div class="img">
+<img alt="Stanford team uses Evo 2 to develop bacteria-killing phages" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-09/stanford-evo2-phages.jpg"/>
+<p class="img-cap">The Stanford team uses Evo 2 to develop bacteria-killing phages.</p>
+</div>
+<div class="src-line">Sources: <a href="https://news.stanford.edu/" target="_blank">Stanford Report</a> · <a href="https://www.science.org/" target="_blank">Science</a></div>
+</div>
+</div>
+<!-- ===== Vision ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">08-09 · Creation · Blind Test</div>
+<div class="item-title">A 1,682-person blind test: AI fiction reads better than human writing, <span class="hl">until readers learn the author is AI</span></div>
+<div class="body">
+<p><strong>A study in Judgment and Decision Making: AI short stories scored <span class="num">1.54</span> against humans' <span class="num">0.97</span>; readers distinguished AI from human writing no better than random guessing, but once told the author was AI, ratings dropped immediately.</strong></p>
+<p>The bias is not in the text; it is in people's minds. <span class="turn">When AI's work is "good enough", what really decides how it is treated is the reader's attitude toward the author's identity.</span></p>
+</div>
+<div class="img">
+<img alt="AI vs human short story blind test study" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-09/ai-novel-blind-test.jpg"/>
+<p class="img-cap">The AI vs human short-story blind test study.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.cambridge.org/" target="_blank">Cambridge University Press</a></div>
+</div>
+</div>
+<!-- ===== Funding ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-09 · Amazon · Data Centers</div>
+<div class="item-title">Gas plants for AI data centers: <span class="hl">Amazon becomes America's largest single climate polluter</span></div>
+<div class="body">
+<p><strong>Amazon's Texas data center with attached gas plants won approval, expected to emit <span class="num">33M</span> tonnes of CO2 a year, making it the largest single climate pollution source in the US; Amazon's emissions already grew <span class="num">16%</span> last year.</strong></p>
+<p>This runs directly against its 2040 net-zero pledge. <span class="turn">AI compute demand is pushing tech giants back toward fossil fuels; green power supply cannot keep pace with data center expansion.</span></p>
+</div>
+<div class="img">
+<img alt="Gas plants for AI data centers: Amazon becomes America's largest single climate polluter" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-09/www-nytimes-com.jpg"/>
+<p class="img-cap">Gas plants for AI data centers: Amazon becomes America's largest single source.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.nytimes.com/" target="_blank">The New York Times</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-08 · Nvidia · Infrastructure</div>
+<div class="item-title">Nvidia bets on Stargate's "electricity": <span class="hl">up to $3B into Lancium</span></div>
+<div class="body">
+<p><strong>Nvidia announced an investment of up to <span class="num">$3B</span> in power-infrastructure developer <span class="accent">Lancium</span> (the company behind Stargate data centers), starting with <span class="num">$2B</span> for about <span class="num">20%</span> equity.</strong></p>
+<p>This is Nvidia's first heavy position in a data center developer. <span class="turn">From "selling shovels" to "building the mine", the compute giant has started locking up electricity directly on the supply chain.</span></p>
+</div>
+<div class="img">
+<img alt="Nvidia invests in Lancium power infrastructure" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-09/nvidia-lancium-stargate.jpg"/>
+<p class="img-cap">Nvidia invests in Lancium, locking in Stargate's power supply.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.reuters.com/" target="_blank">Reuters</a> · <a href="https://techcrunch.com/" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<!-- ===== Takeaway ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">Takeaway</div>
+<div class="body">
+<p>AI agent energy use measured for real: one session equals 600 ordinary chats.</p>
+<p>A Sydney startup switched to Chinese open models; a Fields Medalist joined OpenAI for safety research.</p>
+<p>DeepMind open-sourced a diffusion language model, and Claude Code sessions started talking to each other.</p>
+<p>AI designed 16 new viruses; Amazon attached gas plants to its data centers as emissions grew 16%.</p>
+<p class="turn">The day's signal is clear: AI competition is moving from "who is smarter" to "whose power bill is thinner and whose barrier is lower".</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>Inland UAE · Desert — NASA's satellite captured wind-carved ancient dunes in the sand sea, their ridges combed as if by hand.</strong></p>
+<div class="image-block">
+<img alt="NASA satellite image: inland UAE dunes" loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/digging-back-in-time-in-the-uae/fayapaleo_oli_20251023_th.jpg"/>
+<p class="image-caption">Inland UAE · desert region · photographed by NASA · <span class="num">24.0</span>°N, <span class="num">54.0</span>°E<br/>Beneath these dunes lie millions of years of river and lake sediments; the wind strips away the soft soil and leaves the hard history exposed. While we argue on screens about whose model is stronger and whose protocol is more open, the sand lays time out layer by layer at geology's pace. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream — what changed in AI today, and how people chose.
+</div>
+</div>
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
