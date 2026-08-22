@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Intelligence Daily | 2026-08-10</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../../index.html">中文版</a></li>
+<li><a class="active" href="../../2026-08/2026-08-21.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI Intelligence Daily</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-10 · Monday</span>
+<span class="enhanced-badge">✦ Enhanced Edition</span>
+<span>14 stories</span>
+</div>
+<div class="mast-lede">Today's keyword is "entrance": capital steps in, products grab the front door, security loosens up.<br/><br/>Below, who is grabbing what.</div>
+</div>
+<!-- ===== Top Story ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-10 · Unitree · A-Shares</div>
+<div class="item-title">Robot valuations have changed, and Unitree lists first: <span class="hl">A-shares start pricing "model-fed robots"</span></div>
+<div class="body">
+<p><strong>Unitree opened its IPO subscription today at <span class="num">150.80</span> yuan per share, implying a market cap of about <span class="num">61B</span> yuan, aiming to raise about <span class="num">6.1B</span>; the issue P/E ratio is <span class="num">219</span>x. In the strategic placement sit the <span class="hl">social security fund</span> and <span class="hl">DeepSeek</span>.</strong></p>
+<p>The story is bigger than "first humanoid robot stock". Unitree's revenue grew from <span class="num">159M</span> yuan in 2023 to <span class="num">1.699B</span> in 2025, with first profit of <span class="num">278M</span> in 2025, and nearly half the raise goes to AI model research, not capacity. A robot company weighting its fundraising toward "software and models" over "factories" is a first on A-shares.</p>
+<p><span class="turn">When robot valuations pivot from "building hardware" to "feeding models", A-shares' first humanoid stock is really pricing the whole track.</span></p>
+<div class="img">
+<img alt="Unitree humanoid robot product image" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/unitree-robot.jpg"/>
+<p class="img-cap">Unitree · official product image · a humanoid robot on A-shares</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://www.reuters.com/technology/unitree-prices-shanghai-ipo" target="_blank">Reuters</a> · <a href="https://www.unitree.com/" target="_blank">Unitree official</a></div>
+</div>
+</div>
+<!-- ===== Front Line ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-10 · OpenAI · Product</div>
+<div class="item-title">Free ChatGPT drops text limits: <span class="hl">OpenAI starts grabbing the "daily chat" entrance</span></div>
+<div class="body">
+<p><strong>From today OpenAI removed text-conversation limits for free and Go accounts, switched free users to the smaller <span class="accent">GPT-5.6 Luna</span>, and added a "Think" button for deeper replies.</strong></p>
+<p>Image generation, file uploads and voice keep separate quotas. <span class="turn">Making the most common use case, text chat, unlimited aims at the "open it every day" habit. The entrance war has moved from model capability to cost of use.</span></p>
+</div>
+<div class="img">
+<img alt="ChatGPT free unlimited text chat" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/chatgpt-free-unlimited.jpg"/>
+<p class="img-cap">ChatGPT free tier: unlimited text chat.</p>
+</div>
+<div class="src-line">Sources: <a href="https://openai.com/index/" target="_blank">OpenAI official</a> · <a href="https://www.reuters.com/" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-10 · Anthropic · Security</div>
+<div class="item-title">Anthropic says prompt injection is mostly cured: <span class="hl">the bar for letting agents work just dropped again</span></div>
+<div class="body">
+<p><strong>Anthropic engineer <span class="accent">Boris Cherny</span> said model training has largely resolved Claude's real-world prompt-injection threat; independent benchmarks show that with layered defenses, unseen indirect-injection attacks approach a <span class="num">0</span>% success rate.</strong></p>
+<p>Claude Code's autonomous mode also turns on by default next week. <span class="turn">Prompt injection is one of the main obstacles to "letting agents out to work"; as this gate loosens, enterprise hesitation shortens.</span></p>
+</div>
+<div class="img">
+<img alt="Anthropic cybersecurity evaluation and prompt injection defense" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/anthropic-prompt-injection.jpg"/>
+<p class="img-cap">Diagram of Anthropic's prompt-injection defense evaluation.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.anthropic.com/news" target="_blank">Anthropic official</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-10 · Jobs · Signal</div>
+<div class="item-title">AI cuts entry-level jobs: <span class="hl">a tragedy of the cognitive commons is underway</span></div>
+<div class="body">
+<p><strong>A new worry is circulating: when AI eats junior roles first, newcomers lose the ground to practice on, nobody learns fundamentals hands-on anymore, and the industry's accumulation of know-how starts to break.</strong></p>
+<p>It has been called a tragedy of the cognitive commons: everyone benefits from an environment where newcomers keep arriving, yet every company individually finds "deploy AI first" cheapest. <span class="turn">The costs AI saves may be overdrawing the whole industry's future fundamentals.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.rohanpaul.com/" target="_blank">Rohan Paul</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-10 · SpaceX · Acquisition</div>
+<div class="item-title">SpaceX moves to acquire Cursor: <span class="hl">$6B, and the AI coding-tool battle shifts overnight</span></div>
+<div class="body">
+<p><strong>Per The Information, SpaceX's acquisition of AI coding tool <span class="accent">Cursor</span> is close to closing: a <span class="num">$6B</span> all-stock deal, possibly done this weekend; the Cursor brand will gradually retire, and its general-agent product codenamed <span class="hl">Sand</span> may fold into the Grok family.</strong></p>
+<p>Musk is building Starlink while folding "the AI that writes code" into his own orbit. <span class="turn">When a rocket maker starts acquiring coding agents, the second half of AI coding is fought over the whole chain, not single tools.</span></p>
+</div>
+<div class="img">
+<img alt="Cursor editor acquired by SpaceX" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/cursor-spacex.jpg"/>
+<p class="img-cap">Cursor editor acquired by SpaceX.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.theinformation.com/" target="_blank">The Information</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-10 · Compute · Domestic China</div>
+<div class="item-title">First fully domestic 100K-card super cluster goes live: <span class="hl">Chinese frontier-model training stops "waiting for compute"</span></div>
+<div class="body">
+<p><strong>The first fully domestically built 100K-card AI super cluster is officially live, sited in the Greater Bay Area hub of the "east data west compute" project, targeting trillion-parameter domestic model training.</strong></p>
+<p>100K domestic cards stitched together: the compute foundation of "not being strangled" takes real shape for the first time. <span class="turn">When training trillion-parameter models no longer depends on others, the next stop for Chinese models shifts from "can we train" to "how fast".</span></p>
+</div>
+<div class="img">
+<img alt="First fully domestic 100K-card AI super cluster" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/china-100k-gpu-cluster.jpg"/>
+<p class="img-cap">The first fully domestic 100K-card AI super cluster.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.cnr.cn/" target="_blank">CNR</a></div>
+</div>
+</div>
+<!-- ===== Open Source ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · PRACTICAL TOOLS</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-10 · GitHub Models · Retired</div>
+<div class="item-title">GitHub Models is retired: <span class="hl">a portrait of one era, a footnote to the next</span></div>
+<div class="body">
+<p><strong><span class="accent">Simon Willison</span> noted that GitHub Models has completed its retirement: the model playground and the unified API across LLM providers are formally closed.</strong></p>
+<p>The service once let code in GitHub Actions call any provider's models with in-environment API keys. Its closure reads as a signal: <span class="turn">how developers reach models has moved from "platforms build bridges" to "bring your own quota and connect directly".</span></p>
+</div>
+<div class="img">
+<img alt="GitHub Models service retired" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/github-models-retired.jpg"/>
+<p class="img-cap">GitHub Models formally retired.</p>
+</div>
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/9/github-models-is-now-retired" target="_blank">Simon Willison</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-10 · Tools · Prototype</div>
+<div class="item-title">Compressing text history into SQLite: <span class="hl">a prototype built for "remember everything"</span></div>
+<div class="body">
+<p><strong><span class="accent">Simon Willison</span> experimented with compressing text revision histories via zlib/zstd into JSON arrays stored in SQLite, letting apps keep full history at low cost.</strong></p>
+<p>When AI apps must "remember" every state along the way, storage explodes. This prototype asks how to make "full history" cheap. <span class="turn">The cost of AI remembering everything is turning from a storage problem into a compression-algorithm problem.</span></p>
+</div>
+<div class="img">
+<img alt="SQLite revision history compression experiment" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/sqlite-history-compress.jpg"/>
+<p class="img-cap">SQLite revision-history compression experiment.</p>
+</div>
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/9/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<!-- ===== Voices ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"Prompt injection is the most common way scammers attack users and agents: your agent visits a website, and malicious text inside makes it send out your keys."</p>
+<p class="voice-who">— Boris Cherny · Anthropic engineer · <a href="https://www.anthropic.com/news" target="_blank">Anthropic</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"DeepSeek V4 Flash substantially beats Nemotron3 Ultra on agentic tasks, with 4.2 times fewer active parameters."</p>
+<p class="voice-who">— SemiAnalysis · Chip industry analysis · <a href="https://semianalysis.com/" target="_blank">SemiAnalysis</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"I once felt my life's mission had lost its meaning. But look now: AI has not killed programming; engineers have just moved from the keyboard to the whiteboard."</p>
+<p class="voice-who">— Amjad Masad · Replit CEO · <a href="https://caseynewton.com/" target="_blank">Casey Newton podcast</a></p>
+</div>
+</div>
+<!-- ===== Create ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-08 · xAI · Image Generation</div>
+<div class="item-title">Grok Imagine Image 2.0 goes live: <span class="hl">image generation enters "point and change"</span></div>
+<div class="body">
+<p><strong>xAI released <span class="accent">Grok Imagine Image 2.0</span> as a new quality mode on Grok web, adding regional editing, background removal and Smart Resize, supporting up to <span class="num">5</span> reference images.</strong></p>
+<p>The last generation competed on "how pretty"; this one competes on "can you edit it precisely". <span class="turn">Image models' competitive point is shifting from "one-shot generation" to "controllable editing".</span></p>
+</div>
+<div class="img">
+<img alt="Grok Imagine Image 2.0 goes live" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/x-ai.jpg"/>
+<p class="img-cap">Grok Imagine Image 2.0 goes live.</p>
+</div>
+<div class="src-line">Sources: <a href="https://x.ai/" target="_blank">xAI official</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-10 · Japan · Auto Development</div>
+<div class="item-title">One plain sentence, and AI wrote automotive-grade code: <span class="hl">Japan's carmakers are turning master craftsmen into data</span></div>
+<div class="body">
+<p><strong>KBS visited Japanese auto development: one sentence, "flash the hazard lights three times when the door opens", and AI wrote the automotive-grade program in three and a half minutes; validation scenarios numbering <span class="num">40K</span> compressed from days to <span class="num">8</span> hours.</strong></p>
+<p>What deserves even more attention: parts suppliers are filming skilled workers' hand movements to accumulate training data for "physical AI". <span class="turn">When the masters' craft becomes parameters inside a model, Japan's core manufacturing asset is migrating from human brains into data.</span></p>
+</div>
+<div class="img">
+<img alt="Japanese automakers use AI to write automotive code" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/toyota-ai-code.jpg"/>
+<p class="img-cap">Japanese automakers use AI to write automotive-grade programs.</p>
+</div>
+<div class="src-line">Sources: <a href="https://news.kbs.co.kr/" target="_blank">KBS News</a></div>
+</div>
+</div>
+<!-- ===== Vision ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">08-10 · Observation · Trend</div>
+<div class="item-title">AI is learning to "watch itself": <span class="hl">the agent's eyes grow inside the data stream</span></div>
+<div class="body">
+<p><strong>From Claude Code's autonomous mode to multi-agent collaboration, the agents of summer 2026 no longer just "chat"; they genuinely "read" data, call tools and fix their own code.</strong></p>
+<p>Meta's EvoHarness-RL lets agents learn tool orchestration on their own; behind GitHub Models' retirement, developers grow used to bringing their own models and connecting directly. <span class="turn">When AI evolves from "answering questions" to "doing the work itself", what becomes truly scarce is someone to draw its boundaries.</span></p>
+</div>
+<div class="img">
+<img alt="Agent feedback observation loop" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/agent-feedback-loop.jpg"/>
+<p class="img-cap">The agent feedback observation loop.</p>
+</div>
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/9/github-models-is-now-retired" target="_blank">Simon Willison</a> · <a href="https://www.anthropic.com/news" target="_blank">Anthropic</a></div>
+</div>
+</div>
+<!-- ===== Funding ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-09 · Hedge Fund · Chips</div>
+<div class="item-title">An AI hedge fund bets on chip newcomers: <span class="hl">Situational Awareness puts $400M into Source Foundry</span></div>
+<div class="body">
+<p><strong>AI hedge fund <span class="accent">Situational Awareness</span> invested <span class="num">$400M</span> in chip startup <span class="accent">Source Foundry</span> this week, bringing its total to <span class="num">$500M</span>. The startup, founded by Stanford researchers, aims to make chip manufacturing faster and cheaper.</strong></p>
+<p>Last month the fund sold most of its public holdings to Citadel, shrinking assets under management from <span class="num">$20B</span> to <span class="num">$10B</span>. It sold the portfolio yet still heavy-bets on chips. <span class="turn">AI money is moving from "buying listed compute" to "backing silicon that has not left the factory".</span></p>
+</div>
+<div class="img">
+<img alt="Situational Awareness invests in Source Foundry" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-10/situational-awareness-funding.jpg"/>
+<p class="img-cap">Situational Awareness invests in Source Foundry, locking in chip newcomers.</p>
+</div>
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/09/embattled-hedge-fund-situational-awareness-invests-400m-in-chip-startup-source-foundry" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<!-- ===== Takeaway ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">Takeaway</div>
+<div class="body">
+<p>Unitree opened subscriptions today, bringing A-shares their first humanoid robot stock; SpaceX paid $6B for Cursor.</p>
+<p>The first fully domestic 100K-card cluster went live; OpenAI lifted free-tier limits and Anthropic solved prompt injection.</p>
+<p>AI cutting entry jobs raises a "tragedy of the cognitive commons"; Japanese carmakers turn master craftsmen into data; GitHub Models retires while a hedge fund bets on chips.</p>
+<p class="turn">On this day capital bought robots, coding tools and compute foundations. In AI's 2026, whoever holds "assets" holds the next ticket in.</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>The Andes, Patagonia, Chile — NASA's satellite captured a long white ridge flickering in cloud shadow, quieter than any model benchmark.</strong></p>
+<div class="image-block">
+<img alt="NASA satellite image: the Patagonian Andes" loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/snow-in-the-shadow-of-the-andes/patagoniasnow_tmo_20260403_th.jpg"/>
+<p class="image-caption">Snow in the Shadow of the Andes · Chile · photographed by NASA · <span class="num">45.0</span>°S, <span class="num">72.0</span>°W<br/>The white ridge brightens and dims under moving clouds; the snowline falls and melts at its own rhythm, indifferent to benchmarks. While we argue on screens about whose model is stronger and whose agent is more obedient, this mountain governs the water and wind below on a timescale of tens of millions of years. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream — what changed in AI today, and how people chose.
+</div>
+</div>
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
