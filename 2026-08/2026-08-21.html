@@ -1,101 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI 情报日报｜2026-08-21</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-:root{--klein:#002FA7;--klein-bright:#0044FF;--paper:#FFFFFF;--ink:#0E0E10;--ink-soft:#3A3A3E;--gray:#6B6B70;--gray-light:#9CA3AF;--line:#E8E8EC;--accent:#C41E3A;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;-webkit-font-smoothing:antialiased;}
-.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
-.masthead{margin-bottom:36px;}
-.mast-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--klein);font-weight:600;margin-bottom:14px;}
-.mast-title{font-size:46px;font-weight:900;letter-spacing:-1.5px;line-height:1.02;color:var(--klein);margin-bottom:16px;}
-.enhanced-badge{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid #C41E3A;color:#C41E3A;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;vertical-align:1px;}
-.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
-.mast-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap;}
-.mast-meta .issue{color:var(--klein);font-weight:600;}
-.mast-lede{font-size:16px;line-height:1.7;color:var(--ink-soft);margin-top:22px;padding-left:16px;border-left:3px solid var(--klein);}
-.section-block{margin:48px 0;}
-.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:6px;}
-.sec-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:24px;display:inline-block;}
-.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.item{margin-bottom:38px;}
-.item:last-child{margin-bottom:0;}
-.dateline{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);letter-spacing:0.5px;margin-bottom:10px;}
-.dateline .src{color:var(--klein);font-weight:600;}
-.item-title{font-size:21px;font-weight:700;line-height:1.4;margin-bottom:12px;}
-.item-title .hl{color:var(--klein);}
-.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
-.body p{margin-bottom:14px;}
-.body p:last-child{margin-bottom:0;}
-.body strong{color:var(--ink);font-weight:600;}
-.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.body .tag{display:inline-block;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--gray);background:var(--line);padding:1px 8px;border-radius:3px;margin-right:4px;}
-.body .turn{color:var(--klein);font-weight:700;}
-.body .hl{color:var(--klein);font-weight:600;}
-.points{margin:12px 0 0;padding:0;list-style:none;}
-.points li{font-size:14px;color:var(--ink-soft);padding:3px 0;padding-left:16px;position:relative;}
-.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
-.src-line{font-size:13px;color:var(--gray);margin-top:10px;font-family:'JetBrains Mono',monospace;}
-.src-line a{color:var(--klein);text-decoration:none;}
-.src-line a:hover{text-decoration:underline;}
-.figure{margin:18px 0 24px;}
-.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
-.image-block{margin:18px 0 24px;}
-.img img{max-width:560px;width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;border:1px solid var(--line);}
-.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
-.img-cap, .image-caption{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
-.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
-.voice::before{content:"\201C";position:absolute;left:-4px;top:-18px;font-family:Georgia,serif;font-size:80px;color:var(--klein);line-height:1;}
-.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
-.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
-.voice-who a{color:var(--klein);text-decoration:none;}
-.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
-.curiosity{padding:20px;background:#F0F4FF;border-radius:8px;margin-top:32px;}
-.curiosity .body{font-size:15px;color:var(--ink-soft);}
-.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
-.footer .big{color:var(--ink);font-weight:600;}
-@media(max-width:520px){.mast-title{font-size:34px;}.container{padding:24px 16px 48px;}}
-.site-nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);z-index:10;}
-.site-nav-inner{max-width:720px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
-.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
-.site-nav-brand span{color:var(--klein);}
-.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
-.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
-.site-nav-links a:hover{color:var(--klein);}
-.site-nav-links a.active{color:var(--klein);font-weight:600;}
-</style></head>
-<body>
-<nav class="site-nav">
-<div class="site-nav-inner">
-<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-<ul class="site-nav-links">
-<li><a href="../index.html">首页</a></li>
-<li><a class="active" href="2026-08-21.html">最新</a></li>
-<li><a href="../special/china-models.html">专题</a></li>
-</ul>
-</div>
-</nav>
-<div class="container">
-<div class="masthead">
-<div class="mast-eyebrow">AI Intelligence Briefing</div>
-<div class="mast-title">AI 情报日报</div>
-<div class="mast-rule"></div>
-<div class="mast-meta">
-<span class="issue">2026-08-21 · 周五</span>
-<span class="enhanced-badge">✦ 升维版</span>
-<span>本期 11 条</span>
-</div>
-<div class="mast-lede">今天的关键词是「<span class="hl">多走几步</span>」：检索学会了翻页，路由收进了运行时，编译器走出了闭源的高墙。<br/><br/>快的东西在变准，准的东西在变慢，账都摊在了桌面上。</div>
-</div>
-<!-- ===== 头版 ===== -->
-<div class="section-block">
-<div class="sec-eyebrow">Headline</div>
-<div class="sec-title">头版</div>
-<div class="item">
+<div class="item" data-signal="timeline">
 <div class="dateline">08-20 · 企业检索 · Agentic Search</div>
 <div class="item-title">一次性 RAG 没死，但复杂文档的战场换人了：<span class="hl">Mistral 五工具循环把准确率拉高 <span class="num">50</span> 个百分点</span></div>
 <div class="body">
@@ -114,12 +17,16 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <div class="section-block">
 <div class="sec-eyebrow">Front Line</div>
 <div class="sec-title">前线</div>
-<div class="item">
+<div class="item" data-signal="timeline">
 <div class="dateline">08-21 · 智能体基建 · Agent API</div>
 <div class="item-title">Perplexity Agent API 全量上线：<span class="hl">一个端点接 <span class="num">41</span> 个模型，路由开始并入运行时</span></div>
 <div class="body">
 <p><strong><span class="accent">Perplexity</span> 把 <span class="accent">Agent API</span> 推向全部开发者：单一端点接入 <span class="num">9</span> 家提供商的 <span class="num">41</span> 个前沿模型，内置网页搜索、代码执行与 <span class="hl">MCP</span> 连接，每次请求按需组装检索管道。</strong></p>
 <p><span class="turn">这一步把模型路由、搜索层、沙箱和监控收进一张账单</span>：<span class="accent">Sonar</span> 客户已默认迁移，<span class="num">45</span> 天后 Agent API 成为唯一入口。<span class="hl">当编排本身成为产品，单点模型的比价就变成了整套运行时的比价</span>。</p>
+</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-21/perplexity-agent-api-diagram.jpg" alt="Perplexity Agent API：单一端点接入模型、网页与 agent 能力的结构示意图" loading="lazy">
+<p class="image-caption">结构示意图：Agent API 把模型、网页检索与 agent 能力收进一个端点</p>
 </div>
 <div class="src-line">来源：<a href="https://www.perplexity.ai/hub/blog/agent-api-one-place-to-build-with-llms-the-web-and-agents" target="_blank">Perplexity Blog</a></div>
 </div>
@@ -131,10 +38,14 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><strong><span class="accent">Promptwatch</span> 的追踪显示，<span class="accent">ChatGPT</span> 搜索开始大规模使用 <span class="hl">site:</span> 运算符圈定来源，Reddit 被引用的概率明显下降；<span class="accent">Simon Willison</span> 尝试核对系统提示词是否更新，没有找到实锤。</strong></p>
 <p><span class="turn">对做内容分发的人来说，这是平台单方面改写了流量规则</span>：你的内容被不被引用，取决于一版你看不到的提示词。<span class="hl">搜索引擎优化之后，答案引擎优化也进入了黑箱时代</span>。</p>
 </div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-21/promptwatch-site-operator-v2.jpg" alt="Promptwatch：ChatGPT 搜索引入 site: 运算符后引用结构变化示意" loading="lazy">
+<p class="image-caption">Promptwatch：ChatGPT 搜索引入 site: 运算符后引用结构变化示意</p>
+</div>
 <div class="src-line">来源：<a href="https://promptwatch.com/data/reddit-citations-are-dropping-in-chatgpt" target="_blank">Promptwatch</a></div>
 </div>
 <div style="border-top:1px dashed var(--border);margin:28px 0;"></div>
-<div class="item">
+<div class="item" data-signal="timeline">
 <div class="dateline">08-21 · GUI 智能体 · Qwen-UI-Agent</div>
 <div class="item-title">阿里发布 Qwen-UI-Agent：<span class="hl">模型开始学着「会用」每一块屏幕</span></div>
 <div class="body">
@@ -142,17 +53,17 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><span class="turn">它的野心在「真实世界」四个字</span>：不止看懂截图，还要在真机界面里点得准、走得通。当 agent 的手从 API 伸向屏幕，<span class="hl">每一块没接 API 的屏幕都成了可编程的入口</span>。</p>
 </div>
 <div class="image-block">
-<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-21/qwen-ui-agent-2d75b19a.jpg" alt="Qwen-UI-Agent 发布公告标题与 UI 线框示意图" loading="lazy">
-<p class="image-caption">Qwen-UI-Agent 发布图 · GUI 智能体基座覆盖移动端、桌面端、网页端</p>
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-21/qwen-ui-agent-benchmark-v2.jpg" alt="MobileWorld 成绩：Qwen-UI-Agent 82.1% 领先前沿模型（技术报告数据）" loading="lazy">
+<p class="image-caption">MobileWorld 成绩：Qwen-UI-Agent 82.1% 领先前沿模型（技术报告数据）</p>
 </div>
-<div class="src-line">来源：综合 IT之家 · 阿里官方发布</div>
+<div class="src-line">来源：<a href="https://tongyi-mai.github.io/Qwen-UI-Agent/" target="_blank">Qwen-UI-Agent · Technical Report</a> · <a href="https://github.com/Tongyi-MAI/MAI-UI" target="_blank">GitHub · Tongyi-MAI/MAI-UI</a> · <a href="https://arxiv.org/abs/2607.28227" target="_blank">arXiv · 2607.28227</a></div>
 </div>
 </div>
 <!-- ===== 开源前线 ===== -->
 <div class="section-block">
 <div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
 <div class="sec-title">开源前线</div>
-<div class="item">
+<div class="item" data-signal="timeline">
 <div class="dateline">08-18 · 编程语言 · Mojo</div>
 <div class="item-title">Mojo 编译器全面开源：<span class="hl">Apache 2.0，四年的闭环到此为止</span></div>
 <div class="body">
@@ -174,6 +85,10 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><strong><span class="accent">Bun 1.4</span> 发布，是 Rust 重写后的首个稳定版：<span class="num">2,900+</span> 项修复，空闲 CPU 降到原来的 <span class="num">1/5</span>，内存最多省 <span class="num">35%</span>，Linux 启动快 <span class="num">50%</span>。</strong></p>
 <p><span class="turn">最值得盯的是实验性的 <span class="hl">Bun.WebView</span></span>：运行时内置无头浏览器，macOS 走系统 WebKit，其他平台走 CDP。<span class="accent">Simon Willison</span> 用约 <span class="num">150</span> 行 TypeScript 做出 shot-scraper 风格的 JSON API，<span class="hl">跑完整 Chrome 只要 <span class="num">192–256MB</span> 内存</span>。</p>
 <p><span class="turn">当抓取和自动化成了 agent 的日常家务，<span class="hl">把它做进运行时比装一堆依赖体面得多</span>。</span></p>
+</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-21/bun-1-4-runtime-v3.jpg" alt="Bun v1.4 大版本视觉：Zig 换 Rust 核心重写后转正，浏览器自动化压进约 150 行" loading="lazy">
+<p class="image-caption">Bun v1.4 大版本视觉：Zig 换 Rust 核心重写后转正，浏览器自动化压进约 150 行</p>
 </div>
 <div class="src-line">来源：<a href="https://bun.com/blog/bun-v1.4" target="_blank">Bun Blog</a> · <a href="https://simonwillison.net/2026/Aug/20/bun-webview-json-api/" target="_blank">Simon Willison</a></div>
 </div>
@@ -208,6 +123,10 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><strong>前端工程师 <span class="accent">Daniel Vaughn</span> 发布实验性编辑器 <span class="accent">HuzZah</span>：你在 <span class="hl">.hz</span> 文件里写声明式伪代码，保存时编辑器以 diff 为 prompt 同步生成真实代码，<span class="hl">伪代码与代码并存，成为持久的意图记录</span>。</strong></p>
 <p><span class="turn">出发点很具体</span>：他发现自己几乎全靠 coding agent 干活后，提示词用完即弃，agent 在复杂代码库里越走越乱。<span class="hl">把「我想要什么」存成文件，agent 才有得可回溯</span>。项目还在概念验证阶段，HN 上的讨论对多文件场景仍有怀疑。</p>
 <p><span class="turn">当 AI 写码成为默认，<span class="hl">意图的存放位置就成了新的工程问题</span>。</span></p>
+</div>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-21/huzzah-pseudocode-editor-v2.jpg" alt="Huzzah 工作流示意：保存 .hz 伪代码时以 diff 为 prompt 再生成真实代码" loading="lazy">
+<p class="image-caption">Huzzah 工作流示意：保存 .hz 伪代码时以 diff 为 prompt 再生成真实代码</p>
 </div>
 <div class="src-line">来源：<a href="https://github.com/danielvaughn/hz" target="_blank">GitHub · danielvaughn/hz</a></div>
 </div>
