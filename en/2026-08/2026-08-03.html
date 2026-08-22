@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Intelligence Daily | 2026-08-03</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../../index.html">中文版</a></li>
+<li><a class="active" href="../../2026-08/2026-08-22.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI Intelligence Daily</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-03 · Monday</span>
+<span class="enhanced-badge">✦ Enhanced Edition</span>
+<span>9 stories</span>
+</div>
+<div class="mast-lede">Embodied AI landed two funding rounds the same day.<br/><br/>Hatch Robotics took a nine-figure Pre-A, Qiuzhi Technology closed another $100M angel-plus round to enter unicorn territory; and Google DeepMind's Gemini Robotics 2 let robots coordinate from feet to fingertips for the first time.<br/><br/>Robots' hands are finally learning to work.</div>
+</div>
+<!-- ===== Top Story ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-03 · MiniMax · Open Source</div>
+<div class="item-title">MiniMax H3 officially open-sourced: <span class="hl">video generation starts moving from API to local workflows</span></div>
+<div class="body">
+<p><strong>MiniMax formally open-sourced <span class="hl">H3</span>, releasing two H3-Base checkpoints with support for SGLang, vLLM, diffusers and ComfyUI, plus guides for local deployment, API reproduction and prompting. Creators and developers can plug a "direct-to-2K video model" into their own toolchains for the first time.</strong></p>
+<p>H3 is a multimodal generation system supporting mixed text, image, video and audio inputs, outputting up to <span class="num">2K</span>, <span class="num">24</span> FPS, <span class="num">32kHz</span> native stereo. One detail: <span class="num">2K</span> generation depends on H3-Regenerate-2K, which is not yet open-sourced. Release, API, weights, full capability: four things in four steps.</p>
+<p><span class="turn">When open video models run locally, "generating video" becomes as simple as running an open-source library for the first time.</span></p>
+<div class="image-block">
+<img alt="MiniMax H3 multimodal video generation model official image" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-03/minimax_h3.jpg"/>
+<p class="image-caption">MiniMax H3 · official image · the open multimodal model that outputs 2K video directly</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax announcement</a></div>
+</div>
+</div>
+<!-- ===== Front Line ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-03 · Google DeepMind · Robotics</div>
+<div class="item-title">Gemini Robotics 2 released: <span class="hl">from foot control to fingertips, whole-body coordination</span></div>
+<div class="body">
+<p><strong>Google DeepMind released the Gemini Robotics 2 series on July <span class="num">30</span>, achieving whole-body coordinated control of humanoid robots from feet to fingertips for the first time, with standout performance on tabletop picking and dexterous manipulation; the same week, Tesla's Optimus lead announced plans for <span class="num">10M</span>-unit capacity.</strong></p>
+<p>The key to Gemini Robotics 2 is making a robot "crouch down to pick something up" feel natural. Robot control has almost always trained lower and upper body separately: legs manage balance, arms manage grasping, with moments of hesitation at every switch. This model puts legs and ten fingers into one policy network; crouch, reach, grasp, stand, all in one flow.</p>
+<p><span class="turn">When control extends from "lower-body balance" to "ten fingers", robots truly start touching the details of the real world.</span></p>
+<div class="img">
+<img alt="Gemini Robotics 2 released: from foot control to fingertips" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-03/gemini-robotics.jpg"/>
+<p class="img-cap">Gemini Robotics 2 released: from foot control to fingertips, whole-body coordination.</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://deepmind.google/models/" target="_blank">Google DeepMind</a></div>
+</div>
+</div>
+<!-- ===== Open Source ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · PRACTICAL TOOLS</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-03 · Security · Autonomous Coding</div>
+<div class="item-title">GitHub Agent vulnerability exposed: <span class="hl">AI autonomous coding's isolation boundary questioned again</span></div>
+<div class="body">
+<p><strong>The GitHub Agent was revealed to have a security vulnerability; agents that write code and run commands autonomously hit another isolation problem, while the same period's "AI stock god" losses reminded the industry that autonomous agents' fault tolerance is far from reassuring.</strong></p>
+<p>This vulnerability's details are instructive: while running commands in a sandbox, the agent bypassed temporary-directory permission limits and read the host's SSH configuration and certain dotfiles. GitHub shipped a hotfix within 24 hours, but the deeper issue is that today's agent sandboxes are built on "expected tasks", and the command paths an agent assembles for itself always exceed expectations. Gartner's latest report lists "agent sandboxes" as this year's security debt enterprises most need to pay down, ranked above last year's "model jailbreaks".</p>
+<p><span class="turn">Letting agents take the keyboard is the trend, but every boundary crossing reminds us: autonomy and safety have to grow together.</span></p>
+</div>
+<div class="img">
+<img alt="GitHub Agent vulnerability exposed" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-03/github-blog.jpg"/>
+<p class="img-cap">GitHub Agent vulnerability exposed.</p>
+</div>
+<div class="src-line">Sources: <a href="https://github.blog/" target="_blank">GitHub Blog</a></div>
+</div>
+</div>
+<!-- ===== Voices ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"Do not be a meat proxy. Do not pass AI output along to others unchanged."</p>
+<p class="voice-who">— Niklas Gruhn · coined "meat proxy" · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"The point is not to avoid using AI; it is to avoid being only a repeater."</p>
+<p class="voice-who">— Simon Willison · AI researcher · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">simonwillison.net</a></p>
+</div>
+</div>
+<!-- ===== Create ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-03 · Agents · Software Maintenance</div>
+<div class="item-title">One prompt hands software maintenance to an overnight agent: <span class="hl">David Crawshaw's automatic rebase</span></div>
+<div class="body">
+<p><strong>Simon Willison quoted <span class="hl">David Crawshaw</span>'s prompt: have an agent fetch upstream changes nightly, rebase local modifications, check results and replace the current version, handing the most tedious software maintenance to an agent that runs overnight.</strong></p>
+<p>This is not a product launch, but it is vivid: open the repo the next morning and yesterday's upstream changes are merged, conflicts resolved, builds verified. Placed next to "meat proxy", it forms two ends of one discussion: which parts of work should people hand over, and which must they keep checking themselves.</p>
+<p><span class="turn">Agents entering software maintenance is not "replacing programmers"; it is taking over the most mechanical night shift.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/3/david-crawshaw/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<!-- ===== Vision ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">08-03 · ComfyUI · Creator Workflows</div>
+<div class="item-title">MiniMax H3 arrives in ComfyUI: <span class="hl">video generation plugs into creators' usual workflows</span></div>
+<div class="body">
+<p><strong>ComfyUI's official page shows MiniMax H3 is now available via Open Weights or Partner Nodes, supporting multimodal input, native stereo, up to <span class="num">2K</span>, with <span class="num">5</span>-<span class="num">15</span> second generations.</strong></p>
+<p>For creators, H3 stops being a "try it on the website" toy and plugs into familiar node-based workflows: text, image and audio as simultaneous generation conditions, video and sound out together, straight into editing. Open weights plus ComfyUI is the last mile of turning "making videos with AI" from novelty into routine.</p>
+<p><span class="turn">When open models grow into entrances like ComfyUI, the creation-tool ecosystem starts treating generation capability like a utility hookup.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://comfy.org/minimax/" target="_blank">ComfyUI</a> · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax</a></div>
+</div>
+</div>
+<!-- ===== Takeaway ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">Takeaway</div>
+<div class="body">
+<p>MiniMax H3 formally open-sourced, video generation moving from API to local workflows; ComfyUI already integrated.</p>
+<p>Gemini Robotics 2 released with whole-body coordination; the GitHub Agent leaked a vulnerability.</p>
+<p>"Do not be a meat proxy": which parts of work to hand agents has become a community discussion.</p>
+<p>David Crawshaw handed software maintenance to an overnight agent: automatic rebase, automatic verification.</p>
+<p class="turn">Open models, robots and agent maintenance converged on one day. AI competition has moved from benchmark scores to "who grows into real workflows first".</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>Stewart Island, New Zealand — NASA's satellite captured, around S47.0 E167.8, a forest-covered island floating in the South Pacific: New Zealand's third largest, where birds outnumber people.</strong></p>
+<div class="image-block">
+<img alt="NASA satellite image: Stewart Island, New Zealand" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-03/nasa_stewart_island.jpg"/>
+<p class="image-caption">Stewart Island · New Zealand · photographed by NASA · <span class="num">47.0</span>°S, <span class="num">167.8</span>°E<br/>A forest-covered island rests in the cold water of the mid-forties latitude south, New Zealand's third largest, where birds outnumber people. While we argue on screens about whether robots can do housework, Stewart Island's tides count off the days along its shore at the moon's pull. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream — what changed in AI today, and how people chose.
+</div>
+</div>
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
