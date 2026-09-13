@@ -59,6 +59,16 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 .site-nav-links a.active{color:var(--klein);font-weight:600;}
 .divider{border-top:1px dashed #E8E8EC;margin:15px 0;}
 @media(max-width:520px){.mast-title{font-size:34px;}.container{padding:24px 16px 48px;}}
+
+/* === AI.ARCHIVE 历史纵深触点卡片 === */
+.timeline-anchor{margin:16px 0 18px;padding:12px 14px;background:rgba(0,47,167,0.03);border:1px solid rgba(0,47,167,0.16);border-left:3px solid var(--klein,#002FA7);border-radius:4px;font-size:13px;line-height:1.6;color:var(--ink-soft,#3A3A3E);display:flex;align-items:flex-start;gap:10px;}
+.timeline-anchor .ta-icon{color:var(--klein,#002FA7);font-size:14px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.timeline-anchor .ta-content{flex:1;}
+.timeline-anchor .ta-title{font-weight:700;color:var(--ink,#0E0E10);margin-bottom:2px;}
+.timeline-anchor .ta-desc{color:var(--gray,#6B6B70);font-size:12px;}
+.timeline-anchor .ta-link{color:var(--klein,#002FA7);font-weight:600;text-decoration:none;border-bottom:1px dashed rgba(0,47,167,0.4);transition:all 0.2s ease;white-space:nowrap;}
+.timeline-anchor .ta-link:hover{border-bottom-style:solid;color:var(--klein-bright,#0044FF);}
+
 </style>
 </head>
 <body>
@@ -100,16 +110,24 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
 <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
 <div class="item">
-<div class="dateline">09-10 · 模型发布 · OpenAI / GPT-6 Astra / Navier-Stokes</div>
-<div class="item-title">一个还没公开的模型证伪了百年数学难题，但 <span class="hl">GPT-6 Astra</span> 背后真正的深水区才刚浮出水面</div>
+<div class="dateline">09-10 · 算力经济 · Nvidia / Jensen Huang</div>
+<div class="item-title"><span class="accent">Jensen Huang</span> 说明年还能涨 <span class="accent">70%</span>，Nvidia 的生意为什么还没到顶</div>
 <div class="image-block">
-<img src="../assets/ai-frontline-images/by-date/2026-08-21/perplexity-agent-api-diagram.jpg" alt="OpenAI GPT-6 Astra Navier-Stokes 证明数据与验证界面" loading="lazy">
-<p class="image-caption">配图：AI 智能体 API 编排架构图（非新闻原图）</p>
+<img src="../assets/ai-frontline-images/by-date/2026-09-11/nvidia-cerebras-cs4.jpg" alt="数据中心算力芯片与超大规模集群硬件展示" loading="lazy">
+<p class="image-caption">配图：新一代超大规模 AI 算力与推理芯片集群展示</p>
 </div>
 <div class="body">
 <p><strong><span class="accent">OpenAI</span> 发布 <span class="hl">GPT-6 Astra</span>，面向 ChatGPT Work、Codex 和 API 提供，定价每百万输入 token <span class="accent">$10</span>、输出 <span class="accent">$50</span>。同日，OpenAI 宣布用一个尚未公开发布的更强模型，在约 <span class="accent">88 小时</span>内证伪了 Navier-Stokes 存在性与光滑性猜想，消耗约 <span class="accent">3000 亿</span>个输出 token，随后由 GPT-6 Astra 完成 <span class="accent">17 小时</span> Lean 形式化验证。</strong></p>
 <p>Navier-Stokes 是流体力学的核心方程组，也是数学界七个千禧年大奖难题之一，悬赏 <span class="accent">100 万美元</span>，百余年无人解决。<span class="turn">现在，一个 AI 模型在三天半内找到了反例。</span>这件事的分量不在于 AI 赢了数学家，而在于它暗示了一个更大的问题：<span class="accent">OpenAI 手里已经有比 GPT-6 Astra 更强的模型，而 GPT-6 Astra 本身在 ARC-AGI-3 评测上已达 99.9%。</span>这个序列的下一步是什么，没有人给出答案。</p>
 <p>在工程研发端，<span class="hl">GPT-6 Astra</span> 的需求在发布后直接打爆了 OpenAI 的服务容量，公司宣布暂停新用户的 <span class="accent">$200/月</span> Pro 订阅，理由是 Pro 用户对系统的压力最大，需要先扩容再重开。一个模型发布就能把订阅通道堵死，这在 OpenAI 历史上是第一次。</p>
+
+<div class="timeline-anchor">
+<span class="ta-icon">📍</span>
+<div class="ta-content">
+<div class="ta-title">历史坐标 · 这一步在百年谱系里的位置</div>
+<div class="ta-desc">从 1936 年图灵机到 2017 年 Transformer，再到 2026 年自主模型攻破千禧年难题。在 <a class="ta-link" href="https://gengyueworks.github.io/ai-timeline/#e281" rel="noopener" target="_blank">AI.ARCHIVE 智能编年史</a> 中查阅该脉络的 288 个关键历史节点 →</div>
+</div>
+</div>
 </div>
 <div class="src-line">来源：<a href="https://stratechery.com/2026/navier-stokes-and-ai-scaling-limits/" target="_blank">Stratechery</a> · <a href="https://simonwillison.net/2026/Sep/10/navier-stokes/" target="_blank">Simon Willison's Weblog</a> · <a href="https://openai.com/index/gpt-6-astra-next-generation-work" target="_blank">OpenAI 官方</a></div>
 
