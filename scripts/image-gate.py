@@ -111,7 +111,7 @@ def scan_html(html_path: Path):
             issues.append((ln, 'I4.FAIL', '[%s] %dKB 超限 >%dKB → 压缩（image-gate --fix）' % (name, kb, MAX_KB)))
         if fmt == 'WEBP':
             issues.append((ln, 'I5.FAIL', '[%s] webp 格式 → 转 jpg（image-gate --fix）' % name))
-    # --- 配图率检查（2026-08-14：一条新闻一张图，防超长纯文字墙）---
+    # --- 配图率检查（2026-08-14：正文配图≥1张，质优先允许无图条，防纯文字墙）---
     global MIN_COVERAGE
     cov = MIN_COVERAGE
     for a in sys.argv[1:]:
@@ -123,12 +123,16 @@ def scan_html(html_path: Path):
     items = len(ITEM_RE.findall(content))
     srcs = IMG_SRC_RE.findall(content)
     news_imgs = [s for s in srcs if 'nasa.gov' not in s and 'science.nasa' not in s]
+    # AGENTS.md 铁律：“正文配图 ≥ 1 张 — 0 张 = FAIL 阻断交付；质优先允许无图条”
     if items >= 4:
-        coverage = len(news_imgs) / items
-        if coverage < cov:
+        if len(news_imgs) < 1:
             issues.append((0, 'I7.FAIL',
-                '配图率 %d%%（%d 条新闻 %d 张正文图）< 要求 %d%% → 每条新闻补 ≥1 张图（fetch_official_image.py 抓图→COS）'
-                % (int(coverage * 100), items, len(news_imgs), int(cov * 100))))
+                '正文无配图（%d 条新闻 0 张正文图）→ 至少需要 1 张本地官方图（fetch_official_image.py 抓图）'
+                % (items)))
+        elif (len(news_imgs) / items) < cov:
+            issues.append((0, 'I7.WARN',
+                '配图率 %d%%（%d 条新闻 %d 张正文图，建议适当增加官方配图）'
+                % (int((len(news_imgs) / items) * 100), items, len(news_imgs))))
     return issues
 
 
