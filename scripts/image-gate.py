@@ -59,59 +59,84 @@ def image_dims(p: Path):
         return 0, 0, None
 
 
-def scan_html(html_path: Path):
-    """扫描单个 HTML 文件里的所有图片引用，返回问题列表 [(行号, 类型, 描述)]。"""
+def _is_be_curious(content: str, pos: int) -> bool:
+    """判断图片位置是否落在 Be Curious 栏目区块内。"""
+    # 找 pos 之前最近的 curiosity / Be Curious 区块起点
+    before = content[:pos]
+    cur = before.rfind('<div class="curiosity"')
+    bc = before.rfind('BE CURIOUS')
+    bc2 = before.rfind('Be Curious')
+    section_start = max(cur, bc, bc2)
+    if section_start < 0:
+        return False
+    # 该区块是否尚未闭合（在 pos 之前没有对应闭合到 container 层）
+    tail = content[section_start:pos]
+    return tail.count('<div') > tail.count('</div>')
+
+
+def _verify_cos_url(url: str) -> tuple:
+    """HEAD 验证 COS URL：返回 (ok, content_type, status)。"""
+    try:
+        import urllib.request
+        req = urllib.request.Request(url, method='HEAD',
+                                     headers={'User-Agent': 'AI-News-ImageGate/2.0'})
+        with urllib.request.urlopen(req, timeout=12) as r:
+            ct = r.getheader('Content-Type', '') or ''
+            return (r.status == 200 and 'image' in ct, ct, r.status)
+    except Exception as e:
+        return (False, str(e)[:60], 0)
+
+
+def scan_html(html_path: Path, verify_http: bool = True):
+    """扫描单个 HTML 文件里的所有图片引用，返回问题列表 [(行号, 类型, 描述)]。
+
+    2026-09-13 COS 生命线铁律：
+    - 正文 <img> 只允许 COS 绝对链接（ainews-images-...myqcloud.com）
+    - 本地相对路径 / GitHub raw / 第三方 CDN / data URI 一律 FAIL
+    - Be Curious 图片放行 NASA/地球观测来源（WARN）
+    """
     issues = []
     content = html_path.read_text(encoding='utf-8', errors='replace')
     for m in IMG_SRC_RE.finditer(content):
         src = m.group(1)
-        ln = content[:m.start()].count('\n') + 1
+        pos = m.start()
+        ln = content[:pos].count('\n') + 1
         name = src.split('/')[-1][:40]
-        # --- 外链图 ---
-        if src.startswith('http'):
-            if COS_HOST in src:
-                continue  # COS 图床正常，不检查
-            if any(a in src for a in EXT_ALLOW):
-                issues.append((ln, 'I6.WARN', '[%s] NASA 外链，建议下载本地化（国内访问慢/挂）' % name))
-            else:
-                issues.append((ln, 'I6.FAIL', '[%s] 外链非白名单 → 必须走 COS 图床（fetch_official_image.py）' % name))
-            continue
-        # --- 本地图 ---
-        if not src.startswith('../assets/'):
-            issues.append((ln, 'I1.FAIL', '[%s] 本地路径必须是 ../assets/ 开头（当前: %s）' % (name, src[:50])))
-            continue
-        img_path = (html_path.parent / '../' / src[3:]).resolve()
-        if not img_path.is_file():
-            issues.append((ln, 'I1.FAIL', '[%s] 本地文件不存在: %s' % (name, src)))
-            continue
-        if img_path.stat().st_size == 0:
-            issues.append((ln, 'I1.FAIL', '[%s] 0 字节空文件: %s' % (name, src)))
-            continue
-        w, h, fmt = image_dims(img_path)
-        if w == 0:
-            issues.append((ln, 'I1.FAIL', '[%s] 无法解码（损坏/格式错）: %s' % (name, src)))
-            continue
-            
-        # --- 大头照关键字与比例安全拦截 ---
-        src_lower = src.lower()
-        if any(k in src_lower for k in PORTRAIT_BANNED_KEYWORDS):
-            issues.append((ln, 'I8.FAIL', '[%s] 文件名命中人像敏感词（%s）→ 严禁人像/大头照' % (name, src)))
-            continue
-        if abs(w - h) < 10 and w > 200:
-            # 社交正方形头像/大头照拦截（CEO头像常为1:1比例）
-            issues.append((ln, 'I8.FAIL', '[%s] 1:1 正方形图片（%dx%d）极易为大头照/头像 → 严禁使用' % (name, w, h)))
+        is_bc = _is_be_curious(content, pos)
+
+        # --- data URI ---
+        if src.startswith('data:'):
+            issues.append((ln, 'I1.FAIL', '[%s] data URI 禁止（必须走 COS 图床）' % name))
             continue
 
-        kb = get_size_kb(img_path)
-        if w > MAX_WH or h > MAX_WH:
-            issues.append((ln, 'I2.FAIL', '[%s] %dx%d 超限 >%dpx → 压缩（image-gate --fix）' % (name, w, h, MAX_WH)))
-        if w < MIN_W_NEWS and 'nasa' not in src.lower():
-            issues.append((ln, 'I3.WARN', '[%s] 仅 %dpx 宽，放大显示会糊 → 换高清图源' % (name, w)))
-        if kb > MAX_KB:
-            issues.append((ln, 'I4.FAIL', '[%s] %dKB 超限 >%dKB → 压缩（image-gate --fix）' % (name, kb, MAX_KB)))
-        if fmt == 'WEBP':
-            issues.append((ln, 'I5.FAIL', '[%s] webp 格式 → 转 jpg（image-gate --fix）' % name))
-    # --- 配图率检查（2026-08-14：正文配图≥1张，质优先允许无图条，防纯文字墙）---
+        # --- 绝对链接 ---
+        if src.startswith('http'):
+            if COS_HOST in src:
+                if verify_http:
+                    ok, ct, st = _verify_cos_url(src)
+                    if not ok:
+                        issues.append((ln, 'I1.FAIL',
+                            '[%s] COS URL 不可达/非图片（status=%s, ct=%s）→ 换图或重传' % (name, st, ct)))
+                continue
+            # GitHub raw / blob
+            if 'raw.githubusercontent.com' in src or 'github.com' in src and '/blob' in src:
+                issues.append((ln, 'I6.FAIL', '[%s] GitHub 直链禁止 → 必须走 COS 图床' % name))
+                continue
+            if any(a in src for a in EXT_ALLOW) and is_bc:
+                issues.append((ln, 'I6.WARN', '[%s] Be Curious NASA 外链（允许，建议本地化）' % name))
+                continue
+            issues.append((ln, 'I6.FAIL', '[%s] 非 COS 外链 → 必须走 COS 图床（fetch_official_image.py）' % name))
+            continue
+
+        # --- 本地相对路径 ---
+        if is_bc and ('nasa' in src.lower() or 'science' in src.lower()):
+            issues.append((ln, 'I6.WARN', '[%s] Be Curious NASA 本地图（允许）' % name))
+            continue
+        issues.append((ln, 'I1.FAIL',
+            '[%s] 本地相对路径禁止（当前: %s）→ 正文图必须走 COS 绝对链接' % (name, src[:50])))
+        continue
+
+    # --- 配图率检查（正文配图≥1张，质优先允许无图条，防纯文字墙）---
     global MIN_COVERAGE
     cov = MIN_COVERAGE
     for a in sys.argv[1:]:
@@ -122,17 +147,20 @@ def scan_html(html_path: Path):
                 pass
     items = len(ITEM_RE.findall(content))
     srcs = IMG_SRC_RE.findall(content)
-    news_imgs = [s for s in srcs if 'nasa.gov' not in s and 'science.nasa' not in s]
-    # AGENTS.md 铁律：“正文配图 ≥ 1 张 — 0 张 = FAIL 阻断交付；质优先允许无图条”
+    # 正文图 = 非 Be Curious 区块内的图
+    body_imgs = []
+    for m in IMG_SRC_RE.finditer(content):
+        if not _is_be_curious(content, m.start()):
+            body_imgs.append(m.group(1))
     if items >= 4:
-        if len(news_imgs) < 1:
+        if len(body_imgs) < 1:
             issues.append((0, 'I7.FAIL',
-                '正文无配图（%d 条新闻 0 张正文图）→ 至少需要 1 张本地官方图（fetch_official_image.py 抓图）'
-                % (items)))
-        elif (len(news_imgs) / items) < cov:
+                'IMAGE_COVERAGE_FAIL: 正文无配图（%d 条新闻 0 张正文图）→ 至少需要 1 张 COS 官方图'
+                % items))
+        elif (len(body_imgs) / items) < cov:
             issues.append((0, 'I7.WARN',
                 '配图率 %d%%（%d 条新闻 %d 张正文图，建议适当增加官方配图）'
-                % (int((len(news_imgs) / items) * 100), items, len(news_imgs))))
+                % (int((len(body_imgs) / items) * 100), items, len(body_imgs))))
     return issues
 
 
