@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang=「zh-CN」>
+<head>
+<meta charset=「UTF-8」>
+<meta name=「viewport」 content=「width=device-width, initial-scale=1.0」>
+<title>AI 与数学：当大模型开始解开几十年未解的猜想 · AI News 专题</title>
+<meta name=「description」 content=「AI 正在进入纯数学研究的核心领地。从 80 年未解的单位距离猜想，到 85 年的雅可比猜想反例，大模型不只是计算计算器，更是跨学科直觉的发现引擎。」>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:36px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.15;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:「\25AE」;color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"「;
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:」\25AE「;color:var(--klein);margin-right:8px;font-size:13px;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:」\201C「;
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-radius:8px;
+}
+.plain-guide .pg-head{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  margin-bottom:10px;
+}
+.plain-guide p{
+  font-size:14px;
+  color:var(--ink-soft);
+  line-height:1.7;
+  margin-bottom:8px;
+}
+.plain-guide p:last-child{margin-bottom:0;}
+</style>
+</head>
+<body>
+
+<nav class=」site-nav「>
+  <div class=」site-nav-inner「>
+    <a class=」site-nav-brand「 href=」../index.html「>AI<span>News</span></a>
+    <ul class=」site-nav-links「>
+      <li><a href=」../index.html「>首页</a></li>
+      <li><a href=」../2026-08/2026-08-31.html「>最新</a></li>
+      <li><a href=」../../en/special/ai-mathematics.html「>EN Site</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class=」container「>
+
+  <div class=」masthead「>
+    <div class=」special-badge「>SPECIAL ISSUE · 专题</div>
+    <h1 class=」mast-title「>AI 与数学：当大模型开始解开几十年未解的猜想</h1>
+    <div class=」mast-rule「></div>
+    <div class=」mast-meta「>
+      <span class=」issue「>专题编号 SP-011</span>
+      <span>核验范围 2023.12 – 2026.08</span>
+      <span>一手文献 6 篇</span>
+    </div>
+    <div class=」mast-lede「>
+      过去数年，AI 正在从「会做高难度考题」迈向「推动纯数学前沿」。从 80 年未解的单位距离猜想被攻破，到 85 年历史的雅可比猜想给出反例，AI 展示了在庞大空间中跨学科搜寻与构想的能力。本专题仅收录经同行复核或顶级数学家公开发表验算的一手实锤突破。
+    </div>
+  </div>
+
+  <div class=」plain-guide「>
+    <div class=」pg-head「>不关注数学也能看懂：AI 究竟打破了什么</div>
+    <p><strong>1. 不是代替人类建构大理论，而是找出了没人想到的「反例」：</strong> 数学家过去几十载以为某些猜想成立，是因为人类直觉受限于已知领域；AI 跨学科抽取了代数数论的工具，找到了被忽略的反例。</p>
+    <p><strong>2. 从符号验证到交叉启发：</strong> AI 靠穷举与逻辑链构造出例子后，顶尖数学家迅速对证据进行“消化”与精简，衍生出更深刻的理论成果。</p>
+  </div>
+
+  <div class=」timeline「>
+    <div class=」tl-title「>关键节点时间线</div>
+
+    <div class=」tl-item「>
+      <div class=」tl-date「>2026-09-05</div>
+      <div class=」tl-body「>
+        <strong>Anthropic 用 Claude 多智能体团队 11 天完成费马大定理（Fermat's Last Theorem）首个机器验证的 Lean 形式化证明：</strong> 产出超 1300 万行严格类型检查的 Lean 代码，硬核啃下怀尔斯 1995 年证明中的 29,500 个引理与中间定理，实现了 0 幻觉的机器系统回路验证。标志着形式化数学从人类手工录入转向工业级智能体自举。<br/>
+        <span class=」src-line「>出处 · <a href=」https://www.anthropic.com/research/formalizing-fermats-last-theorem「 target=」_blank「>Anthropic 官方研究：Formalizing Fermat's Last Theorem</a></span>
+      </div>
+    </div>
+
+    <div class=」tl-item「>
+      <div class=」tl-date「>2026-08-25</div>
+      <div class=」tl-body「>
+        <strong>Bruce Schneier 与 Kasra Rafi 于 The Guardian 发表深度分析《AI 与数学职业》：</strong> 对比近期 OpenAI 内部模型攻破单位距离猜想与 Anthropic 团队验证雅可比猜想反例，指出当前 AI 善于跨学科搜索与反例构造，但尚未展现建立庞大抽象新理论的能力。<br/>
+        <span class=」src-line「>出处 · <a href=」https://www.theguardian.com/commentisfree/2026/aug/25/ai-mathematics-careers「 target=」_blank「>The Guardian 专栏</a></span>
+      </div>
+    </div>
+
+    <div class=」tl-item「>
+      <div class=」tl-date「>2026-08-08</div>
+      <div class=」tl-body「>
+        <strong>菲尔兹奖得主 Jacob Tsimerman 宣布加入 OpenAI 专注于 AI 安全与形式化证明：</strong> Tsimerman 指出 AI 很快将在纯数学研究中超越人类，数学家加入 AI 机构能为智能体提供严谨的形式化验证与对齐保障。<br/>
+        <span class=」src-line「>出处 · <a href=」https://techspherenews.com/fields-medalist-jacob-tsimerman-joins-openai-for-ai-safety-work「 target=」_blank「>TechSphere 报道</a></span>
+      </div>
+    </div>
+
+    <div class=」tl-item「>
+      <div class=」tl-date「>2026-07-19</div>
+      <div class=」tl-body「>
+        <strong>Anthropic 数学家 Levent Alpöge 给出雅可比猜想（Jacobian Conjecture）3维反例：</strong> 借助 Claude Fable 5 辅助，Alpöge 构造出 3 维复空间下常数雅可比行列式非单射的多项式映射，打破自 1939 年以来的 85 年猜想；陶哲轩（Terence Tao）随后发表博客进行理论简化消化。<br/>
+        <span class=」src-line「>出处 · <a href=」https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/「 target=」_blank「>Terence Tao 博客解析</a> · <a href=」https://arxiv.org/abs/2608.00222「 target=」_blank「>arXiv:2608.00222</a></span>
+      </div>
+    </div>
+
+    <div class=」tl-item「>
+      <div class=」tl-date「>2026-05-20</div>
+      <div class=」tl-body「>
+        <strong>OpenAI 内部模型攻破 80 年历史的 Erdős 单位距离猜想（Unit Distance Conjecture）：</strong> 模型自主引入代数数论中的类域塔工具，构造出超越旧有界限的反例，证明平面点集单位距离数下界大于 $n^{1+o(1)}$。Timothy Gowers、Noga Alon 等顶级数学家公开发表联合复核论文。<br/>
+        <span class=」src-line「>出处 · <a href=」https://arxiv.org/abs/2605.20695「 target=」_blank「>arXiv:2605.20695 复核论文</a> · <a href=」https://www.alphaxiv.org/abs/2605.20579「 target=」_blank「>Sawin 下界优化论文</a></span>
+      </div>
+    </div>
+
+    <div class=」tl-item「>
+      <div class=」tl-date「>2024-07-25</div>
+      <div class=」tl-body「>
+        <strong>DeepMind 的 AlphaProof 与 AlphaGeometry 2 在 2024 国际数学奥林匹克（IMO）达到银牌水平：</strong> 系统成功解答了 6 道题中的 4 道（含难度极高的解答题），首次在世界顶级数学竞赛中展现出形式化推理与几何辅助线构造能力。<br/>
+        <span class=」src-line「>出处 · <a href=」https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/「 target=」_blank「>Google DeepMind 官方发布</a></span>
+      </div>
+    </div>
+
+    <div class=」tl-item「>
+      <div class=」tl-date「>2023-12-06</div>
+      <div class=」tl-body「>
+        <strong>DeepMind 发布 FunSearch：大模型结合评估器首次在组合数学 Cap Set 问题中发现新算法：</strong> 通过在 LLM 循环中引入严格评价器，FunSearch 找到了超越人类已知最大上限的 Cap 集合构造，开创了 LLM 发现全新数学知识的先例。<br/>
+        <span class=」src-line「>出处 · <a href=」https://www.nature.com/articles/s41586-023-06924-6「 target=」_blank「>Nature 论文 (2023)</a></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class=」section-block「>
+    <div class=」sec-eyebrow「>EDITORIAL ANALYSIS</div>
+    <div class=」sec-title「>编辑部观察</div>
+    <div class=」body「>
+      <p><span class=」hl「>当 AI 开始攻克 Erdős 猜想与雅可比猜想，数学界的态度正在从怀疑转变为深刻的范式重塑。</span> 过去数学家担心 AI 只是在做考题套路，但 2026 年的一系列突破证明：在跨学科概念连接与搜索空间极其庞大的反例构造上，AI 拥有人类直觉难以覆盖的独特优势。</p>
+      <p>正如 Tim Gowers 所言，<span class=」turn「>人类数学家依然在建立新概念、提出深层问题上占据不可替代的位置。</span> 但工具的边界已经永久改变，AI 正从单纯的符号计算器，演变为与数学家并肩作战的发现引擎。</p>
+    </div>
+  </div>
+
+  <div class=」footer「>
+    <div class=」big">AI 情报日报 · 专题案卷</div>
+    前沿信号流，AI每天在变什么，人在怎么选
+  </div>
+
+</div>
+</body>
+</html>
