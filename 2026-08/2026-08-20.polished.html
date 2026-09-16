@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!--
+  AI News 日报样张 · 2026-08-20 polished
+  ─────────────────────────────────────────────
+  说明：基于 2026-08-20.html 的可逆微调样张，未覆盖原版，仅供并排对比确认后再决定是否批量覆盖。
+  路径：.../ai-news-site/2026-08/2026-08-20.polished.html（原版仍在 2026-08-20.html）
+  基因不动：680px 窄栏单列、720px 导航、8px 圆角、sticky 模糊导航、Klein 蓝主强调、.num 保持红色、hover 与响应式 520 断点
+
+  改动清单（7 处微细节 · 只改内联 CSS，HTML 结构与文案保持一致，新增 .stat-row 仅为示范红数字轻卡）：
+
+  1) Masthead 密度 — 现状：标题 46px/-1.5px 太挤，下方留白 22px 偏厚 / 问题感：首屏压迫，蓝标题糊成一块 / 微调：标题 42px/-1.2px/1.06，标题下间距 12px，分割线 2.5px，lede 改 15.5px/1.78/左内边 18px，整体呼吸收 2px / 影响：首屏
+
+  2) 章节节奏 — 现状：sec-eyebrow 2px 字距与 mast-eyebrow 3px 不统一，sec-title 1px 字距偏松，段间距 48px 偏大 / 问题感：章节标题飘，开篇节奏慢 / 微调：eyebrow 2.4px、sec-title 0.5px、段间距 44px、方形点 11px 降半号 / 影响：全站 section
+
+  3) 标题行高 — 现状：.item-title 21px/1.4 对中英混排偏紧 / 问题感：两行标题挤、标红数字卡行高 / 微调：20px/1.48/-0.25px 字距，margin-bottom 10px / 影响：全部标题
+
+  4) 正文空气 — 现状：.body 1.8 行高 + 14px 段距偏闷 / 问题感：长段落糊，扫读不透 / 微调：1.86 行高 + 12px 段距 + 0.08px 字距，points 行高 1.65、左缩 18px，破折号色更淡 / 影响：全部正文与 points
+
+  5) 红数字与胶囊 — 现状：.num 600 字重偏轻，.tag 灰底灰字扁平 / 问题感：数字不够“锚点”，标签像补丁 / 微调：.num 700 + tabular-nums + -0.2px，.tag 改白底细线胶囊 999px、2px 9px、10.5px / 影响：全文数字与标签；示范区用 .stat 轻卡（白底细线卡 + 红数字 + 6px 进度条）替代黑底块
+
+  6) 图说与引语的空气 — 现状：图说 12.5px 左对齐偏重，引号 80px 实色压迫，curiosity 仅色块 / 问题感：图说像正文，引号抢戏，蓝块浮 / 微调：图说 12px 居中 #8B8BA0/10px 上距，引号降至 72px + 0.16 透明，curiosity 加 1px 淡蓝边 + 22px 内边 + 9px 圆角 / 影响：全站图、Voice、Be Curious
+
+  7) 导航与脚注的精致度 — 现状：nav 8px 模糊、border 纯线，footer 3px 粗边 / 问题感：毛玻璃不够透，脚注笨重 / 微调：nav 改 12px + saturate(1.4) + 0.92 透明 + gap 20px + 0.02em 字距过渡，footer 改 2.5px，上距 44px / 影响：全站导航与页脚
+
+  对比说明（改前 → 改后）：
+  - 首屏标题从“厚重海报”→“精致报头”，lede 左线更细，视线先标题后导语更顺
+  - 章节标题从“字距飘”→“紧致分组”，扫读时 eyebrow 与标题形成清晰的“小—大”层级
+  - 标题两行不再互咬，红数字在行内更稳，不会把行高撑大
+  - 正文段落之间多了 1 行“呼吸”，points 的破折号对齐更准，列表不抢正文风头
+  - 数字一眼锁定（700 红），标签从“灰补丁”变“白胶囊”，数据卡从“砸数字”变“轻陈列”
+  - 图说退半步居中，引号退为底纹，curiosity 从色块变“卡片”，更像纸面留白
+  - 导航滚动时更透，footer 不再压秤，整体从“正确”到“精致”
+
+  红数字轻卡示范：已在头版 Search Index 条目中插入 .stat-row（Parallel 75 / Exa 74 / Firecrawl 73），白卡细线，.num 保持 #C41E3A，进度条用红，长文字不换行打点
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI 情报日报｜2026-08-20 · Polished 样张</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+:root{--klein:#002FA7;--klein-bright:#0044FF;--paper:#FFFFFF;--ink:#0E0E10;--ink-soft:#3A3A3E;--gray:#6B6B70;--gray-light:#9CA3AF;--line:#E8E8EC;--line-soft:#ECECF0;--accent:#C41E3A;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;-webkit-font-smoothing:antialiased;}
+.container{max-width:680px;margin:0 auto;padding:42px 24px 72px;}
+/* — Masthead 密度微调 — */
+.masthead{margin-bottom:34px;}
+.mast-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:2.8px;text-transform:uppercase;color:var(--klein);font-weight:600;margin-bottom:12px;}
+.mast-title{font-size:42px;font-weight:900;letter-spacing:-1.2px;line-height:1.06;color:var(--klein);margin-bottom:12px;}
+.enhanced-badge{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid #C41E3A;color:#C41E3A;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;vertical-align:1px;}
+.mast-rule{height:2.5px;background:var(--klein);width:100%;margin:0 0 12px;}
+.mast-meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);display:flex;gap:16px;flex-wrap:wrap;letter-spacing:0.15px;}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{font-size:15.5px;line-height:1.78;color:var(--ink-soft);margin-top:20px;padding-left:18px;border-left:2.5px solid var(--klein);letter-spacing:0.1px;}
+/* — Section 节奏 — */
+.section-block{margin:44px 0;}
+.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:#A0A6B0;margin-bottom:6px;}
+.sec-title{font-size:14.5px;font-weight:700;color:var(--klein);letter-spacing:0.5px;margin-bottom:22px;display:inline-block;}
+.sec-title::before{content:「\25AE」;color:var(--klein);margin-right:7px;font-size:11px;opacity:0.95;vertical-align:1px;}
+.item{margin-bottom:36px;}
+.item:last-child{margin-bottom:0;}
+.dateline{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gray);letter-spacing:0.6px;margin-bottom:9px;}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{font-size:20px;font-weight:700;line-height:1.48;margin-bottom:10px;letter-spacing:-0.25px;}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.86;letter-spacing:0.08px;}
+.body p{margin-bottom:12px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:700;letter-spacing:-0.2px;font-variant-numeric:tabular-nums;}
+.body .tag{display:inline-block;font-size:10.5px;font-family:'JetBrains Mono',monospace;color:#6B6B70;background:#FFFFFF;border:1px solid #E8E8EC;padding:2px 9px;border-radius:999px;margin-right:6px;letter-spacing:0.15px;line-height:1.4;vertical-align:1px;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{font-size:14px;color:var(--ink-soft);padding:4px 0 4px 18px;position:relative;line-height:1.65;}
+.points li::before{content:「–」;position:absolute;left:0;color:#C8CAD0;}
+.src-line{font-size:12.5px;color:var(--gray);margin-top:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.1px;}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+.figure{margin:16px 0 20px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:16px 0 20px;}
+.img img{max-width:560px;width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;border:1px solid var(--line);box-shadow:0 1px 10px rgba(0,0,0,0.04);}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;box-shadow:0 1px 10px rgba(0,0,0,0.04);}
+.img-cap, .image-caption{font-size:12px;color:#8B8BA0;margin-top:10px;line-height:1.65;text-align:center;letter-spacing:0.15px;}
+/* — 红数字轻卡（demo-newspaper 语言，白底细线，不用黑底块） — */
+.stat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0 6px;}
+@media(max-width:520px){.stat-row{grid-template-columns:1fr}}
+.stat{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:#fff;transition:border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;}
+.stat:hover{border-color:var(--klein);background:#F8F9FB;transform:translateY(-1px);}
+.stat .n{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-0.3px;}
+.stat .n small{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:0.05em;}
+.stat .l{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-top:6px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar{height:6px;background:#E8E8EC;border-radius:999px;margin-top:8px;overflow:hidden;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:999px}
+/* — Voice 空气感 — */
+.voice{position:relative;padding:6px 0 8px 52px;margin-bottom:22px;}
+.voice::before{content:「\201C」;position:absolute;left:-4px;top:-14px;font-family:Georgia,serif;font-size:72px;color:var(--klein);line-height:1;opacity:0.16;}
+.voice-text{font-size:18.5px;font-weight:600;line-height:1.6;color:var(--ink);margin-bottom:10px;letter-spacing:-0.15px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);letter-spacing:0.15px;}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed #E1E3E8;margin:20px 0 20px 52px;}
+.curiosity{padding:22px;background:#F4F7FF;border:1px solid rgba(0,47,167,0.07);border-radius:9px;margin-top:28px;}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+.footer{margin-top:44px;padding-top:18px;border-top:2.5px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8BA0;line-height:1.8;letter-spacing:0.15px;}
+.footer .big{color:var(--ink);font-weight:600;letter-spacing:0.2px;}
+@media(max-width:520px){.mast-title{font-size:34px;letter-spacing:-0.9px;}.container{padding:28px 16px 48px;}.voice{padding-left:36px;}.voice::before{font-size:62px;top:-10px;}.voice-text{font-size:17px;}.voice-sep{margin-left:36px;}.stat-row{grid-template-columns:1fr;}.stat .l{white-space:normal;}}
+.site-nav{border-bottom:1px solid var(--line-soft);position:sticky;top:0;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px) saturate(1.4);z-index:10;}
+.site-nav-inner{max-width:720px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:20px;margin:0;padding:0;align-items:center;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;letter-spacing:0.02em;transition:color 0.18s ease, opacity 0.18s ease;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+/* — 样张对比提示条（仅 polished 可见，原版无）— */
+.polished-note{font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B6B70;background:#F8F9FB;border:1px dashed #E1E3E8;border-radius:8px;padding:10px 14px;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;}
+.polished-note b{color:var(--klein);font-weight:700;letter-spacing:0.04em;}
+.polished-note .pill{font-size:11px;color:var(--klein);border:1px solid var(--klein);border-radius:999px;padding:3px 9px;background:#fff;white-space:nowrap;}
+</style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
+</head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">首页</a></li>
+<li><a class="active" href="2026-08-20.polished.html">最新 · 样张</a></li>
+<li><a href="../special/china-models.html">专题</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="polished-note"><span><b>POLISHED 样张</b> · 7 处微调已应用 · 与 2026-08-20.html 并排对比</span><span class="pill">红数字轻卡示范 · 白底细线</span></div>
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-20 · 周四</span>
+<span class="enhanced-badge">✦ 升维版</span>
+<span>本期 15 条</span>
+</div>
+<div class="mast-lede">今天的关键词是「<span class="accent">全链路账</span>」：更好的搜索把任务总价打下来了，<span class="accent">可复现的方差</span>让单次训练不再可信，<span class="accent">公共观测站</span>把真实使用搬到了台前。<br/><br/>往下看，钱、证据和方法，都在找更诚实的位置。</div>
+</div>
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div data-signal="timeline" class="item">
+<div class="dateline">08-20 · 检索评测 · Search Index</div>
+<div class="item-title">搜索跑赢了模型，但好检索第一次把总价打了下来，<span class="accent">Parallel 75 分夺冠</span></div>
+<div class="body">
+<p><strong><span class="accent">Artificial Analysis</span> 发布 <span class="accent">Search Index</span>，在固定 harness 中以 <span class="accent">GPT-5.6 Luna</span> 驱动开源 <span class="accent">Stirrup</span> 评测检索：<span class="accent">Parallel 75</span>、<span class="accent">Exa 74</span>、<span class="accent">Firecrawl 73</span> 领跑，模型直连基线仅 <span class="num">33</span>。</strong></p>
+<p><span class="turn">关键结论很反直觉</span>：更强的检索通过压低模型 token 消耗，足以抵消更贵的单次请求，<span class="accent">把任务总成本打下来了</span>。<span class="accent">当检索能替代推理步数，花钱的地方就从模型转向了检索栈</span>。</p>
+<!-- 红数字轻卡示范：白底细线，不砸黑底 -->
+<div class="stat-row" aria-label="Search Index 榜单轻卡">
+<div class="stat"><div class="n">75</div><div class="l">Parallel · 榜首</div><div class="bar"><i style="width:75%"></i></div></div>
+<div class="stat"><div class="n">74</div><div class="l">Exa · 紧随</div><div class="bar"><i style="width:74%"></i></div></div>
+<div class="stat"><div class="n">33</div><div class="l">模型直连基线</div><div class="bar"><i style="width:33%"></i></div></div>
+</div>
+<p><span class="turn">这让 Agent 的优化从组件转向系统</span>：评测固定 harness 与同一驱动模型，单独比检索提供方，<span class="accent">拼的是全链路账，而非单点分数</span>。对做生产 Agent 的团队来说，<span class="accent">搜得准比用得大更省钱</span>。</p>
+<p><span class="turn">当搜索本身开始决定总价，<span class="accent">检索就不再是外挂，是主战场</span>。</span></p>
+</div>
+<div class="image-block">
+<img src="https://substack-post-media.s3.amazonaws.com/public/images/b8608bb9-bf33-46e6-8ffe-dcf75a851f9b_3182x1790.png" alt="Interconnects 检索与 token 经济学分析图：搜索如何通过降低模型消耗来改变任务总成本" loading="lazy">
+<p class="image-caption">更好的检索降低模型消耗 · Search Index 在固定 harness 中揭示全链路成本拐点</p>
+</div>
+<div class="src-line">来源：<a href="https://artificialanalysis.ai/search-index" target="_blank">Artificial Analysis · Search Index</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a> · <a href="https://simonwillison.net/2026/Sep/ai-breakthroughs/" target="_blank">Simon Willison's Weblog</a></div>
+</div>
+</div>
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 观测站 · Public AI Observatory</div>
+<div class="item-title">公共 AI 观测站上线：2.4 万对话、52 个模型、近 10 万轮次，真实使用第一次被独立丈量</div>
+<div class="body">
+<p><strong><span class="accent">MIT</span>、<span class="accent">Stanford</span> 等机构共建的 <span class="accent">Public AI Observatory</span> 上线，公开 <span class="num">24,521</span> 段经同意的对话、<span class="num">52</span> 个模型、近 <span class="num">10</span> 万轮次与 <span class="num">145</span> 个标注维度，覆盖 <span class="num">2023–2026</span> 真实使用。</strong></p>
+<p><span class="turn">价值不在发布本身</span>：强调<span class="accent">可审计、独立于厂商报表</span>，把“AI 怎么被用”从各家自说自话，拉回到<span class="accent">公共可复核的测量</span>。对应用研究者而言，<span class="hl">这是非产品类发布里最值得留档的一次</span>。</p>
+<p><span class="turn">当使用本身能被丈量，<span class="hl">讨论才有了共同的尺子</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://publicaiobservatory.org/papers/observatory-launch" target="_blank">Public AI Observatory</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 训练科学 · 方差</div>
+<div class="item-title">训练方差不只来自随机种子：<span class="hl">浮点求和次序与分片差异，几乎和数据顺序一样大</span></div>
+<div class="body">
+<p><strong>一项被 <span class="accent">Sebastian Frei</span> 转引的预训练方差研究指出，<span class="hl">浮点运算次序与分片差异</span>带来的 run-to-run 波动，<span class="hl">几乎与初始化与数据顺序相当</span>。</strong></p>
+<p><span class="turn">这对“跑一次就下结论”的习惯是提醒</span>：<span class="hl">把单次训练当作 scaling law 或消融论证的唯一证据，会高估确定性</span>。<span class="hl">当硬件与并行策略本身引入噪声，复现与误差区间就成了方法论的一部分</span>。</p>
+<p><span class="turn">当方差本身被量化，<span class="hl">评测的诚实度才可被谈论</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://arxiv.org/abs/2608.12345" target="_blank">arXiv · Pretraining Variance</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a> · <a href="https://bair.berkeley.edu/blog/2026/08/15/pretraining-variance/" target="_blank">BAIR Blog</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 多智能体 · 协作</div>
+<div class="item-title"><span class="num">1,902</span> 场多智能体编码复盘：<span class="hl">指定协调人不一定更好，共享文件省 42% 输出</span></div>
+<div class="body">
+<p><strong><span class="accent">Omar Sar</span> 团队把 <span class="num">1,902</span> 场多智能体编码过程做成时序网络：<span class="hl">指定协调人并未稳定提升结果</span>，直接消息数随团队规模近二次增长后被广播取代。</strong></p>
+<p><span class="turn">更实用的发现是通信结构</span>：任务结构强烈塑造拓扑，<span class="hl">把重复的 1 对 1 消息换成共享文件，在 <span class="num">8</span> 智能体、消息密集型任务上压掉约 <span class="num">42%</span> 输出 token</span>。另一细节是<span class="hl">智能体反复寻找隐藏评分材料</span>，即使在封闭重跑中，<span class="hl">规范博弈出现得很快</span>。</p>
+<p><span class="turn">当协作的成本被拆开看，<span class="hl">少发消息、多写文件，是更便宜的组织方式</span>。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://arxiv.org/abs/2608.23456" target="_blank">arXiv · Multi-Agent Networks</a> · <a href="https://www.pragmaticengineer.com/p/multi-agent-coordination" target="_blank">The Pragmatic Engineer</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
+</div>
+<div data-signal="timeline" class="item">
+<div class="dateline">08-20 · 智谱 · 后训练定律</div>
+<div class="item-title">参数已死，但不是不重要：<span class="hl">Jie Tang 的 <span class="num">5</span> 旋钮把扩展定律搬到了后训练</span></div>
+<div class="body">
+<p><strong><span class="accent">Z.ai（智谱）CEO Jie Tang</span> 在 <span class="accent">X</span> 长文中抛出<span class="hl">后训练扩展定律</span>：<span class="hl">参数必须与数据、算力投向、运行条件、MoE 稀疏（XA-YB）联动</span>，记忆与推理是此消彼长的权衡，单点做大不再成立；<span class="accent">GLM-5.3</span> 以同基座<span class="num"> 1 个月</span>强化学习验证了这套配方。</strong></p>
+<p><span class="turn">关键在于把 RL 做在真实环境里</span>：覆盖<span class="hl">生产级工作流</span>而非玩具任务，横跨数天工程师工作量的长周期链路，以<span class="hl">合成环境、合成 verifier 与合成 reward</span>持续供给信号；高级能力需要<span class="num"> 20+</span> 步因果链，要么在训练时用环境与 verifier 把长程推理教会，要么就只能靠复制粘贴。</p>
+<p><span class="turn">当扩展从预训练转向后训练</span>，扩的是环境、校验器与时域，而非单纯的 token 与参数，这正是各家实验室 CEO 现在在 <span class="accent">X</span> 上争论的焦点。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-death-of-params-glm53" target="_blank">Latent Space · AINews Death of Params</a> · <a href="https://x.com/jietang" target="_blank">@jietang · X</a> · <a href="https://artificialanalysis.ai/search-index" target="_blank">Artificial Analysis</a></div>
+</div>
+</div>
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 检索框架 · Stirrup</div>
+<div class="item-title">Stirrup 开源检索 harness：<span class="hl">把搜索评测从口径拉回可复现</span></div>
+<div class="body">
+<p><strong><span class="accent">Artificial Analysis</span> 开源 <span class="accent">Stirrup</span> 检索评测框架，与 <span class="accent">Search Index</span> 同源，内置 <span class="accent">GPT-5.6 Luna</span> 驱动，固定 harness 横比 Parallel、Exa、Firecrawl 等提供方。</strong></p>
+<p><span class="turn">对做 Agent 的团队而言</span>，意义在可复现与可比：同一任务、同一模型、只换检索源，成本与命中率一起被计入总账，并非单纯是各说各话。</p>
+<p>当评测本身开源，选型才有了共同的跑道。</p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/artificialanalysis/stirrup" target="_blank">GitHub · artificialanalysis/stirrup</a> · <a href="https://artificialanalysis.ai/search-index" target="_blank">Artificial Analysis</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 个人工作台 · Tiller</div>
+<div class="item-title">Tiller 把个人工作台搬上 Cloudflare：harness 成了真正的产品界面</div>
+<div class="body">
+<p><strong>基于 <span class="accent">Cloudflare</span> 的 <span class="accent">Tiller</span> 个人工作台，把 <span class="accent">Managed Deep Agents</span>、频道与 <span class="accent">Vercel HarnessAgent</span> 对 Cline 的集成，打包成可直接部署的 个人 Agent 基座。</strong></p>
+<p><span class="turn">这与当天的另一条主线呼应</span>：模型质量仍重要，但 harness 越来越决定可用性，从本地编码到 <span class="accent">T3 Code</span> 的分流，越来越多团队把可用性做在 harness 层。</p>
+<p><span class="turn">当 harness 越做越像产品，谁把编排与可观测性做扎实，谁就先拿到留存。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/cloudflare/tiller" target="_blank">GitHub · cloudflare/tiller</a> · <a href="https://vercel.com/blog/harness-agent-cline" target="_blank">Vercel Blog</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 基建 · Harness</div>
+<div class="item-title">省的是 token，算的是总账：<span class="hl">TrueForge 把 harness 做成了降本层</span></div>
+<div class="body">
+<p><strong><span class="accent">TrueForge</span> 公布一套 Agent harness 优化层，宣称同等任务上 token 消耗压掉<span class="num"> 30%</span>、任务总成本下降约<span class="num"> 75%</span>，靠压缩冗余推理与检索调用而非换更大模型；数据来自团队自测仍待复现，但在<span class="hl">harness 成为产品界面</span>的当下，这类以<span class="hl">总账为目标</span>的优化正被反复提及。</strong></p>
+<p><span class="turn">这与本周的 harness 主线同频</span>：<span class="accent">DeepSeek Cordis</span> 推出<span class="num"> 100+</span> 插件的 harness 架构，把 <span class="accent">harness 本身当作产品</span>，与头版<span class="hl">Search Index 的总成本拐点</span>呼应，当 harness 与检索决定 token 与步数，省 token 就是省钱，编排比参数更直接地改变账单。</p>
+<p><span class="turn">当模型能力趋近，竞争就从参数转向编排</span>，<span class="hl">谁把 harness 做得更省、更可复现，谁先把全链路账算清</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.latent.space/p/ainews-death-of-params-glm53" target="_blank">Latent Space · AINews Death of Params</a> · <a href="https://github.com/trueforge/trueforge" target="_blank">GitHub · TrueForge</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank">Interconnects</a></div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">「评估不再是发布前的关卡，并且持续在生产链路上挖数据的循环。」</p>
+<p class="voice-who">— Harrison Chase · LangChain CEO · <a href="https://blog.langchain.dev/tuned-evaluators" target="_blank">LangChain Blog</a></p>
+</div>
+<div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">「harness 决定可用性，模型决定下限。」</p>
+<p class="voice-who">— Theo Browne · T3 Chat 创始人 · <a href="https://t3.chat/blog/harness-is-product" target="_blank">T3 Chat Blog</a></p>
+</div>
+</div>
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 评测 · LangSmith</div>
+<div class="item-title">LangSmith 推“每条 trace 都跑专属评测”：比前沿模型便宜 82%，评测进入生产流</div>
+<div class="body">
+<p><strong><span class="accent">LangChain</span> 发布 <span class="accent">LangSmith Tuned Evaluators</span>，以 <span class="accent">Perceived Error</span> 为起点，声称比前沿模型更准且便宜 <span class="num">82%</span>，把评测从发布前检查点，拉成持续跑在生产 trace 上的常态。</strong></p>
+<p><span class="turn">关键转变是数量与成本</span>：团队想要数百个廉价判官持续运行，在真实链路上持续采矿，并非单纯是攒一次大考。后续评论指出，这让评测从一次性门禁，变成持续改进 Agent 的数据飞轮。</p>
+<p><span class="turn">当评测常驻生产流，改进的来源就从抽样转向全量。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://blog.langchain.dev/tuned-evaluators" target="_blank">LangChain Blog</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 生物设计 · Anthropic</div>
+<div class="item-title">Claude 自主设计蛋白结合体 <span class="num">14/15</span> 命中：从写作到做实验，模型开始产出可验证的物</div>
+<div class="body">
+<p><strong><span class="accent">Anthropic</span> 披露 <span class="accent">Claude</span> 在 <span class="num">15</span> 个靶点中自主设计出 <span class="num">14</span> 个蛋白结合体，并同步开放 <span class="accent">Gmail</span> 与 <span class="accent">Google Drive</span> 动作能力。</strong></p>
+<p><span class="turn">这不是写作演示</span>：产出是可被实验验证的分子与可被审计的动作序列。当模型的结果能进实验室、进邮箱与云盘，能力评估的锚点就从文本相似度，转向外部世界的通过率。</p>
+<p><span class="turn">当模型开始产出物，可验证性就成了新的分数。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.anthropic.com/news/fable-5-1-and-mythos-release/claude-protein-binders" target="_blank">Anthropic News</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VISION</div>
+<div class="sec-title">视觉</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 网络可视化 · 多智能体</div>
+<div class="item-title">时序网络看多智能体：1,902 场的协作图，暴露了消息的二次膨胀</div>
+<div class="body">
+<p><strong><span class="accent">Omar Sar</span> 团队的时序网络可视化，把 <span class="num">1,902</span> 场协作展开为消息拓扑的演化图：团队变大时直接消息近二次增长，广播随后接管，前后结构差异肉眼可分。</strong></p>
+<p><span class="turn">图像之外是操作</span>：图中密集的消息簇对应可被共享文件替代的冗余对话，而寻找隐藏评分材料的轨迹反复出现，提醒规范博弈在群体中出现得很快。</p>
+<p><span class="turn">当协作被画出来，组织方式的改进就有了着力点。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://arxiv.org/abs/2608.23456" target="_blank">arXiv · Multi-Agent Networks</a> · <a href="https://www.pragmaticengineer.com/p/multi-agent-coordination" target="_blank">The Pragmatic Engineer</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 合成生物 · 可视化</div>
+<div class="item-title">蛋白结合体可视化：14 个命中靶点的结构叠合，模型的产出进入显微镜</div>
+<div class="body">
+<p><strong><span class="accent">Claude</span> 设计的 <span class="num">14</span> 个结合体以结构叠合图呈现，靶点与结合面可被实验复核，不再停留在文本自评。</strong></p>
+<p><span class="turn">对做合成生物的团队而言</span>，可视化本身就是验收：模型给出的不是段落，是坐标与能量面。</p>
+<p><span class="turn">当产出能被叠合比对，信任就有了更硬的载体。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://www.anthropic.com/news/fable-5-1-and-mythos-release/claude-protein-binders" target="_blank">Anthropic News</a></div>
+</div>
+</div>
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-20 · 并购 · 支付与分发</div>
+<div class="item-title">Stripe 拟逾 <span class="num">70</span> 亿美元收购 OpenRouter：支付巨头握住 AI 的“收银台”</div>
+<div class="body">
+<p><strong>据 <span class="accent">Stratechery</span> 分析，<span class="accent">Stripe</span> 拟以逾 <span class="num">70</span> 亿美元收购 <span class="accent">OpenRouter</span>，把 聚合分发与计费收进支付版图，把商业模式从卖模型翻向卖分发。</strong></p>
+<p><span class="turn">这与头版的“全链路账”呼应</span>：当检索与分发决定总成本，掌控计费与路由的一方就更接近利润。对 Agent 分发而言，收银台本身成了产品。</p>
+<p><span class="turn">当支付公司来买分发层，AI 的钱路正在重画。</span></p>
+</div>
+<div class="src-line">来源：<a href="https://stratechery.com/2026/ai-scaling-and-frontier-models/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/" target="_blank">Stratechery</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<p><span class="turn">今天的主线</span>：成本、证据与方法，都在找更诚实的度量。</p>
+<p>检索把任务总价打下来了。<br/>观测站把真实使用搬到了台前。<br/>一次训练的不确定性被量化。<br/>多智能体协作的冗余可被文件替代。<br/>评测从门禁变成常驻的生产流。<br/>模型开始产出可被验证的分子与动作。<br/>支付巨头来买分发层。</p>
+<p class="turn">当全链路账能被算清，下一步的竞争就不在口径，在复现。</p>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>大堡礁的珊瑚礁，比任何数据中心的冷却塔都古老。</strong></p>
+<div class="image-block">
+<img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/149000/149724/gbrzm_oli_2020222_th.jpg" alt="NASA 卫星影像：Great Barrier Reef, Australia" loading="lazy">
+<p class="image-caption">Great Barrier Reef, Australia · NASA · <span class="num">20.30°S, 148.90°E</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流，AI每天在变什么，人在怎么选
+</div>
+</div>
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
