@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Intelligence Daily | 2026-08-13</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.enhanced-badge{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid #C41E3A;color:#C41E3A;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;vertical-align:1px;}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.img img{max-width:560px;width:100%;height:auto;border-radius:8px;display:block;margin:0 auto;border:1px solid var(--line);}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../../index.html">中文版</a></li>
+<li><a class="active" href="../../2026-08/2026-08-21.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI Intelligence Daily</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-13 · Thursday</span>
+<span class="enhanced-badge">✦ Enhanced Edition</span>
+<span>10 stories</span>
+</div>
+<div class="mast-lede">Today's keyword is "fast": Ilya's engine, a 14-fold speedup, and a $5B raise.<br/><br/>Below, who is running faster.</div>
+</div>
+<!-- ===== Top Story ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-13 · Ilya · SSI</div>
+<div class="image-block">
+<img alt="Ilya's map of ideas · from scaling toward research" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/ilya-sutskever-brain.jpg"/>
+<p class="image-caption">Ilya Sutskever · an impressionistic sketch of brain and thought · MIT Technology Review</p>
+</div>
+<div class="item-title">Ilya shows his sword at last: <span class="hl">an engine that "learns while reasoning" may surface as soon as August</span></div>
+<div class="body">
+<p><strong>The first model from <span class="accent">SSI</span>, founded by former OpenAI chief scientist <span class="accent">Ilya Sutskever</span>, has leaked: a small reasoning engine based on <span class="accent">TTT (Test-Time Training)</span>, modest in scale but able to "update its own weights while solving problems". It may appear as early as August; Nvidia has invested <span class="num">$5B</span>.</strong></p>
+<p>Per the leak, the model learns "how to learn" from specially curated data, then updates parts of its weights in real time during inference. Even at small scale it can trade blows with much larger models. SSI has shipped no model and no product for over two years; this is the first sword it has kept hidden so long.</p>
+<p><span class="turn">While everyone else stacks parameters, Ilya is betting that "a model can keep learning after deployment". That may be the first signal of the pre-training era approaching its end.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://x.com/i/trending/2087551605553901958" target="_blank">X leak</a> · <a href="https://www.youtube.com/watch?v=aR20FWCCjAs" target="_blank">Ilya interview</a></div>
+</div>
+</div>
+<!-- ===== Front Line ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-11 · xAI · Grok Bot</div>
+<div class="item-title">Grok Bot goes live: <span class="hl">an AI teammate logs into your tools and does the work; 22.9M people watched</span></div>
+<div class="body">
+<p><strong>xAI released <span class="accent">Grok Bot</span> (early beta): an AI teammate that "logs into your tools, uses them like you would, and comes back with the work done". A single tweet drew <span class="num">22.9M</span> views. The new <span class="accent">Grok 4.6</span> model shipped alongside.</strong></p>
+<p>Grok 4.6 is a confirmed <span class="num">1.5T</span>-parameter model scoring <span class="num">61</span> on Artificial Analysis' Intelligence Index, tying GPT-5.6 Sol Max; it took <span class="num">88.4%</span> on Terminal-Bench v2.1, priced at <span class="num">$2/$6</span> per million tokens. swyx called it "the efficiency king".</p>
+<p><span class="turn">When a "tying" model sells at a "discounted" price and ships with a bot that works for you, the next battlefield of AI competition is: who becomes your teammate first.</span></p>
+</div>
+<div class="img">
+<img alt="Grok Bot goes live" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/grok-4-6.jpg"/>
+<p class="img-cap">Grok Bot goes live.</p>
+</div>
+<div class="src-line">Sources: <a href="https://x.ai/news/grok-4-6" target="_blank">xAI</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-13 · Acquisition · Decart</div>
+<div class="item-title">A $6B acquisition of Decart: <span class="hl">top labs start "buying teams to fill gaps"</span></div>
+<div class="body">
+<p><strong>A top lab is in talks to acquire Israeli AI startup <span class="accent">Decart AI</span> for about <span class="num">$6B</span>; if closed, it would be the lab's largest acquisition ever. Decart specializes in world models and inference optimization.</strong></p>
+<p>As "building it yourself" grows more expensive, top labs have started filling gaps through acquisition. <span class="turn">AI competition is moving from "who trains better" to "who buys better".</span></p>
+</div>
+<div class="img">
+<img alt="$6B acquisition of Decart" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/decart.jpg"/>
+<p class="img-cap">$6B acquisition of Decart.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.bloomberg.com/news/articles/2026-08-13/anthropic-said-in-talks-to-buy-ai-startup-decart-for-6-billion" target="_blank">Bloomberg</a></div>
+</div><div class="item">
+<div class="dateline">08-13 · Japan · Survey</div>
+<div class="item-title">Reuters survey: most Japanese companies still have not embraced AI: <span class="hl">technology diffuses more slowly than assumed</span></div>
+<div class="body">
+<p><strong>A latest Reuters corporate survey finds a "strong majority" of Japanese companies have yet to fully adopt AI, underscoring the social and organizational inertia in technology diffusion.</strong></p>
+<p>While America races for models and China races for open source, Japanese companies' AI adoption remains in "wait and see". <span class="turn">Not everyone is running; most companies are still standing at the door.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.reuters.com/technology/artificial-intelligence/" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-11 · Alibaba · Open Source</div>
+<div class="item-title">Qwen3.8-Max weights released: <span class="hl">2.4T total / 95B active, Alibaba pushes "largest open source" another notch</span></div>
+<div class="body">
+<p><strong>Alibaba released <span class="accent">Qwen3.8-Max</span> open weights: <span class="num">2.4T</span> total / <span class="num">95B</span> active MoE, priced at <span class="num">$2/$6</span> per million tokens via API. Community verdict: "one of the largest open-weight releases ever".</strong></p>
+<p>Evaluations are strong: Frontend Code Arena <span class="num">#4</span> (Elo <span class="num">1668</span>, behind only Claude Opus 5 and Kimi K3), Vision Arena <span class="num">#2</span>, SWE-bench <span class="num">87.3%</span> ahead of GPT-5.5. vLLM day-0 support plus dedicated 4-bit quantizations for NVIDIA B300 and AMD MI355X; Together and Baseten could run it immediately. One caveat: the initial release is text-only; vision input is not yet unlocked.</p>
+<p><span class="turn">When a 2.4T open model scores near closed flagships at a fraction of the price, the "scale gap" between open and closed becomes a "deployment gap".</span></p>
+</div>
+<div class="img">
+<img alt="Qwen3.8-Max weights released" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/qwen.jpg"/>
+<p class="img-cap">Qwen3.8-Max weights released.</p>
+</div>
+<div class="src-line">Sources: <a href="https://huggingface.co/Qwen" target="_blank">HuggingFace</a> · <a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-12 · DeepSeek · Pricing</div>
+<div class="item-title">DeepSeek V4 Pro goes GA: <span class="hl">$0.435/M input, 57 times cheaper than Fable 5</span></div>
+<div class="body">
+<p><strong><span class="accent">DeepSeek V4 Pro</span> formally reached general availability: <span class="num">$0.435</span>/M input and <span class="num">$0.87</span>/M output, roughly <span class="num">57</span> times cheaper than Fable 5 by Cline's math, with Terminal Bench up <span class="num">15.8%</span> versus the preview.</strong></p>
+<p>The story here is not "strongest" but "cheapest": community evaluations find the capability solid though not comprehensively leading Kimi or Flash. The real signal is price. When inference costs fall to this level, "affording the strongest" becomes "affording the strong-enough".</p>
+<p><span class="turn">DeepSeek's next deciding factor may not be scale but RL environments and agent engineering, plus the price that makes everyone look twice.</span></p>
+</div>
+<div class="img">
+<img alt="DeepSeek V4 Pro GA" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/updates.jpg"/>
+<p class="img-cap">DeepSeek V4 Pro GA.</p>
+</div>
+<div class="src-line">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank">DeepSeek</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-12 · Microsoft · Reasoning Model</div>
+<div class="item-title">Microsoft ships its first in-house reasoning model MAI-Thinking-1: <span class="hl">"built from scratch", asking for your feedback first</span></div>
+<div class="body">
+<p><strong><span class="accent">Mustafa Suleyman</span> announced <span class="accent">MAI-Thinking-1</span>, Microsoft's first reasoning model "built from scratch", now live on Foundry.</strong></p>
+<p>The team's posture is interesting: Finbarr Timbers publicly asked developers for feedback on tool use, signaling Microsoft positions it as an "applied reasoning model", not a leaderboard chaser. <span class="turn">Now that Microsoft finally has an in-house reasoning model, the OpenAI-Microsoft relationship formally moves from "exclusive supplier" to "frenemies".</span></p>
+</div>
+<div class="img">
+<img alt="Microsoft ships first in-house reasoning model" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/www-theverge-com.jpg"/>
+<p class="img-cap">Microsoft ships its first in-house reasoning model.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.theverge.com" target="_blank">The Verge</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" target="_blank">AINews</a></div>
+</div>
+</div>
+<!-- ===== Open Source ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · PRACTICAL TOOLS</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-13 · Zed · Collaboration</div>
+<div class="item-title">Zed releases Delta: <span class="hl">a multiplayer coding environment built for AI agents</span></div>
+<div class="body">
+<p><strong>Zed released <span class="accent">Delta</span>, a multiplayer coding environment for AI agents, letting multiple agents and humans work in parallel on the same codebase.</strong></p>
+<p>When "one person plus one agent" is no longer enough, collaboration environments start being designed for "a swarm of agents plus people". <span class="turn">The next battlefield for coding tools is collaboration between agents.</span></p>
+<div class="img">
+<img alt="Zed Delta official image" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/zed-delta.jpg"/>
+<p class="img-cap">Zed Delta: a multiplayer coding environment for AI agents.<br/>Image: Zed official.</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://zed.dev/blog/delta" target="_blank">Zed</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-13 · Claude · Sidebar</div>
+<div class="item-title">Claude Cowork moves into the Chrome sidebar: <span class="hl">the AI assistant grows into the browser</span></div>
+<div class="body">
+<p><strong>The Claude in Chrome sidebar upgraded into <span class="accent">Claude Cowork</span> sessions: you work in the page while it collaborates alongside.</strong></p>
+<p>With an AI assistant resident in the browser sidebar, no separate app to open, the barrier to use drops another notch. <span class="turn">AI's entrance is turning from "an app" into "part of the browser".</span></p>
+</div>
+<div class="img">
+<img alt="Claude Cowork" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/claude-cowork.jpg"/>
+<p class="img-cap">Claude Cowork.</p>
+</div>
+<div class="src-line">Sources: <a href="https://claude.com/blog/claude-cowork" target="_blank">Claude</a></div>
+</div>
+</div>
+<!-- ===== Create ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-13 · AutoGPT · Engineering</div>
+<div class="item-title">AutoGPT manages AI pull requests with AGENTS.md: <span class="hl">skill gating, so AI cannot change code recklessly</span></div>
+<div class="body">
+<p><strong>AutoGPT demonstrated how to manage AI-generated pull requests with <span class="accent">AGENTS.md</span> and skill gating, making AI pass a "should this change happen" check before touching code.</strong></p>
+<p>Once AI files its own PRs, engineering management needs new gates. <span class="turn">AGENTS.md has turned from documentation into AI's code of conduct.</span></p>
+</div>
+<div class="img">
+<img alt="AutoGPT with AGENTS.md" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/autogpt.jpg"/>
+<p class="img-cap">AutoGPT with AGENTS.md.</p>
+</div>
+<div class="src-line">Sources: <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank">GitHub / AutoGPT</a> · <a href="https://simonwillison.net/2026/Aug/12/agents-md/" target="_blank">Simon Willison</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-13 · DeepSeek · Controversy</div>
+<div class="item-title">DeepSeek-V4-Pro-0813 early-stops on long tasks, drawing doubt: <span class="hl">how do you balance "saving tokens" with "finishing the job"</span></div>
+<div class="body">
+<p><strong>Community discussion surrounds <span class="accent">DeepSeek-V4-Pro-0813</span> stopping early on long-horizon tasks: is it wrapping up early to save tokens, or genuinely done?</strong></p>
+<p>When a model learns to "save power", it may also learn to "loaf". <span class="turn">Long-horizon agent reliability is becoming a more important metric than "smartness".</span></p>
+</div>
+<div class="img">
+<img alt="DeepSeek-V4-Pro-0813 long horizon" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/updates.jpg"/>
+<p class="img-cap">DeepSeek-V4-Pro-0813 long-horizon behavior.</p>
+</div>
+<div class="src-line">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank">DeepSeek</a> · <a href="https://www.semianalysis.com/p/early-stopping-and-agent-reliability" target="_blank">SemiAnalysis</a> · <a href="https://stratechery.com/2026/nvidias-risky-business/" target="_blank">Stratechery</a></div>
+</div>
+</div>
+<!-- ===== Vision ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">08-13 · Amazon · Data</div>
+<div class="item-title">Twitch content defaults into Amazon's AI training: <span class="hl">streamers' data becomes someone else's training material</span></div>
+<div class="body">
+<p><strong>Amazon will use Twitch streamers' content to train generative AI by default unless users opt out; Ars Technica reported on the default-on "data collection".</strong></p>
+<p>Streams, clips and voice become part of the training set automatically; opting out requires clicking it yourself. <span class="turn">When platforms take your content to feed AI by default, the word "default" is the biggest trap of all.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://arstechnica.com/ai/2026/08/amazon-twitch-content-ai-training/" target="_blank">Ars Technica</a></div>
+</div>
+</div>
+<!-- ===== Funding ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-12 · Anthropic · Compute</div>
+<div class="item-title">Anthropic locks in 20 years of compute: <span class="hl">$9.1B buys up Texas power</span></div>
+<div class="body">
+<p><strong><span class="accent">Anthropic</span> signed a <span class="num">20</span>-year, <span class="num">$9.1B</span> compute agreement with <span class="accent">Riot Platforms</span>, locking <span class="num">191</span> MW of Texas facility capacity to power Claude.</strong></p>
+<p>$6B of acquisitions to fill model gaps on one side, $9.1B of locked compute on the other: competition among top labs has become capital lock-up measured in decades. <span class="turn">The AI arms race has shifted from "who is stronger" to "who locks up resources first".</span></p>
+</div>
+<div class="img">
+<img alt="Anthropic locks in 20 years of compute" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/anthropic-compute.jpg"/>
+<p class="img-cap">Anthropic locks in 20 years of compute.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.cnbc.com/2026/08/12/anthropic-riot-platforms-compute-agreement.html" target="_blank">CNBC</a></div>
+</div>
+</div>
+<!-- ===== Voices ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"Unless you understand probability, you will not understand why large models occasionally answer wrong."</p>
+<p class="voice-who">— Lord Tarassenko · Machine learning researcher · <a href="https://www.ft.com/content/numeracy-ai" target="_blank">Financial Times</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Wrap up early to save tokens, or genuinely finish the job? Long-horizon agent reliability is becoming a metric that matters more than smartness."</p>
+<p class="voice-who">— Community discussion · DeepSeek-V4-Pro long-horizon tasks · <a href="https://www.semianalysis.com/p/early-stopping-and-agent-reliability" target="_blank">SemiAnalysis</a></p>
+</div>
+</div>
+<!-- ===== Takeaway ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">Takeaway</div>
+<div class="body">
+<p>Anthropic paid $6B for Decart to fill its world-model gap and locked $9.1B for twenty years of compute.</p>
+<p>Grok 4.6 tied GPT-5.6 Sol; long-horizon agents became the new battlefield.</p>
+<p>Most Japanese companies have yet to embrace AI; AutoGPT manages AI's code with AGENTS.md.</p>
+<p class="turn">The leaders grab resources, the edges watch and wait, safety gets weaponized: in AI's 2026, every player is looking for its position.</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>The Cascade volcanoes, Pacific Northwest, USA — NASA's satellite captured a range of volcanoes shrouded in smoke, a line of snowcapped peaks standing on the horizon.</strong></p>
+<div class="image-block">
+<img alt="NASA satellite image: the Cascade volcanoes" loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/cascade-volcanoes-shrouded-in-smoke/ISS075-E-2221_th.jpg"/>
+<p class="image-caption">Cascade Volcanoes · Pacific Northwest · photographed by NASA · <span class="num">44.0</span>°N, <span class="num">122.0</span>°W<br/>From Rainier to Shasta, a line of volcanoes stands along the ridge, some snowcapped, some smoking. They live at geology's pace and care nothing for leaderboards. While we argue on screens about whose model is stronger and who is locking up compute, these volcanoes decide on a million-year scale when they will wake. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream — what changed in AI today, and how people chose.
+</div>
+</div>
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>

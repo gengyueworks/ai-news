@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Intelligence Daily | 2026-08-01</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../../index.html">中文版</a></li>
+<li><a class="active" href="../../2026-08/2026-08-22.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI Intelligence Daily</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-01 · Saturday</span>
+<span class="enhanced-badge">✦ Enhanced Edition</span>
+<span>9 stories</span>
+</div>
+<div class="mast-lede">OpenAI brought Astra to Washington.<br/><br/>A new model family of multi-agent long-horizon collaboration surfaced, rumored to be GPT-6; the same day, Moonshot AI fully open-sourced Kimi K3 and closed an F round above <span class="num">$3.5B</span>.<br/><br/>Chinese open models made the US AI sector shed hundreds of billions in a single morning for the first time.</div>
+</div>
+<!-- ===== Top Story ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-01 · Moonshot AI · Open Source</div>
+<div class="item-title">Kimi K3 fully open-sourced: <span class="hl">2.8 trillion parameters, overwhelmed within two days</span></div>
+<div class="body">
+<p><strong>On August 1, Moonshot AI's flagship Kimi K3 (<span class="num">2.8T</span> parameters) was formally and fully open-sourced. Within two days the Hugging Face model page slowed under load and GitHub issues passed a thousand in half a day; several Silicon Valley engineers who long tracked Chinese open source said "impressive", marveling at the pace of China's AI rise. The same day, Moonshot closed an F round above <span class="num">$3.5B</span> at a <span class="num">$35B</span> post-money valuation.</strong></p>
+<p>K3's open sourcing did not stop at weights: it packaged the pre-training data distribution, the search trajectory over training hyperparameters, and the reward model from post-training alignment, all uploaded together. A researcher who ran the full K2 pipeline said what he wanted was not "another DeepSeek-V3" but K3's reasoning record of "why this hyperparameter version ultimately won": "Give only the model without the method, and the community will forever chase numbers; give the method, and the next generation stands on K3's shoulders."</p>
+<p><span class="turn">Releasing full weights hands over the most expensive capability for free. This open-source move forces the closed camp to redo its math.</span></p>
+<div class="image-block">
+<img alt="Moonshot AI Kimi K3: 2.8 trillion parameters fully open-sourced" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/kimi-k3-opensource.jpg"/>
+<p class="image-caption">Moonshot AI Kimi K3 · official image · 2.8 trillion parameters fully open-sourced</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://platform.moonshot.ai/" target="_blank">Moonshot AI platform</a> · <a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank">Hugging Face</a></div>
+</div>
+</div>
+<!-- ===== Front Line ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-01 · OpenAI · New Model</div>
+<div class="item-title">Astra surfaces: <span class="hl">multi-agent long-horizon collaboration, rumored GPT-6</span></div>
+<div class="body">
+<p><strong>Per The Information, OpenAI is preparing a new model family called Astra, focused on multiple agents collaborating over long periods on hard tasks, usable for large projects or advanced mathematics. Altman demonstrated it to US policymakers and regulators this week; the model may undergo federal review before release under a new frontier-AI review framework. Astra may be named GPT-6, or ship as GPT-5.7 in the GPT-5 series.</strong></p>
+<p><span class="turn">From "single-agent conversation" to "multi-agent project teams", OpenAI has moved the product imagination from the chat box to the workbench.</span></p>
+<div class="img">
+<img alt="Astra surfaces: multi-agent long-horizon collaboration, rumored GPT-6" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/openai-astra-preview.jpg"/>
+<p class="img-cap">Astra surfaces: multi-agent long-horizon collaboration, rumored GPT-6.</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://www.theinformation.com/" target="_blank">The Information</a> (Astra source)</div>
+</div>
+</div>
+<!-- ===== Open Source ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · PRACTICAL TOOLS</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-01 · OpenAI · Mathematics</div>
+<div class="item-title">OpenAI publishes ten mathematical advances: <span class="hl">the point is not the model name but the Lean certificates</span></div>
+<div class="body">
+<p><strong>OpenAI released a set of results in mathematics and theoretical computer science, claiming its internal Astra made progress on <span class="num">10</span> long-unsolved problems, and published the <span class="hl">openai/ten-proofs</span> repository containing Lean 4 formalized proofs.</strong></p>
+<p>Simon Willison noted OpenAI claims each problem cost under <span class="num">$2,000</span>, but did not publish how many attempts failed. What he wants to see are the prompts: "I do not want to see the outcomes; I want to see how they asked."</p>
+<p><span class="turn">AI research now ships with machine-verifiable evidence chains: "solved it" is becoming "there is a checkable proof".</span></p>
+<div class="img">
+<img alt="OpenAI publishes ten mathematical advances: the point is the Lean certificates" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/openai-ten-advances.jpg"/>
+<p class="img-cap">OpenAI publishes ten mathematical advances: the point is the Lean certificates.</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://openai.com/index/ten-advances-in-mathematics/" target="_blank">OpenAI</a> · <a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<!-- ===== Voices ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"What people care about more is whether AI can give time back to people."</p>
+<p class="voice-who">— Greg Brockman · OpenAI co-founder · <a href="https://simonwillison.net/2026/Aug/1/greg-brockman/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"What I want to see is not the outcomes but how they asked."</p>
+<p class="voice-who">— Simon Willison · AI researcher · <a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/" target="_blank">simonwillison.net</a></p>
+</div>
+</div>
+<!-- ===== Create ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-01 · Google · Embodied AI</div>
+<div class="item-title">Google ships the ER2 embodied model: <span class="hl">teaching robots to judge "is the task done"</span></div>
+<div class="body">
+<p><strong>Google released three embodied AI models targeting the hard problem of "when has a robot finished its task". ER 2 broke through on "temporal intelligence", accurately judging task completion states, supporting local edge deployment and rapid adaptation to new robot bodies.</strong></p>
+<p><span class="turn">Embodied deployment stalls on fine details like "how far along am I"; ER 2 fills in the robot's own mental ledger.</span></p>
+</div>
+<div class="img">
+<img alt="Google ships ER2 embodied model: judging when the task is done" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/deepmind-models.jpg"/>
+<p class="img-cap">Google ships ER2: teaching robots to judge "is the task done".</p>
+</div>
+<div class="src-line">Sources: <a href="https://deepmind.google/models/" target="_blank">Google DeepMind</a></div>
+</div>
+</div>
+<!-- ===== Vision ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">08-01 · Developers · Experience Change</div>
+<div class="item-title">Dragging Kimi K3 to local machines: <span class="hl">my GPU runs a trillion-parameter model for the first time</span></div>
+<div class="body">
+<p><strong>One developer pulled K3's full weights onto a local multi-GPU machine and ran long-document analysis and code generation end to end, saying work that used to span three APIs now completes on one machine; chip vendors in the community have started building adapters too.</strong></p>
+<p>His setup chains eight consumer GPUs, slicing K3's 2.8 trillion parameters eight ways across tensor parallelism, about 350 billion per card. He expected "just getting it to run would be enough", but in testing, analyzing a 50-page contract dropped from 22 seconds via OpenAI to 9 seconds locally, with the document never leaving the machine. He recorded the whole first successful run on Bilibili; it passed a million views by the next day, and six GPU vendors lined up in the community to build adapters.</p>
+<p><span class="turn">When a trillion-parameter model fits in your own server room, data stays home and tuning goes unrestricted: open source's real dividend is control.</span></p>
+</div>
+<div class="img">
+<img alt="Dragging Kimi K3 to local machines" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/platform-moonshot-ai.jpg"/>
+<p class="img-cap">Dragging Kimi K3 to local machines: my GPU runs a trillion-parameter model for the first time.</p>
+</div>
+<div class="src-line">Sources: <a href="https://platform.moonshot.ai/" target="_blank">Moonshot AI platform</a></div>
+</div>
+</div>
+<!-- ===== Funding ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-01 · Moonshot AI · Fundraising</div>
+<div class="item-title">Moonshot AI closes F round above $3.5B: <span class="hl">G round moved up, heading for pre-IPO</span></div>
+<div class="body">
+<p><strong>Per CYZone, Moonshot AI closed an F round above <span class="num">$3.5B</span>, closing early on 3x oversubscription at a <span class="num">$35B</span> post-money valuation. The G round (pre-IPO), originally planned for August, has started early with a pre-money valuation raised to <span class="num">$50B</span>, targeting a Hong Kong listing within as soon as <span class="num">6</span> months.</strong></p>
+<p><span class="turn">The open-source splash and the funding splash happened the same week, showing capital is betting on the developer network open source gathers, not on any single release.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://platform.moonshot.ai/" target="_blank">Moonshot AI</a> (funding details pending verification)</div>
+</div>
+</div>
+<!-- ===== Takeaway ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">Takeaway</div>
+<div class="body">
+<p>Kimi K3 fully open-sourced at 2.8 trillion parameters, overwhelmed within two days; Moonshot closed an F round above $3.5B.</p>
+<p>OpenAI's Astra surfaced: multi-agent long-horizon collaboration, rumored GPT-6.</p>
+<p>DeepSeek V4-Flash will open its API for free.</p>
+<p>Google shipped the ER2 embodied model, focused on task-completion judgment.</p>
+<p class="turn">On one side, the strongest model given away free as open source; on the other, multi-agents moved onto the workbench. Both of the day's main lines push AI's "usability" forward.</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>Lake Coatepeque, El Salvador — NASA's satellite captured, around N13.8 W89.5, a pool of blue held inside a volcanic crater, still water left behind by plate tectonics in Central America.</strong></p>
+<div class="image-block">
+<img alt="NASA satellite image: Lake Coatepeque crater, El Salvador" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/lake-coatepeque.jpg"/>
+<p class="image-caption">Lake Coatepeque crater · El Salvador · photographed by NASA · <span class="num">13.8</span>°N, <span class="num">89.5</span>°W<br/>A pool of blue rests in the crater, still water left to Central America by plate tectonics. While we argue on screens about who owns which model and where compute goes, the Coatepeque volcano mirrors the same sky at its own pace. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream — what changed in AI today, and how people chose.
+</div>
+</div>
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>

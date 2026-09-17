@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Intelligence Daily | 2026-08-02</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style></head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../../index.html">中文版</a></li>
+<li><a class="active" href="../../2026-08/2026-08-22.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI Intelligence Daily</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-02 · Sunday</span>
+<span class="enhanced-badge">✦ Enhanced Edition</span>
+<span>9 stories</span>
+</div>
+<div class="mast-lede">ByteDance merged Feishu and Doubao into one team.<br/><br/>The biggest ToB reorganization in twenty-one months; the same day, Alibaba opened Qwen3.8-Max as an API.<br/><br/>China's tech giants' AI race has moved from "comparing models" to "comparing entrances".</div>
+</div>
+<!-- ===== Top Story ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-02 · Alibaba · Qwen</div>
+<div class="item-title">Qwen3.8-Max goes live: <span class="hl">Alibaba turns its 2.4T flagship into a usable product first</span></div>
+<div class="body">
+<p><strong>Alibaba released <span class="hl">Qwen3.8-Max</span>, officially its strongest Qwen model yet, with APIs live via QwenCloud / Model Studio. <span class="num">2.4T</span> total parameters, <span class="num">95B</span> active, <span class="num">1M</span> context; priced at <span class="num">$2</span> per million input tokens and <span class="num">$6</span> output. Alibaba says this is the first time it plans to open Max-tier model weights.</strong></p>
+<p>The FT's reading focused on money: Alibaba spent <span class="num">$18.3B</span> in capex last fiscal year with negative free cash flow, but its e-commerce business generates steady cash and its cloud segment is growing fast, giving the models a "model-as-a-service" monetization channel. Against Amazon's $3 trillion market cap, Alibaba sits at a tenth of it; Qwen is its card to prove itself again.</p>
+<p><span class="turn">This race is not just about building top AI but building AI that pays for itself, and Alibaba is betting on both with Qwen at once.</span></p>
+<div class="image-block">
+<img alt="Alibaba Qwen3.8-Max: the 2.4T flagship model goes live" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/qwen3_8_max.jpg"/>
+<p class="image-caption">Alibaba Qwen3.8-Max · official image · the 2.4T flagship turned into a usable product</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank">Alibaba Cloud</a> · FT</div>
+</div>
+</div>
+<!-- ===== Front Line ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-02 · ByteDance · ToB Reorg</div>
+<div class="item-title">Feishu merged into Doubao: <span class="hl">ByteDance's biggest ToB reorganization in twenty-one months</span></div>
+<div class="body">
+<p><strong>ByteDance folded the Feishu product team into Doubao, forming a new Doubao product team under Doubao lead Zhao Qi; Feishu's GTM team merged with Volcano Engine into a new ToB organization. It is ByteDance's largest ToB restructuring in twenty-one months.</strong></p>
+<p>After the integration, AI office work became ByteDance ToB's clear main line: Feishu as the enterprise collaboration foundation, Doubao growing AI capabilities inside office flows, Volcano Engine supplying compute and cloud. Three lines converge on one goal: the "AI work entrance". The giants are racing for the same thing: making AI shift from "an app you must open deliberately" to the layer that is simply present in the workflow.</p>
+<p><span class="turn">When the assistant grows into collaboration software, AI stops being a tool you invoke and becomes the shape of office work itself.</span></p>
+<div class="img">
+<img alt="Feishu merged into Doubao: ByteDance's biggest ToB reorganization in twenty-one months" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/feishu-doubao.jpg"/>
+<p class="img-cap">Feishu merged into Doubao: ByteDance's biggest ToB reorganization in twenty-one months.</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://news.qq.com/rain/a/20260730A05U8Q00" target="_blank">Star Market Daily</a> · <a href="https://finance.sina.com.cn/stock/aigcy/2026-08-06/doc-inimkfvm3888183.shtml" target="_blank">Sina Finance</a></div>
+</div>
+</div>
+<!-- ===== Open Source ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · PRACTICAL TOOLS</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-02 · Open Weights · Funding</div>
+<div class="item-title">US companies building an "American open model" meet a cold reception: <span class="hl">top VCs decline collectively</span></div>
+<div class="body">
+<p><strong>Per the Wall Street Journal citing Phoenix News, facing the shock of low-cost open-weight models like Kimi, Qwen and DeepSeek, US startups such as Arcee AI tried to build an "American version" alternative, only to be rejected by nearly every top VC. Of the <span class="num">$255.5B</span> in Q1 AI funding, nearly two-thirds concentrated in OpenAI, Anthropic and xAI; the open-weights route remains stuck for funding and channels.</strong></p>
+<p>The VCs' logic is not complicated: open-weight models' "customers" are often also competitors. Anyone can take the weights and self-deploy, so paying customers are scarce. One rejected Arcee founder wrote on Substack: "We did not lose to Kimi; we lost to a business model. Open source naturally struggles to find people willing to keep paying for it."</p>
+<p><span class="turn">Money floods toward closed giants while open weights become the road shortest on ammunition: the market has voted with its feet.</span></p>
+<div class="img">
+<img alt="US companies building an American open model meet a cold reception" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/microsoft-open-weight.jpg"/>
+<p class="img-cap">US companies building an "American open model" meet a cold reception.</p>
+</div>
+</div>
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/2/open-letters/" target="_blank">Simon Willison</a> · <a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/" target="_blank">Open Weights letter</a></div>
+</div>
+</div>
+<!-- ===== Voices ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"Depending solely on closed models concentrates risk in a few single points of failure."</p>
+<p class="voice-who">— Open weights letter · led by Microsoft · <a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/" target="_blank">Open Weights and American AI Leadership</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"This race is not just about building top AI, but building AI that pays for itself."</p>
+<p class="voice-who">— FT commentary · <a href="https://www.ft.com/" target="_blank">Financial Times</a></p>
+</div>
+</div>
+<!-- ===== Create ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-02 · MiniMax · Frontier Signal</div>
+<div class="item-title">MiniMax H3 said it would open-source, but by August 2 it had not finished shipping: <span class="hl">release, API and weights are three different things</span></div>
+<div class="body">
+<p><strong>MiniMax announced on July 31 that H3 would be open-sourced, but by August 2 the community was still waiting for full weights and license details. The official page describes H3 as a general video model supporting 2K, <span class="num">15</span> seconds and native stereo, yet Hugging Face still has no complete model card.</strong></p>
+<p>The episode itself is a good reminder: in the open-source world, "announcing" and "actually being open" are separated by permissions, licenses, hosting and community adaptation. H3's open weights and the August 3 local runs (Simon Willison got it working on an M5 Max) are two connected episodes worth reading together.</p>
+<p><span class="turn">Between "saying you will open source" and "really open sourcing" lies the most direct test of a company's sincerity that the community can run.</span></p>
+</div>
+<div class="img">
+<img alt="MiniMax H3 said it would open-source, but by August 2" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/minimax-h3-open-source.jpg"/>
+<p class="img-cap">MiniMax H3 said it would open-source, but by August 2.</p>
+</div>
+<div class="src-line">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax announcement</a> · <a href="https://huggingface.co/blog/ResterChed/minimax-h3-hailuo-3-0" target="_blank">Hugging Face community</a></div>
+</div>
+</div>
+<!-- ===== Vision ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">08-02 · Feishu Customers · Experience Change</div>
+<div class="item-title">Doubao enterprise beta: <span class="hl">inside Feishu, just tell the assistant to do the work</span></div>
+<div class="body">
+<p><strong>Some Feishu customers are beta-testing Doubao Enterprise: inside documents, meetings and approval flows they invoke Doubao directly to summarize, draft and schedule. Tasks that used to require switching between three systems now land in one chat box.</strong></p>
+<p>A mid-sized SaaS company posted their usage in the beta group: during meetings Doubao generates minutes automatically; to-dos @mentioned in the minutes get pushed straight into approvals; once approved, tasks sync back to the Feishu calendar. Their account manager said "meeting, minutes, assigning, chasing" used to span three tools; now Doubao catches the middle two steps, and even the chasing step disappears because everyone sees status when they open Feishu.</p>
+<p><span class="turn">When the assistant lives inside collaboration software, AI stops being an app you open deliberately and becomes the default row in the workflow.</span></p>
+</div>
+<div class="src-line">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax</a></div>
+</div>
+</div>
+<!-- ===== Takeaway ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">Takeaway</div>
+<div class="body">
+<p>ByteDance merged Feishu into Doubao, its biggest ToB reorganization in twenty-one months.</p>
+<p>Alibaba released Qwen3.8-Max, turning its 2.4T flagship into a usable product first; the FT says the race is building AI that pays for itself.</p>
+<p>American "open model" startups met cold VC receptions; Microsoft led an open-weights letter, Anthropic declined to sign.</p>
+<p>MiniMax H3 promised open source but had not finished shipping: release, API and weights are three things.</p>
+<p class="turn">Models, capital and open source converged on one day. AI competition has moved from "who can build the strongest model" to "who can turn it into a business".</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>The canyons of the Colorado Plateau, North America — NASA's satellite captured, around N36.1 W112.1, a deep-cut cliff face, rock layers like pages turned by time.</strong></p>
+<div class="image-block">
+<img alt="NASA satellite image: canyons of the Colorado Plateau" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/nasa_grand_canyon.jpg"/>
+<p class="image-caption">Canyons of the Colorado Plateau · North America · photographed by NASA · <span class="num">36.1</span>°N, <span class="num">112.1</span>°W<br/>A deep-cut cliff face, rock layers like pages turned by time. While we argue on screens about who owns which model and where parameters go, this canyon stacks eons into layers at its own age's pace. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream — what changed in AI today, and how people chose.
+</div>
+</div>
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>

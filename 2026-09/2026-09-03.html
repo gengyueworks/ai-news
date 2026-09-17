@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Google 发布 Gemini 3.8、OpenAI 首定 Critical 风险模型、Claude 5.1 登顶：前沿防线全面重排｜AI 情报日报 2026-09-03</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+:root{--klein:#002FA7;--klein-bright:#0044FF;--paper:#FFFFFF;--ink:#0E0E10;--ink-soft:#3A3A3E;--gray:#6B6B70;--gray-light:#9CA3AF;--line:#E8E8EC;--accent:#C41E3A;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--klein);font-weight:600;margin-bottom:14px;}
+.doc-title{font-size:42px;font-weight:900;letter-spacing:-1.2px;line-height:1.05;color:var(--ink);margin-bottom:14px;}
+.doc-title span{color:var(--klein);}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap;}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{font-size:15.5px;line-height:1.85;color:var(--ink-soft);margin-top:22px;padding:18px 20px;background:#F4F7FF;border-left:4px solid var(--klein);border-radius:4px;}
+.section-block{margin:48px 0;}
+.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:6px;}
+.sec-title{font-size:16px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:24px;display:inline-block;}
+.sec-title::before{content:'▮ ';color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:36px;}
+.item:last-child{margin-bottom:0;}
+.dateline{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);letter-spacing:0.5px;margin-bottom:10px;}
+.item-title{font-size:20px;font-weight:700;line-height:1.45;margin-bottom:14px;color:var(--ink);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;display:inline-block;margin-bottom:4px;}
+.accent{color:var(--accent);font-weight:600;}
+.hl{color:var(--klein);font-weight:600;}
+.turn{color:var(--klein);font-weight:700;}
+.num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.src-line{font-size:12.5px;color:var(--gray);margin-top:12px;font-family:'JetBrains Mono',monospace;}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+.divider{border-top:1px dashed #E8E8EC;margin:24px 0;}
+.voice{position:relative;padding:12px 18px 12px 48px;background:#F8F9FB;border-left:3px solid var(--klein);border-radius:4px;margin-bottom:20px;}
+.voice::before{content:'\201C';position:absolute;left:14px;top:-4px;font-family:Georgia,serif;font-size:60px;color:var(--klein);line-height:1;}
+.voice-text{font-size:15.5px;font-weight:600;line-height:1.65;color:var(--ink);margin-bottom:8px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.curiosity{padding:24px;background:#F4F7FF;border-radius:8px;margin-top:32px;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.image-caption{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;text-align:center;}
+.footer{margin-top:56px;padding-top:24px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);line-height:1.8;text-align:center;}
+.footer .big{color:var(--ink);font-weight:600;}
+.site-nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);z-index:10;}
+.site-nav-inner{max-width:680px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+@media(max-width:520px){.doc-title{font-size:32px;}.container{padding:24px 16px 48px;}}
+</style>
+<!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
+</head>
+<body>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">首页</a></li>
+<li><a class="active" href="2026-09-03.html">最新</a></li>
+<li><a href="../../en/index.html">EN Site</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<h1 class="doc-title">AI 情报<span>日报</span></h1>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-09-03 · 周四</span>
+<span class="enhanced-badge">✦ 升维版</span>
+<span>本期 10 条</span>
+</div>
+<div class="mast-lede">
+<strong>今天的关键词是「<span class="hl">安全重排与能力换挡</span>」：</strong><br/><br/>
+Google DeepMind 闪电发布代号为 Skimaki 的 <span class="hl">Gemini 3.8 Flash</span>，重点补齐代码生成与端侧响应短板；<br/>
+OpenAI 官方确认 <span class="hl">Astra</span> 为内部安全框架下首个触及「严重级别（Critical）」的网络风险模型，高危网络攻防能力仅限封闭测试；<br/>
+Anthropic 推出 <span class="hl">Claude Fable 5.1</span> 并以 <span class="hl">66 分</span>刷新智能指数纪录，同时大幅降低安全过滤器的误拦率。<br/>
+前沿实验室一边推高推理能力，一边收紧高危风险管控。
+</div>
+
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">09-03 · 模型发布 · Google DeepMind / Gemini 3.8</div>
+<div class="item-title">Google 发布 Gemini 3.8 Flash 突袭轻量编程，但真正的大杀器 <span class="hl">Gemini 4</span> 仍在训</div>
+
+<div class="body">
+<p><strong>Google DeepMind 今日正式推出代号为「Skimaki」的 <span class="hl">Gemini 3.8 Flash</span>，重点针对开发者编程工作流进行底层优化。</strong></p>
+<p>新版本大幅缩短了端到端代码生成的响应延迟，并在多语言代码补全与复杂工程重构基准上，全面对标 <span class="accent">Anthropic Claude</span> 与 <span class="accent">OpenAI</span> 旗舰系列。</p>
+<p>同期推出的还有专门针对自动化漏洞分析与代码审计的专用版，而参数规模更为宏大的下一代主力模型 <span class="accent">Gemini 4</span> 据证实仍在集群训练中。</p>
+<p><span class="turn">大模型在轻量高频场景的争夺，</span>正在从单纯的参数规模转向每秒 Token 吞吐与长程上下文执行的综合性价比。</p>
+</div>
+<div class="src-line">来源：<a href="https://deepmind.google/technologies/gemini/" target="_blank">Google DeepMind</a> · <a href="https://stratechery.com/2026/ai-scaling-and-frontier-models/2026/ai-scaling-and-frontier-models/" target="_blank">Stratechery</a> · <a href="https://www.interconnects.ai/p/frontier-models-analysis" target="_blank">Interconnects</a></div></div>
+</div>
+</div>
+
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">09-03 · 风险控制 · OpenAI / Astra</div>
+<div class="item-title">确认 Astra 触及「严重」网络风险阈值，全功能仅限小范围授权开放，但真正的硬仗才刚刚开始</div>
+<div class="body">
+<p><strong>前沿实验室 在最新发布的准备度框架（Preparedness Framework）说明中披露，<span class="hl">Astra</span> 在自主网络渗透测试中具备无需人工引导发现并利用零日漏洞的能力。</strong></p>
+<p>这是 前沿实验室 内部安全评估中首个被定为最高风险等级（Critical）的模型对象，官方宣布仅通过 Daybreak Blue 计划向极少数通过背调的独立研究者与安全团队开放最强版本。</p>
+<p><span class="turn">高阶智能体能力的双刃剑效应已成行业共识：</span>当模型具备长程自主环境探索与自动化攻防能力时，安全隔离机制必须与能力突破同步落地。</p>
+</div>
+<div class="src-line">来源：<a href="https://openai.com/index/path-to-astra-frontier-safeguards/path-to-astra-frontier-safeguards" target="_blank">前沿实验室 官方博客</a> · <a href="https://simonwillison.net/2026/Sep/ai-breakthroughs/" target="_blank">Simon Willison's Weblog</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">09-03 · 评测突破 · Anthropic / Claude Fable 5.1</div>
+<div class="item-title"><span class="hl">Claude Fable 5.1</span> 登顶智能指数，安全过滤器误拦率大幅下降 <span class="accent">60%</span></div>
+<div class="body">
+<p><strong>Anthropic 推出微调版 <span class="hl">Claude Fable 5.1</span> 与低护栏科研专版 <span class="accent">Mythos 5.1</span>，在 Artificial Analysis 智能指数上以 <span class="accent">66 分</span>创下新纪录。</strong></p>
+<p>新版本将典型推理任务成本压缩约 <span class="accent">25%</span>，同时重构了此前受开发者诟病的安全防护网，使正常编程场景下的误触发拦截骤降 <span class="accent">60%</span>。</p>
+</div>
+<div class="src-line">来源：<a href="https://www.anthropic.com/news/fable-5-1-and-mythos-release/fable-5-1-and-mythos-release" target="_blank">Anthropic 官方</a> · <a href="https://thezvi.substack.com/p/ai-weekly-roundup" target="_blank">The Zvi</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">09-03 · 智能体生态 · Meta / Muse Spark 1.3</div>
+<div class="item-title">Meta 发布 <span class="hl">Muse Spark 1.3</span>，首发支持超 20 人实时语音转写的 <span class="accent">Muse Voice</span></div>
+<div class="body">
+<p><strong>Meta 宣布推出 <span class="hl">Muse Spark 1.3</span> 智能体底座，在保持价格不变的同时显著增强长任务逻辑推导能力。</strong></p>
+<p>同步亮相的 <span class="accent">Muse Voice Transcribe</span> 支持在复杂嘈杂场景下精准分离并转写超过 <span class="accent">20 位</span>说话人，面向 7×24 小时个人数字助理与全天候会议流式处理提供支持。</p>
+</div>
+<div class="src-line">来源：<a href="https://about.fb.com/news/2026/09/muse-spark-1-3-voice/2026/09/muse-spark-1-3-voice/" target="_blank">Meta Newsroom</a></div>
+</div>
+</div>
+
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">开源前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">09-03 · 多模态开源 · DeepSeek / V4 Flash Vision</div>
+<div class="item-title"><span class="hl">DeepSeek</span> 开源首个 V4 系多模态模型，MIT 协议全面开放权重与部署脚本</div>
+<div class="body">
+<p><strong>DeepSeek 在 Hugging Face 正式开源实验性视觉多模态架构 <span class="accent">DeepSeek-V4-Flash-Vision-Exp</span>。</strong></p>
+<p>该模型基于极高吞吐的混合专家架构设计，不仅能够理解高分辨率图表与结构化文档，更原生支持长视频时序因果推理。</p>
+</div>
+<div class="src-line">来源：<a href="https://huggingface.co/deepseek-ai" target="_blank">Hugging Face 官方页面</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">09-03 · 社区趋势 · Qwen / Flash-Next</div>
+<div class="item-title"><span class="hl">Qwen3.8-Flash-Next</span> 霸榜趋势第一，点赞下载比接近 <span class="accent">1，1</span></div>
+<div class="body">
+<p><strong>阿里通义开源的 <span class="hl">Qwen3.8-Flash-Next</span> 以接近 4000 点的热度指数持续领跑开源社区。</strong></p>
+<p>高比例的点赞与下载转化率显示，轻量且推理极快的小钢炮架构正被开发者密集集成至私有工作流与本地部署终端中。</p>
+</div>
+<div class="src-line">来源：<a href="https://github.com/QwenLM" target="_blank">Qwen 官方仓库</a></div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">声音</div>
+
+<div class="voice">
+<p class="voice-text">「当模型开始具备独立利用零日漏洞的能力，闭门测试就不再是自私，并且对开源软件基础设施最基本的负责。」</p>
+<p class="voice-who">前沿实验室 准备度安全评估小组 · <a href="https://openai.com/index/path-to-astra-frontier-safeguards" target="_blank">前沿实验室 官方博客</a></p>
+</div>
+
+<div class="voice">
+<p class="voice-text">「把安全拦截的误伤率降低六成，证明对齐工作可以做得更精细，不需要用一刀切的死板规则阻碍正常的科学研发。」</p>
+<p class="voice-who">Ilya Sutskever · Anthropic 首席执行官 · <a href="https://www.anthropic.com/ai-briefing" target="_blank">Anthropic 官方</a></p>
+</div>
+</div>
+
+<!-- ===== 投资与资金流向 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Funding</div>
+<div class="sec-title">投资与资金流向</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">09-03 · 企业级融资 · Wonderful / C 轮</div>
+<div class="item-title">企业级 AI 架构商 <span class="accent">Wonderful</span> 完成 <span class="accent">5.5 亿美元</span> C 轮融资，估值翻倍至 <span class="accent">50 亿美元</span></div>
+<div class="body">
+<p><strong>专注于企业核心工作流深度集成的 AI 服务商 <span class="accent">Wonderful</span> 宣布完成新一轮巨额融资，由 Insight Partners 领投、Salesforce 战略跟投。</strong></p>
+<p>公司投后估值较半年前直接翻番，反映出资本市场对具备真实私有化部署壁垒与企业数据打通能力的平台持续给予高确定性溢价。</p>
+</div>
+<div class="src-line">来源：<a href="https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/2026/09/02/wonderful-raises-550m-series-c-valuation-5b/" target="_blank">TechCrunch</a> · <a href="https://stratechery.com/2026/ai-scaling-and-frontier-models/2026/ai-scaling-and-frontier-models/" target="_blank">Stratechery</a></div>
+</div>
+</div>
+
+<!-- ===== 小结 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">小结</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="body">
+<p>今天的主线是「能力升级与风险分层」：Google 补齐编程速度，Anthropic 刷新智能指数，前沿实验室 则第一次将最强自主攻击能力锁入安全箱。当模型智力从工具跃迁为潜在系统级力量，行业正在用更细密的网格划分能力的可用边界。</p>
+</div>
+</div>
+</div>
+
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>阿拉斯加的火山群，冰川与岩浆共存。</strong></p>
+<div class="image-block">
+<img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/154000/154461/iliamnavolcano_oli_20250610_th.jpg" alt="NASA 卫星影像：Iliamna Volcano, Alaska, USA" loading="lazy">
+<p class="image-caption">Iliamna Volcano, Alaska, USA · NASA · <span class="num">60.03°N, 153.09°W</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流，AI每天在变什么，人在怎么选
+</div>
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
