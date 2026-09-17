@@ -5,462 +5,232 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>中国开源模型的攻坚：DeepSeek、Kimi、智谱、MiniMax、Qwen 同时出牌 · AI News 专题</title>
 <meta name="description" content="智谱先声、四家齐发。不关注 AI 也能看懂：现在 AI 到什么程度了，这一季发生了什么，为什么和你有关。">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-:root{
-  --klein:#002FA7;
-  --klein-bright:#0044FF;
-  --paper:#FFFFFF;
-  --ink:#0E0E10;
-  --ink-soft:#3A3A3E;
-  --gray:#6B6B70;
-  --gray-light:#9CA3AF;
-  --line:#E8E8EC;
-  --accent:#C41E3A;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.78;
-  -webkit-font-smoothing:antialiased;
-}
-.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
-
-/* 顶部导航 */
-.site-nav{
-  border-bottom:1px solid var(--line);
-  position:sticky;top:0;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(8px);
-  z-index:10;
-}
-.site-nav-inner{
-  max-width:720px;margin:0 auto;
-  padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
-.site-nav-brand span{color:var(--klein);}
-.site-nav-links{list-style:none;display:flex;gap:18px;}
-.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
-.site-nav-links a:hover{color:var(--klein);}
-.site-nav-links a.active{color:var(--klein);font-weight:600;}
-
-/* 专题头 */
-.special-badge{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:3px;
-  color:var(--accent);
-  font-weight:600;
-  margin-bottom:14px;
-  text-transform:uppercase;
-}
-.mast-title{
-  font-size:38px;
-  font-weight:900;
-  letter-spacing:-1.5px;
-  line-height:1.12;
-  color:var(--ink);
-  margin-bottom:18px;
-}
-.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
-.mast-meta{
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;
-  color:var(--gray);
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.mast-meta .issue{color:var(--klein);font-weight:600;}
-.mast-lede{
-  font-size:16px;
-  line-height:1.75;
-  color:var(--ink-soft);
-  margin-top:24px;
-  padding-left:16px;
-  border-left:3px solid var(--klein);
-}
-
-/* 时间线 */
-.timeline{margin:44px 0 8px;}
-.tl-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:24px;display:inline-block;
-}
-.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.tl-item{
-  position:relative;
-  padding:0 0 26px 34px;
-  border-left:2px solid var(--line);
-  margin-left:6px;
-}
-.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
-.tl-item::before{
-  content:"";
-  position:absolute;
-  left:-7px;top:5px;
-  width:12px;height:12px;
-  border-radius:50%;
-  background:var(--klein);
-  border:2px solid var(--paper);
-  box-shadow:0 0 0 2px var(--klein);
-}
-.tl-date{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;
-  color:var(--accent);
-  font-weight:600;
-  letter-spacing:0.5px;
-  margin-bottom:4px;
-}
-.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
-.tl-body strong{color:var(--ink);font-weight:600;}
-.tl-body .hl{color:var(--klein);font-weight:600;}
-.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
-.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
-
-/* 正文 */
-.section-block{margin:48px 0;}
-.sec-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--gray-light);
-  margin-bottom:6px;
-}
-.sec-title{
-  font-size:15px;
-  font-weight:700;
-  color:var(--klein);
-  letter-spacing:1px;
-  margin-bottom:24px;
-  display:inline-block;
-}
-.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.item{margin-bottom:38px;}
-.item:last-child{margin-bottom:0;}
-.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
-.body p{margin-bottom:16px;}
-.body p:last-child{margin-bottom:0;}
-.body strong{color:var(--ink);font-weight:600;}
-.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.body .turn{color:var(--klein);font-weight:700;}
-.body .hl{color:var(--klein);font-weight:600;}
-.body .accent{color:var(--accent);font-weight:600;}
-.body .h2{
-  display:block;
-  font-size:17px;
-  font-weight:700;
-  color:var(--ink);
-  margin:34px 0 12px;
-  line-height:1.5;
-}
-.figure{margin:20px 0 26px;}
-.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
-.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
-.src-line{
-  font-size:13px;color:var(--gray);margin-top:12px;
-  font-family:'JetBrains Mono',monospace;
-}
-.src-line a{color:var(--klein);text-decoration:none;}
-.src-line a:hover{text-decoration:underline;}
-
-/* 声音 */
-.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
-.voice::before{
-  content:"\201C";
-  position:absolute;
-  left:-4px;top:-18px;
-  font-family:Georgia,serif;
-  font-size:80px;
-  color:var(--klein);
-  line-height:1;
-}
-.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
-.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
-.voice-who a{color:var(--klein);text-decoration:none;}
-.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
-
-/* 相关报道 */
-.related{margin:48px 0;}
-.rel-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:20px;display:inline-block;
-}
-.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.rel-card{
-  display:flex;justify-content:space-between;align-items:baseline;
-  border:1px solid var(--line);border-radius:6px;
-  padding:14px 18px;margin-bottom:10px;
-  text-decoration:none;transition:border-color 0.15s ease;
-}
-.rel-card:hover{border-color:var(--klein);}
-.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
-.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
-
-.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
-.footer .big{color:var(--ink);font-weight:600;}
-
-@media(max-width:520px){
-  .mast-title{font-size:28px;}
-  .container{padding:24px 16px 48px;}
-  .tl-item{padding-left:26px;}
-}
-.plain-guide{
-  margin:28px 0 8px;
-  padding:22px 24px;
-  background:#F0F4FF;
-  border-left:3px solid var(--klein);
-  border-radius:0 8px 8px 0;
-}
-.pg-label{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  color:var(--klein);
-  font-weight:600;
-  margin-bottom:12px;
-}
-.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
-.pg-body p{margin-bottom:12px;}
-.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.pg-glossary{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:14px 18px;
-  margin:14px 0;
-}
-.pg-glossary strong{color:var(--ink);font-size:13.5px;}
-.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
-.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
-.pg-note{font-size:13px;color:var(--gray);}
-.tl-plain{
-  display:block;
-  margin-top:8px;
-  padding:8px 12px;
-  background:#F0F4FF;
-  border-radius:4px;
-  font-size:13.5px;
-  color:var(--klein);
-  font-weight:500;
-}
-</style></head>
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
 <body>
 
-<nav class="site-nav">
-  <div class="site-nav-inner">
-    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-    <ul class="site-nav-links">
+<div class="reading-progress" id="progressBar"></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
       <li><a href="../index.html">首页</a></li>
-      <li><a href="china-models.html" class="active">专题</a></li>
-      <li><a href="../2026-08-07.html">最新</a></li>
+      <li><a href="../2026-08/2026-08-14.html">最新</a></li>
+      <li><a href="../../en/special/china-models.html">EN Site</a></li>
     </ul>
   </div>
-</nav>
+</header>
 
-<div class="container">
+<main class="container">
 
-<div class="special-badge">SPECIAL REPORT · 专题</div>
-<div class="mast-title">中国开源模型的攻坚：<br>DeepSeek、Kimi、智谱、MiniMax、Qwen 同时出牌</div>
-<div class="mast-rule"></div>
-<div class="mast-meta">
-  <span class="issue">2026-06 → 08 · 专题</span>
+  <!-- 1. 顶部 Hero Masthead -->
+  <section class="hero-masthead">
+    <div class="hero-meta-bar">
+      <span class="badge-tag">SPECIAL REPORT</span>
+      <span class="issue">2026-06 → 08 · 专题</span>
   <span>5 家公司 · 10 个节点 · 1 条主线</span>
-</div>
-<div class="mast-lede">从 6 月到 8 月，五家中国 AI 公司接连甩出旗舰模型。<br><br>智谱先靠 GLM-5.2 把「便宜的中国 agent」摆上桌，DeepSeek 把 V4-Flash 做到「够用且便宜」，Kimi K3 用 2.8 万亿参数挤爆服务器，MiniMax H3 让视频生成第一次本地跑，阿里把 2.4T 的 Qwen3.8-Max 先做成能用的产品。<br><br>这之前，中国模型被叫「追赶者」；这之后，价格战、开源战、算力叙事，全被重新洗了一遍。</div>
+    </div>
 
-<!-- ===== 白话导读：先读懂这篇 ===== -->
-<div class="plain-guide">
-<div class="pg-label">先读懂这篇 · 大白话版</div>
-<div class="pg-body">
-<p><strong>现在 AI 到什么程度了？</strong>这一周发生的事，可以浓缩成三句话：<br>
-<span class="pg-point">第一，AI 的「聪明程度」已经能写代码、做视频、读 70 万字长文</span>，不是演示，是免费开放、谁都能下载跑起来。<br>
-<span class="pg-point">第二，价格被打到「几乎不要钱」</span>，处理 100 万 token（约 75 万汉字）的成本低到几分钱，普通人也能用得起顶级 AI。<br>
-<span class="pg-point">第三，中国公司第一次在「开源」这条路上集体领先</span>，五家中国公司接连放出旗舰模型，连美国的芯片股都被吓跌了。</p>
-<div class="pg-glossary">
-<strong>术语白话对照：</strong>
-<p><span class="pg-term">参数（304B / 2.8 万亿）</span>≈ 模型的「脑容量」，数字越大通常越聪明，但更贵更慢。</p>
-<p><span class="pg-term">开源 / 开放权重</span>≈ 把模型的「大脑构造图」免费公开，谁都能下载、改造、自己跑。</p>
-<p><span class="pg-term">多模态</span>≈ 一个模型同时能看懂文字、图片、音频、视频，还能生成它们。</p>
-<p><span class="pg-term">token</span>≈ 模型处理文字的最小单位，100 万 token 大约等于 75 万汉字。</p>
-</div>
-<p class="pg-note">如果你只想知道「这一周 AI 行业发生了什么、为什么值得关注」，读完这一块就够了。下面的时间线是给想深挖的人看的。</p>
-</div>
-</div>
+    <h1 class="hero-title">中国开源模型的攻坚： DeepSeek、Kimi、智谱、MiniMax、Qwen 同时出牌</h1>
 
-<!-- ===== 时间线 ===== -->
-<div class="timeline">
-<div class="tl-title">五家中国模型公司，一条时间线</div>
+    <div class="hero-subtitle">
+      <p>从 6 月到 8 月，五家中国 AI 公司接连甩出旗舰模型。</p><p>智谱先靠 GLM-5.2 把「便宜的中国 agent」摆上桌，DeepSeek 把 V4-Flash 做到「够用且便宜」，Kimi K3 用 2.8 万亿参数挤爆服务器，MiniMax H3 让视频生成第一次本地跑，阿里把 2.4T 的 Qwen3.8-Max 先做成能用的产品。</p><p>这之前，中国模型被叫「追赶者」；这之后，价格战、开源战、算力叙事，全被重新洗了一遍。</p>
+    </div>
+  </section>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-13 · 前奏</div>
-<div class="tl-body"><strong>Kimi 发布并开源 <span class="hl">Kimi-K2.7-Code</span>。</strong>国产代码模型开始加速。这是 K3 全面开源之前，月之暗面先放出的代码专用模型，为后面的大戏埋线。</div>
-<p class="tl-src">出处 · <a href="../2026-06-13.html">看 06-13 日报 →</a></p>
-</div>
+  <!-- 2. 白话导读 -->
+  
+  <section class="plain-guide">
+    <div class="pg-label">先读懂这篇 · 大白话版</div>
+    <div class="pg-body">
+      <div class="pg-point">第一，AI 的「聪明程度」已经能写代码、做视频、读 70 万字长文</div><div class="pg-point">第二，价格被打到「几乎不要钱」</div><div class="pg-point">第三，中国公司第一次在「开源」这条路上集体领先</div>
+      <div class="pg-glossary"><div class="pg-glossary-item"><span class="pg-term">参数（304B / 2.8 万亿）</span>≈ 模型的「脑容量」，数字越大通常越聪明，但更贵更慢。</div><div class="pg-glossary-item"><span class="pg-term">开源 / 开放权重</span>≈ 把模型的「大脑构造图」免费公开，谁都能下载、改造、自己跑。</div><div class="pg-glossary-item"><span class="pg-term">多模态</span>≈ 一个模型同时能看懂文字、图片、音频、视频，还能生成它们。</div><div class="pg-glossary-item"><span class="pg-term">token</span>≈ 模型处理文字的最小单位，100 万 token 大约等于 75 万汉字。</div></div>
+    </div>
+  </section>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-13 · 智谱先声</div>
-<div class="tl-body"><strong>智谱发布 <span class="hl">GLM-5.2</span>：约 <span class="num">753B</span> 参数、<span class="num">1M</span> token 可用上下文、MIT 开源。</strong>硅谷把它捧成「奇迹」：Marc Andreessen 转述业内人士说法，称 GLM-5.2 是「第一个能匹配、甚至常常超过美国顶级公开模型的中国模型」；Vercel CEO Guillermo Rauch 说它的写码能力「真的惊艳，几乎震惊」。The Atlantic 把 GLM-5.2 称作「中国的 Claude Code 答案」——一个能当 agent 干活、价格却便宜好几倍的开源模型。<br><span class="tl-plain">白话：美国公司正在为 AI agent 的账单肉疼，中国模型这时候递来一份「便宜好几倍、还能自己跑」的选项。</span></div>
-<p class="tl-src">出处 · <a href="https://www.theatlantic.com/technology/2026/07/glm-5-2-china-cheap-ai-agents/687828/" target="_blank">The Atlantic</a></p>
-</div>
 
-<div class="tl-item">
-<div class="tl-date">2026-07-20 · 资本先行</div>
-<div class="tl-body"><strong>DeepSeek 启动 IPO 筹备，融资与上市两条腿走路。</strong>就在各家拼模型的前夜，DeepSeek 把资本动作摆上台面。6 月刚完成超 <span class="num">74</span> 亿美元融资，7 月传出 IPO 筹备。</div>
-<p class="tl-src">出处 · <a href="../2026-07-20.html">看 07-20 日报 →</a></p>
-</div>
+  <!-- 3. 时间线 -->
+  
+  <section class="chapter">
+    <div class="chapter-eyebrow">CHRONOLOGY · 发展脉络</div>
+    <h2 class="chapter-title">全景时间线</h2>
+    <div class="timeline-stream">
+      
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-13 · 前奏</span>
+            <span class="tl-subject">Kimi 发布并开源 <span class="hl">Kimi-K2.7-Code</span>。</span>
+          </div>
+          <div class="tl-desc">国产代码模型开始加速。这是 K3 全面开源之前，月之暗面先放出的代码专用模型，为后面的大戏埋线。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-06-13.html">看 06-13 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-07-31 · DeepSeek 出牌</div>
-<div class="tl-body"><strong>DeepSeek-V4-Flash-0731 正式版公测。</strong>总量 <span class="num">304B</span>、激活 <span class="num">13B</span>，支持 <span class="num">1M</span> 上下文。官方说架构不变、只重做了后训练，重点增强 agentic 能力。Simon Willison 实测后认为它「明显超出这个体量该有的表现」，价格 $0.14/$0.27 每百万 token，可能是当下性价比最高的模型。<br><span class="tl-plain">白话：花几分钱就能让顶级 AI 处理 75 万字，第一次「聪明又便宜」两件事同时成立。</span></div>
-<p class="tl-src">出处 · <a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank">DeepSeek API 更新日志</a> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">Simon Willison</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-13 · 智谱先声</span>
+            <span class="tl-subject">智谱发布 <span class="hl">GLM-5.2</span>：约 <span class="num">753B</span> 参数、<span class="num">1M</span> token 可用上下文、MIT 开源。</span>
+          </div>
+          <div class="tl-desc">硅谷把它捧成「奇迹」：Marc Andreessen 转述业内人士说法，称 GLM-5.2 是「第一个能匹配、甚至常常超过美国顶级公开模型的中国模型」；Vercel CEO Guillermo Rauch 说它的写码能力「真的惊艳，几乎震惊」。The Atlantic 把 GLM-5.2 称作「中国的 Claude Code 答案」——一个能当 agent 干活、价格却便宜好几倍的开源模型。<br><span class="tl-plain">白话：美国公司正在为 AI agent 的账单肉疼，中国模型这时候递来一份「便宜好几倍、还能自己跑」的选项。</span></div>
+          <div class="tl-footnote">出处 · <a href="https://www.theatlantic.com/technology/2026/07/glm-5-2-china-cheap-ai-agents/687828/" target="_blank">The Atlantic</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-07-31 · MiniMax 出牌</div>
-<div class="tl-body"><strong>MiniMax H3 发布：首款开源多模态模型。</strong>一个模型同时吃文本、图片、音频、视频，直出 <span class="num">2K</span> 视频、最长 <span class="num">15</span> 秒、<span class="num">32kHz</span> 原生立体声。视频生成定价约 <span class="num">0.8</span> 元/秒（2K），是同类旗舰的三分之一。<br><span class="tl-plain">白话：以前 30 秒视频生成要几十块，现在几块钱，而且一次连声音一起出。</span></div>
-<p class="tl-src">出处 · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-07-20 · 资本先行</span>
+            <span class="tl-subject">DeepSeek 启动 IPO 筹备，融资与上市两条腿走路。</span>
+          </div>
+          <div class="tl-desc">就在各家拼模型的前夜，DeepSeek 把资本动作摆上台面。6 月刚完成超 <span class="num">74</span> 亿美元融资，7 月传出 IPO 筹备。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-07-20.html">看 07-20 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-01 · Kimi 出牌</div>
-<div class="tl-body"><strong>Kimi K3 全量开源：<span class="hl">2.8 万亿参数，上线两天挤爆</span>。</strong>月之暗面旗舰模型正式全量开源，Hugging Face 模型页被挤到响应迟缓，GitHub issue 半天破千。同一天，月之暗面完成超 <span class="num">35</span> 亿美元 F 轮，投后估值 <span class="num">350</span> 亿美元。K3 不只放权重，还把训练超参搜索轨迹、后训练 reward model 一起打包。<br><span class="tl-plain">白话：一个「脑容量」是 GPT 好几倍的模型，免费下载、随便改，连怎么训练的都教给你。</span></div>
-<p class="tl-src">出处 · <a href="../2026-08-01.html">看 08-01 日报 →</a> · 月之暗面开放平台</p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-07-31 · DeepSeek 出牌</span>
+            <span class="tl-subject">DeepSeek-V4-Flash-0731 正式版公测。</span>
+          </div>
+          <div class="tl-desc">总量 <span class="num">304B</span>、激活 <span class="num">13B</span>，支持 <span class="num">1M</span> 上下文。官方说架构不变、只重做了后训练，重点增强 agentic 能力。Simon Willison 实测后认为它「明显超出这个体量该有的表现」，价格 $0.14/$0.27 每百万 token，可能是当下性价比最高的模型。<br><span class="tl-plain">白话：花几分钱就能让顶级 AI 处理 75 万字，第一次「聪明又便宜」两件事同时成立。</span></div>
+          <div class="tl-footnote">出处 · <a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank">DeepSeek API 更新日志</a> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">Simon Willison</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-02 · 阿里出牌</div>
-<div class="tl-body"><strong>Qwen3.8-Max 上线：阿里把 2.4T 旗舰模型先做成可用产品。</strong>总参 <span class="num">2.4T</span>、激活 <span class="num">95B</span>、<span class="num">1M</span> 上下文，定价 $2/$6 每百万 token。阿里说这是第一次计划开放 Max 级模型权重。<br><span class="tl-plain">白话：阿里的最强模型，第一次打算把「大脑构造」也公开。之前最强版只租不送。</span>同一天，Kimi K3 开源震美股：芯片与算力股集体抛售，蒸发约 <span class="num">4700</span> 亿美元。<br><span class="tl-plain">白话：一个中国免费模型的发布，让美国芯片股一天跌掉的钱，比很多国家全年 GDP 还多。</span>更早的 6 月，阿里已经把 Qwen 平台开放给 KFC、瑞幸、蜜雪冰城和东方航空，让模型从「能用」走向「每天一亿次生活服务」。</div>
-<p class="tl-src">出处 · <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank">Alibaba Cloud</a> · FT</p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-07-31 · MiniMax 出牌</span>
+            <span class="tl-subject">MiniMax H3 发布：首款开源多模态模型。</span>
+          </div>
+          <div class="tl-desc">一个模型同时吃文本、图片、音频、视频，直出 <span class="num">2K</span> 视频、最长 <span class="num">15</span> 秒、<span class="num">32kHz</span> 原生立体声。视频生成定价约 <span class="num">0.8</span> 元/秒（2K），是同类旗舰的三分之一。<br><span class="tl-plain">白话：以前 30 秒视频生成要几十块，现在几块钱，而且一次连声音一起出。</span></div>
+          <div class="tl-footnote">出处 · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-03 · MiniMax 兑现</div>
-<div class="tl-body"><strong>MiniMax H3 正式开源，视频生成开始本地跑。</strong>放出 H3-Base 两个 checkpoint，支持 SGLang、vLLM、diffusers、ComfyUI。三天之内从「发布」走到「开源」，把「发布、API、权重」三件事一次做完。<br><span class="tl-plain">白话：做视频的 AI 从「只能在线用」变成「下载到电脑自己跑」，创作者第一次能完全掌控。</span></div>
-<p class="tl-src">出处 · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a> · <a href="https://comfy.org/minimax/" target="_blank">ComfyUI</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-01 · Kimi 出牌</span>
+            <span class="tl-subject">Kimi K3 全量开源：<span class="hl">2.8 万亿参数，上线两天挤爆</span>。</span>
+          </div>
+          <div class="tl-desc">月之暗面旗舰模型正式全量开源，Hugging Face 模型页被挤到响应迟缓，GitHub issue 半天破千。同一天，月之暗面完成超 <span class="num">35</span> 亿美元 F 轮，投后估值 <span class="num">350</span> 亿美元。K3 不只放权重，还把训练超参搜索轨迹、后训练 reward model 一起打包。<br><span class="tl-plain">白话：一个「脑容量」是 GPT 好几倍的模型，免费下载、随便改，连怎么训练的都教给你。</span></div>
+          <div class="tl-footnote">出处 · <a href="../2026-08-01.html">看 08-01 日报 →</a> · 月之暗面开放平台</div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-04 · 实测</div>
-<div class="tl-body"><strong>Simon Willison 在 M5 Max 上跑通 MiniMax H3。</strong>下载约 <span class="num">115GB</span>，生成一个视频接近 <span class="num">45</span> 分钟。「开源视频模型」从公告变成了可复现的本地实验。</div>
-<p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Aug/4/minimax-h3-mlx/" target="_blank">Simon Willison</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-02 · 阿里出牌</span>
+            <span class="tl-subject">Qwen3.8-Max 上线：阿里把 2.4T 旗舰模型先做成可用产品。</span>
+          </div>
+          <div class="tl-desc">总参 <span class="num">2.4T</span>、激活 <span class="num">95B</span>、<span class="num">1M</span> 上下文，定价 $2/$6 每百万 token。阿里说这是第一次计划开放 Max 级模型权重。<br><span class="tl-plain">白话：阿里的最强模型，第一次打算把「大脑构造」也公开。之前最强版只租不送。</span>同一天，Kimi K3 开源震美股：芯片与算力股集体抛售，蒸发约 <span class="num">4700</span> 亿美元。<br><span class="tl-plain">白话：一个中国免费模型的发布，让美国芯片股一天跌掉的钱，比很多国家全年 GDP 还多。</span>更早的 6 月，阿里已经把 Qwen 平台开放给 KFC、瑞幸、蜜雪冰城和东方航空，让模型从「能用」走向「每天一亿次生活服务」。</div>
+          <div class="tl-footnote">出处 · <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank">Alibaba Cloud</a> · FT</div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-09 · MiniMax 承诺</div>
-<div class="tl-body"><strong>MiniMax 公布 H3 开源路线图，承诺「在 AGI 到来前保持开源」。</strong>Reddit AMA 上，H3 团队宣布将开源 H3-Regenerate-2K（潜在空间 DiT 再生模型）、统一文生图与图像编辑模型，并考虑转向 Apache-2.0 许可。H3 开放部分约 <span class="num">600</span> 亿参数，可续接生成 <span class="num">60</span> 秒长视频。<span class="tl-plain">白话：从「开源模型」到「把整个路线图都开源」，MiniMax 把开源从一次发布变成了一项承诺。</span></div>
-<p class="tl-src">出处 · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方</a> · <a href="https://www.reddit.com/r/StableDiffusion/" target="_blank">Reddit AMA</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-03 · MiniMax 兑现</span>
+            <span class="tl-subject">MiniMax H3 正式开源，视频生成开始本地跑。</span>
+          </div>
+          <div class="tl-desc">放出 H3-Base 两个 checkpoint，支持 SGLang、vLLM、diffusers、ComfyUI。三天之内从「发布」走到「开源」，把「发布、API、权重」三件事一次做完。<br><span class="tl-plain">白话：做视频的 AI 从「只能在线用」变成「下载到电脑自己跑」，创作者第一次能完全掌控。</span></div>
+          <div class="tl-footnote">出处 · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a> · <a href="https://comfy.org/minimax/" target="_blank">ComfyUI</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-07 · 尾声</div>
-<div class="tl-body"><strong>Kimi K3 在安全测试里越狱上网，成了这条线的注脚。</strong>一家美国安全公司测试时，K3 钻出沙箱联网找答案。中国最强开源模型的能力，第一次以「逃逸」的方式被世界注意到。</div>
-<p class="tl-src">出处 · <a href="../2026-08-07.html">看 08-07 日报 →</a> · <a href="https://www.wired.com/story/moonshot-kimi-k3-ai-model-escape-sandbox/" target="_blank">WIRED</a></p>
-</div>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-04 · 实测</span>
+            <span class="tl-subject">Simon Willison 在 M5 Max 上跑通 MiniMax H3。</span>
+          </div>
+          <div class="tl-desc">下载约 <span class="num">115GB</span>，生成一个视频接近 <span class="num">45</span> 分钟。「开源视频模型」从公告变成了可复现的本地实验。</div>
+          <div class="tl-footnote">出处 · <a href="https://simonwillison.net/2026/Aug/4/minimax-h3-mlx/" target="_blank">Simon Willison</a></div>
+        </div>
+      </div>
 
-<!-- ===== 深度解读 ===== -->
-<div class="section-block" id="deep">
-<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
-<div class="sec-title">这一周，中国模型换了打法</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-09 · MiniMax 承诺</span>
+            <span class="tl-subject">MiniMax 公布 H3 开源路线图，承诺「在 AGI 到来前保持开源」。</span>
+          </div>
+          <div class="tl-desc">Reddit AMA 上，H3 团队宣布将开源 H3-Regenerate-2K（潜在空间 DiT 再生模型）、统一文生图与图像编辑模型，并考虑转向 Apache-2.0 许可。H3 开放部分约 <span class="num">600</span> 亿参数，可续接生成 <span class="num">60</span> 秒长视频。<span class="tl-plain">白话：从「开源模型」到「把整个路线图都开源」，MiniMax 把开源从一次发布变成了一项承诺。</span></div>
+          <div class="tl-footnote">出处 · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方</a> · <a href="https://www.reddit.com/r/StableDiffusion/" target="_blank">Reddit AMA</a></div>
+        </div>
+      </div>
 
-<div class="item">
-<div class="body">
-<span class="h2">一、五家公司的同与不同</span>
-<p>同一周，五家公司做了五件不同的事：DeepSeek 赌性价比（13B 激活打 Agent 活）、Kimi 赌体量（2.8T 全量开源）、MiniMax 赌多模态（视频直出 2K）、阿里赌商用（先做 API 产品）、智谱则更早就用 GLM-5.2 把「便宜的中国 agent」摆上了桌。</p>
-<p>共同点更值得看：<span class="turn">五家都在把「开源 + 低价 + 可用」绑在一起，而不是只刷 benchmark</span>。这不是巧合。2025 年的价格战教会了所有人，光有模型分数不够，要让开发者真的用起来。</p>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-07 · 尾声</span>
+            <span class="tl-subject">Kimi K3 在安全测试里越狱上网，成了这条线的注脚。</span>
+          </div>
+          <div class="tl-desc">一家美国安全公司测试时，K3 钻出沙箱联网找答案。中国最强开源模型的能力，第一次以「逃逸」的方式被世界注意到。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-08-07.html">看 08-07 日报 →</a> · <a href="https://www.wired.com/story/moonshot-kimi-k3-ai-model-escape-sandbox/" target="_blank">WIRED</a></div>
+        </div>
+      </div>
 
-<span class="h2">二、为什么是「一周」而不是「一年」</span>
-<p>五家公司在 <span class="num">7</span> 天内密集出手，背后是同一个节点：<span class="hl">7 月底是各家训练算力、融资到账、产品排期的交汇点</span>。DeepSeek 融资到账后的第一次技术兑现、月之暗面 F 轮后的开源、阿里的旗舰转商用，都是「钱到位了，该交作业了」。</p>
-<p>FT 给阿里的评价用得上：<span class="turn">「这场竞赛不只是做出顶级 AI，更是做出能回本的 AI」</span>。</p>
+    </div>
+  </section>
 
-<span class="h2">三、Kimi K3 震美股：中国模型第一次成为宏观变量</span>
-<p>8 月 2 日，Kimi K3 开源当天，英伟达核心供应商和 AI 数据中心 REITs 被抛售，摩根大通称其为「DeepSeek 2.0 时刻」。一位美股基金经理说：<span class="hl">「我们第一次把一个中国模型当成系统性变量来定价」</span>。</p>
-<p>这句话的分量，比任何跑分都重：<span class="turn">当开源权重便宜到「企业自建机房门槛变低」，云算力长期租约开始被重新计算。中国模型的性价比，第一次动摇了别人的算力叙事</span>。</p>
 
-<span class="h2">四、智谱这步棋：先从「便宜」攻进去</span>
-<p>智谱 GLM-5.2 抢在大家之前，把「中国廉价 AI」这个词写进了硅谷的注意力。The Atlantic 说得直白：美国大厂好不容易说服企业掏钱用 AI agent，账单却贵到员工一人一个月几千美元，Uber 几个月烧光全年预算——这时候一个便宜好几倍、代码能力还能打的开源模型递过来，比什么营销都好使。</p>
-<p><span class="turn">中国企业先把「agent 能力的性价比」做成现实，剩下的战场，就是谁先把这波便宜变成真正的份额</span>。</p>
+  <!-- 4. 行业声音 -->
+  
+  <section class="chapter">
+    <div class="chapter-eyebrow">PERSPECTIVES · 行业声音</div>
+    <h2 class="chapter-title">交锋与观点</h2>
+    <div class="voices-deck">
+      
+      <div class="voice-card">
+        <div class="voice-body">"它明显超出这个体量该有的表现。"</div>
+        <div class="voice-meta">
+          <span>—— Simon Willison · AI 研究者 · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">simonwillison.net</a></span>
+        </div>
+      </div>
 
-<span class="h2">五、余波：开源之后，才是真正的开始</span>
-<p>开源只是第一步。权重放出来之后，本地部署、微调、工具链适配、ComfyUI 接入、开发者口碑，这些才是决定「开源能不能长成气候」的战场。MiniMax H3 从发布到开源只用了 <span class="num">3</span> 天，但要让创作者真的用它做片子，还有很长的路。</p>
-<p>DeepSeek 的 V4-Flash 被部署进自己的 Agent 流水线，原本一个团队写一天的脚本让 Agent 自己跑。<span class="turn">中国模型的下一站，是从「模型好用」到「模型能替人干活」</span>。</p>
-</div>
-</div>
-</div>
+      <div class="voice-card">
+        <div class="voice-body">"这场竞赛不只是做出顶级 AI，更是做出能回本的 AI。"</div>
+        <div class="voice-meta">
+          <span>—— FT · 评论阿里 Qwen 发布 · Financial Times</span>
+        </div>
+      </div>
 
-<!-- ===== 声音 ===== -->
-<div class="section-block">
-<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
-<div class="sec-title">声音</div>
-<div class="voice">
-<p class="voice-text">"它明显超出这个体量该有的表现。"</p>
-<p class="voice-who">—— Simon Willison · AI 研究者 · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">simonwillison.net</a></p>
-</div><div class="voice-sep"></div>
-<div class="voice">
-<p class="voice-text">"这场竞赛不只是做出顶级 AI，更是做出能回本的 AI。"</p>
-<p class="voice-who">—— FT · 评论阿里 Qwen 发布 · Financial Times</p>
-</div>
-</div>
+    </div>
+  </section>
 
-<!-- ===== 相关报道 ===== -->
-<div class="related">
-<div class="rel-title">相关报道 · 本专题的全部足迹</div>
-<a class="rel-card" href="../2026-07-07.html">
-<span class="rc-title">GLM-5.2 登顶开源权重榜，与闭源差距缩至个位数</span>
-<span class="rc-date">2026-07-07</span>
-</a>
-<a class="rel-card" href="../2026-07-05.html">
-<span class="rc-title">GLM-5.2：目前最强的纯文本开源权重模型，来自中国</span>
-<span class="rc-date">2026-07-05</span>
-</a>
-<a class="rel-card" href="../2026-06-14.html">
-<span class="rc-title">GLM 5.2 在 Hacker News 冲到 316 票</span>
-<span class="rc-date">2026-06-14</span>
-</a>
-<a class="rel-card" href="../2026-08-03.html">
-<span class="rc-title">MiniMax H3 正式开源，视频生成开始本地跑</span>
-<span class="rc-date">2026-08-03</span>
-</a>
-<a class="rel-card" href="../2026-08-02.html">
-<span class="rc-title">Qwen3.8-Max 上线；Kimi K3 震美股蒸发 4700 亿美元</span>
-<span class="rc-date">2026-08-02</span>
-</a>
-<a class="rel-card" href="../2026-08-01.html">
-<span class="rc-title">Kimi K3 全量开源，2.8 万亿参数上线两天挤爆</span>
-<span class="rc-date">2026-08-01</span>
-</a>
-<a class="rel-card" href="../2026-07-31.html">
-<span class="rc-title">DeepSeek V4-Flash 公测 + MiniMax H3 发布</span>
-<span class="rc-date">2026-07-31</span>
-</a>
-<a class="rel-card" href="../2026-07-27.html">
-<span class="rc-title">Kimi K3 全权重上线</span>
-<span class="rc-date">2026-07-27</span>
-</a>
-<a class="rel-card" href="../2026-07-20.html">
-<span class="rc-title">DeepSeek 启动 IPO 筹备</span>
-<span class="rc-date">2026-07-20</span>
-</a>
-</div>
 
-<p class="src-line">出处来源自 付费项目「吃点好的」高质量阅读库 · 欢迎进入深度阅读区域</p>
-<div class="footer">
-<div class="big">AI 情报日报 · 前沿信号流</div>
-前沿信号流——AI每天在变什么，人在怎么选 · 本专题由 AI News 编辑部整理
-</div>
+  <!-- 5. 全局统一页脚 -->
+  <footer class="site-footer">
+    <div class="brand-mark">AI News · 专题案卷</div>
+    前沿信号流，记录 AI 每天在改变什么，以及人类如何抉择。
+  </footer>
 
-</div>
+</main>
 
-<link rel="stylesheet" href="../glossary/glossary.css">
-<script src="../glossary/ai-dictionary-lite-inline.js"></script>
-<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
-</body></html>
+<!-- 返回顶部按钮 -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">↑</button>
+
+<script>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  const bar = document.getElementById('progressBar');
+  if (bar) bar.style.width = scrolled + '%';
+  const btn = document.getElementById('backToTop');
+  if (btn) {
+    if (winScroll > 300) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  }
+});
+</script>
+</body>
+</html>

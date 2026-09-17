@@ -5,483 +5,276 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 军备竞赛：钱在往哪里流 · AI News 专题</title>
 <meta name="description" content="AI 的竞争，打的是模型，拼的是钱。不关注 AI 也能看懂：为什么 AI 这么烧钱，钱都流向了哪里。">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-:root{
-  --klein:#002FA7;
-  --klein-bright:#0044FF;
-  --paper:#FFFFFF;
-  --ink:#0E0E10;
-  --ink-soft:#3A3A3E;
-  --gray:#6B6B70;
-  --gray-light:#9CA3AF;
-  --line:#E8E8EC;
-  --accent:#C41E3A;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.78;
-  -webkit-font-smoothing:antialiased;
-}
-.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
-
-/* 顶部导航 */
-.site-nav{
-  border-bottom:1px solid var(--line);
-  position:sticky;top:0;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(8px);
-  z-index:10;
-}
-.site-nav-inner{
-  max-width:720px;margin:0 auto;
-  padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
-.site-nav-brand span{color:var(--klein);}
-.site-nav-links{list-style:none;display:flex;gap:18px;}
-.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
-.site-nav-links a:hover{color:var(--klein);}
-.site-nav-links a.active{color:var(--klein);font-weight:600;}
-
-/* 专题头 */
-.special-badge{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:3px;
-  color:var(--accent);
-  font-weight:600;
-  margin-bottom:14px;
-  text-transform:uppercase;
-}
-.mast-title{
-  font-size:38px;
-  font-weight:900;
-  letter-spacing:-1.5px;
-  line-height:1.12;
-  color:var(--ink);
-  margin-bottom:18px;
-}
-.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
-.mast-meta{
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;
-  color:var(--gray);
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.mast-meta .issue{color:var(--klein);font-weight:600;}
-.mast-lede{
-  font-size:16px;
-  line-height:1.75;
-  color:var(--ink-soft);
-  margin-top:24px;
-  padding-left:16px;
-  border-left:3px solid var(--klein);
-}
-
-/* 时间线 */
-.timeline{margin:44px 0 8px;}
-.tl-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:24px;display:inline-block;
-}
-.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.tl-item{
-  position:relative;
-  padding:0 0 26px 34px;
-  border-left:2px solid var(--line);
-  margin-left:6px;
-}
-.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
-.tl-item::before{
-  content:"";
-  position:absolute;
-  left:-7px;top:5px;
-  width:12px;height:12px;
-  border-radius:50%;
-  background:var(--klein);
-  border:2px solid var(--paper);
-  box-shadow:0 0 0 2px var(--klein);
-}
-.tl-date{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;
-  color:var(--accent);
-  font-weight:600;
-  letter-spacing:0.5px;
-  margin-bottom:4px;
-}
-.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
-.tl-body strong{color:var(--ink);font-weight:600;}
-.tl-body .hl{color:var(--klein);font-weight:600;}
-.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
-.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
-
-/* 正文 */
-.section-block{margin:48px 0;}
-.sec-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--gray-light);
-  margin-bottom:6px;
-}
-.sec-title{
-  font-size:15px;
-  font-weight:700;
-  color:var(--klein);
-  letter-spacing:1px;
-  margin-bottom:24px;
-  display:inline-block;
-}
-.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.item{margin-bottom:38px;}
-.item:last-child{margin-bottom:0;}
-.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
-.body p{margin-bottom:16px;}
-.body p:last-child{margin-bottom:0;}
-.body strong{color:var(--ink);font-weight:600;}
-.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.body .turn{color:var(--klein);font-weight:700;}
-.body .hl{color:var(--klein);font-weight:600;}
-.body .accent{color:var(--accent);font-weight:600;}
-.body .h2{
-  display:block;
-  font-size:17px;
-  font-weight:700;
-  color:var(--ink);
-  margin:34px 0 12px;
-  line-height:1.5;
-}
-.figure{margin:20px 0 26px;}
-.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
-.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
-.src-line{
-  font-size:13px;color:var(--gray);margin-top:12px;
-  font-family:'JetBrains Mono',monospace;
-}
-.src-line a{color:var(--klein);text-decoration:none;}
-.src-line a:hover{text-decoration:underline;}
-
-/* 声音 */
-.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
-.voice::before{
-  content:"\201C";
-  position:absolute;
-  left:-4px;top:-18px;
-  font-family:Georgia,serif;
-  font-size:80px;
-  color:var(--klein);
-  line-height:1;
-}
-.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
-.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
-.voice-who a{color:var(--klein);text-decoration:none;}
-.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
-
-/* 相关报道 */
-.related{margin:48px 0;}
-.rel-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:20px;display:inline-block;
-}
-.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.rel-card{
-  display:flex;justify-content:space-between;align-items:baseline;
-  border:1px solid var(--line);border-radius:6px;
-  padding:14px 18px;margin-bottom:10px;
-  text-decoration:none;transition:border-color 0.15s ease;
-}
-.rel-card:hover{border-color:var(--klein);}
-.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
-.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
-
-.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
-.footer .big{color:var(--ink);font-weight:600;}
-
-@media(max-width:520px){
-  .mast-title{font-size:28px;}
-  .container{padding:24px 16px 48px;}
-  .tl-item{padding-left:26px;}
-}
-.plain-guide{
-  margin:28px 0 8px;
-  padding:22px 24px;
-  background:#F0F4FF;
-  border-left:3px solid var(--klein);
-  border-radius:0 8px 8px 0;
-}
-.pg-label{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  color:var(--klein);
-  font-weight:600;
-  margin-bottom:12px;
-}
-.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
-.pg-body p{margin-bottom:12px;}
-.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.pg-glossary{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:14px 18px;
-  margin:14px 0;
-}
-.pg-glossary strong{color:var(--ink);font-size:13.5px;}
-.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
-.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
-.pg-note{font-size:13px;color:var(--gray);}
-.tl-plain{
-  display:block;
-  margin-top:8px;
-  padding:8px 12px;
-  background:#F0F4FF;
-  border-radius:4px;
-  font-size:13.5px;
-  color:var(--klein);
-  font-weight:500;
-}
-</style></head>
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
 <body>
 
-<nav class="site-nav">
-  <div class="site-nav-inner">
-    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-    <ul class="site-nav-links">
+<div class="reading-progress" id="progressBar"></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
       <li><a href="../index.html">首页</a></li>
-      <li><a href="ai-arms-race.html" class="active">专题</a></li>
-      <li><a href="../2026-08-07.html">最新</a></li>
+      <li><a href="../2026-08/2026-08-14.html">最新</a></li>
+      <li><a href="../../en/special/ai-arms-race.html">EN Site</a></li>
     </ul>
   </div>
-</nav>
+</header>
 
-<div class="container">
+<main class="container">
 
-<div class="special-badge">SPECIAL REPORT · 专题</div>
-<div class="mast-title">AI 军备竞赛：<br>钱在往哪里流</div>
-<div class="mast-rule"></div>
-<div class="mast-meta">
-  <span class="issue">2026-06 → 08 · 专题</span>
+  <!-- 1. 顶部 Hero Masthead -->
+  <section class="hero-masthead">
+    <div class="hero-meta-bar">
+      <span class="badge-tag">SPECIAL REPORT</span>
+      <span class="issue">2026-06 → 08 · 专题</span>
   <span>17 条融资报道 · 1 条主线</span>
-</div>
-<div class="mast-lede">AI 的军备竞赛，打的是模型，拼的是钱。<br><br>Alphabet 一次性融资 <span class="num">800</span> 亿美元，SpaceX 走完史上最大 IPO，Meta 花 <span class="num">143</span> 亿拿下 Scale AI，Baseten 估值冲到 <span class="num">130</span> 亿。<br><br>钱往哪流，哪里就是下一场仗。这个夏天的资金地图，画出了 AI 竞赛的下半场。</div>
+    </div>
 
-<!-- ===== 白话导读 ===== -->
-<div class="plain-guide">
-<div class="pg-label">先读懂这篇 · 大白话版</div>
-<div class="pg-body">
-<p><strong>先讲三句人话：</strong><br><span class="pg-point">第一，AI 是一场「无限弹药」的军备竞赛</span>，最有钱的科技公司，一年融资 800 亿美元，只为了不被算力卡脖子。<br><span class="tl-plain">白话：AI 公司的「发动机」是算力，谁 GPU 不够谁就落后，所以拼命融资买算力。</span><br><span class="pg-point">第二，钱在从「模型层」流向「工具和基建」</span>，当模型都差不多聪明，能把它接进工作流、把数据中心连起来的公司，估值开始暴涨。<br><span class="pg-point">第三，人才在决定钱的流向</span>，顶级 AI 科学家去哪家公司，钱就跟到哪家公司。<br></p>
-<div class="pg-glossary">
-<strong>术语白话对照：</strong>
-<p><span class="pg-term">军备竞赛</span> ≈ 各方拼命加码投入，谁都不敢停，停了就被甩开。</p><p><span class="pg-term">融资 / IPO</span> ≈ 公司向市场要钱（融资）或上市卖股票（IPO），AI 公司靠这个补「弹药」。</p><p><span class="pg-term">算力 / GPU</span> ≈ 训练 AI 的「发动机」，最贵最紧缺的资源，谁 GPU 多谁跑得快。</p><p><span class="pg-term">估值</span> ≈ 市场认为这家公司值多少钱，AI 公司估值经常高得离谱，因为赌的是未来。</p>
-</div>
-<p class="pg-note">如果你想理解「为什么 AI 新闻天天都是谁又融资了几百亿」，这块给你答案。</p>
-</div>
-</div>
+    <h1 class="hero-title">AI 军备竞赛： 钱在往哪里流</h1>
 
-<!-- ===== 时间线 ===== -->
-<div class="timeline">
-<div class="tl-title">AI 的钱，一条时间线</div>
+    <div class="hero-subtitle">
+      <p>AI 的军备竞赛，打的是模型，拼的是钱。</p><p>Alphabet 一次性融资 <span class="num">800</span> 亿美元，SpaceX 走完史上最大 IPO，Meta 花 <span class="num">143</span> 亿拿下 Scale AI，Baseten 估值冲到 <span class="num">130</span> 亿。</p><p>钱往哪流，哪里就是下一场仗。这个夏天的资金地图，画出了 AI 竞赛的下半场。</p>
+    </div>
+  </section>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-01 · 弹药线</div>
-<div class="tl-body"><strong>Alphabet 融资 <span class="num">800</span> 亿美元，AI 军备竞赛进入「无限弹药」模式。</strong>这是 Google 自 <span class="num">2005</span> 年以来第一次股权融资。上市 20 年钱多到花不完的搜索巨头，也开始向市场伸手。FT 算了一笔账：2027 年资本开支预计 <span class="num">2500</span> 亿 vs 现金流 <span class="num">2600</span> 亿，明年 Q2 将首次「花得比赚得多」。<span class="tl-plain">白话：全球最赚钱的科技公司之一，都要借钱花在 AI 上了。这轮军备竞赛的账单，开始超出任何一家公司的现金流。</span></div>
-<p class="tl-src">出处 · FT · <a href="../2026-06-01.html">看 06-01 日报 →</a></p>
-</div>
+  <!-- 2. 白话导读 -->
+  
+  <section class="plain-guide">
+    <div class="pg-label">先读懂这篇 · 大白话版</div>
+    <div class="pg-body">
+      <div class="pg-point">第一，AI 是一场「无限弹药」的军备竞赛</div><div class="pg-point">第二，钱在从「模型层」流向「工具和基建」</div><div class="pg-point">第三，人才在决定钱的流向</div>
+      <div class="pg-glossary"><div class="pg-glossary-item"><span class="pg-term">军备竞赛</span> ≈ 各方拼命加码投入，谁都不敢停，停了就被甩开。</div><div class="pg-glossary-item"><span class="pg-term">融资 / IPO</span> ≈ 公司向市场要钱（融资）或上市卖股票（IPO），AI 公司靠这个补「弹药」。</div><div class="pg-glossary-item"><span class="pg-term">算力 / GPU</span> ≈ 训练 AI 的「发动机」，最贵最紧缺的资源，谁 GPU 多谁跑得快。</div><div class="pg-glossary-item"><span class="pg-term">估值</span> ≈ 市场认为这家公司值多少钱，AI 公司估值经常高得离谱，因为赌的是未来。</div></div>
+    </div>
+  </section>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-01 · 中国芯片路线</div>
-<div class="tl-body"><strong>美国出口管制，逼出中国自己的芯片路线。</strong>GPU 还是 ASIC，成了路线之争：摩尔线程、壁仞走通用 GPU；华为昇腾、寒武纪思元押注专用 ASIC。摩根士丹利数据：华为昇腾 <span class="num">950</span>、寒武纪思元 <span class="num">690</span> 比英伟达被允许卖给中国的最高端芯片 H20 快 <span class="num">50-150%</span>。华为预计 2026 年拿下中国 AI 加速器市场 <span class="num">62%</span>。<span class="tl-plain">白话：买不到英伟达最好的芯片，中国自己造，而且专为 AI 造的芯片，在某些指标上已经超过英伟达卖到中国的最高端货。</span></div>
-<p class="tl-src">出处 · SCMP</p>
-</div>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-04 · IPO 线</div>
-<div class="tl-body"><strong>SpaceX 启动路演，史上最大 IPO 进入倒计时。</strong>一家火箭公司，同时是 AI 算力的最大买家之一（每月向谷歌收 <span class="num">9.2</span> 亿租 GPU）。</div>
-<p class="tl-src">出处 · <a href="../2026-06-04.html">看 06-04 日报 →</a></p>
-</div>
+  <!-- 3. 时间线 -->
+  
+  <section class="chapter">
+    <div class="chapter-eyebrow">CHRONOLOGY · 发展脉络</div>
+    <h2 class="chapter-title">全景时间线</h2>
+    <div class="timeline-stream">
+      
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-01 · 弹药线</span>
+            <span class="tl-subject">Alphabet 融资 <span class="num">800</span> 亿美元，AI 军备竞赛进入「无限弹药」模式。</span>
+          </div>
+          <div class="tl-desc">这是 Google 自 <span class="num">2005</span> 年以来第一次股权融资。上市 20 年钱多到花不完的搜索巨头，也开始向市场伸手。FT 算了一笔账：2027 年资本开支预计 <span class="num">2500</span> 亿 vs 现金流 <span class="num">2600</span> 亿，明年 Q2 将首次「花得比赚得多」。<span class="tl-plain">白话：全球最赚钱的科技公司之一，都要借钱花在 AI 上了。这轮军备竞赛的账单，开始超出任何一家公司的现金流。</span></div>
+          <div class="tl-footnote">出处 · FT · <a href="../2026-06-01.html">看 06-01 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-04 · 回报考验</div>
-<div class="tl-body"><strong>钱花完怎么办：AI 的「水电账单」开始咬人。</strong>Uber 几个月烧光全年 AI 预算，给员工设了使用上限；Walmart 限制生成表格工具；一家公司全员部署 Claude 没设限，一个月意外花了 <span class="num">5</span> 亿美元 token 费。去年的 tokenmaxxing（拼命用 AI）退潮，企业开始算账。<span class="tl-plain">白话：去年大家比谁用 AI 用得多，今年开始比谁用得起。AI 从免费狂欢，进入按用量收费的冷静期。</span></div>
-<p class="tl-src">出处 · Bloomberg</p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-01 · 中国芯片路线</span>
+            <span class="tl-subject">美国出口管制，逼出中国自己的芯片路线。</span>
+          </div>
+          <div class="tl-desc">GPU 还是 ASIC，成了路线之争：摩尔线程、壁仞走通用 GPU；华为昇腾、寒武纪思元押注专用 ASIC。摩根士丹利数据：华为昇腾 <span class="num">950</span>、寒武纪思元 <span class="num">690</span> 比英伟达被允许卖给中国的最高端芯片 H20 快 <span class="num">50-150%</span>。华为预计 2026 年拿下中国 AI 加速器市场 <span class="num">62%</span>。<span class="tl-plain">白话：买不到英伟达最好的芯片，中国自己造，而且专为 AI 造的芯片，在某些指标上已经超过英伟达卖到中国的最高端货。</span></div>
+          <div class="tl-footnote">出处 · SCMP</div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-16 · 人才线</div>
-<div class="tl-body"><strong>Mira Murati 的 Thinking Machines Lab 融资 <span class="num">20</span> 亿美元。</strong>前 OpenAI CTO 的创业公司，拿到顶级估值。</div>
-<p class="tl-src">出处 · <a href="../2026-06-16.html">看 06-16 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-04 · IPO 线</span>
+            <span class="tl-subject">SpaceX 启动路演，史上最大 IPO 进入倒计时。</span>
+          </div>
+          <div class="tl-desc">一家火箭公司，同时是 AI 算力的最大买家之一（每月向谷歌收 <span class="num">9.2</span> 亿租 GPU）。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-06-04.html">看 06-04 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-16 · 收购线</div>
-<div class="tl-body"><strong>Meta 以 <span class="num">143</span> 亿美元拿下 Scale AI 近半股权。</strong>28 岁的创始人 Alexandr Wang 入主 Meta 超级智能部门。定义这个时代的人又换了一次雇主。</div>
-<p class="tl-src">出处 · <a href="../2026-06-16.html">看 06-16 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-04 · 回报考验</span>
+            <span class="tl-subject">钱花完怎么办：AI 的「水电账单」开始咬人。</span>
+          </div>
+          <div class="tl-desc">Uber 几个月烧光全年 AI 预算，给员工设了使用上限；Walmart 限制生成表格工具；一家公司全员部署 Claude 没设限，一个月意外花了 <span class="num">5</span> 亿美元 token 费。去年的 tokenmaxxing（拼命用 AI）退潮，企业开始算账。<span class="tl-plain">白话：去年大家比谁用 AI 用得多，今年开始比谁用得起。AI 从免费狂欢，进入按用量收费的冷静期。</span></div>
+          <div class="tl-footnote">出处 · Bloomberg</div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-17 · 大并购</div>
-<div class="tl-body"><strong>SpaceX 以 <span class="num">600</span> 亿美元收购 Cursor（Anysphere）。</strong>距 SpaceX IPO 仅数日，马斯克把 AI 编程工具也收进版图。</div>
-<p class="tl-src">出处 · <a href="../2026-06-17.html">看 06-17 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-16 · 人才线</span>
+            <span class="tl-subject">Mira Murati 的 Thinking Machines Lab 融资 <span class="num">20</span> 亿美元。</span>
+          </div>
+          <div class="tl-desc">前 OpenAI CTO 的创业公司，拿到顶级估值。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-06-16.html">看 06-16 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-23 · 基建线</div>
-<div class="tl-body"><strong>Baseten 估值 <span class="num">130</span> 亿美元。</strong>钱越来越往「能接进工作流」的方向流：模型层的估值在降，工具/基建层的估值在涨。</div>
-<p class="tl-src">出处 · <a href="../2026-06-23.html">看 06-23 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-16 · 收购线</span>
+            <span class="tl-subject">Meta 以 <span class="num">143</span> 亿美元拿下 Scale AI 近半股权。</span>
+          </div>
+          <div class="tl-desc">28 岁的创始人 Alexandr Wang 入主 Meta 超级智能部门。定义这个时代的人又换了一次雇主。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-06-16.html">看 06-16 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-06-24 · 总量</div>
-<div class="tl-body"><strong>Q1 2026 全球 AI 融资 <span class="num">2555</span> 亿美元。</strong>钱从「卖引擎」转向「卖整套动力系统」：OpenAI 拿出 <span class="num">1.5</span> 亿做开发者平台，还推出自研推理芯片，IPO 前把最贵的成本项变成自己的。</div>
-<p class="tl-src">出处 · <a href="../2026-06-24.html">看 06-24 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-17 · 大并购</span>
+            <span class="tl-subject">SpaceX 以 <span class="num">600</span> 亿美元收购 Cursor（Anysphere）。</span>
+          </div>
+          <div class="tl-desc">距 SpaceX IPO 仅数日，马斯克把 AI 编程工具也收进版图。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-06-17.html">看 06-17 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-07-14 · 芯片线</div>
-<div class="tl-body"><strong>SambaNova 完成 <span class="num">10</span> 亿美元 F 轮，Etched 拿下 <span class="num">8</span> 亿美元。</strong>AI 芯片赛道继续吸金，钱流向「算力替代方案」。</div>
-<p class="tl-src">出处 · <a href="../2026-07-14.html">看 07-14 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-23 · 基建线</span>
+            <span class="tl-subject">Baseten 估值 <span class="num">130</span> 亿美元。</span>
+          </div>
+          <div class="tl-desc">钱越来越往「能接进工作流」的方向流：模型层的估值在降，工具/基建层的估值在涨。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-06-23.html">看 06-23 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-07-15 · IPO 线</div>
-<div class="tl-body"><strong>宇树科技 IPO 注册获批。</strong>中国具身智能第一股，机器人公司走向资本市场。</div>
-<p class="tl-src">出处 · <a href="../2026-07-15.html">看 07-15 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-06-24 · 总量</span>
+            <span class="tl-subject">Q1 2026 全球 AI 融资 <span class="num">2555</span> 亿美元。</span>
+          </div>
+          <div class="tl-desc">钱从「卖引擎」转向「卖整套动力系统」：OpenAI 拿出 <span class="num">1.5</span> 亿做开发者平台，还推出自研推理芯片，IPO 前把最贵的成本项变成自己的。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-06-24.html">看 06-24 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-07-20 · 中国线</div>
-<div class="tl-body"><strong>DeepSeek 启动 IPO 筹备。</strong>6 月刚完成超 <span class="num">74</span> 亿美元融资（投后估值超 <span class="num">500</span> 亿），7 月传 IPO。中国 AI 融资也进入快车道。</div>
-<p class="tl-src">出处 · <a href="../2026-07-20.html">看 07-20 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-07-14 · 芯片线</span>
+            <span class="tl-subject">SambaNova 完成 <span class="num">10</span> 亿美元 F 轮，Etched 拿下 <span class="num">8</span> 亿美元。</span>
+          </div>
+          <div class="tl-desc">AI 芯片赛道继续吸金，钱流向「算力替代方案」。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-07-14.html">看 07-14 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-01 · 中国线</div>
-<div class="tl-body"><strong>月之暗面 F 轮超 <span class="num">35</span> 亿美元，投后估值 <span class="num">350</span> 亿。</strong>因超募 <span class="num">3</span> 倍提前关闭，G 轮（Pre-IPO）提前启动。开源炸场和融资炸场同一周发生。</div>
-<p class="tl-src">出处 · <a href="../2026-08-01.html">看 08-01 日报 →</a></p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-07-15 · IPO 线</span>
+            <span class="tl-subject">宇树科技 IPO 注册获批。</span>
+          </div>
+          <div class="tl-desc">中国具身智能第一股，机器人公司走向资本市场。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-07-15.html">看 07-15 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-06 · 基建线</div>
-<div class="tl-body"><strong>Lumilens 融资超 <span class="num">7</span> 亿美元，估值 <span class="num">55.1</span> 亿。</strong>用光互连替代数据中心铜连接，AI 基建的钱开始流向「连芯片的线」。</div>
-<p class="tl-src">出处 · WSJ</p>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-07-20 · 中国线</span>
+            <span class="tl-subject">DeepSeek 启动 IPO 筹备。</span>
+          </div>
+          <div class="tl-desc">6 月刚完成超 <span class="num">74</span> 亿美元融资（投后估值超 <span class="num">500</span> 亿），7 月传 IPO。中国 AI 融资也进入快车道。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-07-20.html">看 07-20 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-08 · 电力线</div>
-<div class="tl-body"><strong>英伟达向 Stargate 电力开发商 Lancium 投资至多 <span class="num">30</span> 亿美元。</strong>纯股权投资，不涉及建设担保。估值近 <span class="num">100</span> 亿的 Lancium 提供 AI 数据中心依赖的土地和电网接入。<span class="turn">军备竞赛烧到电力：算力再强，没电也跑不动，英伟达开始给数据中心买电。</span></div>
-<p class="tl-src">出处 · The Information</p>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-01 · 中国线</span>
+            <span class="tl-subject">月之暗面 F 轮超 <span class="num">35</span> 亿美元，投后估值 <span class="num">350</span> 亿。</span>
+          </div>
+          <div class="tl-desc">因超募 <span class="num">3</span> 倍提前关闭，G 轮（Pre-IPO）提前启动。开源炸场和融资炸场同一周发生。</div>
+          <div class="tl-footnote">出处 · <a href="../2026-08-01.html">看 08-01 日报 →</a></div>
+        </div>
+      </div>
 
-<div class="tl-item">
-<div class="tl-date">2026-08-09 · 中国芯片 IPO</div>
-<div class="tl-body"><strong>摩尔线程筹划港股上市，上半年营收 <span class="num">17.36</span> 亿元、同比增长 <span class="num">147%</span>。</strong>这家由英伟达前中国高管创办的国产 GPU 公司，亏损同比收窄 <span class="num">95.73%</span>。<span class="turn">中国芯片公司的 IPO 潮，跟着自主供应链一起到来。</span></div>
-<p class="tl-src">出处 · IT之家</p>
-</div>
-</div></div>
-</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-06 · 基建线</span>
+            <span class="tl-subject">Lumilens 融资超 <span class="num">7</span> 亿美元，估值 <span class="num">55.1</span> 亿。</span>
+          </div>
+          <div class="tl-desc">用光互连替代数据中心铜连接，AI 基建的钱开始流向「连芯片的线」。</div>
+          <div class="tl-footnote">出处 · WSJ</div>
+        </div>
+      </div>
 
-<!-- ===== 深度解读 ===== -->
-<div class="section-block" id="deep">
-<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
-<div class="sec-title">钱的三条流向</div>
+      <div class="tl-entry">
+        <div class="tl-box">
+          <div class="tl-head">
+            <span class="tl-time">2026-08-09 · 中国芯片 IPO</span>
+            <span class="tl-subject">摩尔线程筹划港股上市，上半年营收 <span class="num">17.36</span> 亿元、同比增长 <span class="num">147%</span>。</span>
+          </div>
+          <div class="tl-desc">这家由英伟达前中国高管创办的国产 GPU 公司，亏损同比收窄 <span class="num">95.73%</span>。<span class="turn">中国芯片公司的 IPO 潮，跟着自主供应链一起到来。</span></div>
+          <div class="tl-footnote">出处 · IT之家</div>
+        </div>
+      </div>
 
-<div class="item">
-<div class="body">
-<span class="h2">一、巨头补弹药：现金不够，融资来凑</span>
-<p>Alphabet <span class="num">800</span> 亿、SpaceX IPO、微软松绑 OpenAI 合同。2026 年的 AI 巨头开始承认：<span class="hl">靠现金流打这场仗不够了，得上杠杆</span>。</p>
-<p>这解释了为什么 GPU 租约、股权融资、IPO 成为高频词：<span class="turn">算力是军备，弹药是资本，两者缺一不可</span>。</p>
+    </div>
+  </section>
 
-<span class="h2">二、人才流向决定钱流向</span>
-<p>Mira Murati 的 Thinking Machines <span class="num">20</span> 亿、Meta 买 Scale AI 挖 Alexandr Wang、SpaceX 收购 Cursor、Jumper 去 Anthropic。<span class="hl">钱跟着人走，人跟着「下一场仗」走</span>。</p>
-<p>上半年的人才大迁徙（Shazeer 去 OpenAI、Jumper 去 Anthropic、Karpathy 去 Anthropic）说明：<span class="turn">模型层的核心资产不是代码，是那几个能定义问题的人</span>。</p>
 
-<span class="h2">三、从模型层到工具层</span>
-<p>Baseten <span class="num">130</span> 亿、Lumilens <span class="num">7</span> 亿、Cursor 被 <span class="num">600</span> 亿收购。钱开始从「谁的模型最强」流向「谁能把模型接进工作流、把数据中心连起来」。</p>
-<p>这是竞赛进入下半场的信号：<span class="turn">当模型趋于同质，估值开始向「基础设施」和「分发」倾斜</span>。</p>
+  <!-- 4. 行业声音 -->
+  
+  <section class="chapter">
+    <div class="chapter-eyebrow">PERSPECTIVES · 行业声音</div>
+    <h2 class="chapter-title">交锋与观点</h2>
+    <div class="voices-deck">
+      
+      <div class="voice-card">
+        <div class="voice-body">"这场竞赛不只是做出顶级 AI，更是做出能回本的 AI。"</div>
+        <div class="voice-meta">
+          <span>—— FT · 评论 Alibaba Qwen 发布 · Financial Times</span>
+        </div>
+      </div>
 
-<span class="h2">四、钱的背面：ROI 考验</span>
-<p>钱在流，但账单也在涨。Uber 几个月烧光全年 AI 预算、Walmart 限制 token、一家公司一个月意外花掉 <span class="num">5</span> 亿美元 token 费。<span class="hl">AI 从「按人头订阅」变成「按用量收费」，费用第一次大到企业不得不算账</span>。</p>
-<p>黄仁勋说质疑 AI 回报的人「疯了」，但 Bain 的报告标题很冷：<span class="turn">《你的 AI 预算在涨，你的回报没有》。当上市潮把 OpenAI、Anthropic 推到近 1 万亿美元估值，市场要看的，是这些钱到底能不能回来</span>。</p>
+      <div class="voice-card">
+        <div class="voice-body">"代码模型是目前最大的需求驱动力。"</div>
+        <div class="voice-meta">
+          <span>—— Sam Altman · OpenAI CEO · Stargate 现场访谈 · <a href="../2026-06-03.html">看 06-03 日报 →</a></span>
+        </div>
+      </div>
 
-<span class="h2">五、芯片自主：军备的另一条线</span>
-<p>美国出口管制把中国芯片逼上了自主路线。摩根士丹利数据显示：<span class="hl">华为昇腾 950、寒武纪思元 690，比英伟达被允许卖给中国的最高端芯片 H20 快 50-150%</span>，华为预计 2026 年拿下中国 AI 加速器市场 62%。</p>
-<p>这条线的意义不只在芯片本身：<span class="turn">当买不到英伟达最好的芯片，中国自己造，还顺手绕开了 CUDA 平台的锁定，用华为 CANN、摩尔线程 MUSA 重建自己的软件栈。军备竞赛，从来不只是钱的事，也是谁有自主供应链的事</span>。</p>
-</div>
-</div>
-</div>
+    </div>
+  </section>
 
-<!-- ===== 声音 ===== -->
-<div class="section-block">
-<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
-<div class="sec-title">声音</div>
-<div class="voice">
-<p class="voice-text">"这场竞赛不只是做出顶级 AI，更是做出能回本的 AI。"</p>
-<p class="voice-who">—— FT · 评论 Alibaba Qwen 发布 · Financial Times</p>
-</div><div class="voice-sep"></div>
-<div class="voice">
-<p class="voice-text">"代码模型是目前最大的需求驱动力。"</p>
-<p class="voice-who">—— Sam Altman · OpenAI CEO · Stargate 现场访谈 · <a href="../2026-06-03.html">看 06-03 日报 →</a></p>
-</div>
-</div>
 
-<!-- ===== 相关报道 ===== -->
-<div class="related">
-<div class="rel-title">相关报道 · 本专题的全部足迹</div>
-<div class="rel-card">
-<span class="rc-title">SCMP：美国出口管制如何迫使中国重塑 AI 芯片产业</span>
-<span class="rc-date">2026-06-01</span>
-</div>
-<a class="rel-card" href="../2026-08-01.html">
-<span class="rc-title">月之暗面 F 轮超 35 亿美元</span>
-<span class="rc-date">2026-08-01</span>
-</a>
-<a class="rel-card" href="../2026-07-20.html">
-<span class="rc-title">DeepSeek 启动 IPO 筹备</span>
-<span class="rc-date">2026-07-20</span>
-</a>
-<a class="rel-card" href="../2026-06-23.html">
-<span class="rc-title">Baseten 估值 130 亿美元</span>
-<span class="rc-date">2026-06-23</span>
-</a>
-<a class="rel-card" href="../2026-06-17.html">
-<span class="rc-title">SpaceX 600 亿美元收购 Cursor</span>
-<span class="rc-date">2026-06-17</span>
-</a>
-<a class="rel-card" href="../2026-06-16.html">
-<span class="rc-title">Meta 143 亿拿下 Scale AI；Mira Murati 融资 20 亿</span>
-<span class="rc-date">2026-06-16</span>
-</a>
-<a class="rel-card" href="../2026-06-04.html">
-<span class="rc-title">SpaceX 启动路演，史上最大 IPO</span>
-<span class="rc-date">2026-06-04</span>
-</a>
-<a class="rel-card" href="../2026-06-01.html">
-<span class="rc-title">Alphabet 融资 800 亿美元</span>
-<span class="rc-date">2026-06-01</span>
-</a>
-</div>
+  <!-- 5. 全局统一页脚 -->
+  <footer class="site-footer">
+    <div class="brand-mark">AI News · 专题案卷</div>
+    前沿信号流，记录 AI 每天在改变什么，以及人类如何抉择。
+  </footer>
 
-<p class="src-line">出处来源自 付费项目「吃点好的」高质量阅读库 · 欢迎进入深度阅读区域</p>
-<div class="footer">
-<div class="big">AI 情报日报 · 前沿信号流</div>
-前沿信号流——AI每天在变什么，人在怎么选 · 本专题由 AI News 编辑部整理
-</div>
+</main>
 
-</div>
+<!-- 返回顶部按钮 -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">↑</button>
 
-<link rel="stylesheet" href="../glossary/glossary.css">
-<script src="../glossary/ai-dictionary-lite-inline.js"></script>
-<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+<script>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  const bar = document.getElementById('progressBar');
+  if (bar) bar.style.width = scrolled + '%';
+  const btn = document.getElementById('backToTop');
+  if (btn) {
+    if (winScroll > 300) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  }
+});
+</script>
 </body>
 </html>
