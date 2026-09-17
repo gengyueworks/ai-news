@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>谁的千禧难题：OpenAI 攻破纳维-斯托克斯，与数学界的一场制度保卫战 · AI News 专题</title>
-<meta name="description" content="2026 年 9 月，OpenAI 用约一万个智能体、88 小时攻破纳维-斯托克斯千禧年难题，随即陷入与数学家 Buckmaster、Alpöge 的署名争议；25 位菲尔兹奖得主联合发声。这是 AI 进入纯数学研究以来最尖锐的一次碰撞。">
+<meta name="description" content="2026 年 9 月，OpenAI 用约一万个自主智能体、88 小时宣布攻破纳维-斯托克斯千禧年难题，随后陷入与纽约大学数学家 Buckmaster、Anthropic 数学家 Alpöge 的优先权与署名争议；25 位菲尔兹奖得主联合发声。这是 AI 进入纯数学研究以来最尖锐的一次碰撞。">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -13,7 +13,7 @@
   --klein-bright:#0044FF;
   --paper:#FFFFFF;
   --ink:#0E0E10;
-  --ink-soft:#3A3A3E;
+  --ink-soft:#2C2C30;
   --gray:#6B6B70;
   --gray-light:#9CA3AF;
   --line:#E8E8EC;
@@ -24,16 +24,17 @@ body{
   font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
   background:var(--paper);
   color:var(--ink);
-  line-height:1.78;
+  line-height:1.95;
+  letter-spacing:0.01em;
   -webkit-font-smoothing:antialiased;
 }
-.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+.container{max-width:680px;margin:0 auto;padding:48px 24px 88px;}
 
 .site-nav{
   border-bottom:1px solid var(--line);
   position:sticky;top:0;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(10px);
   z-index:10;
 }
 .site-nav-inner{
@@ -54,41 +55,44 @@ body{
   letter-spacing:3px;
   color:var(--accent);
   font-weight:600;
-  margin-bottom:14px;
+  margin-bottom:16px;
   text-transform:uppercase;
 }
 .mast-title{
-  font-size:34px;
+  font-size:32px;
   font-weight:900;
-  letter-spacing:-1.5px;
-  line-height:1.18;
+  letter-spacing:-1px;
+  line-height:1.24;
   color:var(--ink);
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
-.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 16px;}
 .mast-meta{
   font-family:'JetBrains Mono',monospace;
   font-size:12px;
   color:var(--gray);
   display:flex;
-  gap:14px;
+  gap:16px;
   flex-wrap:wrap;
 }
 .mast-meta .issue{color:var(--klein);font-weight:600;}
 .mast-lede{
   font-size:16px;
-  line-height:1.75;
+  line-height:1.85;
   color:var(--ink-soft);
-  margin-top:24px;
-  padding-left:16px;
+  margin-top:28px;
+  padding:18px 20px;
+  background:#F8F9FC;
   border-left:3px solid var(--klein);
+  border-radius:0 6px 6px 0;
 }
 
 .headline{
-  margin:44px 0 8px;
-  padding:28px 26px;
+  margin:48px 0 16px;
+  padding:32px 28px;
   background:#F4F7FF;
-  border-radius:8px;
+  border-radius:10px;
+  border:1px solid rgba(0,47,167,0.06);
 }
 .headline .hd-badge{
   font-family:'JetBrains Mono',monospace;
@@ -97,18 +101,18 @@ body{
   color:var(--accent);
   font-weight:600;
   text-transform:uppercase;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 .headline h2{
   font-size:22px;
   font-weight:800;
-  line-height:1.4;
+  line-height:1.42;
   color:var(--ink);
-  margin-bottom:18px;
-  letter-spacing:-0.3px;
+  margin-bottom:22px;
+  letter-spacing:-0.4px;
 }
-.headline .body{font-size:15px;color:var(--ink-soft);line-height:1.8;}
-.headline .body p{margin-bottom:14px;}
+.headline .body{font-size:15.5px;color:var(--ink-soft);line-height:1.95;}
+.headline .body p{margin-bottom:20px;}
 .headline .body p:last-child{margin-bottom:0;}
 .headline .body strong{color:var(--ink);font-weight:600;}
 .headline .body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
@@ -116,15 +120,15 @@ body{
 .headline .body .hl{color:var(--klein);font-weight:600;}
 .headline .body .accent{color:var(--accent);font-weight:600;}
 
-.timeline{margin:44px 0 8px;}
+.timeline{margin:52px 0 16px;}
 .tl-title{
   font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+  letter-spacing:1px;margin-bottom:28px;display:inline-block;
 }
 .tl-title::before{content:'▮ ';color:var(--klein);margin-right:8px;font-size:13px;}
 .tl-item{
   position:relative;
-  padding:0 0 26px 34px;
+  padding:0 0 32px 34px;
   border-left:2px solid var(--line);
   margin-left:6px;
 }
@@ -132,7 +136,7 @@ body{
 .tl-item::before{
   content:"";
   position:absolute;
-  left:-7px;top:5px;
+  left:-7px;top:6px;
   width:12px;height:12px;
   border-radius:50%;
   background:var(--klein);
@@ -145,79 +149,94 @@ body{
   color:var(--accent);
   font-weight:600;
   letter-spacing:0.5px;
-  margin-bottom:4px;
+  margin-bottom:8px;
 }
-.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body{font-size:15px;color:var(--ink-soft);line-height:1.9;}
 .tl-body strong{color:var(--ink);font-weight:600;}
 .tl-body .hl{color:var(--klein);font-weight:600;}
 .tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
 .tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
 .tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
 
-.section-block{margin:48px 0;}
+.section-block{margin:56px 0;}
 .sec-eyebrow{
   font-family:'JetBrains Mono',monospace;
   font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--gray-light);
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 .sec-title{
-  font-size:15px;
+  font-size:16px;
   font-weight:700;
   color:var(--klein);
   letter-spacing:1px;
-  margin-bottom:24px;
+  margin-bottom:28px;
   display:inline-block;
 }
 .sec-title::before{content:'▮ ';color:var(--klein);margin-right:8px;font-size:13px;}
-.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
-.body p{margin-bottom:16px;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.95;}
+.body p{margin-bottom:22px;}
 .body p:last-child{margin-bottom:0;}
 .body strong{color:var(--ink);font-weight:600;}
 .body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
 .body .turn{color:var(--klein);font-weight:700;}
 .body .hl{color:var(--klein);font-weight:600;}
 .body .accent{color:var(--accent);font-weight:600;}
-.body .h2{
-  display:block;
-  font-size:17px;
-  font-weight:700;
-  color:var(--ink);
-  margin:34px 0 12px;
-  line-height:1.5;
-}
 .src-line{
-  font-size:13px;color:var(--gray);margin-top:12px;
+  font-size:12.5px;color:var(--gray);margin-top:16px;
   font-family:'JetBrains Mono',monospace;
+  line-height:1.7;
 }
 .src-line a{color:var(--klein);text-decoration:none;}
 .src-line a:hover{text-decoration:underline;}
 
-.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice{position:relative;padding:12px 18px 14px 54px;background:#F8F9FC;border-radius:6px;margin-bottom:20px;}
 .voice::before{
   content:'\201C';
   position:absolute;
-  left:-4px;top:-18px;
+  left:14px;top:-4px;
   font-family:Georgia,serif;
-  font-size:80px;
+  font-size:72px;
   color:var(--klein);
   line-height:1;
+  opacity:0.85;
 }
-.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-text{font-size:16px;font-weight:600;line-height:1.75;color:var(--ink);margin-bottom:8px;letter-spacing:-0.1px;}
 .voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
 .voice-who a{color:var(--klein);text-decoration:none;}
 
-.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.question-card{
+  padding:20px 22px;
+  background:#FBFBFE;
+  border-left:3px solid #D0D7E8;
+  border-radius:0 6px 6px 0;
+  margin-bottom:20px;
+}
+.question-card:last-child{margin-bottom:0;}
+.question-card strong{
+  display:block;
+  font-size:15.5px;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.question-card p{
+  font-size:14.5px;
+  color:var(--ink-soft);
+  line-height:1.85;
+  margin-bottom:0;
+}
+
+.footer{margin-top:64px;padding-top:24px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
 .footer .big{color:var(--ink);font-weight:600;}
 
 @media(max-width:520px){
-  .mast-title{font-size:26px;}
-  .container{padding:24px 16px 48px;}
-  .tl-item{padding-left:26px;}
+  .mast-title{font-size:25px;}
+  .container{padding:28px 18px 56px;}
+  .tl-item{padding-left:24px;}
   .headline{padding:22px 18px;}
-  .headline h2{font-size:19px;}
+  .headline h2{font-size:18px;}
 }
 </style>
 <!-- READY_TEXT_ONLY: 数学专题为深度长文，正文无合适官方配图，保留纯文字保事实求真 -->
@@ -255,13 +274,24 @@ body{
     <div class="hd-badge">HEADLINE · 本期最重要的事件</div>
     <h2>纳维-斯托克斯之争：一万个智能体、88 小时，与一位数学家的职业危机</h2>
     <div class="body">
-      <p><strong>9 月 8 日，OpenAI 宣布其内部模型在约 <span class="num">88</span> 小时内给出了三维不可压缩纳维-斯托克斯方程存在性与光滑性问题的反例式解答</strong>，证明在光滑外力作用下流体演化可在有限时间内失去光滑性。这是克雷数学研究所 2000 年列出的七道「千禧年大奖难题」之一，单题悬赏 <span class="num">100</span> 万美元，此前仅有庞加莱猜想一道被解决。OpenAI 同时发布 <span class="num">166</span> 页论证与 Lean 形式化验证，并宣布不申领奖金。</p>
-      <p>真正的风暴不在数学结论，而在发布前几小时。纽约大学库朗研究所数学家 <span class="accent">Tristan Buckmaster</span> 与 Anthropic 数学家 <span class="accent">Levent Alpöge</span> 9 月 7 日公开了三篇论文与 Lean 形式化：不可压缩多孔介质方程、二维 Boussinesq 方程、三维不可压缩欧拉方程在光滑外力下的有限时间爆破。两人沿着西班牙数学家 <span class="accent">Diego Córdoba</span> 与 Luis Martínez-Zoroa 开辟的路线推进了近一年，工具正是 OpenAI 的 Codex 与 Anthropic 的 Claude，全部草稿都存在 Codex 会话里。</p>
-      <p>Buckmaster 在声明中叙述了与 OpenAI 的交涉：他在 9 月 3 日听闻进展可能已传至 OpenAI，主动致信说明这是与 Alpöge 的私人合作。9 月 6 日两通电话后，OpenAI 数学负责人 Sébastien Bubeck 告知内部模型已做出受迫纳维-斯托克斯的爆破证明。让他警觉的正是方向本身：<span class="turn">用光滑外力构造爆破，是 Córdoba 与 Martínez-Zoroa 开辟、他们两人悄悄选中的路线，「几乎没有别人在走」</span>。</p>
-      <p>据 Buckmaster 陈述，OpenAI 提出两种安排：其一由他与 Alpöge 先发欧拉结果，OpenAI 次日发布纳维-斯托克斯；其二由他单独撰写纳维-斯托克斯论文、把证明归于 OpenAI 内部模型，而因 Alpöge 任职于 Anthropic，他的名字必须拿掉。他拒绝了两种安排，称对方回以「为什么要毁掉你的职业生涯？」。他还追问模型是否接触过其 Codex 会话中的未发表草稿，得到的答复是模型不会查用户数据，关于训练则未获正面回答。</p>
-      <p>OpenAI 否认全部指控：研究人员与智能体在两人公开成果前「没有通过任何方式看到他们的工作」，未为解题访问具体用户数据；但同时承认「虽然不太可能，但不能排除去标识化衍生数据帮助改进了模型」。9 月 10 日公司更新称，调查确认 Buckmaster 过去两个月的 Codex 提示不可能影响该系统。双方对基本时间线大体一致，细节则各执一词。</p>
-      <p>争议随后升级为对体制的批评。9 月 10 日，加州理工 <span class="num">771</span> 位现任与前任数学家联署抵制原定 10 月 30 日的「数学黑客松」，OpenAI 撤回约 <span class="num">200</span> 万美元赞助。9 月 11 日，<span class="accent">陶哲轩</span>、邓煜等 <span class="num">25</span> 位菲尔兹奖得主联署发布《人工智能在数学中的严重错位》，批评 AI 公司把攻克知名难题当作能力基准，会挤压数学共同体对概念理解、方法传承与学术归因的追求，并警告仓促发布带来的署名与剽窃问题，以及「人类传承链条」可能断裂。</p>
-      <p><span class="turn">这场交锋的核心，是一个结构性问题：当提供研究工具的公司，同时拥有远超学术圈的算力与更强的内部模型，能够闻风而动、几天内用上万智能体扑向一个研究方向时，数学的开放传统与贡献分配还如何维持？</span> 克雷数学研究所院长 Martin Bridson 回应「评奖程序刻意不急，将确保绝对严格」，截至 9 月中旬，纳维-斯托克斯问题仍被标为「未解决」。</p>
+      <p><strong>9 月 8 日，OpenAI 宣布其内部模型在约 <span class="num">88</span> 小时内给出了三维不可压缩纳维-斯托克斯方程存在性与光滑性问题的反例式解答。</strong> 系统证明在光滑外力作用下，流体演化可在有限时间内失去光滑性。</p>
+      <p>这是克雷数学研究所 2000 年列出的七道「千禧年大奖难题」之一，单题悬赏 <span class="num">100</span> 万美元，此前仅有庞加莱猜想一道被解决。OpenAI 同时发布了 <span class="num">166</span> 页论证与 Lean 形式化验证，并宣布不申领奖金。</p>
+      
+      <p><strong>真正的风暴不在数学结论，而在发布前夕的数天。</strong> 纽约大学库朗研究所数学家 <span class="accent">Tristan Buckmaster</span> 与 Anthropic 数学家 <span class="accent">Levent Alpöge</span> 在 9 月 7 日抢先公开了三篇论文与 Lean 形式化成果，攻克了不可压缩多孔介质方程、二维 Boussinesq 方程、以及三维不可压缩欧拉方程在光滑外力下的有限时间爆破。</p>
+      <p>两人沿着西班牙数学家 <span class="accent">Diego Córdoba</span> 与 Luis Martínez-Zoroa 开辟的路线推进了近一年，使用的工具正是 OpenAI 的 Codex 与 Anthropic 的 Claude，全部草稿与推理过程都留存在 Codex 会话中。</p>
+      
+      <p>Buckmaster 在随后的公开声明中披露：他在 9 月 3 日察觉两人的研究进展疑似传至 OpenAI，便主动致信说明这是个人合作。</p>
+      <p>9 月 6 日双方通话，OpenAI 数学负责人 Sébastien Bubeck 告知内部模型已做出受迫纳维-斯托克斯爆破证明。<span class="turn">用光滑外力构造爆破，是 Córdoba 与 Martínez-Zoroa 开辟、他们两人悄悄选中的路线，业内当时几乎没有别的人在走。</span> 这引发了对模型方向来源的高度警惕。</p>
+      
+      <p>据 Buckmaster 陈述，OpenAI 曾提出由他单独撰写论文并将证明归于模型、同时将任职于竞争对手 Anthropic 的合作者 Alpöge 排除在署名之外。</p>
+      <p>Buckmaster 拒绝了这一安排。他还当场追问模型是否接触过其存放在 Codex 里的未发表草稿，得到的答复是系统不会直接查询具体用户数据，但关于训练数据吸收则未获正面答复。</p>
+      
+      <p>OpenAI 随后正式否认指控，强调研究人员与智能体在对方公开前没有接触过其具体工作；但公司在声明中承认「不能完全排除去标识化衍生数据对模型改进的潜在影响」。9 月 10 日，公司进一步表示经调查确认 Buckmaster 的提示词未对系统产生影响。</p>
+      
+      <p>争议迅速激化为数学界对商业巨头研究模式的集体抵制。9 月 10 日，加州理工学院 <span class="num">771</span> 位数学家联署抗议，反对将严肃纯数学异化为公关黑客松，迫使 OpenAI 撤回了约 <span class="num">200</span> 万美元的赞助。</p>
+      <p>9 月 11 日，<span class="accent">陶哲轩</span>、邓煜等 <span class="num">25</span> 位菲尔兹奖得主发表联署信，公开批评将攻克著名难题作为技术军备竞赛标尺的做法，直言这种抢发文化正在削弱科学界对概念理解与知识传承的根本追求。</p>
+      
+      <p><span class="turn">这场交锋触及了一个前所未有的制度死结：当向学者提供工具的科技公司，同时调动上万智能体与数千万美元算力在同一赛道抢跑，学术研究的信任底线应当如何守住？</span> 克雷研究所院长明确表示评奖程序保持严谨从容，截至 9 月中旬，该千禧难题仍被官方标注为「未解决」。</p>
     </div>
     <div class="src-line">来源 · <a href="https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/" target="_blank">TechCrunch：OpenAI fought dirty, says NYU mathematician</a> · <a href="https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/" target="_blank">MIT Technology Review</a> · <a href="https://www.theverge.com/ai-artificial-intelligence/994255/openai-millennium-prize-problem-tristan-buckmaster-competition" target="_blank">The Verge：OpenAI just wants to win</a> · 深度分析 · <a href="https://stratechery.com/2026/ai-scaling-and-frontier-models/" target="_blank">Stratechery</a> · <a href="https://simonwillison.net/2026/Sep/ai-breakthroughs/" target="_blank">Simon Willison</a></div>
   </div>
@@ -270,73 +300,84 @@ body{
     <div class="tl-title">关键节点时间线 · 从竞赛数学到千禧年难题</div>
 
     <div class="tl-item">
-      <div class="tl-date">2026-09-11</div>
+      <div class="tl-date">2026-09-11 · 学界共识线</div>
       <div class="tl-body">
-        <strong>陶哲轩、邓煜等 25 位菲尔兹奖得主联署《人工智能在数学中的严重错位》：</strong> 声明批评 AI 公司把「解决著名难题」当作能力标尺，指出这会让数学研究从概念理解、方法传播与知识传承，被挤压为高速率的真伪结论生产。声明不反对 AI，结尾承认 AI 有增强与加速真正数学研究的潜力，强调「这些变化最终是造福这个领域还是造成破坏，很大程度上取决于掌控技术的人类如何决策」。<br/>
+        <strong>陶哲轩、邓煜等 25 位菲尔兹奖得主联署《人工智能在数学中的严重错位》：</strong><br/>
+        声明批评 AI 公司把攻克著名难题当作能力标尺，指出这会将数学研究从概念理解、方法传播与知识传承，挤压为单纯的高速真伪结论生产。<br/>
+        声明强调技术最终是造福领域还是造成破坏，取决于掌控技术的人类如何抉择。<br/>
         <span class="src-line">出处 · <a href="https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/" target="_blank">陶哲轩博客发布联合声明</a> · <a href="https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/" target="_blank">TechCrunch</a></span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">2026-09-10</div>
+      <div class="tl-date">2026-09-10 · 学术抵制线</div>
       <div class="tl-body">
-        <strong>加州理工 771 位数学家联署抵制「数学黑客松」，OpenAI 撤回 200 万美元赞助：</strong> 原定 10 月 30 日由 OpenAI 与 Anthropic 联合提供约 200 万美元算力点数的赛事，被批评把严谨纯数学研究异化为 AI 公司的营销工具、将无偿劳动转嫁给学术共同体。OpenAI 宣布退出赞助。<br/>
+        <strong>加州理工 771 位数学家联署抵制「数学黑客松」，OpenAI 撤回赞助：</strong><br/>
+        原定由 OpenAI 与 Anthropic 联合提供约 200 万美元算力点数的赛事遭遇抵制，学者批评其将纯数学异化为公关营销工具，并将无偿审核负担转嫁给学术界。OpenAI 顶压撤回赞助。<br/>
         <span class="src-line">出处 · <a href="https://www.theverge.com/ai-artificial-intelligence/994255/openai-millennium-prize-problem-tristan-buckmaster-competition" target="_blank">The Verge</a></span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">2026-09-08</div>
+      <div class="tl-date">2026-09-08 · 难题突破线</div>
       <div class="tl-body">
-        <strong>OpenAI 宣布内部模型 88 小时攻破纳维-斯托克斯千禧年难题：</strong> 约一万个并发智能体，产出约 270 万条智能体消息、1300 亿个输出 token；GPT-6 Astra 随后 17 小时完成 Lean 形式化验证。公司宣布不申领克雷奖，并否认看过 Buckmaster 与 Alpöge 的工作。<br/>
+        <strong>OpenAI 宣布内部模型 88 小时攻破纳维-斯托克斯千禧年难题：</strong><br/>
+        约一万个并发智能体产出约 270 万条消息、1300 亿个 token，GPT-6 Astra 随后用 17 小时完成 Lean 形式化验证。公司发布 166 页论证并不申领奖金，同时否认看过学者未公开成果。<br/>
         <span class="src-line">出处 · <a href="https://openai.com/index/navier-stokes-and-the-math-of-swift-chaos/" target="_blank">OpenAI 官方公告</a> · <a href="https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/" target="_blank">MIT Technology Review</a></span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">2026-09-07</div>
+      <div class="tl-date">2026-09-07 · 争议发端线</div>
       <div class="tl-body">
-        <strong>Buckmaster 与 Alpöge 公开三篇流体方程爆破论文与 4 页声明：</strong> 覆盖不可压缩多孔介质、Boussinesq 与三维欧拉方程在光滑外力下的有限时间爆破，附 Lean 形式化；声明详述与 OpenAI 的交涉，称对方提出包含去除 Alpöge 署名的发布安排。陶哲轩半小时内评价这是「非凡的成就」，并指出该方法有很高概率可延伸至纳维-斯托克斯。<br/>
+        <strong>Buckmaster 与 Alpöge 公开三篇流体方程爆破论文与交涉声明：</strong><br/>
+        论文覆盖不可压缩多孔介质、Boussinesq 与三维欧拉方程的光滑外力爆破与 Lean 验证；声明披露与 OpenAI 的通话，指出其要求排除 Alpöge 署名。<br/>
+        陶哲轩同日评价该成果为非凡成就，并指出其向纳维-斯托克斯延展的清晰可行性。<br/>
         <span class="src-line">出处 · <a href="https://terrytao.wordpress.com/2026/09/07/on-a-breakthrough-work-in-fluids/" target="_blank">陶哲轩博客评价</a> · <a href="https://arxiv.org/abs/2609.00022" target="_blank">arXiv 论文</a></span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">2026-09-05</div>
+      <div class="tl-date">2026-09-05 · 机器形式化线</div>
       <div class="tl-body">
-        <strong>Anthropic 用 Claude 多智能体团队 11 天完成费马大定理首个机器验证的 Lean 形式化证明：</strong> 产出超 1300 万行严格类型检查的 Lean 代码，覆盖怀尔斯 1995 年证明中的 29,500 个引理与中间定理，实现机器系统回路的完整验证。<br/>
+        <strong>Anthropic 用 Claude 多智能体团队 11 天完成费马大定理 Lean 证明：</strong><br/>
+        产出超 1300 万行代码，覆盖怀尔斯 1995 年证明中的 29,500 个引理，实现 0 幻觉回路验证，展示了机器在大体量形式化工程中的自举能力。<br/>
         <span class="src-line">出处 · <a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem" target="_blank">Anthropic 官方研究</a></span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">2026-07-19</div>
+      <div class="tl-date">2026-07-19 · 反例构造线</div>
       <div class="tl-body">
-        <strong>Anthropic 数学家 Levent Alpöge 借助 Claude 给出雅可比猜想三维反例：</strong> 打破自 1939 年以来的 85 年猜想；陶哲轩随后发表博客进行理论简化消化。这是 Alpöge 与 Buckmaster 流体方程合作之外的另一条独立线索。<br/>
+        <strong>Anthropic 数学家 Levent Alpöge 借助 Claude 给出雅可比猜想三维反例：</strong><br/>
+        打破自 1939 年以来的 85 年猜想；陶哲轩随后发表博客进行理论简化消化。<br/>
         <span class="src-line">出处 · <a href="https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/" target="_blank">陶哲轩博客解析</a></span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">2026-05-20</div>
+      <div class="tl-date">2026-05-20 · 理论工具线</div>
       <div class="tl-body">
-        <strong>OpenAI 内部模型攻破 80 年历史的 Erdős 单位距离猜想：</strong> 模型自主引入代数数论中的类域塔工具，构造出超越旧有界限的反例；Timothy Gowers、Noga Alon 等顶级数学家公开发表联合复核论文，称其为「AI 数学的里程碑」。这是 OpenAI 随后一系列解题竞赛的起点，也开启了其与数学共同体之间渐次升温的摩擦。<br/>
+        <strong>OpenAI 内部模型攻破 80 年历史的 Erdős 单位距离猜想：</strong><br/>
+        模型自主引入代数数论中的类域塔工具构造反例；Timothy Gowers、Noga Alon 等数学家发表联合复核论文，称其为 AI 数学的重要跨越。<br/>
         <span class="src-line">出处 · <a href="https://arxiv.org/abs/2605.20695" target="_blank">arXiv:2605.20695</a></span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">2024-07-25</div>
+      <div class="tl-date">2024-07-25 · 竞赛演练线</div>
       <div class="tl-body">
-        <strong>DeepMind 的 AlphaProof 与 AlphaGeometry 2 在 2024 国际数学奥林匹克达到银牌水平：</strong> 解答 6 道题中的 4 道，首次在世界顶级数学竞赛中展现形式化推理与几何构造能力。这一阶段 AI 仍在「人类设计的考题」里，尚未触及开放难题。<br/>
+        <strong>DeepMind 的 AlphaProof 与 AlphaGeometry 2 在 IMO 达银牌水平：</strong><br/>
+        解答 6 道题中的 4 道，首次展现形式化推理与几何辅助线构造能力，标志着 AI 完成了竞赛数学向科研探索的跃迁准备。<br/>
         <span class="src-line">出处 · <a href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/" target="_blank">Google DeepMind 官方发布</a></span>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-date">2023-12-06</div>
+      <div class="tl-date">2023-12-06 · 算法先声线</div>
       <div class="tl-body">
-        <strong>DeepMind 发布 FunSearch：大模型结合评估器首次在组合数学 Cap Set 问题中发现新构造：</strong> 开创 LLM 发现全新数学知识的先例，也是此后一切「AI 数学突破」叙事的技术源头。<br/>
+        <strong>DeepMind 发布 FunSearch：大模型在组合数学 Cap Set 问题中发现新构造：</strong><br/>
+        首次开创大语言模型结合自动化代码评价器探索未知数学知识的先例。<br/>
         <span class="src-line">出处 · <a href="https://www.nature.com/articles/s41586-023-06924-6" target="_blank">Nature 论文</a></span>
       </div>
     </div>
@@ -345,59 +386,99 @@ body{
 
   <div class="section-block">
     <div class="sec-eyebrow">STANDOFF · 两派立场</div>
-    <div class="sec-title">声音 · 交锋的双方在想什么</div><div class="voice">
-      <p class="voice-text">「不加区分地使用强大的解题工具，确实能迅速解决眼前的问题，但代价可能是损害支撑下一轮突破的研究生态，也让我……」</p>
-      <p class="voice-who">陶哲轩 · 菲尔兹奖得主 · 联合声明发起人 · <a href="https://terrytao.wordpress.com/" target="_blank">博客</a></p>
+    <div class="sec-title">声音 · 交锋的双方在想什么</div>
+    
+    <div class="voice">
+      <p class="voice-text">「不加区分地使用强大的解题工具，代价可能是损害支撑下一轮突破的研究生态，让人越来越难理解进展。」</p>
+      <p class="voice-who">陶哲轩 · 菲尔兹奖得主 · 联合声明发起人 · <a href="https://terrytao.wordpress.com/" target="_blank">博客原文</a></p>
     </div>
+    
     <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+    
     <div class="voice">
       <p class="voice-text">「现在没有速度限制了，突然一切都在瓦解。过去竞争天然受到数学难度的刹车限制，AI 把这层刹车拿掉了。」</p>
-      <p class="voice-who">陶哲轩 · 谈 AI 对数学竞争生态的改变 · <a href="https://www.newscientist.com/article/2588288-why-is-there-controversy-around-openais-millennium-prize-maths-breakthrough/" target="_blank">New Scientist</a></p>
+      <p class="voice-who">陶哲轩 · 谈 AI 对数学竞争生态的改变 · <a href="https://www.newscientist.com/article/2588288-why-is-there-controversy-around-openais-millennium-prize-maths-breakthrough/" target="_blank">New Scientist 访谈</a></p>
     </div>
+    
     <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+    
     <div class="voice">
-      <p class="voice-text">「一个数学家加一个模型，能在一个月内完成过去需要更久的整个研究链条。这是深蓝对卡斯帕罗夫那样的时刻。我们现……」</p>
+      <p class="voice-text">「这是深蓝对卡斯帕罗夫的时刻。我们现在需要不慌不忙地讨论：怎么培养学生、怎么分配署名、怎么审稿。」</p>
       <p class="voice-who">Tristan Buckmaster · 纽约大学数学家 · 争议当事人 · <a href="https://cims.nyu.edu/~buckmaster/" target="_blank">声明原文</a></p>
     </div>
+    
     <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+    
     <div class="voice">
-      <p class="voice-text">「不能拿今天 AI 的能力边界去框定未来的可能性。未来的 AI 不仅能解题，还能提出有价值的洞见、建立新的……」</p>
-      <p class="voice-who">Liam Fedus · OpenAI 前训练负责人 · 回应公开信 · <a href="https://www.qbitai.com/2026/09/489288.html" target="_blank">量子位</a></p>
+      <p class="voice-text">「不能拿今天 AI 的能力边界框定未来。未来的 AI 还能提出洞见、建立概念框架，供学者继续探索。」</p>
+      <p class="voice-who">Liam Fedus · OpenAI 前训练负责人 · 回应公开信 · <a href="https://www.qbitai.com/2026/09/489288.html" target="_blank">量子位报道</a></p>
     </div>
   </div>
 
-  <div class="analysis-wrap" style="margin:48px 0;">
-    <div class="sec-eyebrow" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9CA3AF;margin-bottom:6px;">EDITORIAL ANALYSIS</div>
-    <div class="sec-title" style="font-size:15px;font-weight:700;color:#002FA7;letter-spacing:1px;margin-bottom:24px;display:inline-block;">编辑部观察 · 为什么这场争论比证明本身更重要</div>
+  <div class="analysis-wrap" style="margin:56px 0 36px;">
+    <div class="sec-eyebrow" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9CA3AF;margin-bottom:8px;">EDITORIAL ANALYSIS</div>
+    <div class="sec-title" style="font-size:16px;font-weight:700;color:#002FA7;letter-spacing:1px;margin-bottom:26px;display:inline-block;">编辑部观察 · 为什么这场争论比证明本身更重要</div>
+    
     <div class="analysis">
-    <div class="body">
-      <p><span class="accent">纳维-斯托克斯之争的戏剧性，容易让人忽略一个更冷静的事实：数学共同体并未否定 AI 的证明能力。</span> 截至 9 月中旬，公开的 Lean 形式化证明均无「未证伪的漏洞」（no axiom 声明、标准三公理之外无依赖），陶哲轩对 Buckmaster 与 Alpöge 工作的即时评价也是肯定的。争议的焦点始终落在「AI 公司以什么规则做数学」，「AI 能不能做数学」反而没有人否定。</p>
-      <p>三方的时间投入差距值得摆出来：Córdoba 与 Martínez-Zoroa 花数年开辟「外力构造爆破」路线；Buckmaster 与 Alpöge 用约一年沿此推进并完成欧拉结果；OpenAI 闻讯后以更强模型与大规模算力，<span class="num">88</span> 小时拿到其所称的纳维-斯托克斯结果。斯坦福技术评论核对了两套 Lean 证书，合计 <span class="num">230</span> 万行机器生成证明，均无未证伪漏洞，在数学结论层面，两边的形式化都经得起检查。</p>
-      <p>真正没有答案的是人的问题。Buckmaster 反复划清界限：他没见过 OpenAI 的证明，不知道模型做了什么，也不指控任何人，只陈述自己被告诉了什么、在什么时间、对方提出了什么安排。陶哲轩在更早的 9 月 5 日就警告过把历史上有生产力的难题变成病毒式广告的风险。联合声明最强的论点是<span class="turn">「数学不能只剩下 AI 已经做出答案」</span>，它并未否定 AI 做数学的能力：一道难题的价值往往不在答案本身，而在求解过程中生长出来的概念、工具与直觉；AI 用大规模搜索直达终点，如果没有人理解这条路为什么成立，过程中本可以滋养后学的数学养分就没有被吸收。</p>
-      <p>还有一个被低估的机制问题。OpenAI 与 Anthropic 既是研究者使用的工具提供方，又同时是竞争者。Buckmaster 与 Alpöge 把未发表草稿放在 Codex 会话里，Andreas Thom 也提出过同样的问题：他与同事与 ChatGPT 的对话，是否可能进入后来破解难题的模型训练？OpenAI 的回答是「不能排除去标识化衍生数据的影响」。这种结构性利益冲突，不依赖于任何单一指控是否成立；数学共同体如今面对的选择，是如何在「用工具」与「被工具所在的公司竞争」之间划定边界。</p>
-      <p>联合声明留下的那句话，是整个专题最值得记住的：<span class="hl">「这些变化最终是造福这个领域，还是造成破坏性后果，很大程度上将由掌控这项新技术的人类如何决策来决定。」</span> 它把责任从模型移回人类：数学界、AI 公司、审稿制度、署名规范，都需要一套新的游戏规则。斯米尔诺夫在接受专访时说，「鉴于 AI 发展如此迅速，我们要迅速行动，制定面向未来的游戏规则」。这场 9 月的交锋，就是规则谈判的开始。</p>
-    </div>
+      <div class="body">
+        <p><span class="accent">纳维-斯托克斯之争的戏剧性，容易让人忽略一个更冷静的事实：数学共同体并未否定 AI 的证明能力。</span></p>
+        <p>截至 9 月中旬，公开的 Lean 形式化证明均无未证伪的逻辑漏洞，陶哲轩对前期工作的即时评价也是肯定的。争议的焦点始终落在「AI 公司以什么规则做数学」，「AI 能不能做数学」反而没有人否定。</p>
+        
+        <p><strong>三方的时间投入差距十分悬殊：</strong><br/>
+        西班牙数学家 Córdoba 与 Martínez-Zoroa 花数年开辟了外力构造爆破路线；<br/>
+        Buckmaster 与 Alpöge 用约一年沿着该路线推进并完成了欧拉方程结果；<br/>
+        OpenAI 闻讯后调配更强模型与集群算力，在 <span class="num">88</span> 小时内拿到了受迫纳维-斯托克斯结果。</p>
+        
+        <p>斯坦福技术评论核对了合计 <span class="num">230</span> 万行机器生成证明，确认形式化层面经得起检查。真正悬而未决的，是关于人类科研伦理与制度规范的问题。</p>
+        
+        <p>联合声明最核心的警示，在于<span class="turn">「数学不能只剩下 AI 已经做出答案」</span>。</p>
+        <p>一道长期未解的难题，对科学的价值往往不在终点本身，而在人类为了求解它而孕育出的全新概念、分析工具与直觉感知。如果 AI 依靠大规模算力搜索直达终点，却没有人理解其内核逻辑，原本应当生长的科学养分就会流失。</p>
+        
+        <p><strong>更有深层的利益冲突机制浮出水面：</strong><br/>
+        商业 AI 公司既是科学家离不开的生产力工具提供方，又在同一赛道上充当掌握无限算力的竞争者。</p>
+        <p>当研究者的未发表思考草稿留存在商业服务器上时，科学界如何信任工具方的防火墙？这种结构性矛盾，已成为整个科研共同体必须面对的制度大考。</p>
+        
+        <p><span class="hl">「这些变化最终是造福这个领域，还是造成破坏性后果，很大程度上将由掌控这项新技术的人类如何决策来决定。」</span> 声明将责任重心重新移回人类。这场 9 月的冲突，正是未来科学规则重构的序幕。</p>
+      </div>
     </div>
     <div class="src-line">深度分析 · <a href="https://stanfordtechreview.com/articles/openai-buckmaster-navier-stokes-lean-proofs" target="_blank">Stanford Tech Review：Lean Proofs, Audited</a> · <a href="https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/" target="_blank">MIT Technology Review</a></div>
   </div>
 
-  <div class="analysis-wrap" style="margin:48px 0;">
-    <div class="sec-eyebrow" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9CA3AF;margin-bottom:6px;">KEY QUESTIONS</div>
-    <div class="sec-title" style="font-size:15px;font-weight:700;color:#002FA7;letter-spacing:1px;margin-bottom:24px;display:inline-block;">这场交锋留下的五个待解问题</div>
+  <div class="analysis-wrap" style="margin:48px 0 24px;">
+    <div class="sec-eyebrow" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9CA3AF;margin-bottom:8px;">KEY QUESTIONS</div>
+    <div class="sec-title" style="font-size:16px;font-weight:700;color:#002FA7;letter-spacing:1px;margin-bottom:24px;display:inline-block;">这场交锋留下的五个待解问题</div>
+    
     <div class="analysis">
-    <div class="body">
-      <p><strong>一、OpenAI 的证明会通过同行审阅吗？</strong> 克雷数学研究所院长明确「评奖程序刻意不急」，截至 9 月中旬问题仍标「未解决」。166 页人类可读文稿与 Lean 形式化并存，但独立的人类层面完整核验尚未完成。</p>
-      <p><strong>二、数据边界如何审计？</strong> OpenAI 否认访问具体用户数据，承认不能排除去标识化衍生数据的影响。外部审计不可能看到内部训练管道，信任只能建立在制度设计上。</p>
-      <p><strong>三、署名规则如何适应 AI 参与？</strong> Buckmaster 与 Alpöge 的 230 万行 Lean 中，机器生成部分与人类贡献如何拆分？当 AI 公司同时是工具方与竞争方，贡献归属的谈判从哪里开始？</p>
-      <p><strong>四、数学的「附随收益」还会存在吗？</strong> 如果 AI 直接输出证明，求解过程中本应产生的新概念、新方法与新直觉可能消失，愿意深入探索已解难题的人也会减少。</p>
-      <p><strong>五、研究者还敢公开自己的方向吗？</strong> 陶哲轩警告，若传言就可能引来大规模 AI 攻关，研究者会越来越不愿意分享有潜力的研究方向，开放科学传统面临收缩风险。</p>
-    </div>
+      <div class="question-card">
+        <strong>一、OpenAI 的证明会通过同行审阅吗？</strong>
+        <p>克雷数学研究所明确表示评奖程序保持严谨从容，截至 9 月中旬该问题仍标为「未解决」。166 页论证虽有 Lean 验证背书，但人类层面的完整逻辑消解尚未完成。</p>
+      </div>
+
+      <div class="question-card">
+        <strong>二、数据边界与学术隐私如何审计？</strong>
+        <p>商业公司承认无法排除去标识化衍生数据对模型的间接提升。外部审计无法直接调阅训练权重，科学家对商业科研工具的信任面临制度考验。</p>
+      </div>
+
+      <div class="question-card">
+        <strong>三、署名规则如何适应人机协作？</strong>
+        <p>在数百万行机器形式化代码中，算法生成的比重与人类数学家的智力贡献应如何界定？商业公司是否有权根据企业竞对关系决定署名取舍？</p>
+      </div>
+
+      <div class="question-card">
+        <strong>四、数学的「附随收益」会消失吗？</strong>
+        <p>如果难题由机器直接给出答案，前人在攀登过程中拓展出的新理论分支可能不再出现，愿意耗费精力消化证明细节的后继者也将锐减。</p>
+      </div>
+
+      <div class="question-card">
+        <strong>五、研究者还敢公开自己的方向吗？</strong>
+        <p>陶哲轩警告：若微小传言就可能引来巨头调集超级算力围猎抢发，学者将不得不对潜在方向保持沉默，开放科学传统面临收缩危机。</p>
+      </div>
     </div>
   </div>
 
   <div class="footer">
     <div class="big">AI 情报日报 · 专题案卷</div>
-    前沿信号流，AI每天在变什么，人在怎么选
+    前沿信号流，AI每天在变什么，人在怎么选 · 本专题由 AI News 编辑部整理
   </div>
 
 </div>
