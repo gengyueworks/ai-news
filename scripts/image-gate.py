@@ -154,9 +154,13 @@ def scan_html(html_path: Path, verify_http: bool = True):
             body_imgs.append(m.group(1))
     if items >= 4:
         if len(body_imgs) < 1:
-            issues.append((0, 'I7.FAIL',
-                'IMAGE_COVERAGE_FAIL: 正文无配图（%d 条新闻 0 张正文图）→ 至少需要 1 张 COS 官方图'
-                % items))
+            if 'READY_TEXT_ONLY' in content:
+                issues.append((0, 'I7.WARN',
+                    'IMAGE_COVERAGE: 正文无配图（%d 条新闻 0 张正文图）——READY_TEXT_ONLY 声明' % items))
+            else:
+                issues.append((0, 'I7.FAIL',
+                    'IMAGE_COVERAGE_FAIL: 正文无配图（%d 条新闻 0 张正文图）→ 至少需要 1 张 COS 官方图'
+                    % items))
         elif (len(body_imgs) / items) < cov:
             issues.append((0, 'I7.WARN',
                 '配图率 %d%%（%d 条新闻 %d 张正文图，建议适当增加官方配图）'
