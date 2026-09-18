@@ -650,6 +650,23 @@ body {
   display: none; /* Chrome/Safari 隐藏滚动条 */
 }
 
+.rail-wrap { position: relative; }
+.rail-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--white);
+  color: var(--klein); font-size: 24px; line-height: 1;
+  cursor: pointer; z-index: 6; padding: 0 0 3px 0;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 47, 167, 0.14);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.rail-btn:hover { border-color: var(--klein); transform: translateY(-50%) scale(1.08); }
+.rail-btn:active { transform: translateY(-50%) scale(0.96); }
+.rail-prev { left: 2px; }
+.rail-next { right: 2px; }
+.rail-btn[hidden] { display: none; }
+
 .special-card-item {
   flex: 0 0 280px; /* 固定紧凑宽度，末端露边 peek */
   min-height: 140px;
