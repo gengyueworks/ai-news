@@ -127,6 +127,7 @@
             height: auto;
             display: block;
             border-radius: 8px;
+            max-width: 560px;
         }
 
         .image-caption {
@@ -307,7 +308,7 @@
                 <img src="https://www.varonis.com/hubfs/Blog_VTL-SearchLeak_Diagram_202606_FNL.png" alt="SearchLeak攻击流程图：一次点击→Copilot搜邮箱→嵌入img标签→Bing代理外泄" loading="lazy">
                 <p class="image-caption">SearchLeak三阶段攻击链可视化 · Varonis Threat Labs</p>
             </div>
-            <p class="news-body">Varonis Threat Labs发现了一个三步漏洞链，叫<span class="highlight">SearchLeak</span>（CVE-2026-42824）。第一步——<span class="highlight">P2P注入</span>：Copilot Enterprise Search的URL参数直接被当成AI指令执行。第二步——<span class="highlight">HTML渲染竞态</span>：AI回复流式输出时，<img>标签在安全过滤生效之前就触发了请求。第三步——<span class="highlight">Bing SSRF</span>：CSP白名单里的bing.com会做服务器端跳转，变成数据外泄的代理。三步连起来：用户点一个链接→Copilot搜自己的邮箱、日历、SharePoint→数据通过Bing发到攻击者服务器。<span class="turn">一次点击，零二次确认</span>。Microsoft已修复，评级"严重"。</p>
+            <p class="news-body">Varonis Threat Labs发现了一个三步漏洞链，叫<span class="highlight">SearchLeak</span>（CVE-2026-42824）。第一步——<span class="highlight">P2P注入</span>：Copilot Enterprise Search的URL参数直接被当成AI指令执行。第二步——<span class="highlight">HTML渲染竞态</span>：AI回复流式输出时，&lt;img&gt;标签在安全过滤生效之前就触发了请求。第三步——<span class="highlight">Bing SSRF</span>：CSP白名单里的bing.com会做服务器端跳转，变成数据外泄的代理。三步连起来：用户点一个链接→Copilot搜自己的邮箱、日历、SharePoint→数据通过Bing发到攻击者服务器。<span class="turn">一次点击，零二次确认</span>。Microsoft已修复，评级"严重"。</p>
             <p class="source-line">来源：Varonis Threat Labs · <a href="https://www.varonis.com/blog/searchleak" target="_blank">varonis.com</a> · Microsoft Security · <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42824" target="_blank">msrc.microsoft.com</a></p>
             <p class="related-links" style="margin-top:6px;font-size:12px;color:var(--text-light);line-height:1.5;">↳ 拓展 · <a href="2026-06-13.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Anthropic安全漏洞</a> · <a href="2026-06-11.html" style="color:var(--text-mid);text-decoration:none;border-bottom:1px dotted var(--border);">Claude独立浏览安全</a></p>
             <p class="card-tag">前线·安全漏洞·AI Agent·操控性</p>
