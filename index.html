@@ -933,63 +933,23 @@
                 <p class="day-card-meta" data-zh="周回顾 · 6 条精选 · 声音 · 创造" data-en="weekly · 6 picks · voices · creation">周回顾 · 6 条精选 · 声音 · 创造</p>
             </a>
         </div>
-        <footer class="footer">
-            <p data-zh="AI News · 每日更新" data-en="AI News · Updated Daily">AI News · 每日更新</p>
-        </footer>
-
-    </div>
-
-    <script>
-        let currentLang = 'zh';
-
-        // ===== 语言切换 =====
-        function toggleLang() {
-            currentLang = currentLang === 'zh' ? 'en' : 'zh';
-            const btn = document.getElementById('langToggle');
-            btn.textContent = currentLang === 'zh' ? 'EN' : '中';
-            btn.classList.toggle('active-en', currentLang === 'en');
-            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
-            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
-                el.textContent = el.getAttribute('data-' + currentLang);
-            });
-            localStorage.setItem('ai-news-lang', currentLang);
-        }
-
-        // ===== 恢复语言偏好 =====
-        (function() {
-            const saved = localStorage.getItem('ai-news-lang');
-            if (saved === 'en') {
-                currentLang = 'en';
-                document.getElementById('langToggle').textContent = '中';
-                document.getElementById('langToggle').classList.add('active-en');
-                document.documentElement.lang = 'en';
-                document.querySelectorAll('[data-zh][data-en]').forEach(el => {
-                    el.textContent = el.getAttribute('data-en');
-                });
-            }
-        })();
-        // ===== 轨道丝滑：渐变遮罩 + 箭头显隐（≤10 行核心） =====
-        (function(){const t=document.getElementById('railTrack'),w=document.getElementById('railWrap'),l=document.getElementById('railPrev'),r=document.getElementById('railNext');if(!t||!w)return;const u=()=>{const a=t.scrollLeft>8,b=t.scrollLeft+t.clientWidth<t.scrollWidth-8;w.classList.toggle('has-left',a);w.classList.toggle('has-right',b);if(l)l.hidden=!a;if(r)r.hidden=!b;};const go=d=>t.scrollBy({left:d,behavior:'smooth'});if(l)l.onclick=()=>go(-240);if(r)r.onclick=()=>go(240);t.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();})();
-    </script>
-
-<!-- AI News 知识卡片浮层 -->
-<link rel="stylesheet" href="glossary/glossary.css">
-<script src="glossary/ai-dictionary-lite-inline.js"></script>
-<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
-</body>
-</html
-        </section>
-
-    </main>
-
-    <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTopBtn" onclick="scrollToTop()" title="返回顶部">↑</button>
+    </section>
 
     <footer class="site-footer">
         <div class="site-footer-inner">
             <p data-zh="© 2026 AI News · 前沿信号流——AI每天在变什么，人在怎么选" data-en="© 2026 AI News · Frontier signal stream — what AI is changing daily, and how humans choose.">© 2026 AI News · 前沿信号流——AI每天在变什么，人在怎么选</p>
         </div>
     </footer>
+
+    </main>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTopBtn" onclick="scrollToTop()" title="返回顶部">↑</button>
+
+    <script>
+        // ===== 轨道丝滑：渐变遮罩 + 箭头显隐（≤10 行核心） =====
+        (function(){const t=document.getElementById('railTrack'),w=document.getElementById('railWrap'),l=document.getElementById('railPrev'),r=document.getElementById('railNext');if(!t||!w)return;const u=()=>{const a=t.scrollLeft>8,b=t.scrollLeft+t.clientWidth<t.scrollWidth-8;w.classList.toggle('has-left',a);w.classList.toggle('has-right',b);if(l)l.hidden=!a;if(r)r.hidden=!b;};const go=d=>t.scrollBy({left:d,behavior:'smooth'});if(l)l.onclick=()=>go(-240);if(r)r.onclick=()=>go(240);t.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();})();
+    </script>
 
     <script>
         // 快捷筛选
@@ -1058,5 +1018,10 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
+
+<!-- AI News 知识卡片浮层 -->
+<link rel="stylesheet" href="glossary/glossary.css">
+<script src="glossary/ai-dictionary-lite-inline.js"></script>
+<script src="glossary/glossary.js" data-dict="glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>
