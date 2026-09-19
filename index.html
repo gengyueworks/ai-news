@@ -1139,7 +1139,9 @@
             const box = document.getElementById('searchResults');
             box.hidden = false;
             box.innerHTML = '<div class="sr-loading">正在载入全站索引…</div>';
-            fetch('search-index.json', { cache: 'force-cache' })
+            // default 而非 force-cache：索引每天更新，Pages 给的是 max-age=600，
+            // 强制缓存会让回访读者长期搜到旧标题和重复条目（实测线上已更新仍读到旧版）。
+            fetch('search-index.json', { cache: 'default' })
                 .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
                 .then(function (d) { srIndex = d; done(); })
                 .catch(function () {
