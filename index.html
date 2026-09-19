@@ -49,9 +49,12 @@
             </div>
             <div class="search-box">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="liveSearch" class="search-input" placeholder="搜索专题或日报关键词..." oninput="handleSearch(this.value)">
+                <input type="text" id="liveSearch" class="search-input" placeholder="搜索全站新闻，可输多个词..." oninput="handleSearch(this.value)" autocomplete="off">
             </div>
         </div>
+
+        <!-- 全站搜索结果（数据来自 search-index.json） -->
+        <div class="search-results" id="searchResults" hidden></div>
 
         <!-- 专题脉络卡片网格 (Special Issues) -->
         <section class="chapter" id="specialSection">
@@ -981,27 +984,178 @@
             }
         }
 
-        // 实时搜索
-        function handleSearch(query) {
-            query = query.trim().toLowerCase();
-            const specialCards = document.querySelectorAll('.special-card-item');
-            const dayCards = document.querySelectorAll('.day-card');
+        // ---------- 全站搜索 ----------
+        // 索引由 scripts/build-search-index.py 从 113 个日报/周报页抽出 1000+ 条生成。
+        // 只筛首页那 108 张卡片会让「疫苗」「Dreambeans」这类内容根本搜不到。
+        const SR_MAX = 40;
+        // 读者用中文说品牌名，索引里多半是英文写法；别名只做"或"匹配，不替换原词
+        const SR_ALIAS = {
+            '英伟达': 'nvidia', '谷歌': 'google', '微软': 'microsoft', '苹果': 'apple',
+            '克劳德': 'claude', '机器人': 'robot', '智能体': 'agent', '芯片': 'chip',
+            '人才': 'talent', '融资': 'funding'
+        };
+        let srIndex = null, srSeq = 0, srTimer = null;
 
-            if (!query) {
-                specialCards.forEach(function(c) { c.style.display = ''; });
-                dayCards.forEach(function(c) { c.style.display = ''; });
+        function srEscape(s) {
+            return String(s).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        function srTokens(q) {
+            return String(q).toLowerCase().split(/[\s,，、;；/|()（）]+/).filter(Boolean).slice(0, 6);
+        }
+
+        function srWordList(tok) {
+            const al = SR_ALIAS[tok];
+            return al ? [tok, al] : [tok];
+        }
+
+        function srHit(tok, hay) {
+            return srWordList(tok).some(function (w) { return hay.indexOf(w) >= 0; });
+        }
+
+        function srSearch(tokens) {
+            const out = [];
+            let mode = 'and';
+            (srIndex.items || []).forEach(function (it) {
+                const t = (it.t || '').toLowerCase(), s = (it.s || '').toLowerCase();
+                const g = (it.g || '').toLowerCase(), c = (it.c || '').toLowerCase();
+                let hit = 0, score = 0;
+                tokens.forEach(function (tok) {
+                    const inT = srHit(tok, t), inS = srHit(tok, s), inO = srHit(tok, g) || srHit(tok, c);
+                    if (inT || inS || inO) { hit++; score += inT ? 6 : (inS ? 3 : 2); }
+                });
+                if (hit) {
+                    // 越新的日报排越前，同分时按命中位置加权
+                    out.push({ it: it, score: score + (it.d ? it.d.replace(/-/g, '') / 1e10 : 0), hit: hit });
+                }
+            });
+            if (tokens.length > 1 && !out.some(function (r) { return r.hit === tokens.length; })) mode = 'or';
+            out.forEach(function (r) { r.rank = (mode === 'and' ? (r.hit === tokens.length ? 1 : 0) : r.hit) * 100 + r.score; });
+            out.sort(function (a, b) { return b.rank - a.rank || (b.it.d || '').localeCompare(a.it.d || ''); });
+            return { mode: mode, list: out.filter(function (r) { return mode === 'and' ? r.hit === tokens.length : r.hit > 0; }) };
+        }
+
+        function srHighlight(text, tokens) {
+            const low = String(text).toLowerCase(), ranges = [];
+            tokens.forEach(function (tok) {
+                srWordList(tok).forEach(function (w) {
+                    let i = low.indexOf(w);
+                    while (i >= 0 && ranges.length < 40) { ranges.push([i, i + w.length]); i = low.indexOf(w, i + w.length); }
+                });
+            });
+            if (!ranges.length) return srEscape(text);
+            ranges.sort(function (a, b) { return a[0] - b[0] || b[1] - a[1]; });
+            const merged = [];
+            ranges.forEach(function (r) {
+                const last = merged[merged.length - 1];
+                if (last && r[0] <= last[1]) { if (r[1] > last[1]) last[1] = r[1]; } else { merged.push([r[0], r[1]]); }
+            });
+            let html = '', pos = 0;
+            merged.forEach(function (r) {
+                html += srEscape(text.slice(pos, r[0])) + '<mark>' + srEscape(text.slice(r[0], r[1])) + '</mark>';
+                pos = r[1];
+            });
+            return html + srEscape(text.slice(pos));
+        }
+
+        function srSnippet(it, tokens) {
+            const body = it.s || it.g || '';
+            if (!body) return '';
+            const low = body.toLowerCase();
+            let at = -1;
+            tokens.forEach(function (tok) {
+                srWordList(tok).forEach(function (w) {
+                    const i = low.indexOf(w);
+                    if (i >= 0 && (at < 0 || i < at)) at = i;
+                });
+            });
+            const from = at > 42 ? at - 30 : 0;
+            const cut = body.slice(from, from + 112);
+            return (from ? '…' : '') + srHighlight(cut, tokens) + (body.length > from + 112 ? '…' : '');
+        }
+
+        function srRender(q, tokens) {
+            const box = document.getElementById('searchResults');
+            const res = srSearch(tokens);
+            const shown = res.list.slice(0, SR_MAX);
+            let html = '<div class="sr-head">全站 <b>' + srIndex.count + '</b> 条 · 命中 <b>'
+                + res.list.length + '</b> 条'
+                + (res.mode === 'or' ? '（没有同时包含这些词的结果，按包含词数排序）' : '')
+                + '</div>';
+            if (!shown.length) {
+                html += '<div class="sr-empty">没找到「' + srEscape(q)
+                    + '」。换个更短的词，或试试英文写法（nvidia / gemini / claude）。</div>';
+            } else {
+                html += '<ul class="sr-list">' + shown.map(function (r) {
+                    const it = r.it;
+                    return '<li class="sr-item"><span class="sr-date">' + srEscape(it.d || '') + '</span><div>'
+                        + '<div class="sr-title"><a href="' + srEscape(it.u) + '">' + srHighlight(it.t, tokens) + '</a>'
+                        + (it.c ? '<span class="sr-cat">' + srEscape(it.c) + '</span>' : '') + '</div>'
+                        + (it.s ? '<div class="sr-snip">' + srSnippet(it, tokens) + '</div>' : '')
+                        + '</div></li>';
+                }).join('') + '</ul>';
+                if (res.list.length > shown.length) {
+                    html += '<div class="sr-head">仅显示前 ' + SR_MAX + ' 条，把词收紧一点再看其余 '
+                        + (res.list.length - shown.length) + ' 条</div>';
+                }
+            }
+            box.innerHTML = html;
+            box.hidden = false;
+        }
+
+        function srFilterCards(tokens) {
+            // 本页卡片沿用同一套分词，避免结果列表说命中 20 条、页面上卡片却全消失
+            const cards = document.querySelectorAll('.special-card-item, .day-card');
+            if (!tokens.length) {
+                cards.forEach(function (c) { c.style.display = ''; });
                 return;
             }
+            const matchAll = function (hay) { return tokens.every(function (t) { return srHit(t, hay); }); };
+            const matchAny = function (hay) { return tokens.some(function (t) { return srHit(t, hay); }); };
+            const pick = function (mode) {
+                let n = 0;
+                cards.forEach(function (c) {
+                    const ok = mode(c.textContent.toLowerCase());
+                    c.style.display = ok ? '' : 'none';
+                    if (ok) n++;
+                });
+                return n;
+            };
+            if (!pick(matchAll) && !pick(matchAny)) pick(function () { return true; });
+        }
 
-            specialCards.forEach(function(card) {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(query) ? '' : 'none';
-            });
+        function srLoadIndex(done) {
+            if (srIndex) { done(); return; }
+            const box = document.getElementById('searchResults');
+            box.hidden = false;
+            box.innerHTML = '<div class="sr-loading">正在载入全站索引…</div>';
+            fetch('search-index.json', { cache: 'force-cache' })
+                .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+                .then(function (d) { srIndex = d; done(); })
+                .catch(function () {
+                    box.innerHTML = '<div class="sr-empty">全站索引没载入成功，当前只能筛本页卡片。</div>';
+                });
+        }
 
-            dayCards.forEach(function(card) {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(query) ? '' : 'none';
-            });
+        function handleSearch(query) {
+            const q = String(query || '').trim();
+            clearTimeout(srTimer);
+            if (!q) {
+                document.getElementById('searchResults').hidden = true;
+                document.getElementById('searchResults').innerHTML = '';
+                document.querySelectorAll('.special-card-item, .day-card')
+                    .forEach(function (c) { c.style.display = ''; });
+                return;
+            }
+            srTimer = setTimeout(function () {
+                const tokens = srTokens(q);
+                srFilterCards(tokens);
+                if (!tokens.length) return;
+                const seq = ++srSeq;
+                srLoadIndex(function () { if (seq === srSeq) srRender(q, tokens); });
+            }, 140);
         }
 
         // 返回顶部
