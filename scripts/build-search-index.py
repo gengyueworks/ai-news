@@ -132,10 +132,19 @@ def extract_page(path: Path, rel: str) -> list:
     return items
 
 
+MONTH_IN_NAME = re.compile(r'(2026-\d{2})')
+
+
+def _monthly_dir(name: str) -> str:
+    m = MONTH_IN_NAME.search(name)
+    return m.group(1) if m else ''
+
+
 def build() -> dict:
     pages = 0
     all_items = []
     targets = sorted(REPO.rglob('*.html'))
+    cands = []
     for p in targets:
         rel = p.relative_to(REPO)
         if '.git' in rel.parts or 'vendor' in rel.parts:
@@ -149,6 +158,21 @@ def build() -> dict:
         is_weekly = name.startswith('ai-weekly-')
         is_special = rel.parts and rel.parts[0] == 'special'
         if not (is_daily or is_weekly or is_special):
+            continue
+        cands.append((p, rel))
+
+    # 同名页只保留放在自己月份目录里的那份：ai-weekly-2026-06-… 曾被误归档到
+    # 2026-02/，首页只链 2026-06/ 那份，两份都进索引会让同一批新闻各出一条结果。
+    dirs = {}
+    for p, rel in cands:
+        dirs.setdefault(p.name, set()).add(rel.parts[0] if len(rel.parts) > 1 else '')
+
+    for p, rel in cands:
+        here = rel.parts[0] if len(rel.parts) > 1 else ''
+        want = _monthly_dir(p.name)
+        if (want and want != here and len(dirs.get(p.name, ())) > 1
+                and want in dirs[p.name]):
+            print(f'  跳过归档错目录的副本: {rel}')
             continue
         got = extract_page(p, str(rel).replace('\\', '/'))
         if got:
