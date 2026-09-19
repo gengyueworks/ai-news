@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & Mathematics: When Frontier Models Disprove Decades-Old Conjectures · AI News Special</title>
+<meta name="description" content="AI is entering the core of pure mathematical research. From the 80-year-old Erdős unit distance conjecture to counterexamples in the Jacobian conjecture, frontier models serve as engines for cross-field discovery.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:36px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.15;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-radius:8px;
+}
+.plain-guide .pg-head{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  margin-bottom:10px;
+}
+.plain-guide p{
+  font-size:14px;
+  color:var(--ink-soft);
+  line-height:1.7;
+  margin-bottom:8px;
+}
+.plain-guide p:last-child{margin-bottom:0;}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../../special/ai-mathematics.html">中文版</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="masthead">
+    <div class="special-badge">SPECIAL ISSUE · DOSSIER</div>
+    <h1 class="mast-title">AI & Mathematics: When Frontier Models Disprove Decades-Old Conjectures</h1>
+    <div class="mast-rule"></div>
+    <div class="mast-meta">
+      <span class="issue">SPECIAL SP-011</span>
+      <span>WINDOW 2023.12 – 2026.08</span>
+      <span>PRIMARY SOURCES 6</span>
+    </div>
+    <div class="mast-lede">
+      Over recent years, AI has expanded from tackling competition problems to pushing the boundaries of pure mathematics. From disproving the 80-year-old Erdős unit distance conjecture to constructing counterexamples in the Jacobian conjecture, AI models serve as engines for cross-field discovery. This special issue covers verified, peer-reviewed, or expert-validated milestones.
+    </div>
+  </div>
+
+  <div class="plain-guide">
+    <div class="pg-head">Key Takeaways for Non-Mathematicians</div>
+    <p><strong>1. Counterexample Discovery over Grand Theory Building:</strong> Instead of inventing grand new abstract frameworks, AI excels at discovering non-obvious counterexamples in massive search spaces by bridging tools from algebraic number theory to geometry.</p>
+    <p><strong>2. Human-AI Synthesis:</strong> AI models generate raw proof candidate structures, which top mathematicians digest, simplify, and generalize into rigorous new mathematical insights.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-title">Verified Breakthrough Timeline</div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026-09-05</div>
+      <div class="tl-body">
+        <strong>Anthropic uses multi-agent Claude team to formalize Fermat's Last Theorem in Lean within 11 days:</strong> Generating over 13 million lines of machine-checked Lean 4 code across 29,500 lemmas, verifying Andrew Wiles' 1995 hundred-page proof with zero hallucination. Demonstrates automated formal verification at unprecedented mathematical scale.<br/>
+        <span class="src-line">Source · <a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem" target="_blank">Anthropic Research: Formalizing Fermat's Last Theorem</a></span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026-08-25</div>
+      <div class="tl-body">
+        <strong>Bruce Schneier and Kasra Rafi publish in The Guardian on AI and math careers:</strong> Analyzing recent counterexamples by OpenAI and Anthropic models, noting AI excels at cross-disciplinary search and counterexamples while deep theory building remains human-driven.<br/>
+        <span class="src-line">Source · <a href="https://www.theguardian.com/commentisfree/2026/aug/25/ai-mathematics-careers" target="_blank">The Guardian Opinion</a></span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026-08-08</div>
+      <div class="tl-body">
+        <strong>Fields Medalist Jacob Tsimerman joins OpenAI for AI Safety and Verification:</strong> Highlighting that AI reasoning in pure mathematics requires formal guarantees, bridging number theory with model interpretability.<br/>
+        <span class="src-line">Source · <a href="https://techspherenews.com/fields-medalist-jacob-tsimerman-joins-openai-for-ai-safety-work" target="_blank">TechSphere News</a></span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026-07-19</div>
+      <div class="tl-body">
+        <strong>Anthropic's Levent Alpöge constructs 3D counterexample to the 85-year-old Jacobian Conjecture:</strong> Assisted by Claude Fable 5, Alpöge identified a non-injective polynomial map in 3D with a constant non-zero Jacobian. Terence Tao subsequently published a geometric digestion.<br/>
+        <span class="src-line">Source · <a href="https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/" target="_blank">Terence Tao's Blog</a> · <a href="https://arxiv.org/abs/2608.00222" target="_blank">arXiv:2608.00222</a></span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026-05-20</div>
+      <div class="tl-body">
+        <strong>OpenAI model disproves the 80-year-old Erdős Unit Distance Conjecture:</strong> Autonomous reasoning model combined class field towers from algebraic number theory to construct point sets exceeding $n^{1+o(1)}$ unit distances. Verified by Timothy Gowers, Noga Alon, and Will Sawin.<br/>
+        <span class="src-line">Source · <a href="https://arxiv.org/abs/2605.20695" target="_blank">arXiv:2605.20695 Verification</a> · <a href="https://www.alphaxiv.org/abs/2605.20579" target="_blank">Sawin Lower Bound Paper</a></span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2024-07-25</div>
+      <div class="tl-body">
+        <strong>DeepMind's AlphaProof and AlphaGeometry 2 achieve Silver Medal level at IMO 2024:</strong> Solved 4 out of 6 problems at the International Mathematical Olympiad, demonstrating formal proof generation and synthetic geometry reasoning.<br/>
+        <span class="src-line">Source · <a href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/" target="_blank">Google DeepMind Announcement</a></span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2023-12-06</div>
+      <div class="tl-body">
+        <strong>DeepMind releases FunSearch, discovering new mathematical knowledge in Cap Set Problem:</strong> Combining LLMs with automated evaluators, FunSearch discovered mathematical constructions exceeding known human bounds.<br/>
+        <span class="src-line">Source · <a href="https://www.nature.com/articles/s41586-023-06924-6" target="_blank">Nature Paper (2023)</a></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-block">
+    <div class="sec-eyebrow">EDITORIAL ANALYSIS</div>
+    <div class="sec-title">Editorial Perspective</div>
+    <div class="body">
+      <p><span class="hl">As AI disproves long-standing conjectures like Erdős unit distance and the Jacobian conjecture, pure mathematics is experiencing a paradigm shift.</span> Far from merely solving contest problems, AI demonstrates unique strengths in cross-disciplinary search and complex counterexample synthesis.</p>
+      <p>As Tim Gowers noted, <span class="turn">human mathematicians remain essential for conceptual theory building and asking deep questions.</span> However, AI has evolved from a passive calculator into a collaborative discovery engine.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="big">AI News · Special Dossier</div>
+    Frontier Signal Flow — Tracking AI Evolution and Human Choices
+  </div>
+
+</div>
+</body>
+</html>

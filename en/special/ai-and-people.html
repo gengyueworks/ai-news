@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 经济，会把人的位置变成什么样 · AI News 专题</title>
+<meta name="description" content="三个月前 Anthropic 还是「OpenAI 的挑战者」，现在它提交上市申请、估值逼近 1 万亿美元。不关注 AI 也能看懂：它凭什么上升。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
+</style></head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="ai-and-people.html" class="active">专题</a></li>
+      <li><a href="../2026-08/2026-08-08.html">最新</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="special-badge">TREND WATCH · 趋势思考</div>
+<div class="mast-title">AI 经济，会把人的位置变成什么样</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+  <span class="issue">持续更新 · 趋势思考系列</span>
+  <span>开篇 · 3 条线索</span>
+</div>
+<div class="mast-lede">AI 不只是技术，它正在重新排人和工作的位置。<br><br>一边是硅谷顶尖工程师拿几亿美元年薪、35 岁前考虑退休；另一边，白领工作在焦虑中看着 AI 把自己那份活接走。<br><br>这不是「AI 会不会取代人」的问题，是「AI 会把人分成几层」的问题。</div>
+
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">先读懂这篇 · 大白话版</div>
+<div class="pg-body">
+<p><strong>先讲三句人话：</strong><br>
+<span class="pg-point">第一，AI 正在重新分配「谁值钱」</span>，会写代码的顶尖工程师更值钱了，普通白领的岗位开始被 AI 接走。<br>
+<span class="pg-point">第二，这个鸿沟是全球性的</span>，吃到 AI 红利的是美国、中国、韩国这些挤进供应链的国家，非洲、拉美可能被甩得更远。<br>
+<span class="pg-point">第三，没人知道这个新世界长什么样</span>，连写这篇文章的经济学家也说，不知道这个世界会不会自己撕裂。</p>
+<div class="pg-glossary">
+<strong>术语白话对照：</strong>
+<p><span class="pg-term">白领工作</span>≈ 坐办公室的工作（写代码、做分析、搞财务），这类工作最容易被 AI 替代。</p>
+<p><span class="pg-term">AI 供应链</span>≈ 造 AI 需要的链条：芯片、算力、数据中心。挤进去的国家吃肉，没挤进去的喝汤都难。</p>
+<p><span class="pg-term">UBI（全民基本收入）</span>≈ 政府定期给每个人发一笔钱，不管有没有工作。硅谷人焦虑时爱提它。</p>
+<p><span class="pg-term">外包行业</span>≈ 发达国家把 IT 活外包给印度等国做，AI 可能第一个吃掉的行业。</p>
+</div>
+<p class="pg-note">如果你只想知道「AI 会怎么改变人的位置」，读完这块就够了。下面是展开的线索。</p>
+</div>
+</div>
+
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">AI 重排人的位置，几条线索</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · 裂痕出现</div>
+<div class="tl-body"><strong>哈佛经济学家 Rogoff 提出：AI 经济会制造「永久下层阶级」吗？</strong>硅谷的狂热之下是焦虑：顶尖程序员拿几亿美元年薪，年轻工程师 35 岁前考虑退休；但没挤进 AI 供应链的国家（非洲、拉美），连基本盘都没有。</div>
+<p class="tl-src">出处 · Guardian / Project Syndicate</p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-03 · 环境与鸿沟</div>
+<div class="tl-body"><strong>联合国报告：到 2030 年，AI 的用水量可能相当于 <span class="num">13</span> 亿人。</strong>数据中心的水足迹等于撒哈拉以南非洲全部人口一年的基本用水；<span class="num">90%</span> 的 AI 算力集中在美国和中国，只有 <span class="num">32</span> 个国家有 AI 数据中心。爱尔兰数据中心占全国用电 <span class="num">21%</span>，墨西哥和乌拉圭因为数据中心和居民抢水爆发冲突。<span class="tl-plain">白话：AI 不只在重排「谁值钱」，还在重排「谁用水、谁被占资源」。富国建数据中心，穷国承担电费、水和电子垃圾。</span></div>
+<p class="tl-src">出处 · The Times / UNU</p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-05 · 「人还做什么」</div>
+<div class="tl-body"><strong>Anthropic 公开：Claude 写了公司 <span class="num">80%</span> 的代码。</strong>内部员工开始问「我还做什么」。这是第一家敢公开「AI 干掉了自己多少活」的头部实验室。<span class="tl-plain">白话：一家顶级 AI 公司承认，自家 80% 的代码是 AI 写的，员工开始焦虑自己的位置。</span></div>
+<p class="tl-src">出处 · <a href="../../2026-06/2026-06-05.html">看 06-05 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-02/03 · 意义与陪伴</div>
+<div class="tl-body"><strong>人开始向 AI 找意义：HBR 研究说，2026 年 AI 第一大用途是「治疗与陪伴」。</strong>新趋势是用 AI 生成星座和塔罗占卜。心理学家警告：我们正把 AI 当「神谕」，用 AI 填补对意义和超越的精神需求。另一面，New Scientist 报道了一个叫 Halupedia 的网站，100% AI 生成、所有条目都是幻觉，一周 15 万用户。<span class="tl-plain">白话：一边是人在 AI 里找陪伴和人生答案，一边是 AI 编造的假知识被当成真事传播。人对 AI 的态度，已经从「工具」滑向「神」。</span></div>
+<p class="tl-src">出处 · Psychology Today · New Scientist</p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · 人的价值重估</div>
+<div class="tl-body"><strong>Karpathy：软件像自来水一样随开随用，我的需求在 10 倍膨胀。</strong>AI 没有让写代码的人失业，反而让会写代码的人需求暴涨。<span class="turn">人的位置变了，从生产软件变成判断和指挥 AI 生产。</span></div>
+<p class="tl-src">出处 · <a href="../../2026-06/2026-06-17.html">看 06-17 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · 全球分化</div>
+<div class="tl-body"><strong>DeepSeek 74 亿融资，梁文锋个人出资 <span class="num">200</span> 亿。</strong>中国 AI 的资本格局成形，中美双雄格局下，其他国家的位置被进一步压缩。</div>
+<p class="tl-src">出处 · <a href="../../2026-06/2026-06-17.html">看 06-17 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-16 · 内容爆炸</div>
+<div class="tl-body"><strong>经济学人数据：AI 正在淹没问题，书籍、法律、论文、App、音乐五路并进。</strong>亚马逊每月新增电子书从 <span class="num">10</span> 万涨到 <span class="num">30</span> 万；<span class="num">18%</span> 的美国自诉状含 AI 生成语言；<span class="num">57%</span> 的 2025 年论文受 AI 影响（2023 年仅 <span class="num">12%</span>）；Deezer 上 AI 音乐占新上传 <span class="num">44%</span>，<span class="num">97%</span> 的人听不出差别。<span class="tl-plain">白话：AI 让每个人都能创作，结果就是内容海啸。以前写书、打官司、发论文、写 App、做音乐是门槛，现在都变成了「一句话的事」。</span></div>
+<p class="tl-src">出处 · The Economist</p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-22 · 人的创造力</div>
+<div class="tl-body"><strong>Anthropic 黑客马拉松，<span class="num">310</span> 人、12 小时、一杯咖啡认识。</strong>前三名让你看见人的创造力。当 AI 承担重复劳动，人剩下的价值是创造和协作。</div>
+<p class="tl-src">出处 · <a href="../../2026-06/2026-06-22.html">看 06-22 日报 →</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-07-23 / 08-05 · 职场层</div>
+<div class="tl-body"><strong>HBR 研究：员工每周花 <span class="num">6.4</span> 小时「看顾」AI 机器人。</strong>这个时间比真正用 AI 干活还多，人从「用 AI」变成了「AI 的保姆」。另一项 KPMG 研究更微妙：<span class="num">50.1%</span> 的人用 AI 后超过基线（放大器），<span class="num">25.8%</span> 持平（委托者），<span class="num">24.1%</span> 反而更低（学徒）。决定差距的是怎么和 AI 协作，基础技能反而不是关键。<span class="tl-plain">白话：一半人靠 AI 变强，四分之一原地踏步，四分之一反而变弱。AI 不拉平人的差距，它放大差距。</span></div>
+<p class="tl-src">出处 · HBR：Botsitting · HBR：初级员工与 AI</p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · 边界讨论</div>
+<div class="tl-body"><strong>「别做 meat proxy」：别把 AI 输出原封不动转给别人。</strong>社区开始讨论人的位置：「别只做转发器」，人该把哪部分交出去、哪部分必须自己把关。</div>
+<p class="tl-src">出处 · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">Simon Willison</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-09 · 人用 AI 替代人</div>
+<div class="tl-body"><strong>英国劳动法庭诉讼量激增百倍：工人用 ChatGPT 起草法律索赔。</strong>AI 生成的索赔文件长达数百页，包含虚构法律和不切实际的要求。人用 AI 对抗系统，也把 AI 的幻觉带进了法庭。<span class="tl-plain">白话：普通人第一次能用 AI 免费打官司，但 AI 编造的「法律」也涌进了法庭。人的位置变了，问题的边界也变了。</span></div>
+<p class="tl-src">出处 · <a href="https://www.tomtunguz.com/the-secret-chat-room" target="_blank">The Decoder</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-09 · 创作边界</div>
+<div class="tl-body"><strong>研究：1682 人分不清 AI 写的和人类写的短篇小说。</strong>读完后，他们甚至觉得 AI 写的故事更吸引人。但当被告知是 AI 写的，评价反而变低。<span class="turn">分不清是真的，偏见也是真的。人对 AI 创作的态度，卡在「分不清」和「不愿意认」之间。</span></div>
+<p class="tl-src">出处 · Judgment and Decision Making（AIHOT 线索）</p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-09 · 代价</div>
+<div class="tl-body"><strong>67 岁农民按 AI 建议喷除草剂，150 亩芝麻苗一夜枯萎。</strong>安徽滁州农户信了 AI 生成的「飞防方案」，损失约 <span class="num">15</span> 万元。<span class="tl-plain">白话：AI 的建议第一次大规模落地到农田，落地的代价是 150 亩苗。技术越强，信它的人的试错成本越高。</span></div>
+<p class="tl-src">出处 · IT之家</p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-08 · 用户变了</div>
+<div class="tl-body"><strong>OpenAI 披露 10 亿用户画像：使用方式从「问答」转向「任务」。</strong>工作场景中完成任务的可能性是非工作场景的 <span class="num">2</span> 倍以上；<span class="num">35</span> 岁及以上用户发送消息份额较一年前增加 <span class="num">5</span> 个百分点。<span class="turn">AI 的用户结构在变：从「年轻人尝鲜」到「中年人拿来干活」。</span></div>
+<p class="tl-src">出处 · <a href="https://openai.com/index/how-the-world-is-putting-chatgpt-to-work" target="_blank">OpenAI 官方</a></p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-08 · 科学边界</div>
+<div class="tl-body"><strong>斯坦福用 AI 设计出 16 种自然界不存在的病毒，发表在 Science。</strong>AI 模型 Evo 提出 <span class="num">70</span> 万个候选基因组，筛出 <span class="num">285</span> 个合成，<span class="num">16</span> 个成功杀死细菌。<span class="tl-plain">白话：AI 不只是工具了，它在创造新的生命形式。科学边界第一次被 AI 推到了「造物」的门口。</span></div>
+<p class="tl-src">出处 · The Decoder（Science 发表）</p>
+</div>
+
+<div class="tl-item">
+<div class="tl-date">2026-08-09 · 就业转移</div>
+<div class="tl-body"><strong>美国增长最快的科技岗位变成电工、安装工：数据中心在抢人。</strong>过去两年相关招聘翻倍，每 <span class="num">1000</span> 个岗位里约 <span class="num">6</span> 个与数据中心有关，是 2023 年的 <span class="num">3</span> 倍，时薪比同类工作高约 <span class="num">10</span> 美元。<span class="turn">AI 的第一波就业红利，不在写代码，在给数据中心装机器。</span></div>
+<p class="tl-src">出处 · IT之家（Indeed 研究）</p>
+
+<div class="tl-item">
+<div class="tl-date">2026-06-25 · AI 反弹</div>
+<div class="tl-body"><strong>经济学人：AI 的抵制浪潮才刚刚开始。</strong>美国反数据中心的抗议搁置近 <span class="num">1000</span> 亿项目；<span class="num">40%</span> 美国选民希望 AI 从大多数行业被禁；更多人愿意隔壁是核反应堆而不是数据中心。韩国三星工人因芯片利润暴涨威胁罢工要分红。<span class="tl-plain">白话：AI 高管喊了几年「AI 会取代你」，现在选民真的开始怕 AI 了。抵制的不只是数据中心的噪音，是对技术本身的信任危机。</span></div>
+<p class="tl-src">出处 · The Economist</p>
+</div>
+</div>
+</div>
+
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE · 深度解读</div>
+<div class="sec-title">人的位置，正在被 AI 重排</div>
+
+<div class="item">
+<div class="body">
+<span class="h2">一、赢家：会指挥 AI 的人更值钱了</span>
+<p>硅谷顶尖工程师年薪几亿美元、35 岁前考虑退休，Karpathy 说「我的需求 10 倍膨胀」。<span class="hl">AI 没有消灭「会写代码的人」，而是让「会写代码又会指挥 AI 的人」更值钱</span>。</p>
+<p>人的位置从「生产」变成「指挥」：<span class="turn">以前人写代码，现在人告诉 AI 写什么、检查它写得对不对</span>。</p>
+
+<span class="h2">二、焦虑层：白领工作的位置在松动</span>
+<p>Anthropic 承认 Claude 写了 80% 代码，员工问「我还做什么」；Rogoff 写「AI 吞掉白领工作像浮游生物」。<span class="hl">坐办公室的中间层，是 AI 最先接手的对象</span>。</p>
+<p>HBR 的数据给这层焦虑补了最讽刺的注脚：员工每周花 <span class="num">6.4</span> 小时「看顾」AI，比真正用 AI 干活还多。<span class="hl">人没被 AI 取代，却先变成了 AI 的保姆</span>。喂上下文、修错误、审查输出。</p>
+<p>这层人不是「失业」，是「位置被重估」：<span class="turn">KPMG 研究说，同样面对 AI，50% 的人变强、25% 原地踏步、25% 反而变弱。AI 不拉平差距，它放大差距</span>。</p>
+
+<span class="h2">三、全球层：被甩下的国家</span>
+<p>Rogoff 的观察最冷：<span class="hl">真正被 AI 落下的人不在美国，在没挤进 AI 供应链的国家</span>。非洲缺电、拉美缺资本、印度外包业首当其冲。</p>
+<p>联合国报告把这条鸿沟量化了：<span class="num">90%</span> 的 AI 算力集中在美国和中国，AI 到 2030 年的用水量相当于 <span class="num">13</span> 亿人，而这份账单主要由数据中心所在社区和电子垃圾接收国承担。<span class="hl">穷国不只是没分到 AI 的钱，还在替 AI 付电费和水费</span>。</p>
+<p>中国的处境特殊：既是 AI 强国，也要面对 AI 替代就业的社会稳定问题。<span class="turn">AI 的鸿沟不只是人和人之间，更是国家和国家之间、以及算力中心和被占资源的人之间</span>。</p>
+
+<span class="h2">四、未知数：没人知道这个世界长什么样</span>
+<p>Rogoff 在文末说得很诚实：<span class="hl">「没有人真正知道这样的世界会是什么样，更别说怎么阻止它自我撕裂」</span>。</p>
+<p>这个专题会持续更新。<span class="turn">每一次人才流动、每一次「人还做什么」的讨论、每一次就业数据，都是这个问题的注脚</span>。</p>
+
+<span class="h2">五、更深的层：人开始向 AI 找意义</span>
+<p>工作、金钱、地位之外，还有一层更深的：<span class="hl">人开始向 AI 找陪伴和意义</span>。HBR 研究显示 2026 年 AI 第一大用途是「治疗与陪伴」，新趋势是让人工智能出星座和塔罗。</p>
+<p>心理学家写得最狠：<span class="turn">「以前我们在夜空里找上帝，现在盯着屏幕问 Claude，一个我们人性的苍白摹本」</span>。当 AI 既能替人写代码、又能陪人聊天、还能占卜未来，人的位置就不只是「被替代」的问题，而是「人还剩下什么」的问题。</p>
+<p>另一面是 Halupedia：AI 编造的假百科全书，一周 15 万用户。<span class="hl">人对 AI 的信任，正在同时催生「神谕」和「幻觉」</span>。</p>
+<span class="h2">六、反向的浪潮：AI 反弹</span>
+<p>不是所有人都欢迎 AI。经济学人统计：<span class="hl">40% 的美国选民希望 AI 从大多数行业被禁，反数据中心的抗议搁置了近 1000 亿项目</span>。AI 高管喊了几年「AI 会取代你、AI 会造超级病毒」，现在这些话反噬成了对技术的恐惧。</p>
+<p><span class="turn">当抵制 AI 从科技圈蔓延到普通选民，人的位置问题有了新的一极：不是「AI 会把我放哪」，而是「我该不该让 AI 进来」</span>。</p>
+</div>
+</div>
+</div>
+
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · 关键人物的原话</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">"要么你的公司五年到十年内做成了，要么你祈祷政府发全民基本收入。"</p>
+<p class="voice-who">—— Kenneth Rogoff · 哈佛经济学教授、IMF 前首席经济学家 · Guardian</p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Claude 写了我们 80% 的代码，我们已经开始问：我还做什么？"</p>
+<p class="voice-who">—— Anthropic 内部开发者 · <a href="../../2026-06/2026-06-05.html">看 06-05 日报 →</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"我要你亲自处理所有事情，而不是你的智能体。别再把这个任务委派给更笨的智能体。"</p>
+<p class="voice-who">—— Ethan Mollick · 沃顿商学院教授 · <a href="https://x.com/emollick" target="_blank">X @emollick</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AGI 可能在 2030 年前后到来，真正的颠覆不在于抵达时间，而在于机构的适应能力。"</p>
+<p class="voice-who">—— Demis Hassabis · Google DeepMind CEO · X</p>
+</div>
+</div>
+
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">相关报道 · 本专题的全部足迹</div>
+<div class="rel-card">
+<span class="rc-title">The Decoder：AI 让英国劳动法庭诉讼量激增百倍</span>
+<span class="rc-date">2026-08-09</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">The Economist：这篇是 AI 写的吗（5 领域内容爆炸数据）</span>
+<span class="rc-date">2026-06-16</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">The Economist：AI 的抵制才刚刚开始</span>
+<span class="rc-date">2026-06-25</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">HBR：员工每周花 6.4 小时「看顾」AI 机器人</span>
+<span class="rc-date">2026-08-05</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">HBR：为何部分初级员工与 AI 协作良好，其他人却不然</span>
+<span class="rc-date">2026-07-23</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">Psychology Today：向 AI 寻求意义与超越</span>
+<span class="rc-date">2026-06-02</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">New Scientist：由 AI 幻觉构成的百科全书</span>
+<span class="rc-date">2026-06-03</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">Times / UNU：AI 到 2030 年用水量相当于 13 亿人</span>
+<span class="rc-date">2026-06-03</span>
+</div>
+<a class="rel-card" href="../../2026-06/2026-06-22.html">
+<span class="rc-title">310 人、12 小时：Anthropic 黑客马拉松让你看见人的创造力</span>
+<span class="rc-date">2026-06-22</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-17.html">
+<span class="rc-title">Karpathy：软件像自来水，我的需求 10 倍膨胀</span>
+<span class="rc-date">2026-06-17</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-05.html">
+<span class="rc-title">Claude 写了 Anthropic 80% 的代码</span>
+<span class="rc-date">2026-06-05</span>
+</a>
+<div class="rel-card">
+<span class="rc-title">Guardian：Anthropic 冲刺，OpenAI 艰难追赶（人才与估值视角）</span>
+<span class="rc-date">2026-06-02</span>
+</div>
+</div>
+
+<p class="src-line">出处来源自 付费项目「吃点好的」高质量阅读库 · 欢迎进入深度阅读区域</p>
+<div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+Frontier Signal Flow — Tracking AI Evolution and Human Choices · 本专题为趋势思考系列，持续更新
+</div>
+
+</div>
+
+<link rel="stylesheet" href="../../glossary/glossary.css">
+<script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
