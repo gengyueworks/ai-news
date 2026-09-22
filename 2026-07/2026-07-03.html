@@ -189,7 +189,7 @@ body{
 <span>星期五</span>
 <span>9 条现场</span>
 </div>
-<p class="mast-lede">今天是美国 7 月 4 日长假前一天，前沿新闻本就稀薄—但我们没有为了凑数放旧料。今天的四条主线是：<span class="accent">算力想摆脱英伟达</span>（Anthropic 找三星造芯片）、<span class="accent">价值从模型移到落地</span>（微软 25 亿新公司）、<span class="accent">小模型反超大模型</span>（微调打败前沿）、<span class="accent">Agent 开始自我进化了</span>（快手 AgentX 三周产出 10 个可发布结果）。再附两张越来越贵的环境账单。</p>
+<p class="mast-lede">今天是美国 7 月 4 日长假前一天，前沿新闻本就稀薄—但我们没有为了凑数放旧料。今天的四条主线是：<br><br><span class="accent">算力想摆脱英伟达</span>（Anthropic 找三星造芯片）、<span class="accent">价值从模型移到落地</span>（微软 25 亿新公司）、<span class="accent">小模型反超大模型</span>（微调打败前沿）、<span class="accent">Agent 开始自我进化了</span>（快手 AgentX 三周产出 10 个可发布结果）。再附两张越来越贵的环境账单。</p>
 </header>
 <div class="section-block">
 <div class="sec-eyebrow">HEADLINE</div>
@@ -230,7 +230,8 @@ body{
 <h2 class="item-title">Claude Fable 5 回归，带着一条「安全回退」的新规矩</h2>
 <p class="body">时隔一天，<span class="accent">Claude Fable 5</span> 恢复供应，但这次 Anthropic 同步亮明了底线：升级后的网络安全防护可能把部分请求<span class="accent">路由到 Opus 4.8</span>，生物与化学分类器仍偏保守。价格没变，规矩变了。</p>
 <p class="body">工具链反应最快。<span class="accent">Cursor</span> 说 Fable 5 领跑它的评测、但单任务成本也是最高的；<span class="accent">Devin</span> 在 Cloud/Desktop/CLI 全线接入；<span class="accent">Perplexity</span> 恢复它当编排模型。Anthropic 同时重置了用户的速率限制。这一轮真正值得看的不是「模型回来了」，<span class="accent">是「人们怎么适应前沿模型的约束」</span>。</p>
-<p class="body">多位一线构建者收敛到同一个答案：<span class="turn">多模型编排取代单模型依赖</span>。有人只让 Fable 干高价值的推理与规划，把实现、验证、电脑操作交给其他模型，端到端 PR 产出率明显提升；也有人提醒，靠预分类器路由并不总是可靠，有些任务得先解出来才知道该交给谁。Fable 5 在 Remote Labor Index 上拿了 <span class="num">16.10%</span>，Sonnet 5 在 AA-Briefcase 排第二但回合数更高、低档位性价比更差，<span class="accent">单看榜单，已经看不出「谁该干哪一段」</span>。</p>
+<p class="body">多位一线构建者收敛到同一个答案：<span class="turn">多模型编排取代单模型依赖</span>。有人只让 Fable 干高价值的推理与规划，把实现、验证、电脑操作交给其他模型，端到端 PR 产出率明显提升；也有人提醒，靠预分类器路由并不总是可靠，有些任务得先解出来才知道该交给谁。</p>
+<p class="body">Fable 5 在 Remote Labor Index 上拿了 <span class="num">16.10%</span>，Sonnet 5 在 AA-Briefcase 排第二但回合数更高、低档位性价比更差，<span class="accent">单看榜单，已经看不出「谁该干哪一段」</span>。</p>
 <p class="body">前沿模型恢复供应不是终点。真正的新常态是：<span class="turn">没有哪个模型再能包办一切，把对的活交给对的模型，正在成为新的工程能力</span>。</p>
 <p class="source">Anthropic · <a href="https://x.com/anthropicai">x.com/@anthropicai</a> / Cursor · cursor.com/blog / Artificial Analysis · artificialanalysis.ai/news</p>
 </div>
@@ -264,9 +265,12 @@ body{
 <div class="item">
 <div class="dateline"><span class="src">MacTalk via 微信</span> · 7 月 2 日</div>
 <h2 class="item-title">快手出了 AgentX：推荐系统开始自我迭代了</h2>
-<p class="body">快手 <span class="hl">AgentX</span>，面向工业推荐系统的 <span class="hl">Agent 驱动研发</span>。它把推荐迭代拆成 4 个 Agent 模块：<span class="hl">Brainstorm Agent</span> 把模糊业务目标变成可落地方案；<span class="hl">Developing Agent</span> 把方案写成生产代码，经过特征校验、DSL 检查、dryrun 验证后才上线；<span class="hl">Evaluation Agent</span> 上 A/B 实验，安全部署、流量分桶、guardrail veto，输出 KEEP / EXTEND / DISCARD；最关键是第四个，<span class="hl">Harness Evolution</span>，它把每次失败诊断成「语义梯度」，用一套叫 <span class="hl">SGPO</span>（Semantic-Gradient-based Prompt Optimization）的机制修改 Agent 自身的工作规则和 Prompt，再用历史实验 replay 对比，新版确实好了，才进生产。</p>
+<p class="body">快手 <span class="hl">AgentX</span>，面向工业推荐系统的 <span class="hl">Agent 驱动研发</span>。它把推荐迭代拆成 4 个 Agent 模块：<span class="hl">Brainstorm Agent</span> 把模糊业务目标变成可落地方案；<span class="hl">Developing Agent</span> 把方案写成生产代码，经过特征校验、DSL 检查、dryrun 验证后才上线；</p>
+<p class="body"><span class="hl">Evaluation Agent</span> 上 A/B 实验，安全部署、流量分桶、guardrail veto，输出 KEEP / EXTEND / DISCARD；</p>
+<p class="body">最关键是第四个，<span class="hl">Harness Evolution</span>，它把每次失败诊断成「语义梯度」，用一套叫 <span class="hl">SGPO</span>（Semantic-Gradient-based Prompt Optimization）的机制修改 Agent 自身的工作规则和 Prompt，再用历史实验 replay 对比，新版确实好了，才进生产。</p>
 <p class="body">Agent 不只是帮你写代码的工具，它正在变成能自我进化的研发系统。</p>
-<p class="body">三周生产数据：3 个 AgentX worker 推进 <span class="hl">374</span> 个想法，<span class="num">106</span> 个通过方案审核，<span class="num">100</span> 个完成上线，<span class="num">10</span> 个获得正向评估达到可发布标准。漏斗自然收敛：<span class="num">28.34%</span> idea pass rate → <span class="num">94.3%</span> code-launch rate → <span class="num">9.9%</span> positive eval rate。业务收益：主站消费时长 +<span class="num">0.561%</span>，生活服务年化超 <span class="num">1 亿元</span>人民币。</p>
+<p class="body">三周生产数据：3 个 AgentX worker 推进 <span class="hl">374</span> 个想法，<span class="num">106</span> 个通过方案审核，<span class="num">100</span> 个完成上线，<span class="num">10</span> 个获得正向评估达到可发布标准。</p>
+<p class="body">漏斗自然收敛：<span class="num">28.34%</span> idea pass rate → <span class="num">94.3%</span> code-launch rate → <span class="num">9.9%</span> positive eval rate。业务收益：主站消费时长 +<span class="num">0.561%</span>，生活服务年化超 <span class="num">1 亿元</span>人民币。</p>
 <p class="body">更有价值的信号是自我加速，周并发从 <span class="num">15</span> 增至 <span class="num">60</span>，idea 通过率 <span class="num">15%</span>→<span class="num">45%</span>，周可发布结果 <span class="num">2</span>→<span class="num">5</span>。PCV 两轮实验展示了「自我迭代」的真实运作：第一轮 PCV boosting 弱正向但显著性不够，第二轮加入质量门控和自适应权重后拿到 +0.071% 观看时长。每一次实验都变成下一次更好的假设。</p>
 <div class="img"><img alt="快手出了 AgentX：推荐系统开始自我迭代了" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/agentx-8255dfa2.jpg"/><p class="img-cap">快手出了 AgentX：推荐系统开始自我迭代了。</p></div><p class="source">池建强 / MacTalk · 微信公众号</p>
 </div>
