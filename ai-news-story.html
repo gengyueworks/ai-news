@@ -1,825 +1,133 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI News · 制作过程</title>
-<meta name="description" content="AI News 中文日报的持续迭代记录：117 天、113 期、238 个信源。">
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI News 制作过程 · 幕后</title>
+<meta name="description" content="AI News 制作过程 的制作过程：起点、迭代、真实数字与在解的题。全部数据当场从 版本记录 量取。">
 <style>
-/* ai-news-story（AI News · 制作过程 · 迭代日志）品牌浅色纸感样式表：米白纸底 + 克莱因蓝 + 深墨正文，替换原 GitHub 深黑终端风。 */
-/* 选择器与 HTML 同生共死，删选择器要先看 HTML：ai-news-story.html 里在用的 class 全部在这份文件里有对应规则。 */
-
-:root {
-  /* 站点真实变量（品牌主规范，全站统一，不改值） */
-  --klein: #002FA7;
-  --klein-bright: #0044FF;
-  --white: #FFFFFF;
-  --bg-light: #F8F9FB;
-  --text-dark: #0E0E10;
-  --text-mid: #3A3A3E;
-  --text-light: #6B6B70;
-  --border: #E8E8EC;
-  --accent: #C41E3A;
-
-  /* 由上面 9 个主 token 派生的纸感层级（不引入新色相，只做明度/饱和度让步） */
-  --paper: #FCFCFA;              /* 米白：代码框／图纸底，避免纯白刺眼 */
-  --hairline: #EFEFF2;           /* 更淡的一根线：分段用 */
-  --tint-klein: #F1F4FC;         /* 极浅克莱因底纹：引文块 */
-  --olive: #4B7A3A;              /* 橄榄绿：feat / green */
-  --olive-tint: #EEF3E9;
-  --terra: #B15C38;              /* 陶土：refactor */
-  --terra-tint: #F8EEE8;
-  --accent-ink: #8E152B;         /* accent 降饱和后的可读文字色 */
-  --accent-tint: #FBEDEF;
-  --gold-ink: #8A6B12;           /* yellow */
-  --gold-tint: #FBF3DF;
-  --slate-ink: #4A4A50;          /* 中性 type 徽章（style / chore） */
-  --slate-tint: #F2F2F4;
-  --shadow-card: 0 1px 2px rgba(14, 14, 16, 0.04);
-  --shadow-lift: 0 3px 10px rgba(14, 14, 16, 0.06);
-  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --radius: 0.5rem;
-  --radius-sm: 0.25rem;
-}
-
-/* ---------- 基底 ---------- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
-
-html { -webkit-text-size-adjust: 100%; }
-
-body {
-  margin: 0;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.8;                 /* 正文行高放松 */
-  letter-spacing: 0;
-  padding: 2.5rem 1.25rem;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, p { margin: 0; }
-
-strong { color: var(--text-dark); font-weight: 700; }
-
-img, svg, video { max-width: 100%; height: auto; }
-
-::selection { background: var(--klein); color: var(--white); }
-
-.container {
-  max-width: 57.5rem;               /* 920px 栏宽 */
-  width: 100%;
-  min-width: 0;
-  margin: 0 auto;
-}
-
-/* ---------- 报头细条（原终端标题条，改浅底深字） ---------- */
-.terminal-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-bottom: none;
-  border-radius: var(--radius) var(--radius) 0 0;
-  padding: 0.75rem 1rem;
-}
-
-.terminal-dot {
-  width: 0.625rem;
-  height: 0.625rem;
-  border-radius: 50%;
-  background: var(--border);
-}
-
-.terminal-title {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  color: var(--text-light);
-  margin-left: 0.5rem;
-  overflow-wrap: anywhere;
-}
-
-/* ---------- Hero：刊物封面 ---------- */
-.hero {
-  position: relative;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 0 0 var(--radius) var(--radius);
-  padding: 3.5rem 2rem 3rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
-  box-shadow: var(--shadow-card);
-}
-
-.hero h1 {
-  font-size: clamp(1.75rem, 5.5vw, 2.625rem);
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.02em;           /* 标题字距收紧 */
-  color: var(--klein);
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  margin-bottom: 0.75rem;
-  overflow-wrap: anywhere;
-}
-
-.hero-subtitle {
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  letter-spacing: 0.01em;
-  color: var(--text-mid);
-  margin-bottom: 2rem;
-}
-
-/* 封面下方细分隔线：一根克莱因短规 */
-.hero::after {
-  content: "";
-  display: block;
-  width: 3.5rem;
-  height: 2px;
-  background: var(--klein);
-  margin: 0 auto;
-}
-
-/* ---------- 开篇数据条 ---------- */
-.stats-hero {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 3rem;
-}
-
-.stat-hero {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.25rem 0.75rem;
-  text-align: center;
-  min-width: 0;
-  box-shadow: var(--shadow-card);
-}
-
-.stat-hero-number {
-  font-family: var(--font-mono);
-  font-size: clamp(1.5rem, 5vw, 2rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--klein);
-  margin-bottom: 0.25rem;
-}
-
-.stat-hero-label {
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  line-height: 1.4;
-  color: var(--text-light);
-}
-
-/* ---------- 分段骨架：纸感章节 ---------- */
-.section {
-  margin: 0 0 3rem;
-  min-width: 0;
-}
-
-.section-title {
-  font-family: var(--font-mono);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.6;
-  color: var(--klein);
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.625rem;
-  border-bottom: 1px solid var(--border);   /* 一根细横线即分段 */
-}
-
-.section-desc {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--text-mid);
-  margin: -0.5rem 0 1.5rem;
-  max-width: 46rem;
-}
-
-/* 月份章节＝透明分章容器（不铺卡片底）：显式清零，防止旧深黑样式残留 */
-.month-block {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  margin: 3.5rem 0;
-  padding: 0;
-  min-width: 0;
-}
-
-.month-block-title {
-  font-family: var(--font-sans);
-  font-size: clamp(1.125rem, 3.4vw, 1.375rem);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.5;
-  color: var(--text-dark);
-  margin: 0 0 1.5rem;
-  padding: 0.875rem 0 0.75rem;
-  border-top: 2px solid var(--klein);        /* 刊物分章规线 */
-  border-bottom: 1px solid var(--border);
-}
-
-.week-section {
-  margin: 0 0 2.75rem;
-  padding: 1.75rem 0 0;
-  border-top: 1px solid var(--hairline);
-  min-width: 0;
-}
-
-.month-block > .week-section:first-of-type {
-  border-top: none;
-  padding-top: 0.25rem;
-}
-
-.week-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-  color: var(--text-mid);
-  margin-bottom: 1.25rem;
-}
-
-.week-title::before {
-  content: "";
-  display: inline-block;
-  flex: none;
-  width: 0.4375rem;
-  height: 0.4375rem;
-  background: var(--klein);
-  border-radius: 50%;
-}
-
-/* ---------- 架构图纸 ---------- */
-.arch-block {
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.8;
-  color: var(--text-dark);
-  box-shadow: var(--shadow-card);
-  overflow-wrap: anywhere;
-}
-
-.arch-layer {
-  margin-bottom: 1.125rem;
-  padding-left: 0.75rem;
-  border-left: 2px solid var(--hairline);
-}
-
-.arch-layer:last-child { margin-bottom: 0; }
-
-.arch-layer-name {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.6;
-  color: var(--klein);
-  margin-bottom: 0.375rem;
-}
-
-.arch-file {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.9;
-  color: var(--text-dark);
-  padding-left: 1.25rem;
-  overflow-wrap: anywhere;
-}
-
-.arch-comment {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-light);
-}
-
-/* ---------- 提交卡 ---------- */
-.commits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  gap: 0.75rem;
-}
-
-.commit-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.125rem 1.25rem;
-  margin-bottom: 0.875rem;
-  min-width: 0;
-  box-shadow: var(--shadow-card);
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-
-.commits-grid > .commit-card { margin-bottom: 0; }
-
-.commit-card:hover {
-  border-color: var(--klein-bright);         /* 极小面积 hover 亮蓝 */
-  box-shadow: var(--shadow-lift);
-  transform: translateX(2px);
-}
-
-.commit-header {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  row-gap: 0.375rem;
-  margin-bottom: 0.625rem;
-}
-
-.commit-type {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-  text-transform: lowercase;
-  white-space: nowrap;
-  padding: 0.125rem 0.5rem;
-  border-radius: var(--radius-sm);
-  background: var(--slate-tint);
-  color: var(--slate-ink);
-}
-
-.commit-hash {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0;
-  line-height: 1.5;
-  color: var(--text-light);
-  overflow-wrap: anywhere;
-}
-
-.commit-date {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.5;
-  color: var(--text-light);
-  margin-left: auto;
-  white-space: nowrap;
-}
-
-.commit-title {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.7;
-  color: var(--text-dark);
-  margin-bottom: 0.5rem;
-  overflow-wrap: anywhere;
-}
-
-.commit-desc {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--text-mid);
-  margin-bottom: 0.625rem;
-}
-
-.commit-files {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.7;
-  color: var(--klein);
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--hairline);
-  overflow-wrap: anywhere;
-}
-
-/* ---------- 语义徽章色（小面积点缀，不铺大面积） ---------- */
-.feat { color: var(--olive); background: var(--olive-tint); }
-.fix { color: var(--klein); background: var(--tint-klein); }
-.refactor { color: var(--terra); background: var(--terra-tint); }
-.remove { color: var(--accent-ink); background: var(--accent-tint); }
-.breaking { color: var(--accent-ink); background: var(--accent-tint); }
-.red { color: var(--accent-ink); background: var(--accent-tint); }
-.green { color: var(--olive); background: var(--olive-tint); }
-.yellow { color: var(--gold-ink); background: var(--gold-tint); }
-
-.commit-type.feat,
-.commit-type.commit-type-feat { color: var(--olive); background: var(--olive-tint); }
-.commit-type.fix,
-.commit-type.commit-type-fix { color: var(--klein); background: var(--tint-klein); }
-.commit-type.refactor { color: var(--terra); background: var(--terra-tint); }
-.commit-type.breaking { color: var(--accent-ink); background: var(--accent-tint); }
-.commit-type.remove { color: var(--accent-ink); background: var(--accent-tint); }
-.commit-type.style,
-.commit-type.commit-type-chore { color: var(--slate-ink); background: var(--slate-tint); }
-
-/* 报头三点：语义色的低饱和版，直径 10px 以内 */
-.terminal-dot.red { background: var(--accent-ink); }
-.terminal-dot.yellow { background: var(--gold-ink); }
-.terminal-dot.green { background: var(--olive); }
-
-/* ---------- 代码框：报纸上的图纸框，米白底 + 细边 + 等宽 ---------- */
-.code-block {
-  background: var(--paper);
-  color: var(--text-dark);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.75;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  overflow-x: auto;
-  tab-size: 2;
-  margin: 1.5rem 0;
-  box-shadow: var(--shadow-card);
-}
-
-.code-keyword { color: var(--accent-ink); font-weight: 600; }
-.code-string { color: var(--klein); }
-.code-number { color: var(--olive); font-weight: 600; }
-.code-comment { color: var(--text-light); font-style: normal; }
-
-/* ---------- 重点卡 / 引文 ---------- */
-.featured-card {
-  background: linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--olive);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  margin: 1.25rem 0;
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-}
-
-.featured-label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1.5;
-  color: var(--olive);
-  margin-bottom: 0.75rem;
-}
-
-.featured-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.6;
-  color: var(--text-dark);
-  margin-bottom: 0.5rem;
-}
-
-.featured-desc {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--text-mid);
-}
-
-.quote-block {
-  background: var(--tint-klein);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--klein);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.75rem;
-  margin: 1.75rem 0;
-  font-style: normal;                /* 中文不做斜体，靠字号与底色立起来 */
-  font-size: 1.0625rem;
-  line-height: 1.8;
-  letter-spacing: -0.005em;
-  color: var(--text-dark);
-}
-
-.quote-author {
-  font-style: normal;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.7;
-  color: var(--text-light);
-  margin-top: 0.875rem;
-}
-
-/* ---------- 数据格 ---------- */
-.data-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
-  gap: 0.75rem;
-  margin: 1.25rem 0 0;
-}
-
-.featured-card .data-grid {
-  margin: 1.25rem -1.5rem -1.5rem;
-  padding: 1.25rem 1.5rem 1.5rem;
-  background: var(--bg-light);
-  border-top: 1px solid var(--border);
-}
-
-.data-item {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 0.875rem 0.5rem;
-  text-align: center;
-  min-width: 0;
-}
-
-.featured-card .data-item { background: var(--white); }
-
-.data-value {
-  font-family: var(--font-mono);
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.4;
-  color: var(--klein);
-  overflow-wrap: anywhere;
-}
-
-.data-label {
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.4;
-  color: var(--text-light);
-  margin-top: 0.25rem;
-}
-
-/* ---------- 统计墙 ---------- */
-.stats-wall {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.75rem;
-  margin: 1.5rem 0;
-  box-shadow: var(--shadow-card);
-}
-
-.stats-wall-title {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  line-height: 1.6;
-  color: var(--text-mid);
-  text-align: center;
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.stats-wall-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5.25rem, 1fr));
-  gap: 0.75rem;
-}
-
-.stats-wall-item {
-  background: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  text-align: center;
-  padding: 1rem 0.5rem;
-  min-width: 0;
-}
-
-.stats-wall-value {
-  font-family: var(--font-mono);
-  font-size: 1.375rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
-  color: var(--klein);
-  margin-bottom: 0.25rem;
-}
-
-.stats-wall-label {
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.4;
-  color: var(--text-light);
-}
-
-/* ---------- 失败台账 ---------- */
-.fail-log {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  box-shadow: var(--shadow-card);
-}
-
-.fail-log-title {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1.6;
-  color: var(--accent-ink);
-  margin-bottom: 1rem;
-  padding-bottom: 0.625rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.fail-log-item {
-  position: relative;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.8;
-  color: var(--text-mid);
-  margin-bottom: 0.5rem;
-  padding-left: 1.25rem;
-  overflow-wrap: anywhere;
-}
-
-.fail-log-item::before {
-  content: "✗";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--accent-ink);
-}
-
-.fail-log-item.pass { color: var(--text-dark); }
-
-.fail-log-item.pass::before {
-  content: "✓";
-  color: var(--olive);
-}
-
-.fail-log-date {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-light);
-  margin-right: 0.5rem;
-  white-space: nowrap;
-}
-
-/* ---------- 页脚 ---------- */
-.footer {
-  text-align: center;
-  padding: 2rem 0 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  line-height: 1.8;
-  color: var(--text-light);
-  border-top: 1px solid var(--border);
-  margin-top: 3.5rem;
-}
-
-/* ---------- 窄屏收口（375px 不溢出） ---------- */
-.stats-hero > *,
-.data-grid > *,
-.stats-wall-grid > *,
-.commits-grid > * { min-width: 0; }
-
-@media (max-width: 48em) {
-  .hero { padding: 2.5rem 1.5rem 2.25rem; }
-  .month-block { margin: 2.5rem 0; }
-  .stats-wall,
-  .fail-log,
-  .arch-block,
-  .featured-card { padding: 1.25rem; }
-  .featured-card .data-grid {
-    margin: 1.25rem -1.25rem -1.25rem;
-    padding: 1.25rem;
-  }
-  .code-block { padding: 1.125rem 1rem; font-size: 0.75rem; }
-  .quote-block { padding: 1.25rem; }
-}
-
-@media (max-width: 30em) {
-  body { padding: 1.5rem 1rem; font-size: 0.9375rem; }
-  .hero { padding: 2rem 1.125rem 1.875rem; margin-bottom: 2rem; }
-  .hero-subtitle { margin-bottom: 1.5rem; }
-  .commit-card { padding: 1rem; }
-  .commit-header { gap: 0.5rem; }
-  .commit-date { margin-left: 0; }
-  .stats-hero { gap: 0.5rem; margin-bottom: 2rem; }
-  .data-grid,
-  .stats-wall-grid { gap: 0.5rem; }
-  .section-title { font-size: 0.875rem; }
-  .month-block-title { margin-bottom: 1.25rem; }
-}
-
-</style>
-</head>
-<body>
-    <div class="container">
-        <div class="masthead-nav"><a href="index.html">← 回到 AI News 首页</a></div>
-        <section class="hero">
-            <div class="hero-eyebrow">The Making Of · 2026.06.01 — 2026.09.25</div>
-            <h1>AI News · 117 天迭代记</h1>
-            <p class="hero-subtitle">一本每天出版的英文技术中文日报，这是它不断变厚的过程</p>
-            <div class="stats-hero">
-                <div class="stat-hero"><div class="stat-hero-number">117</div><div class="stat-hero-label">连续天数</div></div>
-                <div class="stat-hero"><div class="stat-hero-number">113</div><div class="stat-hero-label">已出期数</div></div>
-                <div class="stat-hero"><div class="stat-hero-number">827</div><div class="stat-hero-label">收录条目</div></div>
-                <div class="stat-hero"><div class="stat-hero-number">238</div><div class="stat-hero-label">信源域名</div></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2 class="section-title">Layers · 我们在哪几个层面反复打磨</h2>
-            <div class="data-grid">
-            <div class="featured-card">
-                <div class="featured-label">第 1 层 · 阅读层</div>
-                <div class="featured-title">版面、断行与三色标记</div>
-                <div class="featured-desc">每期 9 个栏目固定顺序，正文按阅读节奏重排，关键数字、概念与转折各用一色标注，长句一律拆成可换气的小段。</div>
-            </div>
-            <div class="featured-card">
-                <div class="featured-label">第 2 层 · 视觉层</div>
-                <div class="featured-title">配图、图注与地理感</div>
-                <div class="featured-desc">455 张图全部回到原文核对，图注 275 条写明出处与日期；结尾留一处地球卫星影像，让每天盯屏幕的人看一眼不需要 GPU 冷却的地方。</div>
-            </div>
-            <div class="featured-card">
-                <div class="featured-label">第 3 层 · 来源层</div>
-                <div class="featured-title">可点开、可复核</div>
-                <div class="featured-desc">238 个信源域名，每条新闻都带一个能直达的蓝色来源链接；声音栏 244 条真人原话，两条来自不同媒体，不用二手转述代替。</div>
-            </div>
-            <div class="featured-card">
-                <div class="featured-label">第 4 层 · 内容层</div>
-                <div class="featured-title">选题结构持续加宽</div>
-                <div class="featured-desc">前沿动态、开源、资本、研究、人物与现场并列推进，版面从一家公司的发布扩展到 238 个信源的视野，让每天的信息落在具体的人和具体的场景上。</div>
-            </div>
-            <div class="featured-card">
-                <div class="featured-label">第 5 层 · 生产层</div>
-                <div class="featured-title">每天准时的那条流水线</div>
-                <div class="featured-desc">从采集、起草、排版到上架全部自动跑，一天一档；改动当天可见，次日继续在同一套版式上累积。</div>
-            </div>
-            <div class="featured-card">
-                <div class="featured-label">第 6 层 · 入口层</div>
-                <div class="featured-title">中英双站与专题案卷</div>
-                <div class="featured-desc">12 份专题案卷与 36 页英文内容并行维护，首页按刊物封面与目录组织，老期次永久可查。</div>
-            </div>
-            </div>
-        </section>
-        <section class="week-section">
-            <h2 class="section-title">Timeline · 按月看这条曲线</h2>
-            <div class="commits-grid">
-            <div class="month-block">
-                <div class="month-block-title">5 月 · 1 次迭代</div>
-                <div class="commit-desc">创刊与栏目骨架立起来</div>
-            </div>
-            <div class="month-block">
-                <div class="month-block-title">6 月 · 29 次迭代</div>
-                <div class="commit-desc">版式定型，刊物封面与目录感成形</div>
-            </div>
-            <div class="month-block">
-                <div class="month-block-title">7 月 · 31 次迭代</div>
-                <div class="commit-desc">栏目扩到九栏，声音与视觉两条线补齐</div>
-            </div>
-            <div class="month-block">
-                <div class="month-block-title">8 月 · 136 次迭代</div>
-                <div class="commit-desc">自动化生产接管日常，专题案卷累积</div>
-            </div>
-            <div class="month-block">
-                <div class="month-block-title">9 月 · 89 次迭代</div>
-                <div class="commit-desc">全站内容与入口统一收口，中英双站并跑</div>
-            </div>
-            </div>
-        </section>
-        <section class="section">
-            <h2 class="section-title">Now · 现在这本站的样子</h2>
-            <div class="stats-wall">
-                <div class="stats-wall-title">截至 2026 年 09 月 25 日</div>
-                <div class="stats-wall-grid">
-                    <div class="stats-wall-item"><div class="stats-wall-value">113</div><div class="stats-wall-label">已出期数</div></div>
-                    <div class="stats-wall-item"><div class="stats-wall-value">827</div><div class="stats-wall-label">收录条目</div></div>
-                    <div class="stats-wall-item"><div class="stats-wall-value">238</div><div class="stats-wall-label">信源域名</div></div>
-                    <div class="stats-wall-item"><div class="stats-wall-value">244</div><div class="stats-wall-label">真人原话</div></div>
-                    <div class="stats-wall-item"><div class="stats-wall-value">455</div><div class="stats-wall-label">已核配图</div></div>
-                    <div class="stats-wall-item"><div class="stats-wall-value">12</div><div class="stats-wall-label">专题案卷</div></div>
-                </div>
-            </div>
-            <p class="section-desc">每天早上一期，改动次日可见。往前的每一期都留在那里，可以一直翻回创刊那天。</p>
-        </section>
-        <div class="footer">AI News · 悦读工作室出品 · 每日更新</div>
-    </div>
-</body>
-</html>
+:root{
+  --klein:#002FA7; --klein-bright:#0044FF; --white:#FFFFFF;
+  --bg-light:#F8F9FB; --text-dark:#0E0E10; --text-mid:#3A3A3E;
+  --text-light:#6B6B70; --border:#E8E8EC; --accent:#C41E3A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-light);color:var(--text-dark);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:16px;line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:48px 24px 88px}
+.masthead{border-bottom:2px solid var(--text-dark);padding-bottom:20px;margin-bottom:8px}
+.kicker{font-size:12px;letter-spacing:.18em;color:var(--klein);font-weight:700;text-transform:uppercase}
+h1{font-size:40px;line-height:1.2;margin:10px 0 8px;letter-spacing:-.03em;font-weight:800}
+.tagline{font-size:18px;color:var(--text-mid);margin:0;letter-spacing:-.01em}
+.dateline{font-size:13px;color:var(--text-light);padding:10px 0 0;border-top:1px solid var(--border);margin-top:16px}
+.dateline code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;
+  background:#fff;border:1px solid var(--border);border-radius:3px;padding:1px 5px;color:var(--text-mid)}
+h2{font-size:13px;letter-spacing:.16em;color:var(--klein);font-weight:800;text-transform:uppercase;
+  margin:52px 0 18px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.lede{font-size:19px;line-height:1.85;color:var(--text-mid);margin:20px 0 0;letter-spacing:-.01em}
+.lede b{color:var(--text-dark);font-weight:700}
+.statwall{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:8px}
+.stat{background:#fff;padding:18px 14px}
+.stat b{display:block;font-size:30px;line-height:1.1;color:var(--klein);font-weight:800;letter-spacing:-.03em}
+.stat span{display:block;font-size:12px;color:var(--text-light);margin-top:5px;line-height:1.5}
+@media(max-width:700px){.statwall{grid-template-columns:repeat(2,1fr)}h1{font-size:30px}}
+.bars{margin-top:4px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:12px}
+.bar-label{width:52px;color:var(--text-light);font-family:ui-monospace,Menlo,monospace;flex:none}
+.bar-track{flex:1;height:16px;background:#fff;border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;background:var(--klein);opacity:.85}
+.bar-val{width:56px;text-align:right;color:var(--text-mid);font-family:ui-monospace,Menlo,monospace;flex:none}
+.q{border-left:3px solid var(--klein);padding:2px 0 2px 18px;margin:0 0 30px}
+.q h3{font-size:17px;margin:0 0 7px;letter-spacing:-.015em;font-weight:750}
+.q p{margin:0;color:var(--text-mid);font-size:15.5px}
+.q .ev{margin-top:8px;font-size:12.5px;color:var(--text-light);font-family:ui-monospace,Menlo,monospace}
+details{margin-top:14px;border:1px solid var(--border);border-radius:6px;background:#fff}
+summary{cursor:pointer;padding:13px 16px;font-size:14px;font-weight:700;color:var(--text-mid);letter-spacing:-.01em}
+summary:hover{color:var(--klein)}
+.log{padding:0 16px 8px;max-height:420px;overflow:auto}
+.log-row{display:flex;gap:10px;padding:6px 0;border-bottom:1px dotted var(--border);font-size:12.5px}
+.log-row:last-child{border-bottom:none}
+.log-h{color:var(--klein);font-family:ui-monospace,Menlo,monospace;flex:none;width:60px}
+.log-d{color:var(--text-light);font-family:ui-monospace,Menlo,monospace;flex:none;width:82px}
+.log-s{color:var(--text-mid);flex:1}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:4px}
+td{padding:9px 0;border-bottom:1px solid var(--border);color:var(--text-mid)}
+td:last-child{text-align:right;font-family:ui-monospace,Menlo,monospace;color:var(--text-dark);font-weight:600}
+pre{background:#fff;border:1px solid var(--border);border-left:3px solid var(--klein);border-radius:4px;
+  padding:14px 16px;overflow:auto;font-size:12.5px;line-height:1.7;color:var(--text-mid);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin:8px 0}
+.note{font-size:13.5px;color:var(--text-light);line-height:1.8;border:1px dashed var(--border);
+  border-radius:6px;padding:14px 16px;background:#fff;margin-top:8px}
+.badge{display:inline-block;font-size:11.5px;letter-spacing:.06em;padding:3px 9px;border-radius:20px;
+  border:1px solid var(--border);background:#fff;color:var(--text-light);margin-right:6px}
+.badge.ok{border-color:#1a7f37;color:#1a7f37}
+.badge.warn{border-color:var(--accent);color:var(--accent)}
+.heat{display:flex;flex-wrap:wrap;gap:3px;margin-top:10px}
+.heat i{width:13px;height:13px;border-radius:2px;display:block}
+.h0{background:#EDEEF2}.h1{background:#C7D4F0}.h2{background:#7B97E0}
+.h3{background:#3358C8}.h4{background:#002FA7}
+.legend{font-size:11px;color:var(--text-light);margin-top:10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.legend i{width:11px;height:11px;border-radius:2px;display:inline-block;margin-left:8px}
+.legend i:first-child{margin-left:0}
+.chartbox{background:#fff;border:1px solid var(--border);border-radius:6px;padding:14px 16px 8px;margin-top:8px}
+.chartbox svg{width:100%;height:132px;display:block}
+.chart-cap{font-size:11.5px;color:var(--text-light);margin-top:6px}
+.micro{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:10px}
+.micro div{background:#fff;padding:13px 15px}
+.micro b{display:block;font-size:21px;color:var(--text-dark);letter-spacing:-.02em;font-weight:800}
+.micro span{font-size:11.5px;color:var(--text-light)}
+.fp{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10.5px;color:var(--text-light);
+  letter-spacing:.08em;line-height:2;word-break:break-all;opacity:.62;margin-top:8px;
+  border-top:1px dotted var(--border);padding-top:10px}
+.rings{display:flex;gap:26px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ring{text-align:center}
+.ring svg{display:block}
+.ring span{display:block;font-size:11.5px;color:var(--text-light);margin-top:5px}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--border);
+  font-size:12.5px;color:var(--text-light);line-height:1.9}
+footer a{color:var(--klein);text-decoration:none}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+@media(max-width:700px){.facts{grid-template-columns:1fr}}
+.fact{background:#fff;border:1px solid var(--border);border-radius:6px;padding:14px 16px}
+.fact b{display:block;font-size:22px;color:var(--text-dark);letter-spacing:-.02em}
+.fact span{font-size:12.5px;color:var(--text-light)}
+</style></head><body><div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">幕后 · Behind the Product</div>
+  <h1>AI News · 118 天迭代记</h1>
+  <p class="tagline">一本每天出版的 AI 技术中文日报——英文一手源，当天读到中文。这是它不断变厚的过程。</p>
+  <div class="dateline">起点 <code>2026-05-31</code> → 最近 <code>2026-09-25</code>
+    · 活跃 <code>89 天</code>
+    · 改动峰值 <code>2026-08-07 · 22,527 行</code>
+    · 数字量取于 2026-09-25 01:10</div>
+</header>
+<h2>起点与现在</h2>
+<div class="statwall"><div class="stat"><b>286</b><span>次迭代记录</span></div><div class="stat"><b>118</b><span>天跨度</span></div><div class="stat"><b>89</b><span>天真的在动</span></div><div class="stat"><b>2,108</b><span>次文件改动</span></div></div>
+<div class="facts"><div class="fact"><b>153,254</b><span>行内容改动（新增 + 收敛）</span></div><div class="fact"><b>123,592</b><span>行新写下的内容</span></div><div class="fact"><b>112</b><span>期日报已出版</span></div><div class="fact"><b>814</b><span>条收录（每条带出处）</span></div><div class="fact"><b>238</b><span>个信源域名</span></div><div class="fact"><b>241</b><span>条真人原话</span></div></div>
+<div class="micro"><div><b>1,299</b><span>日均改动行数</span></div><div><b>46</b><span>最长连续活跃天数</span></div><div><b>22,527</b><span>单日峰值（2026-08-07）</span></div></div>
+<h2>节奏</h2>
+<div class="chartbox"><svg viewBox="0 0 800 132" preserveAspectRatio="none"><path d="M0.0,122.3 L53.3,112.0 L106.7,112.0 L160.0,113.7 L213.3,112.0 L266.7,112.0 L320.0,112.0 L373.3,112.0 L426.7,112.0 L480.0,115.4 L533.3,72.4 L586.7,19.2 L640.0,46.7 L693.3,117.1 L746.7,14.0 L800.0,87.9 L800,132 L0,132 Z" fill="#002FA7" opacity=".10"/><path d="M0.0,122.3 L53.3,112.0 L106.7,112.0 L160.0,113.7 L213.3,112.0 L266.7,112.0 L320.0,112.0 L373.3,112.0 L426.7,112.0 L480.0,115.4 L533.3,72.4 L586.7,19.2 L640.0,46.7 L693.3,117.1 L746.7,14.0 L800.0,87.9" fill="none" stroke="#002FA7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="0.0" cy="122.3" r="2.5" fill="#002FA7"/><circle cx="53.3" cy="112.0" r="2.5" fill="#002FA7"/><circle cx="106.7" cy="112.0" r="2.5" fill="#002FA7"/><circle cx="160.0" cy="113.7" r="2.5" fill="#002FA7"/><circle cx="213.3" cy="112.0" r="2.5" fill="#002FA7"/><circle cx="266.7" cy="112.0" r="2.5" fill="#002FA7"/><circle cx="320.0" cy="112.0" r="2.5" fill="#002FA7"/><circle cx="373.3" cy="112.0" r="2.5" fill="#002FA7"/><circle cx="426.7" cy="112.0" r="2.5" fill="#002FA7"/><circle cx="480.0" cy="115.4" r="2.5" fill="#002FA7"/><circle cx="533.3" cy="72.4" r="2.5" fill="#002FA7"/><circle cx="586.7" cy="19.2" r="2.5" fill="#002FA7"/><circle cx="640.0" cy="46.7" r="2.5" fill="#002FA7"/><circle cx="693.3" cy="117.1" r="2.5" fill="#002FA7"/><circle cx="746.7" cy="14.0" r="2.5" fill="#002FA7"/><circle cx="800.0" cy="87.9" r="2.5" fill="#002FA7"/></svg><div class="chart-cap">横轴为周序，纵轴为该周产出量 · 峰值 64</div></div>
+<div class="heat"><i class="h1" title="2026-05-31 · 1"></i><i class="h1" title="2026-06-01 · 1"></i><i class="h1" title="2026-06-02 · 1"></i><i class="h1" title="2026-06-03 · 1"></i><i class="h1" title="2026-06-04 · 1"></i><i class="h1" title="2026-06-05 · 1"></i><i class="h1" title="2026-06-06 · 1"></i><i class="h1" title="2026-06-07 · 1"></i><i class="h1" title="2026-06-08 · 1"></i><i class="h1" title="2026-06-09 · 1"></i><i class="h1" title="2026-06-10 · 1"></i><i class="h1" title="2026-06-11 · 1"></i><i class="h1" title="2026-06-12 · 1"></i><i class="h1" title="2026-06-13 · 1"></i><i class="h1" title="2026-06-14 · 1"></i><i class="h0" title="2026-06-15 · 0"></i><i class="h1" title="2026-06-16 · 1"></i><i class="h1" title="2026-06-17 · 1"></i><i class="h1" title="2026-06-18 · 1"></i><i class="h1" title="2026-06-19 · 1"></i><i class="h1" title="2026-06-20 · 1"></i><i class="h1" title="2026-06-21 · 1"></i><i class="h1" title="2026-06-22 · 1"></i><i class="h1" title="2026-06-23 · 1"></i><i class="h1" title="2026-06-24 · 1"></i><i class="h1" title="2026-06-25 · 1"></i><i class="h1" title="2026-06-26 · 1"></i><i class="h1" title="2026-06-27 · 1"></i><i class="h1" title="2026-06-28 · 1"></i><i class="h1" title="2026-06-29 · 1"></i><i class="h1" title="2026-06-30 · 1"></i><i class="h1" title="2026-07-01 · 1"></i><i class="h1" title="2026-07-02 · 1"></i><i class="h1" title="2026-07-03 · 1"></i><i class="h1" title="2026-07-04 · 1"></i><i class="h1" title="2026-07-05 · 1"></i><i class="h1" title="2026-07-06 · 1"></i><i class="h1" title="2026-07-07 · 1"></i><i class="h1" title="2026-07-08 · 1"></i><i class="h1" title="2026-07-09 · 1"></i><i class="h1" title="2026-07-10 · 1"></i><i class="h1" title="2026-07-11 · 1"></i><i class="h1" title="2026-07-12 · 1"></i><i class="h1" title="2026-07-13 · 1"></i><i class="h1" title="2026-07-14 · 1"></i><i class="h1" title="2026-07-15 · 1"></i><i class="h1" title="2026-07-16 · 1"></i><i class="h1" title="2026-07-17 · 1"></i><i class="h1" title="2026-07-18 · 1"></i><i class="h1" title="2026-07-19 · 1"></i><i class="h1" title="2026-07-20 · 1"></i><i class="h1" title="2026-07-21 · 1"></i><i class="h1" title="2026-07-22 · 1"></i><i class="h1" title="2026-07-23 · 1"></i><i class="h1" title="2026-07-24 · 1"></i><i class="h1" title="2026-07-25 · 1"></i><i class="h1" title="2026-07-26 · 1"></i><i class="h1" title="2026-07-27 · 1"></i><i class="h1" title="2026-07-28 · 1"></i><i class="h1" title="2026-07-29 · 1"></i><i class="h1" title="2026-07-30 · 1"></i><i class="h1" title="2026-07-31 · 1"></i><i class="h0" title="2026-08-01 · 0"></i><i class="h0" title="2026-08-02 · 0"></i><i class="h0" title="2026-08-03 · 0"></i><i class="h0" title="2026-08-04 · 0"></i><i class="h0" title="2026-08-05 · 0"></i><i class="h0" title="2026-08-06 · 0"></i><i class="h1" title="2026-08-07 · 2"></i><i class="h2" title="2026-08-08 · 4"></i><i class="h3" title="2026-08-09 · 24"></i><i class="h3" title="2026-08-10 · 11"></i><i class="h1" title="2026-08-11 · 1"></i><i class="h3" title="2026-08-12 · 12"></i><i class="h2" title="2026-08-13 · 5"></i><i class="h3" title="2026-08-14 · 23"></i><i class="h2" title="2026-08-15 · 9"></i><i class="h0" title="2026-08-16 · 0"></i><i class="h1" title="2026-08-17 · 1"></i><i class="h1" title="2026-08-18 · 1"></i><i class="h0" title="2026-08-19 · 0"></i><i class="h2" title="2026-08-20 · 4"></i><i class="h2" title="2026-08-21 · 7"></i><i class="h3" title="2026-08-22 · 26"></i><i class="h2" title="2026-08-23 · 6"></i><i class="h0" title="2026-08-24 · 0"></i><i class="h0" title="2026-08-25 · 0"></i><i class="h0" title="2026-08-26 · 0"></i><i class="h0" title="2026-08-27 · 0"></i><i class="h0" title="2026-08-28 · 0"></i><i class="h0" title="2026-08-29 · 0"></i><i class="h0" title="2026-08-30 · 0"></i><i class="h0" title="2026-08-31 · 0"></i><i class="h0" title="2026-09-01 · 0"></i><i class="h0" title="2026-09-02 · 0"></i><i class="h0" title="2026-09-03 · 0"></i><i class="h0" title="2026-09-04 · 0"></i><i class="h0" title="2026-09-05 · 0"></i><i class="h0" title="2026-09-06 · 0"></i><i class="h0" title="2026-09-07 · 0"></i><i class="h0" title="2026-09-08 · 0"></i><i class="h0" title="2026-09-09 · 0"></i><i class="h0" title="2026-09-10 · 0"></i><i class="h0" title="2026-09-11 · 0"></i><i class="h1" title="2026-09-12 · 2"></i><i class="h1" title="2026-09-13 · 2"></i><i class="h1" title="2026-09-14 · 1"></i><i class="h1" title="2026-09-15 · 2"></i><i class="h3" title="2026-09-16 · 12"></i><i class="h2" title="2026-09-17 · 9"></i><i class="h3" title="2026-09-18 · 18"></i><i class="h3" title="2026-09-19 · 13"></i><i class="h2" title="2026-09-20 · 9"></i><i class="h2" title="2026-09-21 · 7"></i><i class="h2" title="2026-09-22 · 6"></i><i class="h0" title="2026-09-23 · 0"></i><i class="h2" title="2026-09-24 · 4"></i><i class="h2" title="2026-09-25 · 4"></i></div><div class="legend">少<i class="h0"></i><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i>多　·　每一格是一天</div>
+<div class="rings"><div class="ring"><svg width="72" height="72" viewBox="0 0 72 72"><circle cx="36" cy="36" r="26" fill="none" stroke="#EDEEF2" stroke-width="7"/><circle cx="36" cy="36" r="26" fill="none" stroke="#002FA7" stroke-width="7" stroke-linecap="round" stroke-dasharray="123.2 163.4" transform="rotate(-90 36 36)"/><text x="36" y="41" text-anchor="middle" font-size="16" font-weight="800" fill="#002FA7">75%</text></svg><span>89 天在动 / 共 118 天</span></div></div>
+<div class="bars"><div class="bar-row"><span class="bar-label">2026-05</span><span class="bar-track"><span class="bar-fill" style="width:2%"></span></span><span class="bar-val">1</span></div><div class="bar-row"><span class="bar-label">2026-06</span><span class="bar-track"><span class="bar-fill" style="width:21%"></span></span><span class="bar-val">29</span></div><div class="bar-row"><span class="bar-label">2026-07</span><span class="bar-track"><span class="bar-fill" style="width:22%"></span></span><span class="bar-val">31</span></div><div class="bar-row"><span class="bar-label">2026-08</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="bar-val">136</span></div><div class="bar-row"><span class="bar-label">2026-09</span><span class="bar-track"><span class="bar-fill" style="width:65%"></span></span><span class="bar-val">89</span></div></div>
+<div class="note">上面的色块按天排开，一格一天，颜色深浅是当天迭代的次数；曲线是按周汇总的节奏，横条是每月合计。颜色深的月份通常在加栏目、并专题，浅一点的日子在把当天的日报准时送出去。</div>
+<h2>真正在解的题</h2>
+<div class="q"><h3>01 · 把定位收敛成一句话</h3><p>一本给中文读者看的 AI 技术日报：英文一手源，中文当天读。定位收敛之后，栏目怎么排、图怎么选、留谁的原话，都有了判断依据。</p></div><div class="q"><h3>02 · 栏目结构一路在加宽</h3><p>最新一期排到 8 个栏目，顺序固定：头版、前线、开源前线、声音、创造、视觉、投资与资金流向、小结 · 今日视角。栏目不是越多越好，是多出来的每一栏都得有自己的固定读法。</p></div><div class="q"><h3>03 · 信源从几家扩到 238 个域名</h3><p>如今 238 个信源域名、814 条收录。同一件事让不同信源各说一遍，读者才看得见全貌。</p></div><div class="q"><h3>04 · 真人原话单独成栏</h3><p>241 条原话全部注明出处媒体，不用二手转述顶替。观点要落到人身上，读者才知道该信谁。</p></div><div class="q"><h3>05 · 配图要有出处和日期</h3><p>448 张图、267 条图注，图注里写明这张图从哪来、哪天。配图不是装饰，是能被核对的一部分。</p></div><div class="q"><h3>06 · 中英两个站并排往前走</h3><p>36 页英文内容与中文日报并行维护，11 份专题案卷单独成册。老期次永久可查，一直能翻回创刊那天。</p></div><div class="q"><h3>07 · 每天早上一期，改动次日可见</h3><p>从材料到成稿到上架，一天一档不中断。118 天里有 89 天真的在动，其余的日子在把当天那一期准时送出去。</p></div><div class="q"><h3>08 · 把过程本身做成一页</h3><p>读者看到的这一页，全部数字都来自这一路留下的真实记录：153,254 行改动、2,108 次文件变化。愿意把过程摊开，本身就是一种表态。</p></div>
+<h2>挑选的尺度</h2>
+<div class="lede">一路做下来，最难的不是产出，是<b>不收什么</b>。素材永远比版面多，收得慢，是为了读得快。</div>
+<div class="q"><h3>01 · 只收今天才成立的事实</h3><p>每天往下筛，第一刀切在时效上。上周已经说明白的事，这周再热一次也不进版面；能留下的得是当天新发生的、明天回看仍然站得住的。</p></div><div class="q"><h3>02 · 先找做事的人，再找公司</h3><p>同一天两条候选，一条讲模型跑分，一条讲某个小团队用模型把一件事真正做成了，版面留给后者。一家公司的发布，只有在改变了某个人每天怎么干活的时候才算新闻。</p></div><div class="q"><h3>03 · 每一条都要能被点开</h3><p>814 条收录里，每条都带一个能直达的出处；声音栏 241 条真人原话，各自注明是哪家媒体说过的。读者想往下追，就一定追得到原文——这是这本日报的底线。</p></div><div class="q"><h3>04 · 话题不重复占位</h3><p>同一个母题连着出现几天，版面会主动换赛道；同一家公司也不会连着几天占住开头。信源域名攒到 238 个，就是为了翻两个月还能看到新面孔。</p></div><div class="q"><h3>05 · 现场感优先于宏大叙事</h3><p>政策、融资、参数都不天然值得占版面。值得的是从现场寄回来的那封信：一线的人看见了什么、做了什么、犹豫了什么。</p></div><div class="q"><h3>06 · 宁可当期短，不可注水</h3><p>凑字数最容易，也最便宜。栏目顺序固定，条数却跟着当天的材料走——材料薄的那几天，版面就收着做，不拿旧事补版面。</p></div>
+<h2>提交指纹</h2>
+<div class="note">下面这一串是真实记录的编号片段，按时间排列。看不懂没关系——它是这段过程留下的痕迹，一条一条都查得到。</div>
+<div class="fp">e905bdf5 1adaf1c0 bb0c475a 61fd9e8d afafb2eb c6c3b770 1bf4bde5 b7aad275 f28bbd00 2ddd0712 cb26cdef 57f54d9c 4c7b4e7b ae833be3 39327538 0a3074d2 d8a856f0 f0d442ec c6df07bb 522cb0df 5722a224 0e4a8539 a6448ccb 026d3261 fba7c22b 8ff9c015 187fe9be 19e3d952</div>
+<h2>证据</h2>
+<details><summary>展开迭代台账 · 共 286 次（日期与编号 · 可核对）</summary><div class="log"><div class="log-row"><span class="log-d">2026-09-25</span><span class="log-s">改动 e905bdf5</span></div><div class="log-row"><span class="log-d">2026-09-25</span><span class="log-s">改动 1adaf1c0</span></div><div class="log-row"><span class="log-d">2026-09-25</span><span class="log-s">改动 bb0c475a</span></div><div class="log-row"><span class="log-d">2026-09-25</span><span class="log-s">改动 61fd9e8d</span></div><div class="log-row"><span class="log-d">2026-09-24</span><span class="log-s">改动 afafb2eb</span></div><div class="log-row"><span class="log-d">2026-09-24</span><span class="log-s">改动 c6c3b770</span></div><div class="log-row"><span class="log-d">2026-09-24</span><span class="log-s">改动 1bf4bde5</span></div><div class="log-row"><span class="log-d">2026-09-24</span><span class="log-s">改动 b7aad275</span></div><div class="log-row"><span class="log-d">2026-09-22</span><span class="log-s">改动 f28bbd00</span></div><div class="log-row"><span class="log-d">2026-09-22</span><span class="log-s">改动 2ddd0712</span></div><div class="log-row"><span class="log-d">2026-09-22</span><span class="log-s">改动 cb26cdef</span></div><div class="log-row"><span class="log-d">2026-09-22</span><span class="log-s">改动 57f54d9c</span></div><div class="log-row"><span class="log-d">2026-09-22</span><span class="log-s">改动 4c7b4e7b</span></div><div class="log-row"><span class="log-d">2026-09-22</span><span class="log-s">改动 ae833be3</span></div><div class="log-row"><span class="log-d">2026-09-21</span><span class="log-s">改动 39327538</span></div><div class="log-row"><span class="log-d">2026-09-21</span><span class="log-s">改动 0a3074d2</span></div><div class="log-row"><span class="log-d">2026-09-21</span><span class="log-s">改动 d8a856f0</span></div><div class="log-row"><span class="log-d">2026-09-21</span><span class="log-s">改动 f0d442ec</span></div><div class="log-row"><span class="log-d">2026-09-21</span><span class="log-s">改动 c6df07bb</span></div><div class="log-row"><span class="log-d">2026-09-21</span><span class="log-s">改动 522cb0df</span></div><div class="log-row"><span class="log-d">2026-09-21</span><span class="log-s">改动 5722a224</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 0e4a8539</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 a6448ccb</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 026d3261</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 fba7c22b</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 8ff9c015</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 187fe9be</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 19e3d952</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 464d51af</span></div><div class="log-row"><span class="log-d">2026-09-20</span><span class="log-s">改动 7dfde2d8</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 99143b0a</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 d13cb0be</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 380eeac1</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 d245ae8f</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 92359094</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 8f278f02</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 d20843ac</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 fb1d45e3</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 94b6edb6</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 49f31dee</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 2085fc90</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 65b9ae94</span></div><div class="log-row"><span class="log-d">2026-09-19</span><span class="log-s">改动 e6c3e550</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 d54e9f12</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 a01223cb</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 23893ac4</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 8679facf</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 d62825b2</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 5f50818c</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 c86cbc93</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 136a983e</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 164f3555</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 cc4133f3</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 4b0e705e</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 a3dd32da</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 0334be63</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 f5c6b698</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 d59514a4</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 390a3472</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 acba6e6c</span></div><div class="log-row"><span class="log-d">2026-09-18</span><span class="log-s">改动 35e59a1e</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 040e24c0</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 dd86d97e</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 8c7f8e3d</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 6ad90511</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 4158b128</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 b91ec401</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 e689e122</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 e1b9a522</span></div><div class="log-row"><span class="log-d">2026-09-17</span><span class="log-s">改动 df67e6b9</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 a513ae78</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 60fa96b8</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 d7a679c4</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 b8664f2b</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 e99374db</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 a4981162</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 4b3da4ec</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 076aa0a7</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 8134773d</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 8af5a230</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 3122baf2</span></div><div class="log-row"><span class="log-d">2026-09-16</span><span class="log-s">改动 eeaca0b3</span></div><div class="log-row"><span class="log-d">2026-09-15</span><span class="log-s">改动 2e7f12ed</span></div><div class="log-row"><span class="log-d">2026-09-15</span><span class="log-s">改动 5133215b</span></div><div class="log-row"><span class="log-d">2026-09-14</span><span class="log-s">改动 a31c5d81</span></div><div class="log-row"><span class="log-d">2026-09-13</span><span class="log-s">改动 1b3be5e4</span></div><div class="log-row"><span class="log-d">2026-09-13</span><span class="log-s">改动 872b004c</span></div><div class="log-row"><span class="log-d">2026-09-12</span><span class="log-s">改动 abdc3b6c</span></div><div class="log-row"><span class="log-d">2026-09-12</span><span class="log-s">改动 0b9b6e30</span></div><div class="log-row"><span class="log-d">2026-08-23</span><span class="log-s">改动 4df1ab6b</span></div><div class="log-row"><span class="log-d">2026-08-23</span><span class="log-s">改动 58223af5</span></div><div class="log-row"><span class="log-d">2026-08-23</span><span class="log-s">改动 78c834a0</span></div><div class="log-row"><span class="log-d">2026-08-23</span><span class="log-s">改动 8ab26103</span></div><div class="log-row"><span class="log-d">2026-08-23</span><span class="log-s">改动 6174d4df</span></div><div class="log-row"><span class="log-d">2026-08-23</span><span class="log-s">改动 906c1439</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 1b71e50e</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 289ecb2f</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 3daccc3c</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 8bebfaf1</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 a7d832f7</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 8e8872f9</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 53feaa4c</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 6bbf4ffc</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 8229bc0b</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 54095311</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 5247100c</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 750b4d6d</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 ce3a8790</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 a5b786fa</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 022bd64a</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 703e5239</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 98aa1922</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 f818ad5b</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 a815460b</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 686c166c</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 43d19be4</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 40c70919</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 0ab43016</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 d6b07643</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 8945aa7b</span></div><div class="log-row"><span class="log-d">2026-08-22</span><span class="log-s">改动 849bc47d</span></div><div class="log-row"><span class="log-d">2026-08-21</span><span class="log-s">改动 c660729f</span></div><div class="log-row"><span class="log-d">2026-08-21</span><span class="log-s">改动 b9b11654</span></div><div class="log-row"><span class="log-d">2026-08-21</span><span class="log-s">改动 e884f62c</span></div><div class="log-row"><span class="log-d">2026-08-21</span><span class="log-s">改动 7a3eb390</span></div><div class="log-row"><span class="log-d">2026-08-21</span><span class="log-s">改动 cd31ed4a</span></div><div class="log-row"><span class="log-d">2026-08-21</span><span class="log-s">改动 2cf3e444</span></div><div class="log-row"><span class="log-d">2026-08-21</span><span class="log-s">改动 4b3c0933</span></div><div class="log-row"><span class="log-d">2026-08-20</span><span class="log-s">改动 f01850de</span></div><div class="log-row"><span class="log-d">2026-08-20</span><span class="log-s">改动 c1763258</span></div><div class="log-row"><span class="log-d">2026-08-20</span><span class="log-s">改动 e23b087c</span></div><div class="log-row"><span class="log-d">2026-08-20</span><span class="log-s">改动 23ddba3e</span></div><div class="log-row"><span class="log-d">2026-08-18</span><span class="log-s">改动 f8833069</span></div><div class="log-row"><span class="log-d">2026-08-17</span><span class="log-s">改动 7cf8609a</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 9f88fed8</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 b830a3c5</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 bc40c765</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 df59839f</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 a397b498</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 e5be5a37</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 b9520192</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 54b90214</span></div><div class="log-row"><span class="log-d">2026-08-15</span><span class="log-s">改动 aa39e401</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 0f3d7c21</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 02ac0d9e</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 a057bf7f</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 0232d593</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 f6f4cde2</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 11b2407a</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 4dcbe1ea</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 18d12047</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 2ae98390</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 0f2b2d56</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 e9f542c8</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 e3dc2fd5</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 7072f7d4</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 faa13fca</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 ad2c2afa</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 660175e2</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 e1c74cb7</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 b8d5f19d</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 3a3f1a5f</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 c9ce40e7</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 e99ec174</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 e4838a6b</span></div><div class="log-row"><span class="log-d">2026-08-14</span><span class="log-s">改动 b2894f6f</span></div><div class="log-row"><span class="log-d">2026-08-13</span><span class="log-s">改动 66082a64</span></div><div class="log-row"><span class="log-d">2026-08-13</span><span class="log-s">改动 da908aaf</span></div><div class="log-row"><span class="log-d">2026-08-13</span><span class="log-s">改动 97482697</span></div><div class="log-row"><span class="log-d">2026-08-13</span><span class="log-s">改动 7fa20485</span></div><div class="log-row"><span class="log-d">2026-08-13</span><span class="log-s">改动 20afc0cd</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 45284e03</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 fb9a9df1</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 03601ad4</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 31dbfa74</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 8d8454b2</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 7188d0a0</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 f19586e3</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 0f8b0c2b</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 4b40983c</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 5c5e3169</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 443b2309</span></div><div class="log-row"><span class="log-d">2026-08-12</span><span class="log-s">改动 456d88f8</span></div><div class="log-row"><span class="log-d">2026-08-11</span><span class="log-s">改动 0cc78fb7</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 56db9fe1</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 890763b8</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 7335ef5a</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 f12a3cd4</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 a8f0e5c2</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 8900becf</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 30c31136</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 2ff68513</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 e10252cb</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 cbad9498</span></div><div class="log-row"><span class="log-d">2026-08-10</span><span class="log-s">改动 bbcde16b</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 aee73051</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 87f00fd3</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 2a120c45</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 3c4a72db</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 c7a8167a</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 d6617d81</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 0d08e7c6</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 28016f9f</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 cf5ecf1b</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 4413a478</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 9cdb8acc</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 517b8aad</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 6d682a9c</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 3376c843</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 8775fd0c</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 a0ea7fff</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 ad19ed7c</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 a3ec9c31</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 c000a78b</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 f8ebab79</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 64168e13</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 8af51dc4</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 051a34d0</span></div><div class="log-row"><span class="log-d">2026-08-09</span><span class="log-s">改动 eaf4c78b</span></div><div class="log-row"><span class="log-d">2026-08-08</span><span class="log-s">改动 6a398298</span></div><div class="log-row"><span class="log-d">2026-08-08</span><span class="log-s">改动 767c2890</span></div><div class="log-row"><span class="log-d">2026-08-08</span><span class="log-s">改动 4090ff8a</span></div><div class="log-row"><span class="log-d">2026-08-08</span><span class="log-s">改动 3a4b9aa4</span></div><div class="log-row"><span class="log-d">2026-08-07</span><span class="log-s">改动 3f4d97d2</span></div><div class="log-row"><span class="log-d">2026-08-07</span><span class="log-s">改动 ec12f7ac</span></div><div class="log-row"><span class="log-d">2026-07-31</span><span class="log-s">改动 9f16544f</span></div><div class="log-row"><span class="log-d">2026-07-30</span><span class="log-s">改动 e0a1f8f4</span></div><div class="log-row"><span class="log-d">2026-07-29</span><span class="log-s">改动 bba50e76</span></div><div class="log-row"><span class="log-d">2026-07-28</span><span class="log-s">改动 16af3cd8</span></div><div class="log-row"><span class="log-d">2026-07-27</span><span class="log-s">改动 15bc6a60</span></div><div class="log-row"><span class="log-d">2026-07-26</span><span class="log-s">改动 e104cd7f</span></div><div class="log-row"><span class="log-d">2026-07-25</span><span class="log-s">改动 82753459</span></div><div class="log-row"><span class="log-d">2026-07-24</span><span class="log-s">改动 2aeca597</span></div><div class="log-row"><span class="log-d">2026-07-23</span><span class="log-s">改动 60fa380f</span></div><div class="log-row"><span class="log-d">2026-07-22</span><span class="log-s">改动 d689899b</span></div><div class="log-row"><span class="log-d">2026-07-21</span><span class="log-s">改动 06473436</span></div><div class="log-row"><span class="log-d">2026-07-20</span><span class="log-s">改动 059e13a9</span></div><div class="log-row"><span class="log-d">2026-07-19</span><span class="log-s">改动 9eda4a43</span></div><div class="log-row"><span class="log-d">2026-07-18</span><span class="log-s">改动 8dcda3b8</span></div><div class="log-row"><span class="log-d">2026-07-17</span><span class="log-s">改动 1c52ee3d</span></div><div class="log-row"><span class="log-d">2026-07-16</span><span class="log-s">改动 ddcc971b</span></div><div class="log-row"><span class="log-d">2026-07-15</span><span class="log-s">改动 684a6398</span></div><div class="log-row"><span class="log-d">2026-07-14</span><span class="log-s">改动 23b36c16</span></div><div class="log-row"><span class="log-d">2026-07-13</span><span class="log-s">改动 90dff1bf</span></div><div class="log-row"><span class="log-d">2026-07-12</span><span class="log-s">改动 89a9d37f</span></div><div class="log-row"><span class="log-d">2026-07-11</span><span class="log-s">改动 dd93ddb8</span></div><div class="log-row"><span class="log-d">2026-07-10</span><span class="log-s">改动 a03916c0</span></div><div class="log-row"><span class="log-d">2026-07-09</span><span class="log-s">改动 6bd61684</span></div><div class="log-row"><span class="log-d">2026-07-08</span><span class="log-s">改动 c81ecb3f</span></div><div class="log-row"><span class="log-d">2026-07-07</span><span class="log-s">改动 ccf21009</span></div><div class="log-row"><span class="log-d">2026-07-06</span><span class="log-s">改动 2aa12fa6</span></div><div class="log-row"><span class="log-d">2026-07-05</span><span class="log-s">改动 ca3ff07e</span></div><div class="log-row"><span class="log-d">2026-07-04</span><span class="log-s">改动 81c4b82e</span></div><div class="log-row"><span class="log-d">2026-07-03</span><span class="log-s">改动 d9b2f12a</span></div><div class="log-row"><span class="log-d">2026-07-02</span><span class="log-s">改动 ac423280</span></div><div class="log-row"><span class="log-d">2026-07-01</span><span class="log-s">改动 9284d7d7</span></div><div class="log-row"><span class="log-d">2026-06-30</span><span class="log-s">改动 700f38e0</span></div><div class="log-row"><span class="log-d">2026-06-29</span><span class="log-s">改动 df328a93</span></div><div class="log-row"><span class="log-d">2026-06-28</span><span class="log-s">改动 00652e76</span></div><div class="log-row"><span class="log-d">2026-06-27</span><span class="log-s">改动 8e6b5640</span></div><div class="log-row"><span class="log-d">2026-06-26</span><span class="log-s">改动 1c860047</span></div><div class="log-row"><span class="log-d">2026-06-25</span><span class="log-s">改动 6d503cb6</span></div><div class="log-row"><span class="log-d">2026-06-24</span><span class="log-s">改动 e210bc58</span></div><div class="log-row"><span class="log-d">2026-06-23</span><span class="log-s">改动 c07ec61b</span></div><div class="log-row"><span class="log-d">2026-06-22</span><span class="log-s">改动 6ee8796b</span></div><div class="log-row"><span class="log-d">2026-06-21</span><span class="log-s">改动 ca1a873a</span></div><div class="log-row"><span class="log-d">2026-06-20</span><span class="log-s">改动 4b6368aa</span></div><div class="log-row"><span class="log-d">2026-06-19</span><span class="log-s">改动 f93be1d6</span></div><div class="log-row"><span class="log-d">2026-06-18</span><span class="log-s">改动 ecb4f3f1</span></div><div class="log-row"><span class="log-d">2026-06-17</span><span class="log-s">改动 bc02b34c</span></div><div class="log-row"><span class="log-d">2026-06-16</span><span class="log-s">改动 3b569917</span></div><div class="log-row"><span class="log-d">2026-06-14</span><span class="log-s">改动 30bd2c4d</span></div><div class="log-row"><span class="log-d">2026-06-13</span><span class="log-s">改动 4c155183</span></div><div class="log-row"><span class="log-d">2026-06-12</span><span class="log-s">改动 56c850ce</span></div><div class="log-row"><span class="log-d">2026-06-11</span><span class="log-s">改动 a6886ef2</span></div><div class="log-row"><span class="log-d">2026-06-10</span><span class="log-s">改动 52fa6ee4</span></div><div class="log-row"><span class="log-d">2026-06-09</span><span class="log-s">改动 2a360c2a</span></div><div class="log-row"><span class="log-d">2026-06-08</span><span class="log-s">改动 3f029eb3</span></div><div class="log-row"><span class="log-d">2026-06-07</span><span class="log-s">改动 e76e06a6</span></div><div class="log-row"><span class="log-d">2026-06-06</span><span class="log-s">改动 80a61fe8</span></div><div class="log-row"><span class="log-d">2026-06-05</span><span class="log-s">改动 9e02c6fc</span></div><div class="log-row"><span class="log-d">2026-06-04</span><span class="log-s">改动 b5a89c0c</span></div><div class="log-row"><span class="log-d">2026-06-03</span><span class="log-s">改动 b0f68b50</span></div><div class="log-row"><span class="log-d">2026-06-02</span><span class="log-s">改动 6d00cefa</span></div><div class="log-row"><span class="log-d">2026-06-01</span><span class="log-s">改动 4972d22d</span></div><div class="log-row"><span class="log-d">2026-05-31</span><span class="log-s">改动 93c37bfb</span></div></div></details>
+<div class="note">这一页每一个数字都在生成那一刻当场量取：不写死、不凭记忆、不复述旧稿。数据源是这套日报自己的版本记录与已发布页面本身，同一条命令再跑一次，每一项都能对上。</div>
+<footer>
+  <p>AI News · 悦读工作室出品 · 每天早上一期。<a href="index.html">回到日报首页</a></p>
+  <span class="badge ok">内容安全校验 · 通过</span>
+  <span class="badge">幕后系列</span>
+  <span class="badge">量取于 2026-09-25 01:10</span>
+</footer>
+</div></body></html>
