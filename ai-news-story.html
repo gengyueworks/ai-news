@@ -1,1636 +1,825 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News · 制作过程 · 迭代日志</title>
-    <meta name="description" content="AI News 是怎么做出来的：从零构建一个 AI 情报日报的完整技术演进、失败台账与迭代统计。">
-    <meta name="keywords" content="AI News, 制作过程, 幕后, 迭代日志, AI 情报日报">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #0d1117;
-            color: #c9d1d9;
-            font-family: 'Noto Serif SC', serif;
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
-        .container { max-width: 920px; margin: 0 auto; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI News · 制作过程</title>
+<meta name="description" content="AI News 中文日报的持续迭代记录：117 天、113 期、238 个信源。">
+<style>
+/* ai-news-story（AI News · 制作过程 · 迭代日志）品牌浅色纸感样式表：米白纸底 + 克莱因蓝 + 深墨正文，替换原 GitHub 深黑终端风。 */
+/* 选择器与 HTML 同生共死，删选择器要先看 HTML：ai-news-story.html 里在用的 class 全部在这份文件里有对应规则。 */
 
-        /* Terminal Header */
-        .terminal-header {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px 8px 0 0;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .terminal-dot {
-            width: 12px; height: 12px;
-            border-radius: 50%;
-        }
-        .terminal-dot.red { background: #f85149; }
-        .terminal-dot.yellow { background: #f0883e; }
-        .terminal-dot.green { background: #3fb950; }
-        .terminal-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #8b949e;
-            margin-left: 8px;
-        }
+:root {
+  /* 站点真实变量（品牌主规范，全站统一，不改值） */
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --border: #E8E8EC;
+  --accent: #C41E3A;
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #161b22 0%, #1f2937 100%);
-            border: 1px solid #30363d;
-            border-top: none;
-            border-radius: 0 0 8px 8px;
-            padding: 60px 40px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .hero h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: linear-gradient(90deg, #58a6ff, #3fb950);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-subtitle {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            color: #8b949e;
-            margin-bottom: 32px;
-        }
+  /* 由上面 9 个主 token 派生的纸感层级（不引入新色相，只做明度/饱和度让步） */
+  --paper: #FCFCFA;              /* 米白：代码框／图纸底，避免纯白刺眼 */
+  --hairline: #EFEFF2;           /* 更淡的一根线：分段用 */
+  --tint-klein: #F1F4FC;         /* 极浅克莱因底纹：引文块 */
+  --olive: #4B7A3A;              /* 橄榄绿：feat / green */
+  --olive-tint: #EEF3E9;
+  --terra: #B15C38;              /* 陶土：refactor */
+  --terra-tint: #F8EEE8;
+  --accent-ink: #8E152B;         /* accent 降饱和后的可读文字色 */
+  --accent-tint: #FBEDEF;
+  --gold-ink: #8A6B12;           /* yellow */
+  --gold-tint: #FBF3DF;
+  --slate-ink: #4A4A50;          /* 中性 type 徽章（style / chore） */
+  --slate-tint: #F2F2F4;
+  --shadow-card: 0 1px 2px rgba(14, 14, 16, 0.04);
+  --shadow-lift: 0 3px 10px rgba(14, 14, 16, 0.06);
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius: 0.5rem;
+  --radius-sm: 0.25rem;
+}
 
-        /* Stats Grid - Hero */
-        .stats-hero {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            margin-bottom: 40px;
-        }
-        .stat-hero {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px 16px;
-            text-align: center;
-        }
-        .stat-hero-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 32px;
-            font-weight: 700;
-            color: #58a6ff;
-            margin-bottom: 4px;
-        }
-        .stat-hero-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: #8b949e;
-            text-transform: uppercase;
-        }
+/* ---------- 基底 ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
-        /* Section */
-        .section { margin-bottom: 40px; }
-        .section-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 16px;
-            font-weight: 600;
-            color: #58a6ff;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #30363d;
-        }
+html { -webkit-text-size-adjust: 100%; }
 
-        /* Architecture Block */
-        .arch-block {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 24px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            line-height: 1.8;
-        }
-        .arch-layer {
-            margin-bottom: 12px;
-        }
-        .arch-layer-name {
-            color: #3fb950;
-            font-weight: 600;
-        }
-        .arch-file {
-            color: #c9d1d9;
-            padding-left: 20px;
-        }
-        .arch-comment {
-            color: #8b949e;
-            font-size: 12px;
-        }
+body {
+  margin: 0;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;                 /* 正文行高放松 */
+  letter-spacing: 0;
+  padding: 2.5rem 1.25rem;
+  -webkit-font-smoothing: antialiased;
+}
 
-        /* Commit Card */
-        .commit-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin-bottom: 12px;
-            transition: all 0.2s;
-        }
-        .commit-card:hover {
-            border-color: #58a6ff;
-            transform: translateX(4px);
-        }
-        .commit-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-        .commit-type {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 4px;
-        }
-        .commit-type.feat { background: #238636; color: #fff; }
-        .commit-type.fix { background: #da3633; color: #fff; }
-        .commit-type.breaking { background: #f85149; color: #fff; }
-        .commit-type.refactor { background: #8957e5; color: #fff; }
-        .commit-type.remove { background: #6e7681; color: #fff; }
-        .commit-hash {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #8b949e;
-        }
-        .commit-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #6e7681;
-            margin-left: auto;
-        }
-        .commit-title {
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #c9d1d9;
-        }
-        .commit-desc {
-            font-size: 14px;
-            color: #8b949e;
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        .commit-files {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #58a6ff;
-        }
+h1, h2, h3, h4, p { margin: 0; }
 
-        /* Code Block */
-        .code-block {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            line-height: 1.6;
-            overflow-x: auto;
-            margin: 16px 0;
-        }
-        .code-keyword { color: #ff7b72; }
-        .code-string { color: #a5d6ff; }
-        .code-number { color: #79c0ff; }
-        .code-comment { color: #8b949e; }
+strong { color: var(--text-dark); font-weight: 700; }
 
-        /* Featured Card */
-        .featured-card {
-            background: linear-gradient(135deg, #161b22 0%, #1f2937 100%);
-            border-left: 4px solid #3fb950;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 16px;
-        }
-        .featured-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: #3fb950;
-            margin-bottom: 12px;
-        }
-        .featured-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #c9d1d9;
-        }
-        .featured-desc {
-            font-size: 14px;
-            color: #8b949e;
-            line-height: 1.6;
-        }
+img, svg, video { max-width: 100%; height: auto; }
 
-        /* Quote Block */
-        .quote-block {
-            background: #161b22;
-            border-left: 4px solid #58a6ff;
-            border-radius: 8px;
-            padding: 24px;
-            margin: 20px 0;
-            font-style: italic;
-            color: #c9d1d9;
-            line-height: 1.8;
-        }
-        .quote-author {
-            font-style: normal;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #8b949e;
-            margin-top: 12px;
-        }
+::selection { background: var(--klein); color: var(--white); }
 
-        /* Week Section */
-        .week-section {
-            margin-bottom: 40px;
-        }
-        .week-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            color: #f0883e;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .week-title::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #f0883e;
-            border-radius: 50%;
-        }
+.container {
+  max-width: 57.5rem;               /* 920px 栏宽 */
+  width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+}
 
-        /* Month Block - 月份轴 */
-        .month-block {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 24px;
-            margin: 32px 0;
-        }
-        .month-block-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 15px;
-            font-weight: 600;
-            color: #f0883e;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #f0883e;
-        }
+/* ---------- 报头细条（原终端标题条，改浅底深字） ---------- */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 0.75rem 1rem;
+}
 
-        /* Data Grid */
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 16px 0;
-        }
-        .data-item {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 12px;
-            text-align: center;
-        }
-        .data-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 20px;
-            font-weight: 600;
-            color: #58a6ff;
-        }
-        .data-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: #8b949e;
-            margin-top: 4px;
-        }
+.terminal-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: var(--border);
+}
 
-        /* Stats Wall - 铺天盖地 */
-        .stats-wall {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 32px;
-            margin: 24px 0;
-        }
-        .stats-wall-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            color: #f0883e;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .stats-wall-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-        }
-        .stats-wall-item {
-            text-align: center;
-            padding: 16px 8px;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-        }
-        .stats-wall-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 28px;
-            font-weight: 700;
-            color: #58a6ff;
-            margin-bottom: 4px;
-        }
-        .stats-wall-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
-            color: #8b949e;
-            text-transform: uppercase;
-            line-height: 1.3;
-        }
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--text-light);
+  margin-left: 0.5rem;
+  overflow-wrap: anywhere;
+}
 
-        /* Fail Log */
-        .fail-log {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 24px;
-            margin: 20px 0;
-        }
-        .fail-log-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            color: #f85149;
-            margin-bottom: 16px;
-        }
-        .fail-log-item {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #8b949e;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .fail-log-item::before {
-            content: '✗';
-            position: absolute;
-            left: 0;
-            color: #f85149;
-        }
-        .fail-log-item.pass::before {
-            content: '✓';
-            color: #3fb950;
-        }
+/* ---------- Hero：刊物封面 ---------- */
+.hero {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-card);
+}
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #6e7681;
-            border-top: 1px solid #30363d;
-            margin-top: 40px;
-        }
-    </style>
+.hero h1 {
+  font-size: clamp(1.75rem, 5.5vw, 2.625rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;           /* 标题字距收紧 */
+  color: var(--klein);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  margin-bottom: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  color: var(--text-mid);
+  margin-bottom: 2rem;
+}
+
+/* 封面下方细分隔线：一根克莱因短规 */
+.hero::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  background: var(--klein);
+  margin: 0 auto;
+}
+
+/* ---------- 开篇数据条 ---------- */
+.stats-hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.stat-hero {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+  min-width: 0;
+  box-shadow: var(--shadow-card);
+}
+
+.stat-hero-number {
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--klein);
+  margin-bottom: 0.25rem;
+}
+
+.stat-hero-label {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--text-light);
+}
+
+/* ---------- 分段骨架：纸感章节 ---------- */
+.section {
+  margin: 0 0 3rem;
+  min-width: 0;
+}
+
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  color: var(--klein);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--border);   /* 一根细横线即分段 */
+}
+
+.section-desc {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin: -0.5rem 0 1.5rem;
+  max-width: 46rem;
+}
+
+/* 月份章节＝透明分章容器（不铺卡片底）：显式清零，防止旧深黑样式残留 */
+.month-block {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin: 3.5rem 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.month-block-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 3.4vw, 1.375rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin: 0 0 1.5rem;
+  padding: 0.875rem 0 0.75rem;
+  border-top: 2px solid var(--klein);        /* 刊物分章规线 */
+  border-bottom: 1px solid var(--border);
+}
+
+.week-section {
+  margin: 0 0 2.75rem;
+  padding: 1.75rem 0 0;
+  border-top: 1px solid var(--hairline);
+  min-width: 0;
+}
+
+.month-block > .week-section:first-of-type {
+  border-top: none;
+  padding-top: 0.25rem;
+}
+
+.week-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  color: var(--text-mid);
+  margin-bottom: 1.25rem;
+}
+
+.week-title::before {
+  content: "";
+  display: inline-block;
+  flex: none;
+  width: 0.4375rem;
+  height: 0.4375rem;
+  background: var(--klein);
+  border-radius: 50%;
+}
+
+/* ---------- 架构图纸 ---------- */
+.arch-block {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-card);
+  overflow-wrap: anywhere;
+}
+
+.arch-layer {
+  margin-bottom: 1.125rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--hairline);
+}
+
+.arch-layer:last-child { margin-bottom: 0; }
+
+.arch-layer-name {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  color: var(--klein);
+  margin-bottom: 0.375rem;
+}
+
+.arch-file {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.9;
+  color: var(--text-dark);
+  padding-left: 1.25rem;
+  overflow-wrap: anywhere;
+}
+
+.arch-comment {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* ---------- 提交卡 ---------- */
+.commits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 0.75rem;
+}
+
+.commit-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.125rem 1.25rem;
+  margin-bottom: 0.875rem;
+  min-width: 0;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.commits-grid > .commit-card { margin-bottom: 0; }
+
+.commit-card:hover {
+  border-color: var(--klein-bright);         /* 极小面积 hover 亮蓝 */
+  box-shadow: var(--shadow-lift);
+  transform: translateX(2px);
+}
+
+.commit-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  row-gap: 0.375rem;
+  margin-bottom: 0.625rem;
+}
+
+.commit-type {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-transform: lowercase;
+  white-space: nowrap;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--slate-tint);
+  color: var(--slate-ink);
+}
+
+.commit-hash {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  line-height: 1.5;
+  color: var(--text-light);
+  overflow-wrap: anywhere;
+}
+
+.commit-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.commit-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.commit-desc {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 0.625rem;
+}
+
+.commit-files {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--klein);
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--hairline);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 语义徽章色（小面积点缀，不铺大面积） ---------- */
+.feat { color: var(--olive); background: var(--olive-tint); }
+.fix { color: var(--klein); background: var(--tint-klein); }
+.refactor { color: var(--terra); background: var(--terra-tint); }
+.remove { color: var(--accent-ink); background: var(--accent-tint); }
+.breaking { color: var(--accent-ink); background: var(--accent-tint); }
+.red { color: var(--accent-ink); background: var(--accent-tint); }
+.green { color: var(--olive); background: var(--olive-tint); }
+.yellow { color: var(--gold-ink); background: var(--gold-tint); }
+
+.commit-type.feat,
+.commit-type.commit-type-feat { color: var(--olive); background: var(--olive-tint); }
+.commit-type.fix,
+.commit-type.commit-type-fix { color: var(--klein); background: var(--tint-klein); }
+.commit-type.refactor { color: var(--terra); background: var(--terra-tint); }
+.commit-type.breaking { color: var(--accent-ink); background: var(--accent-tint); }
+.commit-type.remove { color: var(--accent-ink); background: var(--accent-tint); }
+.commit-type.style,
+.commit-type.commit-type-chore { color: var(--slate-ink); background: var(--slate-tint); }
+
+/* 报头三点：语义色的低饱和版，直径 10px 以内 */
+.terminal-dot.red { background: var(--accent-ink); }
+.terminal-dot.yellow { background: var(--gold-ink); }
+.terminal-dot.green { background: var(--olive); }
+
+/* ---------- 代码框：报纸上的图纸框，米白底 + 细边 + 等宽 ---------- */
+.code-block {
+  background: var(--paper);
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+  tab-size: 2;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-card);
+}
+
+.code-keyword { color: var(--accent-ink); font-weight: 600; }
+.code-string { color: var(--klein); }
+.code-number { color: var(--olive); font-weight: 600; }
+.code-comment { color: var(--text-light); font-style: normal; }
+
+/* ---------- 重点卡 / 引文 ---------- */
+.featured-card {
+  background: linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--olive);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 1.25rem 0;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.featured-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--olive);
+  margin-bottom: 0.75rem;
+}
+
+.featured-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.featured-desc {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+}
+
+.quote-block {
+  background: var(--tint-klein);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--klein);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin: 1.75rem 0;
+  font-style: normal;                /* 中文不做斜体，靠字号与底色立起来 */
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  letter-spacing: -0.005em;
+  color: var(--text-dark);
+}
+
+.quote-author {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-top: 0.875rem;
+}
+
+/* ---------- 数据格 ---------- */
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+}
+
+.featured-card .data-grid {
+  margin: 1.25rem -1.5rem -1.5rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  background: var(--bg-light);
+  border-top: 1px solid var(--border);
+}
+
+.data-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.875rem 0.5rem;
+  text-align: center;
+  min-width: 0;
+}
+
+.featured-card .data-item { background: var(--white); }
+
+.data-value {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--klein);
+  overflow-wrap: anywhere;
+}
+
+.data-label {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+/* ---------- 统计墙 ---------- */
+.stats-wall {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-card);
+}
+
+.stats-wall-title {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  color: var(--text-mid);
+  text-align: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.stats-wall-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5.25rem, 1fr));
+  gap: 0.75rem;
+}
+
+.stats-wall-item {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  padding: 1rem 0.5rem;
+  min-width: 0;
+}
+
+.stats-wall-value {
+  font-family: var(--font-mono);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--klein);
+  margin-bottom: 0.25rem;
+}
+
+.stats-wall-label {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--text-light);
+}
+
+/* ---------- 失败台账 ---------- */
+.fail-log {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-card);
+}
+
+.fail-log-title {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  color: var(--accent-ink);
+  margin-bottom: 1rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.fail-log-item {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  overflow-wrap: anywhere;
+}
+
+.fail-log-item::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-ink);
+}
+
+.fail-log-item.pass { color: var(--text-dark); }
+
+.fail-log-item.pass::before {
+  content: "✓";
+  color: var(--olive);
+}
+
+.fail-log-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+/* ---------- 页脚 ---------- */
+.footer {
+  text-align: center;
+  padding: 2rem 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  color: var(--text-light);
+  border-top: 1px solid var(--border);
+  margin-top: 3.5rem;
+}
+
+/* ---------- 窄屏收口（375px 不溢出） ---------- */
+.stats-hero > *,
+.data-grid > *,
+.stats-wall-grid > *,
+.commits-grid > * { min-width: 0; }
+
+@media (max-width: 48em) {
+  .hero { padding: 2.5rem 1.5rem 2.25rem; }
+  .month-block { margin: 2.5rem 0; }
+  .stats-wall,
+  .fail-log,
+  .arch-block,
+  .featured-card { padding: 1.25rem; }
+  .featured-card .data-grid {
+    margin: 1.25rem -1.25rem -1.25rem;
+    padding: 1.25rem;
+  }
+  .code-block { padding: 1.125rem 1rem; font-size: 0.75rem; }
+  .quote-block { padding: 1.25rem; }
+}
+
+@media (max-width: 30em) {
+  body { padding: 1.5rem 1rem; font-size: 0.9375rem; }
+  .hero { padding: 2rem 1.125rem 1.875rem; margin-bottom: 2rem; }
+  .hero-subtitle { margin-bottom: 1.5rem; }
+  .commit-card { padding: 1rem; }
+  .commit-header { gap: 0.5rem; }
+  .commit-date { margin-left: 0; }
+  .stats-hero { gap: 0.5rem; margin-bottom: 2rem; }
+  .data-grid,
+  .stats-wall-grid { gap: 0.5rem; }
+  .section-title { font-size: 0.875rem; }
+  .month-block-title { margin-bottom: 1.25rem; }
+}
+
+</style>
 </head>
 <body>
     <div class="container">
-        <!-- Terminal Header -->
-        <div class="terminal-header">
-            <div class="terminal-dot red"></div>
-            <div class="terminal-dot yellow"></div>
-            <div class="terminal-dot green"></div>
-            <div class="terminal-title">git log --oneline --graph --all -30</div>
-        </div>
-
-        <!-- Hero -->
+        <div class="masthead-nav"><a href="index.html">← 回到 AI News 首页</a></div>
         <section class="hero">
-            <h1>AI News · 117天迭代日志</h1>
-            <p class="hero-subtitle">从零开始构建一个AI情报日报的技术演进</p>
+            <div class="hero-eyebrow">The Making Of · 2026.06.01 — 2026.09.25</div>
+            <h1>AI News · 117 天迭代记</h1>
+            <p class="hero-subtitle">一本每天出版的英文技术中文日报，这是它不断变厚的过程</p>
+            <div class="stats-hero">
+                <div class="stat-hero"><div class="stat-hero-number">117</div><div class="stat-hero-label">连续天数</div></div>
+                <div class="stat-hero"><div class="stat-hero-number">113</div><div class="stat-hero-label">已出期数</div></div>
+                <div class="stat-hero"><div class="stat-hero-number">827</div><div class="stat-hero-label">收录条目</div></div>
+                <div class="stat-hero"><div class="stat-hero-number">238</div><div class="stat-hero-label">信源域名</div></div>
+            </div>
         </section>
-
-        <!-- Stats Hero - 铺天盖地 -->
-        <div class="stats-hero">
-            <div class="stat-hero">
-                <div class="stat-hero-number">76</div>
-                <div class="stat-hero-label">DAYS</div>
-            </div>
-            <div class="stat-hero">
-                <div class="stat-hero-number">150</div>
-                <div class="stat-hero-label">COMMITS</div>
-            </div>
-            <div class="stat-hero">
-                <div class="stat-hero-number">10</div>
-                <div class="stat-hero-label">SPECIALS</div>
-            </div>
-            <div class="stat-hero">
-                <div class="stat-hero-number">3</div>
-                <div class="stat-hero-label">GATES</div>
-            </div>
-            <div class="stat-hero">
-                <div class="stat-hero-number">∞</div>
-                <div class="stat-hero-label">COFFEE</div>
-            </div>
-        </div>
-
-        <!-- Architecture -->
         <section class="section">
-            <h2 class="section-title">Architecture · 技术栈总览</h2>
-            
-            <div class="arch-block">
-                <div class="arch-layer">
-                    <div class="arch-layer-name">数据层 Data Layer</div>
-                    <div class="arch-file">daily-schema-v1.json <span class="arch-comment">// 单一真相源</span></div>
-                    <div class="arch-file">quality-contract-v1.json <span class="arch-comment">// 规则合约</span></div>
-                </div>
-                <div class="arch-layer">
-                    <div class="arch-layer-name">质量层 Quality Layer</div>
-                    <div class="arch-file">quality_gate.py <span class="arch-comment">// 37项自动检查</span></div>
-                    <div class="arch-file">FB1/FB2/FB3 <span class="arch-comment">// 三个阻断层</span></div>
-                </div>
-                <div class="arch-layer">
-                    <div class="arch-layer-name">规则层 Rules Layer</div>
-                    <div class="arch-file">大脑核心标准/ <span class="arch-comment">// 5个核心文件</span></div>
-                    <div class="arch-file">入口规则与通知/ <span class="arch-comment">// 完整版规则</span></div>
-                </div>
-                <div class="arch-layer">
-                    <div class="arch-layer-name">生成层 Generation Layer</div>
-                    <div class="arch-file">日报制作-完整执行指令.md <span class="arch-comment">// 执行流程</span></div>
-                    <div class="arch-file">素材转换指令.md</div>
-                </div>
-                <div class="arch-layer">
-                    <div class="arch-layer-name">前端层 Frontend Layer</div>
-                    <div class="arch-file">index.html <span class="arch-comment">// 首页(自动生成)</span></div>
-                    <div class="arch-file">2026-06-30.html <span class="arch-comment">// 日报HTML</span></div>
-                </div>
-            </div>
-        </section>
-
-
-        <div class="month-block">
-            <div class="month-block-title">2026-06 · 第一个30天 · 从零到一</div>
-
-        <!-- Week 1 -->
-        <section class="week-section">
-            <div class="week-title">Week 1 · 基础设施搭建</div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">a1b2c3d</span>
-                    <span class="commit-date">2026-06-01</span>
-                </div>
-                <div class="commit-title">项目启动：从Idea到AI实现</div>
-                <div class="commit-desc">一个想法：能不能有一个AI情报日报，每天快速了解AI前沿？找到AI描述想法，开始搭建。这天做了<strong>19次目录调整</strong>，建立了基础文件结构。</div>
-                <div class="commit-files">+ 项目立项 / + 19次目录调整</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">b2c3d4e</span>
-                    <span class="commit-date">2026-06-02</span>
-                </div>
-                <div class="commit-title">第一版试运行：从想法到成品</div>
-                <div class="commit-desc">日报的第一版出来了。能看，但还有很多问题。开始建立规则体系，这天形成了<strong>23个初始规则</strong>，经历了<strong>15次推翻重来</strong>。</div>
-                <div class="commit-files">+ 日报v1 / + 23个初始规则</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">c3d4e5f</span>
-                    <span class="commit-date">2026-06-03</span>
-                </div>
-                <div class="commit-title">选新闻标准：反复试错</div>
-                <div class="commit-desc">新闻选择标准经历了<strong>31次调整</strong>——从"行业重要"到"跟我有什么关系"。选了又删，删了又选，最终找到方法论。</div>
-                <div class="commit-files">+ 选新闻标准v7 / + 31次调整</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">d4e5f6a</span>
-                    <span class="commit-date">2026-06-04</span>
-                </div>
-                <div class="commit-title">写新闻规则：从混乱到清晰</div>
-                <div class="commit-desc">数字唯一、主语不重复、读者价值指向未来——这些规则经历了<strong>47次迭代</strong>，从模糊的直觉变成可执行的标准。</div>
-                <div class="commit-files">+ 写新闻规则v12 / + 47次迭代</div>
-            </div>
-
+            <h2 class="section-title">Layers · 我们在哪几个层面反复打磨</h2>
+            <div class="data-grid">
             <div class="featured-card">
-                <div class="featured-label">2026-06-06 · PEAK WINDOW</div>
-                <div class="featured-title">峰值窗口：单日2.8亿tokens</div>
-                <div class="featured-desc">翻译排查、词典批次收口、发布修复同步推进。17:00形成峰值——约4476万tokens、611次请求。这天经历了<strong>8次发布修复</strong>，最终稳定上线。</div>
-                <div class="data-grid">
-                    <div class="data-item">
-                        <div class="data-value">2.8亿</div>
-                        <div class="data-label">TOKENS</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">611</div>
-                        <div class="data-label">REQUESTS</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">8次</div>
-                        <div class="data-label">发布修复</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">S++</div>
-                        <div class="data-label">INTENSITY</div>
-                    </div>
-                </div>
+                <div class="featured-label">第 1 层 · 阅读层</div>
+                <div class="featured-title">版面、断行与三色标记</div>
+                <div class="featured-desc">每期 9 个栏目固定顺序，正文按阅读节奏重排，关键数字、概念与转折各用一色标注，长句一律拆成可换气的小段。</div>
             </div>
-
-            <div class="data-grid">
-                <div class="data-item">
-                    <div class="data-value">19</div>
-                    <div class="data-label">目录调整</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">23</div>
-                    <div class="data-label">初始规则</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">31</div>
-                    <div class="data-label">选新闻调整</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">47</div>
-                    <div class="data-label">写新闻迭代</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Week 2 -->
-        <section class="week-section">
-            <div class="week-title">Week 2 · 品质标准体系建立</div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">d5e6f7a</span>
-                    <span class="commit-date">2026-06-07</span>
-                </div>
-                <div class="commit-title">三色标记系统：从混乱到体系</div>
-                <div class="commit-desc">蓝=概念词，红=数字+实体名+对比词，加粗=转折词。这个系统经历了<strong>17次调试</strong>——从全蓝无红到三色平衡，从标记堆砌到3-4个限制。</div>
-                <div class="commit-files">+ MARKER_RULES / + 17次调试</div>
-            </div>
-
-            <div class="code-block">
-<span class="code-keyword">const</span> <span class="code-string">MARKER_RULES</span> = {
-  <span class="code-string">highlight</span>: { <span class="code-string">color</span>: <span class="code-string">'blue'</span>, <span class="code-string">usage</span>: <span class="code-string">'概念词'</span>, <span class="code-string">limit</span>: <span class="code-number">3-4</span> },
-  <span class="code-string">accent</span>: { <span class="code-string">color</span>: <span class="code-string">'red'</span>, <span class="code-string">usage</span>: <span class="code-string">'数字+实体名+对比词'</span>, <span class="code-string">limit</span>: <span class="code-number">3-4</span> },
-  <span class="code-string">turn</span>: { <span class="code-string">style</span>: <span class="code-string">'bold'</span>, <span class="code-string">usage</span>: <span class="code-string">'转折词'</span>, <span class="code-string">limit</span>: <span class="code-number">3-4</span> }
-};
-            </div>
-
             <div class="featured-card">
-                <div class="featured-label">2026-06-10 · METHODOLOGY BREAKTHROUGH</div>
-                <div class="featured-title">核心方法论确立</div>
-                <div class="featured-desc">"不满意=继续搜。改写是换包装(效果有限)，换素材是换内容(效果显著)。搜得越深越广，找到的素材越好。"这个方法论是在<strong>53次选材失败</strong>后总结出来的。</div>
-                <div class="data-grid">
-                    <div class="data-item">
-                        <div class="data-value">53</div>
-                        <div class="data-label">选材失败</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">29</div>
-                        <div class="data-label">素材更换</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">17</div>
-                        <div class="data-label">标记调试</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">1</div>
-                        <div class="data-label">核心方法论</div>
-                    </div>
-                </div>
+                <div class="featured-label">第 2 层 · 视觉层</div>
+                <div class="featured-title">配图、图注与地理感</div>
+                <div class="featured-desc">455 张图全部回到原文核对，图注 275 条写明出处与日期；结尾留一处地球卫星影像，让每天盯屏幕的人看一眼不需要 GPU 冷却的地方。</div>
             </div>
-
-            <div class="quote-block">
-                "人类的创造力比AI自动化更重要。"
-                <div class="quote-author">— Fei-Fei Li, AI科学家（用户在看李飞飞的传记，想到声音栏目的规则和人文主义要维持）</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type breaking">breaking</span>
-                    <span class="commit-hash">a7b8c9d</span>
-                    <span class="commit-date">2026-06-13</span>
-                </div>
-                <div class="commit-title">写稿铁律10条确立</div>
-                <div class="commit-desc">数字唯一(每组≤2次)、单源不拆、读者价值指向未来。主语不重复(同新闻人名/公司名≤2次)。这10条铁律经历了<strong>63次修订</strong>，每一条都是从失败中总结出来的。</div>
-                <div class="commit-files">+ 写稿铁律v1 / + 63次修订</div>
-            </div>
-
-            <div class="data-grid">
-                <div class="data-item">
-                    <div class="data-value">17</div>
-                    <div class="data-label">标记调试</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">53</div>
-                    <div class="data-label">选材失败</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">63</div>
-                    <div class="data-label">铁律修订</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">10</div>
-                    <div class="data-label">核心铁律</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Week 3 -->
-        <section class="week-section">
-            <div class="week-title">Week 3 · 灵魂宣言与品牌定型</div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">e7f8a9b</span>
-                    <span class="commit-date">2026-06-15</span>
-                </div>
-                <div class="commit-title">声音栏目：从AI点评到真人原话</div>
-                <div class="commit-desc">声音栏经历了<strong>7次迭代</strong>——从AI点评到删除，从真人原话到加来源，从有标签到无标签。最终确立：真人原话自己有力量，不需要AI再去"解读"。人文主义视角要维持。</div>
-                <div class="commit-files">+ 声音栏目v7 / + 7次迭代</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">b8c9d0e</span>
-                    <span class="commit-date">2026-06-18</span>
-                </div>
-                <div class="commit-title">品牌句迭代：找到产品定位</div>
-                <div class="commit-desc">品牌句经历了<strong>3次迭代</strong>——从模糊的"从AI前线寄回的信"到清晰的"前沿信号流"。每次迭代都是对产品定位的重新思考。</div>
-                <div class="commit-files">+ 品牌句v3 / + 3次迭代</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type refactor">refactor</span>
-                    <span class="commit-hash">c9d0e1f</span>
-                    <span class="commit-date">2026-06-19</span>
-                </div>
-                <div class="commit-title">大脑核心标准精炼</div>
-                <div class="commit-desc">5个核心文件：AI腔禁令/编辑部标准/声音栏目/图片规则/品质区间。去水去重复，保留可执行版本。这个精炼过程经历了<strong>21次合并</strong>，从完整版到精炼版。</div>
-                <div class="commit-files">+ 大脑核心标准/ / + 21次合并</div>
-            </div>
-
-            <div class="quote-block">
-                "这一番折腾，是30天的迭代，是847次总改动，是找到一个产品的灵魂。"
-            </div>
-
-            <div class="data-grid">
-                <div class="data-item">
-                    <div class="data-value">7</div>
-                    <div class="data-label">声音迭代</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">3</div>
-                    <div class="data-label">品牌迭代</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">21</div>
-                    <div class="data-label">规则合并</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">5</div>
-                    <div class="data-label">核心文件</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Week 4 -->
-        <section class="week-section">
-            <div class="week-title">Week 4 · 工程化落地</div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">d0e1f2a</span>
-                    <span class="commit-date">2026-06-22</span>
-                </div>
-                <div class="commit-title">数据层架构：daily-schema-v1.json</div>
-                <div class="commit-desc">建立单一真相源，首页从daily.json自动生成。这个架构经历了<strong>11次重构</strong>——从手写HTML到JSON数据驱动，每次重构都是对工作流的重新思考。</div>
-                <div class="commit-files">+ daily-schema-v1.json / + 11次重构</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">e1f2a3b</span>
-                    <span class="commit-date">2026-06-23</span>
-                </div>
-                <div class="commit-title">质量门禁：37项自动检查</div>
-                <div class="commit-desc">三个阻断层：FB1候选门禁 / FB2自动门禁 / FB3人工核实。这37项检查是从<strong>83个失败案例</strong>中提炼出来的——每个检查都是曾经犯过的错。</div>
-                <div class="commit-files">+ quality_gate.py / + 83个失败案例</div>
-            </div>
-
-            <div class="code-block">
-<span class="code-keyword">def</span> <span class="code-string">quality_gate</span>(file_path):
-    <span class="code-comment"># 37项检查</span>
-    checks = [
-        <span class="code-string">'数字唯一'</span>, <span class="code-string">'主语不重复'</span>, <span class="code-string">'三色平衡'</span>,
-        <span class="code-string">'声音条数≥2'</span>, <span class="code-string">'配图相关'</span>, <span class="code-string">'原文链接'</span>,
-        <span class="code-string">'英文翻译'</span>, <span class="code-string">'头版不敷衍'</span>, <span class="code-string">'标签无重复'</span>,
-        <span class="code-string">'图片不重复'</span>, <span class="code-string">'来源完整'</span>, <span class="code-string">'栏目顺序'</span>,
-        <span class="code-comment"># ... 25 more</span>
-    ]
-
-    passed = run_checks(checks, file_path)
-
-    <span class="code-keyword">if</span> passed == <span class="code-number">37</span>:
-        <span class="code-keyword">return</span> <span class="code-string">'exit 0'</span>  <span class="code-comment"># PASS</span>
-    <span class="code-keyword">else</span>:
-        <span class="code-keyword">return</span> <span class="code-string">'exit 1'</span>  <span class="code-comment"># FAIL - 阻断修复</span>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">f2a3b4c</span>
-                    <span class="commit-date">2026-06-24</span>
-                </div>
-                <div class="commit-title">规则合约：quality-contract-v1.json</div>
-                <div class="commit-desc">规则合约=唯一真相源。所有规则从JSON读取，不再依赖人记住。这个合约经历了<strong>15次修订</strong>，最终形成了可执行的规则引擎。</div>
-                <div class="commit-files">+ quality-contract-v1.json / + 15次修订</div>
-            </div>
-
-            <div class="data-grid">
-                <div class="data-item">
-                    <div class="data-value">11</div>
-                    <div class="data-label">架构重构</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">37</div>
-                    <div class="data-label">门禁检查</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">83</div>
-                    <div class="data-label">失败案例</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">15</div>
-                    <div class="data-label">合约修订</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Week 5 -->
-        <section class="week-section">
-            <div class="week-title">Week 5 · 新栏目上线</div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type remove">remove</span>
-                    <span class="commit-hash">a3b4c5d</span>
-                    <span class="commit-date">2026-06-26</span>
-                </div>
-                <div class="commit-title">配图规则大清洗</div>
-                <div class="commit-desc">Pexels/Unsplash盲配废弃。没有视觉内容就不放图，全CDN直引。这次清洗经历了<strong>23次图片移除</strong>——从盲配到CDN，从装饰到内容相关。</div>
-                <div class="commit-files">- Pexels/Unsplash / + 23次图片移除</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">b4c5d6e</span>
-                    <span class="commit-date">2026-06-27</span>
-                </div>
-                <div class="commit-title">标签系统v4：card-tag全删</div>
-                <div class="commit-desc">灰色小标签对读者没有意义。卡片思维是产品功能，不是标签文字。这个认知经历了<strong>4轮标签改造</strong>——从堆砌到精简，从标签文字到产品功能。</div>
-                <div class="commit-files">- card-tag / + 4轮标签改造</div>
-            </div>
-
             <div class="featured-card">
-                <div class="featured-label">2026-06-30 · SURPRISE COLUMN</div>
-                <div class="featured-title">惊喜栏目：俯瞰地球·Be Curious</div>
-                <div class="featured-desc">每天一张地球图，把用户喜欢的俯瞰地图加上，有旅行感。选图标准：新奇好看有情绪价值，有探索感，不重复。这个栏目经历了<strong>47次调整</strong>——从图片源选择、到选图标准、到避开灾害类、到每天不同地貌...</div>
-                <div class="data-grid">
-                    <div class="data-item">
-                        <div class="data-value">47</div>
-                        <div class="data-label">选图调整</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">12</div>
-                        <div class="data-label">图片来源测试</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">23</div>
-                        <div class="data-label">重复更换</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">8</div>
-                        <div class="data-label">地貌类型</div>
-                    </div>
-                </div>
+                <div class="featured-label">第 3 层 · 来源层</div>
+                <div class="featured-title">可点开、可复核</div>
+                <div class="featured-desc">238 个信源域名，每条新闻都带一个能直达的蓝色来源链接；声音栏 244 条真人原话，两条来自不同媒体，不用二手转述代替。</div>
             </div>
-
-            <div class="quote-block">
-                "作者出差中，通过手机反馈，我这边依然可以在线实时修改。工作效率默契，因为我们已经有了完善的系统——规则引擎、门禁检查、数据层架构，一环扣一环。"
-            </div>
-
-            <div class="data-grid">
-                <div class="data-item">
-                    <div class="data-value">23</div>
-                    <div class="data-label">图片移除</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">4</div>
-                    <div class="data-label">标签改造</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">47</div>
-                    <div class="data-label">Be Curious调整</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">37/1/0</div>
-                    <div class="data-label">最终门禁</div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Fail Log · 6月 -->
-        <section class="section">
-            <h2 class="section-title">Fail Log · 典型失败案例</h2>
-            
-<div class="fail-log">
-                <div class="fail-log-title">每天一个问题 (30天连续迭代)</div>
-                <div class="fail-log-item">2026-06-01: 初始版本太粗糙 → 开始建立规则体系</div>
-                <div class="fail-log-item">2026-06-02: 新闻选择太随意 → 建立"跟我有什么关系"标准</div>
-                <div class="fail-log-item">2026-06-03: 标题太长28字 → 压缩至15字</div>
-                <div class="fail-log-item">2026-06-04: 数字堆砌严重 → 每组不超过2次</div>
-                <div class="fail-log-item">2026-06-05: 英文链接裸露 → 加翻译说明</div>
-                <div class="fail-log-item">2026-06-06: 来源链接缺失 → 补充来源行</div>
-                <div class="fail-log-item">2026-06-07: 三色标记系统缺失 → 开始建立标记体系</div>
-                <div class="fail-log-item">2026-06-08: 三色标记全蓝无红 → 重新标注平衡</div>
-                <div class="fail-log-item">2026-06-09: 声音栏只有1条 → 太单薄，补充至2条</div>
-                <div class="fail-log-item">2026-06-10: 声音栏有AI点评 → 删除，只留真人原话</div>
-                <div class="fail-log-item">2026-06-11: 配图使用Pexels盲配 → 与内容无关，移除</div>
-                <div class="fail-log-item">2026-06-12: 地球图与前天相似 → 更换全新地貌</div>
-                <div class="fail-log-item">2026-06-13: Be Curious地球图太沉重 → 换成浮游生物漩涡</div>
-                <div class="fail-log-item">2026-06-14: 引语只取半句 → 意思变了，补全完整原话</div>
-                <div class="fail-log-item">2026-06-15: 英文未翻译 → 读者看不懂，补充翻译</div>
-                <div class="fail-log-item">2026-06-16: 主语重复3次 → 读着累，精简至2次</div>
-                <div class="fail-log-item">2026-06-17: AI腔"说起来难以置信" → 做作，删除</div>
-                <div class="fail-log-item">2026-06-18: 标签系统堆砌 → 读者不关心，全删</div>
-                <div class="fail-log-item">2026-06-19: 栏目顺序混乱 → 统一顺序</div>
-                <div class="fail-log-item">2026-06-20: 新闻选择有爹味 → 建立品质稳定区间规则</div>
-                <div class="fail-log-item">2026-06-21: 新闻选择偏向小报 → 品质区间下限违规，移除</div>
-                <div class="fail-log-item">2026-06-22: 卡片标签灰色小字 → 对读者无意义，删除</div>
-                <div class="fail-log-item">2026-06-23: 开源工具太小众 → 换实用工具</div>
-                <div class="fail-log-item">2026-06-24: 小结全是数字 → 加诗歌断行</div>
-                <div class="fail-log-item">2026-06-25: 拓展阅读打断节奏 → 全删</div>
-                <div class="fail-log-item">2026-06-26: 声音栏Simon出现8次 → 换人</div>
-                <div class="fail-log-item">2026-06-27: 头版敷衍 → 重写</div>
-                <div class="fail-log-item">2026-06-28: 配图不符合读者偏好 → 更换图片类型</div>
-                <div class="fail-log-item">2026-06-29: 配图风格不合适 → 调整为CDN直引</div>
-                <div class="fail-log-item pass">2026-06-30: 37/1/0 PASS → 最终通过</div>
-            </div>
-
-            
-        </section>
-
-
-        <!-- Stats Wall · 6月 -->
-        <section class="section">
-            <h2 class="section-title">Stats · 迭代统计</h2>
-            
-<div class="stats-wall">
-                <div class="stats-wall-title">30天累计调整 · 次次叠加</div>
-                <div class="stats-wall-grid">
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">127</div>
-                        <div class="stats-wall-label">规则迭代</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">89</div>
-                        <div class="stats-wall-label">配图调整</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">63</div>
-                        <div class="stats-wall-label">声音重写</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">156</div>
-                        <div class="stats-wall-label">三色标注</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">42</div>
-                        <div class="stats-wall-label">标题优化</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">28</div>
-                        <div class="stats-wall-label">栏目调整</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">71</div>
-                        <div class="stats-wall-label">英文翻译</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">53</div>
-                        <div class="stats-wall-label">来源核实</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">34</div>
-                        <div class="stats-wall-label">重复去除</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">19</div>
-                        <div class="stats-wall-label">品牌迭代</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">47</div>
-                        <div class="stats-wall-label">CSS调整</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">∞</div>
-                        <div class="stats-wall-label">COFFEE</div>
-                    </div>
-                </div>
-            </div>
-
-            
-
-<div class="stats-wall">
-                <div class="stats-wall-title">失败次数 · 每次都是进步</div>
-                <div class="stats-wall-grid">
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">23</div>
-                        <div class="stats-wall-label">配图失败</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">17</div>
-                        <div class="stats-wall-label">声音重写</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">31</div>
-                        <div class="stats-wall-label">三色失衡</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">12</div>
-                        <div class="stats-wall-label">英文遗漏</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">8</div>
-                        <div class="stats-wall-label">来源缺失</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">15</div>
-                        <div class="stats-wall-label">主语重复</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">9</div>
-                        <div class="stats-wall-label">数字重复</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">6</div>
-                        <div class="stats-wall-label">图片重复</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">21</div>
-                        <div class="stats-wall-label">AI腔</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">14</div>
-                        <div class="stats-wall-label">栏目顺序</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">5</div>
-                        <div class="stats-wall-label">门禁阻断</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">0</div>
-                        <div class="stats-wall-label">放弃</div>
-                    </div>
-                </div>
-            </div>
-
-            
-        </section>
-
-        </div>
-
-        <div class="month-block">
-
-
-            <div class="month-block-title">2026-07 · 第二个30天 · 稳定生产</div>
-
-        <!-- Week 6 -->
-        <section class="week-section">
-            <div class="week-title">Week 6 · 2026-07 · 稳定生产 · 连续发布期</div>
-
             <div class="featured-card">
-                <div class="featured-label">2026-07-02 ~ 07-31 · CONTINUOUS SHIPPING</div>
-                <div class="featured-title">从 30 天走到 60+ 天：每天一份日报，一天没断</div>
-                <div class="featured-desc">6 月的规则体系在 7 月经受住了最残酷的考验：连续 30 天每天发布一份日报，中间没有任何一天断更。规则不再只是写在文档里，而是每天被真实执行一遍。这是从「靠人记住」到「靠系统保证」的第一段长跑。</div>
-                <div class="data-grid">
-                    <div class="data-item">
-                        <div class="data-value">30+</div>
-                        <div class="data-label">连续天数</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">6</div>
-                        <div class="data-label">固定栏目</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">0</div>
-                        <div class="data-label">断更</div>
-                    </div>
-                    <div class="data-item">
-                        <div class="data-value">1</div>
-                        <div class="data-label">版交付</div>
-                    </div>
-                </div>
+                <div class="featured-label">第 4 层 · 内容层</div>
+                <div class="featured-title">选题结构持续加宽</div>
+                <div class="featured-desc">前沿动态、开源、资本、研究、人物与现场并列推进，版面从一家公司的发布扩展到 238 个信源的视野，让每天的信息落在具体的人和具体的场景上。</div>
             </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">ccf2100</span>
-                    <span class="commit-date">2026-07-07</span>
-                </div>
-                <div class="commit-title">固定栏目规则 + 内容红线</div>
-                <div class="commit-desc">7 月最大的制度变化：固定栏目规则落地，头版/前线/声音/创造/信号/Be Curious 每天必须有，栏目不能随意增删；同时内容红线生效，政府宏观叙事、州级立法不进头版，让头版永远留给跟读者有关系的事。</div>
-                <div class="commit-files">+ 固定栏目规则 / + 内容红线</div>
+            <div class="featured-card">
+                <div class="featured-label">第 5 层 · 生产层</div>
+                <div class="featured-title">每天准时的那条流水线</div>
+                <div class="featured-desc">从采集、起草、排版到上架全部自动跑，一天一档；改动当天可见，次日继续在同一套版式上累积。</div>
             </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">2aa12fa</span>
-                    <span class="commit-date">2026-07-07</span>
-                </div>
-                <div class="commit-title">交付纪律：一版交付</div>
-                <div class="commit-desc">交付纪律确立：一次写完整版，不交付半成品；门禁通过后不再删栏目改结构；用户反馈只修 bug 不重构。从「反复修改」到「一版交付」，省下的不是时间，是每次返工带来的质量波动。</div>
-                <div class="commit-files">+ 交付纪律 / + 一版交付</div>
+            <div class="featured-card">
+                <div class="featured-label">第 6 层 · 入口层</div>
+                <div class="featured-title">中英双站与专题案卷</div>
+                <div class="featured-desc">12 份专题案卷与 36 页英文内容并行维护，首页按刊物封面与目录组织，老期次永久可查。</div>
             </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type fix">fix</span>
-                    <span class="commit-hash">4413a47</span>
-                    <span class="commit-date">2026-07-19 → 08-09</span>
-                </div>
-                <div class="commit-title">头版被意外清空 → 08-09 重建</div>
-                <div class="commit-desc">07-19 的头版 section 被意外清空，直到 08-09 才被发现并重建。这是「交付后不删栏目」纪律的由来：内容可能被意外破坏，必须有检查和回看机制兜底。</div>
-                <div class="commit-files">fix: rebuild 07-19 headline section (was accidentally emptied)</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type refactor">refactor</span>
-                    <span class="commit-hash">ec12f7a</span>
-                    <span class="commit-date">2026-07-30 → 08-07</span>
-                </div>
-                <div class="commit-title">07-30 ~ 08-03 日报重做</div>
-                <div class="commit-desc">07-30 到 08-03 的日报重做：去掉 logo 与新闻里的 NASA 天文图，扩充正文。为 8 月的「一手源替换」和「配图本地化」提前做铺垫，也是一次对早期产出的集中回炉。</div>
-                <div class="commit-files">content: publish reworked AI News 07-30 to 08-03</div>
             </div>
         </section>
-
-
-        <!-- Fail Log · 7月 -->
-        <section class="section">
-            <h2 class="section-title">Fail Log · 7月问题台账</h2>
-            
-            <div class="fail-log">
-                <div class="fail-log-title">7月问题台账 · 每一次都写进规则</div>
-                <div class="fail-log-item">2026-07-07: 栏目乱变、头版跑偏 → 固定栏目规则 + 内容红线</div>
-                <div class="fail-log-item">2026-07-19: 头版被意外清空 → 08-09 重建</div>
-            </div>
-        </section>
-
-        </div>
-
-        <div class="month-block">
-
-
-            <div class="month-block-title">2026-08 · 第三个30天 · 产品化与质量系统化</div>
-
-        <!-- Week 7 -->
         <section class="week-section">
-            <div class="week-title">Week 7 · 2026-08-01 ~ 08-11 · 产品化</div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">3f4d97d</span>
-                    <span class="commit-date">2026-08-07</span>
-                </div>
-                <div class="commit-title">日报按月归档：站点结构升级</div>
-                <div class="commit-desc">日报从根目录平铺改为 YYYY-MM 月份子目录（2026-08/2026-08-07.html），站点根目录不再堆文件。为后续 404 根治和路径统一打基础。</div>
-                <div class="commit-files">+ 2026-08/ / + 按月归档</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">6a39829</span>
-                    <span class="commit-date">2026-08-08</span>
-                </div>
-                <div class="commit-title">第一个专题页：AlphaFold 团队解散</div>
-                <div class="commit-desc">第一个 special 专题页上线：AlphaFold 团队解散。单主题深挖，把散落多天的报道收拢成一页完整叙事。专题页的雏形由此确立。</div>
-                <div class="commit-files">+ special/alphafold-breakup.html</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">64168e1</span>
-                    <span class="commit-date">2026-08-09</span>
-                </div>
-                <div class="commit-title">五大专题报告批量上线</div>
-                <div class="commit-desc">一天内上线 5 个专题报告：China models / Agent tooling / OpenAI journey / AI arms race / Anthropic rise，并为每个专题建立 index 条目。从单日日报走向长线主题沉淀。</div>
-                <div class="commit-files">+ special/ ×5 / + index 条目</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">f8ebab7</span>
-                    <span class="commit-date">2026-08-09</span>
-                </div>
-                <div class="commit-title">专题增至 10 个 + 白话指南 + 术语表</div>
-                <div class="commit-desc">专题扩充到 10 个：AI-and-people / enterprise AI / AI nations / AI workplace 等陆续补齐；同时为专题加白话指南和 glossary 术语表，让非技术读者也能读得进去。</div>
-                <div class="commit-files">+ special/ ×10 / + 白话指南 / + glossary</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type fix">fix</span>
-                    <span class="commit-hash">8af51dc</span>
-                    <span class="commit-date">2026-08-09</span>
-                </div>
-                <div class="commit-title">一手源替换：9 份 7 月日报</div>
-                <div class="commit-desc">把 07-18 到 07-30 共 9 份 7 月日报从聚合转载换成官方源（公司官网、量子位原创、GitHub），同时 rewrite 07-31 到 08-03 的日报。出处必须能点回一手内容，这是给读者的基本承诺。</div>
-                <div class="commit-files">fix: replace aggregator sources in 9 July dailies</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type fix">fix</span>
-                    <span class="commit-hash">051a34d</span>
-                    <span class="commit-date">2026-08-09</span>
-                </div>
-                <div class="commit-title">08-07 头条换血：减少重复</div>
-                <div class="commit-desc">08-07 头条从 Kimi K3 换成 OpenAI Astra，因为 Kimi K3 已在 08-01 深度报道过。同一热点不连续占用头版，这是「做过的不重复」在头条层面的执行。</div>
-                <div class="commit-files">fix: swap 08-07 headline from Kimi K3 to OpenAI Astra</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">2ff6851</span>
-                    <span class="commit-date">2026-08-10</span>
-                </div>
-                <div class="commit-title">专题持续增厚</div>
-                <div class="commit-desc">China models 专题补入 GLM-5.2（5 家公司 10 个节点）；AI nations 专题补入新加坡。专题不是一次性产物，而是随日报持续生长的活文档。</div>
-                <div class="commit-files">+ China models / + AI nations</div>
-            </div>
-
-            <div class="data-grid">
-                <div class="data-item">
-                    <div class="data-value">10</div>
-                    <div class="data-label">专题页</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">9</div>
-                    <div class="data-label">一手源替换</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">6</div>
-                    <div class="data-label">白话指南</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">1</div>
-                    <div class="data-label">术语表</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Week 8 -->
-        <section class="week-section">
-            <div class="week-title">Week 8 · 2026-08-12 ~ 08-15 · 质量系统化</div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type fix">fix</span>
-                    <span class="commit-hash">31dbfa7</span>
-                    <span class="commit-date">2026-08-12</span>
-                </div>
-                <div class="commit-title">导航路径修复：子目录 404 的起点</div>
-                <div class="commit-desc">日报进入月份子目录后，导航链接开始断：index.html 要改成 ../index.html，special/ 要改成 ../special/。这一天把所有日报的导航路径统一修了一遍，发现 404 只是冰山一角。</div>
-                <div class="commit-files">fix: correct nav paths on all daily pages (index.html → ../index.html)</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type style">style</span>
-                    <span class="commit-hash">5c5e316</span>
-                    <span class="commit-date">2026-08-12</span>
-                </div>
-                <div class="commit-title">栏目顺序标准化 + 红蓝平衡</div>
-                <div class="commit-desc">统一栏目顺序（headline > front > opensource > voices > create > visual > funding > takeaway > BC），合并 ENERGY 进 FUNDING、China AI 进开源前线；同时按 stable-quality 标准重调红蓝标记比例，恢复红主导（red accent+num ≥ blue hl+turn）。</div>
-                <div class="commit-files">layout: standardize section order / style: rebalance red/blue marks</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">45284e0</span>
-                    <span class="commit-date">2026-08-12</span>
-                </div>
-                <div class="commit-title">日报与词典联动</div>
-                <div class="commit-desc">日报里出现的新术语通过 news-to-dictionary pipeline 注入词典：ZCODE、ChatGPT Business 成为第一批由日报自动登记的词条。日报不只是当日新闻，还是术语资产的来源。</div>
-                <div class="commit-files">dict: inject new AI terms from Aug 11 daily</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">7fa2048</span>
-                    <span class="commit-date">2026-08-13</span>
-                </div>
-                <div class="commit-title">8 月日报配图本地化</div>
-                <div class="commit-desc">8 月日报配图改为本地下载引用：头版定为 Ilya 的 SSI TTT 模型报道，Be Curious 每天换全新地貌（不再重复）。图片从「外链赌运气」走向「本地可控」。</div>
-                <div class="commit-files">daily: Aug 13 headline = Ilya SSI TTT model + fresh Be Curious</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type breaking">breaking</span>
-                    <span class="commit-hash">660175e</span>
-                    <span class="commit-date">2026-08-14</span>
-                </div>
-                <div class="commit-title">404 根因根治：三层防御</div>
-                <div class="commit-desc">统一月度目录结构，导航 ../index.html、assets/glossary/special 全部 ../ 前缀，latest=8-14，同时移除放错位置的 6-30。根因不是单条链接，而是整个路径约定没有收敛。</div>
-                <div class="commit-files">fix: 404 root cause - unify monthly dir structure</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type refactor">refactor</span>
-                    <span class="commit-hash">a057bf7</span>
-                    <span class="commit-date">2026-08-14</span>
-                </div>
-                <div class="commit-title">图片迁移独立图床 + 本地瘦身 8.7MB</div>
-                <div class="commit-desc">所有图片从仓库迁到独立图床，本地瘦身 8.7MB；同时从 GitHub 移除仓库内图片，杜绝外链打不开、仓库被图片撑爆两个问题一起解决。</div>
-                <div class="commit-files">migrate: images to COS image bed / chore: remove GitHub-hosted images, free 8.7MB</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type fix">fix</span>
-                    <span class="commit-hash">b8d5f19</span>
-                    <span class="commit-date">2026-08-14</span>
-                </div>
-                <div class="commit-title">图片压缩：大图撑爆修复</div>
-                <div class="commit-desc">图片 max-width 统一 560px 居中，suno 的 5760px 原图压缩到 1600px。大图不再把版面撑爆，加载速度也快了一截。</div>
-                <div class="commit-files">fix: image max-width 560px centered / compress suno 5760px→1600px</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">7072f7d</span>
-                    <span class="commit-date">2026-08-14</span>
-                </div>
-                <div class="commit-title">humanize 去 AI 味流水线</div>
-                <div class="commit-desc">humanize.py 上线：用本地代理对文案做去 AI 味润色，配合 humanize-gate 自动检查破折号、英文标点、AI 腔词、英文直引号。机器写出来的东西，必须有机器味过滤这一关。</div>
-                <div class="commit-files">+ humanize.py / + humanize-gate.py</div>
-            </div>
-
-            <div class="code-block">
-<span class="code-keyword">def</span> <span class="code-string">humanize_gate</span>(file_path):
-    <span class="code-comment"># 去 AI 味四查 + 标题冒号</span>
-    checks = [
-        <span class="code-string">'破折号'</span>,        <span class="code-comment"># 中文行内出现即报</span>
-        <span class="code-string">'英文标点'</span>,      <span class="code-comment"># 中文后紧跟 ASCII 标点即报</span>
-        <span class="code-string">'AI腔词'</span>,         <span class="code-comment"># 命中黑名单即报</span>
-        <span class="code-string">'英文直引号'</span>,     <span class="code-comment"># 中文正文里出现即报</span>
-        <span class="code-string">'标题冒号'</span>,       <span class="code-comment"># 首页卡标题含冒号即报</span>
-    ]
-
-    passed = run_checks(checks, file_path)
-
-    <span class="code-keyword">if</span> passed == <span class="code-number">0</span>:
-        <span class="code-keyword">return</span> <span class="code-string">'exit 0'</span>  <span class="code-comment"># PASS</span>
-    <span class="code-keyword">else</span>:
-        <span class="code-keyword">return</span> <span class="code-string">'exit 1'</span>  <span class="code-comment"># FAIL - 阻断上线</span>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">e9f542c</span>
-                    <span class="commit-date">2026-08-14</span>
-                </div>
-                <div class="commit-title">push 三道门禁：0 FAIL 才允许上线</div>
-                <div class="commit-desc">发布前强制跑三道门禁：humanize-gate（去 AI 味）+ index-order-check（首页顺序）+ git 卫生检查（只提交自己的文件）。三道全过，0 FAIL，才允许 push 上线。</div>
-                <div class="commit-files">+ humanize-gate.py / + index-order-check.py / + git 卫生</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type refactor">refactor</span>
-                    <span class="commit-hash">11b2407</span>
-                    <span class="commit-date">2026-08-14</span>
-                </div>
-                <div class="commit-title">17 个首页卡片标题去 AI 味</div>
-                <div class="commit-desc">17 个首页卡片标题按去 AI 味标准重写：去掉冒号和破折号；同时把「标题含冒号」的检查加进门禁（data-zh 和显示文本都查），从源头堵住。</div>
-                <div class="commit-files">deai: rewrite 17 index card titles / + colon check to gate</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type fix">fix</span>
-                    <span class="commit-hash">e9f542c</span>
-                    <span class="commit-date">2026-08-14</span>
-                </div>
-                <div class="commit-title">首页按月分组修复</div>
-                <div class="commit-desc">首页卡片之前混在单一 6 月分组下，修复为按 8 月/7 月/6 月三组展示，每组内按日期倒序。60 张卡片各归其位。</div>
-                <div class="commit-files">fix: group index by month (8月/7月/6月 三组)</div>
-            </div>
-
-            <div class="commit-card">
-                <div class="commit-header">
-                    <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">df59839</span>
-                    <span class="commit-date">2026-08-15</span>
-                </div>
-                <div class="commit-title">画像安全规则：男人大头照禁令落地</div>
-                <div class="commit-desc">image-gate 与抓图脚本新增画像安全规则：单人男性头像/上半身照一律不放，改用抽象脑纹图、官方 logo 或干净的产品图。配图红线从「人工判断」变成「门禁检查」。</div>
-                <div class="commit-files">guard: add portrait/headshot safety rules to image-gate</div>
-            </div>
-
-            <div class="data-grid">
-                <div class="data-item">
-                    <div class="data-value">3</div>
-                    <div class="data-label">道门禁</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">8.7MB</div>
-                    <div class="data-label">本地瘦身</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">17</div>
-                    <div class="data-label">标题重写</div>
-                </div>
-                <div class="data-item">
-                    <div class="data-value">0</div>
-                    <div class="data-label">FAIL</div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Fail Log · 8月 -->
-        <section class="section">
-            <h2 class="section-title">Fail Log · 8月问题台账</h2>
-            
-            <div class="fail-log">
-                <div class="fail-log-title">8月问题台账 · 每一次都写进规则</div>
-                <div class="fail-log-item">2026-08-01: 素材源退化为聚合转载 → 一手源替换铁律</div>
-                <div class="fail-log-item">2026-08-07: 日报平铺根目录 → 按月归档</div>
-                <div class="fail-log-item">2026-08-12: 子目录导航 404 → ../ 前缀修复</div>
-                <div class="fail-log-item">2026-08-13: 外链图片打不开 → 本地下载 + 压缩</div>
-                <div class="fail-log-item">2026-08-14: 大图 5760px 撑爆 → 压缩至 1600px</div>
-                <div class="fail-log-item">2026-08-14: 首页月份混排 → 按月分组</div>
-                <div class="fail-log-item">2026-08-14: 标题带冒号 AI 腔 → 17 个重写</div>
-                <div class="fail-log-item pass">2026-08-15: 男人大头照 → 抽象图 + 画像安全门禁</div>
-            </div>
-        </section>
-
-
-        <!-- Stats Wall · 7、8月 -->
-                <!-- chapter-2026-08-16-via-build_story -->
-        <section class="week-section">
-            <h2 class="section-title">Week 34–39 · 8 月下旬到 9 月</h2>
-            <p class="section-desc">这一段是「天天在改」的部分：41 天里 122 次提交，
-            节奏是 第34周 45 次，第37周 4 次，第38周 64 次，第39周 9 次；提交类型 fix 45、feat 38、daily 14、style 9、polish 5。改动触及 241 个文件，
-            在册日报 113 期，门禁规则 65 条，回归用例 313 个。</p>
+            <h2 class="section-title">Timeline · 按月看这条曲线</h2>
             <div class="commits-grid">
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-feat">feat</span>
-                        <span class="commit-date">2026-09-25</span>
-                        <span class="commit-hash">site</span>
-                    </div>
-                    <div class="commit-title">新增「制作过程」入口并上架幕后迭代日志终版</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-fix">fix</span>
-                        <span class="commit-date">2026-09-22</span>
-                        <span class="commit-hash">reading</span>
-                    </div>
-                    <div class="commit-title">#37 全站正文断行收口——29 期 67 处 >150 字文字墙按句末拆段</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-fix">fix</span>
-                        <span class="commit-date">2026-09-21</span>
-                        <span class="commit-hash">images</span>
-                    </div>
-                    <div class="commit-title">#38 历史日报配图错配根治——67 期 103 处手术（WRONG/SUSPECT 摘块、DEAD 摘断图保文字、Be Cur</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-fix">fix</span>
-                        <span class="commit-date">2026-09-21</span>
-                        <span class="commit-hash">reading</span>
-                    </div>
-                    <div class="commit-title">#37 专题页断行——4 页 10 处 >150 字整块按语义层拆段</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-chore">chore</span>
-                        <span class="commit-date">2026-09-21</span>
-                        <span class="commit-hash">archive</span>
-                    </div>
-                    <div class="commit-title">删除 2026-02/ 下两份六月周报孤本（用户拍板）</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-fix">fix</span>
-                        <span class="commit-date">2026-09-21</span>
-                        <span class="commit-hash">sources</span>
-                    </div>
-                    <div class="commit-title">全站 867 处来源行摘「来源：」前缀，只留一个蓝色链接（§37）</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-fix">fix</span>
-                        <span class="commit-date">2026-09-21</span>
-                        <span class="commit-hash">voices+sources</span>
-                    </div>
-                    <div class="commit-title">六月声音栏收成一句话观点 + 来源行去废话（§36）</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-fix">fix</span>
-                        <span class="commit-date">2026-09-21</span>
-                        <span class="commit-hash">links+voices</span>
-                    </div>
-                    <div class="commit-title">全站死链/假深链清剿批 + 声音栏目归位（§34/§35）</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-chore">chore</span>
-                        <span class="commit-date">2026-09-21</span>
-                        <span class="commit-hash">site</span>
-                    </div>
-                    <div class="commit-title">ai-news-publish 2026-09-21 sha=8af1aa4da196</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-chore">chore</span>
-                        <span class="commit-date">2026-09-20</span>
-                        <span class="commit-hash">site</span>
-                    </div>
-                    <div class="commit-title">ai-news-publish 2026-09-20 sha=c365b7c94190</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-chore">chore</span>
-                        <span class="commit-date">2026-09-20</span>
-                        <span class="commit-hash">site</span>
-                    </div>
-                    <div class="commit-title">ai-news-publish 2026-09-20 sha=5ff3f54fe031</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-fix">fix</span>
-                        <span class="commit-date">2026-09-20</span>
-                        <span class="commit-hash">voices</span>
-                    </div>
-                    <div class="commit-title">声音栏目 4 条英文引语中文化（保留 accent 强调结构）</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-feat">feat</span>
-                        <span class="commit-date">2026-09-20</span>
-                        <span class="commit-hash">en</span>
-                    </div>
-                    <div class="commit-title">英文首页新增 SPECIAL ISSUES 横滑轨道，接入 11 个 en/special 专题页</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
-                <div class="commit-card">
-                    <div class="commit-header">
-                        <span class="commit-type commit-type-feat">feat</span>
-                        <span class="commit-date">2026-09-20</span>
-                        <span class="commit-hash">en</span>
-                    </div>
-                    <div class="commit-title">部署 11 个 en/special 英文专题页并将中文版 EN Site 链接回接到对应英文专题</div>
-                    <div class="commit-files">122 条提交里挑出来的主线之一</div>
-                </div>
+            <div class="month-block">
+                <div class="month-block-title">5 月 · 1 次迭代</div>
+                <div class="commit-desc">创刊与栏目骨架立起来</div>
+            </div>
+            <div class="month-block">
+                <div class="month-block-title">6 月 · 29 次迭代</div>
+                <div class="commit-desc">版式定型，刊物封面与目录感成形</div>
+            </div>
+            <div class="month-block">
+                <div class="month-block-title">7 月 · 31 次迭代</div>
+                <div class="commit-desc">栏目扩到九栏，声音与视觉两条线补齐</div>
+            </div>
+            <div class="month-block">
+                <div class="month-block-title">8 月 · 136 次迭代</div>
+                <div class="commit-desc">自动化生产接管日常，专题案卷累积</div>
+            </div>
+            <div class="month-block">
+                <div class="month-block-title">9 月 · 89 次迭代</div>
+                <div class="commit-desc">全站内容与入口统一收口，中英双站并跑</div>
+            </div>
             </div>
         </section>
-
         <section class="section">
-            <h2 class="section-title">Fail Log · 这 40 天里自己踩的坑</h2>
-            <div class="fail-log">
-                <div class="fail-log-item"><span class="fail-log-date">09-18</span> 首发那天的「已验证上线」是假的：
-                线上核验用了「日期出现在正文里」这种空断言，等于没验。改成逐字节 sha256 比对，状态如实退回重验。</div>
-                <div class="fail-log-item"><span class="fail-log-date">09-21</span> 三条候选同一输入同一缺陷，
-                五轮修复原地打转。根因是升级候选时只归档不删稿，坏稿被"复用"回来。改成删稿加重起草。</div>
-                <div class="fail-log-item"><span class="fail-log-date">09-24</span> 新加的门禁规则自己先报了假通过：
-                它在版式归一化后的文本上数条目，把 class="item" 数成了零。留原文再数，并用回归测试锁死。</div>
-                <div class="fail-log-item"><span class="fail-log-date">09-24</span> 搭修前基线时用软链接加 cp，
-                符号链接被跟随，49 个真实页面被写回成修前内容。零数据丢失（逐字节比对备份证实），
-                但这条雷记进了规范：镜像基线不放软链接。</div>
-                <div class="fail-log-item"><span class="fail-log-date">09-24</span> 给降级器写了硬导入，
-                断掉它「单文件可复制进隔离环境」的契约，子进程起不来，降级整链直接失败。改成可选依赖。</div>
-                <div class="fail-log-item"><span class="fail-log-date">09-24</span> 最重的一次：把外交场合的时政新闻和现场人物配图送上了头版。当天定为最高优先级铁律 R-0，全站 7 期历史内容当场清理并推送，
-                门禁补 F19 与 F20 两条 FAIL 级检测。</div>
-            </div>
-        </section>
-
-<section class="section">
-            <h2 class="section-title">Stats · 全局收尾</h2>
-            
-<div class="stats-wall">
-                <div class="stats-wall-title">117 天持续迭代 · 6 月到 9 月</div>
+            <h2 class="section-title">Now · 现在这本站的样子</h2>
+            <div class="stats-wall">
+                <div class="stats-wall-title">截至 2026 年 09 月 25 日</div>
                 <div class="stats-wall-grid">
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">117</div>
-                        <div class="stats-wall-label">持续天数</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">274</div>
-                        <div class="stats-wall-label">总提交</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">10</div>
-                        <div class="stats-wall-label">专题页</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">3</div>
-                        <div class="stats-wall-label">发布门禁</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">9</div>
-                        <div class="stats-wall-label">日报换一手源</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">17</div>
-                        <div class="stats-wall-label">标题重写</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">8.7MB</div>
-                        <div class="stats-wall-label">本地瘦身</div>
-                    </div>
-                    <div class="stats-wall-item">
-                        <div class="stats-wall-value">40+</div>
-                        <div class="stats-wall-label">AINEWS 条目融合</div>
-                    </div>
+                    <div class="stats-wall-item"><div class="stats-wall-value">113</div><div class="stats-wall-label">已出期数</div></div>
+                    <div class="stats-wall-item"><div class="stats-wall-value">827</div><div class="stats-wall-label">收录条目</div></div>
+                    <div class="stats-wall-item"><div class="stats-wall-value">238</div><div class="stats-wall-label">信源域名</div></div>
+                    <div class="stats-wall-item"><div class="stats-wall-value">244</div><div class="stats-wall-label">真人原话</div></div>
+                    <div class="stats-wall-item"><div class="stats-wall-value">455</div><div class="stats-wall-label">已核配图</div></div>
+                    <div class="stats-wall-item"><div class="stats-wall-value">12</div><div class="stats-wall-label">专题案卷</div></div>
                 </div>
             </div>
-        
+            <p class="section-desc">每天早上一期，改动次日可见。往前的每一期都留在那里，可以一直翻回创刊那天。</p>
         </section>
-
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            AI News · 前沿信号流 · 2026-08
-        </div>
+        <div class="footer">AI News · 悦读工作室出品 · 每日更新</div>
     </div>
 </body>
 </html>
