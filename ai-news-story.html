@@ -6,425 +6,210 @@
     <title>AI News · 制作过程 · 迭代日志</title>
     <meta name="description" content="AI News 是怎么做出来的：从零构建一个 AI 情报日报的完整技术演进、失败台账与迭代统计。">
     <meta name="keywords" content="AI News, 制作过程, 幕后, 迭代日志, AI 情报日报">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #0d1117;
-            color: #c9d1d9;
-            font-family: 'Noto Serif SC', serif;
-            line-height: 1.6;
-            padding: 40px 20px;
+            background: #FAFAF8;
+            color: #111827;
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            line-height: 1.78;
+            -webkit-font-smoothing: antialiased;
+            padding: 0 20px 40px;
         }
-        .container { max-width: 920px; margin: 0 auto; }
+        .container { max-width: 820px; margin: 0 auto; }
+        a { color: var(--klein, #002FA7); }
 
-        /* Terminal Header */
-        .terminal-header {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px 8px 0 0;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        /* 主站同款页眉 */
+        .site-nav {
+            border-bottom: 1px solid #E8E6E1;
+            position: sticky; top: 0;
+            background: rgba(250,250,248,0.95);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+            margin: 0 -20px;
+            padding: 0 20px;
         }
-        .terminal-dot {
-            width: 12px; height: 12px;
-            border-radius: 50%;
+        .site-nav-inner {
+            max-width: 820px; margin: 0 auto;
+            padding: 14px 4px;
+            display: flex; align-items: center; justify-content: space-between;
         }
-        .terminal-dot.red { background: #f85149; }
-        .terminal-dot.yellow { background: #f0883e; }
-        .terminal-dot.green { background: #3fb950; }
-        .terminal-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #8b949e;
-            margin-left: 8px;
-        }
+        .site-nav-brand { font-size: 18px; font-weight: 700; text-decoration: none; color: #111827; }
+        .site-nav-brand span { color: #002FA7; }
+        .site-nav-links { list-style: none; display: flex; gap: 18px; }
+        .site-nav-links a { font-size: 13px; color: #6B7280; text-decoration: none; }
+        .site-nav-links a:hover { color: #002FA7; }
 
-        /* Hero */
+        /* Hero：日报同款蓝边导语卡 */
         .hero {
-            background: linear-gradient(135deg, #161b22 0%, #1f2937 100%);
-            border: 1px solid #30363d;
-            border-top: none;
-            border-radius: 0 0 8px 8px;
-            padding: 60px 40px;
+            background: #FFFFFF;
+            border: 1px solid #E8E6E1;
+            border-radius: 10px;
+            padding: 52px 36px;
             text-align: center;
-            margin-bottom: 40px;
+            margin: 40px 0 32px;
         }
         .hero h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: linear-gradient(90deg, #58a6ff, #3fb950);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 30px; font-weight: 900; letter-spacing: -0.5px;
+            margin-bottom: 10px; color: #111827;
         }
-        .hero-subtitle {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            color: #8b949e;
-            margin-bottom: 32px;
-        }
+        .hero h1 em { font-style: normal; color: #002FA7; }
+        .hero-subtitle { font-size: 14px; color: #6B7280; margin-bottom: 0; }
 
-        /* Stats Grid - Hero */
-        .stats-hero {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            margin-bottom: 40px;
-        }
+        .stats-hero { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 40px; }
         .stat-hero {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px 16px;
-            text-align: center;
+            background: #FFFFFF; border: 1px solid #E8E6E1;
+            border-radius: 8px; padding: 18px 10px; text-align: center;
         }
-        .stat-hero-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 32px;
-            font-weight: 700;
-            color: #58a6ff;
-            margin-bottom: 4px;
-        }
-        .stat-hero-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: #8b949e;
-            text-transform: uppercase;
-        }
+        .stat-hero-number { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: #002FA7; margin-bottom: 2px; }
+        .stat-hero-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* Section */
         .section { margin-bottom: 40px; }
         .section-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 16px;
-            font-weight: 600;
-            color: #58a6ff;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #30363d;
+            font-size: 18px; font-weight: 700; color: #002FA7;
+            margin-bottom: 16px; padding-bottom: 8px;
+            border-bottom: 1px solid #E8E6E1;
         }
+        .section-title::before { content: '▮ '; font-size: 15px; }
 
-        /* Architecture Block */
         .arch-block {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 24px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            line-height: 1.8;
+            background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px;
+            padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.9;
         }
-        .arch-layer {
-            margin-bottom: 12px;
-        }
-        .arch-layer-name {
-            color: #3fb950;
-            font-weight: 600;
-        }
-        .arch-file {
-            color: #c9d1d9;
-            padding-left: 20px;
-        }
-        .arch-comment {
-            color: #8b949e;
-            font-size: 12px;
-        }
+        .arch-layer { margin-bottom: 12px; }
+        .arch-layer-name { color: #047857; font-weight: 600; }
+        .arch-file { color: #374151; padding-left: 20px; }
+        .arch-comment { color: #9CA3AF; font-size: 12px; }
 
-        /* Commit Card */
+        /* 提交卡：白底细边，hover 泛克莱因蓝 */
         .commit-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin-bottom: 12px;
-            transition: all 0.2s;
+            background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px;
+            padding: 16px 20px; margin-bottom: 12px; transition: border-color .15s;
         }
-        .commit-card:hover {
-            border-color: #58a6ff;
-            transform: translateX(4px);
-        }
-        .commit-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-        .commit-type {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 4px;
-        }
-        .commit-type.feat { background: #238636; color: #fff; }
-        .commit-type.fix { background: #da3633; color: #fff; }
-        .commit-type.breaking { background: #f85149; color: #fff; }
-        .commit-type.refactor { background: #8957e5; color: #fff; }
-        .commit-type.remove { background: #6e7681; color: #fff; }
-        .commit-type.polish { background: #1f6feb; color: #fff; }
-        .commit-type.style { background: #0d7d8c; color: #fff; }
-        .commit-type.content { background: #9e6a03; color: #fff; }
-        .commit-hash {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #8b949e;
-        }
-        .commit-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #6e7681;
-            margin-left: auto;
-        }
-        .commit-title {
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #c9d1d9;
-        }
-        .commit-desc {
-            font-size: 14px;
-            color: #8b949e;
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        .commit-files {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #58a6ff;
-        }
+        .commit-card:hover { border-color: #93C5FD; }
+        .commit-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .commit-type { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; }
+        .commit-type.feat { background: #047857; color: #fff; }
+        .commit-type.fix { background: #C41E3A; color: #fff; }
+        .commit-type.breaking { background: #B91C1C; color: #fff; }
+        .commit-type.refactor { background: #6D28D9; color: #fff; }
+        .commit-type.remove { background: #6B7280; color: #fff; }
+        .commit-type.polish { background: #1D4ED8; color: #fff; }
+        .commit-type.style { background: #0E7490; color: #fff; }
+        .commit-type.content { background: #9E6A03; color: #fff; }
+        .commit-type.enrich { background: #047857; color: #fff; }
+        .commit-type.guard { background: #6D28D9; color: #fff; }
+        .commit-type.deai { background: #1D4ED8; color: #fff; }
+        .commit-type.daily { background: #002FA7; color: #fff; }
+        .commit-type.wire { background: #6B7280; color: #fff; }
+        .commit-type.merge { background: #6B7280; color: #fff; }
+        .commit-type.chore { background: #6B7280; color: #fff; }
+        .commit-type.rewrite { background: #C41E3A; color: #fff; }
+        .commit-type.layout { background: #6D28D9; color: #fff; }
+        .commit-type.dict { background: #047857; color: #fff; }
+        .commit-type.migrate { background: #1D4ED8; color: #fff; }
+        .commit-type.update { background: #6B7280; color: #fff; }
+        .commit-type.relearn { background: #0E7490; color: #fff; }
+        .commit-type.newera { background: #002FA7; color: #fff; }
+        .commit-type.guardrail { background: #9E6A03; color: #fff; }
+        .commit-type.safety { background: #C41E3A; color: #fff; }
+        .commit-hash { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; }
+        .commit-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; margin-left: auto; }
+        .commit-title { font-weight: 700; margin-bottom: 6px; color: #111827; }
+        .commit-desc { font-size: 14px; color: #374151; margin-bottom: 8px; line-height: 1.8; }
+        .commit-desc strong { color: #002FA7; }
+        .commit-files { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #002FA7; }
 
-        /* Code Block */
         .code-block {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            line-height: 1.6;
-            overflow-x: auto;
-            margin: 16px 0;
+            background: #F8FAFF; border: 1px solid #D8E4FF; border-radius: 8px;
+            padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6;
+            overflow-x: auto; margin: 16px 0;
         }
-        .code-keyword { color: #ff7b72; }
-        .code-string { color: #a5d6ff; }
-        .code-number { color: #79c0ff; }
-        .code-comment { color: #8b949e; }
+        .code-keyword { color: #B91C1C; }
+        .code-string { color: #1D4ED8; }
+        .code-number { color: #047857; }
+        .code-comment { color: #9CA3AF; }
 
-        /* Featured Card */
+        /* 峰值卡：浅克莱因底 */
         .featured-card {
-            background: linear-gradient(135deg, #161b22 0%, #1f2937 100%);
-            border-left: 4px solid #3fb950;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 16px;
+            background: #F0F4FF; border: 1px solid #D8E4FF;
+            border-left: 4px solid #002FA7; border-radius: 10px;
+            padding: 24px; margin-bottom: 16px;
         }
-        .featured-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: #3fb950;
-            margin-bottom: 12px;
-        }
-        .featured-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #c9d1d9;
-        }
-        .featured-desc {
-            font-size: 14px;
-            color: #8b949e;
-            line-height: 1.6;
-        }
+        .featured-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #002FA7; margin-bottom: 12px; letter-spacing: 1px; }
+        .featured-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #111827; }
+        .featured-desc { font-size: 14px; color: #374151; line-height: 1.8; }
+        .featured-desc strong { color: #002FA7; }
 
-        /* Quote Block */
         .quote-block {
-            background: #161b22;
-            border-left: 4px solid #58a6ff;
-            border-radius: 8px;
-            padding: 24px;
-            margin: 20px 0;
-            font-style: italic;
-            color: #c9d1d9;
-            line-height: 1.8;
+            background: #FFFFFF; border: 1px solid #E8E6E1; border-left: 4px solid #002FA7;
+            border-radius: 10px; padding: 24px; margin: 20px 0;
+            color: #111827; font-size: 15px; line-height: 1.9;
         }
-        .quote-author {
-            font-style: normal;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #8b949e;
-            margin-top: 12px;
-        }
+        .quote-author { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; margin-top: 12px; }
 
-        /* Week Section */
-        .week-section {
-            margin-bottom: 40px;
-        }
+        .week-section { margin-bottom: 40px; }
         .week-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            color: #f0883e;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600;
+            color: #9E6A03; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
         }
-        .week-title::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #f0883e;
-            border-radius: 50%;
-        }
+        .week-title::before { content: ''; display: inline-block; width: 8px; height: 8px; background: #9E6A03; border-radius: 50%; }
 
-        /* Month Block - 月份轴 */
-        .month-block {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 24px;
-            margin: 32px 0;
-        }
+        .month-block { background: transparent; border: none; border-radius: 0; padding: 0; margin: 48px 0; }
         .month-block-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 15px;
-            font-weight: 600;
-            color: #f0883e;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #f0883e;
+            font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700;
+            color: #002FA7; margin-bottom: 20px; padding-bottom: 12px;
+            border-bottom: 2px solid #002FA7;
         }
 
-        /* Data Grid */
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 16px 0;
-        }
-        .data-item {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 12px;
-            text-align: center;
-        }
-        .data-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 20px;
-            font-weight: 600;
-            color: #58a6ff;
-        }
-        .data-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: #8b949e;
-            margin-top: 4px;
-        }
+        .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+        .data-item { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 8px; padding: 12px; text-align: center; }
+        .data-value { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #002FA7; }
+        .data-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6B7280; margin-top: 4px; }
 
-        /* Stats Wall - 铺天盖地 */
-        .stats-wall {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 32px;
-            margin: 24px 0;
-        }
-        .stats-wall-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            color: #f0883e;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .stats-wall-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-        }
-        .stats-wall-item {
-            text-align: center;
-            padding: 16px 8px;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-        }
-        .stats-wall-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 28px;
-            font-weight: 700;
-            color: #58a6ff;
-            margin-bottom: 4px;
-        }
-        .stats-wall-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
-            color: #8b949e;
-            text-transform: uppercase;
-            line-height: 1.3;
-        }
+        .stats-wall { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 32px; margin: 24px 0; }
+        .stats-wall-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #002FA7; margin-bottom: 20px; text-align: center; }
+        .stats-wall-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        .stats-wall-item { text-align: center; padding: 16px 8px; background: #F8FAFF; border: 1px solid #D8E4FF; border-radius: 8px; }
+        .stats-wall-value { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700; color: #002FA7; margin-bottom: 4px; }
+        .stats-wall-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6B7280; line-height: 1.3; }
 
-        /* Fail Log */
-        .fail-log {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 24px;
-            margin: 20px 0;
-        }
-        .fail-log-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            color: #f85149;
-            margin-bottom: 16px;
-        }
-        .fail-log-item {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #8b949e;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .fail-log-item::before {
-            content: '✗';
-            position: absolute;
-            left: 0;
-            color: #f85149;
-        }
-        .fail-log-item.pass::before {
-            content: '✓';
-            color: #3fb950;
-        }
+        /* 台账：白底，红叉绿勾保留但压深适配浅底 */
+        .fail-log { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 24px; margin: 20px 0; }
+        .fail-log-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #B91C1C; margin-bottom: 16px; }
+        .fail-log-item { font-size: 13px; color: #374151; margin-bottom: 8px; padding-left: 20px; position: relative; line-height: 1.7; }
+        .fail-log-item::before { content: '✗'; position: absolute; left: 0; color: #C41E3A; }
+        .fail-log-item.pass::before { content: '✓'; color: #047857; }
 
-        /* Footer */
         .footer {
-            text-align: center;
-            padding: 40px 0;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: #6e7681;
-            border-top: 1px solid #30363d;
-            margin-top: 40px;
+            margin-top: 56px; padding-top: 20px;
+            border-top: 3px solid #002FA7;
+            font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; text-align: center;
         }
-    </style>
+        @media (max-width: 640px) {
+            .stats-hero { grid-template-columns: repeat(2, 1fr); }
+            .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-wall-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { padding: 36px 20px; }
+        }
+</style>
 </head>
 <body>
     <div class="container">
-        <!-- Terminal Header -->
-        <div class="terminal-header">
-            <div class="terminal-dot red"></div>
-            <div class="terminal-dot yellow"></div>
-            <div class="terminal-dot green"></div>
-            <div class="terminal-title">git log --oneline --graph --all -30</div>
-        </div>
+        <nav class="site-nav">
+            <div class="site-nav-inner">
+                <a class="site-nav-brand" href="index.html">AI<span>News</span></a>
+                <ul class="site-nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="en/index.html">EN</a></li>
+                </ul>
+            </div>
+        </nav>
 
-        <!-- Hero -->
+<!-- Hero -->
         <section class="hero">
-            <h1>AI News · 118天迭代日志</h1>
+            <h1>AI<em>News</em> · 118 天迭代日志</h1>
             <p class="hero-subtitle">从零开始构建一个AI情报日报的技术演进</p>
         </section>
 
@@ -1743,7 +1528,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            AI News · 前沿信号流 · 2026-06 ~ 2026-09 · 每天早上一期
+            AI News · 前沿信号流 · 每天早上一期 · <a href="index.html" style="text-decoration:none;">← 回到日报首页</a>
         </div>
     </div>
 </body>
