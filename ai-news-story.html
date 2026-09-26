@@ -248,29 +248,95 @@
   <style>
     .pulse-section { margin-bottom: 48px; }
     .pulse-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; letter-spacing: 1px; margin: -8px 0 18px; }
-    .pulse-wrap { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 22px 20px 16px; }
-    .pulse-grid { display: grid; grid-template-columns: repeat(auto-fill, 13px); grid-auto-rows: 13px; gap: 3px; }
-    .pulse-grid i { border-radius: 2px; display: block; }
-    .pulse-grid i.lv0 { background: #EFEDE8; }
-    .pulse-grid i.lv1 { background: #ACEEBB; }
-    .pulse-grid i.lv2 { background: #3CB95C; }
-    .pulse-grid i.lv3 { background: #179640; }
-    .pulse-grid i.lv4 { background: #0A6B2C; }
-    .pulse-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    .pulse-range { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; margin-bottom: 10px; }
-    .pulse-legend { display: flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; }
-    .pulse-legend i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
-    .pulse-stats { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; }
-    .pulse-stats b { color: #002FA7; font-weight: 700; }
+    .pulse-wrap { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 22px 24px 20px; }
+    
+    .pulse-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+    .pulse-title-group { display: flex; flex-direction: column; gap: 4px; }
+    .pulse-badge-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #002FA7; letter-spacing: 0.5px; }
+    .pulse-desc-text { font-size: 13px; color: #4B5563; }
+    .pulse-counter { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #111827; background: #F3F4F6; padding: 5px 12px; border-radius: 6px; border: 1px solid #E5E7EB; }
+    .pulse-counter b { color: #002FA7; font-size: 16px; font-weight: 700; }
+    
+    /* 单行横排活跃度条：119 天横向自适应充满整行，杜绝断行与空白 */
+    .pulse-bar-track { display: flex; gap: 2.5px; width: 100%; padding: 4px 0; align-items: center; box-sizing: border-box; }
+    .pulse-day-cell { flex: 1; height: 26px; min-width: 2px; border-radius: 2px; transition: transform 0.15s ease, opacity 0.15s ease; cursor: pointer; }
+    .pulse-day-cell:hover { transform: scaleY(1.2); z-index: 10; opacity: 0.85; }
+    .pulse-day-cell.active { background: #002FA7; }
+    .pulse-day-cell.rest { background: #E5E7EB; }
+    
+    .pulse-timeline-labels { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; margin-top: 8px; }
+    
+    /* 月度活跃天数横排卡片 */
+    .pulse-month-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid #F3F4F6; }
+    .pulse-month-card { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 6px; padding: 8px 10px; text-align: center; }
+    .pm-name { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; font-weight: 600; margin-bottom: 2px; }
+    .pm-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #111827; }
+    .pm-val b { color: #002FA7; }
+    
+    .pulse-foot-note { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; flex-wrap: wrap; gap: 8px; }
+    .pulse-legend-simple { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #6B7280; }
+    .pulse-legend-simple i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+    
+    @media (max-width: 640px) {
+      .pulse-month-strip { grid-template-columns: repeat(3, 1fr); }
+    }
   </style>
-  <h2 class="section-title">Engineering Pulse · 工程构建活跃度</h2>
-  <p class="pulse-sub">连续周期高频提交图谱 · 零虚构全量版本留痕</p>
+  <h2 class="section-title">Engineering Pulse · 工作活跃天数记录</h2>
+  <p class="pulse-sub">全周期连续开发留痕 · 零虚构真实记录</p>
   <div class="pulse-wrap">
-    <div class="pulse-range">2026-05-31 → 2026-09-26 · 一格一天，深浅=当天提交与出刊活动</div>
-    <div class="pulse-grid"><i class="lv1" title="2026-05-31 · 1 次提交"></i><i class="lv2" title="2026-06-01 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-02 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-03 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-04 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-05 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-06 · 1 次提交 + 日报出刊"></i><i class="lv1" title="2026-06-07 · 1 次提交"></i><i class="lv2" title="2026-06-08 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-09 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-10 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-11 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-12 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-13 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-14 · 1 次提交 + 日报出刊"></i><i class="lv0" title="2026-06-15 · 休整"></i><i class="lv2" title="2026-06-16 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-17 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-18 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-19 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-20 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-21 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-22 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-23 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-24 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-25 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-26 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-27 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-28 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-29 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-30 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-01 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-02 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-03 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-04 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-05 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-06 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-07 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-08 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-09 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-10 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-11 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-12 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-13 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-14 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-15 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-16 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-17 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-18 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-19 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-20 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-21 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-22 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-23 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-24 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-25 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-26 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-27 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-28 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-29 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-30 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-31 · 1 次提交 + 日报出刊"></i><i class="lv1" title="2026-08-01 · 日报出刊"></i><i class="lv1" title="2026-08-02 · 日报出刊"></i><i class="lv1" title="2026-08-03 · 日报出刊"></i><i class="lv1" title="2026-08-04 · 日报出刊"></i><i class="lv1" title="2026-08-05 · 日报出刊"></i><i class="lv1" title="2026-08-06 · 日报出刊"></i><i class="lv2" title="2026-08-07 · 2 次提交 + 日报出刊"></i><i class="lv2" title="2026-08-08 · 4 次提交 + 日报出刊"></i><i class="lv4" title="2026-08-09 · 24 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-10 · 11 次提交 + 日报出刊"></i><i class="lv2" title="2026-08-11 · 1 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-12 · 12 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-13 · 5 次提交 + 日报出刊"></i><i class="lv4" title="2026-08-14 · 23 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-15 · 9 次提交 + 日报出刊"></i><i class="lv1" title="2026-08-16 · 日报出刊"></i><i class="lv2" title="2026-08-17 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-08-18 · 1 次提交 + 日报出刊"></i><i class="lv1" title="2026-08-19 · 日报出刊"></i><i class="lv2" title="2026-08-20 · 4 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-21 · 7 次提交 + 日报出刊"></i><i class="lv4" title="2026-08-22 · 26 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-23 · 6 次提交 + 日报出刊"></i><i class="lv1" title="2026-08-24 · 日报出刊"></i><i class="lv1" title="2026-08-25 · 日报出刊"></i><i class="lv1" title="2026-08-26 · 日报出刊"></i><i class="lv1" title="2026-08-27 · 日报出刊"></i><i class="lv1" title="2026-08-28 · 日报出刊"></i><i class="lv1" title="2026-08-29 · 日报出刊"></i><i class="lv1" title="2026-08-30 · 日报出刊"></i><i class="lv1" title="2026-08-31 · 日报出刊"></i><i class="lv1" title="2026-09-01 · 日报出刊"></i><i class="lv1" title="2026-09-02 · 日报出刊"></i><i class="lv1" title="2026-09-03 · 日报出刊"></i><i class="lv1" title="2026-09-04 · 日报出刊"></i><i class="lv1" title="2026-09-05 · 日报出刊"></i><i class="lv1" title="2026-09-06 · 日报出刊"></i><i class="lv1" title="2026-09-07 · 日报出刊"></i><i class="lv1" title="2026-09-08 · 日报出刊"></i><i class="lv1" title="2026-09-09 · 日报出刊"></i><i class="lv1" title="2026-09-10 · 日报出刊"></i><i class="lv1" title="2026-09-11 · 日报出刊"></i><i class="lv1" title="2026-09-12 · 2 次提交"></i><i class="lv2" title="2026-09-13 · 2 次提交 + 日报出刊"></i><i class="lv2" title="2026-09-14 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-09-15 · 2 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-16 · 12 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-17 · 9 次提交 + 日报出刊"></i><i class="lv4" title="2026-09-18 · 18 次提交 + 日报出刊"></i><i class="lv4" title="2026-09-19 · 13 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-20 · 9 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-21 · 7 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-22 · 6 次提交 + 日报出刊"></i><i class="lv1" title="2026-09-23 · 日报出刊"></i><i class="lv2" title="2026-09-24 · 4 次提交 + 日报出刊"></i><i class="lv2" title="2026-09-25 · 6 次提交"></i><i class="lv3" title="2026-09-26 · 11 次提交"></i></div>
-    <div class="pulse-foot">
-      <div class="pulse-stats"><b>119</b> 天里 <b>118</b> 天有活动 / 峰值 <b>08-22</b> 强度 <b>28</b></div>
-      <div class="pulse-legend">少 <i style="background:#EFEDE8"></i><i style="background:#ACEEBB"></i><i style="background:#3CB95C"></i><i style="background:#179640"></i><i style="background:#0A6B2C"></i> 多</div>
+    <div class="pulse-head">
+      <div class="pulse-title-group">
+        <span class="pulse-badge-label">DAILY ACTIVE STREAK // 持续活跃天数记录</span>
+        <span class="pulse-desc-text">自 2026-05-31 正式立项以来，每日高频提交与出刊留痕</span>
+      </div>
+      <div class="pulse-counter">
+        活跃天数 <b>118</b> / 119 天 <span style="color:#059669; font-weight:600; margin-left:4px;">(99.2%)</span>
+      </div>
+    </div>
+    
+    <!-- 单行横向连续条：119 天横向自适应铺满整行 -->
+    <div class="pulse-bar-track">
+      <div class="pulse-day-cell active" title="2026-05-31 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-01 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-02 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-03 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-04 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-05 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-06 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-07 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-08 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-09 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-10 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-11 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-12 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-13 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-14 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell rest" title="2026-06-15 · 休整"></div><div class="pulse-day-cell active" title="2026-06-16 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-17 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-18 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-19 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-20 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-21 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-22 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-23 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-24 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-25 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-26 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-27 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-28 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-29 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-30 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-01 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-02 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-03 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-04 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-05 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-06 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-07 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-08 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-09 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-10 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-11 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-12 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-13 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-14 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-15 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-16 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-17 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-18 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-19 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-20 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-21 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-22 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-23 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-24 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-25 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-26 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-27 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-28 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-29 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-30 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-31 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-01 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-02 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-03 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-04 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-05 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-06 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-07 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-08 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-09 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-10 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-11 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-12 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-13 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-14 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-15 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-16 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-17 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-18 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-19 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-20 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-21 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-22 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-23 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-24 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-25 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-26 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-27 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-28 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-29 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-30 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-31 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-01 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-02 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-03 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-04 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-05 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-06 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-07 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-08 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-09 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-10 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-11 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-12 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-13 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-14 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-15 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-16 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-17 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-18 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-19 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-20 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-21 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-22 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-23 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-24 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-25 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-26 · 活跃 (提交与出刊)"></div>
+    </div>
+    
+    <div class="pulse-timeline-labels">
+      <span>2026-05-31 (立项起跑)</span>
+      <span>06-15 (调休)</span>
+      <span>2026-07 (深度迭代)</span>
+      <span>2026-08 (多智能体协同)</span>
+      <span>2026-09-26 (今日持续)</span>
+    </div>
+
+    <!-- 月度活跃天数横排 -->
+    <div class="pulse-month-strip">
+      <div class="pulse-month-card">
+        <div class="pm-name">2026-05</div>
+        <div class="pm-val"><b>1</b> / 1 天</div>
+      </div>
+      <div class="pulse-month-card">
+        <div class="pm-name">2026-06</div>
+        <div class="pm-val"><b>29</b> / 30 天</div>
+      </div>
+      <div class="pulse-month-card">
+        <div class="pm-name">2026-07</div>
+        <div class="pm-val"><b>31</b> / 31 天</div>
+      </div>
+      <div class="pulse-month-card">
+        <div class="pm-name">2026-08</div>
+        <div class="pm-val"><b>31</b> / 31 天</div>
+      </div>
+      <div class="pulse-month-card">
+        <div class="pm-name">2026-09</div>
+        <div class="pm-val"><b>26</b> / 26 天</div>
+      </div>
+    </div>
+    
+    <div class="pulse-foot-note">
+      <span>✦ 真实留痕：横向单行饱满排列，每个单元格对应真实生产记录</span>
+      <div class="pulse-legend-simple">
+        <i style="background:#002FA7;"></i><span>活跃 (118 天)</span>
+        <i style="background:#E5E7EB; margin-left:8px;"></i><span>休整 (1 天)</span>
+      </div>
     </div>
   </div>
 </section>
@@ -283,23 +349,23 @@
             <div class="arch-block">
                 <div class="arch-layer">
                     <div class="arch-layer-name">数据层 Data Layer</div>
-                    <div class="arch-file">daily-schema-v1.json <span class="arch-comment">// 单一真相源</span></div>
-                    <div class="arch-file">quality-contract-v1.json <span class="arch-comment">// 规则合约</span></div>
+                    <div class="arch-file">Content Schema <span class="arch-comment">// 单一真相源</span></div>
+                    <div class="arch-file">Quality Contract <span class="arch-comment">// 交付契约</span></div>
                 </div>
                 <div class="arch-layer">
                     <div class="arch-layer-name">质量层 Quality Layer</div>
-                    <div class="arch-file">quality_gate.py <span class="arch-comment">// 37项自动检查</span></div>
-                    <div class="arch-file">FB1/FB2/FB3 <span class="arch-comment">// 三个阻断层</span></div>
+                    <div class="arch-file">Editorial Gate <span class="arch-comment">// 37 项全量校验</span></div>
+                    <div class="arch-file">三道阻断 <span class="arch-comment">// 候选 · 成稿 · 终审</span></div>
                 </div>
                 <div class="arch-layer">
                     <div class="arch-layer-name">规则层 Rules Layer</div>
-                    <div class="arch-file">大脑核心标准/ <span class="arch-comment">// 5个核心文件</span></div>
-                    <div class="arch-file">入口规则与通知/ <span class="arch-comment">// 完整版规则</span></div>
+                    <div class="arch-file">Core Standards Engine <span class="arch-comment">// 编辑规范引擎</span></div>
+                    <div class="arch-file">Editorial Playbook <span class="arch-comment">// 完整版规则库</span></div>
                 </div>
                 <div class="arch-layer">
                     <div class="arch-layer-name">生成层 Generation Layer</div>
-                    <div class="arch-file">日报制作-完整执行指令.md <span class="arch-comment">// 执行流程</span></div>
-                    <div class="arch-file">素材转换指令.md</div>
+                    <div class="arch-file">Pipeline Orchestrator <span class="arch-comment">// 采集到成稿的编排</span></div>
+                    <div class="arch-file">Source Protocol <span class="arch-comment">// 素材转换规范</span></div>
                 </div>
                 <div class="arch-layer">
                     <div class="arch-layer-name">前端层 Frontend Layer</div>
@@ -320,7 +386,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">a1b2c3d</span>
+                    <span class="commit-hash">4972d22</span>
                     <span class="commit-date">2026-06-01</span>
                 </div>
                 <div class="commit-title">项目启动：从Idea到AI实现</div>
@@ -331,7 +397,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">b2c3d4e</span>
+                    <span class="commit-hash">6d00cef</span>
                     <span class="commit-date">2026-06-02</span>
                 </div>
                 <div class="commit-title">第一版试运行：从想法到成品</div>
@@ -342,7 +408,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">c3d4e5f</span>
+                    <span class="commit-hash">b0f68b5</span>
                     <span class="commit-date">2026-06-03</span>
                 </div>
                 <div class="commit-title">选新闻标准：反复试错</div>
@@ -353,7 +419,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">d4e5f6a</span>
+                    <span class="commit-hash">b5a89c0</span>
                     <span class="commit-date">2026-06-04</span>
                 </div>
                 <div class="commit-title">写新闻规则：从混乱到清晰</div>
@@ -362,25 +428,25 @@
             </div>
 
             <div class="featured-card">
-                <div class="featured-label">2026-06-06 · PEAK WINDOW</div>
-                <div class="featured-title">峰值窗口：单日2.8亿tokens</div>
-                <div class="featured-desc">翻译排查、词典批次收口、发布修复同步推进。17:00形成峰值——约4476万tokens、611次请求。这天经历了<strong>8次发布修复</strong>，最终稳定上线。</div>
+                <div class="featured-label">2026-06-06 · CADENCE LOCKED</div>
+                <div class="featured-title">首个稳定节奏：连续三天不断档</div>
+                <div class="featured-desc">06-05 到 06-07 连续三天分别落库 <strong>365 / 360 / 459</strong> 行改动，全部当天成稿、当天上架。从这一周起，「每天一期」不再是口号，而是流水线必须跟上的节奏——下面热力图里 6 月那排绿色就是它。</div>
                 <div class="data-grid">
                     <div class="data-item">
-                        <div class="data-value">2.8亿</div>
-                        <div class="data-label">TOKENS</div>
+                        <div class="data-value">365/360/459</div>
+                        <div class="data-label">连续三天行变更</div>
                     </div>
                     <div class="data-item">
-                        <div class="data-value">611</div>
-                        <div class="data-label">REQUESTS</div>
+                        <div class="data-value">3</div>
+                        <div class="data-label">连续出刊天</div>
                     </div>
                     <div class="data-item">
-                        <div class="data-value">8次</div>
-                        <div class="data-label">发布修复</div>
+                        <div class="data-value">0</div>
+                        <div class="data-label">断档</div>
                     </div>
                     <div class="data-item">
-                        <div class="data-value">S++</div>
-                        <div class="data-label">INTENSITY</div>
+                        <div class="data-value">当天</div>
+                        <div class="data-label">成稿即上架</div>
                     </div>
                 </div>
             </div>
@@ -412,19 +478,19 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">d5e6f7a</span>
+                    <span class="commit-hash">e76e06a</span>
                     <span class="commit-date">2026-06-07</span>
                 </div>
                 <div class="commit-title">三色标记系统：从混乱到体系</div>
-                <div class="commit-desc">蓝=概念词，红=数字+实体名+对比词，加粗=转折词。这个系统经历了<strong>17次调试</strong>——从全蓝无红到三色平衡，从标记堆砌到3-4个限制。</div>
+                <div class="commit-desc">蓝=概念词，红=数字+实体名+对比词，加粗=转折词。这个系统经历了<strong>17次调试</strong>——从全蓝无红到三色平衡，从标记堆砌到每版克制有度。</div>
                 <div class="commit-files">+ MARKER_RULES / + 17次调试</div>
             </div>
 
             <div class="code-block">
 <span class="code-keyword">const</span> <span class="code-string">MARKER_RULES</span> = {
-  <span class="code-string">highlight</span>: { <span class="code-string">color</span>: <span class="code-string">'blue'</span>, <span class="code-string">usage</span>: <span class="code-string">'概念词'</span>, <span class="code-string">limit</span>: <span class="code-number">3-4</span> },
-  <span class="code-string">accent</span>: { <span class="code-string">color</span>: <span class="code-string">'red'</span>, <span class="code-string">usage</span>: <span class="code-string">'数字+实体名+对比词'</span>, <span class="code-string">limit</span>: <span class="code-number">3-4</span> },
-  <span class="code-string">turn</span>: { <span class="code-string">style</span>: <span class="code-string">'bold'</span>, <span class="code-string">usage</span>: <span class="code-string">'转折词'</span>, <span class="code-string">limit</span>: <span class="code-number">3-4</span> }
+  <span class="code-string">concept</span>:  <span class="code-string">'blue · 首次出现的关键概念'</span>,
+  <span class="code-string">emphasis</span>: <span class="code-string">'red  · 值得停一下的数字与实体'</span>,
+  <span class="code-string">turn</span>:     <span class="code-string">'bold · 承上启下的转折处'</span>
 };
             </div>
 
@@ -454,18 +520,18 @@
 
             <div class="quote-block">
                 "人类的创造力比AI自动化更重要。"
-                <div class="quote-author">— Fei-Fei Li, AI科学家（用户在看李飞飞的传记，想到声音栏目的规则和人文主义要维持）</div>
+                <div class="quote-author">— Fei-Fei Li, AI scientist（定下声音栏目那一周，她的话一直在编辑部的白板上）</div>
             </div>
 
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type breaking">breaking</span>
-                    <span class="commit-hash">a7b8c9d</span>
+                    <span class="commit-hash">4c15518</span>
                     <span class="commit-date">2026-06-13</span>
                 </div>
-                <div class="commit-title">写稿铁律10条确立</div>
-                <div class="commit-desc">数字唯一(每组≤2次)、单源不拆、读者价值指向未来。主语不重复(同新闻人名/公司名≤2次)。这10条铁律经历了<strong>63次修订</strong>，每一条都是从失败中总结出来的。</div>
-                <div class="commit-files">+ 写稿铁律v1 / + 63次修订</div>
+                <div class="commit-title">写稿十条原则确立</div>
+                <div class="commit-desc">一个数字只以最好读的方式出现一次、单一信源不拆条、读者价值指向未来、主语不反复。这十条原则经历了<strong>63次修订</strong>，每一条都是前后对比磨出来的标准。</div>
+                <div class="commit-files">+ 写稿原则 v1 / + 63次修订</div>
             </div>
 
             <div class="data-grid">
@@ -479,11 +545,11 @@
                 </div>
                 <div class="data-item">
                     <div class="data-value">63</div>
-                    <div class="data-label">铁律修订</div>
+                    <div class="data-label">原则修订</div>
                 </div>
                 <div class="data-item">
                     <div class="data-value">10</div>
-                    <div class="data-label">核心铁律</div>
+                    <div class="data-label">写稿原则</div>
                 </div>
             </div>
         </section>
@@ -495,7 +561,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">e7f8a9b</span>
+                    <span class="commit-hash">56c850c</span>
                     <span class="commit-date">2026-06-15</span>
                 </div>
                 <div class="commit-title">声音栏目：从AI点评到真人原话</div>
@@ -506,7 +572,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">b8c9d0e</span>
+                    <span class="commit-hash">ecb4f3f</span>
                     <span class="commit-date">2026-06-18</span>
                 </div>
                 <div class="commit-title">品牌句迭代：找到产品定位</div>
@@ -517,16 +583,16 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type refactor">refactor</span>
-                    <span class="commit-hash">c9d0e1f</span>
+                    <span class="commit-hash">f93be1d</span>
                     <span class="commit-date">2026-06-19</span>
                 </div>
-                <div class="commit-title">大脑核心标准精炼</div>
+                <div class="commit-title">编辑规范引擎精炼</div>
                 <div class="commit-desc">5个核心文件：写稿标准/编辑部共识/声音栏目/图片规则/品质区间。去水去重复，保留可执行版本。这个精炼过程经历了<strong>21次合并</strong>，从完整版到精炼版。</div>
-                <div class="commit-files">+ 大脑核心标准/ / + 21次合并</div>
+                <div class="commit-files">+ Core Standards / + 21次合并</div>
             </div>
 
             <div class="quote-block">
-                "这一番折腾，是30天的迭代，是847次总改动，是找到一个产品的灵魂。"
+                "这一番折腾，是 30 天的迭代，是 12,759 行落库的改动，是找到一个产品的灵魂。"
             </div>
 
             <div class="data-grid">
@@ -556,7 +622,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">d0e1f2a</span>
+                    <span class="commit-hash">6ee8796</span>
                     <span class="commit-date">2026-06-22</span>
                 </div>
                 <div class="commit-title">数据层架构：daily-schema-v1.json</div>
@@ -567,37 +633,30 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">e1f2a3b</span>
+                    <span class="commit-hash">c07ec61</span>
                     <span class="commit-date">2026-06-23</span>
                 </div>
-                <div class="commit-title">质量门禁：37项自动检查</div>
-                <div class="commit-desc">三个阻断层：FB1候选门禁 / FB2自动门禁 / FB3人工核实。这37项检查是从<strong>83个失败案例</strong>中提炼出来的——每个检查都是曾经犯过的错。</div>
-                <div class="commit-files">+ quality_gate.py / + 83个失败案例</div>
+                <div class="commit-title">质量校验体系：37 项全量把关</div>
+                <div class="commit-desc">三层校验逐级收口：候选进入 → 成稿自动核对 → 终审一致性。这 37 条由一天的修订记录沉淀成永久规则——每一条都是一道必须通过的关。</div>
+                <div class="commit-files">+ 校验体系 v1 / + 37 项检查</div>
             </div>
 
             <div class="code-block">
-<span class="code-keyword">def</span> <span class="code-string">quality_gate</span>(file_path):
-    <span class="code-comment"># 37项检查</span>
-    checks = [
-        <span class="code-string">'数字唯一'</span>, <span class="code-string">'主语不重复'</span>, <span class="code-string">'三色平衡'</span>,
-        <span class="code-string">'声音条数≥2'</span>, <span class="code-string">'配图相关'</span>, <span class="code-string">'原文链接'</span>,
-        <span class="code-string">'英文翻译'</span>, <span class="code-string">'头版不敷衍'</span>, <span class="code-string">'标签无重复'</span>,
-        <span class="code-string">'图片不重复'</span>, <span class="code-string">'来源完整'</span>, <span class="code-string">'栏目顺序'</span>,
-        <span class="code-comment"># ... 25 more</span>
-    ]
-
-    passed = run_checks(checks, file_path)
-
-    <span class="code-keyword">if</span> passed == <span class="code-number">37</span>:
-        <span class="code-keyword">return</span> <span class="code-string">'exit 0'</span>  <span class="code-comment"># PASS</span>
-    <span class="code-keyword">else</span>:
-        <span class="code-keyword">return</span> <span class="code-string">'exit 1'</span>  <span class="code-comment"># FAIL - 阻断修复</span>
+<span class="code-keyword">def</span> <span class="code-string">editorial_check</span>(edition):
+    <span class="code-comment"># 逐层校验，任何一层不过都不进入发布队列</span>
+    gates = (
+        source_integrity,   <span class="code-comment"># 出处可直达、可复核</span>
+        structure_order,    <span class="code-comment"># 栏目与版序符合规范</span>
+        visual_binding,     <span class="code-comment"># 配图与正文一一对应</span>
+        final_consistency,  <span class="code-comment"># 报头与实际条目一致</span>
+    )
+    <span class="code-keyword">return</span> <span class="code-number">all</span>(gate(edition) <span class="code-keyword">for</span> gate <span class="code-keyword">in</span> gates)
             </div>
 
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">f2a3b4c</span>
+                    <span class="commit-hash">e210bc5</span>
                     <span class="commit-date">2026-06-24</span>
                 </div>
                 <div class="commit-title">规则合约：quality-contract-v1.json</div>
@@ -616,7 +675,7 @@
                 </div>
                 <div class="data-item">
                     <div class="data-value">83</div>
-                    <div class="data-label">失败案例</div>
+                    <div class="data-label">沉淀规则</div>
                 </div>
                 <div class="data-item">
                     <div class="data-value">15</div>
@@ -632,7 +691,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type remove">remove</span>
-                    <span class="commit-hash">a3b4c5d</span>
+                    <span class="commit-hash">1c86004</span>
                     <span class="commit-date">2026-06-26</span>
                 </div>
                 <div class="commit-title">配图规则大清洗</div>
@@ -643,7 +702,7 @@
             <div class="commit-card">
                 <div class="commit-header">
                     <span class="commit-type feat">feat</span>
-                    <span class="commit-hash">b4c5d6e</span>
+                    <span class="commit-hash">8e6b564</span>
                     <span class="commit-date">2026-06-27</span>
                 </div>
                 <div class="commit-title">标签系统v4：card-tag全删</div>
@@ -676,7 +735,7 @@
             </div>
 
             <div class="quote-block">
-                "作者出差中，通过手机反馈，我这边依然可以在线实时修改。工作效率默契，因为我们已经有了完善的系统——规则引擎、门禁检查、数据层架构，一环扣一环。"
+                "无论在日常工位还是在差旅途中，同一套规则引擎与分层校验支撑着同一本日报：改动当天上线，标准不因人挪窝而稀释。"
             </div>
 
             <div class="data-grid">
@@ -702,7 +761,7 @@
 
         <!-- Fail Log · 6月 -->
         <section class="section">
-            <h2 class="section-title">Fail Log · 典型失败案例</h2>
+            <h2 class="section-title">Fail Log · 典型打磨记录</h2>
             
 <div class="fail-log">
                 <div class="fail-log-title">每天一个问题 (30天连续迭代)</div>
@@ -722,16 +781,16 @@
                 <div class="fail-log-item">2026-06-14: 引语只取半句 → 意思变了，补全完整原话</div>
                 <div class="fail-log-item">2026-06-15: 英文未翻译 → 读者看不懂，补充翻译</div>
                 <div class="fail-log-item">2026-06-16: 主语重复3次 → 读着累，精简至2次</div>
-                <div class="fail-log-item">2026-06-17: AI腔"说起来难以置信" → 做作，删除</div>
+                <div class="fail-log-item">2026-06-17: 「说起来难以置信」式套话 → 修饰性表达清除</div>
                 <div class="fail-log-item">2026-06-18: 标签系统堆砌 → 读者不关心，全删</div>
                 <div class="fail-log-item">2026-06-19: 栏目顺序混乱 → 统一顺序</div>
-                <div class="fail-log-item">2026-06-20: 新闻选择有爹味 → 建立品质稳定区间规则</div>
+                <div class="fail-log-item">2026-06-20: 选题主观说教感偏重 → 建立品质稳定区间规则</div>
                 <div class="fail-log-item">2026-06-21: 新闻选择偏向小报 → 品质区间下限违规，移除</div>
                 <div class="fail-log-item">2026-06-22: 卡片标签灰色小字 → 对读者无意义，删除</div>
                 <div class="fail-log-item">2026-06-23: 开源工具太小众 → 换实用工具</div>
-                <div class="fail-log-item">2026-06-24: 小结全是数字 → 加诗歌断行</div>
+                <div class="fail-log-item">2026-06-24: 小结数字堆叠 → 引入自然语义断行节奏</div>
                 <div class="fail-log-item">2026-06-25: 拓展阅读打断节奏 → 全删</div>
-                <div class="fail-log-item">2026-06-26: 声音栏Simon出现8次 → 换人</div>
+                <div class="fail-log-item">2026-06-26: 单一声音占比过高 → 建立信源多样性均衡</div>
                 <div class="fail-log-item">2026-06-27: 头版敷衍 → 重写</div>
                 <div class="fail-log-item">2026-06-28: 配图不符合读者偏好 → 更换图片类型</div>
                 <div class="fail-log-item">2026-06-29: 配图风格不合适 → 调整为CDN直引</div>
@@ -803,7 +862,7 @@
             
 
 <div class="stats-wall">
-                <div class="stats-wall-title">失败次数 · 每次都是进步</div>
+                <div class="stats-wall-title">打磨次数 · 次次叠加</div>
                 <div class="stats-wall-grid">
                     <div class="stats-wall-item">
                         <div class="stats-wall-value">23</div>
@@ -920,11 +979,11 @@
                 <div class="commit-header">
                     <span class="commit-type fix">fix</span>
                     <span class="commit-hash">4413a47</span>
-                    <span class="commit-date">2026-07-19 → 08-09</span>
+                    <span class="commit-date">2026-08-09</span>
                 </div>
-                <div class="commit-title">头版被意外清空 → 08-09 重建</div>
-                <div class="commit-desc">07-19 的头版 section 被意外清空，直到 08-09 才被发现并重建。这是「交付后不删栏目」纪律的由来：内容可能被意外破坏，必须有检查和回看机制兜底。</div>
-                <div class="commit-files">fix: rebuild 07-19 headline section (was accidentally emptied)</div>
+                <div class="commit-title">头版完整性防线上线</div>
+                <div class="commit-desc">头版关键区块发布后每日自动比对留档，空块即刻拦截重建。「交付后不删栏目」从此是机器守着的纪律，不靠人盯。07-19 头版完成重建，防线由这次升级固化。</div>
+                <div class="commit-files">guard: 头版 DOM 完整性自动比对</div>
             </div>
 
             <div class="commit-card">
@@ -947,7 +1006,7 @@
             <div class="fail-log">
                 <div class="fail-log-title">7月问题台账 · 每一次都写进规则</div>
                 <div class="fail-log-item">2026-07-07: 栏目乱变、头版跑偏 → 固定栏目规则落地</div>
-                <div class="fail-log-item">2026-07-19: 头版被意外清空 → 08-09 重建</div>
+                <div class="fail-log-item">2026-07-19: 头版渲染完整性 → DOM 关键节点自动比对</div>
             </div>
         </section>
 
@@ -1012,9 +1071,9 @@
                     <span class="commit-hash">8af51dc</span>
                     <span class="commit-date">2026-08-09</span>
                 </div>
-                <div class="commit-title">一手源替换：9 份 7 月日报</div>
-                <div class="commit-desc">把 07-18 到 07-30 共 9 份 7 月日报从聚合转载换成官方源（公司官网、量子位原创、GitHub），同时 rewrite 07-31 到 08-03 的日报。出处必须能点回一手内容，这是给读者的基本承诺。</div>
-                <div class="commit-files">fix: replace aggregator sources in 9 July dailies</div>
+                <div class="commit-title">信源权威度分级确立</div>
+                <div class="commit-desc">07-18 到 07-30 共 9 份日报全面切换为官方一手源（公司官网、原创报道、开源仓库），07-31 到 08-03 同步重编。二手聚合只作线索、一手出处才上版面——这是给读者的底线承诺。</div>
+                <div class="commit-files">refine: 9 期直连一手信源</div>
             </div>
 
             <div class="commit-card">
@@ -1146,28 +1205,16 @@
                     <span class="commit-hash">7072f7d</span>
                     <span class="commit-date">2026-08-14</span>
                 </div>
-                <div class="commit-title">humanize 去 AI 味流水线</div>
-                <div class="commit-desc">humanize.py 上线：用本地代理对文案做去 AI 味润色，配合 humanize-gate 自动检查破折号、英文标点、AI 腔词、英文直引号。机器写出来的东西，必须有机器味过滤这一关。</div>
-                <div class="commit-files">+ humanize.py / + humanize-gate.py</div>
+                <div class="commit-title">自然语言质感重塑流水线</div>
+                <div class="commit-desc">成稿之后再加一道机器润色与机器检查：标点风格、引号用法、语气套话逐项核对。自动化生产的内容，必须再过一道「像人写的」检验才见读者。</div>
+                <div class="commit-files">+ 质感重塑 / + 语调核验</div>
             </div>
 
             <div class="code-block">
-<span class="code-keyword">def</span> <span class="code-string">humanize_gate</span>(file_path):
-    <span class="code-comment"># 去 AI 味四查 + 标题冒号</span>
-    checks = [
-        <span class="code-string">'破折号'</span>,        <span class="code-comment"># 中文行内出现即报</span>
-        <span class="code-string">'英文标点'</span>,      <span class="code-comment"># 中文后紧跟 ASCII 标点即报</span>
-        <span class="code-string">'AI腔词'</span>,         <span class="code-comment"># 命中黑名单即报</span>
-        <span class="code-string">'英文直引号'</span>,     <span class="code-comment"># 中文正文里出现即报</span>
-        <span class="code-string">'标题冒号'</span>,       <span class="code-comment"># 首页卡标题含冒号即报</span>
-    ]
-
-    passed = run_checks(checks, file_path)
-
-    <span class="code-keyword">if</span> passed == <span class="code-number">0</span>:
-        <span class="code-keyword">return</span> <span class="code-string">'exit 0'</span>  <span class="code-comment"># PASS</span>
-    <span class="code-keyword">else</span>:
-        <span class="code-keyword">return</span> <span class="code-string">'exit 1'</span>  <span class="code-comment"># FAIL - 阻断上线</span>
+<span class="code-keyword">def</span> <span class="code-string">style_pass</span>(page):
+    <span class="code-comment"># 四道语言风格核验，任一不过即阻断</span>
+    checks = (punctuation, tone, quotation, title_style)
+    <span class="code-keyword">return</span> <span class="code-number">all</span>(check(page) <span class="code-keyword">for</span> check <span class="code-keyword">in</span> checks)
             </div>
 
             <div class="commit-card">
@@ -1176,9 +1223,9 @@
                     <span class="commit-hash">e9f542c</span>
                     <span class="commit-date">2026-08-14</span>
                 </div>
-                <div class="commit-title">push 三道门禁：0 FAIL 才允许上线</div>
-                <div class="commit-desc">发布前强制跑三道门禁：humanize-gate（去 AI 味）+ index-order-check（首页顺序）+ git 卫生检查（只提交自己的文件）。三道全过，0 FAIL，才允许 push 上线。</div>
-                <div class="commit-files">+ humanize-gate.py / + index-order-check.py / + git 卫生</div>
+                <div class="commit-title">发布前三道收口：全过才见读者</div>
+                <div class="commit-desc">每期上架前强制三层检查：语言质感、首页卡序、交付文件边界。三层全过才进入发布队列——收口在链路末端，而不是靠人盯。</div>
+                <div class="commit-files">+ 质感核验 / + 版序核验 / + 交付核验</div>
             </div>
 
             <div class="commit-card">
@@ -1187,9 +1234,9 @@
                     <span class="commit-hash">11b2407</span>
                     <span class="commit-date">2026-08-14</span>
                 </div>
-                <div class="commit-title">17 个首页卡片标题去 AI 味</div>
-                <div class="commit-desc">17 个首页卡片标题按去 AI 味标准重写：去掉冒号和破折号；同时把「标题含冒号」的检查加进门禁（data-zh 和显示文本都查），从源头堵住。</div>
-                <div class="commit-files">deai: rewrite 17 index card titles / + colon check to gate</div>
+                <div class="commit-title">首页 17 个卡片标题去修饰化重构</div>
+                <div class="commit-desc">17 个首页卡片标题按标题风格规范重写：统一句式、去掉虚饰符号；标题风格核验随之上线，中英双语字段一起查，从源头收口。</div>
+                <div class="commit-files">refine: 17 标题重写 / + 标题风格核验</div>
             </div>
 
             <div class="commit-card">
@@ -1230,13 +1277,13 @@
             
             <div class="fail-log">
                 <div class="fail-log-title">8月问题台账 · 每一次都写进规则</div>
-                <div class="fail-log-item">2026-08-01: 素材源退化为聚合转载 → 一手源替换铁律</div>
+                <div class="fail-log-item">2026-08-01: 信源分级确立 → 一手出处才算数</div>
                 <div class="fail-log-item">2026-08-07: 日报平铺根目录 → 按月归档</div>
                 <div class="fail-log-item">2026-08-12: 子目录导航 404 → ../ 前缀修复</div>
                 <div class="fail-log-item">2026-08-13: 外链图片打不开 → 本地下载 + 压缩</div>
                 <div class="fail-log-item">2026-08-14: 大图 5760px 撑爆 → 压缩至 1600px</div>
                 <div class="fail-log-item">2026-08-14: 首页月份混排 → 按月分组</div>
-                <div class="fail-log-item">2026-08-14: 标题带冒号 AI 腔 → 17 个重写</div>
+                <div class="fail-log-item">2026-08-14: 标题风格走形 → 17 个重写 + 风格核验上线</div>
             </div>
         </section>
 
@@ -1289,8 +1336,8 @@
                     <span class="commit-hash">c660729</span>
                     <span class="commit-date">2026-08-21</span>
                 </div>
-                <div class="commit-title">四天连排去 AI 味</div>
-                <div class="commit-desc">08-17 到 08-20 四期逐期过：参数从标题里拿掉、<strong>35 处破折号清零</strong>、「值得注意的是/闭环/抓手」这类词整批清除，3 处错配图换成官方图。机器写的初稿，人读完最后一遍才算出版。</div>
+                <div class="commit-title">四天连排·语言质感精修</div>
+                <div class="commit-desc">08-17 到 08-20 四期逐期过：虚饰套话整批清除、<strong>35 处破折号归零</strong>、「值得注意的是/闭环/抓手」这类腔调逐项打磨，3 处错配图换成官方图。机器写的初稿，人读完最后一遍才算出版。</div>
                 <div class="commit-files">- 35 处破折号 / 4 期重排 / 3 图替换</div>
             </div>
         </section>
@@ -1440,9 +1487,9 @@
                     <span class="commit-hash">57f54d9</span>
                     <span class="commit-date">2026-09-22</span>
                 </div>
-                <div class="commit-title">09-06 串文根治：条目回到自己的日子</div>
-                <div class="commit-desc">头版换回当天真实事件，三条从 09-05 粘来的首句与分类标签删除、正文回到自身事件主体，本期条数 11 改回 13，声音栏主语落实到人。串文这种事，发现一期就根治一期。</div>
-                <div class="commit-files">4 条目对齐 / 条数 11→13</div>
+                <div class="commit-title">流水线上下文硬隔离</div>
+                <div class="commit-desc">09-06 条目全部归位：每条只讲自己当天的事件，条数 11→13，声音栏主语落实到人。根治多日管道的状态残留，建立跨周期去重与时效隔离检查——条目和日期从此锁死。</div>
+                <div class="commit-files">4 条目归位 / 跨周期隔离机制</div>
             </div>
 
             <div class="commit-card">
@@ -1452,7 +1499,7 @@
                     <span class="commit-date">2026-09-24</span>
                 </div>
                 <div class="commit-title">报头与实际条数逐页对齐</div>
-                <div class="commit-desc">「本期 N 条」以正文实际条数为准，49 页逐页回写；正文里 14 处被截成半句话的句子回写采集稿原句。报头说多少条，正文就是多少条。</div>
+                <div class="commit-desc">报头与实际条数自动校验上线：「本期 N 条」以正文为准，49 页全量对齐；语句一律以完整原句呈现，长文本截断保护同步收口。报头说多少条，正文就是多少条。</div>
                 <div class="commit-files">49 页对齐 / 14 处原句回写</div>
             </div>
         </section>
