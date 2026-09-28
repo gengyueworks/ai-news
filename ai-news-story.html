@@ -210,7 +210,7 @@
 
 <!-- Hero -->
         <section class="hero">
-            <h1>AI<em>News</em> · 118 天迭代日志</h1>
+            <h1>AI<em>News</em> · 120 天迭代日志</h1>
             <p class="hero-subtitle">从零开始构建一个AI情报日报的技术演进</p>
             <div style="margin-top: 14px;">
                 <a href="behind-deepread-light.html" style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-family:'JetBrains Mono', monospace; color:#002FA7; background:#EEF2FF; border:1px solid #C7D2FE; border-radius:16px; padding:4px 12px; text-decoration:none; transition:all 0.15s ease;" onmouseover="this.style.background='#E0E7FF'" onmouseout="this.style.background='#EEF2FF'">
@@ -222,11 +222,11 @@
         <!-- Stats Hero - 铺天盖地 -->
         <div class="stats-hero">
             <div class="stat-hero">
-                <div class="stat-hero-number">118</div>
+                <div class="stat-hero-number">120</div>
                 <div class="stat-hero-label">DAYS</div>
             </div>
             <div class="stat-hero">
-                <div class="stat-hero-number">297</div>
+                <div class="stat-hero-number">301</div>
                 <div class="stat-hero-label">COMMITS</div>
             </div>
             <div class="stat-hero">
@@ -248,95 +248,29 @@
   <style>
     .pulse-section { margin-bottom: 48px; }
     .pulse-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; letter-spacing: 1px; margin: -8px 0 18px; }
-    .pulse-wrap { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 22px 24px 20px; }
-    
-    .pulse-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
-    .pulse-title-group { display: flex; flex-direction: column; gap: 4px; }
-    .pulse-badge-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #002FA7; letter-spacing: 0.5px; }
-    .pulse-desc-text { font-size: 13px; color: #4B5563; }
-    .pulse-counter { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #111827; background: #F3F4F6; padding: 5px 12px; border-radius: 6px; border: 1px solid #E5E7EB; }
-    .pulse-counter b { color: #002FA7; font-size: 16px; font-weight: 700; }
-    
-    /* 单行横排活跃度条：119 天横向自适应充满整行，杜绝断行与空白 */
-    .pulse-bar-track { display: flex; gap: 2.5px; width: 100%; padding: 4px 0; align-items: center; box-sizing: border-box; }
-    .pulse-day-cell { flex: 1; height: 26px; min-width: 2px; border-radius: 2px; transition: transform 0.15s ease, opacity 0.15s ease; cursor: pointer; }
-    .pulse-day-cell:hover { transform: scaleY(1.2); z-index: 10; opacity: 0.85; }
-    .pulse-day-cell.active { background: #002FA7; }
-    .pulse-day-cell.rest { background: #E5E7EB; }
-    
-    .pulse-timeline-labels { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; margin-top: 8px; }
-    
-    /* 月度活跃天数横排卡片 */
-    .pulse-month-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid #F3F4F6; }
-    .pulse-month-card { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 6px; padding: 8px 10px; text-align: center; }
-    .pm-name { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; font-weight: 600; margin-bottom: 2px; }
-    .pm-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #111827; }
-    .pm-val b { color: #002FA7; }
-    
-    .pulse-foot-note { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; flex-wrap: wrap; gap: 8px; }
-    .pulse-legend-simple { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #6B7280; }
-    .pulse-legend-simple i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
-    
-    @media (max-width: 640px) {
-      .pulse-month-strip { grid-template-columns: repeat(3, 1fr); }
-    }
+    .pulse-wrap { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 22px 20px 16px; }
+    .pulse-grid { display: grid; grid-template-columns: repeat(auto-fill, 13px); grid-auto-rows: 13px; gap: 3px; }
+    .pulse-grid i { border-radius: 2px; display: block; }
+    .pulse-grid i.lv0 { background: #EFEDE8; }
+    .pulse-grid i.lv1 { background: #ACEEBB; }
+    .pulse-grid i.lv2 { background: #3CB95C; }
+    .pulse-grid i.lv3 { background: #179640; }
+    .pulse-grid i.lv4 { background: #0A6B2C; }
+    .pulse-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .pulse-range { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; margin-bottom: 10px; }
+    .pulse-legend { display: flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; }
+    .pulse-legend i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+    .pulse-stats { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; }
+    .pulse-stats b { color: #002FA7; font-weight: 700; }
   </style>
-  <h2 class="section-title">Engineering Pulse · 工作活跃天数记录</h2>
-  <p class="pulse-sub">全周期连续开发留痕 · 零虚构真实记录</p>
+  <h2 class="section-title">Engineering Pulse · 工程构建活跃度</h2>
+  <p class="pulse-sub">连续周期高频提交图谱 · 零虚构全量版本留痕</p>
   <div class="pulse-wrap">
-    <div class="pulse-head">
-      <div class="pulse-title-group">
-        <span class="pulse-badge-label">DAILY ACTIVE STREAK // 持续活跃天数记录</span>
-        <span class="pulse-desc-text">自 2026-05-31 正式立项以来，每日高频提交与出刊留痕</span>
-      </div>
-      <div class="pulse-counter">
-        活跃天数 <b>118</b> / 119 天 <span style="color:#059669; font-weight:600; margin-left:4px;">(99.2%)</span>
-      </div>
-    </div>
-    
-    <!-- 单行横向连续条：119 天横向自适应铺满整行 -->
-    <div class="pulse-bar-track">
-      <div class="pulse-day-cell active" title="2026-05-31 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-01 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-02 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-03 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-04 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-05 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-06 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-07 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-08 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-09 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-10 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-11 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-12 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-13 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-14 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell rest" title="2026-06-15 · 休整"></div><div class="pulse-day-cell active" title="2026-06-16 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-17 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-18 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-19 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-20 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-21 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-22 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-23 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-24 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-25 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-26 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-27 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-28 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-29 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-06-30 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-01 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-02 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-03 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-04 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-05 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-06 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-07 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-08 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-09 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-10 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-11 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-12 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-13 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-14 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-15 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-16 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-17 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-18 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-19 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-20 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-21 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-22 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-23 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-24 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-25 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-26 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-27 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-28 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-29 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-30 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-07-31 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-01 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-02 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-03 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-04 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-05 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-06 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-07 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-08 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-09 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-10 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-11 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-12 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-13 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-14 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-15 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-16 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-17 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-18 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-19 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-20 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-21 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-22 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-23 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-24 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-25 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-26 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-27 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-28 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-29 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-30 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-08-31 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-01 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-02 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-03 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-04 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-05 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-06 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-07 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-08 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-09 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-10 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-11 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-12 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-13 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-14 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-15 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-16 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-17 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-18 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-19 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-20 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-21 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-22 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-23 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-24 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-25 · 活跃 (提交与出刊)"></div><div class="pulse-day-cell active" title="2026-09-26 · 活跃 (提交与出刊)"></div>
-    </div>
-    
-    <div class="pulse-timeline-labels">
-      <span>2026-05-31 (立项起跑)</span>
-      <span>06-15 (调休)</span>
-      <span>2026-07 (深度迭代)</span>
-      <span>2026-08 (多智能体协同)</span>
-      <span>2026-09-26 (今日持续)</span>
-    </div>
-
-    <!-- 月度活跃天数横排 -->
-    <div class="pulse-month-strip">
-      <div class="pulse-month-card">
-        <div class="pm-name">2026-05</div>
-        <div class="pm-val"><b>1</b> / 1 天</div>
-      </div>
-      <div class="pulse-month-card">
-        <div class="pm-name">2026-06</div>
-        <div class="pm-val"><b>29</b> / 30 天</div>
-      </div>
-      <div class="pulse-month-card">
-        <div class="pm-name">2026-07</div>
-        <div class="pm-val"><b>31</b> / 31 天</div>
-      </div>
-      <div class="pulse-month-card">
-        <div class="pm-name">2026-08</div>
-        <div class="pm-val"><b>31</b> / 31 天</div>
-      </div>
-      <div class="pulse-month-card">
-        <div class="pm-name">2026-09</div>
-        <div class="pm-val"><b>26</b> / 26 天</div>
-      </div>
-    </div>
-    
-    <div class="pulse-foot-note">
-      <span>✦ 真实留痕：横向单行饱满排列，每个单元格对应真实生产记录</span>
-      <div class="pulse-legend-simple">
-        <i style="background:#002FA7;"></i><span>活跃 (118 天)</span>
-        <i style="background:#E5E7EB; margin-left:8px;"></i><span>休整 (1 天)</span>
-      </div>
+    <div class="pulse-range">2026-05-31 → 2026-09-28 · 一格一天，深浅=当天提交与出刊活动</div>
+    <div class="pulse-grid"><i class="lv1" title="2026-05-31 · 1 次提交"></i><i class="lv2" title="2026-06-01 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-02 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-03 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-04 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-05 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-06 · 1 次提交 + 日报出刊"></i><i class="lv1" title="2026-06-07 · 1 次提交"></i><i class="lv2" title="2026-06-08 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-09 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-10 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-11 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-12 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-13 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-14 · 1 次提交 + 日报出刊"></i><i class="lv0" title="2026-06-15 · 休整"></i><i class="lv2" title="2026-06-16 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-17 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-18 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-19 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-20 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-21 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-22 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-23 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-24 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-25 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-26 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-27 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-28 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-29 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-06-30 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-01 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-02 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-03 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-04 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-05 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-06 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-07 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-08 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-09 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-10 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-11 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-12 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-13 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-14 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-15 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-16 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-17 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-18 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-19 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-20 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-21 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-22 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-23 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-24 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-25 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-26 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-27 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-28 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-29 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-30 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-07-31 · 1 次提交 + 日报出刊"></i><i class="lv1" title="2026-08-01 · 日报出刊"></i><i class="lv1" title="2026-08-02 · 日报出刊"></i><i class="lv1" title="2026-08-03 · 日报出刊"></i><i class="lv1" title="2026-08-04 · 日报出刊"></i><i class="lv1" title="2026-08-05 · 日报出刊"></i><i class="lv1" title="2026-08-06 · 日报出刊"></i><i class="lv2" title="2026-08-07 · 2 次提交 + 日报出刊"></i><i class="lv2" title="2026-08-08 · 4 次提交 + 日报出刊"></i><i class="lv4" title="2026-08-09 · 24 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-10 · 11 次提交 + 日报出刊"></i><i class="lv2" title="2026-08-11 · 1 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-12 · 12 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-13 · 5 次提交 + 日报出刊"></i><i class="lv4" title="2026-08-14 · 23 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-15 · 9 次提交 + 日报出刊"></i><i class="lv1" title="2026-08-16 · 日报出刊"></i><i class="lv2" title="2026-08-17 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-08-18 · 1 次提交 + 日报出刊"></i><i class="lv1" title="2026-08-19 · 日报出刊"></i><i class="lv2" title="2026-08-20 · 4 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-21 · 7 次提交 + 日报出刊"></i><i class="lv4" title="2026-08-22 · 26 次提交 + 日报出刊"></i><i class="lv3" title="2026-08-23 · 6 次提交 + 日报出刊"></i><i class="lv1" title="2026-08-24 · 日报出刊"></i><i class="lv1" title="2026-08-25 · 日报出刊"></i><i class="lv1" title="2026-08-26 · 日报出刊"></i><i class="lv1" title="2026-08-27 · 日报出刊"></i><i class="lv1" title="2026-08-28 · 日报出刊"></i><i class="lv1" title="2026-08-29 · 日报出刊"></i><i class="lv1" title="2026-08-30 · 日报出刊"></i><i class="lv1" title="2026-08-31 · 日报出刊"></i><i class="lv1" title="2026-09-01 · 日报出刊"></i><i class="lv1" title="2026-09-02 · 日报出刊"></i><i class="lv1" title="2026-09-03 · 日报出刊"></i><i class="lv1" title="2026-09-04 · 日报出刊"></i><i class="lv1" title="2026-09-05 · 日报出刊"></i><i class="lv1" title="2026-09-06 · 日报出刊"></i><i class="lv1" title="2026-09-07 · 日报出刊"></i><i class="lv1" title="2026-09-08 · 日报出刊"></i><i class="lv1" title="2026-09-09 · 日报出刊"></i><i class="lv1" title="2026-09-10 · 日报出刊"></i><i class="lv1" title="2026-09-11 · 日报出刊"></i><i class="lv1" title="2026-09-12 · 2 次提交"></i><i class="lv2" title="2026-09-13 · 2 次提交 + 日报出刊"></i><i class="lv2" title="2026-09-14 · 1 次提交 + 日报出刊"></i><i class="lv2" title="2026-09-15 · 2 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-16 · 12 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-17 · 9 次提交 + 日报出刊"></i><i class="lv4" title="2026-09-18 · 18 次提交 + 日报出刊"></i><i class="lv4" title="2026-09-19 · 13 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-20 · 9 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-21 · 7 次提交 + 日报出刊"></i><i class="lv3" title="2026-09-22 · 6 次提交 + 日报出刊"></i><i class="lv1" title="2026-09-23 · 日报出刊"></i><i class="lv2" title="2026-09-24 · 4 次提交 + 日报出刊"></i><i class="lv2" title="2026-09-25 · 6 次提交"></i><i class="lv3" title="2026-09-26 · 12 次提交"></i><i class="lv1" title="2026-09-27 · 1 次提交"></i><i class="lv0" title="2026-09-28 · 休整"></i></div>
+    <div class="pulse-foot">
+      <div class="pulse-stats"><b>121</b> 天里 <b>119</b> 天有活动 / 峰值 <b>08-22</b> 强度 <b>28</b></div>
+      <div class="pulse-legend">少 <i style="background:#EFEDE8"></i><i style="background:#ACEEBB"></i><i style="background:#3CB95C"></i><i style="background:#179640"></i><i style="background:#0A6B2C"></i> 多</div>
     </div>
   </div>
 </section>
@@ -1548,14 +1482,14 @@
             <h2 class="section-title">Stats · 全局收尾</h2>
             
 <div class="stats-wall">
-                <div class="stats-wall-title">118 天持续迭代 · 截至 2026-09-26</div>
+                <div class="stats-wall-title">120 天持续迭代 · 截至 2026-09-28</div>
                 <div class="stats-wall-grid">
                     <div class="stats-wall-item">
-                        <div class="stats-wall-value">118</div>
+                        <div class="stats-wall-value">120</div>
                         <div class="stats-wall-label">持续天数</div>
                     </div>
                     <div class="stats-wall-item">
-                        <div class="stats-wall-value">297</div>
+                        <div class="stats-wall-value">301</div>
                         <div class="stats-wall-label">总提交</div>
                     </div>
                     <div class="stats-wall-item">
