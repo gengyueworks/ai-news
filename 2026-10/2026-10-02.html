@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-10-02</title>
+    <meta name="description" content="2026年10月2日 AI 情报日报：Claude Code上线mods插件机制；Modal推出VM Sandboxes；FLUX 3 Image支持原生4K局部编辑；小米MiMo-V2.6进入智能体竞技场前列；OpenAI披露对抗性蒸馏事件。">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #0E0E10;
+            --text-mid: #3A3A3E;
+            --text-light: #6B6B70;
+            --border: #E8E8EC;
+            --accent: #C41E3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.78;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-nav {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+        .site-nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-nav-brand { font-size: 18px; font-weight: 700; text-decoration: none; color: var(--text-dark); }
+        .site-nav-brand span { color: var(--klein); }
+        .site-nav-links { list-style: none; display: flex; gap: 18px; }
+        .site-nav-links a { font-size: 13px; color: var(--text-light); text-decoration: none; }
+        .site-nav-links a:hover { color: var(--klein); }
+        .site-nav-links a.active { color: var(--klein); font-weight: 600; }
+        .masthead { margin-bottom: 36px; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .mast-lede {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-mid);
+            padding: 16px 20px;
+            background: #F0F4FF;
+            border-left: 4px solid var(--klein);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; }
+        .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 12px; }
+        .body { font-size: 15.5px; color: var(--text-mid); line-height: 1.82; }
+        .body p { margin-bottom: 14px; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--accent); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+        .src-line { font-size: 13px; color: var(--text-light); margin-top: 10px; font-family: 'JetBrains Mono', monospace; }
+        .src-line a { color: var(--klein); text-decoration: none; }
+        .src-line a:hover { text-decoration: underline; }
+        .image-block { margin: 18px 0 24px; }
+        .image-block img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); display: block; margin: 0 auto; }
+        .image-caption { font-size: 12.5px; color: var(--text-light); margin-top: 8px; line-height: 1.6; }
+        .divider { border: none; border-top: 1px dashed var(--border); margin: 18px 0; }
+        .voice { background: #F8F9FB; border-left: 3px solid var(--klein); padding: 14px 18px; margin-bottom: 20px; border-radius: 4px; }
+        .voice-text { font-size: 16px; font-style: italic; color: var(--text-dark); line-height: 1.7; margin-bottom: 8px; }
+        .voice-who { font-size: 13px; color: var(--text-light); font-family: 'JetBrains Mono', monospace; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .summary-poem { font-size: 15.5px; color: var(--text-mid); line-height: 2.1; }
+        .curiosity { padding: 20px; background: #F0F4FF; border-radius: 8px; margin-top: 32px; }
+        .footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 3px solid var(--klein);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- READY_TEXT_ONLY 2026-10-02: 优先保证文字排版与深度源，检索后无合格官方图经门禁裁决 -->
+
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+        <ul class="site-nav-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a class="active" href="2026-10-02.html">日报</a></li>
+            <li><a href="../en/index.html">EN Site</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <header class="masthead">
+        <div class="mast-eyebrow">Daily Intelligence · 2026-10-02</div>
+        <h1 class="doc-title">AI 情报<span>日报</span></h1>
+        <p class="doc-date">2026年10月2日 · 星期五</p>
+        <div class="mast-lede">
+            <strong>今天的主线：编程智能体开放自定义钩子，云端沙箱走向完整虚拟机。</strong><br/><br/>
+            <span class="accent">Anthropic</span> 为 Claude Code 开放 <span class="hl">mods</span>，允许用 TypeScript 深度重写提示词并拦截工具链；<br/>
+            <span class="accent">Modal</span> 全面交付 <span class="hl">VM Sandboxes</span>，以亚秒级冷启动支持 Docker 与内核特性；<br/>
+            <span class="accent">Black Forest Labs</span> 旗下 <span class="hl">FLUX 3 Image</span> 落地多端，支持原生 <span class="num">4K</span> 局部无损编辑；<br/>
+            <span class="accent">Xiaomi</span> MiMo-V2.6 冲入智能体竞技场前列，小参数架构在实测会话中验证执行效率。
+        </div>
+    </header>
+
+    <!-- ===== 1. 头版 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Front Page</div>
+        <div class="sec-title">头版</div>
+
+        <div class="item">
+            <div class="dateline">Anthropic · 开发者工具 · 2026-10-02</div>
+            <div class="item-title">Claude Code 开放 mods 扩展，封闭式代码助手终于让位给可编程插件钩子</div>
+            <div class="body">
+                <p><span class="accent">Anthropic</span> 正式为命令行开发工具 <span class="hl">Claude Code</span> 推出 mods 机制。开发者现在可以使用极简的 <span class="hl">TypeScript</span> 函数，直接挂接到核心事件流中。</p>
+                <p>该机制支持在执行前改写系统提示词、拦截或重试工具调用，<span class="turn">并且</span>能够针对敏感权限请求设定自定义审批逻辑，甚至在终端内注入定制 UI。</p>
+                <p>这些自定义函数可以通过插件形式打包与分发。<span class="turn">以往</span>高度同质化的代码助手，开始将执行控制权直接交还给一线工程团队。</p>
+            </div>
+            <div class="src-line"><a href="https://claude.com/blog/claude-code-mods" target="_blank">Claude 官方博客</a> · <a href="https://simonwillison.net/2026/Sep/17/how-to-write-with-an-llm/" target="_blank">simonwillison 深度分析</a> · <a href="https://stratechery.com/2026/an-interview-with-openai-president-greg-brockman-about-astra-and-alignment/" target="_blank">Stratechery 深度分析</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 2. 前线 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Frontline</div>
+        <div class="sec-title">前线</div>
+
+        <div class="item">
+            <div class="dateline">Modal · 计算基础设施 · 2026-10-02</div>
+            <div class="item-title">Modal 发布 VM Sandboxes，智能体运行环境从小容器切换到完整虚拟机</div>
+            <div class="body">
+                <p>云算力平台 <span class="accent">Modal</span> 宣布旗下 <span class="hl">VM Sandboxes</span> 正式进入通用可用状态。开发者只需在配置中指定特定运行时参数，即可为自主执行任务的智能体分配一套完整的 Linux 操作系统。</p>
+                <p>新环境完整支持 Docker、FUSE 文件系统与内核级调试功能，<span class="turn">同时</span>保留了原有的亚秒级冷启动与动态内存调度优势。官方统计显示早期测试用量已突破 <span class="num">2000万</span> 个虚拟机实例。</p>
+                <p>伴随智能体复杂度的提升，受限的容器沙盒难以承载真实编译需求，底层运行环境正加速向完整系统镜像演进。</p>
+            </div>
+            <div class="src-line"><a href="https://modal.com/blog/vm-sandboxes-agent-computers" target="_blank">Modal 官方工程博客</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+            <div class="dateline">OpenAI · 安全攻防 · 2026-10-02</div>
+            <div class="item-title">OpenAI 拦截大规模推理蒸馏行动，跨云平台防护差异带来新缺口</div>
+            <div class="body">
+                <p><span class="accent">OpenAI</span> 披露此前拦截了一起针对其模型思维链的对抗性蒸馏攻击。监测数据显示，行动涉及超过 <span class="num">4000</span> 个活跃账号在短时间内发起的数万次高频提取请求。</p>
+                <p>调查团队虽关停了自家主站的相关恶意凭据，<span class="turn">然而</span>第三方安全研究人员指出，相同的自动化探测脚本在部分第三方云托管节点上仍能获取未过滤的中间步骤输出。</p>
+                <p>前沿权重的防护边界从专有接口扩展至整个分发供应链，多端协同防御成为核心课题。</p>
+            </div>
+            <div class="src-line"><a href="https://the-decoder.com/openai-says-it-stopped-a-campaign-to-steal-its-models-reasoning-but-the-trick-still-worked-on-azure/" target="_blank">The Decoder</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 3. 开源前线 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Open Source</div>
+        <div class="sec-title">开源前线</div>
+
+        <div class="item">
+            <div class="dateline">Xiaomi · 模型评测 · 2026-10-02</div>
+            <div class="item-title">小米 MiMo-V2.6 登陆智能体基准，净提升 3.17% 跻身开源前列</div>
+            <div class="body">
+                <p><span class="accent">Xiaomi</span> 团队研发的 MiMo-V2.6-Pro 与 Flash 两款架构正式接入评测体系。在累计超过 <span class="num">8100</span> 次真实智能体会话交互测试中，Pro 版本取得了 <span class="num">+3.17%</span> 的净提升表现。</p>
+                <p>其在任务最终确认率指标上达到 <span class="num">+7.35%</span>，位居当前开源梯队第二名，综合执行稳定性较上一代产品提升了 <span class="num">9</span> 个名次。</p>
+                <p>实测数据表明，端侧架构经过特定任务的指令强化后，在复杂多步骤调用中展现出极高实用价值。</p>
+            </div>
+            <div class="src-line"><a href="https://x.com/arena/status/2105733983250301224" target="_blank">Agent Arena</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+            <div class="dateline">LangChain · 智能体工程 · 2026-10-02</div>
+            <div class="item-title">LangChain 验证动态模型路由，单任务中位调用成本下降 64%</div>
+            <div class="body">
+                <p><span class="accent">LangChain</span> 在开源编码智能体 Open SWE 中部署了动态模型路由器。通过在近千个真实测试线程中的对比验证，中位执行成本从 <span class="num">$2.61</span> 降至 <span class="num">$0.94</span>。</p>
+                <p>在成本压缩超过六成的同时，代码合并成功率维持在 <span class="num">29.2%</span> 对 <span class="num">27.3%</span> 的平稳区间，没有出现质量下滑。</p>
+                <p>工程实践证明，在控制流中合理分流低风险子任务，比全局依赖昂贵模型更具部署可行性。</p>
+            </div>
+            <div class="src-line"><a href="https://www.langchain.com/blog/how-to-build-a-model-router-in-the-harness" target="_blank">LangChain 官方博客</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 4. 声音 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Voices</div>
+        <div class="sec-title">声音</div>
+
+        <div class="voice">
+            <p class="voice-text">「智能体群体的自组织速度超乎预料，苦涩的教训同样在改写协作组织的管理逻辑。」</p>
+            <p class="voice-who">Ethan Mollick · 宾夕法尼亚大学沃顿商学院教授 · <a href="https://www.oneusefulthing.org/p/the-dot-and-the-swarm" target="_blank">One Useful Thing</a></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="voice">
+            <p class="voice-text">「研判自主智能体的真实安全威胁，核心在于厘清其在真实环境中的手段与动机边界。」</p>
+            <p class="voice-who">Chris Painter · METR 评估机构主席 · <a href="https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/" target="_blank">METR 官方记录</a></p>
+        </div>
+    </div>
+
+    <!-- ===== 5. 创造 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Creation</div>
+        <div class="sec-title">创造</div>
+
+        <div class="item">
+            <div class="dateline">ChatGPT · 协议生态 · 2026-10-02</div>
+            <div class="item-title">ChatGPT 支持直接部署 MCP 服务，智能体协议从本地配置走向云端托管</div>
+            <div class="body">
+                <p><span class="accent">ChatGPT</span> 现已允许用户在平台内直接编写并托管 <span class="hl">MCP</span> 服务器。构建完成的上下文服务可以一键打包为跨端插件，同步分发至网页、移动端与桌面环境。</p>
+                <p>系统为自建服务提供了权限隔离选项，支持完全私有调用或向指定协作人员开放。<span class="turn">过去</span>繁琐的本地网络转发环节被整合为标准化的云端托管功能。</p>
+                <p>协议互通门槛的降低，正促使更多外部工具接入大模型的实时上下文通道。</p>
+            </div>
+            <div class="src-line"><a href="https://x.com/thsottiaux/status/2105519215092584786" target="_blank">X 平台发布</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+            <div class="dateline">Perplexity · 异步协同 · 2026-10-02</div>
+            <div class="item-title">Perplexity 开放邮件委托入口，把长程任务搬进日常收件箱</div>
+            <div class="body">
+                <p><span class="accent">Perplexity</span> 正式开放旗下 Computer 系统的邮件任务通道。用户无需登录专属账号，只需将需要处理的分析诉求通过邮件发送或抄送至指定地址。</p>
+                <p>后台智能体会自动承接上下文并在云端完成多步骤执行，所有中间步骤均保留完整的审计记录与网页追溯视图。<span class="turn">这种</span>异步处理形态降低了复杂任务的操作负担。</p>
+                <p>传统办公通讯协议正在成为承接后台自动化任务的高频入口。</p>
+            </div>
+            <div class="src-line"><a href="https://x.com/AravSrinivas/status/2105369479190601754" target="_blank">X 平台发布</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 6. 视觉 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Vision</div>
+        <div class="sec-title">视觉</div>
+
+        <div class="item">
+            <div class="dateline">Black Forest Labs · 多模态生成 · 2026-10-02</div>
+            <div class="item-title">FLUX 3 Image 上线多平台，支持原生 4K 多轮编辑且不伤及背景</div>
+            <div class="body">
+                <p><span class="accent">Black Forest Labs</span> 推出的主力视觉模型 <span class="hl">FLUX 3 Image</span> 正式登陆 <span class="accent">Krea</span> 与 <span class="accent">OpenRouter</span> 等服务平台。新架构支持最高 <span class="num">4K</span> 分辨率的原生画质渲染。</p>
+                <p>该模型引入了局部边界框排版与多参考图合成机制，能够融合最多 <span class="num">10</span> 张参考素材。<span class="turn">在</span>进行局部对象增删与微调时，模型能够完全锁定非编辑区域的原始像素。</p>
+                <p>商用权重的开放使得精细化图像控制从实验原型进入工业化工作流。</p>
+            </div>
+            <div class="src-line"><a href="https://x.com/krea_ai/status/2105769469880799716" target="_blank">Krea 官方发布</a> · <a href="https://x.com/OpenRouter/status/2105759062835220852" target="_blank">OpenRouter 官方发布</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 7. 投资与资金流向 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Capital</div>
+        <div class="sec-title">投资与资金流向</div>
+
+        <div class="item">
+            <div class="dateline">OpenRouter · 算力经济 · 2026-10-02</div>
+            <div class="item-title">OpenRouter 发布成本权衡框架，推动推理预算从盲目顶配转向实测过线</div>
+            <div class="body">
+                <p>模型聚合平台 <span class="accent">OpenRouter</span> 发布了面向智能体开发者的成本与质量权衡框架。该方案建议放弃单纯追踪跑分榜首的做法，改为建立具体的任务质量基准线。</p>
+                <p>开发人员可提取数十组特定业务样本，对低、中、高三个价位的模型展开标准化打分，计算每个质量分数的实际边际开销，<span class="turn">最终</span>选出稳定跨过及格线的最经济组合。</p>
+                <p>精细化度量每笔调用的产出比，正在成为企业控制算力账单的核心规范。</p>
+            </div>
+            <div class="src-line"><a href="https://openrouter.ai/blog/insights/cost-vs-quality-tradeoff-framework-for-agent-models/" target="_blank">OpenRouter 官方分析</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 8. 小结 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Summary</div>
+        <div class="sec-title">小结</div>
+
+        <div class="item">
+            <div class="body">
+                <p>自动化流程从黑盒调用演变为透明的系统工程，精细控制权正在全面回归开发者手中。</p>
+                <div class="summary-poem">
+                    不必让机器完全接管一切，<br/>
+                    写下几行代码便能定下边界；<br/>
+                    沙箱给足了算力与系统底气，<br/>
+                    把每一笔推理花在对的地方。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 9. 保持好奇 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Be Curious</div>
+        <div class="sec-title">保持好奇</div>
+
+        <div class="curiosity">
+<div class="body">
+<p><strong>巴塔哥尼亚的安第斯山脉，在 2026 年南半球初秋被一层新雪勾出轮廓。</strong></p>
+<div class="image-block">
+<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-02/patagoniasnow_tmo_20260403_th-e38f394a.jpg" alt="NASA 卫星影像：Snow in the Shadow of the Andes" loading="lazy">
+<p class="image-caption">Snow in the Shadow of the Andes · NASA · <span class="num">45.00°S, 72.00°W</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+    </div>
+
+    <footer class="footer">
+        AI News Daily Briefing · 2026-10-02 Edition · Powered by AI Intelligence Engine
+    </footer>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
