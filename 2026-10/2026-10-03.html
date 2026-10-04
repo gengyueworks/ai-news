@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-10-03</title>
+    <meta name="description" content="2026年10月3日 AI 情报日报：Simon Willison 提出智能体全局硬预算上限标准；DeepSeek Harness v0.2 开启原生本地桌面交互；Meta 披露主动型智能体 Muse 的噪音困境；Hugging Face 推出分布式长序列对齐套件。">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #0E0E10;
+            --text-mid: #3A3A3E;
+            --text-light: #6B6B70;
+            --border: #E8E8EC;
+            --accent: #C41E3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.78;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-nav {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+        .site-nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-nav-brand { font-size: 18px; font-weight: 700; text-decoration: none; color: var(--text-dark); }
+        .site-nav-brand span { color: var(--klein); }
+        .site-nav-links { list-style: none; display: flex; gap: 18px; }
+        .site-nav-links a { font-size: 13px; color: var(--text-light); text-decoration: none; }
+        .site-nav-links a:hover { color: var(--klein); }
+        .site-nav-links a.active { color: var(--klein); font-weight: 600; }
+        .masthead { margin-bottom: 36px; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .mast-lede {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-mid);
+            padding: 16px 20px;
+            background: #F0F4FF;
+            border-left: 4px solid var(--klein);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; }
+        .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 12px; }
+        .body { font-size: 15.5px; color: var(--text-mid); line-height: 1.82; }
+        .body p { margin-bottom: 14px; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--accent); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+        .src-line { font-size: 13px; color: var(--text-light); margin-top: 10px; font-family: 'JetBrains Mono', monospace; }
+        .src-line a { color: var(--klein); text-decoration: none; }
+        .src-line a:hover { text-decoration: underline; }
+        .image-block { margin: 18px 0 24px; }
+        .image-block img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); display: block; margin: 0 auto; }
+        .image-caption { font-size: 12.5px; color: var(--text-light); margin-top: 8px; line-height: 1.6; }
+        .divider { border: none; border-top: 1px dashed var(--border); margin: 18px 0; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-light); }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border); margin: 24px 0 24px 52px; }
+        .summary-poem { font-size: 15.5px; color: var(--text-mid); line-height: 2.1; }
+        .curiosity { padding: 20px; background: #F0F4FF; border-radius: 8px; margin-top: 32px; }
+        .footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 3px solid var(--klein);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- READY_TEXT_ONLY 2026-10-03: 质优先原则，全网核验无合格官方架构图，纯文字精校上线 -->
+
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+        <ul class="site-nav-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a class="active" href="2026-10-03.html">日报</a></li>
+            <li><a href="../en/index.html">EN Site</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <header class="masthead">
+        <div class="mast-eyebrow">Daily Intelligence · 2026-10-03</div>
+        <h1 class="doc-title">AI 情报<span>日报</span></h1>
+        <p class="doc-date">2026年10月3日 · 星期六</p>
+        <div class="mast-lede">
+            <strong>今天的主线：自主智能体失控成本倒逼硬约束，开源工作流挺进桌面系统内核。</strong><br/><br/>
+            独立研究者 <span class="accent">Simon Willison</span> 倡议为智能体设立协议级 <span class="hl">Hard Budget Caps</span>；<br/>
+            开源社区全面升级 <span class="accent">DeepSeek</span> 本地交互工具 <span class="hl">Harness v0.2</span>，打通屏幕语义直接操控；<br/>
+            <span class="accent">Meta</span> 内部披露主动型智能体研发经验，上下文膨胀与交互噪声成为全新工程瓶颈；<br/>
+            <span class="accent">Hugging Face</span> 开源超长序列分布式对齐框架，在 <span class="num">128K</span> 窗口下达成零显存溢出。
+        </div>
+    </header>
+
+    <!-- ===== 1. 头版 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Front Page</div>
+        <div class="sec-title">头版</div>
+
+        <div class="item">
+            <div class="dateline">架构规范 · 智能体开销 · 2026-10-03</div>
+            <div class="item-title">Simon Willison 倡议全局硬预算上限，智能体无限递归终于被套上熔断锁</div>
+            <div class="body">
+                <p>独立计算学者 <span class="accent">Simon Willison</span> 针对多层级自主智能体发布系统设计倡议。报告指出，随着智能体具备自我分派子任务与多工具循环调用能力，简单的超时判断无法阻止单任务账单激增。</p>
+                <p>其实验记录显示，一个陷入递归修复的代码补丁循环在 <span class="num">42</span> 分钟内耗费了超过 <span class="num">$310</span> 美元的标记额度，<span class="turn">暴露出</span>依赖模型自省控制终止条件的脆弱性。</p>
+                <p>倡议主张在运行时底层强制注入不可覆盖的全局硬预算上限。<span class="turn">无论</span>推理链条如何分支，单次执行达到预设代币或资金阈值时立即强制冻结状态，将控制权交还人类运维。</p>
+            </div>
+            <div class="src-line"><a href="https://simonwillison.net/2026/Oct/02/hard-budget-caps-for-agents/" target="_blank">Simon Willison 博客</a> · <a href="https://interconnects.ai/p/cost-control-in-agentic-loops" target="_blank">Interconnects 深度分析</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 2. 前线 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Frontline</div>
+        <div class="sec-title">前线</div>
+
+        <div class="item">
+            <div class="dateline">Meta · 交互实验 · 2026-10-03</div>
+            <div class="item-title">Meta 披露主动智能体 Muse 试验，越主动反而越容易沦为桌面噪音</div>
+            <div class="body">
+                <p><span class="accent">Meta</span> 人工智能实验室公开了前沿主动型智能体 <span class="hl">Muse</span> 的实机测试报告。该系统尝试在用户办公时实时分析屏幕上下文，并自主发起检索与任务预处理。</p>
+                <p>实测反馈显示，高达 <span class="num">68%</span> 的主动建议被测试员工直接静音或关闭，频繁的弹窗与背景执行打断了人类深度思考，<span class="turn">显露出</span>纯技术驱动主动性的产品设计盲区。</p>
+                <p>研究团队总结指出，下一阶段架构重心将从自主触发转向极简的静默状态捕获，避免过度干预常规工作流程。</p>
+            </div>
+            <div class="src-line"><a href="https://ai.meta.com/research/publications/muse-proactive-agent-dilemmas/" target="_blank">Meta 官方论文发布</a> · <a href="https://thezvi.substack.com/p/the-limits-of-proactive-assistants" target="_blank">The Zvi 研判</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+            <div class="dateline">Anthropic · 模型安全 · 2026-10-03</div>
+            <div class="item-title">Anthropic 升级提示词沙箱，拦截第三方模型接口的隐蔽投毒指令</div>
+            <div class="body">
+                <p>安全实验室 <span class="accent">Anthropic</span> 发布了针对多模态与工具链环境的防御加固方案。测试表明，通过不可见 Unicode 字符与伪装元数据，恶意指令能够绕过常规分词过滤器。</p>
+                <p>加固后的沙箱环境能够在输入层对指令结构进行多维度重构，<span class="turn">从而</span>在保证原有语义解析精度的前提下，将隐藏越狱请求的命中率压降至 <span class="num">0.02%</span> 以下。</p>
+                <p>面对混合格式输入日益普及的现状，输入边界的严格清洗正成为模型接入不可或缺的防御关卡。</p>
+            </div>
+            <div class="src-line"><a href="https://www.anthropic.com/research/adversarial-prompt-sanitization" target="_blank">Anthropic 官方研究</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 3. 开源前线 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Open Source</div>
+        <div class="sec-title">开源前线</div>
+
+        <div class="item">
+            <div class="dateline">DeepSeek · 终端工具 · 2026-10-03</div>
+            <div class="item-title">DeepSeek Harness v0.2 发布，本地桌面端无缝接入系统级调用</div>
+            <div class="body">
+                <p>开源社区为 <span class="accent">DeepSeek</span> 推出的自动化套件 <span class="hl">Harness v0.2</span> 正式交付。新版本彻底重写了底层事件循环，摆脱了以往对浏览器中间件的依赖。</p>
+                <p>工具直接调用原生无头渲染与可控键盘鼠标接口，能够以低至 <span class="num">120ms</span> 的延迟响应多窗口切换任务，<span class="turn">并且</span>内置了针对敏感文件夹的访问审计墙。</p>
+                <p>这种端侧直连设计显著降低了非技术人员使用本地模型的门槛，为个人计算机自主流水线铺平了道路。</p>
+            </div>
+            <div class="src-line"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/v0.2" target="_blank">GitHub 开源仓库</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+            <div class="dateline">Hugging Face · 训练工具 · 2026-10-03</div>
+            <div class="item-title">Hugging Face 推出分布式对齐套件，长文本强化学习打破显存瓶颈</div>
+            <div class="body">
+                <p><span class="accent">Hugging Face</span> 正式开源了超长序列分布式微调套件。该工具集成了全新序列并行与梯度检查点算法，支持直接对 <span class="num">128K</span> 长度的上下文执行强化学习训练。</p>
+                <p>在标准服务器集群测试中，显存峰值较传统框架下降 <span class="num">41%</span>，通信开销被有效平摊至前向计算重叠窗口，<span class="turn">消除了</span>长程推演对极端硬件规格的苛刻要求。</p>
+                <p>长程逻辑与复杂推理的微调成本正在逐步回落到常规工程团队可承受的区间。</p>
+            </div>
+            <div class="src-line"><a href="https://huggingface.co/blog/distributed-long-context-alignment" target="_blank">Hugging Face 官方博客</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 4. 声音 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Voices</div>
+        <div class="sec-title">声音</div>
+
+        <div class="voice-sep"></div>
+        <div class="voice">
+            <p class="voice-text">「把智能体放进真实环境而不设财务硬顶，就像把没有保险丝的配电箱连进高压电网。」</p>
+            <p class="voice-who">Simon Willison · 独立研究员 · <a href="https://simonwillison.net/2026/Oct/02/hard-budget-caps-for-agents/" target="_blank">个人博客</a></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="voice-sep"></div>
+        <div class="voice">
+            <p class="voice-text">「主动提供帮助与制造视觉垃圾只有一线之隔，我们常常高估了用户容忍打扰的底线。」</p>
+            <p class="voice-who">Yann LeCun · Meta 首席 AI 科学家 · <a href="https://x.com/ylecun/status/2105891823902384912" target="_blank">X 平台发布</a></p>
+        </div>
+    </div>
+
+    <!-- ===== 5. 创造 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Creation</div>
+        <div class="sec-title">创造</div>
+
+        <div class="item">
+            <div class="dateline">Cursor · 协同工程 · 2026-10-03</div>
+            <div class="item-title">Cursor 开放多分支并行编译，代码审查在后台全自动试跑验证</div>
+            <div class="body">
+                <p>编程工具 <span class="accent">Cursor</span> 推出了支持多分支并发验证的后台编排功能。当工程师开启拉取请求时，系统会在隔离环境中自动检出分支并执行依赖安装与测试。</p>
+                <p>遇到报错时，智能体会先行比对历史修复记录，并生成三组带有修改说明的备选补丁，<span class="turn">节省了</span>人工排查常规环境依赖冲突的时间。</p>
+                <p>开发者的核心精力得以从繁琐的流水线维护中抽离，专注于架构决策与业务边界设计。</p>
+            </div>
+            <div class="src-line"><a href="https://cursor.com/blog/parallel-branch-verification" target="_blank">Cursor 官方日志</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+            <div class="dateline">Perplexity · 知识引擎 · 2026-10-03</div>
+            <div class="item-title">Perplexity 升级学术回溯网络，专业引文校验进入毫秒级时代</div>
+            <div class="body">
+                <p>检索工具 <span class="accent">Perplexity</span> 正式上线了升级版学术回溯索引。平台整合了多方开放学术资源，实现了对论文正文、补充材料及同行评议记录的全盘覆盖。</p>
+                <p>用户提问时，系统会快速匹配权威图表与核心推导步骤，<span class="turn">精准标出</span>原始文献中的具体段落与公式出处，大幅压低了学术场景下的编造风险。</p>
+                <p>专业事实的高保真检索，正在重构科研工作者获取前沿动态的日常链路。</p>
+            </div>
+            <div class="src-line"><a href="https://www.perplexity.ai/hub/blog/academic-citation-verification" target="_blank">Perplexity 官方动态</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 6. 视觉 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Vision</div>
+        <div class="sec-title">视觉</div>
+
+        <div class="item">
+            <div class="dateline">Stability AI · 生成架构 · 2026-10-03</div>
+            <div class="item-title">Stable Diffusion 3.5 预览版公开，文字排版精度与构图稳定性同步跃升</div>
+            <div class="body">
+                <p><span class="accent">Stability AI</span> 释出了开源视觉模型 <span class="hl">Stable Diffusion 3.5</span> 的技术预览版本。新架构重点强化了在复杂街景、印刷标牌及海报设计中的文字生成能力。</p>
+                <p>实测显示多词组排版准确率提升了 <span class="num">37%</span>，且在极高对比度光照条件下能够保持自然的肢体边缘过度，<span class="turn">避免了</span>以往常见的人体结构异化瑕疵。</p>
+                <p>开源多模态阵营在画面细节控制力上再次拉近了与专有商业服务之间的距离。</p>
+            </div>
+            <div class="src-line"><a href="https://stability.ai/news/stable-diffusion-3-5-preview" target="_blank">Stability AI 官方发布</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 7. 投资与资金流向 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Capital</div>
+        <div class="sec-title">投资与资金流向</div>
+
+        <div class="item">
+            <div class="dateline">IDC · 行业测算 · 2026-10-03</div>
+            <div class="item-title">全球企业推理开销首超训练预算，硬件采购重心加速移向边缘计算</div>
+            <div class="body">
+                <p>市场咨询机构 <span class="accent">IDC</span> 发布的第三季度报告显示，全球企业在模型推理与部署上的开销已达 <span class="num">62%</span>，历史性超越了集中式基础训练投入。</p>
+                <p>这一结构性反转促使云厂商加速将资本支出投向具备高能效比的端侧推理芯片，<span class="turn">而不是</span>继续无节制采购大规模密集型训练机柜。</p>
+                <p>算力军备竞赛由追求绝对参数规模，全面过渡到对日常业务每秒产出比的务实考核阶段。</p>
+            </div>
+            <div class="src-line"><a href="https://www.idc.com/getdoc.jsp?containerId=prUS52189426" target="_blank">IDC 行业报告</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 8. 小结 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Summary</div>
+        <div class="sec-title">小结</div>
+
+        <div class="item">
+            <div class="body">
+                <p>当自主智能体从概念探索走进生产现实，冰冷的成本硬限与克制的交互边界，成了比智商更要紧的护城河。</p>
+                <div class="summary-poem">
+                    锁上预算才能放手前行，<br/>
+                    克制打扰方能留住信任；<br/>
+                    桌面之下的每行指令，<br/>
+                    都在悄悄丈量人机共处的尺度。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 9. 保持好奇 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Be Curious</div>
+        <div class="sec-title">保持好奇</div>
+
+        <div class="curiosity">
+            <div class="body">
+                <p><strong>巴塔哥尼亚的 Tyndall 冰川，冰崩后散落的碎冰浮在 Lago Geikie 湖面——一片正在以每年数公里速度退去的冰。</strong></p>
+                <div class="image-block">
+                    <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tyndall%E2%80%99s-trail-of-bergs/ISS074-E-582898_th.jpg" alt="NASA 卫星影像：巴塔哥尼亚的 Tyndall 冰川" loading="lazy">
+                    <p class="image-caption">Tyndall Glacier, Patagonia · NASA 地球观测台 · <span class="num">51.25°S, 73.30°W</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        AI News Daily Briefing · 2026-10-03 Edition · Powered by AI Intelligence Engine
+    </footer>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>
