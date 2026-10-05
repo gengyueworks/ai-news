@@ -16,11 +16,12 @@ INDEX = SITE / "index.html"
 
 html = INDEX.read_text(encoding="utf-8")
 
-# 1. style block (visual SSOT)
+# 1. style block / css link (visual SSOT)
 style_m = re.search(r"<style>.*?</style>", html, re.S)
-if not style_m:
-    raise SystemExit("FATAL: <style> block not found in index.html")
-style = style_m.group(0)
+if style_m:
+    style = style_m.group(0)
+else:
+    style = '<link rel="stylesheet" href="../assets/css/main.css">' 
 
 # 2. day cards in document order (newest first)
 cards = []
@@ -91,6 +92,7 @@ page = f"""<!DOCTYPE html>
 <title>AI News · Daily Briefing (English)</title>
 <meta name="description" content="Frontier signal stream — what changed in AI today, and how people chose.">
 {style}
+<style>
 {extra_css}
 </style>
 </head>
