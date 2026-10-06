@@ -129,10 +129,12 @@
         .image-block img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); display: block; margin: 0 auto; }
         .image-caption { font-size: 12.5px; color: var(--text-light); margin-top: 8px; line-height: 1.6; }
         .divider { border: none; border-top: 1px dashed var(--border); margin: 18px 0; }
-        .voice { background: #F8F9FB; border-left: 3px solid var(--klein); padding: 14px 18px; margin-bottom: 20px; border-radius: 4px; }
-        .voice-text { font-size: 16px; font-style: italic; color: var(--text-dark); line-height: 1.7; margin-bottom: 8px; }
-        .voice-who { font-size: 13px; color: var(--text-light); font-family: 'JetBrains Mono', monospace; }
-        .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+        .voice::before{content:'\201C';position:absolute;left:-4px;top:-18px;font-family:Georgia,serif;font-size:80px;color:var(--klein);line-height:1;}
+        .voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+        .voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+        .voice-who a{color:var(--klein);text-decoration:none;}
+        .voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
         .summary-poem { font-size: 15.5px; color: var(--text-mid); line-height: 2.1; }
         .curiosity { padding: 20px; background: #F0F4FF; border-radius: 8px; margin-top: 32px; }
         .footer {
@@ -251,6 +253,10 @@
                 <p>该项目将在全美 <span class="hl">10 座</span> 核心城市展开，重点普及日常防诈骗、医疗咨询辅助与基础提示词技能。</p>
                 <p><span class="turn">商业落地的逻辑正在改写，</span>AI 工具普及正从硅谷工程师圈层向大众常态化场景渗透。</p>
             </div>
+            <div class="image-block">
+                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-09-17/ai-buildout-bets2a-6808d142.jpg" alt="数据中心施工人员与基建投资趋势图表叠层数字拼贴艺术" loading="lazy">
+                <p class="image-caption">AI 基建大建设 · 现场工程施工人员俯视与数据中心资本开支折线图表的视觉拼贴</p>
+            </div>
             <div class="src-line"><a href="https://openai.com/index/helping-older-adults-use-ai-in-everyday-life" target="_blank">OpenAI News</a> · <a href="https://www.technologyreview.com/2026/09/16/1144205/the-download-ai-trillion-dollar-build-openai-biological-data/" target="_blank">MIT Technology Review</a></div>
         </div>
     
@@ -296,21 +302,22 @@
     <!-- ===== 4. 声音 ===== -->
     <div class="section-block">
         <div class="sec-eyebrow">Voices & Perspectives</div>
-        <div class="sec-title">声音 · 行业领军者思考</div>
+        <div class="sec-title">声音</div>
         <div class="voice">
-            <p class="voice-text">「“我们不应该对待模型就像它们拥有感情、偏好、权利或享受我们福利的资格一样。意识才是尊严的基石。”」</p>
-            <p class="voice-who">Mustafa Suleyman (Microsoft AI CEO) · <a href="https://simonwillison.net/2026/Sep/16/mustafa-suleyman/" target="_blank">Simon Willison</a></p>
+            <p class="voice-text">「我们不应该对待模型就像它们拥有感情、偏好、权利或享受我们福利的资格一样。意识才是尊严的基石。」</p>
+            <p class="voice-who">Mustafa Suleyman · Microsoft AI CEO · <a href="https://simonwillison.net/2026/Sep/16/mustafa-suleyman/" target="_blank">simonwillison.net</a></p>
         </div>
+        <div class="voice-sep"></div>
         <div class="voice">
-            <p class="voice-text">「“Salesforce 正放弃将 UI 作为护城河，这是极其明智的一步，因为 UI 对所有人来说都在消失。”」</p>
-            <p class="voice-who">Ben Thompson (Stratechery) · <a href="https://stratechery.com/2026/salesforce-ai-force-agents-as-ui-the-race-to-headless/" target="_blank">Stratechery</a></p>
+            <p class="voice-text">「Salesforce 正放弃将 UI 作为护城河，这是极其明智的一步，因为 UI 对所有人来说都在消失。」</p>
+            <p class="voice-who">Ben Thompson · Stratechery 创始人 · <a href="https://stratechery.com/2026/salesforce-ai-force-agents-as-ui-the-race-to-headless/" target="_blank">stratechery.com</a></p>
         </div>
+        <div class="voice-sep"></div>
         <div class="voice">
-            <p class="voice-text">「“机器人产业仍在等待属于自己的 ChatGPT 时刻，核心瓶颈在于物理世界缺乏像互联网文本那样海量的具身……」</p>
-            <p class="voice-who">Les Karpas (NVIDIA 具身智能负责人) · <a href="https://techcrunch.com/2026/09/16/robots-are-waiting-for-a-chatgpt-moment-nvidias-les-karpas-explains-why-at-techcrunch-disrupt-2026/" target="_blank">TechCrunch</a></p>
+            <p class="voice-text">「机器人产业仍在等待属于自己的 ChatGPT 时刻，核心瓶颈是物理世界缺乏像互联网文本那样海量可用的具身交互数据。」</p>
+            <p class="voice-who">Les Karpas · NVIDIA 具身智能负责人 · <a href="https://techcrunch.com/2026/09/16/robots-are-waiting-for-a-chatgpt-moment-nvidias-les-karpas-explains-why-at-techcrunch-disrupt-2026/" target="_blank">techcrunch.com</a></p>
         </div>
     </div>
-
     <!-- ===== 5. 创造 ===== -->
     <div class="section-block">
         <div class="sec-eyebrow">Creations & Hardware</div>

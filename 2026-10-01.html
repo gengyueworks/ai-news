@@ -148,19 +148,43 @@
             text-align: center;
         }
     </style>
+
+<style>
+/* 统一导航与翻页样式 */
+.site-nav { border-bottom: 1px solid var(--border, #E8E8EC); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 50; }
+.site-nav-inner { max-width: 720px; margin: 0 auto; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+.site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark, #0E0E10); }
+.site-nav-brand span { color: var(--klein, #002FA7); }
+.site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+.site-nav-links a { font-size: 13px; color: var(--text-light, #6B7280); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.site-nav-links a:hover { color: var(--klein, #002FA7); }
+.site-nav-links a.active { color: var(--klein, #002FA7); font-weight: 700; }
+.nav-pricing-btn { padding: 4px 10px; background: var(--klein, #002FA7); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+.post-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 40px auto 20px; padding: 14px 18px; background: #F8F9FB; border: 1px solid #E8E8EC; border-radius: 8px; font-size: 13px; }
+.post-pagination a, .post-pagination span { text-decoration: none; color: #374151; display: inline-flex; align-items: center; gap: 4px; }
+.post-pagination a:hover { color: #002FA7; }
+.post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
+.post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
+@media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+</style>
+
 </head>
 <body>
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="https://gyread.com/">GyRead<span> · AI News</span></a>
+            <ul class="site-nav-links">
+                <li><a href="https://gyread.com/">官网首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../index.html#archive">往期</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+                <li><a href="https://gyread.com/pricing" class="nav-pricing-btn">订阅完整版</a></li>
+            </ul>
+        </div>
+    </nav>
 <!-- READY_TEXT_ONLY 2026-10-01: 有限检索后无合格官方图，按宁缺毋滥保留文字版式（HH4 政策修正后） -->
 
-<nav class="site-nav">
-    <div class="site-nav-inner">
-        <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-        <ul class="site-nav-links">
-            <li><a href="../index.html">首页</a></li>
-            <li><a class="active" href="2026-10-01.html">日报</a></li>
-        </ul>
-    </div>
-</nav>
+
 
 <div class="container">
 
@@ -187,7 +211,7 @@
             <div class="item-title">Google 发布 Gemini 4 Argon：旗舰模型参数进入收敛期，但真正的角逐转向了推理单价</div>
             <div class="body">
                 <p>Google 团队正式交付旗下最新核心大模型 <span class="hl">Gemini 4 Argon</span>。工程团队公布的技术指标显示，这是目前 Google 交付能力最强、跨模态延迟表现最优的旗舰架构。</p>
-                <p>新版本重点优化了在数万行代码、复杂跨模态视音频流输入下的端到端推理表现。<span class="turn">测试数据表明</span>，Argon 在跨模态长程规划与指令依从上的稳定度显著超越前代，大幅压缩了高难度多步骤执行时的幻觉漂移。</p>
+                <p>新版本重点优化了在数万行代码、复杂跨模态视音频流输入下的推理表现。<span class="turn">测试数据表明</span>，Argon 在跨模态长程规划与指令依从上的稳定度显著超越前代，大幅压缩了高难度多步骤执行时的幻觉漂移。</p>
                 <p>对开发者群体而言，Google 同步开放了高并发 API 调用通道，推理单价相比同期旗舰架构下降近两成，云端算力消耗控制在合理区间。</p>
             </div>
             <div class="image-block">
@@ -222,7 +246,7 @@
             <div class="body">
                 <p>Anthropic 针对开发者社区的反馈作出快速调整，正式暂停了 Claude Agent SDK 中按内部嵌套子调用累加 token 的计费方案。</p>
                 <p>在复杂的自主规划流程中，智能体内部往往会执行多层级上下文拆解与自我验证，<span class="turn">这种机制</span>极易导致一个基础任务产生原本数十倍的消耗账单。许多一线开发者为此放缓了生产环境的部署节奏。</p>
-                <p>此次规则优化被视作规范 Agent 商业化计费体系的重要信号，官方将重新评估基于端到端任务完成率的统一定价模式。</p>
+                <p>此次规则优化被视作规范 Agent 商业化计费体系的重要信号，官方将重新评估基于整体任务完成率的统一定价模式。</p>
             </div>
             <div class="image-block">
                 <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-01/093026-ai-regulations-979a63dd.jpg" alt="机械手交织荧光编织线条概念编辑插画，带有细腻噪点与复古印刷颗粒" loading="lazy">
@@ -250,18 +274,18 @@
     </div>
 
     <!-- ===== 4. 声音 ===== -->
-    <div class=section-block>
-        <div class=sec-eyebrow>Voices</div>
-        <div class=sec-title>声音</div>
+    <div class="section-block">
+        <div class="sec-eyebrow">Voices</div>
+        <div class="sec-title">声音</div>
 
-        <div class=voice>
-            <p class=voice-text>「『太危险』这套营销话术，AI 公司从 GPT-2 那会儿就在用。每次听一家公司说我们造出了太危险的东西，总难免怀疑。」</p>
-            <p class=voice-who>Simon Willison · Django 联合创作者 · <a href="https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/" target="_blank">2026 in LLMs (so far)</a></p>
-        </div><div class=voice-sep></div>
+        <div class="voice">
+            <p class="voice-text">「『太危险』这套营销话术，AI 公司从 GPT-2 那会儿就在用。每次听一家公司说我们造出了太危险的东西，总难免怀疑。」</p>
+            <p class="voice-who">Simon Willison · Django 联合创作者 · <a href="https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/" target="_blank">2026 in LLMs (so far)</a></p>
+        </div><div class="voice-sep"></div>
 
-        <div class=voice>
-            <p class=voice-text>「我们有大约 200 个测试者，是我们付钱请他们去用未发布的 ChatGPT，而不是反过来向他们收钱。」</p>
-            <p class=voice-who>Greg Brockman · OpenAI 总裁 · <a href="https://stratechery.com/2026/an-interview-with-openai-president-greg-brockman-about-astra-and-alignment/" target="_blank">Stratechery 专访</a></p>
+        <div class="voice">
+            <p class="voice-text">「我们有大约 200 个测试者，是我们付钱请他们去用未发布的 ChatGPT，而不是反过来向他们收钱。」</p>
+            <p class="voice-who">Greg Brockman · OpenAI 总裁 · <a href="https://stratechery.com/2026/an-interview-with-openai-president-greg-brockman-about-astra-and-alignment/" target="_blank">Stratechery 专访</a></p>
         </div>
     </div>
 
@@ -294,7 +318,7 @@
             <div class="body">
                 <p>AI 语音赛道企业 ElevenLabs 确认完成新一轮融资推进，整体估值已达到 <span class="accent">220亿美元</span>。相较年初的估值水平实现了全面翻番。</p>
                 <p>估值爆发的背后，是语音 Agent 在跨语种影视后期、游戏实时 NPC 互动以及无障碍交互领域的真实落地规模激增。高保真、低延迟的情感拟真语音已经从边缘辅助特性，转变成下一代人机协同界面中的刚需底层。</p>
-                <p>资本的集中流入也意味着跨平台多语言音色市场的马太效应正在进一步加剧。</p>
+                <p>资本的集中流入，也在进一步拉大跨平台多语言音色市场的头部优势。</p>
             </div>
             <div class="image-block">
                 <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-01/ElevenLabs-feat-d62e43a9.jpg" alt="ElevenLabs 官方品牌与语音交互平台" loading="lazy">
@@ -314,7 +338,7 @@
             <div class="item-title">Flow Engineering 获红杉与 Valor 联合领投，投后估值达 7.5 亿美元</div>
             <div class="body">
                 <p>聚焦于大模型工程自动化流的初创企业 Flow Engineering 宣布完成新一轮战略融资，由 Sequoia 与 Valor 联合领投，投后估值攀升至 <span class="accent">7.5亿美元</span>。</p>
-                <p>随着大模型在工业界落地进入深水区，工程团队的焦点正从纯粹的算力预训练转向持续评测、数据闭环与全链路部署安全，面向高可靠开发场景的工具链迎来了更坚实的资本注水。</p>
+                <p>随着大模型落地走向实际工程，团队的重心正从算力预训练转向持续评测与部署安全，面向高可靠场景的工具链迎来了更多资本支持。</p>
             </div>
             <div class="src-line"><a href="https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/" target="_blank">TechCrunch</a></div>
         </div>
@@ -355,7 +379,15 @@
         </div>
     </div>
 
-    <footer class="footer">
+    
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="../2026-09/2026-09-30.html" class="prev-post">← 上一篇：2026-09-30</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <a href="2026-10-02.html" class="next-post">下一篇：2026-10-02 →</a>
+        </nav>
+
+        <footer class="footer">
         AI News Daily Briefing · 2026-10-01 Edition · Powered by AI Intelligence Engine
     </footer>
 

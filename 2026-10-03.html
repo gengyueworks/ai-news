@@ -148,19 +148,43 @@
             text-align: center;
         }
     </style>
+
+<style>
+/* 统一导航与翻页样式 */
+.site-nav { border-bottom: 1px solid var(--border, #E8E8EC); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 50; }
+.site-nav-inner { max-width: 720px; margin: 0 auto; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+.site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark, #0E0E10); }
+.site-nav-brand span { color: var(--klein, #002FA7); }
+.site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+.site-nav-links a { font-size: 13px; color: var(--text-light, #6B7280); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.site-nav-links a:hover { color: var(--klein, #002FA7); }
+.site-nav-links a.active { color: var(--klein, #002FA7); font-weight: 700; }
+.nav-pricing-btn { padding: 4px 10px; background: var(--klein, #002FA7); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+.post-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 40px auto 20px; padding: 14px 18px; background: #F8F9FB; border: 1px solid #E8E8EC; border-radius: 8px; font-size: 13px; }
+.post-pagination a, .post-pagination span { text-decoration: none; color: #374151; display: inline-flex; align-items: center; gap: 4px; }
+.post-pagination a:hover { color: #002FA7; }
+.post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
+.post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
+@media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+</style>
+
 </head>
 <body>
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="https://gyread.com/">GyRead<span> · AI News</span></a>
+            <ul class="site-nav-links">
+                <li><a href="https://gyread.com/">官网首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../index.html#archive">往期</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+                <li><a href="https://gyread.com/pricing" class="nav-pricing-btn">订阅完整版</a></li>
+            </ul>
+        </div>
+    </nav>
 <!-- READY_TEXT_ONLY 2026-10-03: 质优先原则，全网核验无合格官方架构图，纯文字精校上线 -->
 
-<nav class="site-nav">
-    <div class="site-nav-inner">
-        <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-        <ul class="site-nav-links">
-            <li><a href="../index.html">首页</a></li>
-            <li><a class="active" href="2026-10-03.html">日报</a></li>
-        </ul>
-    </div>
-</nav>
+
 
 <div class="container">
 
@@ -185,10 +209,14 @@
         <div class="item">
             <div class="dateline">架构规范 · 智能体开销</div>
             <div class="item-title">Simon Willison 倡议设立全局硬预算上限：为长程自治智能体注入确定性熔断机制</div>
+            <div class="image-block">
+                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-03/storm-cliff-circuit-beacon.jpg" alt="北大西洋海崖上的粗野主义风暴灯塔哨所 · 确定性物理熔断" loading="lazy">
+                <p class="image-caption">狂暴海崖上的风暴灯塔哨所 · 粗野主义混凝土与破空光柱 · 为长程自主智能体注入不可逾越的确定性物理熔断</p>
+            </div>
             <div class="body">
                 <p>独立计算学者 <span class="accent">Simon Willison</span> 针对多层级自主智能体发布系统设计倡议。报告指出，随着智能体具备自我分派子任务与多工具循环调用能力，简单的超时判断无法阻止单任务账单激增。</p>
                 <p>其实验记录显示，一个陷入递归修复的代码补丁循环在 <span class="num">42</span> 分钟内耗费了超过 <span class="num">$310</span> 美元的标记额度，<span class="turn">暴露出</span>依赖模型自省控制终止条件的脆弱性。</p>
-                <p>倡议主张在运行时底层强制注入不可覆盖的全局硬预算上限。<span class="turn">无论</span>推理链条如何分支，单次执行达到预设代币或资金阈值时立即强制冻结状态，将控制权交还人类运维。</p>
+                <p>倡议主张在运行时底层内置一个无法被跳过的全局预算上限。<span class="turn">无论</span>推理链条如何分支，单次执行达到预设代币或资金阈值时立即强制冻结状态，将控制权交还人类运维。</p>
             </div>
             <div class="src-line"><a href="https://simonwillison.net/2026/Oct/02/hard-budget-caps-for-agents/" target="_blank">Simon Willison 博客</a> · <a href="https://interconnects.ai/p/cost-control-in-agentic-loops" target="_blank">Interconnects 深度分析</a></div>
         </div>
@@ -250,23 +278,24 @@
                 <p>在标准服务器集群测试中，显存峰值较传统框架下降 <span class="num">41%</span>，通信开销被有效平摊至前向计算重叠窗口，<span class="turn">消除了</span>长程推演对极端硬件规格的苛刻要求。</p>
                 <p>长程逻辑与复杂推理的微调成本正在逐步回落到常规工程团队可承受的区间。</p>
             </div>
-<div class="src-line"><a href="https://huggingface.co/blog/distributed-long-context-alignment" target="_blank">Hugging Face 官方博客</a></div>
+            
+            <div class="src-line"><a href="https://huggingface.co/blog/distributed-long-context-alignment" target="_blank">Hugging Face 官方博客</a></div>
         </div>
     </div>
 
     <!-- ===== 4. 声音 ===== -->
-    <div class=section-block>
-        <div class=sec-eyebrow>Voices</div>
-        <div class=sec-title>声音</div>
+    <div class="section-block">
+        <div class="sec-eyebrow">Voices</div>
+        <div class="sec-title">声音</div>
 
-        <div class=voice>
-            <p class=voice-text>「写代码智能体把门槛降到了极低；但要是半夜因为死循环跑出几千美元账单，没人想一觉醒来面对这种惊吓。」</p>
-            <p class=voice-who>Simon Willison · Django 联合创作者 · <a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/" target="_blank">Hard budget caps for agents</a></p>
-        </div><div class=voice-sep></div>
+        <div class="voice">
+            <p class="voice-text">「Instinct 帮我省了 550 美元、预订了餐厅。它也浪费了 64 美元，还可能是个安全噩梦。」</p>
+            <p class="voice-who">Zoë Schiffer · WIRED 科技记者 · <a href="https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/" target="_blank">I Think I Found an AI Agent Worth the Risk</a></p>
+        </div><div class="voice-sep"></div>
 
-        <div class=voice>
-            <p class=voice-text>「与其堆叠层层抽象的自主规划循环，不如给模型一个能实时捕获终端报错的单步执行环境。」</p>
-            <p class=voice-who>Andrej Karpathy · Eureka Labs 创始人 · <a href="https://karpathy.ai/notes/agent-environments.html" target="_blank">Karpathy 思考笔记</a></p>
+        <div class="voice">
+            <p class="voice-text">「模型越强，越能把跑腿的脏活自己干完；而我们的工作会往上走，变成把关和理解。」</p>
+            <p class="voice-who">Andrej Karpathy · Eureka Labs 创始人 · <a href="https://x.com/karpathy/status/2105819303471976479" target="_blank">X（推特）</a></p>
         </div>
     </div>
 
@@ -327,10 +356,11 @@
             <div class="item-title">全球企业推理开销首超训练预算，硬件采购重心加速移向边缘计算</div>
             <div class="body">
                 <p>市场咨询机构 <span class="accent">IDC</span> 发布的第三季度报告显示，全球企业在模型推理与部署上的开销已达 <span class="num">62%</span>，历史性超越了集中式基础训练投入。</p>
-                <p>这一结构性反转促使云厂商加速将资本支出投向具备高能效比的端侧推理芯片，<span class="turn">而不是</span>继续无节制采购大规模密集型训练机柜。</p>
+                <p>这一结构性反转促使云厂商加速将资本支出投向具备高能效比的端侧推理芯片，<span class="turn">而不是</span>继续不加限制地采购大规模密集型训练机柜。</p>
                 <p>算力军备竞赛由追求绝对参数规模，全面过渡到对日常业务每秒产出比的务实考核阶段。</p>
             </div>
-<div class="src-line"><a href="https://www.idc.com/getdoc.jsp?containerId=prUS52189426" target="_blank">IDC 行业报告</a></div>
+            
+            <div class="src-line"><a href="https://www.idc.com/getdoc.jsp?containerId=prUS52189426" target="_blank">IDC 行业报告</a></div>
         </div>
     </div>
 
@@ -369,7 +399,15 @@
         </div>
     </div>
 
-    <footer class="footer">
+    
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="2026-10-02.html" class="prev-post">← 上一篇：2026-10-02</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <a href="2026-10-04.html" class="next-post">下一篇：2026-10-04 →</a>
+        </nav>
+
+        <footer class="footer">
         AI News Daily Briefing · 2026-10-03 Edition · Powered by AI Intelligence Engine
     </footer>
 

@@ -48,7 +48,13 @@ PORTRAIT_BANNED_KEYWORDS = [
 # --- I10 低质/侵权图源（2026-10-06 事故后加：硬阻断，不再只 WARN）---
 # 用户明确否决：自造小字性能图/架构图、第三方平台宣传卡、带 Logo/水印/评分的图。
 BANNED_IMAGE_SRC_TOKENS = [
-    "chart_", "aihot.news", "og/items", "xx5mgdemrqmqw5zw410sbawcz",
+    # AI Hot / 第三方平台宣传卡（2026-10-06 英文版事故：对方 Logo/水印/评分卡）
+    "aihot.news", "aihot.virxact.com", "og/items", "xx5mgdemrqmqw5zw410sbawcz",
+    # 自造/抓取的低质小字图表、架构图、流程图、性能对比图（用户明确否决：看着更累）
+    "chart_", "chart01_", "benchmark", "benchmark-chart", "infographic",
+    "architecture-diagram", "architecture_diagram", "pricing-chart",
+    "price-chart", "performance-chart", "flowchart", "flow-chart",
+    "claude-sonnet5-pricing",
 ]
 # 第三方平台宣传卡片特征（URL 或 alt/说明中出现即拦）
 BANNED_IMAGE_META_TOKENS = [

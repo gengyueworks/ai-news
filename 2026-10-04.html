@@ -148,19 +148,43 @@
             text-align: center;
         }
     </style>
+
+<style>
+/* 统一导航与翻页样式 */
+.site-nav { border-bottom: 1px solid var(--border, #E8E8EC); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 50; }
+.site-nav-inner { max-width: 720px; margin: 0 auto; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+.site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark, #0E0E10); }
+.site-nav-brand span { color: var(--klein, #002FA7); }
+.site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+.site-nav-links a { font-size: 13px; color: var(--text-light, #6B7280); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.site-nav-links a:hover { color: var(--klein, #002FA7); }
+.site-nav-links a.active { color: var(--klein, #002FA7); font-weight: 700; }
+.nav-pricing-btn { padding: 4px 10px; background: var(--klein, #002FA7); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+.post-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 40px auto 20px; padding: 14px 18px; background: #F8F9FB; border: 1px solid #E8E8EC; border-radius: 8px; font-size: 13px; }
+.post-pagination a, .post-pagination span { text-decoration: none; color: #374151; display: inline-flex; align-items: center; gap: 4px; }
+.post-pagination a:hover { color: #002FA7; }
+.post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
+.post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
+@media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+</style>
+
 </head>
 <body>
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="https://gyread.com/">GyRead<span> · AI News</span></a>
+            <ul class="site-nav-links">
+                <li><a href="https://gyread.com/">官网首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../index.html#archive">往期</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+                <li><a href="https://gyread.com/pricing" class="nav-pricing-btn">订阅完整版</a></li>
+            </ul>
+        </div>
+    </nav>
 <!-- READY_TEXT_ONLY 2026-10-04: 质优先原则，全网核验无合格官方架构图，纯文字精校上线 -->
 
-<nav class="site-nav">
-    <div class="site-nav-inner">
-        <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-        <ul class="site-nav-links">
-            <li><a href="../index.html">首页</a></li>
-            <li><a class="active" href="2026-10-04.html">日报</a></li>
-        </ul>
-    </div>
-</nav>
+
 
 <div class="container">
 
@@ -184,13 +208,13 @@
 
         <div class="item">
             <div class="dateline">Google · 隐私计算</div>
-            <div class="item-title">Google Gboard 落地 TEE 可验证学习：硬件级加密隔离训练，端侧敏感数据无需明文上云</div>
+            <div class="item-title">Google Gboard 首次落地 TEE 可验证学习：硬件级加密隔离训练，端侧数据不出芯片</div>
             <div class="body">
                 <p><span class="accent">Google</span> 正式向数亿移动终端推送输入法联邦学习底层升级。该系统直接依托手机硬件内的受信任执行环境（TEE），在芯片内部完成本地词表更新与模型梯度聚合。</p>
                 <p>整个训练过程由密码学硬件远程认证（Remote Attestation）保护，<span class="turn">杜绝了</span>任何宿主操作系统进程或云端窃听者接触原始击键记录的可能。</p>
                 <p>这一工程突破验证了在零数据上传的严苛前提下，端侧大模型仍能持续吸收日常习惯并进化，为消费级产品的隐私合规树立了工程基准。</p>
             </div>
-<div class="src-line"><a href="https://research.google/blog/confidential-federated-learning-in-gboard/" target="_blank">Google 官方研究博客</a> · <a href="https://stratechery.com/2026/on-device-privacy-and-edge-intelligence/" target="_blank">Stratechery 深度分析</a></div>
+            <div class="src-line"><a href="https://research.google/blog/confidential-federated-learning-in-gboard/" target="_blank">Google 官方研究博客</a> · <a href="https://stratechery.com/2026/on-device-privacy-and-edge-intelligence/" target="_blank">Stratechery 深度分析</a></div>
         </div>
     </div>
 
@@ -250,23 +274,23 @@
                 <p>得益于流式运动学逆解求解器的优化，端到端运动采集到真实电机响应的延迟被压缩至 <span class="num">18ms</span>，<span class="turn">让操作者</span>在处理易碎液体容器时能够获得清晰的触觉阻尼反馈。</p>
                 <p>这种低延迟遥控工具，让教机器人做精细动作变得跟玩游戏一样直观，大幅降低了动作数据采集的门槛。</p>
             </div>
-<div class="src-line"><a href="https://github.com/NVIDIA-Omniverse/IsaacTeleop" target="_blank">GitHub 开源仓库</a></div>
+            <div class="src-line"><a href="https://github.com/NVIDIA-Omniverse/IsaacTeleop" target="_blank">GitHub 开源仓库</a></div>
         </div>
     </div>
 
     <!-- ===== 4. 声音 ===== -->
-    <div class=section-block>
-        <div class=sec-eyebrow>Voices</div>
-        <div class=sec-title>声音</div>
+    <div class="section-block">
+        <div class="sec-eyebrow">Voices</div>
+        <div class="sec-title">声音</div>
 
-        <div class=voice>
-            <p class=voice-text>「刷榜跑高分早就不难了，真正卡住我们好几个月的，是智能体在真实电脑里乱点乱改、甚至越权删文件的行为。」</p>
-            <p class=voice-who>Demis Hassabis · Google DeepMind CEO · <a href="https://deepmind.google/discover/blog/demis-hassabis-on-frontier-agents/" target="_blank">DeepMind 官方对话</a></p>
-        </div><div class=voice-sep></div>
+        <div class="voice">
+            <p class="voice-text">「刷榜跑高分早就不难了，真正卡住我们好几个月的，是智能体在真实电脑里乱点乱改、甚至越权删文件的行为。」</p>
+            <p class="voice-who">Demis Hassabis · Google DeepMind CEO · <a href="https://deepmind.google/discover/blog/demis-hassabis-on-frontier-agents/" target="_blank">DeepMind 官方对话</a></p>
+        </div><div class="voice-sep"></div>
 
-        <div class=voice>
-            <p class=voice-text>「模型吐字即便提速八倍，智能体端到端完成任务也只快了两倍，吞掉系统时间的始终是外部工具的网络等待与状态同步。」</p>
-            <p class=voice-who>Sayash Kapoor · 普林斯顿大学 AI 研究员 · <a href="https://www.aisnakeoil.com/p/agent-latency-bottlenecks" target="_blank">AI Snake Oil 专栏</a></p>
+        <div class="voice">
+            <p class="voice-text">「我或许该留下来，为改变人员与文化拼命争取，但现实是我和同事忙到连认真想改变的机会都没有，更别说真的去改了。」</p>
+            <p class="voice-who">David Robinson · 前 OpenAI 安全研究员 · <a href="https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/" target="_blank">TechCrunch</a></p>
         </div>
     </div>
 
@@ -281,7 +305,7 @@
             <div class="body">
                 <p>欧洲大模型创企 <span class="accent">Mistral</span> 发布了开源语法拦截库。开发者只需在调用链中声明几行模式定义，便能强制大模型输出严格符合语法约束的数据结构。</p>
                 <p>与传统的正则后期重试不同，该工具直接修改解码过程中的下个词概率分布，<span class="turn">确保</span>输出的每一段 JSON 或 SQL 都具备百分之百的语法正确性。</p>
-                <p>高确定性接口设计的普及，让自动化系统之间的对接变得愈发稳固与无缝。</p>
+                
             </div>
             <div class="src-line"><a href="https://mistral.ai/news/constrained-decoding-engine/" target="_blank">Mistral 官方公告</a></div>
         </div>
@@ -294,7 +318,7 @@
             <div class="body">
                 <p>语音合成团队 <span class="accent">ElevenLabs</span> 全面放开了全双工会话接口的公共接入。该引擎结合了流式语音识别与即时声学渲染，打断重置延迟小于 <span class="num">200ms</span>。</p>
                 <p>测试场景表明，合成声音在面对突发打断与情绪转折时能够自然调整语速与呼吸停顿，<span class="turn">摆脱了</span>传统单向播报的机械感。</p>
-                <p>人机自然的口头双向沟通体验，正在从实验室演示平稳步入消费级软硬件。</p>
+                
             </div>
             <div class="src-line"><a href="https://elevenlabs.io/blog/conversational-ai-duplex-engine" target="_blank">ElevenLabs 官方发布</a></div>
         </div>
@@ -328,7 +352,7 @@
             <div class="body">
                 <p>创投数据平台 <span class="accent">PitchBook</span> 发布的最新统计显示，第三季度围绕机器人与具身交互的风险投资总额突破了 <span class="num">40</span> 亿美元，环比增长达 <span class="num">58%</span>。</p>
                 <p>资本的追逐目标从通用大语言模型底座，迅速移向具备工厂组装、仓储分拣与精密家政操作能力的硬件载体团队，<span class="turn">标志着</span>行业全面进入价值验证攻坚期。</p>
-                <p>从代码生成的数字空间走向物理现实，资金正在全力寻找人工智能真正产生生产力跃迁的落脚点。</p>
+                
             </div>
             <div class="src-line"><a href="https://pitchbook.com/news/reports/q3-2026-embodied-ai-investment-surge" target="_blank">PitchBook 行业研报</a></div>
         </div>
@@ -341,7 +365,7 @@
 
         <div class="item">
             <div class="body">
-                <p>从芯片最底层的硬件飞地，到重力世界里抓取零件的机械指尖，智能正在褪去虚浮的光环，一点一滴嵌入物理法则的严苛边界。</p>
+                
                 <div class="summary-poem">
                     锁在芯片里的承诺无需见证，<br/>
                     落在掌心里的阻尼才是真实；<br/>
@@ -359,7 +383,7 @@
 
         <div class="curiosity">
             <div class="body">
-                <p><strong>北美大平原上，Nebraska 的沙丘随季节风向慢慢改形——草被固定了沙，沙却仍在挪动。</strong></p>
+                <p><strong>北美大平原上，Nebraska 的沙丘随季节风向慢慢改形，草被固定了沙，沙却仍在挪动。</strong></p>
                 <div class="image-block">
                     <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/nebraska%E2%80%99s-wide%2C-rolling-domain/nebraskasandhillszm1_oli_20250819_th.jpg" alt="NASA 卫星影像：Nebraska 的沙丘" loading="lazy">
                     <p class="image-caption">Sandhills of Nebraska · NASA 地球观测台 · <span class="num">42.00°N, 102.00°W</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br>
@@ -369,7 +393,15 @@
         </div>
     </div>
 
-    <footer class="footer">
+    
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="2026-10-03.html" class="prev-post">← 上一篇：2026-10-03</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <a href="2026-10-05.html" class="next-post">下一篇：2026-10-05 →</a>
+        </nav>
+
+        <footer class="footer">
         AI News Daily Briefing · 2026-10-04 Edition · Powered by AI Intelligence Engine
     </footer>
 
