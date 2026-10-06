@@ -1228,3 +1228,80 @@ body {
   transform: translateX(-50%) translateY(0);
 }
 
+
+/* ==========================================================================
+   文章底部翻页器 (POST PAGINATION)
+   ========================================================================== */
+.post-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 48px auto 24px;
+  padding: 16px 20px;
+  background: var(--bg-subtle, #F8F9FB);
+  border: 1px solid var(--border, #E8E8EC);
+  border-radius: 10px;
+  font-family: var(--font-sans, -apple-system, sans-serif);
+}
+
+.post-pagination a, .post-pagination span {
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-regular, #374151);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.post-pagination a:hover {
+  color: var(--klein, #002FA7);
+}
+
+.post-pagination .prev-post, .post-pagination .next-post {
+  flex: 1;
+}
+
+.post-pagination .next-post {
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.post-pagination .all-posts {
+  padding: 4px 12px;
+  background: var(--white, #FFFFFF);
+  border: 1px solid var(--border, #E8E8EC);
+  border-radius: 6px;
+  color: var(--text-secondary, #6B7280);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.post-pagination .all-posts:hover {
+  border-color: var(--klein, #002FA7);
+  color: var(--klein, #002FA7);
+}
+
+.post-pagination .disabled {
+  color: var(--text-muted, #9CA3AF);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 540px) {
+  .post-pagination {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .post-pagination .next-post {
+    text-align: left;
+    justify-content: flex-start;
+  }
+  .post-pagination .all-posts {
+    text-align: center;
+    justify-content: center;
+  }
+}

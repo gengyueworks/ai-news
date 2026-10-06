@@ -60,17 +60,41 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 @media(max-width:520px){.mast-title{font-size:34px;}.container{padding:24px 16px 48px;}}
 </style>
 <!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
+
+<style>
+/* 统一导航与翻页样式 */
+.site-nav { border-bottom: 1px solid var(--border, #E8E8EC); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 50; }
+.site-nav-inner { max-width: 720px; margin: 0 auto; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+.site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark, #0E0E10); }
+.site-nav-brand span { color: var(--klein, #002FA7); }
+.site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+.site-nav-links a { font-size: 13px; color: var(--text-light, #6B7280); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.site-nav-links a:hover { color: var(--klein, #002FA7); }
+.site-nav-links a.active { color: var(--klein, #002FA7); font-weight: 700; }
+.nav-pricing-btn { padding: 4px 10px; background: var(--klein, #002FA7); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+.post-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 40px auto 20px; padding: 14px 18px; background: #F8F9FB; border: 1px solid #E8E8EC; border-radius: 8px; font-size: 13px; }
+.post-pagination a, .post-pagination span { text-decoration: none; color: #374151; display: inline-flex; align-items: center; gap: 4px; }
+.post-pagination a:hover { color: #002FA7; }
+.post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
+.post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
+@media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+</style>
+
 </head>
 <body>
-<nav class="site-nav">
-<div class="site-nav-inner">
-<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-<ul class="site-nav-links">
-<li><a href="../index.html">首页</a></li>
-<li><a class="active" href="2026-08-28.html">最新</a></li>
-</ul>
-</div>
-</nav>
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="https://gyread.com/">GyRead<span> · AI News</span></a>
+            <ul class="site-nav-links">
+                <li><a href="https://gyread.com/">官网首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../index.html#archive">往期</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+                <li><a href="https://gyread.com/pricing" class="nav-pricing-btn">订阅完整版</a></li>
+            </ul>
+        </div>
+    </nav>
+
 
 <div class="container">
 <div class="masthead">
@@ -123,7 +147,11 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p>数据中心业务依然是绝对引擎，单季营收高达 <span class="accent">890.23 亿美元</span>。<span class="turn">即便市场反复担忧资本开支过热，大厂对 Blackwell Ultra 和 Vera Rubin 的下单速度依然没有放缓。</span></p>
 <p>亚马逊追加的 200 万颗芯片涵盖了英伟达下一代平台。<span class="hl">这表明云服务巨头正在锁定未来两年的物理算力供给</span>，算力基础设施的垄断高墙还在被加高。</p>
 </div>
-<div class="src-line">TechCrunch · <a href="https://nvidianews.nvidia.com/news/q2-fy27-financial-results" target="_blank">NVIDIA Investor Relations</a></div>
+<div class="image-block">
+                <img src="../assets/ai-frontline-images/by-date/2026-08-28/chart_0828_aws.jpg" alt="亚马逊 AWS 累计采购英伟达 GPU 突破 200 万颗对比柱状图" loading="lazy">
+                <p class="image-caption">云巨头算力军备竞赛 · 亚马逊追加采购 200 万颗最新 GPU，算力集群规模同比提升 150% · 数据来源：NVIDIA 投资者关系报告</p>
+            </div>
+            <div class="src-line">TechCrunch · <a href="https://nvidianews.nvidia.com/news/q2-fy27-financial-results" target="_blank">NVIDIA Investor Relations</a></div>
 </div>
 <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
 <div class="item">
@@ -246,7 +274,15 @@ Claude 开放一万个科研席位，前沿大模型深度嵌入科学探索。
 </div>
 </div>
 
-<div class="footer">
+
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="2026-08-27.html" class="prev-post">← 上一篇：2026-08-27</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <a href="2026-08-29.html" class="next-post">下一篇：2026-08-29 →</a>
+        </nav>
+
+        <div class="footer">
 <div class="big">AI 情报日报 · 前沿信号流</div>
 前沿信号流，AI每天在变什么，人在怎么选
 </div>

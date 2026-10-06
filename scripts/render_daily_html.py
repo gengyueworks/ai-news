@@ -114,12 +114,13 @@ body{{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var
 <body>
 <nav class="site-nav">
 <div class="site-nav-inner">
-<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<a class="site-nav-brand" href="https://gyread.com/">GyRead<span> · AI News</span></a>
 <ul class="site-nav-links">
-<li><a href="../index.html">首页</a></li>
-<li><a class="active" href="{date}.html">最新</a></li>
-<li><a href="../ai-news-story.html">制作过程</a></li>
-<li><a href="../en/index.html">EN Site</a></li>
+<li><a href="https://gyread.com/">官网首页</a></li>
+<li><a href="../latest.html">最新</a></li>
+<li><a href="../index.html#archive">往期</a></li>
+<li><a href="../ai-news-story.html">幕后故事</a></li>
+<li><a href="https://gyread.com/pricing" class="nav-pricing-btn">订阅完整版</a></li>
 </ul>
 </div>
 </nav>
