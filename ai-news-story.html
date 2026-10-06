@@ -1545,10 +1545,10 @@
             <h2 class="section-title">Stats · 全局收尾</h2>
             
 <div class="stats-wall">
-                <div class="stats-wall-title">持续迭代 · 截至 2026-10-06</div>
+                <div class="stats-wall-title" id="storyDaysTitle">持续迭代 · 截至 2026-10-07</div>
                 <div class="stats-wall-grid">
                     <div class="stats-wall-item">
-                        <div class="stats-wall-value">129</div>
+                        <div class="stats-wall-value" id="storyDaysValue">129</div>
                         <div class="stats-wall-label">持续天数</div>
                     </div>
                     <div class="stats-wall-item">
@@ -1592,5 +1592,17 @@
             <div><a href="ai-news-story.html" style="color:#6B7280; text-decoration:none; font-size:12px;" onmouseover="this.style.color='#002FA7'" onmouseout="this.style.color='#6B7280'">工程遥测 · 查看背后历程 →</a></div>
         </div>
     </div>
+<script>
+        // 天数自 2026-06-01 创刊日起算，由浏览器按当天日期实时计算；静态数字只作兜底。
+        (function () {
+            var n = Math.round((new Date(new Date().toDateString()) - new Date(2026, 5, 1)) / 86400000) + 1;
+            var d = new Date();
+            var p = function (x) { return (x < 10 ? '0' : '') + x; };
+            var el = document.getElementById('storyDaysValue');
+            if (el) el.textContent = n;
+            var t = document.getElementById('storyDaysTitle');
+            if (t) t.textContent = '持续迭代 · 截至 ' + d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+        })();
+    </script>
 </body>
 </html>

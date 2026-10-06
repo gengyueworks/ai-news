@@ -36,7 +36,7 @@
             <div class="edition-badge-bar">
                 <span data-zh="📖 开放查阅版 · 每日持续更新 · 涵盖专题案卷与历史归档" data-en="📖 Open Edition · Daily updates · Includes special issues and archive">📖 开放查阅版 · 每日持续更新 · 涵盖专题案卷与历史归档</span>
                 <a href="https://gyread.com/pricing" class="subscribe-btn" data-zh="订阅完整版 →" data-en="Subscribe Full →">订阅完整版 →</a>
-                <a href="ai-news-story.html" class="story-link" data-zh="这本站走过的 126 天" data-en="The 126 days behind this site">这本站走过的 126 天</a>
+                <a href="ai-news-story.html" class="story-link" id="storyDayLink" data-zh="这本站走过的 129 天" data-en="The 129 days behind this site">这本站走过的 129 天</a>
             </div>
         </section>
 
@@ -1363,5 +1363,19 @@
         }
     </script>
 
+    <script>
+        // 天数从 2026-06-01 创刊日起算，由浏览器按当天日期实时计算；
+        // 静态数字只作兜底，不再依赖每日刷新脚本追赶。
+        (function () {
+            var now = new Date();
+            var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            var n = Math.round((today - new Date(2026, 5, 1)) / 86400000) + 1;
+            var el = document.getElementById('storyDayLink');
+            if (!el) return;
+            el.setAttribute('data-zh', '这本站走过的 ' + n + ' 天');
+            el.setAttribute('data-en', 'The ' + n + ' days behind this site');
+            el.textContent = '这本站走过的 ' + n + ' 天';
+        })();
+    </script>
 </body>
 </html>
