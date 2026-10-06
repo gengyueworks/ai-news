@@ -41,7 +41,7 @@ def audit(site_dir_path: Path) -> int:
     all_physical = []
     unlinked = []
     for p in sorted(site_dir.glob('2026-*/*.html')):
-        if any(p.name.endswith(s) or s in p.name for s in EXCLUDED_SUFFIXES) or p.name.startswith('.') or 'weekend' in p.name:
+        if any(p.name.endswith(s) or s in p.name for s in EXCLUDED_SUFFIXES) or p.name.startswith('.') or 'weekend' in p.name or re.match(r'^\d{2}\.html$', p.name):
             continue
         rel = p.relative_to(site_dir).as_posix()
         all_physical.append(rel)
