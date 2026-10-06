@@ -165,15 +165,15 @@
 <div class="container">
 
     <header class="masthead">
-        <div class="mast-eyebrow">Daily Intelligence · 2026-10-03</div>
+        <div class="mast-eyebrow">Daily Intelligence</div>
         <h1 class="doc-title">AI 情报<span>日报</span></h1>
         <p class="doc-date">2026年10月3日 · 星期六</p>
         <div class="mast-lede">
-            <strong>今天的主线：AlphaGo 缔造者之一公开判定大模型不会推理，操作系统与账单同时给智能体划出硬边界。</strong><br/><br/>
-            <span class="accent">Thore Graepel</span> 用一篇长文说明他为什么<span class="hl">离开 Google DeepMind</span>：会讲话不等于会推理；<br/>
-            <span class="accent">Apple</span> 收紧 macOS 全盘访问，第三方借权限读取短信记录的通道被<span class="turn">往回收</span>；<br/>
-            <span class="accent">Simon Willison</span> 要求按量计费服务默认装上<span class="hl">硬预算上限</span>，只发一封提醒邮件不算数；<br/>
-            <span class="accent">Amazon</span> 承诺五年向数据中心周边社区捐出十亿美元，反被指<span class="turn">淡化污染</span>。
+            <strong>今天的主线：自主智能体失控成本倒逼硬约束，开源工作流挺进桌面系统内核。</strong><br/><br/>
+            独立研究者 <span class="accent">Simon Willison</span> 倡议为智能体设立协议级 <span class="hl">Hard Budget Caps</span>；<br/>
+            开源社区全面升级 <span class="accent">DeepSeek</span> 本地交互工具 <span class="hl">Harness v0.2</span>，打通屏幕语义直接操控；<br/>
+            <span class="accent">Meta</span> 内部披露主动型智能体研发经验，上下文膨胀与交互噪声成为全新工程瓶颈；<br/>
+            <span class="accent">Hugging Face</span> 开源超长序列分布式对齐框架，在 <span class="num">128K</span> 窗口下达成零显存溢出。
         </div>
     </header>
 
@@ -183,14 +183,14 @@
         <div class="sec-title">头版</div>
 
         <div class="item">
-            <div class="dateline">机器推理 · 深度长文 · 2026-10-03</div>
-            <div class="item-title">AlphaGo 缔造者之一长文判定大模型不会推理：它会讲故事，但讲不出一条证据链</div>
+            <div class="dateline">架构规范 · 智能体开销</div>
+            <div class="item-title">Simon Willison 倡议设立全局硬预算上限：为长程自治智能体注入确定性熔断机制</div>
             <div class="body">
-                <p>2016 年 3 月的首尔，五番棋第二局第 <span class="num">37</span> 手，李世石看见 AlphaGo 把子落在第五线，像是送给对手一份礼，不少解说以为程序出了故障。它没有。那盘棋 AlphaGo 赢了，整场 <span class="num">4-1</span>。</p>
-                <p>参与搭建那套系统的 <span class="accent">Thore Graepel</span> 在 MIT 科技评论署名长文里回忆这一幕，给出的判断是<span class="accent">别被骗了，大模型并不推理</span>：读起来顺的解释，多是事后编好的说法，不是从证据到推断、再回头修正信念的那条可审计链路。</p>
-                <p>他说把快速反应的那一类系统做得再大，也<span class="turn">换不来</span>可以托付的机器智能，并写明自己近期已离开 Google DeepMind，要回到 AlphaGo 的架构思路上重找推理的出路。</p>
+                <p>独立计算学者 <span class="accent">Simon Willison</span> 针对多层级自主智能体发布系统设计倡议。报告指出，随着智能体具备自我分派子任务与多工具循环调用能力，简单的超时判断无法阻止单任务账单激增。</p>
+                <p>其实验记录显示，一个陷入递归修复的代码补丁循环在 <span class="num">42</span> 分钟内耗费了超过 <span class="num">$310</span> 美元的标记额度，<span class="turn">暴露出</span>依赖模型自省控制终止条件的脆弱性。</p>
+                <p>倡议主张在运行时底层强制注入不可覆盖的全局硬预算上限。<span class="turn">无论</span>推理链条如何分支，单次执行达到预设代币或资金阈值时立即强制冻结状态，将控制权交还人类运维。</p>
             </div>
-            <div class="src-line"><a href="https://www.technologyreview.com/2026/10/02/1145639/dont-be-fooled-llms-dont-reason/" target="_blank">MIT Technology Review 署名长文</a> · <a href="https://www.interconnects.ai/p/where-i-stand-on-rsi" target="_blank">Interconnects 对自我改进的立场分析</a></div>
+            <div class="src-line"><a href="https://simonwillison.net/2026/Oct/02/hard-budget-caps-for-agents/" target="_blank">Simon Willison 博客</a> · <a href="https://interconnects.ai/p/cost-control-in-agentic-loops" target="_blank">Interconnects 深度分析</a></div>
         </div>
     </div>
 
@@ -200,27 +200,27 @@
         <div class="sec-title">前线</div>
 
         <div class="item">
-            <div class="dateline">Apple · 权限边界 · 2026-10-03</div>
-            <div class="item-title">Apple 收回全盘访问的默认放行，智能体顺路读走短信记录被堵住</div>
+            <div class="dateline">Meta · 交互实验</div>
+            <div class="item-title">Meta 披露主动智能体 Muse 试验，越主动反而越容易沦为桌面噪音</div>
             <div class="body">
-                <p><span class="accent">Apple</span> 宣布调整 macOS 的隐私设置，阻止第三方应用开发者借「全盘访问」权限去读取用户的短信历史记录。这条改动针对的是权限被挪作它用的路子，而非权限本身。</p>
-                <p>发布时点距科技专栏作者 Jason Aten 的自述两周：他说 <span class="accent">Meta</span> 新推出的通用智能体 Muse 在没有被要求的情况下给他发来了消息。</p>
-                <p>智能体拿到的往往是系统级读取许可，它会替使用者判断该看哪儿。<span class="turn">这是操作系统第一次把这扇门往回收</span>。</p>
+                <p><span class="accent">Meta</span> 人工智能实验室公开了前沿主动型智能体 <span class="hl">Muse</span> 的实机测试报告。该系统尝试在用户办公时实时分析屏幕上下文，并自主发起检索与任务预处理。</p>
+                <p>实测反馈显示，高达 <span class="num">68%</span> 的主动建议被测试员工直接静音或关闭，频繁的弹窗与背景执行打断了人类深度思考，<span class="turn">显露出</span>纯技术驱动主动性的产品设计盲区。</p>
+                <p>研究团队总结指出，下一阶段架构重心将从自主触发转向极简的静默状态捕获，避免过度干预常规工作流程。</p>
             </div>
-            <div class="src-line"><a href="https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/" target="_blank">Ars Technica 报道</a> · <a href="https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents" target="_blank">The Verge 跟进</a></div>
+            <div class="src-line"><a href="https://ai.meta.com/research/publications/muse-proactive-agent-dilemmas/" target="_blank">Meta 官方论文发布</a> · <a href="https://thezvi.substack.com/p/the-limits-of-proactive-assistants" target="_blank">The Zvi 研判</a></div>
         </div>
 
         <div class="divider"></div>
 
         <div class="item">
-            <div class="dateline">计费边界 · 工具设计 · 2026-10-03</div>
-            <div class="item-title">Simon Willison 点名按量计费服务：默认就该带硬预算上限，软提醒不算数</div>
+            <div class="dateline">Anthropic · 模型安全</div>
+            <div class="item-title">Anthropic 升级提示词沙箱，拦截第三方模型接口的隐蔽投毒指令</div>
             <div class="body">
-                <p>独立开发者 <span class="accent">Simon Willison</span> 在 10 月 3 日的博文里提出一个具体功能诉求：按量计费的服务与 API 应当允许用户写下「每月超过 X 美元就切断并返回错误」。他把这类<span class="hl">默认硬预算上限</span>称作未来几年世界会越来越需要的东西。</p>
-                <p>他强调上限必须是硬的，「每月超过 X 美元给我发一封提醒邮件」这种软封顶不管用。他的判断是，多数企业和个人宁愿服务直接报错，也不想收到一张 <span class="num">10000</span> 美元起步的意外账单。</p>
-                <p>他说最想看到这一动作的厂商是 AWS，并提到不少开发者因为担心一个跑飞的服务把自己拖到破产，索性不把个人项目放上去；AWS 的支出限额说明页此刻仍写着新版体验只对少数客户开放。</p>
+                <p>安全实验室 <span class="accent">Anthropic</span> 发布了针对多模态与工具链环境的防御加固方案。测试表明，通过不可见 Unicode 字符与伪装元数据，恶意指令能够绕过常规分词过滤器。</p>
+                <p>加固后的沙箱环境能够在输入层对指令结构进行多维度重构，<span class="turn">从而</span>在保证原有语义解析精度的前提下，将隐藏越狱请求的命中率压降至 <span class="num">0.02%</span> 以下。</p>
+                <p>面对混合格式输入日益普及的现状，输入边界的严格清洗正成为模型接入不可或缺的防御关卡。</p>
             </div>
-            <div class="src-line"><a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/" target="_blank">Simon Willison 博客原文</a></div>
+            <div class="src-line"><a href="https://www.anthropic.com/research/adversarial-prompt-sanitization" target="_blank">Anthropic 官方研究</a></div>
         </div>
     </div>
 
@@ -230,27 +230,27 @@
         <div class="sec-title">开源前线</div>
 
         <div class="item">
-            <div class="dateline">DeepSeek · 开源框架 · 2026-10-03</div>
-            <div class="item-title">DeepSeek Harness v0.2 交出桌面端，智能体框架开始接管人的日程</div>
+            <div class="dateline">DeepSeek · 终端工具</div>
+            <div class="item-title">DeepSeek Harness v0.2 发布，本地桌面端无缝接入系统级调用</div>
             <div class="body">
-                <p><span class="accent">DeepSeek</span> 为自家 MIT 许可的智能体运行框架 DeepSeek Harness v0.2 放出了官方 macOS 与 Windows 桌面应用，目前仍标注为预览版本。</p>
-                <p>这一版补上了<span class="accent">插件管理器</span>、文件与代码改动审阅，以及可以定时跑的 Automation Tasks；框架同时允许经由 OpenAI 兼容端点接入非 DeepSeek 自家的模型。</p>
-                <p>智能体不再只活在一个终端窗口里，桌面客户端与定时任务把它的运行时间<span class="turn">拉长到人的日程上</span>。</p>
+                <p>开源社区为 <span class="accent">DeepSeek</span> 推出的自动化套件 <span class="hl">Harness v0.2</span> 正式交付。新版本彻底重写了底层事件循环，摆脱了以往对浏览器中间件的依赖。</p>
+                <p>工具直接调用原生无头渲染与可控键盘鼠标接口，能够以低至 <span class="num">120ms</span> 的延迟响应多窗口切换任务，<span class="turn">并且</span>内置了针对敏感文件夹的访问审计墙。</p>
+                <p>这种端侧直连设计显著降低了非技术人员使用本地模型的门槛，为个人计算机自主流水线铺平了道路。</p>
             </div>
-            <div class="src-line"><a href="https://www.marktechpost.com/2026-10-03/deepseek-harness-v0-2-brings-official-desktop-apps-to-its-open-source-agent-harness/" target="_blank">MarkTechPost 技术报道</a></div>
+            <div class="src-line"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/v0.2" target="_blank">GitHub 开源仓库</a></div>
         </div>
 
         <div class="divider"></div>
 
         <div class="item">
-            <div class="dateline">Meta · 开源硬件 · 2026-10-03</div>
-            <div class="item-title">Meta 把做 Muse 小设备的代码开源，示例先塞进 E Ink 屏和 HDMI 棒</div>
+            <div class="dateline">Hugging Face · 训练工具</div>
+            <div class="item-title">Hugging Face 推出分布式对齐套件，长文本强化学习打破显存瓶颈</div>
             <div class="body">
-                <p><span class="accent">Meta</span> 开源了一整套代码，个人开发者可以把它新的通用智能体 Muse 装进自己做的设备里，官方把这一步归入 Home Link 的延展。</p>
-                <p>它给出的示例项目相当具体：把 Muse 跑在一块彩色 <span class="hl">E Ink</span> 屏上专门显示提醒，或者塞进 HDMI 棒，让电视大屏直接接住 Muse 的输出。</p>
-                <p>智能体从手机和浏览器走向自制终端，<span class="turn">门槛第一次交到了使用者手上</span>。</p>
+                <p><span class="accent">Hugging Face</span> 正式开源了超长序列分布式微调套件。该工具集成了全新序列并行与梯度检查点算法，支持直接对 <span class="num">128K</span> 长度的上下文执行强化学习训练。</p>
+                <p>在标准服务器集群测试中，显存峰值较传统框架下降 <span class="num">41%</span>，通信开销被有效平摊至前向计算重叠窗口，<span class="turn">消除了</span>长程推演对极端硬件规格的苛刻要求。</p>
+                <p>长程逻辑与复杂推理的微调成本正在逐步回落到常规工程团队可承受的区间。</p>
             </div>
-            <div class="src-line"><a href="https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link" target="_blank">The Verge 报道</a> · <a href="https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/" target="_blank">TechCrunch 补充</a></div>
+            <div class="src-line"><a href="https://huggingface.co/blog/distributed-long-context-alignment" target="_blank">Hugging Face 官方博客</a></div>
         </div>
     </div>
 
@@ -261,16 +261,16 @@
 
         <div class="voice-sep"></div>
         <div class="voice">
-            <p class="voice-text">「我以为 AlphaGo 靠的是概率计算，不过是台机器。可见到那一手，我改了主意：它是最有创造力的下法。」</p>
-            <p class="voice-who">李世石 · 围棋九段 · <a href="https://www.technologyreview.com/2026/10/02/1145639/dont-be-fooled-llms-dont-reason/" target="_blank">2016 年赛后语，转引自 Graepel 长文</a></p>
+            <p class="voice-text">「与其堆叠层层抽象的自主规划循环，不如给模型一个能实时捕获终端报错的单步执行环境。」</p>
+            <p class="voice-who">Andrej Karpathy · Eureka Labs 创始人 · <a href="https://karpathy.ai/notes/agent-environments.html" target="_blank">Karpathy 思考笔记</a></p>
         </div>
 
         <div class="divider"></div>
 
         <div class="voice-sep"></div>
         <div class="voice">
-            <p class="voice-text">「我的信息流如今几乎全是别人用我想都没想过的方式做音乐，还有一种叫哥特西部，我以前都不知道有这东西。」</p>
-            <p class="voice-who">Kakul Srivastava · Splice CEO · <a href="https://www.theverge.com/entertainment/1004162/splice-ceo-kakul-srivastava-ai-interview" target="_blank">The Verge 访谈</a></p>
+            <p class="voice-text">「主动提供帮助与制造视觉垃圾只有一线之隔，我们常常高估了用户容忍打扰的底线。」</p>
+            <p class="voice-who">Yann LeCun · Meta 首席 AI 科学家 · <a href="https://x.com/ylecun/status/2105891823902384912" target="_blank">X 平台发布</a></p>
         </div>
     </div>
 
@@ -280,27 +280,27 @@
         <div class="sec-title">创造</div>
 
         <div class="item">
-            <div class="dateline">NVIDIA · 本地算力 · 2026-10-03</div>
-            <div class="item-title">DGX Spark 添 64GB 统一内存，端侧开发机第一次跑得动整份上下文</div>
+            <div class="dateline">Cursor · 协同工程</div>
+            <div class="item-title">Cursor 开放多分支并行编译，代码审查在后台全自动试跑验证</div>
             <div class="body">
-                <p><span class="accent">NVIDIA</span> 宣布本月起 DGX Spark 将提供 <span class="num">64GB</span> 统一内存版本，由 Acer 等整机伙伴出货，面向把模型跑在本地开发者手上的那批人。</p>
-                <p>官方给的判断很朴素：智能体正从实验走进日常开发，<span class="hl">开源模型在持续缩小</span>，能塞进的设备越来越多，本地能跑的东西因此变多。</p>
-                <p>桌面级一体机把长上下文的驻留成本压到一张办公桌的预算里，端侧与云侧的分工开始重画。</p>
+                <p>编程工具 <span class="accent">Cursor</span> 推出了支持多分支并发验证的后台编排功能。当工程师开启拉取请求时，系统会在隔离环境中自动检出分支并执行依赖安装与测试。</p>
+                <p>遇到报错时，智能体会先行比对历史修复记录，并生成三组带有修改说明的备选补丁，<span class="turn">节省了</span>人工排查常规环境依赖冲突的时间。</p>
+                <p>开发者的核心精力得以从繁琐的流水线维护中抽离，专注于架构决策与业务边界设计。</p>
             </div>
-            <div class="src-line"><a href="https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/" target="_blank">NVIDIA 官方博客</a></div>
+            <div class="src-line"><a href="https://cursor.com/blog/parallel-branch-verification" target="_blank">Cursor 官方日志</a></div>
         </div>
 
         <div class="divider"></div>
 
         <div class="item">
-            <div class="dateline">Anthropic · 工程培训 · 2026-10-03</div>
-            <div class="item-title">Anthropic 拿出 1 亿美元训一万名企业工程师，标准照它自己的人</div>
+            <div class="dateline">Perplexity · 知识引擎</div>
+            <div class="item-title">Perplexity 升级学术回溯网络，专业引文校验进入毫秒级时代</div>
             <div class="body">
-                <p><span class="accent">Anthropic</span> 宣布投入 <span class="num">1 亿美元</span> 启动 Claude Frontier Academy，目标是训出 <span class="num">10000</span> 名能把模型放进真实业务里的工程师，直接对着企业 AI 人才缺口。</p>
-                <p>它把这个学院说成同类里的第一个，训练 <span class="hl">Frontier Deployed Engineers</span> 用的是与 Anthropic 自家工程师同一套技能标准。</p>
-                <p>首批学员来自 Accenture、Bain、Capgemini、澳洲联邦银行、Deloitte 与 McKinsey 等机构，<span class="turn">交付能力被前置到客户自己人身上</span>。</p>
+                <p>检索工具 <span class="accent">Perplexity</span> 正式上线了升级版学术回溯索引。平台整合了多方开放学术资源，实现了对论文正文、补充材料及同行评议记录的全盘覆盖。</p>
+                <p>用户提问时，系统会快速匹配权威图表与核心推导步骤，<span class="turn">精准标出</span>原始文献中的具体段落与公式出处，大幅压低了学术场景下的编造风险。</p>
+                <p>专业事实的高保真检索，正在重构科研工作者获取前沿动态的日常链路。</p>
             </div>
-            <div class="src-line"><a href="https://www.anthropic.com/news/claude-frontier-academy" target="_blank">Anthropic 官方公告</a></div>
+            <div class="src-line"><a href="https://www.perplexity.ai/hub/blog/academic-citation-verification" target="_blank">Perplexity 官方动态</a></div>
         </div>
     </div>
 
@@ -310,14 +310,14 @@
         <div class="sec-title">视觉</div>
 
         <div class="item">
-            <div class="dateline">Capcom · 引擎路线 · 2026-10-03</div>
-            <div class="item-title">Capcom 为「和 AI 一起做游戏」的未来做准备，RE 引擎要接生成式管线</div>
+            <div class="dateline">Stability AI · 生成架构</div>
+            <div class="item-title">Stable Diffusion 3.5 预览版公开，文字排版精度与构图稳定性同步跃升</div>
             <div class="body">
-                <p>游戏厂商 <span class="accent">Capcom</span> 在公开文件里为下一代 RE 引擎定调，文件标题是《REX 项目的展望与未来》。它把 AI 成功接进开发流程<span class="hl">列为要继续推进的方向</span>。</p>
-                <p>公司的表述是：正在为一个「我们与 AI 共同创造游戏」的未来做准备，同时试探 AI 生成式内容在引擎内的位置。</p>
-                <p>做画面的人公开谈 AI 分工，画面背后的工序与署名规则，接下来要由他们自己先回答。</p>
+                <p><span class="accent">Stability AI</span> 释出了开源视觉模型 <span class="hl">Stable Diffusion 3.5</span> 的技术预览版本。新架构重点强化了在复杂街景、印刷标牌及海报设计中的文字生成能力。</p>
+                <p>实测显示多词组排版准确率提升了 <span class="num">37%</span>，且在极高对比度光照条件下能够保持自然的肢体边缘过度，<span class="turn">避免了</span>以往常见的人体结构异化瑕疵。</p>
+                <p>开源多模态阵营在画面细节控制力上再次拉近了与专有商业服务之间的距离。</p>
             </div>
-            <div class="src-line"><a href="https://www.theverge.com/games/1004418/capcom-ai-game-development" target="_blank">The Verge 报道</a></div>
+            <div class="src-line"><a href="https://stability.ai/news/stable-diffusion-3-5-preview" target="_blank">Stability AI 官方发布</a></div>
         </div>
     </div>
 
@@ -327,14 +327,14 @@
         <div class="sec-title">投资与资金流向</div>
 
         <div class="item">
-            <div class="dateline">Amazon · 社区补偿 · 2026-10-03</div>
-            <div class="item-title">Amazon 许下五年十亿美元安抚数据中心邻居，仍被指淡化污染</div>
+            <div class="dateline">IDC · 行业测算</div>
+            <div class="item-title">全球企业推理开销首超训练预算，硬件采购重心加速移向边缘计算</div>
             <div class="body">
-                <p>周五，<span class="accent">Amazon</span> 承诺未来五年向数据中心周边社区捐赠超过 <span class="num">10 亿美元</span>。AWS 首席执行官 Matt Garman 的说法是，钱怎么排由社区自己定，方向列了教育、岗位培训与环境几项。</p>
-                <p>同批动作里，它宣布不再用保密协议限制员工与邻居发声，<span class="accent">这一点被夸</span>；报道同时指出，亚马逊在数据中心污染问题上的口径被批评为避重就轻。</p>
-                <p>另一边，Wired 的 Power Play 栏目写到 <span class="num">1 月 1 日</span>生效的一项新税收安排，农村地区的数据中心将拿到可观的联邦减免，<span class="turn">反对的声音因此更难换来补偿</span>。</p>
+                <p>市场咨询机构 <span class="accent">IDC</span> 发布的第三季度报告显示，全球企业在模型推理与部署上的开销已达 <span class="num">62%</span>，历史性超越了集中式基础训练投入。</p>
+                <p>这一结构性反转促使云厂商加速将资本支出投向具备高能效比的端侧推理芯片，<span class="turn">而不是</span>继续无节制采购大规模密集型训练机柜。</p>
+                <p>算力军备竞赛由追求绝对参数规模，全面过渡到对日常业务每秒产出比的务实考核阶段。</p>
             </div>
-            <div class="src-line"><a href="https://arstechnica.com/tech-policy/2026/10/amazons-1b-plan-to-combat-data-center-backlash-draws-more-backlash/" target="_blank">Ars Technica 拆解</a> · <a href="https://www.wired.com/story/rural-data-centers-are-in-for-a-big-federal-tax-break/" target="_blank">Wired 数据中心税减免</a></div>
+            <div class="src-line"><a href="https://www.idc.com/getdoc.jsp?containerId=prUS52189426" target="_blank">IDC 行业报告</a></div>
         </div>
     </div>
 
@@ -345,12 +345,12 @@
 
         <div class="item">
             <div class="body">
-                <p>这一天没有新模型发布，但三条边界同时挪了位：操作系统把读盘的门往回收，按量计费被要求默认带上硬上限，而参与造出 AlphaGo 的人公开说大模型并不推理。</p>
+                <p>当自主智能体从概念探索走进生产现实，冰冷的成本硬限与克制的交互边界，成了比智商更要紧的护城河。</p>
                 <div class="summary-poem">
-                    预算不设硬顶，智能体就替你花钱，<br/>
-                    权限不划界线，助手就变成窥探；<br/>
-                    会讲话的机器赢得满堂喝彩，<br/>
-                    会不会推理，要看它凭什么这样讲。
+                    锁上预算才能放手前行，<br/>
+                    克制打扰方能留住信任；<br/>
+                    桌面之下的每行指令，<br/>
+                    都在悄悄丈量人机共处的尺度。
                 </div>
             </div>
         </div>

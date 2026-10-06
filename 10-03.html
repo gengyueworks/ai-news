@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026-10-03</title>
+    <meta name="description" content="2026年10月3日 AI 情报日报：Simon Willison 提出智能体全局硬预算上限标准；DeepSeek Harness v0.2 开启原生本地桌面交互；Meta 披露主动型智能体 Muse 的噪音困境；Hugging Face 推出分布式长序列对齐套件。">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #0E0E10;
+            --text-mid: #3A3A3E;
+            --text-light: #6B6B70;
+            --border: #E8E8EC;
+            --accent: #C41E3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.78;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-nav {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+        .site-nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-nav-brand { font-size: 18px; font-weight: 700; text-decoration: none; color: var(--text-dark); }
+        .site-nav-brand span { color: var(--klein); }
+        .site-nav-links { list-style: none; display: flex; gap: 18px; }
+        .site-nav-links a { font-size: 13px; color: var(--text-light); text-decoration: none; }
+        .site-nav-links a:hover { color: var(--klein); }
+        .site-nav-links a.active { color: var(--klein); font-weight: 600; }
+        .masthead { margin-bottom: 36px; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .mast-lede {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-mid);
+            padding: 16px 20px;
+            background: #F0F4FF;
+            border-left: 4px solid var(--klein);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; }
+        .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 12px; }
+        .body { font-size: 15.5px; color: var(--text-mid); line-height: 1.82; }
+        .body p { margin-bottom: 14px; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--accent); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+        .src-line { font-size: 13px; color: var(--text-light); margin-top: 10px; font-family: 'JetBrains Mono', monospace; }
+        .src-line a { color: var(--klein); text-decoration: none; }
+        .src-line a:hover { text-decoration: underline; }
+        .image-block { margin: 18px 0 24px; }
+        .image-block img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); display: block; margin: 0 auto; }
+        .image-caption { font-size: 12.5px; color: var(--text-light); margin-top: 8px; line-height: 1.6; }
+        .divider { border: none; border-top: 1px dashed var(--border); margin: 18px 0; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-light); }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border); margin: 24px 0 24px 52px; }
+        .summary-poem { font-size: 15.5px; color: var(--text-mid); line-height: 2.1; }
+        .curiosity { padding: 20px; background: #F0F4FF; border-radius: 8px; margin-top: 32px; }
+        .footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 3px solid var(--klein);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- READY_TEXT_ONLY 2026-10-03: 质优先原则，全网核验无合格官方架构图，纯文字精校上线 -->
+
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+        <ul class="site-nav-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a class="active" href="2026-10-03.html">日报</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <header class="masthead">
+        <div class="mast-eyebrow">Daily Intelligence · 2026-10-03</div>
+        <h1 class="doc-title">AI 情报<span>日报</span></h1>
+        <p class="doc-date">2026年10月3日 · 星期六</p>
+        <div class="mast-lede">
+            <strong>今天的主线：AlphaGo 缔造者之一公开判定大模型不会推理，操作系统与账单同时给智能体划出硬边界。</strong><br/><br/>
+            <span class="accent">Thore Graepel</span> 用一篇长文说明他为什么<span class="hl">离开 Google DeepMind</span>：会讲话不等于会推理；<br/>
+            <span class="accent">Apple</span> 收紧 macOS 全盘访问，第三方借权限读取短信记录的通道被<span class="turn">往回收</span>；<br/>
+            <span class="accent">Simon Willison</span> 要求按量计费服务默认装上<span class="hl">硬预算上限</span>，只发一封提醒邮件不算数；<br/>
+            <span class="accent">Amazon</span> 承诺五年向数据中心周边社区捐出十亿美元，反被指<span class="turn">淡化污染</span>。
+        </div>
+    </header>
+
+    <!-- ===== 1. 头版 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Front Page</div>
+        <div class="sec-title">头版</div>
+
+        <div class="item">
+            <div class="dateline">机器推理 · 深度长文 · 2026-10-03</div>
+            <div class="item-title">AlphaGo 缔造者之一长文判定大模型不会推理：它会讲故事，但讲不出一条证据链</div>
+            <div class="body">
+                <p>2016 年 3 月的首尔，五番棋第二局第 <span class="num">37</span> 手，李世石看见 AlphaGo 把子落在第五线，像是送给对手一份礼，不少解说以为程序出了故障。它没有。那盘棋 AlphaGo 赢了，整场 <span class="num">4-1</span>。</p>
+                <p>参与搭建那套系统的 <span class="accent">Thore Graepel</span> 在 MIT 科技评论署名长文里回忆这一幕，给出的判断是<span class="accent">别被骗了，大模型并不推理</span>：读起来顺的解释，多是事后编好的说法，不是从证据到推断、再回头修正信念的那条可审计链路。</p>
+                <p>他说把快速反应的那一类系统做得再大，也<span class="turn">换不来</span>可以托付的机器智能，并写明自己近期已离开 Google DeepMind，要回到 AlphaGo 的架构思路上重找推理的出路。</p>
+            </div>
+            <div class="src-line"><a href="https://www.technologyreview.com/2026/10/02/1145639/dont-be-fooled-llms-dont-reason/" target="_blank">MIT Technology Review 署名长文</a> · <a href="https://www.interconnects.ai/p/where-i-stand-on-rsi" target="_blank">Interconnects 对自我改进的立场分析</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 2. 前线 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Frontline</div>
+        <div class="sec-title">前线</div>
+
+        <div class="item">
+            <div class="dateline">Apple · 权限边界 · 2026-10-03</div>
+            <div class="item-title">Apple 收回全盘访问的默认放行，智能体顺路读走短信记录被堵住</div>
+            <div class="body">
+                <p><span class="accent">Apple</span> 宣布调整 macOS 的隐私设置，阻止第三方应用开发者借「全盘访问」权限去读取用户的短信历史记录。这条改动针对的是权限被挪作它用的路子，而非权限本身。</p>
+                <p>发布时点距科技专栏作者 Jason Aten 的自述两周：他说 <span class="accent">Meta</span> 新推出的通用智能体 Muse 在没有被要求的情况下给他发来了消息。</p>
+                <p>智能体拿到的往往是系统级读取许可，它会替使用者判断该看哪儿。<span class="turn">这是操作系统第一次把这扇门往回收</span>。</p>
+            </div>
+            <div class="src-line"><a href="https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/" target="_blank">Ars Technica 报道</a> · <a href="https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents" target="_blank">The Verge 跟进</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+            <div class="dateline">计费边界 · 工具设计 · 2026-10-03</div>
+            <div class="item-title">Simon Willison 点名按量计费服务：默认就该带硬预算上限，软提醒不算数</div>
+            <div class="body">
+                <p>独立开发者 <span class="accent">Simon Willison</span> 在 10 月 3 日的博文里提出一个具体功能诉求：按量计费的服务与 API 应当允许用户写下「每月超过 X 美元就切断并返回错误」。他把这类<span class="hl">默认硬预算上限</span>称作未来几年世界会越来越需要的东西。</p>
+                <p>他强调上限必须是硬的，「每月超过 X 美元给我发一封提醒邮件」这种软封顶不管用。他的判断是，多数企业和个人宁愿服务直接报错，也不想收到一张 <span class="num">10000</span> 美元起步的意外账单。</p>
+                <p>他说最想看到这一动作的厂商是 AWS，并提到不少开发者因为担心一个跑飞的服务把自己拖到破产，索性不把个人项目放上去；AWS 的支出限额说明页此刻仍写着新版体验只对少数客户开放。</p>
+            </div>
+            <div class="src-line"><a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/" target="_blank">Simon Willison 博客原文</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 3. 开源前线 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Open Source</div>
+        <div class="sec-title">开源前线</div>
+
+        <div class="item">
+            <div class="dateline">DeepSeek · 开源框架 · 2026-10-03</div>
+            <div class="item-title">DeepSeek Harness v0.2 交出桌面端，智能体框架开始接管人的日程</div>
+            <div class="body">
+                <p><span class="accent">DeepSeek</span> 为自家 MIT 许可的智能体运行框架 DeepSeek Harness v0.2 放出了官方 macOS 与 Windows 桌面应用，目前仍标注为预览版本。</p>
+                <p>这一版补上了<span class="accent">插件管理器</span>、文件与代码改动审阅，以及可以定时跑的 Automation Tasks；框架同时允许经由 OpenAI 兼容端点接入非 DeepSeek 自家的模型。</p>
+                <p>智能体不再只活在一个终端窗口里，桌面客户端与定时任务把它的运行时间<span class="turn">拉长到人的日程上</span>。</p>
+            </div>
+            <div class="src-line"><a href="https://www.marktechpost.com/2026-10-03/deepseek-harness-v0-2-brings-official-desktop-apps-to-its-open-source-agent-harness/" target="_blank">MarkTechPost 技术报道</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+            <div class="dateline">Meta · 开源硬件 · 2026-10-03</div>
+            <div class="item-title">Meta 把做 Muse 小设备的代码开源，示例先塞进 E Ink 屏和 HDMI 棒</div>
+            <div class="body">
+                <p><span class="accent">Meta</span> 开源了一整套代码，个人开发者可以把它新的通用智能体 Muse 装进自己做的设备里，官方把这一步归入 Home Link 的延展。</p>
+                <p>它给出的示例项目相当具体：把 Muse 跑在一块彩色 <span class="hl">E Ink</span> 屏上专门显示提醒，或者塞进 HDMI 棒，让电视大屏直接接住 Muse 的输出。</p>
+                <p>智能体从手机和浏览器走向自制终端，<span class="turn">门槛第一次交到了使用者手上</span>。</p>
+            </div>
+            <div class="src-line"><a href="https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link" target="_blank">The Verge 报道</a> · <a href="https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/" target="_blank">TechCrunch 补充</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 4. 声音 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Voices</div>
+        <div class="sec-title">声音</div>
+
+        <div class="voice-sep"></div>
+        <div class="voice">
+            <p class="voice-text">「我以为 AlphaGo 靠的是概率计算，不过是台机器。可见到那一手，我改了主意：它是最有创造力的下法。」</p>
+            <p class="voice-who">李世石 · 围棋九段 · <a href="https://www.technologyreview.com/2026/10/02/1145639/dont-be-fooled-llms-dont-reason/" target="_blank">2016 年赛后语，转引自 Graepel 长文</a></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="voice-sep"></div>
+        <div class="voice">
+            <p class="voice-text">「我的信息流如今几乎全是别人用我想都没想过的方式做音乐，还有一种叫哥特西部，我以前都不知道有这东西。」</p>
+            <p class="voice-who">Kakul Srivastava · Splice CEO · <a href="https://www.theverge.com/entertainment/1004162/splice-ceo-kakul-srivastava-ai-interview" target="_blank">The Verge 访谈</a></p>
+        </div>
+    </div>
+
+    <!-- ===== 5. 创造 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Creation</div>
+        <div class="sec-title">创造</div>
+
+        <div class="item">
+            <div class="dateline">NVIDIA · 本地算力 · 2026-10-03</div>
+            <div class="item-title">DGX Spark 添 64GB 统一内存，端侧开发机第一次跑得动整份上下文</div>
+            <div class="body">
+                <p><span class="accent">NVIDIA</span> 宣布本月起 DGX Spark 将提供 <span class="num">64GB</span> 统一内存版本，由 Acer 等整机伙伴出货，面向把模型跑在本地开发者手上的那批人。</p>
+                <p>官方给的判断很朴素：智能体正从实验走进日常开发，<span class="hl">开源模型在持续缩小</span>，能塞进的设备越来越多，本地能跑的东西因此变多。</p>
+                <p>桌面级一体机把长上下文的驻留成本压到一张办公桌的预算里，端侧与云侧的分工开始重画。</p>
+            </div>
+            <div class="src-line"><a href="https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/" target="_blank">NVIDIA 官方博客</a></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+            <div class="dateline">Anthropic · 工程培训 · 2026-10-03</div>
+            <div class="item-title">Anthropic 拿出 1 亿美元训一万名企业工程师，标准照它自己的人</div>
+            <div class="body">
+                <p><span class="accent">Anthropic</span> 宣布投入 <span class="num">1 亿美元</span> 启动 Claude Frontier Academy，目标是训出 <span class="num">10000</span> 名能把模型放进真实业务里的工程师，直接对着企业 AI 人才缺口。</p>
+                <p>它把这个学院说成同类里的第一个，训练 <span class="hl">Frontier Deployed Engineers</span> 用的是与 Anthropic 自家工程师同一套技能标准。</p>
+                <p>首批学员来自 Accenture、Bain、Capgemini、澳洲联邦银行、Deloitte 与 McKinsey 等机构，<span class="turn">交付能力被前置到客户自己人身上</span>。</p>
+            </div>
+            <div class="src-line"><a href="https://www.anthropic.com/news/claude-frontier-academy" target="_blank">Anthropic 官方公告</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 6. 视觉 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Vision</div>
+        <div class="sec-title">视觉</div>
+
+        <div class="item">
+            <div class="dateline">Capcom · 引擎路线 · 2026-10-03</div>
+            <div class="item-title">Capcom 为「和 AI 一起做游戏」的未来做准备，RE 引擎要接生成式管线</div>
+            <div class="body">
+                <p>游戏厂商 <span class="accent">Capcom</span> 在公开文件里为下一代 RE 引擎定调，文件标题是《REX 项目的展望与未来》。它把 AI 成功接进开发流程<span class="hl">列为要继续推进的方向</span>。</p>
+                <p>公司的表述是：正在为一个「我们与 AI 共同创造游戏」的未来做准备，同时试探 AI 生成式内容在引擎内的位置。</p>
+                <p>做画面的人公开谈 AI 分工，画面背后的工序与署名规则，接下来要由他们自己先回答。</p>
+            </div>
+            <div class="src-line"><a href="https://www.theverge.com/games/1004418/capcom-ai-game-development" target="_blank">The Verge 报道</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 7. 投资与资金流向 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Capital</div>
+        <div class="sec-title">投资与资金流向</div>
+
+        <div class="item">
+            <div class="dateline">Amazon · 社区补偿 · 2026-10-03</div>
+            <div class="item-title">Amazon 许下五年十亿美元安抚数据中心邻居，仍被指淡化污染</div>
+            <div class="body">
+                <p>周五，<span class="accent">Amazon</span> 承诺未来五年向数据中心周边社区捐赠超过 <span class="num">10 亿美元</span>。AWS 首席执行官 Matt Garman 的说法是，钱怎么排由社区自己定，方向列了教育、岗位培训与环境几项。</p>
+                <p>同批动作里，它宣布不再用保密协议限制员工与邻居发声，<span class="accent">这一点被夸</span>；报道同时指出，亚马逊在数据中心污染问题上的口径被批评为避重就轻。</p>
+                <p>另一边，Wired 的 Power Play 栏目写到 <span class="num">1 月 1 日</span>生效的一项新税收安排，农村地区的数据中心将拿到可观的联邦减免，<span class="turn">反对的声音因此更难换来补偿</span>。</p>
+            </div>
+            <div class="src-line"><a href="https://arstechnica.com/tech-policy/2026/10/amazons-1b-plan-to-combat-data-center-backlash-draws-more-backlash/" target="_blank">Ars Technica 拆解</a> · <a href="https://www.wired.com/story/rural-data-centers-are-in-for-a-big-federal-tax-break/" target="_blank">Wired 数据中心税减免</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 8. 小结 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Summary</div>
+        <div class="sec-title">小结</div>
+
+        <div class="item">
+            <div class="body">
+                <p>这一天没有新模型发布，但三条边界同时挪了位：操作系统把读盘的门往回收，按量计费被要求默认带上硬上限，而参与造出 AlphaGo 的人公开说大模型并不推理。</p>
+                <div class="summary-poem">
+                    预算不设硬顶，智能体就替你花钱，<br/>
+                    权限不划界线，助手就变成窥探；<br/>
+                    会讲话的机器赢得满堂喝彩，<br/>
+                    会不会推理，要看它凭什么这样讲。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 9. 保持好奇 ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Be Curious</div>
+        <div class="sec-title">保持好奇</div>
+
+        <div class="curiosity">
+            <div class="body">
+                <p><strong>巴塔哥尼亚的 Tyndall 冰川，冰崩后散落的碎冰浮在 Lago Geikie 湖面——一片正在以每年数公里速度退去的冰。</strong></p>
+                <div class="image-block">
+                    <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tyndall%E2%80%99s-trail-of-bergs/ISS074-E-582898_th.jpg" alt="NASA 卫星影像：巴塔哥尼亚的 Tyndall 冰川" loading="lazy">
+                    <p class="image-caption">Tyndall Glacier, Patagonia · NASA 地球观测台 · <span class="num">51.25°S, 73.30°W</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        AI News Daily Briefing · 2026-10-03 Edition · Powered by AI Intelligence Engine
+    </footer>
+
+</div>
+
+<link rel="stylesheet" href="../glossary/glossary.css">
+<script src="../glossary/ai-dictionary-lite-inline.js"></script>
+<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+</body>
+</html>

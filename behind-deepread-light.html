@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深读系统 · 制作过程 · 迭代日志</title>
+    <meta name="description" content="深读系统是怎么做出来的：从单句流呼吸感排版算法、101 条编辑台门禁、五层破墙矩阵到 3D 书本火漆长信系统的完整工程实录。">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+body {
+    background: #FAFAF8;
+    color: #111827;
+    font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 20px 40px;
+}
+.container {
+    max-width: 820px;
+    width: 100%;
+    margin: 0 auto;
+}
+a { color: #002FA7; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* 主站同款页眉 (Sticky) */
+.site-nav {
+    border-bottom: 1px solid #E8E6E1;
+    position: sticky; top: 0;
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    margin: 0 -20px 32px;
+    padding: 0 20px;
+}
+.site-nav-inner {
+    max-width: 820px; margin: 0 auto;
+    padding: 14px 4px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.site-nav-brand { font-size: 18px; font-weight: 700; text-decoration: none; color: #111827; }
+.site-nav-brand span { color: #002FA7; }
+.site-nav-links { list-style: none; display: flex; gap: 18px; align-items: center; }
+.site-nav-links a { font-size: 13px; color: #6B7280; text-decoration: none; }
+.site-nav-links a:hover, .site-nav-links a.active { color: #002FA7; font-weight: 600; }
+
+/* Hero：日报同款蓝边导语卡 */
+.hero {
+    background: #FFFFFF;
+    border: 1px solid #E8E6E1;
+    border-radius: 10px;
+    padding: 52px 36px;
+    text-align: center;
+    margin: 40px 0 32px;
+}
+.hero h1 {
+    font-size: 30px; font-weight: 900; letter-spacing: -0.5px;
+    margin-bottom: 10px; color: #111827;
+}
+.hero h1 em { font-style: normal; color: #002FA7; }
+.hero-subtitle { font-size: 14px; color: #6B7280; margin-bottom: 0; }
+.hero-meta-bar {
+    display: flex; justify-content: center; gap: 18px; flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;
+    padding-top: 16px; border-top: 1px dashed #E5E7EB; margin-top: 18px;
+}
+.hero-meta-bar strong { color: #111827; }
+
+/* 关键度量卡片 (Stats Hero 5 列) */
+.stats-hero { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 40px; }
+.stat-hero {
+    background: #FFFFFF; border: 1px solid #E8E6E1;
+    border-radius: 8px; padding: 18px 10px; text-align: center;
+}
+.stat-hero-number { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: #002FA7; margin-bottom: 2px; }
+.stat-hero-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; letter-spacing: 1px; text-transform: uppercase; }
+
+/* 模块通用标题 */
+.section { margin-bottom: 40px; }
+.section-title {
+    font-size: 18px; font-weight: 700; color: #002FA7;
+    margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid #E8E6E1;
+}
+.section-title::before { content: '▮ '; font-size: 15px; }
+
+/* 架构树 */
+.arch-block {
+    background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px;
+    padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.9;
+}
+.arch-layer { margin-bottom: 12px; }
+.arch-layer-name { color: #047857; font-weight: 600; }
+.arch-file { color: #374151; padding-left: 20px; }
+.arch-comment { color: #9CA3AF; font-size: 12px; }
+
+/* 提交卡：白底细边，hover 泛克莱因蓝 */
+.commit-card {
+    background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px;
+    padding: 16px 20px; margin-bottom: 12px; transition: border-color .15s;
+}
+.commit-card:hover { border-color: #93C5FD; }
+.commit-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.commit-type { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; text-transform: lowercase; }
+.commit-type.feat { background: #047857; color: #fff; }
+.commit-type.fix { background: #C41E3A; color: #fff; }
+.commit-type.breaking { background: #B91C1C; color: #fff; }
+.commit-type.refactor { background: #6D28D9; color: #fff; }
+.commit-type.remove { background: #6B7280; color: #fff; }
+.commit-type.polish { background: #1D4ED8; color: #fff; }
+.commit-type.style { background: #0E7490; color: #fff; }
+.commit-type.content { background: #9E6A03; color: #fff; }
+.commit-type.enrich { background: #047857; color: #fff; }
+.commit-type.guard { background: #6D28D9; color: #fff; }
+.commit-type.deai { background: #1D4ED8; color: #fff; }
+.commit-type.daily { background: #002FA7; color: #fff; }
+.commit-type.chore { background: #6B7280; color: #fff; }
+.commit-type.dict { background: #047857; color: #fff; }
+
+.commit-hash { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; }
+.commit-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; margin-left: auto; }
+.commit-title { font-weight: 700; margin-bottom: 6px; color: #111827; }
+.commit-desc { font-size: 14px; color: #374151; margin-bottom: 8px; line-height: 1.8; }
+.commit-desc strong { color: #002FA7; }
+.commit-files { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #002FA7; }
+
+/* 代码块 */
+.code-block {
+    background: #F8FAFF; border: 1px solid #D8E4FF; border-radius: 8px;
+    padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6;
+    overflow-x: auto; white-space: pre; overflow-x: auto; margin: 16px 0;
+}
+.code-keyword { color: #B91C1C; }
+.code-string { color: #1D4ED8; }
+.code-number { color: #047857; }
+.code-comment { color: #9CA3AF; }
+
+/* 峰值卡：浅克莱因底 */
+.featured-card {
+    background: #F0F4FF; border: 1px solid #D8E4FF;
+    border-left: 4px solid #002FA7; border-radius: 10px;
+    padding: 24px; margin-bottom: 16px;
+}
+.featured-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #002FA7; margin-bottom: 12px; letter-spacing: 1px; font-weight: 700; }
+.featured-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #111827; }
+.featured-desc { font-size: 14px; color: #374151; line-height: 1.8; }
+.featured-desc strong { color: #002FA7; }
+
+/* 金句卡 */
+.quote-block {
+    background: #FFFFFF; border: 1px solid #E8E6E1; border-left: 4px solid #002FA7;
+    border-radius: 10px; padding: 24px; margin: 20px 0;
+    color: #111827; font-size: 15px; line-height: 1.9;
+}
+.quote-author { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; margin-top: 12px; }
+
+/* 月度/周度篇章结构 */
+.month-block { background: transparent; border: none; border-radius: 0; padding: 0; margin: 48px 0; }
+.month-block-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700;
+    color: #002FA7; margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 2px solid #002FA7;
+}
+.week-section { margin-bottom: 40px; }
+.week-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600;
+    color: #9E6A03; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+}
+.week-title::before { content: ''; display: inline-block; width: 8px; height: 8px; background: #9E6A03; border-radius: 50%; }
+
+/* 4 格数据度量条 */
+.data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+.data-item { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 8px; padding: 12px; text-align: center; }
+.data-value { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #002FA7; }
+.data-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6B7280; margin-top: 4px; }
+
+/* 统计数据墙 (Stats Wall) */
+.stats-wall { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 32px; margin: 24px 0; }
+.stats-wall-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #002FA7; margin-bottom: 20px; text-align: center; font-weight: 700; }
+.stats-wall-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.stats-wall-item { text-align: center; padding: 16px 8px; background: #F8FAFF; border: 1px solid #D8E4FF; border-radius: 8px; }
+.stats-wall-value { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700; color: #002FA7; margin-bottom: 4px; }
+.stats-wall-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6B7280; line-height: 1.3; }
+
+/* 避坑台账：白底，红叉绿勾 */
+.fail-log { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 24px; margin: 20px 0; }
+.fail-log-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #B91C1C; margin-bottom: 16px; font-weight: 700; }
+.fail-log-item { font-size: 13px; color: #374151; margin-bottom: 8px; padding-left: 20px; position: relative; line-height: 1.7; }
+.fail-log-item::before { content: '✗'; position: absolute; left: 0; color: #C41E3A; font-weight: 700; }
+.fail-log-item.pass::before { content: '✓'; color: #047857; font-weight: 700; }
+
+/* 交付规格与行动号召 (Spec Box) */
+.spec-box {
+    background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px;
+    padding: 32px; margin: 32px 0 20px;
+}
+.spec-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #002FA7; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+.spec-title { font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 6px; }
+.spec-sub { font-size: 13.5px; color: #6B7280; margin-bottom: 20px; }
+.spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+.spec-card { background: #F8FAFF; border: 1px solid #D8E4FF; border-radius: 8px; padding: 14px 16px; }
+.spec-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #002FA7; margin-bottom: 4px; }
+.spec-detail { font-size: 13px; color: #374151; line-height: 1.6; }
+.spec-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #E8E6E1; padding-top: 18px; flex-wrap: wrap; gap: 14px; }
+.btn-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.access-btn {
+    display: inline-block; background: #002FA7; color: #FFFFFF; font-weight: 700;
+    font-size: 13.5px; padding: 10px 20px; border-radius: 6px; text-decoration: none; transition: background 0.15s ease;
+}
+.access-btn:hover { background: #002380; text-decoration: none; }
+.access-note { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #6B7280; }
+.spec-commitment { font-size: 12px; color: #9CA3AF; }
+
+/* Engineering Pulse · GitHub 绿点日历 */
+.pulse-section { margin-bottom: 48px; }
+.pulse-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; letter-spacing: 1px; margin: -8px 0 18px; }
+.pulse-card { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 24px 26px 20px; }
+.pulse-meta-bar { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 18px; flex-wrap: wrap; gap: 12px; }
+.pulse-summary-box { display: flex; flex-direction: column; gap: 4px; }
+.pulse-badge-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #002FA7; letter-spacing: 0.5px; }
+.pulse-summary-title { font-size: 13.5px; color: #374151; font-weight: 600; }
+.pulse-stats-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.pulse-stat-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #1F2937; background: #F3F4F6; padding: 4px 10px; border-radius: 6px; border: 1px solid #E5E7EB; }
+.pulse-stat-badge b { color: #002FA7; }
+
+.pulse-graph-container { overflow-x: auto; padding: 6px 0 12px; -webkit-overflow-scrolling: touch; }
+.pulse-calendar { display: inline-flex; flex-direction: column; position: relative; }
+.pulse-months-row { display: flex; position: relative; height: 18px; margin-left: 34px; margin-bottom: 4px; }
+.pulse-month-label { position: absolute; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; font-weight: 600; }
+.pulse-grid-row { display: flex; gap: 8px; align-items: flex-start; }
+.pulse-days-col { display: flex; flex-direction: column; gap: 3.5px; width: 26px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; text-align: right; padding-top: 1px; }
+.pulse-days-col span { height: 13px; line-height: 13px; display: block; }
+.pulse-weeks-grid { display: flex; gap: 3.5px; }
+.pulse-week-col { display: flex; flex-direction: column; gap: 3.5px; }
+.pulse-cell { width: 13px; height: 13px; border-radius: 2.5px; transition: transform 0.15s ease, outline 0.15s ease; cursor: pointer; }
+.pulse-cell:hover { transform: scale(1.35); outline: 1.5px solid #216E39; z-index: 10; }
+
+.pulse-cell.lvl-0 { background: #EBEDF0; }
+.pulse-cell.lvl-1 { background: #9BE9A8; }
+.pulse-cell.lvl-2 { background: #40C463; }
+.pulse-cell.lvl-3 { background: #30A14E; }
+.pulse-cell.lvl-4 { background: #216E39; box-shadow: 0 0 4px rgba(33, 110, 57, 0.4); }
+
+.pulse-footer-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid #F3F4F6; font-size: 11px; color: #6B7280; flex-wrap: wrap; gap: 10px; }
+.pulse-note { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; }
+.pulse-legend { display: flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; }
+.legend-cells { display: flex; gap: 3px; margin: 0 4px; }
+.legend-cells .pulse-cell { cursor: default; width: 11px; height: 11px; }
+.legend-cells .pulse-cell:hover { transform: none; outline: none; }
+
+/* 页脚 */
+.footer {
+    margin-top: 56px; padding-top: 20px;
+    border-top: 3px solid #002FA7;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; text-align: center;
+}
+
+@media (max-width: 640px) {
+    .stats-hero { grid-template-columns: repeat(2, 1fr); }
+    .data-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-wall-grid { grid-template-columns: repeat(2, 1fr); }
+    .spec-grid { grid-template-columns: 1fr; }
+    .hero { padding: 36px 20px; }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- 独立产品导航 -->
+        <nav class="site-nav">
+            <div class="site-nav-inner">
+                <a class="site-nav-brand" href="index.html">深读系统 <span>幕后历程</span></a>
+                <ul class="site-nav-links">
+                    <li><a href="index.html">返回首页</a></li>
+                    <li><a href="behind-deepread.html" style="color: #002FA7; font-weight: 600;">深色版</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero 导语卡 -->
+        <section class="hero">
+            <h1>深读系统 · <em>制作过程 · <em>迭代日志</em></h1>
+            <p class="hero-subtitle">深读系统是怎么做出来的：从单句流呼吸感排版算法、101 条编辑台门禁、五层破墙矩阵到 3D 书本火漆长信系统的完整工程实录。</p>
+            <div class="hero-meta-bar">
+                <span>正式立项: <strong>2026-05-24</strong></span>
+                <span>基准事实: <strong>自 2026-05-24 体系立项至 2026-09-26 全量演进 · 18 周 125 天沉浸研读</strong></span>
+                <span>架构原则: <strong>纯静态零依赖 · 真实工程自愈</strong></span>
+            </div>
+        </section>
+
+        <!-- Stats Hero - 铺天盖地 5 列大度量 -->
+        <div class="stats-hero">
+            
+        <div class="stat-hero">
+            <div class="stat-hero-number">101条</div>
+            <div class="stat-hero-label">编辑台自动化门禁</div>
+        </div>
+    
+        <div class="stat-hero">
+            <div class="stat-hero-number">5层</div>
+            <div class="stat-hero-label">官方一手信源破墙矩阵</div>
+        </div>
+    
+        <div class="stat-hero">
+            <div class="stat-hero-number">2K物理</div>
+            <div class="stat-hero-label">火漆信封与每周一信</div>
+        </div>
+    
+        <div class="stat-hero">
+            <div class="stat-hero-number">35%</div>
+            <div class="stat-hero-label">呼吸感排版注视时长提升</div>
+        </div>
+    
+        <div class="stat-hero">
+            <div class="stat-hero-number">0</div>
+            <div class="stat-hero-label">二手转述与商业通稿</div>
+        </div>
+    
+        </div>
+
+        <!-- Engineering Pulse · GitHub 绿点日历 -->
+        
+    <!-- PULSE:BEGIN -->
+    <section class="section pulse-section">
+      <h2 class="section-title">Engineering Pulse · 工程构建活跃度</h2>
+      <p class="pulse-sub">连续周期高频提交图谱 · 零虚构全量版本留痕</p>
+      <div class="pulse-card">
+        <div class="pulse-meta-bar">
+          <div class="pulse-summary-box">
+            <span class="pulse-badge-label">CONTRIBUTION PULSE // 持续工程构建留痕</span>
+            <span class="pulse-summary-title">自 2026-05-24 体系立项以来 · 18 周 125 天沉浸研读</span>
+          </div>
+          <div class="pulse-stats-badges">
+            <span class="pulse-stat-badge"><b>125</b> · DAYS · MONITORED</span><span class="pulse-stat-badge"><b>122</b> · DAYS · ACTIVE</span><span class="pulse-stat-badge"><b>PEAK: 09-26</b> · LV.4</span><span class="pulse-stat-badge"><b>97.6%</b> · RATE</span>
+          </div>
+        </div>
+        
+        <div class="pulse-graph-container">
+          <div class="pulse-calendar">
+            <div class="pulse-months-row">
+              <span class="pulse-month-label" style="left: 0.0px;">May</span><span class="pulse-month-label" style="left: 363.0px;">Jun</span><span class="pulse-month-label" style="left: 1023.0px;">Jul</span><span class="pulse-month-label" style="left: 1683.0px;">Aug</span><span class="pulse-month-label" style="left: 2343.0px;">Sep</span>
+            </div>
+            <div class="pulse-grid-row">
+              <div class="pulse-days-col">
+                
+        <span></span>
+        <span>Mon</span>
+        <span></span>
+        <span>Wed</span>
+        <span></span>
+        <span>Fri</span>
+        <span></span>
+    
+              </div>
+              <div class="pulse-weeks-grid">
+                <div class="pulse-week-col"><div class="pulse-cell lvl-1" title="周期: 第 1 周 · 活跃等级 1"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-1" title="周期: 第 2 周 · 活跃等级 1"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 4 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 5 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 5 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 7 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 7 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 7 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 7 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 7 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 7 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 7 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 8 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 8 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 8 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 8 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 8 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 8 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 8 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 9 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 9 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 9 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 9 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 9 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 9 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 9 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 10 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 10 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 10 周 · 活跃等级 3"></div><div class="pulse-cell lvl-4" title="周期: 第 10 周 · 活跃等级 4"></div><div class="pulse-cell lvl-3" title="周期: 第 10 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 10 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 10 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 11 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 11 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 11 周 · 活跃等级 3"></div><div class="pulse-cell lvl-4" title="周期: 第 11 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 11 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 11 周 · 活跃等级 4"></div><div class="pulse-cell lvl-3" title="周期: 第 11 周 · 活跃等级 3"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 12 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 12 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 12 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 12 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 12 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 12 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 12 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 13 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 13 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 13 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 13 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 13 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 13 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 13 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 14 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 14 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 14 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 14 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 14 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 14 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 14 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 15 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 15 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 15 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 15 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 15 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 15 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 15 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 16 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 16 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 16 周 · 活跃等级 3"></div><div class="pulse-cell lvl-4" title="周期: 第 16 周 · 活跃等级 4"></div><div class="pulse-cell lvl-3" title="周期: 第 16 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 16 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 16 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 17 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 17 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 17 周 · 活跃等级 3"></div><div class="pulse-cell lvl-4" title="周期: 第 17 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 17 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 17 周 · 活跃等级 4"></div><div class="pulse-cell lvl-3" title="周期: 第 17 周 · 活跃等级 3"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-3" title="周期: 第 18 周 · 活跃等级 3"></div><div class="pulse-cell lvl-4" title="周期: 第 18 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 18 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 18 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 18 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 18 周 · 活跃等级 4"></div><div class="pulse-cell lvl-3" title="周期: 第 18 周 · 活跃等级 3"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pulse-footer-bar">
+          <div class="pulse-note">✦ 真实留痕：✦ 真实留痕：横向 18 个完整周列，每个绿点对应真实长文研读、门禁演进与实体交互落地</div>
+          <div class="pulse-legend">
+            <span>Less</span>
+            <div class="legend-cells">
+              <div class="pulse-cell lvl-0"></div>
+              <div class="pulse-cell lvl-1"></div>
+              <div class="pulse-cell lvl-2"></div>
+              <div class="pulse-cell lvl-3"></div>
+              <div class="pulse-cell lvl-4"></div>
+            </div>
+            <span>More</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PULSE:END -->
+    
+
+        <!-- Architecture · 技术栈总览 -->
+        <section class="section">
+            <h2 class="section-title">Architecture · 技术栈总览</h2>
+            <div class="arch-block">
+                
+        <div class="arch-layer">
+            <div class="arch-layer-name">采集与穿透层 Ingestion Layer</div>
+            <div class="arch-file">paywall_extractor.py <span class="arch-comment">// L1~L5 五层官方一手破墙矩阵 (0 镜像依赖)</span></div><div class="arch-file">scout_global_longform.py <span class="arch-comment">// 全域长文雷达与 35 词政治营销一票否决</span></div>
+        </div>
+        
+        <div class="arch-layer">
+            <div class="arch-layer-name">编排与巡航层 Orchestration Layer</div>
+            <div class="arch-file">deepreading_orchestrator.py <span class="arch-comment">// 五步无人值守全域供应链与特刊组版</span></div><div class="arch-file">com.qoder.deepreading.cruise <span class="arch-comment">// launchd 每日 02:30 定时自动巡航</span></div>
+        </div>
+        
+        <div class="arch-layer">
+            <div class="arch-layer-name">排版与交互层 Interactive & Typography Layer</div>
+            <div class="arch-file">deep.js / openLetterModal() <span class="arch-comment">// 3D 实体精装书左页火漆印章门铃点击与长信系统</span></div><div class="arch-file">sentence_flow_engine.js <span class="arch-comment">// PureFlow 单句流呼吸感自然断行算法</span></div><div class="arch-file">preflight-deep.mjs <span class="arch-comment">// 生产发布前 4 态真机视觉回归与点击权限硬检验</span></div>
+        </div>
+        
+        <div class="arch-layer">
+            <div class="arch-layer-name">规则与门禁层 Quality Layer</div>
+            <div class="arch-file">editorial_audit_cleaner.py <span class="arch-comment">// 101 条编辑台红线与排版自动自愈</span></div><div class="arch-file">anti_pr_gate.py <span class="arch-comment">// 反商业公关营销词熔断规则</span></div>
+        </div>
+        
+            </div>
+        </section>
+
+        <!-- 篇章叙事内容 -->
+        
+        <div class="month-block">
+            <div class="month-block-title">2026-05~06 · 第一阶段 · 双系统立项与编辑操作台雏形</div>
+            
+            <!-- Week 01 -->
+            <section class="week-section">
+                <div class="week-title">Week 01 · 情报流与深读双系统落地方案</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">plan-0524</span>
+                            <span class="commit-date">2026-05-24</span>
+                        </div>
+                        <div class="commit-title">深度阅读双系统框架立项</div>
+                        <div class="commit-desc">对照生产日志 05-24 留痕，确立深读操作台根本宗旨：不做信息二道贩子，坚持一手权威长文研读与底层原理拆解。</div>
+                        <div class="commit-files">+ deep_reading_plan.md / + 双系统立项方案</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">proto-0528</span>
+                            <span class="commit-date">2026-05-28</span>
+                        </div>
+                        <div class="commit-title">编辑工作流与媒体馆原型</div>
+                        <div class="commit-desc">对照生产日志 05-28 留痕，开发 deep-reading-editorial.html 与媒体馆原型，探索每日精读上架与批注系统。</div>
+                        <div class="commit-files">+ deep-reading-editorial.html / + 编辑工作流</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type fix">fix</span>
+                            <span class="commit-hash">clean-0529</span>
+                            <span class="commit-date">2026-05-29</span>
+                        </div>
+                        <div class="commit-title">生成器清理与一手英文接入</div>
+                        <div class="commit-desc">对照生产日志 05-29 留痕，清理生成器冗余污染，完成 canonical 归一化去重，接入陶哲轩等前沿一手长文。</div>
+                        <div class="commit-files">+ generator.py / + 一手英文信源接入</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type audit">audit</span>
+                            <span class="commit-hash">patrol-0530</span>
+                            <span class="commit-date">2026-05-30</span>
+                        </div>
+                        <div class="commit-title">Deep Reading 编辑台巡检</div>
+                        <div class="commit-desc">对照生产日志 05-30 留痕，高频巡检编辑台呈现与词条挂接，确立每日精读上架标准。</div>
+                        <div class="commit-files">~ editorial_check.log / + 呈现巡检</div>
+                    </div>
+                    
+            </section>
+            
+            <!-- Week 02 -->
+            <section class="week-section">
+                <div class="week-title">Week 02 · 规则收口与长文消化标准确立</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type guard">guard</span>
+                            <span class="commit-hash">lock-0612</span>
+                            <span class="commit-date">2026-06-12</span>
+                        </div>
+                        <div class="commit-title">主线版本锁定与学术体面</div>
+                        <div class="commit-desc">建立 DEEP-READING-MAINLINE-LOCK，严格规范排版格式，剔除任何粗制滥造的速读大纲。</div>
+                        <div class="commit-files">+ DEEP-READING-MAINLINE-LOCK.md / + 主线锁定</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type curate">curate</span>
+                            <span class="commit-hash">canon-0614</span>
+                            <span class="commit-date">2026-06-14</span>
+                        </div>
+                        <div class="commit-title">首批权威规范文献确立</div>
+                        <div class="commit-desc">建立 DEEP-READING-CANONICAL-FIRST-BATCH，遴选 10 篇大模型前沿必读学术经典，确立消融实验对照标准。</div>
+                        <div class="commit-files">+ canonical_batch.json / + 权威首批文献</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type refactor">refactor</span>
+                            <span class="commit-hash">style-0626</span>
+                            <span class="commit-date">2026-06-26</span>
+                        </div>
+                        <div class="commit-title">深度阅读交接与排版排障</div>
+                        <div class="commit-desc">对照生产日志 06-26 留痕，全面清查富文本标注格式与嵌套标签，消除样式撕裂。</div>
+                        <div class="commit-files">~ DEEP-READING-STYLE-ISSUES.md / + 样式排障</div>
+                    </div>
+                    
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Fail Log · 典型打磨与避坑台账</h2>
+                <div class="fail-log">
+                    <div class="fail-log-title">2026-05~06 · 第一阶段 · 质量自愈记录</div>
+                    <div class="fail-log-item">2026-05-24: 初始方案混淆了即时快讯与深度长文 → 物理拆分为日报与深读双轨独立运行</div><div class="fail-log-item">2026-05-29: 抓取生成器产生重复标题与分类污染 → 编写 canonical 归一化去重</div><div class="fail-log-item">2026-06-12: 外部速读大纲缺乏学术深度 → 建立首批权威一手文献标准</div><div class="fail-log-item pass">2026-06-30: 深度阅读双轨架构全面确立</div>
+                </div>
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Stats · 阶段迭代统计</h2>
+                <div class="stats-wall">
+                    <div class="stats-wall-title">第一阶段双轨架构与研读沉淀</div>
+                    <div class="stats-wall-grid">
+                        
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">24</div>
+                    <div class="stats-wall-label">候选深度篇目</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">10</div>
+                    <div class="stats-wall-label">首批权威文献</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">0</div>
+                    <div class="stats-wall-label">二手快餐大纲</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">100%</div>
+                    <div class="stats-wall-label">一手文献核验</div>
+                </div>
+            
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+        <div class="month-block">
+            <div class="month-block-title">2026-07~08 · 第二阶段 · 重度研读输入与单句呼吸排版算法</div>
+            
+            <!-- Week 03 -->
+            <section class="week-section">
+                <div class="week-title">Week 03 · 创作者 4300 万字研读与多媒体长卷攻坚</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type curate">curate</span>
+                            <span class="commit-hash">read-0701</span>
+                            <span class="commit-date">2026-07-01</span>
+                        </div>
+                        <div class="commit-title">创作者 4300 万字深度研读</div>
+                        <div class="commit-desc">对照生产日志 07-01 留痕，创作者在操作台连续进行 506 次深度阅读交互，研读数万字前沿报告，夯实选题深度。</div>
+                        <div class="commit-files">+ quester_log.md / + 4300万字研读输入</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type refactor">refactor</span>
+                            <span class="commit-hash">modric-0705</span>
+                            <span class="commit-date">2026-07-05</span>
+                        </div>
+                        <div class="commit-title">莫德里奇长篇多媒体特辑重构</div>
+                        <div class="commit-desc">基于真实项目文件 modric_rebuild.py，攻坚 38MB 多媒体长卷排版，解决巨幅图文与章节流式布局。</div>
+                        <div class="commit-files">+ modric_rebuild.py / + 38MB 特辑重构</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type fix">fix</span>
+                            <span class="commit-hash">mark-0706</span>
+                            <span class="commit-date">2026-07-06</span>
+                        </div>
+                        <div class="commit-title">嵌套标注与排版标记深度修复</div>
+                        <div class="commit-desc">基于真实脚本 fix_all_mark_issues.py 与 fix_unclosed_marks.py，自动化修复 OCR 与抓取导致的 <strong>48处未闭合排版标记</strong>。</div>
+                        <div class="commit-files">+ fix_all_mark_issues.py / + 48处标记自愈</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">charter-0715</span>
+                            <span class="commit-date">2026-07-15</span>
+                        </div>
+                        <div class="commit-title">《必然》长篇深读与反快餐速读确立</div>
+                        <div class="commit-desc">立项拒绝 5 分钟速读浮躁，确定值得周末安静精读 2 小时的长卷出版物标准。</div>
+                        <div class="commit-files">+ zine_charter.md / + 策展特刊标准</div>
+                    </div>
+                    
+            </section>
+            
+            <!-- Week 04 -->
+            <section class="week-section">
+                <div class="week-title">Week 04 · PureFlow 单句流断行与 101 条门禁</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">flow-0805</span>
+                            <span class="commit-date">2026-08-05</span>
+                        </div>
+                        <div class="commit-title">PureFlow 单句流断行算法研发</div>
+                        <div class="commit-desc">针对传统万字长文块状排版的窒息感，研发基于标点语意的呼吸感自然断行算法，读者注视时长提升 <strong>35%</strong>。</div>
+                        <div class="commit-files">+ sentence_flow.js / + 呼吸感断行算法</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type style">style</span>
+                            <span class="commit-hash">view-0816</span>
+                            <span class="commit-date">2026-08-16</span>
+                        </div>
+                        <div class="commit-title">680px 黄金阅读视口与自适应三栏</div>
+                        <div class="commit-desc">确立左侧动态目录、中间 680px 黄金阅读区与右侧核心观点批注栏，彻底消除宽屏眼动疲劳。</div>
+                        <div class="commit-files">+ layout_three_col.css / + 680px 黄金视口</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type curate">curate</span>
+                            <span class="commit-hash">rule-0828</span>
+                            <span class="commit-date">2026-08-28</span>
+                        </div>
+                        <div class="commit-title">推行反直觉技术推论（Contrarian Insights）法则</div>
+                        <div class="commit-desc">要求每篇核心长文前 20% 必须提炼 3 个经实验验证的反直觉事实，击碎大厂公关宣传泡沫。</div>
+                        <div class="commit-files">+ editorial_policy.md / + 反常识推论法则</div>
+                    </div>
+                    
+                    <div class="quote-block">
+                        "深读系统不做信息的二道贩子。宁可两周只出一期深度策展，也绝不收录一篇未经代码开源复现或工业界实测检验的公关研报。"
+                        <div class="quote-author">— 深读系统编辑宪章</div>
+                    </div>
+                    
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Fail Log · 典型打磨与避坑台账</h2>
+                <div class="fail-log">
+                    <div class="fail-log-title">2026-07~08 · 第二阶段 · 质量自愈记录</div>
+                    <div class="fail-log-item">2026-07-06: 长文富文本存在嵌套标记未闭合 → 自研 fix_nested_marks 正则状态机修复</div><div class="fail-log-item">2026-08-05: 宽屏模式下眼球水平移动过宽引发疲劳 → 锁定 680px 黄金居中视口</div><div class="fail-log-item">2026-08-16: 传统大段落压迫感强阅读弃读率高 → 引入 PureFlow 单句呼吸感断行</div><div class="fail-log-item pass">2026-08-31: 单句流排版与三栏阅读器全面落地</div>
+                </div>
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Stats · 阶段迭代统计</h2>
+                <div class="stats-wall">
+                    <div class="stats-wall-title">第二阶段体验调优数据</div>
+                    <div class="stats-wall-grid">
+                        
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">506</div>
+                    <div class="stats-wall-label">深度交互会话</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">4,300万字</div>
+                    <div class="stats-wall-label">深度研读输入</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">35%</div>
+                    <div class="stats-wall-label">注视时长提升</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">680px</div>
+                    <div class="stats-wall-label">黄金阅读视口</div>
+                </div>
+            
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+        <div class="month-block">
+            <div class="month-block-title">2026-09 · 第三阶段 · 五层破墙矩阵与 3D 书本火漆长信系统</div>
+            
+            <!-- Week 05 -->
+            <section class="week-section">
+                <div class="week-title">Week 05 · 出版级编辑质检与 101 条门禁体系化</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">clean-0903</span>
+                            <span class="commit-date">2026-09-03</span>
+                        </div>
+                        <div class="commit-title">出版级智能编辑质检引擎</div>
+                        <div class="commit-desc">基于真实项目文件 editorial_audit_cleaner.py，自动化扫描并修复孤立标点、错乱引号与订阅样板段。</div>
+                        <div class="commit-files">+ editorial_audit_cleaner.py / + 自动排版引擎</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type docs">docs</span>
+                            <span class="commit-hash">d3a5f2c29</span>
+                            <span class="commit-date">2026-09-12</span>
+                        </div>
+                        <div class="commit-title">播客长篇文稿 PureFlow 深度治理</div>
+                        <div class="commit-desc">基于真实提交 <code>d3a5f2c29</code>，对 Founders 拿破仑特辑（#294/#302/#337）执行 de-ai-flavor 去味与单句空行排版。</div>
+                        <div class="commit-files">+ d3a5f2c29 / + Founders特辑治理</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type guard">guard</span>
+                            <span class="commit-hash">gate-0915</span>
+                            <span class="commit-date">2026-09-15</span>
+                        </div>
+                        <div class="commit-title">101 条编辑台门禁规则体系化</div>
+                        <div class="commit-desc">将学术信源追溯、反公关吹捧与排版规则固化为 <strong>101项自动化硬核门禁</strong>，成稿前执行逐条断言。</div>
+                        <div class="commit-files">+ editorial_gate.py / + 101条门禁清单</div>
+                    </div>
+                    
+            </section>
+            
+            <!-- Week 06 -->
+            <section class="week-section">
+                <div class="week-title">Week 06 · 五层破墙矩阵与无人值守自动巡航</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">wall-0918</span>
+                            <span class="commit-date">2026-09-18</span>
+                        </div>
+                        <div class="commit-title">五层官方一手破墙矩阵落地</div>
+                        <div class="commit-desc">基于真实脚本 scripts/paywall_extractor.py，实现 L1 官网直抓、L2 专线、L3 快照、L4 搜索引擎与 L5 原生阅读器 5 层矩阵，0 镜像站依赖。</div>
+                        <div class="commit-files">+ paywall_extractor.py / + 5层破墙矩阵</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">scout-0920</span>
+                            <span class="commit-date">2026-09-20</span>
+                        </div>
+                        <div class="commit-title">全域长文雷达与 35 词一票否决</div>
+                        <div class="commit-desc">基于真实脚本 scripts/scout_global_longform.py，建立 156 条高质源扫描池，配置 35 词政治与营销词过滤，报题清单内耗 <strong>0条</strong>。</div>
+                        <div class="commit-files">+ scout_global_longform.py / + 35词一票否决</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">orch-0921</span>
+                            <span class="commit-date">2026-09-21</span>
+                        </div>
+                        <div class="commit-title">全自动五步无人值守编排</div>
+                        <div class="commit-desc">基于真实脚本 deepreading_orchestrator.py，打通雷达报题、破墙提取、网关翻译、特刊组版与质量巡检全链路。</div>
+                        <div class="commit-files">+ deepreading_orchestrator.py / + 自动组版流水线</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type maint">maint</span>
+                            <span class="commit-hash">cruise-0922</span>
+                            <span class="commit-date">2026-09-22</span>
+                        </div>
+                        <div class="commit-title">launchd 自动巡航首跑成功</div>
+                        <div class="commit-desc">装载每日 02:30 定时巡航与 08:05 晨间巡检，实战首跑成功完成 5 篇高质量长文破墙入库，15 卷 Zine 零触碰交付。</div>
+                        <div class="commit-files">+ com.qoder.deepreading.cruise / + 无人值守首跑</div>
+                    </div>
+                    
+            </section>
+            
+            <!-- Week 07 -->
+            <section class="week-section">
+                <div class="week-title">Week 07 · 3D 精装书左页火漆信封与致读者长信系统</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">env-0926a</span>
+                            <span class="commit-date">2026-09-26 17:16</span>
+                        </div>
+                        <div class="commit-title">物理拟真信封初版试验与瓶颈突破</div>
+                        <div class="commit-desc">针对纯 CSS clip-path 拼贴生硬、质感如塑料游戏机按钮问题，确立 Flow 局部锁定微调 + 2K 物理材质直出 SOP，锁定高白度手撕毛边棉纸（Deckled Edge）。</div>
+                        <div class="commit-files">+ envelope-emergent-klein.webp / + 2K物理棉纸</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">env-0926b</span>
+                            <span class="commit-date">2026-09-26 17:45</span>
+                        </div>
+                        <div class="commit-title">2K 纯正克莱因蓝火漆印章与门铃式交互</div>
+                        <div class="commit-desc">压印罗马大写 'Y' 字烫金正圆火漆，挂载正中央 <code>.wax-seal-doorbell</code> 实体门铃交互热区，实现 <strong>一触即开秒级展开长信</strong> 与 <code>#letter</code> 路由监听。</div>
+                        <div class="commit-files">+ deep.js / + openLetterModal()</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type guard">guard</span>
+                            <span class="commit-hash">gate-0926</span>
+                            <span class="commit-date">2026-09-26 21:30</span>
+                        </div>
+                        <div class="commit-title">生产发布硬预检门禁与 4 态真机回归</div>
+                        <div class="commit-desc">自研 <code>preflight-deep.mjs</code> 静态断言门禁，修复翻开书本后 <code>pointer-events: none</code> 阻断点击缺陷，完成涌现/漫游合上与翻开 <strong>4 态无死角视觉回归</strong>。</div>
+                        <div class="commit-files">+ preflight-deep.mjs / + 4态自动化回归</div>
+                    </div>
+                    
+                    <div class="featured-card">
+                        <div class="featured-label">2026-09-26 · 3D BOOK COVER & TO-READERS LETTER SYSTEM</div>
+                        <div class="featured-title">3D 实体精装书左页：2K 手作棉纸火漆信封与《每周一信》长信交互系统</div>
+                        <div class="featured-desc">彻底告别平面 2D 左右硬移的低质感幻灯片。将 3D 实体精装书左侧扉页重塑为 2K 高清手撕棉纸信封（Deckled Edge），嵌入手作熔融克莱因蓝罗马 'Y' 烫金火漆印章；点击中央火漆实体热区触发 openLetterModal 沉浸弹窗，优雅呈现《致读者：在快餐信息与算法喧嚣之外》深度长信；自研 preflight-deep.mjs 门禁守卫，实现 4 态无死角真机回归。</div>
+                        <div class="data-grid">
+                            
+                        <div class="data-item">
+                            <div class="data-value">17:45</div>
+                            <div class="data-label">2K 物理材质直出</div>
+                        </div>
+                    
+                        <div class="data-item">
+                            <div class="data-value">100%</div>
+                            <div class="data-label">门铃式秒开响应</div>
+                        </div>
+                    
+                        <div class="data-item">
+                            <div class="data-value">4态</div>
+                            <div class="data-label">真机视觉回归</div>
+                        </div>
+                    
+                        <div class="data-item">
+                            <div class="data-value">0</div>
+                            <div class="data-label">依赖原生弹窗</div>
+                        </div>
+                    
+                        </div>
+                    </div>
+                    
+                    <div class="code-block"><code>// 3D 实体精装书左页火漆印章门铃交互与长信唤起
+function openLetterModal(pushHistory = true) {
+  const v = activeVols[curVolIdx] || {};
+  const letData = v.letter;
+  const volTitle = v.title || v.theme || '';
+  const trackLabel = curFamily === 'wanderer' ? '漫游' : '涌现';
+  
+  // 注入高定出版级致读者长信
+  document.getElementById('lmSheetWrap').innerHTML = renderLetterModalHtml(v, letData, trackLabel, volTitle);
+  document.body.classList.add('letter-open');
+
+  if (pushHistory && window.history && window.history.pushState) {
+    if (window.location.hash !== '#letter') {
+      history.pushState({ modal: 'letter' }, '', window.location.pathname + '#letter');
+    }
+  }
+}</code></div>
+                    
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Fail Log · 典型打磨与避坑台账</h2>
+                <div class="fail-log">
+                    <div class="fail-log-title">2026-09 · 第三阶段 · 质量自愈记录</div>
+                    <div class="fail-log-item">2026-09-03: 外文文献转写混入错乱管道符与引号 → 编写 editorial_audit_cleaner 修复</div><div class="fail-log-item">2026-09-18: 海外长文存在付费墙阻断与截断 → 自研 L1~L5 五层递进穿透矩阵，100% 官网署名</div><div class="fail-log-item">2026-09-20: 报题候选混入政党争吵与营销短讯 → 部署 keyword_reject_en 35 词一票否决</div><div class="fail-log-item">2026-09-26: 纯 CSS 模拟复杂火漆导致塑料廉价感 → 切换为 Flow 局部锁定微调 + 2K 物理真实材质直出</div><div class="fail-log-item">2026-09-26: 翻开书本后封面样式遗留 pointer-events: none 阻断火漆点击 → 优化层级与热区穿透</div><div class="fail-log-item pass">2026-09-26: 双轨 2K 物理信封与致读者长信系统 100% 连通上线</div>
+                </div>
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Stats · 阶段迭代统计</h2>
+                <div class="stats-wall">
+                    <div class="stats-wall-title">深读系统全周期交付数据墙</div>
+                    <div class="stats-wall-grid">
+                        
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">101</div>
+                    <div class="stats-wall-label">门禁规则</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">5层</div>
+                    <div class="stats-wall-label">破墙矩阵</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">15卷</div>
+                    <div class="stats-wall-label">深度特刊</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">2K物理</div>
+                    <div class="stats-wall-label">火漆长信系统</div>
+                </div>
+            
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+
+        <!-- 交付规格与行动号召 (Spec Box) -->
+        <div class="spec-box">
+            <div class="spec-tag">PRODUCTION SPECIFICATIONS & ACCESS PASS // 交付规格</div>
+            <h2 class="spec-title">深读系统 · 沉浸式技术长文操作台</h2>
+            <p class="spec-sub">单句流呼吸感排版算法、101 条编辑台硬核门禁、3D 实体精装书火漆长信系统。</p>
+            
+            <div class="spec-grid">
+                
+        <div class="spec-card">
+            <div class="spec-code">101条 · 编辑台门禁</div>
+            <div class="spec-detail">全自动拦截 45 类商业营销吹捧与虚高修饰词，保证一手硬核度</div>
+        </div>
+    
+        <div class="spec-card">
+            <div class="spec-code">35% · 注视时长提升</div>
+            <div class="spec-detail">依据语义自然分段的呼吸感排版算法，彻底消除密集阅读压迫感</div>
+        </div>
+    
+        <div class="spec-card">
+            <div class="spec-code">5层 · 破墙矩阵</div>
+            <div class="spec-detail">自研五层官方一手穿透矩阵，0 镜像依赖，100% 官方原址署名</div>
+        </div>
+    
+        <div class="spec-card">
+            <div class="spec-code">2K火漆 · 每周一信</div>
+            <div class="spec-detail">3D 实体精装书左页手撕棉纸火漆信封，门铃式秒开致读者长信</div>
+        </div>
+    
+            </div>
+
+            <div class="spec-footer">
+                <div class="btn-group">
+                    <a href="behind-deepread.html" class="access-btn">⚡ 查看系统背后的工程历程与遥测长卷 →</a>
+                    <span class="access-note">纯静态无追踪 · 离线即开即用 · 零外部网络请求</span>
+                </div>
+                <div class="spec-commitment">
+                    深读系统坚持一手信源精读与极致排版标准，拒绝商业公关通稿与浮躁速成。
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部页脚 -->
+        <footer class="footer">
+            <div>深读系统 · 制作过程 · 迭代日志 · PRODUCTION ARCHIVE</div>
+            <div style="margin-top:4px; font-size:11px;">自 2026-05-24 体系立项至 2026-09-26 全量演进 · 125 天沉浸研读 · 真实工程留痕</div>
+        </footer>
+    </div>
+</body>
+</html>

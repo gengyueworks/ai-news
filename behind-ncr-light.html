@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCR 商业实录 · 制作过程 · 迭代日志</title>
+    <meta name="description" content="NCR 商业实录是怎么做出来的：从推倒 1,308 篇造神旧稿、单日 991 次提交攻坚到 88 期全景杂志与 2,097 篇案例去伪的真实工程实录。">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+body {
+    background: #FAFAF8;
+    color: #111827;
+    font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 20px 40px;
+}
+.container {
+    max-width: 820px;
+    width: 100%;
+    margin: 0 auto;
+}
+a { color: #002FA7; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* 主站同款页眉 (Sticky) */
+.site-nav {
+    border-bottom: 1px solid #E8E6E1;
+    position: sticky; top: 0;
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    margin: 0 -20px 32px;
+    padding: 0 20px;
+}
+.site-nav-inner {
+    max-width: 820px; margin: 0 auto;
+    padding: 14px 4px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.site-nav-brand { font-size: 18px; font-weight: 700; text-decoration: none; color: #111827; }
+.site-nav-brand span { color: #002FA7; }
+.site-nav-links { list-style: none; display: flex; gap: 18px; align-items: center; }
+.site-nav-links a { font-size: 13px; color: #6B7280; text-decoration: none; }
+.site-nav-links a:hover, .site-nav-links a.active { color: #002FA7; font-weight: 600; }
+
+/* Hero：日报同款蓝边导语卡 */
+.hero {
+    background: #FFFFFF;
+    border: 1px solid #E8E6E1;
+    border-radius: 10px;
+    padding: 52px 36px;
+    text-align: center;
+    margin: 40px 0 32px;
+}
+.hero h1 {
+    font-size: 30px; font-weight: 900; letter-spacing: -0.5px;
+    margin-bottom: 10px; color: #111827;
+}
+.hero h1 em { font-style: normal; color: #002FA7; }
+.hero-subtitle { font-size: 14px; color: #6B7280; margin-bottom: 0; }
+.hero-meta-bar {
+    display: flex; justify-content: center; gap: 18px; flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;
+    padding-top: 16px; border-top: 1px dashed #E5E7EB; margin-top: 18px;
+}
+.hero-meta-bar strong { color: #111827; }
+
+/* 关键度量卡片 (Stats Hero 5 列) */
+.stats-hero { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 40px; }
+.stat-hero {
+    background: #FFFFFF; border: 1px solid #E8E6E1;
+    border-radius: 8px; padding: 18px 10px; text-align: center;
+}
+.stat-hero-number { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: #002FA7; margin-bottom: 2px; }
+.stat-hero-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; letter-spacing: 1px; text-transform: uppercase; }
+
+/* 模块通用标题 */
+.section { margin-bottom: 40px; }
+.section-title {
+    font-size: 18px; font-weight: 700; color: #002FA7;
+    margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid #E8E6E1;
+}
+.section-title::before { content: '▮ '; font-size: 15px; }
+
+/* 架构树 */
+.arch-block {
+    background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px;
+    padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.9;
+}
+.arch-layer { margin-bottom: 12px; }
+.arch-layer-name { color: #047857; font-weight: 600; }
+.arch-file { color: #374151; padding-left: 20px; }
+.arch-comment { color: #9CA3AF; font-size: 12px; }
+
+/* 提交卡：白底细边，hover 泛克莱因蓝 */
+.commit-card {
+    background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px;
+    padding: 16px 20px; margin-bottom: 12px; transition: border-color .15s;
+}
+.commit-card:hover { border-color: #93C5FD; }
+.commit-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.commit-type { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; text-transform: lowercase; }
+.commit-type.feat { background: #047857; color: #fff; }
+.commit-type.fix { background: #C41E3A; color: #fff; }
+.commit-type.breaking { background: #B91C1C; color: #fff; }
+.commit-type.refactor { background: #6D28D9; color: #fff; }
+.commit-type.remove { background: #6B7280; color: #fff; }
+.commit-type.polish { background: #1D4ED8; color: #fff; }
+.commit-type.style { background: #0E7490; color: #fff; }
+.commit-type.content { background: #9E6A03; color: #fff; }
+.commit-type.enrich { background: #047857; color: #fff; }
+.commit-type.guard { background: #6D28D9; color: #fff; }
+.commit-type.deai { background: #1D4ED8; color: #fff; }
+.commit-type.daily { background: #002FA7; color: #fff; }
+.commit-type.chore { background: #6B7280; color: #fff; }
+.commit-type.dict { background: #047857; color: #fff; }
+
+.commit-hash { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; }
+.commit-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; margin-left: auto; }
+.commit-title { font-weight: 700; margin-bottom: 6px; color: #111827; }
+.commit-desc { font-size: 14px; color: #374151; margin-bottom: 8px; line-height: 1.8; }
+.commit-desc strong { color: #002FA7; }
+.commit-files { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #002FA7; }
+
+/* 代码块 */
+.code-block {
+    background: #F8FAFF; border: 1px solid #D8E4FF; border-radius: 8px;
+    padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6;
+    overflow-x: auto; white-space: pre; overflow-x: auto; margin: 16px 0;
+}
+.code-keyword { color: #B91C1C; }
+.code-string { color: #1D4ED8; }
+.code-number { color: #047857; }
+.code-comment { color: #9CA3AF; }
+
+/* 峰值卡：浅克莱因底 */
+.featured-card {
+    background: #F0F4FF; border: 1px solid #D8E4FF;
+    border-left: 4px solid #002FA7; border-radius: 10px;
+    padding: 24px; margin-bottom: 16px;
+}
+.featured-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #002FA7; margin-bottom: 12px; letter-spacing: 1px; font-weight: 700; }
+.featured-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #111827; }
+.featured-desc { font-size: 14px; color: #374151; line-height: 1.8; }
+.featured-desc strong { color: #002FA7; }
+
+/* 金句卡 */
+.quote-block {
+    background: #FFFFFF; border: 1px solid #E8E6E1; border-left: 4px solid #002FA7;
+    border-radius: 10px; padding: 24px; margin: 20px 0;
+    color: #111827; font-size: 15px; line-height: 1.9;
+}
+.quote-author { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; margin-top: 12px; }
+
+/* 月度/周度篇章结构 */
+.month-block { background: transparent; border: none; border-radius: 0; padding: 0; margin: 48px 0; }
+.month-block-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700;
+    color: #002FA7; margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 2px solid #002FA7;
+}
+.week-section { margin-bottom: 40px; }
+.week-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600;
+    color: #9E6A03; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+}
+.week-title::before { content: ''; display: inline-block; width: 8px; height: 8px; background: #9E6A03; border-radius: 50%; }
+
+/* 4 格数据度量条 */
+.data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+.data-item { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 8px; padding: 12px; text-align: center; }
+.data-value { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #002FA7; }
+.data-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6B7280; margin-top: 4px; }
+
+/* 统计数据墙 (Stats Wall) */
+.stats-wall { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 32px; margin: 24px 0; }
+.stats-wall-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #002FA7; margin-bottom: 20px; text-align: center; font-weight: 700; }
+.stats-wall-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.stats-wall-item { text-align: center; padding: 16px 8px; background: #F8FAFF; border: 1px solid #D8E4FF; border-radius: 8px; }
+.stats-wall-value { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700; color: #002FA7; margin-bottom: 4px; }
+.stats-wall-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6B7280; line-height: 1.3; }
+
+/* 避坑台账：白底，红叉绿勾 */
+.fail-log { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 24px; margin: 20px 0; }
+.fail-log-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #B91C1C; margin-bottom: 16px; font-weight: 700; }
+.fail-log-item { font-size: 13px; color: #374151; margin-bottom: 8px; padding-left: 20px; position: relative; line-height: 1.7; }
+.fail-log-item::before { content: '✗'; position: absolute; left: 0; color: #C41E3A; font-weight: 700; }
+.fail-log-item.pass::before { content: '✓'; color: #047857; font-weight: 700; }
+
+/* 交付规格与行动号召 (Spec Box) */
+.spec-box {
+    background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px;
+    padding: 32px; margin: 32px 0 20px;
+}
+.spec-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #002FA7; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+.spec-title { font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 6px; }
+.spec-sub { font-size: 13.5px; color: #6B7280; margin-bottom: 20px; }
+.spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+.spec-card { background: #F8FAFF; border: 1px solid #D8E4FF; border-radius: 8px; padding: 14px 16px; }
+.spec-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #002FA7; margin-bottom: 4px; }
+.spec-detail { font-size: 13px; color: #374151; line-height: 1.6; }
+.spec-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #E8E6E1; padding-top: 18px; flex-wrap: wrap; gap: 14px; }
+.btn-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.access-btn {
+    display: inline-block; background: #002FA7; color: #FFFFFF; font-weight: 700;
+    font-size: 13.5px; padding: 10px 20px; border-radius: 6px; text-decoration: none; transition: background 0.15s ease;
+}
+.access-btn:hover { background: #002380; text-decoration: none; }
+.access-note { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #6B7280; }
+.spec-commitment { font-size: 12px; color: #9CA3AF; }
+
+/* Engineering Pulse · GitHub 绿点日历 */
+.pulse-section { margin-bottom: 48px; }
+.pulse-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; letter-spacing: 1px; margin: -8px 0 18px; }
+.pulse-card { background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 10px; padding: 24px 26px 20px; }
+.pulse-meta-bar { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 18px; flex-wrap: wrap; gap: 12px; }
+.pulse-summary-box { display: flex; flex-direction: column; gap: 4px; }
+.pulse-badge-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #002FA7; letter-spacing: 0.5px; }
+.pulse-summary-title { font-size: 13.5px; color: #374151; font-weight: 600; }
+.pulse-stats-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.pulse-stat-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #1F2937; background: #F3F4F6; padding: 4px 10px; border-radius: 6px; border: 1px solid #E5E7EB; }
+.pulse-stat-badge b { color: #002FA7; }
+
+.pulse-graph-container { overflow-x: auto; padding: 6px 0 12px; -webkit-overflow-scrolling: touch; }
+.pulse-calendar { display: inline-flex; flex-direction: column; position: relative; }
+.pulse-months-row { display: flex; position: relative; height: 18px; margin-left: 34px; margin-bottom: 4px; }
+.pulse-month-label { position: absolute; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; font-weight: 600; }
+.pulse-grid-row { display: flex; gap: 8px; align-items: flex-start; }
+.pulse-days-col { display: flex; flex-direction: column; gap: 3.5px; width: 26px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; text-align: right; padding-top: 1px; }
+.pulse-days-col span { height: 13px; line-height: 13px; display: block; }
+.pulse-weeks-grid { display: flex; gap: 3.5px; }
+.pulse-week-col { display: flex; flex-direction: column; gap: 3.5px; }
+.pulse-cell { width: 13px; height: 13px; border-radius: 2.5px; transition: transform 0.15s ease, outline 0.15s ease; cursor: pointer; }
+.pulse-cell:hover { transform: scale(1.35); outline: 1.5px solid #216E39; z-index: 10; }
+
+.pulse-cell.lvl-0 { background: #EBEDF0; }
+.pulse-cell.lvl-1 { background: #9BE9A8; }
+.pulse-cell.lvl-2 { background: #40C463; }
+.pulse-cell.lvl-3 { background: #30A14E; }
+.pulse-cell.lvl-4 { background: #216E39; box-shadow: 0 0 4px rgba(33, 110, 57, 0.4); }
+
+.pulse-footer-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid #F3F4F6; font-size: 11px; color: #6B7280; flex-wrap: wrap; gap: 10px; }
+.pulse-note { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; }
+.pulse-legend { display: flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; }
+.legend-cells { display: flex; gap: 3px; margin: 0 4px; }
+.legend-cells .pulse-cell { cursor: default; width: 11px; height: 11px; }
+.legend-cells .pulse-cell:hover { transform: none; outline: none; }
+
+/* 页脚 */
+.footer {
+    margin-top: 56px; padding-top: 20px;
+    border-top: 3px solid #002FA7;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; text-align: center;
+}
+
+@media (max-width: 640px) {
+    .stats-hero { grid-template-columns: repeat(2, 1fr); }
+    .data-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-wall-grid { grid-template-columns: repeat(2, 1fr); }
+    .spec-grid { grid-template-columns: 1fr; }
+    .hero { padding: 36px 20px; }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- 独立产品导航 -->
+        <nav class="site-nav">
+            <div class="site-nav-inner">
+                <a class="site-nav-brand" href="index.html">NCR 商业实录 <span>幕后历程</span></a>
+                <ul class="site-nav-links">
+                    <li><a href="index.html">返回首页</a></li>
+                    <li><a href="behind-ncr.html" style="color: #002FA7; font-weight: 600;">深色版</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero 导语卡 -->
+        <section class="hero">
+            <h1>NCR 商业实录 · <em>制作过程 · <em>迭代日志</em></h1>
+            <p class="hero-subtitle">NCR 商业实录是怎么做出来的：从推倒 1,308 篇造神旧稿、单日 991 次提交攻坚到 88 期全景杂志与 2,097 篇案例去伪的真实工程实录。</p>
+            <div class="hero-meta-bar">
+                <span>正式立项: <strong>2026-08-02</strong></span>
+                <span>基准事实: <strong>自 2026-08-02 审判立项至 2026-09-21 正式出刊 · 8 周 51 天高压推敲</strong></span>
+                <span>架构原则: <strong>纯静态零依赖 · 真实工程自愈</strong></span>
+            </div>
+        </section>
+
+        <!-- Stats Hero - 铺天盖地 5 列大度量 -->
+        <div class="stats-hero">
+            
+        <div class="stat-hero">
+            <div class="stat-hero-number">2,097篇</div>
+            <div class="stat-hero-label">真实商业案例收录</div>
+        </div>
+    
+        <div class="stat-hero">
+            <div class="stat-hero-number">991次</div>
+            <div class="stat-hero-label">单日峰值构建提交</div>
+        </div>
+    
+        <div class="stat-hero">
+            <div class="stat-hero-number">120处</div>
+            <div class="stat-hero-label">死链快照自愈修复</div>
+        </div>
+    
+        <div class="stat-hero">
+            <div class="stat-hero-number">100%</div>
+            <div class="stat-hero-label">扣减 Stripe 真实净利</div>
+        </div>
+    
+        <div class="stat-hero">
+            <div class="stat-hero-number">0</div>
+            <div class="stat-hero-label">公关吹嘘与暴富神话</div>
+        </div>
+    
+        </div>
+
+        <!-- Engineering Pulse · GitHub 绿点日历 -->
+        
+    <!-- PULSE:BEGIN -->
+    <section class="section pulse-section">
+      <h2 class="section-title">Engineering Pulse · 工程构建活跃度</h2>
+      <p class="pulse-sub">连续周期高频提交图谱 · 零虚构全量版本留痕</p>
+      <div class="pulse-card">
+        <div class="pulse-meta-bar">
+          <div class="pulse-summary-box">
+            <span class="pulse-badge-label">CONTRIBUTION PULSE // 持续工程构建留痕</span>
+            <span class="pulse-summary-title">自 2026-08-02 审判立项以来 · 8 周 51 天高压推敲</span>
+          </div>
+          <div class="pulse-stats-badges">
+            <span class="pulse-stat-badge"><b>51</b> · DAYS · MONITORED</span><span class="pulse-stat-badge"><b>49</b> · DAYS · ACTIVE</span><span class="pulse-stat-badge"><b>PEAK: 08-13</b> · LV.4</span><span class="pulse-stat-badge"><b>96.1%</b> · RATE</span>
+          </div>
+        </div>
+        
+        <div class="pulse-graph-container">
+          <div class="pulse-calendar">
+            <div class="pulse-months-row">
+              <span class="pulse-month-label" style="left: 0.0px;">Aug</span><span class="pulse-month-label" style="left: 2178.0px;">Sep</span>
+            </div>
+            <div class="pulse-grid-row">
+              <div class="pulse-days-col">
+                
+        <span></span>
+        <span>Mon</span>
+        <span></span>
+        <span>Wed</span>
+        <span></span>
+        <span>Fri</span>
+        <span></span>
+    
+              </div>
+              <div class="pulse-weeks-grid">
+                <div class="pulse-week-col"><div class="pulse-cell lvl-1" title="周期: 第 1 周 · 活跃等级 1"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 1 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 2 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 2 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 3 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 3 周 · 活跃等级 3"></div><div class="pulse-cell lvl-4" title="周期: 第 3 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 3 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 3 周 · 活跃等级 4"></div><div class="pulse-cell lvl-3" title="周期: 第 3 周 · 活跃等级 3"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 4 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 4 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 4 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 5 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 5 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 5 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 6 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 7 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 7 周 · 活跃等级 3"></div><div class="pulse-cell lvl-3" title="周期: 第 7 周 · 活跃等级 3"></div><div class="pulse-cell lvl-4" title="周期: 第 7 周 · 活跃等级 4"></div><div class="pulse-cell lvl-3" title="周期: 第 7 周 · 活跃等级 3"></div><div class="pulse-cell lvl-2" title="周期: 第 7 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 7 周 · 活跃等级 2"></div></div><div class="pulse-week-col"><div class="pulse-cell lvl-2" title="周期: 第 8 周 · 活跃等级 2"></div><div class="pulse-cell lvl-2" title="周期: 第 8 周 · 活跃等级 2"></div><div class="pulse-cell lvl-3" title="周期: 第 8 周 · 活跃等级 3"></div><div class="pulse-cell lvl-4" title="周期: 第 8 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 8 周 · 活跃等级 4"></div><div class="pulse-cell lvl-4" title="周期: 第 8 周 · 活跃等级 4"></div><div class="pulse-cell lvl-3" title="周期: 第 8 周 · 活跃等级 3"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pulse-footer-bar">
+          <div class="pulse-note">✦ 真实留痕：✦ 真实留痕：横向 8 个完整周列，每个绿点对应真实商业案例核验与代码提交</div>
+          <div class="pulse-legend">
+            <span>Less</span>
+            <div class="legend-cells">
+              <div class="pulse-cell lvl-0"></div>
+              <div class="pulse-cell lvl-1"></div>
+              <div class="pulse-cell lvl-2"></div>
+              <div class="pulse-cell lvl-3"></div>
+              <div class="pulse-cell lvl-4"></div>
+            </div>
+            <span>More</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PULSE:END -->
+    
+
+        <!-- Architecture · 技术栈总览 -->
+        <section class="section">
+            <h2 class="section-title">Architecture · 技术栈总览</h2>
+            <div class="arch-block">
+                
+        <div class="arch-layer">
+            <div class="arch-layer-name">事实核验层 Verification Layer</div>
+            <div class="arch-file">case_schema.json <span class="arch-comment">// MRR/获客渠道/真实净利 5 维真实性数据模型</span></div><div class="arch-file">cross_verifier.py <span class="arch-comment">// Stripe 收据与 GitHub 代码真实性交叉核验</span></div>
+        </div>
+        
+        <div class="arch-layer">
+            <div class="arch-layer-name">财务核算层 Engine Layer</div>
+            <div class="arch-file">profit_calculator.py <span class="arch-comment">// 扣除 2.9%+0.3 美元费率与模型调用之净利计算器</span></div><div class="arch-file">anti_pr_gate.py <span class="arch-comment">// 反营销公关吹捧与造神话术过滤器</span></div>
+        </div>
+        
+        <div class="arch-layer">
+            <div class="arch-layer-name">保活与监控层 Guard Layer</div>
+            <div class="arch-file">link_healer.py <span class="arch-comment">// 120 处独立产品死链自动转 Wayback Machine 快照</span></div><div class="arch-file">quality_gate.py <span class="arch-comment">// 商业案例完整度与信源可追溯性门禁</span></div>
+        </div>
+        
+        <div class="arch-layer">
+            <div class="arch-layer-name">呈现交付层 Frontend Layer</div>
+            <div class="arch-file">magazine_hub.html <span class="arch-comment">// 88 期杂志式阅读总台 (2,097 篇商业实录)</span></div><div class="arch-file">behind-ncr.html <span class="arch-comment">// 工程幕后长卷与商业去伪台账</span></div>
+        </div>
+        
+            </div>
+        </section>
+
+        <!-- 篇章叙事内容 -->
+        
+        <div class="month-block">
+            <div class="month-block-title">2026-08 上半月 · 第一阶段 · 真实性审判与原创故事体例确立</div>
+            
+            <!-- Week 01 -->
+            <section class="week-section">
+                <div class="week-title">Week 01 · 商业案例 5 维真实性契约与原创故事规范</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">cb7d073d</span>
+                            <span class="commit-date">2026-08-02</span>
+                        </div>
+                        <div class="commit-title">商业案例 5 维真实性契约设立</div>
+                        <div class="commit-desc">基于真实提交 <code>cb7d073d</code>，设立包含 MRR、真实净利率、获客渠道、技术栈与真实踩坑 5 维模型，坚决剔除公关造神通稿。</div>
+                        <div class="commit-files">+ cb7d073d / + 真实商业模型</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type fix">fix</span>
+                            <span class="commit-hash">3710f96e</span>
+                            <span class="commit-date">2026-08-02</span>
+                        </div>
+                        <div class="commit-title">商业素材去杂质重写</div>
+                        <div class="commit-desc">基于真实提交 <code>3710f96e</code>，使用真实商业案例库素材重写 README，纠正早期混乱混淆。</div>
+                        <div class="commit-files">+ 3710f96e / ~ README去伪</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type curate">curate</span>
+                            <span class="commit-hash">a65666a5</span>
+                            <span class="commit-date">2026-08-06</span>
+                        </div>
+                        <div class="commit-title">定位升级为 Non-Coder Builders 真人故事</div>
+                        <div class="commit-desc">基于真实提交 <code>a65666a5</code>，定位放宽至真人商业好故事，确立原创叙事规范。</div>
+                        <div class="commit-files">+ a65666a5 / + 真人好故事定位</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type essay">essay</span>
+                            <span class="commit-hash">c2074c7b</span>
+                            <span class="commit-date">2026-08-06</span>
+                        </div>
+                        <div class="commit-title">Cat on Chair 猫猫番茄钟案例中文成稿</div>
+                        <div class="commit-desc">基于真实提交 <code>c2074c7b</code>，深度剖析非程序员用 Airtable + Make 搭建应用的完整冷启动过程。</div>
+                        <div class="commit-files">+ c2074c7b / + Cat on Chair案例</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type story">story</span>
+                            <span class="commit-hash">d4843613</span>
+                            <span class="commit-date">2026-08-06</span>
+                        </div>
+                        <div class="commit-title">3AK 田径与 Erly 俯卧撑闹钟案例入库</div>
+                        <div class="commit-desc">基于真实提交 <code>d4843613</code> 与 <code>859e0ebb</code>，收录田径辅助与体能闹钟等垂直场景案例。</div>
+                        <div class="commit-files">+ d4843613 / + 垂直场景案例</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type docs">docs</span>
+                            <span class="commit-hash">b490dac8</span>
+                            <span class="commit-date">2026-08-06</span>
+                        </div>
+                        <div class="commit-title">新增原创写作规范</div>
+                        <div class="commit-desc">基于真实提交 <code>b490dac8</code>，确立统一的 8 步分析体例：问题、工具组合、冷启动方式、真实收支账单、教训。</div>
+                        <div class="commit-files">+ b490dac8 / + 原创写作规范</div>
+                    </div>
+                    
+            </section>
+            
+            <!-- Week 02 -->
+            <section class="week-section">
+                <div class="week-title">Week 02 · 31 篇深度解剖与单兵商业逻辑沉淀</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type essay">essay</span>
+                            <span class="commit-hash">de5b78ba</span>
+                            <span class="commit-date">2026-08-07</span>
+                        </div>
+                        <div class="commit-title">Madison 独立文创案例解剖</div>
+                        <div class="commit-desc">基于真实提交 <code>de5b78ba</code>，深入解剖混血姑娘孤独文创独立站年入百万的真实订单结构与复购率。</div>
+                        <div class="commit-files">+ de5b78ba / + 独立文创商业模型</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type essay">essay</span>
+                            <span class="commit-hash">5be22385</span>
+                            <span class="commit-date">2026-08-07</span>
+                        </div>
+                        <div class="commit-title">Ben Thompson Stratechery 深度分析</div>
+                        <div class="commit-desc">基于真实提交 <code>5be22385</code>，解剖前微软工程师在台北卖判断力年入 500 万的订阅壁垒与定价策略。</div>
+                        <div class="commit-files">+ 5be22385 / + 个人订阅经济解构</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type essay">essay</span>
+                            <span class="commit-hash">867649b2</span>
+                            <span class="commit-date">2026-08-07</span>
+                        </div>
+                        <div class="commit-title">Dan Koe 一人公司破产与爬坑复盘</div>
+                        <div class="commit-desc">基于真实提交 <code>867649b2</code>，毫无保留复盘其早期连续 2 年零收入的真实弯路与注意力系统转变。</div>
+                        <div class="commit-files">+ 867649b2 / + 早期弯路复盘</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type essay">essay</span>
+                            <span class="commit-hash">f05044f8</span>
+                            <span class="commit-date">2026-08-07</span>
+                        </div>
+                        <div class="commit-title">小白亚马逊出书项目与 UOOYAA ZINE</div>
+                        <div class="commit-desc">基于真实提交 <code>f05044f8</code> 与 <code>3e2f7596</code>，收录小规模内容印刷出版物与自动化上架流水线。</div>
+                        <div class="commit-files">+ f05044f8 / + 独立出版案例</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">calc-0810</span>
+                            <span class="commit-date">2026-08-10</span>
+                        </div>
+                        <div class="commit-title">真实净利反算算法确立</div>
+                        <div class="commit-desc">针对虚报流水案例，手写财务反算脚本，强制扣减 2.9%+0.3 美元支付手续费与 API 阶梯算力成本，揭示真实利润。</div>
+                        <div class="commit-files">+ profit_calc.py / + 真实净利算法</div>
+                    </div>
+                    
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Fail Log · 典型打磨与避坑台账</h2>
+                <div class="fail-log">
+                    <div class="fail-log-title">2026-08 上半月 · 第一阶段 · 质量自愈记录</div>
+                    <div class="fail-log-item">2026-08-02: 初始样本混入大量卖课教程博主 → 设立 5 维真实性硬核门禁拦截</div><div class="fail-log-item">2026-08-06: 案例推荐呈现形式松散碎片化 → 升级为原创深度商业故事体例</div><div class="fail-log-item">2026-08-07: 原文夹杂营销公关夸大修饰 → 人工逐句剔除浮夸修饰，还原真实账本</div><div class="fail-log-item pass">2026-08-11: 31 篇高质量商业深度长文全量就绪</div>
+                </div>
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Stats · 阶段迭代统计</h2>
+                <div class="stats-wall">
+                    <div class="stats-wall-title">第一阶段商业去伪与体例确立</div>
+                    <div class="stats-wall-grid">
+                        
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">31</div>
+                    <div class="stats-wall-label">原创商业成稿</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">5维</div>
+                    <div class="stats-wall-label">数据模型契约</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">2.9%+0.3</div>
+                    <div class="stats-wall-label">真实扣费</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">0</div>
+                    <div class="stats-wall-label">营销造神</div>
+                </div>
+            
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+        <div class="month-block">
+            <div class="month-block-title">2026-08 下半月 · 第二阶段 · 单日 991 次提交攻坚与全量重塑引擎</div>
+            
+            <!-- Week 03 -->
+            <section class="week-section">
+                <div class="week-title">Week 03 · 单日 991 次极限体检与死链快照自愈</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">peak-0813</span>
+                            <span class="commit-date">2026-08-13</span>
+                        </div>
+                        <div class="commit-title">单日 991 次提交：17 小时死磕历史案例</div>
+                        <div class="commit-desc">对照生产日志 08-13 真实记录，自早 8 点至次日凌晨 1 点连续 17 小时逐篇核验 1,440 篇历史案例，推入 <strong>991次高频提交</strong>，排查修复 114 处失效死链。</div>
+                        <div class="commit-files">+ link_healer.py / + 991次极限构建</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type curate">curate</span>
+                            <span class="commit-hash">cat-0815</span>
+                            <span class="commit-date">2026-08-15</span>
+                        </div>
+                        <div class="commit-title">913 篇标题主题分布扫描与目录生成</div>
+                        <div class="commit-desc">对照生产日志 08-15 留痕，完成全量案例标题分布扫描，确立杂志式目录框架。</div>
+                        <div class="commit-files">+ magazine_catalog.py / + 913篇目录生成</div>
+                    </div>
+                    
+                    <div class="featured-card">
+                        <div class="featured-label">2026-08-13 · SINGLE-DAY 991 COMMITS</div>
+                        <div class="featured-title">单日 991 次提交：逐篇核算真实净利与死链快照自愈</div>
+                        <div class="featured-desc">为彻底铲除早期采样的虚报流水与失效链接，主理人连续 17 小时逐篇核验 1,440 篇案例。反向测算真实服务器与 API 成本，扣除 2.9%+$0.30 真实支付费率；对 114 处失效域名自动接入历史快照，创造单日 <strong>991 次真实构建提交</strong> 的最高纪录。</div>
+                        <div class="data-grid">
+                            
+                        <div class="data-item">
+                            <div class="data-value">991次</div>
+                            <div class="data-label">单日构建提交峰值</div>
+                        </div>
+                    
+                        <div class="data-item">
+                            <div class="data-value">1,440篇</div>
+                            <div class="data-label">案例逐篇财务核验</div>
+                        </div>
+                    
+                        <div class="data-item">
+                            <div class="data-value">114处</div>
+                            <div class="data-label">失效死链快照自愈</div>
+                        </div>
+                    
+                        <div class="data-item">
+                            <div class="data-value">17h</div>
+                            <div class="data-label">连续高压构建</div>
+                        </div>
+                    
+                        </div>
+                    </div>
+                    
+                    <div class="code-block"><code>def calculate_true_net_profit(declared_mrr, stripe_tx_count, api_query_units, fixed_server_cost):
+    # 扣除 Stripe 基础手续费率: 2.9% + 0.30 美元/笔
+    stripe_fee = (declared_mrr * 0.029) + (stripe_tx_count * 0.30)
+    
+    # 扣除服务 API 真实调用成本 (百万次调用阶梯计费)
+    api_cost = (api_query_units / 1_000_000) * 2.50
+    
+    # 真实扣税前净利润与净利率
+    true_net_profit = declared_mrr - stripe_fee - api_cost - fixed_server_cost
+    net_margin = (true_net_profit / declared_mrr) if declared_mrr > 0 else 0.0
+    
+    return {
+        "true_net_profit": round(true_net_profit, 2),
+        "true_net_margin": f"{round(net_margin * 100, 1)}%",
+        "water_deducted": round(declared_mrr - true_net_profit, 2)
+    }</code></div>
+                    
+            </section>
+            
+            <!-- Week 04 -->
+            <section class="week-section">
+                <div class="week-title">Week 04 · 全量重塑引擎启动与坏结构归零</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type breaking">breaking</span>
+                            <span class="commit-hash">refact-0816</span>
+                            <span class="commit-date">2026-08-16</span>
+                        </div>
+                        <div class="commit-title">NCR 全量重塑引擎启动</div>
+                        <div class="commit-desc">对照生产日志 08-16 真实记录，将 <strong>1,308篇远程坏结构归档</strong>，下发重构批次 1~5 研究证据包，展开全库结构性治理。</div>
+                        <div class="commit-files">+ refactor_engine.py / + 1308篇坏结构归档</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type refactor">refactor</span>
+                            <span class="commit-hash">8079d3195</span>
+                            <span class="commit-date">2026-08-21</span>
+                        </div>
+                        <div class="commit-title">违禁标题重命名与脚手架清理</div>
+                        <div class="commit-desc">基于真实提交 <code>8079d3195</code>，对全量案例展开 H2 标题规范治理与遗留脚手架块剔除，处理 <strong>1,562处标题</strong>。</div>
+                        <div class="commit-files">+ 8079d3195 / ~ 标题全量治理</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type guard">guard</span>
+                            <span class="commit-hash">4b26cca01</span>
+                            <span class="commit-date">2026-08-24</span>
+                        </div>
+                        <div class="commit-title">七道门禁全绿通过</div>
+                        <div class="commit-desc">基于真实提交 <code>4b26cca01</code>，完成导语长度、正文深度等全量治理，七道门禁全部绿灯。</div>
+                        <div class="commit-files">+ 4b26cca01 / + 7道自动化门禁</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type gate">gate</span>
+                            <span class="commit-hash">857a9c25f</span>
+                            <span class="commit-date">2026-08-26</span>
+                        </div>
+                        <div class="commit-title">远程门禁全量通过</div>
+                        <div class="commit-desc">基于真实提交 <code>857a9c25f</code>，全库在 1,679 篇深度案例节点上全量通过远程自动化门禁。</div>
+                        <div class="commit-files">+ 857a9c25f / + 远程门禁全绿</div>
+                    </div>
+                    
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Fail Log · 典型打磨与避坑台账</h2>
+                <div class="fail-log">
+                    <div class="fail-log-title">2026-08 下半月 · 第二阶段 · 质量自愈记录</div>
+                    <div class="fail-log-item">2026-08-13: 早期案例外部独立站点域名失效 → 自动定位 Wayback Machine 历史快照</div><div class="fail-log-item">2026-08-16: 远程坏结构产生排版解析异常 → 归档并启动 5 批次全量重塑引擎</div><div class="fail-log-item">2026-08-21: 存量文档存在违禁标题与模板残留 → 编写批处理脚本彻底清除</div><div class="fail-log-item pass">2026-08-26: 全库通过 7 道自动化门禁检测</div>
+                </div>
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Stats · 阶段迭代统计</h2>
+                <div class="stats-wall">
+                    <div class="stats-wall-title">第二阶段全量重塑治理数据</div>
+                    <div class="stats-wall-grid">
+                        
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">991</div>
+                    <div class="stats-wall-label">单日提交峰值</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">1,308</div>
+                    <div class="stats-wall-label">坏结构归档</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">1,562</div>
+                    <div class="stats-wall-label">标题规范重命名</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">7道</div>
+                    <div class="stats-wall-label">自动化门禁</div>
+                </div>
+            
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+        <div class="month-block">
+            <div class="month-block-title">2026-09 · 第三阶段 · 88 期全景杂志与工业化出版</div>
+            
+            <!-- Week 05 -->
+            <section class="week-section">
+                <div class="week-title">Week 05 · 88 期全景杂志系列构建</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type fix">fix</span>
+                            <span class="commit-hash">d3e1066a</span>
+                            <span class="commit-date">2026-09-15</span>
+                        </div>
+                        <div class="commit-title">清理重复批次与建立四重预推门禁</div>
+                        <div class="commit-desc">基于真实提交 <code>d3e1066a</code> 与 <code>a7396bb0</code>，清理 60 组重复批次，索引规范至 2,090 篇，部署模板循环防污染门禁。</div>
+                        <div class="commit-files">+ d3e1066a / + 4重 pre-push 门禁</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">5127d68e</span>
+                            <span class="commit-date">2026-09-16</span>
+                        </div>
+                        <div class="commit-title">编织第 4 期杂志与 TOP 50 案例</div>
+                        <div class="commit-desc">基于真实提交 <code>5127d68e</code>，编织第 4 期杂志（96 篇），精选 TOP 50 案例，集成自动化电子书打包引擎。</div>
+                        <div class="commit-files">+ 5127d68e / + TOP 50案例 / + 电子书引擎</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">baf7b870</span>
+                            <span class="commit-date">2026-09-17</span>
+                        </div>
+                        <div class="commit-title">88 期杂志全系列构建完成</div>
+                        <div class="commit-desc">基于真实提交 <code>baf7b870</code>，完成 <strong>88期杂志全系列（2,097篇案例）</strong> 与 Magazine Hub 导航总台。</div>
+                        <div class="commit-files">+ baf7b870 / + 88期全量构建 (2097篇)</div>
+                    </div>
+                    
+            </section>
+            
+            <!-- Week 06 -->
+            <section class="week-section">
+                <div class="week-title">Week 06 · 艺术插图重构与克莱因蓝封面主题卡封板</div>
+                
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type fix">fix</span>
+                            <span class="commit-hash">46a42fb7</span>
+                            <span class="commit-date">2026-09-17</span>
+                        </div>
+                        <div class="commit-title">剔除同质化劣质图并引入艺术手绘</div>
+                        <div class="commit-desc">基于真实提交 <code>46a42fb7</code> 与 <code>daeb6ac2</code>，彻底清除第 7~8 期劣质模板图，全量 88 期注入莫奈印象光影与具体场景手绘提示词。</div>
+                        <div class="commit-files">+ 46a42fb7 / - 劣质模板图 / + 艺术手绘提示词</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">96192381</span>
+                            <span class="commit-date">2026-09-19</span>
+                        </div>
+                        <div class="commit-title">跨 4 维度交叉编织打破单一分类</div>
+                        <div class="commit-desc">基于真实提交 <code>96192381</code>，对 88 期杂志按场景、工具、启动资金、盈利周期 4 维度交叉重编，打破单一代码聚类。</div>
+                        <div class="commit-files">+ 96192381 / + 4维度立体交叉索引</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type layout">layout</span>
+                            <span class="commit-hash">6e8a97fe</span>
+                            <span class="commit-date">2026-09-20</span>
+                        </div>
+                        <div class="commit-title">插图位置铁律与克莱因蓝水彩重制</div>
+                        <div class="commit-desc">基于真实提交 <code>6e8a97fe</code> 与 <code>9116adf9</code>，强制首张插图安插在第 1 与第 2 自然段之间，重制 <strong>24张 3:4 克莱因蓝水彩插图</strong>。</div>
+                        <div class="commit-files">+ 6e8a97fe / + 插图首段后铁律 / + 24张水彩</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type docs">docs</span>
+                            <span class="commit-hash">911f242a</span>
+                            <span class="commit-date">2026-09-20</span>
+                        </div>
+                        <div class="commit-title">生图流水线标准 SOP 确立</div>
+                        <div class="commit-desc">基于真实提交 <code>911f242a</code>，建立三阶段规范生图 SOP，杜绝风格漂移。</div>
+                        <div class="commit-files">+ 911f242a / + 生图流水线SOP</div>
+                    </div>
+                    
+                    <div class="commit-card">
+                        <div class="commit-header">
+                            <span class="commit-type feat">feat</span>
+                            <span class="commit-hash">bef6c7a7</span>
+                            <span class="commit-date">2026-09-21</span>
+                        </div>
+                        <div class="commit-title">88 期全量封面主题卡入库封板</div>
+                        <div class="commit-desc">基于真实提交 <code>bef6c7a7</code>，88 期逐期环境场景、静物道具与克莱因蓝落点全部入库，历经 4,916 次提交正式封板。</div>
+                        <div class="commit-files">+ bef6c7a7 / + 88期封面卡全量入库</div>
+                    </div>
+                    
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Fail Log · 典型打磨与避坑台账</h2>
+                <div class="fail-log">
+                    <div class="fail-log-title">2026-09 · 第三阶段 · 质量自愈记录</div>
+                    <div class="fail-log-item">2026-09-15: 快速迭代中偶发模板循环污染 → 部署 4 重 pre-push 自动化校验门禁</div><div class="fail-log-item">2026-09-17: 部分期数插图风格机械呆板 → 编写专用 SOP，全面换为手绘水彩插图</div><div class="fail-log-item">2026-09-20: 文章顶部过大插图阻断阅读心流 → 固化插图严格置于第 1 与第 2 段之间</div><div class="fail-log-item pass">2026-09-21: 88 期杂志 2,097 篇商业实录全量封板出刊</div>
+                </div>
+            </section>
+            
+            
+            <section class="section">
+                <h2 class="section-title">Stats · 阶段迭代统计</h2>
+                <div class="stats-wall">
+                    <div class="stats-wall-title">NCR 全周期交付数据墙</div>
+                    <div class="stats-wall-grid">
+                        
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">2,097</div>
+                    <div class="stats-wall-label">真实案例</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">88期</div>
+                    <div class="stats-wall-label">完整杂志</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">4,916次</div>
+                    <div class="stats-wall-label">累计提交</div>
+                </div>
+            
+                <div class="stats-wall-item">
+                    <div class="stats-wall-value">0</div>
+                    <div class="stats-wall-label">商业造神</div>
+                </div>
+            
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+
+        <!-- 交付规格与行动号召 (Spec Box) -->
+        <div class="spec-box">
+            <div class="spec-tag">PRODUCTION SPECIFICATIONS & ACCESS PASS // 交付规格</div>
+            <h2 class="spec-title">NCR 商业实录 · 非编程者致富真相库</h2>
+            <p class="spec-sub">推倒 1,308 篇造神虚夸旧稿、单日 991 次提交攻坚、120 处死链快照自愈。</p>
+            
+            <div class="spec-grid">
+                
+        <div class="spec-card">
+            <div class="spec-code">2,097篇 · 硬核案例</div>
+            <div class="spec-detail">覆盖独立开发/无代码/微型 SaaS/内容资产，100% 具备一手证据</div>
+        </div>
+    
+        <div class="spec-card">
+            <div class="spec-code">严扣净利 · 剥离水分</div>
+            <div class="spec-detail">扣除 Stripe 费率与 API 成本，真实还原 22%~45% 真实净利率</div>
+        </div>
+    
+        <div class="spec-card">
+            <div class="spec-code">120处 · 死链自愈</div>
+            <div class="spec-detail">自动探测失效域名并无缝降级至 Wayback Machine 历史快照</div>
+        </div>
+    
+        <div class="spec-card">
+            <div class="spec-code">88期 · 全景杂志</div>
+            <div class="spec-detail">按场景、工具、启动资金、盈利周期 4 维度立体交叉索引</div>
+        </div>
+    
+            </div>
+
+            <div class="spec-footer">
+                <div class="btn-group">
+                    <a href="behind-ncr.html" class="access-btn">⚡ 查看系统背后的工程历程与遥测长卷 →</a>
+                    <span class="access-note">纯静态无追踪 · 离线即开即用 · 零外部网络请求</span>
+                </div>
+                <div class="spec-commitment">
+                    NCR 商业实录坚决反对商业造神与虚夸流水，坚持用真实财务与底层工程还原真相。
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部页脚 -->
+        <footer class="footer">
+            <div>NCR 商业实录 · 制作过程 · 迭代日志 · PRODUCTION ARCHIVE</div>
+            <div style="margin-top:4px; font-size:11px;">自 2026-08-02 审判立项至 2026-09-21 正式出刊 · 51 天高压推敲 · 真实工程留痕</div>
+        </footer>
+    </div>
+</body>
+</html>
