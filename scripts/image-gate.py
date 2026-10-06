@@ -17,10 +17,12 @@
     I5. 格式                — webp = FAIL（兼容性差，飞书/部分环境打不开，统一转 jpg）
     I6. 外链图              — 新闻图直接外链 = FAIL（第三方源随时 404/防盗链，必须下载本地化）；
                                NASA Be Curious 外链 = WARN（建议也本地化，暂允许）
-    I7. 配图覆盖率          — ≥4 条新闻的页面正文 0 图 = FAIL，低于阈值 = WARN
+    I7. 配图覆盖率          — 纯文字页面合法（WARN 提示，不 FAIL）；不因覆盖率逼迫塞低质图
     I8. 图文语义一致性      — src 落在算力/硬件目录而周围文案是自然科普/具体产品 = WARN（只报不拦，
                                防"张冠李戴"占位图；2026-06 Dreambeans 条目误配 nvidia-gpu-cluster 事故）
     I9. 空图块              — image-block 里只有图注没有 <img> = WARN（配图管线丢图后的悬空说明行）
+    I10. 低质/侵权图源       — chart_* 自造图表、AI Hot 卡片、第三方 Logo/水印/评分宣传卡 = FAIL
+                               （2026-10-06 事故：自动抓取把 ai hot og:image 当成新闻图）
 
 背景（2026-08-14）：8-13 日报 zed-delta.webp 为 3600x1890 原图直接入库，页面图巨大/打不开；
 8 月 1-12 日图片全走第三方外链，读者每天遇到打不开。此门禁在 push 前拦截这两类问题。
@@ -41,6 +43,16 @@ COS_HOST = "ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com"  # 腾讯 CO
 PORTRAIT_BANNED_KEYWORDS = [
     "portrait", "headshot", "profile", "avatar", "ali_ghodsi", "ghodsi", 
     "zuckerberg", "altman", "sutskever", "ceo", "founder", "executive"
+]
+
+# --- I10 低质/侵权图源（2026-10-06 事故后加：硬阻断，不再只 WARN）---
+# 用户明确否决：自造小字性能图/架构图、第三方平台宣传卡、带 Logo/水印/评分的图。
+BANNED_IMAGE_SRC_TOKENS = [
+    "chart_", "aihot.news", "og/items", "xx5mgdemrqmqw5zw410sbawcz",
+]
+# 第三方平台宣传卡片特征（URL 或 alt/说明中出现即拦）
+BANNED_IMAGE_META_TOKENS = [
+    "aihot", "ai hot", "精选评分", "评分", "宣传卡片", "performance chart",
 ]
 
 # --- I8 图文语义一致性（2026-09-19 加，先 WARN 观察假阳性再议升 FAIL） ---
@@ -196,6 +208,25 @@ def _verify_cos_url(url: str) -> tuple:
         return (False, str(e)[:60], 0)
 
 
+def _is_banned_image(src: str, img_tag: str) -> str:
+    """I10：返回命中的禁用原因；未命中返回空字符串。
+
+    这些规则来自 2026-10-06 图片事故的用户明确标准：
+    - 自动生成的 chart_* 小字性能/架构图，看完更累，不加分；
+    - AI Hot 等第三方平台的 og:image 宣传卡，带对方 Logo/水印/评分；
+    - alt/说明里出现第三方平台或评分宣传特征。
+    """
+    low_src = src.lower()
+    for token in BANNED_IMAGE_SRC_TOKENS:
+        if token.lower() in low_src:
+            return '命中禁用图源特征 %s' % token
+    low_tag = img_tag.lower()
+    for token in BANNED_IMAGE_META_TOKENS:
+        if token.lower() in low_tag:
+            return '命中禁用宣传/评分特征 %s' % token
+    return ''
+
+
 def scan_html(html_path: Path, verify_http: bool = True):
     """扫描单个 HTML 文件里的所有图片引用，返回问题列表 [(行号, 类型, 描述)]。
 
@@ -212,6 +243,12 @@ def scan_html(html_path: Path, verify_http: bool = True):
         ln = content[:pos].count('\n') + 1
         name = src.split('/')[-1][:40]
         is_bc = _is_be_curious(content, pos)
+
+        # --- I10 禁用图源（一票否决：自造图表 / 第三方宣传卡 / 水印评分图） ---
+        banned = _is_banned_image(src, m.group(0))
+        if banned:
+            issues.append((ln, 'I10.FAIL', '[%s] %s → 禁止进入正文' % (name, banned)))
+            continue
 
         # --- I8 图文语义一致性（只报不拦，不影响后续任何检查） ---
         mismatch = _semantic_mismatch(src, _item_text(content, pos, m.end()), is_bc)
@@ -272,17 +309,15 @@ def scan_html(html_path: Path, verify_http: bool = True):
         if not _is_be_curious(content, m.start()):
             body_imgs.append(m.group(1))
     if items >= 4:
+        # 2026-10-06 用户定调：宁可纯文字上线，也不塞低质图。
+        # 覆盖率只作提示，永不作为 FAIL，避免流水线为了过门禁硬凑图。
         if len(body_imgs) < 1:
-            if 'READY_TEXT_ONLY' in content:
-                issues.append((0, 'I7.WARN',
-                    'IMAGE_COVERAGE: 正文无配图（%d 条新闻 0 张正文图）——READY_TEXT_ONLY 声明' % items))
-            else:
-                issues.append((0, 'I7.FAIL',
-                    'IMAGE_COVERAGE_FAIL: 正文无配图（%d 条新闻 0 张正文图）→ 至少需要 1 张 COS 官方图'
-                    % items))
+            issues.append((0, 'I7.WARN',
+                'IMAGE_COVERAGE: 正文无配图（%d 条新闻 0 张正文图）——允许纯文字上线，待高质量候选审核后再补'
+                % items))
         elif (len(body_imgs) / items) < cov:
             issues.append((0, 'I7.WARN',
-                '配图率 %d%%（%d 条新闻 %d 张正文图，建议适当增加官方配图）'
+                '配图率 %d%%（%d 条新闻 %d 张正文图，仅提示，不阻碍上线）'
                 % (int((len(body_imgs) / items) * 100), items, len(body_imgs))))
     return issues
 
