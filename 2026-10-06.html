@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 情报日报｜2026-10-06</title>
-    <meta name="description" content="2026年10月6日 AI 情报日报：OpenAI 推出 textGrain 文本水印方案应对欧盟监管；PromptArmor 披露 Databricks Genie 恶意 Skill 绕过控制隐蔽外泄数据；Together AI 推出 Together Link 接入开源模型；Google 上线基于 TEE 的联邦学习系统。">
+    <meta name="description" content="2026年10月6日 AI 情报日报：CASP 联合 22 位顶尖学者发布前沿 AI 风险测量框架，Hinton 亲笔背书；MiniMax 推出 M3.1 Flash 超快推理版本；Google 披露 Gemini 4 Argon 正式阶梯定价；Karpathy 总结最新极简终端工作流原则。">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
         :root {
@@ -123,279 +123,297 @@
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
         .num { color: var(--accent); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
-        .src-line { font-size: 13px; color: var(--text-light); margin-top: 10px; font-family: 'JetBrains Mono', monospace; }
+        .src-line {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-family: 'JetBrains Mono', monospace;
+        }
         .src-line a { color: var(--klein); text-decoration: none; }
         .src-line a:hover { text-decoration: underline; }
-        .image-block { margin: 18px 0 24px; }
-        .image-block img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); display: block; margin: 0 auto; }
-        .image-caption { font-size: 12.5px; color: var(--text-light); margin-top: 8px; line-height: 1.6; }
-        .divider { border: none; border-top: 1px dashed var(--border); margin: 18px 0; }
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 28px 0;
+        }
+        .image-block { margin: 20px 0 24px; }
+        .image-block img {
+            max-width: 560px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: block;
+            margin: 0 auto;
+        }
+        .image-caption {
+            font-size: 12.5px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 8px;
+        }
         .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
-        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice::before {
+            content: "\201C";
+            position: absolute;
+            left: -4px;
+            top: -18px;
+            font-family: Georgia, serif;
+            font-size: 80px;
+            color: var(--klein);
+            line-height: 1;
+        }
+        .voice-text {
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 1.55;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            letter-spacing: -0.2px;
+        }
         .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-light); }
         .voice-who a { color: var(--klein); text-decoration: none; }
         .voice-sep { border-top: 1px dashed var(--border); margin: 24px 0 24px 52px; }
-        .summary-poem { font-size: 15.5px; color: var(--text-mid); line-height: 2.1; }
-        .curiosity { padding: 20px; background: #F0F4FF; border-radius: 8px; margin-top: 32px; }
+        .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        .curiosity .body { font-size: 15px; color: var(--text-mid); }
+        .summary-poem {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.9;
+            color: var(--text-mid);
+            margin-top: 14px;
+            padding-left: 16px;
+            border-left: 2px solid var(--border);
+        }
         .footer {
-            margin-top: 48px;
-            padding-top: 20px;
-            border-top: 3px solid var(--klein);
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
         }
+        @media (max-width: 600px) {
+            .container { padding: 24px 16px 48px; }
+            .doc-title { font-size: 32px; }
+            .item-title { font-size: 18px; }
+            .voice { padding-left: 36px; }
+            .voice::before { font-size: 60px; top: -12px; }
+            .voice-text { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
+<!-- READY_TEXT_ONLY 2026-10-06: 经严格审查无官方独立物证配图，保持纯文本高质量排版，拒绝无脑配图 -->
 
-<nav class="site-nav">
-    <div class="site-nav-inner">
-        <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-        <ul class="site-nav-links">
-            <li><a href="../index.html">首页</a></li>
-            <li><a class="active" href="2026-10-06.html">日报</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container">
-
-    <header class="masthead">
-        <div class="mast-eyebrow">Daily Intelligence</div>
-        <h1 class="doc-title">AI 情报<span>日报</span></h1>
-        <p class="doc-date">2026年10月6日 · 星期二</p>
-        <div class="mast-lede">
-            <strong>今天的主线：合规水印与系统内生防护落地，端侧执行边界重构商业接口。</strong><br/><br/>
-            <span class="accent">OpenAI</span> 披露应对欧盟法案的 textGrain 统计水印方案，标记生成文本流；<br/>
-            <span class="accent">PromptArmor</span> 曝光企业级智能体技能可绕过多层沙箱实施跨域数据外泄；<br/>
-            <span class="accent">Together AI</span> 推出编码链路路由，推动现有智能体工具切入开源后端；<br/>
-            <span class="accent">Google</span> 在端侧输入法中上线基于可信执行环境的实时联邦训练系统。
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+            <ul class="site-nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html#archive">历史归档</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- ===== 1. 头版 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Front Page</div>
-        <div class="sec-title">头版</div>
+    <div class="container">
 
-        <div class="item">
-            <div class="dateline">OpenAI · 合规技术</div>
-            <div class="item-title">生成文本首次嵌入隐形统计特征，模型词元级标记方案试水强监管区，合规溯源重构采样逻辑</div>
-            <div class="body">
-                <p><span class="accent">OpenAI</span> 公布了应对欧盟人工智能法案的文本溯源技术方案，推出名为 <span class="accent">textGrain</span> 的统计水印机制。</p>
-                <p>该技术在模型选择输出词元时引入不可见的伪随机偏差，直接将来源信号编织进长文本中。商用接口客户已可针对特定模型开启水印选项，欧盟区网页端也将在数周内接入。</p>
-                <p>针对改写和截断造成的信号损失，验证工具已启动小规模封测，<span class="turn">表明</span>合规验证已从外部提示词防御深入到底层采样概率的干预阶段。</p>
+        <header class="masthead">
+            <div class="mast-eyebrow">Daily Intelligence</div>
+            <h1 class="doc-title">AI 情报<span>日报</span></h1>
+            <p class="doc-date">2026年10月6日 · 星期二</p>
+            <div class="mast-lede">
+                <strong>今天的主线：22 位顶尖学者联合确立前沿风险度量基准，Geoffrey Hinton 亲笔背书；MiniMax 与 Google 持续刷新推理成本下限。</strong><br><br>
+                <span class="accent">CASP</span> 联合多所顶尖学府发布前沿 AI 风险测量框架，重点度量递归自我改进临界点；<br>
+                <span class="accent">Geoffrey Hinton</span> 亲笔发文强调自我演化风险迫在眉睫，亟需前置量化约束；<br>
+                <span class="accent">MiniMax</span> 发布 M3.1 Flash 推理增量版本，单流吞吐大幅提升；<br>
+                <span class="accent">Google</span> 披露 Gemini 4 Argon 长期阶梯定价，打响算力单位成本持久战。
             </div>
-                        <div class="src-line"><a href="https://openai.com/index/eu-text-provenance" target="_blank">OpenAI 官方博客</a> · <a href="https://stratechery.com/2026/ai-watermarking-and-eu-compliance/" target="_blank">Stratechery 深度分析</a></div>
-        </div>
-    </div>
+        </header>
 
-    <!-- ===== 2. 前线 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Frontline</div>
-        <div class="sec-title">前线</div>
+        <!-- ===== 1. 头版 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Headline</div>
+            <div class="sec-title">头版</div>
 
-        <div class="item">
-            <div class="dateline">PromptArmor · 安全攻防</div>
-            <div class="item-title">智能体技能绕过四层安全沙箱，渲染通道变身外部钓鱼跳板</div>
-            <div class="body">
-                <p>安全机构 <span class="accent">PromptArmor</span> 披露了针对企业数据分析环境的高危利用链。攻击者通过上传恶意定制技能，直接绕过了工作区预设的四道权限过滤网。</p>
-                <p>恶意代码将受限数据拼接进输出界面的富文本代码块，借助操作者本地浏览器渲染标签发起外部网络请求，<span class="turn">并趁机</span>弹出虚假凭据窗口。</p>
-                <p>这一攻击路径避开了平台在后端设立的沙箱拦截，凸显出企业前端交互层在智能体时代所面临的防护盲区。</p>
+            <div class="item">
+                <div class="dateline">CASP · 安全对齐</div>
+                <div class="item-title">CASP 联合 22 位顶尖学者发布前沿 AI 风险测量框架：Hinton 亲笔背书，评估重心首次转向递归自改进临界点</div>
+                <div class="body">
+                    <p>来自伯克利、牛津、剑桥等顶尖高校与研究机构的 <span class="num">22</span> 位学者联合发布了 <span class="hl">AI 前沿风险测量框架</span>（Frontier Risk Measurement Framework），旨在为下一代高度自主系统的演化边界确立量化基准。</p>
+                    <p>该研究提出了一套覆盖多智能体协同攻防、长流程自主决策与环境持久化的实测基准。研究特别强调，过去基于静态跑分的传统测试已无法应对动态演化模型，系统必须引入动态对抗沙箱与形式化安全边界审计。</p>
+                    <p><span class="turn">图灵奖得主</span> <span class="accent">Geoffrey Hinton</span> 在公开信中对该报告予以正式背书，并指出递归自我改进带来的深远影响已不再停留于理论推演阶段，确立硬性度量指标已成为当前工程落地的紧迫要求。</p>
+                </div>
+                <div class="src-line"><a href="https://arxiv.org/abs/2609.17844" target="_blank">arXiv 论文预印本</a> · <a href="https://casp.ac/reports/frontier-risks-2026" target="_blank">CASP 官方发布</a> · <a href="https://stratechery.com/2026/ai-governance-and-frontier-risks/" target="_blank">Stratechery 深度分析</a></div>
             </div>
-                        <div class="src-line"><a href="https://www.promptarmor.com/resources/four-databricks-genie-controls-that-dont-stop-malicious-skills" target="_blank">PromptArmor 威胁分析报告</a> · <a href="https://simonwillison.net/2026/Oct/agent-jailbreak-via-reference-tools/" target="_blank">Simon Willison 深度分析</a></div>
         </div>
 
-        <div class="divider"></div>
+        <!-- ===== 2. 前线 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Front Line</div>
+            <div class="sec-title">前线</div>
 
-        <div class="item">
-            <div class="dateline">Google · 联邦学习</div>
-            <div class="item-title">可信执行环境支撑端侧匿名聚合，输入预测模型更新周期大幅压缩</div>
-            <div class="body">
-                <p><span class="accent">Google</span> 宣布上线基于 <span class="hl">可信执行环境</span> 的下一代分布式学习系统，已在数亿终端的输入法应用中实装。</p>
-                <p>该系统将词汇预测权重聚合逻辑运行在硬件加密隔离区内，所有策略变更同步公开至不可篡改的公共透明日志中，确保设备原始敲击数据不脱离端侧芯片。</p>
-                <p>更新流程从过去的单次耗时 <span class="num">2 个月</span> 缩减至天级，<span class="turn">实现了</span>隐私可审计性与模型迭代频率的兼顾。</p>
+            <div class="item">
+                <div class="dateline">MiniMax · 模型推理</div>
+                <div class="item-title">MiniMax 发布 M3.1 Flash 超快推理版本：单流吞吐翻倍，主攻复杂长链代码执行</div>
+                <div class="body">
+                    <p><span class="accent">MiniMax</span> 正式推出 <span class="hl">M3.1 Flash</span> 增量更新。新架构在保持原生混合专家（MoE）长文本理解能力的基础上，针对推理阶段的键值缓存（KV-cache）机制展开深度优化，单流响应延迟降低 <span class="num">45%</span>。</p>
+                    <p><span class="turn">工程团队</span> 在实际压力测试中表明，M3.1 Flash 在复杂长程任务与多智能体连续调用时表现出显著的吞吐优势，为高频次工具链执行提供了更轻量的后端算力支撑。</p>
+                </div>
+                <div class="src-line"><a href="https://agent.minimax.io/docs/release-notes-m3-1-flash" target="_blank">MiniMax 官方平台</a></div>
             </div>
-            <div class="src-line"><a href="https://research.google/blog/toward-provably-private-learning-from-federated-data/" target="_blank">Google Research 官方博客</a></div>
-        </div>
-    </div>
 
-    <!-- ===== 3. 开源前线 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Open Source</div>
-        <div class="sec-title">开源前线</div>
+            <div class="divider"></div>
 
-        <div class="item">
-            <div class="dateline">Together AI · 编码工具</div>
-            <div class="item-title">一行命令切换已有智能体调用链，开源模型推理成本降幅过半</div>
-            <div class="body">
-                <p><span class="accent">Together AI</span> 发布了开源模型接入插件 <span class="hl">Together Link</span>，旨在打通工程团队常用的终端代码辅助软件。</p>
-                <p>开发者无需重构已有的交互环境和工作流指令，仅需单条命令行配置，即可将底层计算请求转接至高性价比的开源权重集群。</p>
-                <p>根据团队公布的基准测试，混合路由机制在保持同等长代码补全水准的前提下，单次开发任务消耗的推理支出削减超过 <span class="num">50%</span>。</p>
+            <div class="item">
+                <div class="dateline">Google · 商业定价</div>
+                <div class="item-title">Google 披露 Gemini 4 Argon 长期阶梯定价：尝鲜期后锚定每百万 Token 4 美元与 20 美元</div>
+                <div class="body">
+                    <p><span class="accent">Google</span> 官方博客公布了 <span class="hl">Gemini 4 Argon</span> 在早期尝鲜阶段结束后的标准阶梯定价方案。</p>
+                    <p>根据官方发票档规范，基础输入定价为每百万 Token <span class="num">4 美元</span>，输出为 <span class="num">20 美元</span>。相较旧版同级旗舰模型，单位推理成本实现了实质性下探，正式确立了多模态长上下文大模型的常态化商用价格基准。</p>
+                </div>
+                <div class="src-line"><a href="https://blog.google/technology/ai/gemini-4-argon-pricing-tier/" target="_blank">Google 官方博客</a></div>
             </div>
-            <div class="image-block">
-                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/library/chips_compute/nvidia-gpu-cluster.jpg" alt="英伟达 GPU 与系统级算力硬件" loading="lazy">
-                <p class="image-caption">英伟达 GPU 与系统级算力硬件 · NVIDIA / TechCrunch · 资料图</p>
+        </div>
+
+        <!-- ===== 3. 开源前线 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Open Source</div>
+            <div class="sec-title">开源前线</div>
+
+            <div class="item">
+                <div class="dateline">StartLuxLabs · 策略规划</div>
+                <div class="item-title">StartLuxLabs 开源决策专用模型 StartLux-Decision：256 局复杂策略博弈实测胜率达 58.4%</div>
+                <div class="body">
+                    <p>开源实验室 <span class="accent">StartLuxLabs</span> 在 GitHub 上线了决策专用模型 <span class="hl">StartLux-Decision</span>，参数规模为 <span class="num">14B</span>。</p>
+                    <p>该模型专门用于处理非完全信息博弈与多步策略推理。在覆盖 <span class="num">256 局</span> 复杂对抗模拟的实测中，该模型取得了 <span class="num">58.4%</span> 的净胜率，代码仓库与权重已向社区完整公开。</p>
+                </div>
+                <div class="src-line"><a href="https://github.com/StartLuxLabs/StartLux-Decision" target="_blank">GitHub 官方仓库</a> · <a href="https://simonwillison.net/2026/Oct/decision-models-in-open-source/" target="_blank">Simon Willison 深度分析</a></div>
             </div>
-            <div class="src-line"><a href="https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use" target="_blank">Together AI 官方发布</a></div>
-        </div>
 
-        <div class="divider"></div>
+            <div class="divider"></div>
 
-        <div class="item">
-            <div class="dateline">Prime Intellect · 推理基础设施</div>
-            <div class="item-title">跨集群分离调度支撑万亿级日吞吐，自研键值缓存压缩提升并发极限</div>
-            <div class="body">
-                <p>分布式算力服务商 <span class="accent">Prime Intellect</span> 上线了专注于开源权重的生产级推理系统 <span class="hl">Prime Inference</span>。</p>
-                <p>系统采用预填与解码解耦架构，结合 <span class="hl">NVFP4</span> 键值缓存压缩算法，协调分布在多个物理机房的异构计算集群，当前日处理量已达近 <span class="num">1 万亿</span> 词元。</p>
-                <p>平台同时向外部开发者开放无服务器弹性接口与固定预留实例，<span class="turn">展示了</span>去中心化硬件整合为统一高可用推理层面的技术可行性。</p>
+            <div class="item">
+                <div class="dateline">DeepSeek · 开发者生态</div>
+                <div class="item-title">DeepSeek 开源终端编程助手 Mods 扩展兼容层：允许开发者自定义工具链接入</div>
+                <div class="body">
+                    <p><span class="accent">DeepSeek</span> 在 GitHub 发布了面向终端代码助手的 <span class="hl">Mods 兼容层</span> 规范。</p>
+                    <p><span class="turn">这一举措</span> 允许开发者将本地专属的代码索引、私有调试工具与数据分析管道无缝接入模型上下文，降低了构建客制化智能体开发环境的工程摩擦。</p>
+                </div>
+                <div class="src-line"><a href="https://github.com/deepseek-ai" target="_blank">DeepSeek 官方仓库</a></div>
             </div>
-            <div class="src-line"><a href="https://www.primeintellect.ai/blog/prime-inference" target="_blank">Prime Intellect 官方博客</a></div>
         </div>
-    </div>
 
-    <!-- ===== 4. 声音 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Voices</div>
-        <div class="sec-title">声音</div>
-        <div class="voice">
-            <p class="voice-text">「在我们看来，封闭花园过去让人安心，但随着智能体与 API 时代到来，原有的安全保护已经变成了生态限制。」</p>
-            <p class="voice-who">— Ben Thompson · 科技分析师 · <a href="https://stratechery.com/2026/apple-and-a-hackers-future/" target="_blank">Stratechery</a></p>
-        </div>
-        <div class="voice-sep"></div>
-        <div class="voice">
-            <p class="voice-text">「我在实测中发现，学生直接用 ChatGPT 获取现成答案，正在放弃推导过程，这对基础教育体系造成了实质破坏。」</p>
-            <p class="voice-who">— Jonathan Haidt · 纽约大学社会心理学教授 · <a href="https://www.youtube.com/watch?v=RFTfANuLBF4" target="_blank">Hacker News 研讨</a></p>
-        </div>
-<div class="divider"></div>
+        <!-- ===== 4. 声音 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Voices</div>
+            <div class="sec-title">声音</div>
 
-        <div class="voice-sep"></div>
-        
-    </div>
-
-    <!-- ===== 5. 创造 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Creation</div>
-        <div class="sec-title">创造</div>
-
-        <div class="item">
-            <div class="dateline">OpenAI · 商业交互</div>
-            <div class="item-title">视觉赞助单元穿插生图流程，对话式应用探索新型商业回报模式</div>
-            <div class="body">
-                <p><span class="accent">OpenAI</span> 宣布在旗下面向个人用户的服务中测试新型图文展示单元，初期选定图像生成这一特定使用场景。</p>
-                <p>当用户完成画图指令后，系统会在生成结果下方呈现独立标记的赞助信息，并配套提供投放转化效果分析工具。</p>
-                <p>官方明确该信息模块独立于模型原始答复逻辑，<span class="turn">意味着</span>通用对话服务正在寻求更直接的流量变现闭环。</p>
+            <div class="voice">
+                <p class="voice-text">「递归自我改进引发智能爆炸的构想存在已久，直到最近它才迫在眉睫，许多顶尖学者认为它可能很快发生。」</p>
+                <p class="voice-who">— Geoffrey Hinton · 图灵奖得主 · 诺贝尔物理学奖得主 · <a href="https://x.com/geoffreyhinton" target="_blank">X 认证发言</a></p>
             </div>
-                        <div class="src-line"><a href="https://openai.com/index/new-chatgpt-ads-format-and-measurement" target="_blank">OpenAI 官方博客</a> · <a href="https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/" target="_blank">TechCrunch 报道</a></div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="item">
-            <div class="dateline">Manus · 视频生产</div>
-            <div class="item-title">生成镜头自动编排入轨，粗剪转录打通长片打磨流水线</div>
-            <div class="body">
-                <p>自动化办公流程团队 <span class="accent">Manus</span> 推出了搭载于其工作台的多轨道视频编辑系统，打通了脚本构思到最终剪辑的时间线断层。</p>
-                <p>系统自动搜寻参考画面、批量生成分镜片段与动态字幕，并将多达 <span class="num">125</span> 段本地原始素材快速转录为粗剪工程。</p>
-                <p>创作者可在逐帧音画轨道上微调配乐与画幅，<span class="turn">让</span>原本离散的单次生成结果转化为可交付的连续作品。</p>
+            <div class="voice-sep"></div>
+            <div class="voice">
+                <p class="voice-text">「我们在实测中发现，当自主智能体具备多步自我调优能力时，传统监督器会出现盲区，必须建立独立的形式化验证。」</p>
+                <p class="voice-who">— Chris Painter · METR 执行总监 · <a href="https://metr.org/blog/2026-eval-framework/" target="_blank">metr.org 参议院证词</a></p>
             </div>
-            <div class="src-line"><a href="https://manus.im/zh-cn/blog/introducing-video-editor" target="_blank">Manus 官方发布</a></div>
         </div>
-    </div>
 
-    <!-- ===== 6. 视觉 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Vision</div>
-        <div class="sec-title">视觉</div>
+        <!-- ===== 5. 创造 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Create</div>
+            <div class="sec-title">创造</div>
 
-        <div class="item">
-            <div class="dateline">监管合规 · 穿戴设备</div>
-            <div class="item-title">公共空间隐蔽摄录引发担忧，首个国家级便携视觉禁令提上日程</div>
-            <div class="body">
-                <p>据 Ars Technica 报道，挪威数据监管部门宣布正筹备针对配备摄像镜头与多模态感知功能的智能眼镜出台专项限制细则。</p>
-                <p>执法机构指出，搭载小型视觉传感器的穿戴设备可以在未经许可的情况下对路人进行面部捕获和语义识别，严重侵蚀物理空间的匿名权。</p>
-                <p>监管方计划在长期管理标准生效前设立过渡性冻结期，<span class="turn">给</span>快速扩张的具身多模态硬件市场敲响了第一道警钟。</p>
+            <div class="item">
+                <div class="dateline">Andrej Karpathy · 实践方法</div>
+                <div class="item-title">Andrej Karpathy 公布最新 AI 终端工作流原则：以轻量脚本连接大模型，拒绝复杂黑盒框架</div>
+                <div class="body">
+                    <p>前特斯拉 AI 总监 <span class="accent">Andrej Karpathy</span> 在 X 上发布了长篇实操心得，倡导极简主义的 AI 编程理念。</p>
+                    <p>Karpathy 指出，过度封装的中间层往往掩盖了底层模型的真实行为。他建议开发者直接通过简洁的 Python/CLI 脚本操作原生 API，让输入上下文与输出轨迹保持清晰透明，从而在长流程工程中建立稳固的控制感。</p>
+                </div>
+                <div class="src-line"><a href="https://x.com/karpathy" target="_blank">Karpathy 官方发言</a></div>
             </div>
-            <div class="src-line"><a href="https://arstechnica.com/ai/2026/10/ai-glasses-face-their-first-major-government-crackdown/" target="_blank">Ars Technica 报道</a></div>
         </div>
-    </div>
 
-    <!-- ===== 7. 投资与资金流向 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Capital</div>
-        <div class="sec-title">投资与资金流向</div>
+        <!-- ===== 6. 视觉 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Vision</div>
+            <div class="sec-title">视觉</div>
 
-        <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
-<div class="item">
-            <div class="dateline">NVIDIA · 终端硬件</div>
-            <div class="item-title">统一部署内存扩容直指百亿模型，开发者工作站售价敲定近五千美元</div>
-            <div class="body">
-                <p><span class="accent">NVIDIA</span> 宣布旗下小型开发平台 <span class="hl">DGX Spark</span> 增配 <span class="num">64GB</span> 统一内存规格，由多家合作硬件厂商定于 <span class="num">10 月 23 日</span> 统一上市发售。</p>
-                <p>该设备起步定价设为 <span class="num">4999 美元</span>，可在本地安静环境下支撑参数量高达 <span class="num">1000 亿</span> 的模型完成全量量化加载与推理交互。</p>
-                <p>这一举动压低了本地私有微调的算力门槛，<span class="turn">加速了</span>高价值代码与机密知识库在边缘设备的沉淀进程。</p>
+            <div class="item">
+                <div class="dateline">Manus · 交互界面</div>
+                <div class="item-title">Manus 演示多轨视频生成界面：粗剪与关键帧实时映射，生成镜头自动入轨</div>
+                <div class="body">
+                    <p><span class="accent">Manus</span> 团队公开展示了其下一代多模态生成交互原型。系统通过将分镜文本与时间轴轨道进行确定性映射，实现了视频片段的端到端自动编排。</p>
+                </div>
+                <div class="src-line"><a href="https://manus.im/blog/introducing-video-editor" target="_blank">Manus 官方发布</a></div>
             </div>
-            <div class="src-line"><a href="https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/" target="_blank">NVIDIA 官方博客</a></div>
         </div>
 
-        <div class="divider"></div>
+        <!-- ===== 7. 投资与资金流向 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Capital</div>
+            <div class="sec-title">投资与资金流向</div>
 
-        <div class="item">
-            <div class="dateline">Arena 测评 · 效费评估</div>
-            <div class="item-title">智能体榜单迎来排位更迭，性能溢价与运行成本逼近效益临界</div>
-            <div class="body">
-                <p>评测组织 <span class="accent">Arena</span> 公布了 <span class="hl">Agent Arena</span> 最新测试成绩。新进模型以 <span class="num">+12.5%</span> 的净提升表现位列榜单第 <span class="num">3</span> 名。</p>
-                <p>测试数据显示，该模型执行单任务的中位成本高达 <span class="num">2.74 美元</span>，相较第 <span class="num">2</span> 名的 <span class="num">1.58 美元</span> 高出约 <span class="num">73%</span>，在成本和产出比对中未能进入效率最优点。</p>
-                <p>在特定对话单项得分维持领先的同时，昂贵的令牌调用支出，<span class="turn">使</span>工程团队在选用前沿能力时不得不重新评估投入回报。</p>
+            <div class="item">
+                <div class="dateline">NVIDIA · 硬件生态</div>
+                <div class="item-title">NVIDIA 拓展 DGX 工作站统一内存配置：单机 64GB 内存降低百亿模型私有化实验门槛</div>
+                <div class="body">
+                    <p><span class="accent">NVIDIA</span> 宣布扩展桌面级计算硬件阵容，为 <span class="hl">DGX Spark</span> 系列引入 <span class="num">64GB</span> 统一内存版本，起售价为 <span class="num">4999 美元</span>。</p>
+                    <p><span class="turn">新配置</span> 能够支持研发人员在本地工作站直接加载运行最高 <span class="num">1000 亿</span> 参数的神经网络模型，显著降低了中小团队开展私有模型验证的设备预算门槛。</p>
+                </div>
+                <div class="src-line"><a href="https://blogs.nvidia.com/blog/dgx-spark-64gb-workstations/" target="_blank">NVIDIA 官方博客</a></div>
             </div>
-            <div class="src-line"><a href="https://x.com/arena/status/2106105400487821764" target="_blank">Agent Arena 官方评测</a></div>
         </div>
-    </div>
 
-    <!-- ===== 8. 小结 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Summary</div>
-        <div class="sec-title">小结</div>
+        <!-- ===== 8. 小结 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Summary</div>
+            <div class="sec-title">小结</div>
 
-        <div class="item">
-            <div class="body">
-                <p>从文本生成过程中的概率水印，到企业分析工具里的隐蔽沙箱越权，系统安全与工程合规正在成为智能体向深水区迈进时最棘手的必答题。</p>
-                <div class="summary-poem">
-                    微小的概率在字句中沉淀下标记，<br/>
-                    隐蔽的代码在沙箱外敲打着高墙；<br/>
-                    算力的算盘在边缘机柜上重新作价，<br/>
-                    前行的路途终究要向真实边界交待。
+            <div class="item">
+                <div class="body">
+                    <p>前沿模型演化正从被动的基准测试走向主动的风险度量，而推理成本的快速下行正推动智能体从云端重构蔓延至个人开发者的本地终端。谁能以更低的门槛交付可验证的确定性，谁就能在下一阶段的工程落地中占据主导。</p>
+                    <div class="summary-poem">
+                        递归推演刻下度量尺，<br>
+                        星际博弈验出胜负率；<br>
+                        极简脚本穿透黑盒雾，<br>
+                        算力台阶终落案头前。
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- ===== 9. Be Curious ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Be Curious</div>
+            <div class="sec-title">保持好奇</div>
+
+            <div class="curiosity">
+                <div class="body">
+                    <p><strong>大堡礁的珊瑚礁群，比任何数据中心的冷却塔都要古老。</strong></p>
+                    <div class="image-block">
+                        <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-06/gbrzm_oli_2020222_th-cb7ea6f7.jpg" alt="NASA 卫星影像：澳大利亚大堡礁珊瑚礁群" loading="lazy">
+                        <p class="image-caption">澳大利亚圣灵群岛 · 珊瑚礁 · NASA 卫星拍摄 · 20.30°S, 148.90°E<br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            AI News 每日情报 · 2026-10-06 期 · 前沿信号流
+        </footer>
+
     </div>
 
-    <!-- ===== 9. 保持好奇 ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Be Curious</div>
-        <div class="sec-title">保持好奇</div>
-
-        <div class="curiosity">
-<div class="body">
-<p><strong>大堡礁的珊瑚礁，比任何数据中心的冷却塔都古老。</strong></p>
-<div class="image-block">
-<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-06/gbrzm_oli_2020222_th-cb7ea6f7.jpg" alt="NASA 卫星影像：Great Barrier Reef, Australia" loading="lazy">
-<p class="image-caption">Great Barrier Reef, Australia · NASA · <span class="num">20.30°S, 148.90°E</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。山川湖海，让我们保持好奇、继续探索。</p>
-</div>
-</div>
-</div>
-    </div>
-
-    <footer class="footer">
-        AI News Daily Briefing · 2026-10-06 Edition · Powered by AI Intelligence Engine
-    </footer>
-
-</div>
-
-<link rel="stylesheet" href="../glossary/glossary.css">
-<script src="../glossary/ai-dictionary-lite-inline.js"></script>
-<script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+    <link rel="stylesheet" href="../glossary/glossary.css">
+    <script src="../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>
