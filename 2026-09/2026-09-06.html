@@ -159,10 +159,6 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><span class="turn">但「公然盗版」的措辞比诉求本身更值得注意。</span> 这不是在说「我们希望谈判授权」，是在说「你们就是在偷」。<span class="hl">这个定性一旦被法院采纳，对整个行业的训练数据合规框架都是地震级影响。</span></p>
 <p>Anthropic 目前面临的法律压力已经从多个方向汇聚：版权方、新闻机构、个人作者。<span class="hl">每一场官司都在试图确立一个先例，而先例一旦成立，就会影响所有人。</span></p>
 </div>
-<div class="image-block">
-<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-31/sony2-chart.jpg" alt="Sony Music 与 Warner 起诉 Anthropic 版权数据图表" loading="lazy">
-<p class="image-caption">Sony Music 与 Warner 联合起诉 Anthropic，图表展示诉讼覆盖的流行音乐版权范围与诉求。图：诉讼数据图表。</p>
-</div>
 <div class="src-line">TechCrunch · 法院文件详情：The Verge</div>
 </div>
 
@@ -202,10 +198,6 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><strong>腾讯混元发布开源模型 <span class="accent">Hy4 Preview</span>：<span class="accent">770B</span> 总参数、<span class="accent">49B</span> 活跃参数，支持 <span class="accent">100 万 token</span> 上下文窗口，仅文本输入，无视觉模态。Simon Willison 第一时间做了技术解读。</strong></p>
 <p>770B 总参数配 49B 活跃参数，这是典型的 <span class="hl">MoE 稀疏激活架构</span>：推理时只调用一小部分参数，在保持大模型能力的同时控制计算成本。<span class="accent">1M 上下文窗口</span>是另一个关键数字，意味着它可以处理超长文档、代码库或对话历史。</p>
 <p><span class="turn">国产开源模型在参数规模上已经不输任何人。</span> <span class="hl">接下来的竞争维度会转向推理效率、部署成本和配套工具链</span>，光有大模型还不够，还要让人用得起、用得顺。</p>
-</div>
-<div class="image-block">
-<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-31/hy4-chart.jpg" alt="腾讯混元 Hy4 Preview 770B 参数 MoE 架构与 1M 上下文" loading="lazy">
-<p class="image-caption">腾讯混元 Hy4 Preview：770B 总参、49B 激活、1M 上下文，图表展示 MoE 稀疏激活架构。图：模型架构图表。</p>
 </div>
 <div class="src-line"><a href="https://simonwillison.net/2026/Aug/29/hy4/" target="_blank">Simon Willison</a></div>
 </div>
@@ -251,10 +243,6 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><strong><span class="accent">Stanford</span> 研究团队提出「前缀滑动」推理方法，在不修改模型权重、不更换硬件的前提下，将长链推理任务的速度提升最高 <span class="accent">3 倍</span>。核心思路是复用已计算的前缀 KV 缓存，避免重复计算。</strong></p>
 <p>这类工作的意义在于它的可移植性。<span class="hl">大多数推理加速研究需要修改模型架构或更换专用硬件</span>，前缀滑动法只动推理调度策略，意味着<span class="accent">任何已有部署都可以直接受益，不需要重新训练或采购新设备。</span></p>
 <p><span class="turn">在算力成本居高不下的当下，</span>「用现有资源做更多事」的价值往往比「买更多资源」更直接。<span class="hl">3 倍的推理提速，折算成算力成本，是实实在在的钱。</span></p>
-</div>
-<div class="image-block">
-<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-31/stanford-chart.jpg" alt="Stanford 前缀滑动法长推理提速 3 倍对比图表" loading="lazy">
-<p class="image-caption">Stanford 前缀滑动法通过复用 KV 缓存将长推理提速 3 倍，无需换硬件。图：性能对比图表。</p>
 </div>
 <div class="src-line"><a href="https://x.com/omarsar0/status/2094109398604099888" target="_blank">X</a></div>
 </div>
@@ -314,10 +302,6 @@ body{font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;background:var(
 <p><strong>量子位报道一款开源 OCR 工具，可在 <span class="accent">20 毫秒</span>内将 PDF 转换为结构化 Markdown，单次处理 <span class="accent">200 份</span> PDF 仅需 3 秒，速度较主流方案提升约 <span class="accent">300 倍</span>。</strong></p>
 <p>PDF 解析是 RAG 流水线里的常见瓶颈。<span class="hl">大量企业知识库以 PDF 形式存储，每次更新都要重新解析</span>，速度慢直接影响知识库的新鲜度。<span class="accent">20ms 的处理速度意味着实时解析变得可行，并非单纯是批量预处理的妥协。</span></p>
 <p><span class="turn">对做本地知识库或文档处理流水线的开发者来说，</span>这是值得立刻测试的工具。<span class="hl">开源、快、结构化输出</span>，三个条件同时满足的工具并不多见。</p>
-</div>
-<div class="image-block">
-<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-31/ocr2-chart.jpg" alt="开源 OCR 工具 20ms PDF 转 Markdown 性能对比图表" loading="lazy">
-<p class="image-caption">开源 OCR 工具实现 20ms PDF 转 Markdown，性能对比图表展示 300 倍提速。图：性能对比图表。</p>
 </div>
 <div class="src-line"><a href="https://www.qbitai.com/2026/08/481075.html" target="_blank">量子位</a></div>
 </div>
