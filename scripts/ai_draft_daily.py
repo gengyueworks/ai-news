@@ -16,6 +16,11 @@ KEY = os.environ.get("CLI_PROXY_KEY", "sk-123")
 MODEL = os.environ.get("AI_DRAFT_MODEL", "claude-sonnet-4-6")
 MAX_TOKENS = int(os.environ.get("AI_DRAFT_MAX_TOKENS", "32000"))
 
+# 声音栏红线：库存引语新鲜度窗口（天）与引语字数上限（对齐门禁 F4/HH15）。
+# 宁缺毋滥：不满足条件的引语整条不上刊，绝不用代拟句填空。
+VOICE_FRESH_DAYS = 10
+VOICE_QUOTE_MAX_CHARS = 48
+
 REQUIRED_SECTIONS = ["头版", "前线", "开源前线", "声音", "创造", "视觉", "投资与资金流向", "小结", "Be Curious"]
 
 SYSTEM_PROMPT = """你是「AI 情报日报」的主编。基于提供的当日素材，产出一份完整的日报 HTML。
@@ -250,11 +255,66 @@ def _get_past_7d_urls(site: Path, target_date: str) -> set[str]:
     return urls
 
 
+def _quote_norm(s) -> str:
+    """引语指纹：去空白与中英引号、标点后取前 40 字，用于跨期去重。"""
+    out = re.sub(r"\s+", "", str(s))
+    for ch in ("「", "」", "\u201c", "\u201d", '"', "'",
+               "。", ",", ".", "!", "?", "，", "？", "！", "、", ";", "；"):
+        out = out.replace(ch, "")
+    return out[:40]
+
+
+def _get_past_7d_quote_texts(site: Path, target_date: str) -> set:
+    """收集过去 7 天已刊发日报声音栏引语，用于跨期去重（防同一句话回锅）。"""
+    from datetime import date as _d, timedelta as _td
+    t = _d.fromisoformat(target_date)
+    texts = set()
+    for i in range(1, 8):
+        d = (t - _td(days=i)).isoformat()
+        p = site / d[:7] / (d + ".html")
+        if not p.exists():
+            continue
+        try:
+            txt = p.read_text(encoding="utf-8", errors="replace")
+        except Exception:
+            continue
+        for raw in re.findall(r'<p class="voice-text">([\s\S]*?)</p>', txt):
+            plain = _quote_norm(re.sub(r"<[^>]+>", "", raw))
+            if plain:
+                texts.add(plain)
+    return texts
+
+
+def _voice_is_reusable(v: dict, published: set) -> bool:
+    """库存引语能否上刊：有逐字原文 + 有具体来源深链 + 不回锅。
+
+    不满足即判不可核验，禁止上刊；生成端不再用代拟句补位。
+    """
+    q = str(v.get("quote_text", "")).strip()
+    if len(q) < 8:
+        return False
+    url = str(v.get("quote_source_url", "")).strip()
+    if not url.startswith("http"):
+        return False
+    path_part = url.split("//", 1)[-1].split("/", 1)
+    if len(path_part) < 2 or not path_part[1].strip("/"):
+        # 只给站点根域、没有具体页面路径的空壳链接不算深链
+        return False
+    norm = _quote_norm(q)
+    if norm in published:
+        return False
+    return True
+
+
 def _collect_inventory_items(site: Path, date: str, min_needed: int = 10):
-    """跨期搜集足够数量、互不重复且未在过去 7 天出现的优质库存条目。"""
+    """跨期搜集足够数量、互不重复且未在过去 7 天出现的优质库存条目。
+
+    声音（引语）另加两道闸：新鲜度窗口 VOICE_FRESH_DAYS；过去 7 天已刊发引语去重。
+    """
     from datetime import date as _d
     target = _d.fromisoformat(date)
     past_7d_urls = _get_past_7d_urls(site, date)
+    published_quotes = _get_past_7d_quote_texts(site, date)
     
     # 找到所有早于 date 的 daily json
     jsons = []
@@ -268,6 +328,7 @@ def _collect_inventory_items(site: Path, date: str, min_needed: int = 10):
     collected_voices = []
     seen_titles = set()
     seen_urls = set()
+    seen_quote_norms = set()
 
     for d_str, jp in jsons:
         try:
@@ -275,10 +336,15 @@ def _collect_inventory_items(site: Path, date: str, min_needed: int = 10):
         except Exception:
             continue
         voices = d.get("voices", [])
-        for v in voices:
-            q = v.get("quote_text", "").strip()
-            if q and q not in [x.get("quote_text") for x in collected_voices]:
-                collected_voices.append(v)
+        # 新鲜度：只回收 VOICE_FRESH_DAYS 天内的库存声音，陈年引语不回锅
+        if (target - _d.fromisoformat(d_str)).days <= VOICE_FRESH_DAYS:
+            for v in voices:
+                norm = _quote_norm(v.get("quote_text", ""))
+                if not norm or norm in seen_quote_norms:
+                    continue
+                if _voice_is_reusable(v, published_quotes):
+                    seen_quote_norms.add(norm)
+                    collected_voices.append(v)
         
         for s in d.get("sections", []):
             sec_name = s.get("section_title", "")
@@ -364,35 +430,45 @@ def inventory_fallback(site: Path, date: str):
     digest = "；".join(_inv_clean(it.get("title", ""))[:25] for it in all_rendered[:4])
 
     valid_voices = []
+    dropped_voices = []
     for v in voices:
         q_raw = esc(v.get("quote_text", "")).strip("「」\"'“”").strip()
         if not q_raw:
             continue
-        # 裁剪到 50 字以内防 FF4 超长
-        if len(q_raw) > 48:
-            q_raw = q_raw[:45] + "……"
+        # 引语红线：超长整条弃用，绝不裁成「……」的半句（裁了就查不回原话）
+        if len(q_raw) > VOICE_QUOTE_MAX_CHARS:
+            dropped_voices.append("超长弃用（不裁半句）: " + q_raw[:24])
+            continue
+        url = str(v.get("quote_source_url", "")).strip()
+        if not url.startswith("http"):
+            dropped_voices.append("无来源深链弃用: " + q_raw[:24])
+            continue
         who = esc(v.get("quote_who", "")).strip("，,· ").strip()
         label = esc(v.get("quote_source_label", "")).strip("，,· ").strip()
         desc = f"{who} · {label}" if label else who
-        valid_voices.append((q_raw, desc))
+        valid_voices.append((q_raw, desc, url))
         if len(valid_voices) >= 2:
             break
 
-    if len(valid_voices) < 2:
-        valid_voices = [
-            ("Day-0 支持能显著缩短前沿技术到实际可用的周期。", "技术评测 · 开源社区"),
-            ("当工具开始具备独立寻找上下文的能力，工作流就被重构了。", "行业观察 · 分析师")
-        ]
+    for note in dropped_voices:
+        print("   [voices] " + note)
 
-    voice_html = f"""<div class="voice">
-<p class="voice-text">「{valid_voices[0][0]}」</p>
-<p class="voice-who">— {valid_voices[0][1]}</p>
-</div>
-<div class="voice-sep"></div>
-<div class="voice">
-<p class="voice-text">「{valid_voices[1][0]}」</p>
-<p class="voice-who">— {valid_voices[1][1]}</p>
-</div>"""
+    # 可回源真引语不足 2 条 -> 声音栏留空，交给门禁 HH1(声音≥2) 报 FAIL 阻断发布。
+    # 此处曾硬编码两条无来源的代拟引语，2026-10-05 已彻底删除（task #76）。
+    if len(valid_voices) < 2:
+        print("   [voices] 可回源真引语仅 %d 条，声音栏留空，等门禁 HH1 报警（禁止代拟兜底）"
+              % len(valid_voices))
+
+    voice_chunks = []
+    for i, (q_text, who_desc, q_url) in enumerate(valid_voices):
+        if i:
+            voice_chunks.append('<div class="voice-sep"></div>')
+        voice_chunks.append('<div class="voice">\n'
+                            '<p class="voice-text">「' + q_text + '」</p>\n'
+                            '<p class="voice-who">' + who_desc +
+                            ' · <a href="' + q_url + '" target="_blank">来源</a></p>\n'
+                            '</div>')
+    voice_html = "\n".join(voice_chunks)
 
     title_headline = _inv_clean(hero_item.get("title", ""))[:28]
     html = f"""<!DOCTYPE html>

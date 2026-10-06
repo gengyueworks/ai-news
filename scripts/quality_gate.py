@@ -302,6 +302,97 @@ IMAGE_QA_DISABLE = os.environ.get("IMAGE_QA_DISABLE", "") == "1"
 D11_MAX_CONSECUTIVE_NO_IMAGE = 3
 
 
+# ============================================================
+# 声音栏真实性 + 双语真实性硬闸（2026-10-05 Q窗口10，task #76 配套）
+# ============================================================
+# F15 判据：引语必须能逐字回源——带具体深链、且「活人感四维」至少命中一维
+#          （第一人称 / 具体数字 / 具体行动 / 具体工具产品）。四维全空即判假。
+VOICE_HUMAN_DIMS = {
+    "第一人称": re.compile(
+        r"(我|我们|本人|我个人|在我看来|I |my |we |our |I'm|I've)", re.I),
+    "具体数字": re.compile(
+        r"(\d|百分之|[一二两三四五六七八九十][个倍家条成轮天月年]|一半|上千|数周|数月|"
+        r"thousand|million|billion|percent|%)"),
+    "具体行动": re.compile(
+        r"(决定|放弃|暂停|推迟|上线|发布|实测|测试|改用|拒接|辞职|离开|付费|"
+        r"launch|ship|test|pause|stop|decided|refused|resigned|built|tried|paid)"),
+    "具体工具产品": re.compile(
+        r"(GPT|Claude|ChatGPT|Gemini|Codex|Copilot|Cursor|Agent|智能体|蜂群|Swarm|"
+        r"MCP|API|Hugging ?Face|OpenAI|Anthropic|DeepMind|NVIDIA|token|Chat ?bot)", re.I),
+}
+# 被裁成半句的引语（历史上生成端把长引语截成「……」），一律 FAIL
+VOICE_TRUNCATED_RE = re.compile(r"(?:……|\.\.\.)\s*[」』]?\s*$")
+# 只到站点根/频道页的链接不算「具体深链」
+VOICE_ROOT_URL_RE = re.compile(r"^https?://[^/]+/?$")
+EN_CJK_FAIL_RATIO = 0.05     # 英文入口指向页面的 CJK 占比红线
+# 双语可译节点选择器（与 Q窗口9 bilingual_fill.py SELECTORS 同套约定）
+BILINGUAL_CLASS_KEYS = [
+    "doc-title", "doc-date", "mast-lede", "sec-title", "dateline",
+    "item-title", "voice-text", "voice-who", "src-line", "summary-poem",
+]
+CJK_CHAR_RE = re.compile(r"[\u3000-\u303f\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff\uff00-\uffef]")
+
+
+def visible_text(html: str) -> str:
+    """去 script/style/标签后的可见文本。"""
+    t = re.sub(r"<(script|style)[\s\S]*?</\1>", " ", html, flags=re.I)
+    t = re.sub(r"<!--[\s\S]*?-->", " ", t)
+    t = re.sub(r"<[^>]+>", " ", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def cjk_ratio(html: str) -> float:
+    """页面可见文本里的 CJK 字符占比（分母只算字母/数字/CJK，剔除空白标点）。"""
+    text = visible_text(html)
+    chars = [c for c in text if c.isalnum()]
+    if not chars:
+        return 0.0
+    n_cjk = sum(1 for c in chars if CJK_CHAR_RE.match(c))
+    return n_cjk / len(chars)
+
+
+def human_touch_dims(text: str) -> list:
+    """返回引语命中的「活人感」维度；四维全空 = 判假。"""
+    return [name for name, pat in VOICE_HUMAN_DIMS.items() if pat.search(text)]
+
+
+def bilingual_gaps(html: str) -> tuple:
+    """双语页覆盖判据：返回 (元素级缺项, 可译中文节点总数, 标题级缺项)。
+
+    约定与 Q窗口9 bilingual_fill.py 一致：页面一旦声明双语（出现 data-en），
+    每个含中文的可译节点都必须带非空 data-en；留空 = 待译 = 不合格。
+    """
+    if "data-en" not in html:
+        return [], 0, []
+    missing = []
+    total = 0
+    for key in BILINGUAL_CLASS_KEYS:
+        pat = (r'<[a-zA-Z]+[^>]*class="[^"]*\b' + key + r'\b[^"]*"[^>]*>([\s\S]*?)</')
+        for m in re.finditer(pat, html):
+            node = m.group(0)
+            plain = re.sub(r"<[^>]+>", " ", m.group(1))
+            if not CJK_CHAR_RE.search(plain):
+                continue
+            total += 1
+            dm = re.search(r'data-en="([^"]*)"', node)
+            preview = re.sub(r"\s+", " ", plain).strip()[:20]
+            if dm is None:
+                missing.append("." + key + ": 缺 data-en（" + preview + "）")
+            elif not dm.group(1).strip():
+                missing.append("." + key + ": data-en 为空（待译）")
+    title_gaps = []
+    title_node = re.search(r"<title[^>]*>([\s\S]*?)</title>", html)
+    if title_node and CJK_CHAR_RE.search(title_node.group(1)):
+        tm = re.search(r'<title[^>]*data-en="([^"]*)"[^>]*>', html)
+        if tm is None:
+            title_gaps.append("<title>: 缺 data-en")
+        elif not tm.group(1).strip():
+            title_gaps.append("<title>: data-en 为空（待译）")
+    # 注：<title> 只降为 WARN——Q窗口9 bilingual-toggle.js 仅 swap [data-en] 元素，
+    # 不处理 document.title；判 FAIL 会卡死流水线（切换器无此能力）。
+    return missing, total, title_gaps
+
+
 class RhythmTracker(HTMLParser):
     """D11 DOM 顺序扫描（2026-09-18 T13 修复）：
 
@@ -1074,6 +1165,55 @@ class GateChecker:
                 if not has_fc: missing_parts.append(f"缺少 filterContent('{latest_m}') 筛选按钮")
                 self._record(self.LEVEL_FAIL, "A", "A7", "月份区块与筛选器完整",
                              f"最新月份 {latest_m} 结构缺失：{', '.join(missing_parts)}")
+
+        # A8: 英文入口真实性——首页/站内指向 en/ 的入口，其目标页面 CJK 占比必须 ≤5%
+        # 治「假英文版」：入口挂上去了，落地页其实还是中文页（名不副实即下架）
+        en_entries = []
+        for m in re.finditer(r'<a[^>]*href="([^"]*)"[^>]*>([\s\S]{0,80}?)</a>', html):
+            href, anchor = m.group(1), m.group(2)
+            if not re.search(r"(^|/)en/", href):
+                continue
+            en_entries.append((href, re.sub(r"<[^>]+>", "", anchor).strip()[:24]))
+        bad_en = []
+        for href, anchor in en_entries:
+            rel = href.split("#")[0].split("?")[0]
+            if rel.startswith("http"):
+                continue
+            rel_clean = re.sub(r"^\.+/", "", rel)
+            target = (self.site_dir / rel_clean)
+            if not target.exists():
+                bad_en.append(f"{anchor or '(无文字)'} -> {rel}：入口目标页不存在")
+                continue
+            try:
+                ratio = cjk_ratio(target.read_text(encoding="utf-8", errors="replace"))
+            except Exception as e:
+                bad_en.append(f"{anchor} -> {rel}：读取失败 {e}")
+                continue
+            if ratio > EN_CJK_FAIL_RATIO:
+                bad_en.append(f"{anchor} -> {rel}：落地页 CJK 占比 {ratio:.1%} > "
+                              f"{EN_CJK_FAIL_RATIO:.0%}，英文入口名不副实")
+        if bad_en:
+            self._record(self.LEVEL_FAIL, "A", "A8", "英文入口落地页非中文",
+                         "首页英文入口不合格：\n  " + "\n  ".join(bad_en))
+        else:
+            self._record(self.LEVEL_PASS, "A", "A8", "英文入口落地页非中文",
+                         f"首页英文入口 {len(en_entries)} 处，落地页 CJK 占比均≤"
+                         f"{EN_CJK_FAIL_RATIO:.0%}（0 处则视为已摘净）")
+
+        # A9: 双语页覆盖——声明双语（含 data-en）的页面，可译中文节点必须有非空 data-en
+        a9_missing, a9_total, a9_title = bilingual_gaps(html)
+        if a9_title:
+            self._record(self.LEVEL_WARN, "A", "A9b", "文档标题双语（切换器暂不支持）",
+                         "index.html: " + "; ".join(a9_title)
+                         + "——bilingual-toggle.js 不 swap document.title，仅提醒")
+        if a9_missing:
+            self._record(self.LEVEL_FAIL, "A", "A9", "双语页中文节点须有 data-en",
+                         f"index.html 双语覆盖缺口 {len(a9_missing)}/{a9_total}：\n  "
+                         + "\n  ".join(a9_missing[:12]))
+        else:
+            self._record(self.LEVEL_PASS, "A", "A9", "双语页中文节点须有 data-en",
+                         f"index.html 双语页 {a9_total} 个可译中文节点全部带非空 data-en"
+                         if a9_total else "首页未声明双语（无 data-en），本项跳过")
 
     # ---------- B 类：品牌 ----------
     def check_B(self):
@@ -2125,6 +2265,44 @@ class GateChecker:
             self._record(self.LEVEL_PASS, "F", "F9", "声音栏来源独立性",
                          f"{fname}: 声音栏只有 {len(voice_quotes)} 条，不检查")
 
+        # F21: 声音栏引语可回源性——无来源链接 / 非具体深链 / 活人感四维全空 / 被裁成半句，一律 FAIL
+        # 2026-10-05 事故根治：旧版 F9/F15 在引语无来源时反而输出「0 个域名，独立性OK」放行
+        f15_bad = []
+        for q in voice_quotes:
+            text = re.sub(r"<[^>]+>", "", q.get("text", "") or "").strip()
+            if text.startswith("「") and text.endswith("」"):
+                text = text[1:-1].strip()
+            src_html = q.get("source", "") or ""
+            urls = re.findall(r'href="([^"]+)"', src_html)
+            http_urls = [u for u in urls if u.startswith("http")]
+            label = text[:22] or "(空引语)"
+            if not text:
+                f15_bad.append(f"{label}: 引语为空")
+                continue
+            if VOICE_TRUNCATED_RE.search(text):
+                f15_bad.append(f"{label}: 引语被裁成「……」半句，无法逐字回源")
+                continue
+            if not http_urls:
+                f15_bad.append(f"{label}: 声音栏引语无来源链接")
+                continue
+            deep = [u for u in http_urls if not VOICE_ROOT_URL_RE.match(u.strip())]
+            if not deep:
+                f15_bad.append(f"{label}: 来源仅指向站点根页 {http_urls[0]}，不是具体深链")
+                continue
+            dims = human_touch_dims(text + " " + re.sub(r"<[^>]+>", " ", src_html))
+            if not dims:
+                f15_bad.append(f"{label}: 活人感四维全空（无第一人称/数字/行动/具体产品），疑似代拟")
+        if voice_quotes and f15_bad:
+            self._record(self.LEVEL_FAIL, "F", "F21", "声音栏引语可回源",
+                         f"{fname}: {len(f15_bad)} 条不合格\n  " + "\n  ".join(f15_bad)
+                         + "\n  铁律：引语须为本人亲口原话、可逐字回查；宁缺毋滥，禁止代拟")
+        elif voice_quotes:
+            self._record(self.LEVEL_PASS, "F", "F21", "声音栏引语可回源",
+                         f"{fname}: {len(voice_quotes)} 条引语均带具体深链且活人感≥1维")
+        else:
+            self._record(self.LEVEL_FAIL, "F", "F21", "声音栏引语可回源",
+                         f"{fname}: 未解析到任何声音栏引语")
+
         # 只从正文来源行取链接，避免把声音、导航和脚本链接混入素材质量统计。
         source_lines = re.findall(r'<(?:p|div) class="source-line">([\s\S]*?)</(?:p|div)>', html)
         source_urls = []
@@ -2601,6 +2779,24 @@ class GateChecker:
         else:
             self._record(self.LEVEL_PASS, "H", "H12", "正文无半句话",
                          f"{fname}: 正文段落全部收在完整句上")
+
+        # H13: 本期双语覆盖——一旦本期页声明双语（出现 data-en），
+        # 所有含中文的可译节点都必须带非空 data-en；缺一个即 FAIL（防半成品切换器上线）
+        h13_missing, h13_total, h13_title = bilingual_gaps(html)
+        if h13_title:
+            self._record(self.LEVEL_WARN, "H", "H13b", "文档标题双语（切换器暂不支持）",
+                         f"{fname}: " + "; ".join(h13_title)
+                         + "——bilingual-toggle.js 不 swap document.title，仅提醒")
+        if h13_total == 0:
+            self._record(self.LEVEL_PASS, "H", "H13", "本期双语覆盖完整",
+                         f"{fname}: 未声明双语（无 data-en），本项跳过")
+        elif h13_missing:
+            self._record(self.LEVEL_FAIL, "H", "H13", "本期双语覆盖完整",
+                         f"{fname}: 双语缺口 {len(h13_missing)}/{h13_total}：\n  "
+                         + "\n  ".join(h13_missing[:10]))
+        else:
+            self._record(self.LEVEL_PASS, "H", "H13", "本期双语覆盖完整",
+                         f"{fname}: {h13_total} 个可译中文节点全部带非空 data-en")
 
     # ---------- G 类：人工检查提醒（仅打印不阻断）----------
     def check_G_remind(self, html_file: Path):
