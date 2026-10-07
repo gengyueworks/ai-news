@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mission Accomplished, What's Next: Why Google Dissolved the AlphaFold Team · AI News Special</title>
+<meta content="Founded eight years ago to tackle a scientific challenge, it has dissolved eight years later with 200 million predictions and a Nobel Prize. Google DeepMind dismantled its own AlphaFold team, and the scientific community says this is no surprise." name="description"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;max-width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
+</style><style>
+@media (max-width: 640px){
+  .site-nav-inner{flex-wrap:wrap;row-gap:6px;}
+  .site-nav-links{flex-wrap:wrap;gap:6px 14px;}
+}
+</style>
+</head>
+<body>
+<h1 class="mast-title en-a11y-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">Mission Accomplished, What's Next: Why Google Dissolved the AlphaFold Team</h1>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a class="active" href="alphafold-breakup.html">Special Report</a></li>
+<li><a href="../2026-08/2026-08-07.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="special-badge">SPECIAL REPORT</div>
+<div class="mast-title">Mission Accomplished, What's Next:<br/>Why Google Dissolved the AlphaFold Team</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-07 · Special Report</span>
+<span>8 Reports Linked · 1 In-Depth Analysis</span>
+</div>
+<div class="mast-lede">Established eight years ago to tackle a scientific grand challenge, it disbanded eight years later with <span class="num">200 million</span> predictions and a Nobel Prize.<br/><br/>Google DeepMind has dismantled its own AlphaFold team.<br/><br/>The scientific community says this comes as no surprise.</div>
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">Read this first · Plain English version</div>
+<div class="pg-body">
+<p><strong>Three takeaways in plain English:</strong><br/>
+<span class="pg-point">First, an AI named AlphaFold won the Nobel Prize</span>—it solved the problem of "guessing what proteins look like," a decades-long bottleneck in biology.<br/>
+<span class="pg-point">Second, the AI team was dissolved by Google</span>—not because it failed, but precisely because it succeeded and the mission was accomplished.<br/>
+<span class="pg-point">Third, this reflects a major pivot in Google's AI strategy</span>—shifting from the "London lab" back to "California business," complete with a new CEO.</p>
+<div class="pg-glossary">
+<strong>Glossary of terms:</strong>
+<p><span class="pg-term">AlphaFold</span> ≈ An AI built by Google that uses computers to predict the 3D shapes of proteins, winning the 2024 Nobel Prize in Chemistry.</p>
+<p><span class="pg-term">Protein folding problem</span> ≈ A decades-old biological riddle: given a chain of amino acids, figuring out its folded 3D structure.</p>
+<p><span class="pg-term">DeepMind</span> ≈ Google's AI lab, creator of AlphaFold, headquartered in London.</p>
+<p><span class="pg-term">Isomorphic Labs</span> ≈ Google's spin-off AI drug discovery company, built on AlphaFold research.</p>
+</div>
+<p class="pg-note">If you just want to know "why Google disbanded the Nobel Prize-winning team," reading this section is enough. Below is a timeline for those who want to dive deeper.</p>
+</div>
+</div>
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">AI News has covered this story every step of the way.</div>
+<div class="tl-item">
+<div class="tl-date">2018 → 2024</div>
+<div class="tl-body"><strong>DeepMind initiated AlphaFold to tackle the "protein folding problem."</strong>The goal is to predict 3D protein structures directly from amino acid sequences. In 2020, AlphaFold2 dominated the CASP blind test; in 2024, AlphaFold3 expanded its prediction scope to proteins and <span class="hl">DNA、RNA</span> interactions with drug candidates. That same year,<span class="hl">John Jumper</span>(John Jumper) and CEO <span class="hl">Demis Hassabis</span>(Demis Hassabis) shared the Nobel Prize in Chemistry.</div>
+<p class="tl-src">Source · <a href="https://www.nobelprize.org/prizes/chemistry/2024/summary/" target="_blank">Nobel Prize Official Website</a> · DeepMind</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-19 · We reported</div>
+<div class="tl-body"><strong>Father of AlphaFold leaves DeepMind to join Anthropic.</strong>After nearly nine years at Google, Jumper announced his move to <span class="hl">Anthropic</span>. On the same day, Transformer co-author Shazeer went to OpenAI, meaning Google lost two key people within 48 hours. At the time, a SignalFire report stated that the probability of DeepMind engineers moving to Anthropic was <span class="num">11 times</span>。<a href="../../2026-06/2026-06-20.html">higher than the reverse direction.
+View the 06-20 Daily →</a></div>
+<p class="tl-src">Source · <a href="https://www.cnbc.com/2026/06/19/john-jumper-to-leave-google-deepmind-for-anthropic.html" target="_blank">CNBC</a> · <a href="https://www.techtimes.com/articles/318754/20260620/alphafold-nobel-laureate-john-jumper-joins-anthropic-after-nine-years-deepmind.htm" target="_blank">TechTimes</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-07-29 · FT Report</div>
+<div class="tl-body"><strong>DeepMind disbands dedicated AlphaFold team.</strong>According to the Financial Times, over the past year, most co-authors of AlphaFold papers have been reassigned to other projects, and nearly <span class="num">1/4</span> have completely left the company. Some went to drug discovery firm Isomorphic Labs, while others shifted to Gemini-related work.</div>
+<p class="tl-src">Source · Financial Times · <a href="https://the-decoder.com/deepmind-dismantles-its-alphafold-team-as-key-authors-leave-for-anthropic/" target="_blank">The Decoder</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · Personnel Changes</div>
+<div class="tl-body"><strong>Demis Hassabis steps down as DeepMind CEO, transitioning to Chief Scientist of Alphabet.</strong>Google announced Hassabis's promotion to Chief Scientist of parent company Alphabet. His insistence on keeping AlphaFold free reportedly sowed friction within Google: breakthroughs brought prestige, but not direct revenue.</div>
+<p class="tl-src">Source · <a href="https://www.reuters.com/technology/" target="_blank">Reuters</a> · Google Blog</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-06 · Power Handover</div>
+<div class="tl-body"><strong>Who is the next leader:<span class="hl">Koray Kavukcuoglu</span>（Koray Kavukcuoglu）。</strong>Bloomberg reports that Kavukcuoglu, DeepMind's former second-in-command and former Chief AI Architect at Google, now reports directly to CEO <span class="hl">Sundar Pichai</span>, and is seen by outsiders as a potential successor to Pichai. Google's dilemma summed up in one sentence:<span class="turn">"Great at science, terrible at execution"</span>. Spending on AI reached <span class="num">900</span> billion dollars in 2025, doubling to about <span class="num">1900</span> billion dollars in 2026, yet Google invented the Transformer while OpenAI was first to commercialize ChatGPT.</div>
+<p class="tl-src">Source · Bloomberg (GuGu Reading &amp; Translation)</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-06 · Dual Perspectives</div>
+<div class="tl-body"><strong>FT and Bloomberg interpret the same personnel change from two angles.</strong>FT notes that Google's AI footprint is the broadest in Silicon Valley (spanning chips, cloud, frontier models, and search). Precisely because it is so broad, a more focused strategy is needed. Hassabis moving to a secondary role and top AI figures like Jeff Dean <span class="num">4</span> leaving to start companies are signals of the same thing: Google is still grappling with how to effectively utilize its resources. Bloomberg's perspective is sharper: Hassabis was the only person managing an American tech giant's AI R&amp;D outside of the California headquarters. Following his departure, DeepMind's AI leadership has been re-centralized back in California:<span class="turn">Another piece of Britain's foundational backing in the AI race has been pulled away</span>。</div>
+<p class="tl-src">Source · FT · Bloomberg</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-06 · Jeff Dean</div>
+<div class="tl-body"><strong>The most "Google-esque" person has also left:<span class="hl">Jeff Dean</span>founds Discovery Loop.</strong>Joined Google in 1999, <span class="num">30</span> employee Dean, left to start a new venture alongside Sanjay Ghemawat, Quoc Le, and Oriol Vinyals. He is the co-founder of Google Brain and<span class="hl">TensorFlow</span> and <span class="hl">MapReduce</span> inventor, hailed by colleagues as "the most Googley person at Google." Their new startup, Discovery Loop, uses AI to automate difficult scientific and engineering tasks (hardware/material design, drug discovery, clean energy), with Alphabet itself participating as an investor. Google employees noted that Dean's departure dealt a blow to internal morale and made recruiting top AI talent even harder. A quote by AI2 Founding CEO Oren Etzioni has widely circulated:<span class="turn">"losing one Jeff Dean, only to gain another Jeff Dean elsewhere in the Alphabet family."</span>。</div>
+<p class="tl-src">Source · Bloomberg</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-07 · This article</div>
+<div class="tl-body"><strong>Scientific American in-depth report: Why it was disbanded, and why the scientific community is not surprised.</strong>Scientists say AlphaFold has essentially accomplished the mission it was built for, and researchers outside of Google have long since picked up the baton.<a href="#deep">Read the breakdown ↓</a></div>
+<p class="tl-src">Source · <a href="https://www.scientificamerican.com/article/why-google-deepmind-broke-up-the-alphafold-team/" target="_blank">Scientific American</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-09 · Follow-up</div>
+<div class="tl-body"><strong>Latest: Demis Hassabis may completely leave DeepMind in the coming months.</strong>Citing reports, The Decoder notes that Google DeepMind is losing its independence, founder <span class="hl">Demis Hassabis</span> may leave entirely, daily operations will be handed over to <span class="hl">Kavukcuoglu</span>, and the CEO title will no longer be used. From "promoted to Chief Scientist" to "potential departure," the curtain call on the AlphaFold era is turning out to be more thorough than imagined.</div>
+<p class="tl-src">Source · The Decoder</p>
+</div>
+</div>
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE</div>
+<div class="sec-title">A Disbandment Without Sorrow</div>
+<div class="item">
+<div class="body">
+<span class="h2">I. The disbandment happened, but the legacy remains</span>
+<p>The day after the FT report, a DeepMind spokesperson gave a calm response to Scientific American: many personnel changes occurred a year ago or even earlier, and AlphaFold's public database and prediction servers remain open.</p>
+<p>The team has dispersed, but the achievements live on. The protein structure library predicted by AlphaFold has already become foundational infrastructure for structural biology researchers worldwide. Some are using it to develop malaria vaccines, others to improve crops,<span class="num">Isomorphic Labs</span> a drug discovery company built upon AlphaFold's research.</p>
+<span class="h2">II. Why the disbandment: Because the mission is accomplished</span>
+<p>To understand this, we first need to look at how DeepMind defines AlphaFold. John Moult, co-founder of the CASP competition and computational biologist at the University of Maryland, <span class="hl">John Moult</span>, put it bluntly: from the very beginning, DeepMind picked a problem that could "prove success or failure in a clean way," setting out to prove it not only to the world, but to themselves.</p>
+<p>As a result,<span class="num">2020</span> AlphaFold2 won that proof. Moult remarked back then that the structure prediction problem was essentially solved. DeepMind knew it too:<span class="turn">"They did it. What's the next task?"</span></p>
+<p>For a research institution organized around "grand challenges," AlphaFold was a problem, a team, and a goal from its inception. Once the problem was solved, the team dissolved, and people flowed to the next problem. There is no sentimentality in this, only process.</p>
+<span class="h2">III. Free Access and Google's Ledger</span>
+<p>Another backdrop to the disbandment is money. Demis Hassabis insisted on making AlphaFold freely available; while this decision won Google immense prestige, it also accumulated friction within the company:<span class="accent">huge breakthroughs, very little revenue.</span>。</p>
+<p>Meanwhile, DeepMind's strategic focus is shifting. Vice President of Research <span class="hl">Pushmeet Kohli</span>explained to the FT: over the past nine years, the lab organized teams around "grand challenges," but the strategy has now changed to building Gemini-powered scientific assistant systems and competing with OpenAI and Anthropic for the frontier agent space.</p>
+<p><span class="turn">AlphaFold is the perfect product of the old strategy, and also the first thing to be put down in the new one.</span></p>
+<span class="h2">IV. Why the Scientific Community Isn't Surprised</span>
+<p>Harvard Medical School computational biologist <span class="hl">Debora Marks</span>' response was almost cold:<span class="accent">"I would do the exact same thing. It's already done, why keep going?"</span></p>
+<p>More importantly, the baton for AlphaFold had already been passed on long ago.<span class="num">2024</span> That year, DeepMind open-sourced the inference code for AlphaFold3 and made its weights available to academia. Independent research groups have already built their own versions and extensions. Moult said he doesn't think the disbandment will slow down the work,<span class="turn">"because other people are doing it now too."</span>。</p>
+<span class="h2">V. Much Remains Unsolved</span>
+<p>Yet "essentially solved" applies only to a specific benchmark; vast areas of structural biology remain unfinished. Proteins are often part of larger molecular machines, shifting between multiple shapes while working, making it still very difficult for researchers to predict these dynamic states and how molecules bind to them.</p>
+<p>Moult said:<span class="hl">"There's a long list of such questions that are definitely not fully resolved."</span></p>
+<p>These problems are still waiting for a new AlphaFold. Only next time, it might not be Google doing it.</p>
+<span class="h2">6. The disbanding of AlphaFold is just a corner of Google's larger pivot</span>
+<p>Zooming out, the dissolution of the AlphaFold team is part of DeepMind's power handover. After Demis Hassabis was promoted to Alphabet Chief Scientist, DeepMind's new helm <span class="hl">Kavukcuoglu</span> took over an operation much larger than a protein prediction team: Google poured about <span class="num">1900</span> billion dollars into AI last year, yet has failed to turn a Transformer-level scientific breakthrough into a product first-mover advantage like ChatGPT.</p>
+<p>The FT says Google's AI footprint is the broadest in Silicon Valley—so broad it needs refocusing; Bloomberg says Hassabis's departure takes away the only person outside California controlling an American AI giant's R&amp;D. Two lines pointing to the same thing:<span class="turn">Google's AI focus is shifting from "labs in London" back to "business in California"</span>。</p>
+<p>AlphaFold is the first name dropped in this shift of focus. It was dropped because it has completed its mission. What is truly worth watching is how Google handles those unfinished sciences next, and those things that, like AlphaFold, once carried high hopes of "proving Google."</p>
+</div>
+<div class="figure">
+<img alt="3D protein structure predicted by AlphaFold: visualization of blue helical chains interacting with colored molecules" loading="lazy" src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AF_hero_2.width-800.format-webp.webp"/>
+<p class="img-cap">3D structure of proteins predicted by AlphaFold · Official Google DeepMind image</p>
+</div>
+<div class="src-line">Main Sources · <a href="https://www.scientificamerican.com/article/why-google-deepmind-broke-up-the-alphafold-team/" target="_blank">Scientific American 08-07</a> · Financial Times · <a href="https://the-decoder.com/deepmind-dismantles-its-alphafold-team-as-key-authors-leave-for-anthropic/" target="_blank">The Decoder</a> · FT 08-06 Strategic Focus · Bloomberg 08-06 UK Perspective</div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · Scientists in their own words</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"They did it. What's the next task?"</p>
+<p class="voice-who">— John Moult · CASP Co-founder · University of Maryland · <a href="https://www.scientificamerican.com/article/why-google-deepmind-broke-up-the-alphafold-team/" target="_blank">Scientific American</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"I would do the exact same thing. It's done, why keep going?"</p>
+<p class="voice-who">— Debora Marks · Computational Biologist, Harvard Medical School · <a href="https://www.scientificamerican.com/article/why-google-deepmind-broke-up-the-alphafold-team/" target="_blank">Scientific American</a></p>
+</div>
+</div>
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">Related Coverage · All traces of this special feature</div>
+<div class="rel-card">
+<span class="rc-title">Bloomberg: Google employees cope with departure of AI pioneer and most "Googley" person Jeff Dean</span>
+<span class="rc-date">2026-08-06</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">Bloomberg: Google DeepMind shake-up weakens UK's chips in the AI race</span>
+<span class="rc-date">2026-08-06</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">FT: Google seeks more focused AI strategy after Hassabis reassignment</span>
+<span class="rc-date">2026-08-06</span>
+</div>
+<div class="rel-card">
+<span class="rc-title">Bloomberg: Google's new AI chief faces a pile of challenges</span>
+<span class="rc-date">2026-08-06</span>
+</div>
+<a class="rel-card" href="../../2026-06/2026-06-20.html">
+<span class="rc-title">Father of AlphaFold leaves DeepMind for Anthropic</span>
+<span class="rc-date">2026-06-20</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-04.html">
+<span class="rc-title">Altman, Amodei, and Suleyman sign open letter: Hassabis also among signatories</span>
+<span class="rc-date">2026-06-04</span>
+</a>
+<a class="rel-card" href="../../2026-07/2026-07-22.html">
+<span class="rc-title">Gemini 3.6 Flash cuts tokens by 65%, AI monitors algal blooms to protect drinking water sources (includes AlphaFold 3)</span>
+<span class="rc-date">2026-07-22</span>
+</a>
+</div>
+<p class="src-line">Source from the paid project "Eat Well" high-quality reading library · Welcome to the deep reading area</p>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Flow</div>
+Frontier Signal Flow — Tracking AI Evolution and Human Choices · Curated by the AI News Editorial Office
+</div>
+</div>
+</body>
+</html>

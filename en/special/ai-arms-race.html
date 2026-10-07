@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Arms Race: Where the Money is Flowing · AI News Special</title>
+<meta content="The competition in AI is a battle of models and a race of capital. Even if you don't follow AI, you can understand why it is so cash-intensive and where all the money is going." name="description"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
+</style><style>
+@media (max-width: 640px){
+  .site-nav-inner{flex-wrap:wrap;row-gap:6px;}
+  .site-nav-links{flex-wrap:wrap;gap:6px 14px;}
+}
+</style>
+</head>
+<body>
+<h1 class="mast-title en-a11y-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">AI Arms Race: Where the Money is Flowing</h1>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a class="active" href="ai-arms-race.html">Special Coverage</a></li>
+<li><a href="../2026-08/2026-08-07.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="special-badge">SPECIAL REPORT</div>
+<div class="mast-title">AI Arms Race:<br/>Where the money is flowing</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">Jun – Aug 2026 · Special Report</span>
+<span>17 financing reports · 1 main thread</span>
+</div>
+<div class="mast-lede">The AI arms race is a battle of models and a contest of cash.<br/><br/>Alphabet's lump-sum financing <span class="num">800</span> billion dollars, SpaceX completes the largest IPO in history, Meta spends <span class="num">143</span> hundreds of millions to acquire Scale AI, Baseten's valuation surges to <span class="num">130</span> 100 million.<br/><br/>Follow the money, and that's where the next battle will be. This summer's capital map outlines the second half of the AI race.</div>
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">Read this first: Plain English version</div>
+<div class="pg-body">
+<p><strong>Let's cut to the chase:</strong><br/><span class="pg-point">First, AI is an "infinite ammo" arms race</span>, the wealthiest tech company, raised $80 billion in a year, solely to avoid being choked by a shortage of computing power.<br/><span class="tl-plain">Simply put, compute is the engine of AI companies; whoever lacks enough GPUs falls behind, so they are racing to raise funds to buy computing power.</span><br/><span class="pg-point">Second, money is flowing from the model layer to tools and infrastructure</span>, when models are roughly equally smart, companies that can integrate them into workflows and connect data centers see their valuations skyrocket.<br/><span class="pg-point">Third, talent determines where the money flows</span>Where top AI scientists go, the money follows.<br/></p>
+<div class="pg-glossary">
+<strong>Plain-Language Glossary:</strong>
+<p><span class="pg-term">Arms race</span> Everyone is frantically doubling down, and no one dares to stop for fear of being left behind.</p><p><span class="pg-term">Financing / IPO</span> AI companies rely on this to secure ammunition: raising funds from the market or going public via IPO.</p><p><span class="pg-term">Computing Power / GPUs</span> The "engine" for training AI, the most expensive and scarce resource—whoever has the most GPUs runs the fastest.</p><p><span class="pg-term">Valuation</span> roughly how much the market thinks the company is worth; AI company valuations are often absurdly high because they are a bet on the future.</p>
+</div>
+<p class="pg-note">If you want to understand why AI news is constantly about who raised tens of billions, this piece gives you the answer.</p>
+</div>
+</div>
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">The Money in AI: A Timeline</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-01 · Ammunition Line</div>
+<div class="tl-body"><strong>Alphabet funding <span class="num">800</span> billion dollars, the AI arms race has entered "infinite ammunition" mode.</strong>This is Google's since <span class="num">2005</span> its first equity financing in years. The search giant, flush with cash for 20 years, is also beginning to tap the market. According to a calculation by the FT, capital expenditures for 2027 are expected to reach <span class="num">2500</span> Billions vs. Cash Flow <span class="num">2600</span> billion, and next Q2 it will "spend more than it earns" for the first time.<span class="tl-plain">Translation: Even one of the world's most profitable tech companies has to borrow money to spend on AI. The bill for this arms race is starting to exceed any single company's cash flow.</span></div>
+<p class="tl-src">Source: FT <a href="../../2026-06/2026-06-01.html">View the June 1 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-01 · China's chip roadmap</div>
+<div class="tl-body"><strong>US export controls are forcing China to forge its own chip path.</strong>GPU or ASIC has become a debate over architectural paths: Moore Threads and Biren pursue general-purpose GPUs, while Huawei Ascend and Cambricon MLU bet on dedicated ASICs. According to Morgan Stanley data, Huawei Ascend <span class="num">950</span>, Cambricon Siyuan <span class="num">690</span> Faster than the H20, the highest-end chip Nvidia is permitted to sell to China <span class="num">50-150%</span>Huawei expects to capture China's AI accelerator market in 2026 <span class="num">62%</span>。<span class="tl-plain">Unable to buy Nvidia's best chips, China is building its own. These AI-specific chips already outperform Nvidia's top-tier offerings sold in China on certain metrics.</span></div>
+<p class="tl-src">Source: SCMP</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-04 · IPO Desk</div>
+<div class="tl-body"><strong>SpaceX kicks off roadshow as countdown begins for the largest IPO in history.</strong>A rocket company and one of the largest buyers of AI compute power (paying Google monthly for <span class="num">9.2</span> billion GPUs).</div>
+<p class="tl-src">Source: <a href="../../2026-06/2026-06-04.html">View the 06-04 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-04 · Returns Put to the Test</div>
+<div class="tl-body"><strong>When the money runs out: AI's "utility bills" start to bite.</strong>Uber burned through its entire annual AI budget in months and capped employee usage; Walmart restricted spreadsheet generation tools; a company deployed Claude to all employees without limits and accidentally spent in a month <span class="num">5</span> billion-dollar token bills. Last year’s tokenmaxxing craze is receding as enterprises start doing the math.<span class="tl-plain">In plain terms: Last year everyone competed on how much AI they used, but this year it's about who can afford it. AI has moved from a free-for-all carnival into a sober era of pay-per-use.</span></div>
+<p class="tl-src">Source: Bloomberg</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-16 · Talent Track</div>
+<div class="tl-body"><strong>Mira Murati's Thinking Machines Lab raises funding <span class="num">20</span> billion dollars.</strong>The startup by the former OpenAI CTO has secured a top-tier valuation.</div>
+<p class="tl-src">Source: <a href="../../2026-06/2026-06-16.html">View June 16 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-16 · Acquisition Wire</div>
+<div class="tl-body"><strong>Meta with <span class="num">143</span> acquired nearly half of Scale AI's equity for $ billion.</strong>28-year-old founder Alexandr Wang is taking the helm at Meta's superintelligence division. The man defining this era has changed employers once again.</div>
+<p class="tl-src">Source: <a href="../../2026-06/2026-06-16.html">View June 16 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · Mega M&amp;A</div>
+<div class="tl-body"><strong>SpaceX with <span class="num">600</span> billion-dollar acquisition of Cursor (Anysphere).</strong>Just days before SpaceX's IPO, Musk has added an AI programming tool to his empire.</div>
+<p class="tl-src">Source: <a href="../../2026-06/2026-06-17.html">View the June 17 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-23 · Infrastructure sector</div>
+<div class="tl-body"><strong>Baseten valuation <span class="num">130</span> billion dollars.</strong>Money is increasingly flowing toward workflows: model-layer valuations are dropping while tool and infrastructure valuations are rising.</div>
+<p class="tl-src">Source · <a href="../../2026-06/2026-06-23.html">View June 23 daily briefing →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-24 · Total Volume</div>
+<div class="tl-body"><strong>Q1 2026 Global AI Funding <span class="num">2555</span> billion dollars.</strong>Shifting from selling engines to selling complete powertrain systems: OpenAI introduces <span class="num">1.5</span> Billion-dollar developer platforms, alongside self-developed inference chips, turn the highest-cost items in-house before the IPO.</div>
+<p class="tl-src">Source: <a href="../../2026-06/2026-06-24.html">See the June 24 Daily Report →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-07-14 · Chip Line</div>
+<div class="tl-body"><strong>SambaNova completes <span class="num">10</span> Etched raises $B Series F <span class="num">8</span> billion dollars.</strong>The AI chip sector continues to attract funding, with money flowing into "computing power alternatives."</div>
+<p class="tl-src">Source: <a href="../../2026-07/2026-07-14.html">View the July 14 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-07-15 · IPO Wire</div>
+<div class="tl-body"><strong>Unitree IPO registration approved.</strong>China's first embodied AI stock, as robotics companies head to the capital markets.</div>
+<p class="tl-src">Source: <a href="../../2026-07/2026-07-15.html">View July 15 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-07-20 · China Wire</div>
+<div class="tl-body"><strong>DeepSeek has initiated IPO preparations.</strong>Just completed over in June <span class="num">74</span> billion-dollar funding round (post-money valuation exceeding <span class="num">500</span> billion), with an IPO rumored for July. China's AI financing has also entered the fast lane.</div>
+<p class="tl-src">Source: <a href="../../2026-07/2026-07-20.html">View the July 20 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-01 · China Wire</div>
+<div class="tl-body"><strong>Moonshot AI's Series F exceeds <span class="num">35</span> billion dollars, with a post-money valuation of <span class="num">350</span> 100 million.</strong>Due to over-subscription <span class="num">3</span> Doubled and closed early, with the Series G (Pre-IPO) kicked off ahead of schedule. Open-source blockbuster and funding blockbuster happened in the same week.</div>
+<p class="tl-src">Source: <a href="../2026-08/2026-08-01.html">View the 08-01 daily report →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-06 · Infrastructure Line</div>
+<div class="tl-body"><strong>Lumilens has raised over <span class="num">7</span> billion, valuation <span class="num">55.1</span> 100 million.</strong>Replacing data center copper connections with optical interconnects, AI infrastructure spending is now flowing into chip-to-chip wiring.</div>
+<p class="tl-src">Source: WSJ</p>
+<div class="tl-item">
+<div class="tl-date">2026-08-08 · Power Line</div>
+<div class="tl-body"><strong>NVIDIA is investing up to [amount missing] in Stargate power developer Lancium <span class="num">30</span> billion US dollars.</strong>Pure equity investment, with no construction guarantees involved. Valuation close to <span class="num">100</span> Lancium provides the land and grid access that AI data centers rely on, backed by billions.<span class="turn">The arms race is reaching the power grid: no matter how powerful the computing power is, it won't run without electricity, and Nvidia has started buying power for its data centers.</span></div>
+<p class="tl-src">Source: The Information</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-09 · China Chip IPO</div>
+<div class="tl-body"><strong>Moore Threads is planning an IPO in Hong Kong, with first-half revenue <span class="num">17.36</span> billion yuan, a year-on-year increase of <span class="num">147%</span>。</strong>This domestic GPU company, founded by a former Nvidia China executive, saw its net loss narrow year-over-year <span class="num">95.73%</span>。<span class="turn">The IPO wave of Chinese chip companies is arriving alongside the domestic supply chain.</span></div>
+<p class="tl-src">Source: IT Home</p>
+</div>
+</div></div>
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE</div>
+<div class="sec-title">Three flows of money</div>
+<div class="item">
+<div class="body">
+<span class="h2">1. Tech Giants Refuel: Cash Deficits Met by Fundraising</span>
+<p>Alphabet <span class="num">800</span> billion, SpaceX IPO, Microsoft loosening the OpenAI contract. By 2026, AI giants are beginning to admit:<span class="hl">Relying on cash flow isn't enough to fight this battle; they have to use leverage.</span>。</p>
+<p>This explains why GPU leases, equity financing, and IPOs have become buzzwords:<span class="turn">Computing power is the arms and capital is the ammunition; both are indispensable.</span>。</p>
+<span class="h2">2. Talent flows determine capital flows</span>
+<p>Mira Murati’s Thinking Machines <span class="num">20</span> billions, Meta bought Scale AI and poached Alexandr Wang, SpaceX acquired Cursor, and Jumper moved to Anthropic.<span class="hl">Money follows the talent, and talent follows the "next big battle"</span>。</p>
+<p>The talent migration in the first half of the year (Shazeer to OpenAI, Jumper to Anthropic, Karpathy to Anthropic) demonstrates:<span class="turn">The core asset of the model layer is not code, but the few people who can define the problems</span>。</p>
+<span class="h2">3. From the Model Layer to the Tool Layer</span>
+<p>Baseten <span class="num">130</span> Billion, Lumilens <span class="num">7</span> billion, Cursor was <span class="num">600</span> billion acquisition. Money is starting to shift from "whose model is strongest" to "who can integrate models into workflows and connect data centers."</p>
+<p>This is the signal that the competition has entered the second half:<span class="turn">As models tend toward homogenization, valuations are beginning to tilt toward "infrastructure" and "distribution".</span>。</p>
+<span class="h2">4. The Flip Side of Money: The ROI Test</span>
+<p>Money is flowing, but the bills are rising too. Uber burned through its entire annual AI budget in months, Walmart is capping tokens, and one company accidentally spent in a single month <span class="num">5</span> billion-dollar token fee.<span class="hl">AI is shifting from per-head subscriptions to usage-based pricing, making costs high enough for enterprises to finally start calculating ROI</span>。</p>
+<p>Jensen Huang says people questioning AI ROI are "crazy," but a Bain report's title strikes a cold note:<span class="turn">Your AI budget is up, but your returns are not. As the IPO wave pushes OpenAI and Anthropic toward valuations of nearly $1 trillion, the market wants to see whether this money will actually be returned</span>。</p>
+<span class="h2">5. Chip Independence: Another Front in the Arms Race</span>
+<p>US export controls have forced Chinese chips onto an independent path. Morgan Stanley data shows:<span class="hl">Huawei Ascend 950 and Cambricon Siyuan 690 are 50-150% faster than NVIDIA's H20, the highest-end chip permitted for sale to China.</span>, Huawei is projected to capture 62% of China's AI accelerator market by 2026.</p>
+<p>The significance of this line goes beyond the chips themselves:<span class="turn">When unable to buy Nvidia’s best chips, China builds its own, conveniently bypassing the lock-in of the CUDA platform and rebuilding its software stack with Huawei CANN and Moore Threads MUSA. An arms race is never just about money; it’s also about who has an independent supply chain.</span>。</p>
+</div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · Key Quotes from Figures Involved</div>
+<div class="sec-title">Audio</div>
+<div class="voice">
+<p class="voice-text">This race is not just about building top-tier AI, but about building AI that can turn a profit.</p>
+<p class="voice-who">— FT · Comment on Alibaba Qwen release · Financial Times</p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">Code models are currently the biggest demand driver.</p>
+<p class="voice-who">— Sam Altman · OpenAI CEO · Stargate Live Interview · <a href="../../2026-06/2026-06-03.html">View June 3 Daily →</a></p>
+</div>
+</div>
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">Related coverage · Full coverage of this topic</div>
+<div class="rel-card">
+<span class="rc-title">SCMP: How US export controls are forcing China to reshape its AI chip industry</span>
+<span class="rc-date">2026-06-01</span>
+</div>
+<a class="rel-card" href="../2026-08/2026-08-01.html">
+<span class="rc-title">Moonshot AI raises over $3.5 billion in Series F</span>
+<span class="rc-date">2026-08-01</span>
+</a>
+<a class="rel-card" href="../../2026-07/2026-07-20.html">
+<span class="rc-title">DeepSeek has initiated IPO preparations</span>
+<span class="rc-date">2026-07-20</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-23.html">
+<span class="rc-title">Baseten valued at $13 billion</span>
+<span class="rc-date">2026-06-23</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-17.html">
+<span class="rc-title">SpaceX acquires Cursor for $60 billion</span>
+<span class="rc-date">2026-06-17</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-16.html">
+<span class="rc-title">Meta acquires Scale AI for $14.3 billion; Mira Murati raises $2 billion</span>
+<span class="rc-date">2026-06-16</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-04.html">
+<span class="rc-title">SpaceX kicks off roadshow for historic IPO</span>
+<span class="rc-date">2026-06-04</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-01.html">
+<span class="rc-title">Alphabet raises $80 billion</span>
+<span class="rc-date">2026-06-01</span>
+</a>
+</div>
+<p class="src-line">Source: Paid project "Eat Well" High-Quality Reading Library · Welcome to the deep reading zone</p>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Flow</div>
+Frontier Signal Flow — Tracking AI Evolution and Human Choices · Curated by the AI News Editorial Team
+</div>
+</div>
+</body>
+</html>

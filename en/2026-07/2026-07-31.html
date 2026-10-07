@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Intelligence Daily | 2026-07-31 | 2026-07-31</title>
+<meta name="description" content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-07-31.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<!-- READY_TEXT_ONLY 2026-07-31: every image in the legacy source was removed because no official high-resolution provenance could be verified. Text-only edition. -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#archive">Archive</a></li>
+    </ul>
+  </div>
+</header>
+<main class="container">
+<header class="hero-masthead">
+  <div class="hero-meta-bar">
+    <span class="badge-tag">Daily Briefing</span>
+    <span class="badge-tag blue">2026-07-31</span>
+    <span>Friday</span>
+  </div>
+  <h1 class="hero-title">AI Intelligence Daily | 2026-07-31</h1>
+  <div class="hero-subtitle">Domestic Chinese foundational models played two cards simultaneously on this day.DeepSeek V4-Flash official API enters public beta, with Agent capabilities surpassing its own Pro preview; MiniMax H3 released as the first open-source multimodal model for video <span class="num">0.8</span> CNY/sec.On the same day, Thinking Machines released the full weights of Inkling-Small.</div>
+</header>
+<section class="month-block" id="section-1">
+<div class="month-title">Front Page</div>
+<article class="chapter">
+<div class="chapter-eyebrow">07-31 · DeepSeek · Model</div>
+<h2 class="chapter-title">DeepSeek V4-Flash official public beta launched: Flash&#x27;s Agent capabilities surpass the Pro preview, but the real hard battle has just begun</h2>
+<div class="prose">
+<p>DeepSeek V4-Flash public beta launched.</p>
+<p><strong>On July 31, the DeepSeek-V4-Flash-0731 official API launched in public beta. Total size <span class="num">304B</span>, active size <span class="num">13B</span>, supporting <span class="num">1M</span> context window. Architecture and size remain unchanged; official sources state that only post-training was redone this time, with a primary focus on enhancing agentic capabilities. After hands-on testing, Simon Willison noted it "significantly exceeds expectations for its scale," specifically praising its cost-performance ratio. The accompanying Harness capability also debuted.</strong></p>
+<p>The fact that a model can leap a tier with the exact same skeleton simply by changing its training strategy is most interesting not for its benchmark scores, but because it further compresses the old narrative of "stacking parameters to the max." V4-Flash is now deployed within DeepSeek's own Agent pipelines, allowing scripts that previously took an internal team a whole day to write to be handled and executed autonomously by agents.</p>
+<p><span class="turn">The second half of the model race is about post-training, not parameter stacking. DeepSeek used Flash to answer this question for itself.</span></p>
+</div>
+<div class="sources-bar">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank" rel="noopener">DeepSeek API Changelog</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank" rel="noopener">Hugging Face</a> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank" rel="noopener">Simon Willison Hands-On Review</a></div>
+</article>
+</section>
+<section class="month-block" id="section-2">
+<div class="month-title">Frontline</div>
+<article class="chapter">
+<div class="chapter-eyebrow">07-31 · MiniMax · Multimodal</div>
+<h2 class="chapter-title">MiniMax H3 released: the first open-source multimodal model at 0.8 CNY/sec, but the real hard battle has just begun</h2>
+<div class="prose">
+<p><strong>On July 31, MiniMax released H3, a multimodal model supporting simultaneous text, image, audio, and video input. It can directly output 2K video clips up to <span class="num">15</span> seconds of synchronized audio and video; video generation is priced at <span class="num">0.8</span> CNY/sec (2K), approximately one-third of comparable flagships. MiniMax also confirmed that H3 will be open-sourced in the coming days, marking the company's<span class="accent">first open-source multimodal model</span>.</strong></p>
+<p>Compared to the price war in text models, H3 moves the battlefield to video, where compute overhead is orders of magnitude greater than text. Achieving 0.8 CNY/sec relies on H3's internal unification of audio and video codecs into a single latent space, eliminating the waste of multiple re-encodings. Several creators with early API access noted that the cost of running 30 seconds on Runway in the past can now run a complete commercial film.</p>
+<p><span class="turn">As the price war spreads from text to video, H3 bundles "open source + low price," lowering the barrier to creation once again.</span></p>
+<p>MiniMax H3 released.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank" rel="noopener">MiniMax Official Announcement</a></div>
+</article>
+</section>
+<section class="month-block" id="section-3">
+<div class="month-title">Open Source Frontline</div>
+<article class="chapter">
+<div class="chapter-eyebrow">07-31 · smevals · Evaluation Tool</div>
+<h2 class="chapter-title">smevals launched, turning &quot;how to evaluate models&quot; into a set of YAML files</h2>
+<div class="prose">
+<p><strong>Simon Willison and Jesse Vincent's Prime Radiant Labs released <span class="accent">smevals</span>, a lightweight eval framework for comparing models, prompts, and harnesses. Run once, evaluate once, and generate a static report entirely via the command line.</strong></p>
+<p>Usage is simple enough to fit into a single paragraph:<code>uvx smevals run path-to-eval/ -m gpt-5.5 -m claude-opus-4.6</code> allowing different models to run the same set of tasks; after running, <code>grade</code> and finally <code>build</code> generating a hostable static report. Useful for content teams as well, you can use it to test "which model is better suited for writing headlines/summaries/scripts" rather than picking models based on intuition.</p>
+<p><span class="turn">Model evaluation has shifted from metaphysics to "a set of YAML files," marking the first time the toolchain has turned evaluation into accessible infrastructure for everyone.</span></p>
+</div>
+<div class="sources-bar">Sources: <a href="https://primeradiant.com/blog/2026/smevals.html" target="_blank" rel="noopener">Prime Radiant</a> · <a href="https://github.com/prime-radiant-inc/smevals" target="_blank" rel="noopener">GitHub</a> · <a href="https://simonwillison.net/2026/Jul/31/smevals/" target="_blank" rel="noopener">Simon Willison</a></div>
+</article>
+</section>
+<section class="month-block" id="section-4">
+<div class="month-title">Voices</div>
+<div class="voices-deck"><div class="voice-card">
+<div class="voice-body">&quot;Compared to giving an agent a shell, MCP is easier to audit and control.&quot;</div>
+<div class="voice-meta">
+<span>, Simon Willison · AI Researcher</span>
+<a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank" rel="noopener">simonwillison.net</a>
+</div></div>
+<div class="voice-card">
+<div class="voice-body">&quot;Model evaluation has shifted from metaphysics to a set of YAML files, marking the first time the toolchain has turned evaluation into accessible infrastructure for everyone.&quot;</div>
+<div class="voice-meta">
+<span>, Jesse Vincent · Labs</span>
+<a href="https://primeradiant.com/blog/2026/smevals.html" target="_blank" rel="noopener">Prime Radiant</a>
+</div></div></div>
+</section>
+<section class="month-block" id="section-5">
+<div class="month-title">Creation</div>
+<article class="chapter">
+<div class="chapter-eyebrow">07-31 · MCP · Protocol Upgrade</div>
+<h2 class="chapter-title">MCP shifts to a single HTTP request, Lowering the barrier for agent tool integration</h2>
+<div class="prose">
+<p><strong>Simon Willison summarizes MCP 2.0 (2026-07-28 spec), noting that "stateless MCP" simplifies both client and server development. While older versions required session initialization before tool calls, the new spec completes everything in one request.</strong></p>
+<p>Willison built <span class="accent">mcp-explorer</span>, <span class="accent">datasette-mcp</span>, <span class="num">llm-mcp-client</span> three projects on the new spec the same day. His verdict is clear: compared to giving agents a shell, MCP offers better auditability and control, leaving a clear trace of what agents can do and what they invoke.</p>
+<p><span class="turn">With a single protocol upgrade triggering a toolchain overhaul, the connection model between agents and tools is shifting from "sessions" to "single requests."</span></p>
+<p>MCP becomes a single HTTP request.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank" rel="noopener">Simon Willison</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank" rel="noopener">MCP Specification</a></div>
+</article>
+</section>
+<section class="month-block" id="section-6">
+<div class="month-title">Visuals</div>
+<article class="chapter">
+<div class="chapter-eyebrow">07-31 · Creators · Experience Shifts</div>
+<h2 class="chapter-title">Running product storyboards with H3, Ten minutes for a usable motion ad</h2>
+<div class="prose">
+<p><strong>A video creator used H3 to generate transitions and dynamic effects based on a storyboard script and reference images. She noted that the text and UI details rendered more stably than expected, turning what used to take a post-production team two days into a<span class="num">first draft completed in ten minutes</span>.</strong></p>
+<p>She produced a 30-second splash screen ad for a beauty app: she wrote the script, drew the storyboards herself, and picked transition reference images from a stock library. H3 generated 6 shots based on the storyboards, maintaining consistent subjects and natural transitions between cuts. Notably, the text layer names written directly in her PSD file were read accurately without retranslation, which she found particularly seamless. The first draft passed client review without modifications, leaving 90% of her time spent on selecting the BGM.</p>
+<p><span class="turn">When generative models can handle professional terminology like "storyboards," the relationship between creators and tools evolves from contract manufacturing to true partnership.</span></p>
+</div>
+<div class="sources-bar">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank" rel="noopener">MiniMax Official Announcement</a></div>
+</article>
+</section>
+<section class="month-block" id="section-7">
+<div class="month-title">Summary</div>
+<article class="chapter"><div class="prose"><p>DeepSeek V4-Flash-0731 official public beta launched, delivering better-than-expected Agent performance at 304B scale; MiniMax H3 released as the first open-source multimodal model capable of direct 2K video output.</p>
+<p>MCP 2.0 transforms into a single HTTP request, lowering the barrier for agent tool integration; smevals turns "how to evaluate models" into a set of YAML files.</p>
+<p class="turn">As domestic Chinese large models make their moves, the developer toolchain is also undergoing a complete overhaul, with open-source, low-cost, and auditable features converging all at once.</p></div></article>
+</section>
+<section class="month-block" id="section-8">
+<div class="month-title">Be Curious</div>
+<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+  <img src="https://apod.nasa.gov/apod/image/2606/CosmicKissTheCoveAveburyDury1024.jpg" alt="The coral reefs of the Great Barrier Reef are older than any data center cooling tower." loading="lazy" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;">
+</div>
+<div class="box-title" style="font-size:16px; margin-bottom:10px;">The coral reefs of the Great Barrier Reef are older than any data center cooling tower.</div>
+<div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Great Barrier Reef, Australia · NASA · <span class="num">20.30°S, 148.90°E</span></div>
+<p style="margin-bottom:8px; line-height:1.8;">After a whole day of reading AI news, there are still places on Earth that don't need GPU cooling.</p>
+<p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let us stay curious and keep exploring.</p></div>
+</section>
+<nav class="post-pagination">
+<a class="prev-post" href="2026-07-30.html">← Previous</a>
+<a class="all-posts" href="../index.html#archive">Archive</a>
+<a class="next-post" href="2026-08-01.html">Next →</a>
+</nav>
+</main>
+<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+</body>
+</html>

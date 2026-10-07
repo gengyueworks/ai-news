@@ -1,388 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Intelligence Daily | 2026-10-06</title>
-    <meta name="description" content="AI Intelligence Daily, October 6, 2026: OpenAI introduces textGrain invisible watermarking for EU compliance; PromptArmor exposes agent rendering vulnerabilities leaking credentials; Together AI bridges open-source models into developer workflows; NVIDIA lowers on-premise barriers with 64GB workstations.">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-        :root {
-            --klein: #002FA7;
-            --klein-bright: #0044FF;
-            --white: #FFFFFF;
-            --bg-light: #F8F9FB;
-            --text-dark: #0E0E10;
-            --text-mid: #3A3A3E;
-            --text-light: #6B6B70;
-            --border: #E8E8EC;
-            --accent: #C41E3A;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: var(--white);
-            color: var(--text-dark);
-            line-height: 1.78;
-            -webkit-font-smoothing: antialiased;
-        }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 40px 24px 72px;
-        }
-        .site-nav {
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(8px);
-            z-index: 10;
-        }
-        .site-nav-inner {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 14px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .site-nav-brand { font-size: 18px; font-weight: 700; text-decoration: none; color: var(--text-dark); }
-        .site-nav-brand span { color: var(--klein); }
-        .site-nav-links { list-style: none; display: flex; gap: 18px; }
-        .site-nav-links a { font-size: 13px; color: var(--text-light); text-decoration: none; }
-        .site-nav-links a:hover { color: var(--klein); }
-        .site-nav-links a.active { color: var(--klein); font-weight: 600; }
-        .masthead { margin-bottom: 36px; }
-        .mast-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--klein);
-            font-weight: 600;
-            margin-bottom: 14px;
-        }
-        .mast-title {
-            font-size: 42px;
-            font-weight: 900;
-            letter-spacing: -1.2px;
-            line-height: 1.05;
-            color: var(--text-dark);
-            margin-bottom: 14px;
-        }
-        .mast-title span { color: var(--klein); }
-        .mast-rule { border-top: 1px solid var(--border); margin: 14px 0; }
-        .mast-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-        .mast-meta .issue { font-weight: 600; color: var(--text-dark); }
-        .mast-lede {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-mid);
-            padding: 16px 20px;
-            background: #F0F4FF;
-            border-left: 4px solid var(--klein);
-            border-radius: 4px;
-            margin-bottom: 40px;
-        }
-        .section-block { margin-bottom: 48px; }
-        .sec-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-light);
-            margin-bottom: 6px;
-        }
-        .sec-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--klein);
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-            display: inline-block;
-        }
-        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .item { margin-bottom: 36px; }
-        .dateline {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--text-light);
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 12px; }
-        .body { font-size: 15.5px; color: var(--text-mid); line-height: 1.82; }
-        .body p { margin-bottom: 14px; }
-        .body strong { color: var(--text-dark); font-weight: 600; }
-        .accent { color: var(--accent); font-weight: 600; }
-        .hl { color: var(--klein); font-weight: 600; }
-        .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--accent); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
-        .src-line { font-size: 13px; color: var(--text-light); margin-top: 10px; font-family: 'JetBrains Mono', monospace; }
-        .src-line a { color: var(--klein); text-decoration: none; }
-        .src-line a:hover { text-decoration: underline; }
-        .image-block { margin: 18px 0 24px; }
-        .image-block img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); display: block; margin: 0 auto; }
-        .image-caption { font-size: 12.5px; color: var(--text-light); margin-top: 8px; line-height: 1.6; }
-        .divider { border: none; border-top: 1px dashed var(--border); margin: 18px 0; }
-        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
-        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-light); }
-        .voice-who a { color: var(--klein); text-decoration: none; }
-        .voice-sep { border-top: 1px dashed var(--border); margin: 24px 0 24px 52px; }
-        .summary-poem { font-size: 15.5px; color: var(--text-mid); line-height: 2.1; }
-        .curiosity { padding: 20px; background: #F0F4FF; border-radius: 8px; margin-top: 32px; }
-        .footer {
-            margin-top: 48px;
-            padding-top: 20px;
-            border-top: 3px solid var(--klein);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--text-light);
-            text-align: center;
-        }
-    </style>
-<style>
-@media (max-width: 640px){
-  .site-nav-inner{flex-wrap:wrap;row-gap:6px;}
-  .site-nav-links{flex-wrap:wrap;gap:6px 14px;}
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Intelligence Daily | 2026-10-06</title>
+<meta name="description" content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-10-06.">
+<link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
-
-<nav class="site-nav">
-    <div class="site-nav-inner">
-        <a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-        <ul class="site-nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#archive">Archive</a></li>
-            <li><a href="../../2026-10/2026-10-06.html">Chinese</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container">
-
-    <header class="masthead">
-        <div class="mast-eyebrow">AI Intelligence Briefing</div>
-        <h1 class="mast-title">AI Intelligence <span>Daily</span></h1>
-        <div class="mast-rule"></div>
-        <div class="mast-meta"><span class="issue">2026-10-06</span></div>
-        <div class="mast-lede">
-            <strong>Today's Lead: Compliance watermarking converges with system defense, while engineering pivots toward lower-cost open-source foundations.</strong><br/><br/>
-            <span class="accent">OpenAI</span> unveils an invisible text watermarking scheme for the EU AI Act, with detection tools not yet available to the public;<br/>
-            <span class="accent">PromptArmor</span> exposes execution vulnerabilities in data analysis agents, where malicious instructions trigger silent exfiltration via frontend rendering;<br/>
-            <span class="accent">Together AI</span> launches an agent pipeline bridge, enabling existing developer workflows to interface directly with open-source models;<br/>
-            <span class="accent">NVIDIA</span> expands workstation memory to <span class="num">64GB</span>, lowering the barrier for local inference experiments with 100B-parameter models.
-        </div>
-    </header>
-
-    <!-- ===== 1. Front Page ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Front Page</div>
-        <div class="sec-title">Front Page</div>
-
-        <div class="item">
-            <div class="dateline">OpenAI · Compliance & Provenance</div>
-            <div class="item-title">Invisible Text Watermarking Reaches Regulatory Frontlines: Rules Find Technical Solutions, but Defenses Remain Fragile</div>
-            <div class="body">
-                <p><span class="accent">OpenAI</span> has officially released its technical solution for text provenance in response to the EU AI Act, announcing a statistical watermarking mechanism named <span class="hl">textGrain</span>.</p>
-                <p>The technique embeds imperceptible probability perturbations during token selection, allowing the system to verify content origin in subsequent comparisons. <span class="turn">However</span>, the engineering team acknowledged that watermark signals can be easily degraded after text polishing or machine translation.</p>
-                <p>Select enterprise API endpoints can already enable this capability, with mainstream rollout across Europe planned in the coming weeks. Currently, detection tools are accessible only to trusted independent research institutions.</p>
-            </div>
-<div class="src-line">Sources: <a href="https://openai.com/index/eu-text-provenance" target="_blank">OpenAI Official Blog</a></div>
-        </div>
-    </div>
-
-    <!-- ===== 2. Frontline ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Frontline</div>
-        <div class="sec-title">Frontline</div>
-
-        <div class="item">
-            <div class="dateline">PromptArmor · Agent Security</div>
-            <div class="item-title">Analysis Tool Rendering Layer Breached: Malicious Skills Bypass Controls to Exfiltrate Sensitive Credentials</div>
-            <div class="body">
-                <p>Security firm <span class="accent">PromptArmor</span> has disclosed a novel attack vector targeting commercial data analysis agents. Attackers can inject malicious skill scripts that bypass the platform's existing static code checks.</p>
-                <p>The malicious code exploits rich-text rendering features in the chat interface, embedding isolated backend query results into image loading URLs. <span class="turn">Once</span> the browser parses and displays the content, the victim's private information is silently exfiltrated to a remote server.</p>
-                <p>The proof of concept also demonstrated phishing for account authorization via spoofed system dialogs, exposing serious real-world risks in boundary isolation between agent frontends and backends.</p>
-            </div>
-<div class="src-line">Sources: <a href="https://www.promptarmor.com/resources/four-databricks-genie-controls-that-dont-stop-malicious-skills" target="_blank">PromptArmor Security Analysis</a></div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="item">
-            <div class="dateline">Google · Confidential Computing</div>
-            <div class="item-title">Input Method Re-Engineers Training with Confidential Computing: Cycles Cut from Months to Days with Fully Transparent Data Verification</div>
-            <div class="body">
-                <p><span class="accent">Google</span> announced the rollout of a next-generation private learning architecture in its keyboard input products. Leveraging hardware-grade <span class="hl">Trusted Execution Environments</span> (TEEs), the system ensures that on-device collaborative training never accesses plaintext user input.</p>
-                <p>The research team publishes update policies to public transparency logs for external auditing. <span class="turn">Meanwhile</span>, the training cycle for multilingual word prediction—which previously took <span class="num">1 to 2 months</span>—has been drastically compressed, balancing model accuracy with strict compliance standards.</p>
-            </div>
-            <div class="src-line">Sources: <a href="https://research.google/blog/toward-provably-private-learning-from-federated-data/" target="_blank">Google Research Blog</a></div>
-        </div>
-    </div>
-
-    <!-- ===== 3. Open Source ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Open Source</div>
-        <div class="sec-title">Open Source</div>
-
-        <div class="item">
-            <div class="dateline">Together AI · Developer Tools</div>
-            <div class="item-title">Development Harness Breaks Proprietary Lock-In: One-Command Bridge to Open Weights Cuts Call Costs in Half</div>
-            <div class="body">
-                <p><span class="accent">Together AI</span> announced Together Link, a bridging tool that lets developers preserve their existing coding workflows while seamlessly swapping the underlying API to hosted open-source models.</p>
-                <p>The solution features an automatic routing mechanism optimized for code generation tasks. <span class="turn">According</span> to official benchmarks, inference spend for routine programming sessions drops by more than <span class="num">50%</span> without modifying external tool calls.</p>
-            </div>
-<div class="src-line">Sources: <a href="https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use" target="_blank">Together AI Announcement</a></div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="item">
-            <div class="dateline">Prime Intellect · Inference Compute</div>
-            <div class="item-title">Frontier Open Models Break Free from Local Throughput Bottlenecks: Multi-Datacenter Scheduling Backs Nearly One Trillion Daily Tokens</div>
-            <div class="body">
-                <p><span class="accent">Prime Intellect</span> launched its inference hosting service, offering elastic serverless endpoints and dedicated resource allocation for large-scale open-source weights.</p>
-                <p>The platform introduces critical state-cache compression techniques paired with cross-datacenter orchestration. <span class="turn">Internal</span> operational metrics show daily throughput nearing <span class="num">1 trillion</span> tokens, providing practical infrastructure for small and mid-sized teams running top-tier open models.</p>
-            </div>
-            <div class="src-line">Sources: <a href="https://www.primeintellect.ai/blog/prime-inference" target="_blank">Prime Intellect Official Blog</a></div>
-        </div>
-    </div>
-
-    <!-- ===== 4. Voices ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Voices</div>
-        <div class="sec-title">Voices</div>
-
-        <div class="voice-sep"></div>
-        <div class="voice">
-            <p class="voice-text">“AI is a neutron bomb for the current education system; it hollows out the foundation for evaluating students’ authentic thinking.”</p>
-            <p class="voice-who">— Jonathan Haidt · Professor of Ethical Leadership, NYU · <a href="https://www.youtube.com/watch?v=RFTfANuLBF4" target="_blank">Video Interview Discussion</a></p>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="voice-sep"></div>
-        <div class="voice">
-            <p class="voice-text">“If we don’t actively adapt how we conduct research, the future of mathematical exploration will cease to be a human domain.”</p>
-            <p class="voice-who">— Senior Mathematician · Princeton Academic Symposium · <a href="https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/" target="_blank">Quanta Magazine</a></p>
-        </div>
-    </div>
-
-    <!-- ===== 5. Creation ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Creation</div>
-        <div class="sec-title">Creation</div>
-
-        <div class="item">
-            <div class="dateline">Manus · Video Production</div>
-            <div class="item-title">Generated Footage Connects to Multi-Track Editing: Automated Rough Cuts from Long Raw Clips Eliminate Assembly Seams</div>
-            <div class="body">
-                <p>Creative platform <span class="accent">Manus</span> unveiled a full-pipeline video editing workflow. The tool imports prompt-generated standalone shots directly into a timeline, supporting track-by-track fine-tuning of subtitles, visuals, and audio beats.</p>
-                <p>Users can batch-import over a hundred real-world raw clips, with automated transcription generating rough assemblies. <span class="turn">This</span> approach bridges the historical divide between generative footage and post-production software, multiplying production efficiency for long-form content.</p>
-            </div>
-            <div class="src-line">Sources: <a href="https://manus.im/zh-cn/blog/introducing-video-editor" target="_blank">Manus Official Blog</a></div>
-        </div>
-    </div>
-
-    <!-- ===== 6. Vision ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Vision</div>
-        <div class="sec-title">Vision</div>
-
-        <div class="item">
-            <div class="dateline">OpenAI · Business Models</div>
-            <div class="item-title">Image Generation Tests Visual Sponsored Content: Commercial Ads Follow Results, Forcing a Trade-Off with Interaction Purity</div>
-            <div class="body">
-                <p><span class="accent">OpenAI</span> announced that starting this month, it will pilot new visual commercial ads in North America, displaying sponsored placements directly beneath image generation outputs.</p>
-                <p>The company emphasized that sponsored content carries distinct disclosure labels, and generative model logic remains uninfluenced by sponsors. <span class="turn">However</span>, introducing commercial advertisements into core generative interactions signals an overt shift in consumer-facing conversational monetization.</p>
-            </div>
-<div class="src-line">Sources: <a href="https://openai.com/index/new-chatgpt-ads-format-and-measurement" target="_blank">OpenAI Official Announcement</a></div>
-        </div>
-    </div>
-
-    <!-- ===== 7. Capital ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Capital</div>
-        <div class="sec-title">Capital</div>
-
-        <div class="item">
-            <div class="dateline">NVIDIA · Hardware Ecosystem</div>
-            <div class="item-title">Workstation Memory Expands to 64GB: 100B Models Run on Desktops as Compute Barriers Ease for Smaller Teams</div>
-            <div class="image-block">
-                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-06/nordic-monolith-datacenter.jpg" alt="Nordic monolithic compute facility on volcanic terrain" loading="lazy">
-                <p class="image-caption">Nordic monolithic compute facility · Geothermal energy meets local experimentation · Shifting the frontier of on-premise compute</p>
-            </div>
-            <div class="body">
-                <p><span class="accent">NVIDIA</span> announced an expanded local compute configuration, bringing a <span class="num">64GB</span> unified memory variant to <span class="hl">DGX Spark</span>, starting at <span class="num">$4,999</span>.</p>
-                <p>The updated hardware will ship through OEM partners later this month, capable of smoothly running neural networks of up to <span class="num">100 billion</span> parameters on personal workstations. <span class="turn">This move</span> significantly lowers capital requirements for private on-premise experimentation.</p>
-            </div>
-            <div class="src-line">Sources: <a href="https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/" target="_blank">NVIDIA Official Blog</a></div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="item">
-            <div class="dateline">Arena · Cost & Efficiency</div>
-            <div class="item-title">Higher Benchmark Scores Don't Mean Better Value: Frontier Models Suffer Steep Per-Task Costs as Compute Bills Surface</div>
-            <div class="body">
-                <p>Prominent benchmarking platform <span class="accent">Arena</span> published its latest Agent Arena evaluation summary. While newer model iterations scored notably higher in dialogue capability, <span class="turn">their</span> median invocation cost for complex tasks surged to <span class="num">$2.74</span>.</p>
-                <p>This expense is roughly <span class="num">73%</span> higher than earlier flagship releases, leaving them short of the Pareto-optimal frontier. <span class="accent">Engineering teams</span> procuring compute services must now navigate real friction between raw performance and budget realities.</p>
-            </div>
-            <div class="src-line">Sources: <a href="https://x.com/arena/status/2106105400487821764" target="_blank">Arena Official Release</a></div>
-        </div>
-    </div>
-
-    <!-- ===== 8. Summary ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Summary</div>
-        <div class="sec-title">Summary</div>
-
-        <div class="item">
-            <div class="body">
-                <p>Regulatory mandates spur invisible statistical watermarking, while monetization imperatives pull advertisements closer to core interfaces. As developer tooling dismantles proprietary walls, real operating costs and security perimeters will ultimately dictate which technologies endure.</p>
-                <div class="summary-poem">
-                    Faint probabilities mark their scales in tokens,<br/>
-                    Hidden scripts probe boundaries through rendering screens;<br/>
-                    Open interfaces cut compute invoices in half,<br/>
-                    While ground-level reality tallies every price.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== 9. Be Curious ===== -->
-    <div class="section-block">
-        <div class="sec-eyebrow">Be Curious</div>
-        <div class="sec-title">Be Curious</div>
-
-        <div class="curiosity">
-            <div class="body">
-                <p><strong>The coral reefs of the Great Barrier Reef are older than the cooling towers of any data center.</strong></p>
-                <div class="image-block">
-                    <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-06/gbrzm_oli_2020222_th-cb7ea6f7.jpg" alt="NASA Satellite Imagery: Great Barrier Reef, Australia" loading="lazy">
-                    <p class="image-caption">Great Barrier Reef, Australia · NASA · <span class="num">20.30°S, 148.90°E</span><br/>After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        AI News Daily Briefing · 2026-10-06 Edition · Powered by AI Intelligence Engine
-    </footer>
-
+<!-- READY_TEXT_ONLY 2026-10-06: every image in the legacy source was removed because no official high-resolution provenance could be verified. Text-only edition. -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#archive">Archive</a></li>
+    </ul>
+  </div>
+</header>
+<main class="container">
+<header class="hero-masthead">
+  <div class="hero-meta-bar">
+    <span class="badge-tag">Daily Briefing</span>
+    <span class="badge-tag blue">2026-10-06</span>
+    <span>Tuesday</span>
+  </div>
+  <h1 class="hero-title">AI Intelligence Daily</h1>
+  <div class="hero-subtitle"><strong>Today's Lead: Compliance watermarking converges with system defense, while engineering pivots toward lower-cost open-source foundations.</strong>
+<span class="accent">OpenAI</span> unveils an invisible text watermarking scheme for the EU AI Act, with detection tools not yet available to the public;
+<span class="accent">PromptArmor</span> exposes execution vulnerabilities in data analysis agents, where malicious instructions trigger silent exfiltration via frontend rendering;
+<span class="accent">Together AI</span> launches an agent pipeline bridge, enabling existing developer workflows to interface directly with open-source models;
+<span class="accent">NVIDIA</span> expands workstation memory to <span class="num">64GB</span>, lowering the barrier for local inference experiments with 100B-parameter models.</div>
+</header>
+<section class="month-block" id="section-1">
+<div class="month-title">Front Page</div>
+<article class="chapter">
+<div class="chapter-eyebrow">OpenAI · Compliance &amp; Provenance</div>
+<h2 class="chapter-title">Invisible Text Watermarking Reaches Regulatory Frontlines: Rules Find Technical Solutions, but Defenses Remain Fragile</h2>
+<div class="prose">
+<p><span class="accent">OpenAI</span> has officially released its technical solution for text provenance in response to the EU AI Act, announcing a statistical watermarking mechanism named <span class="num">textGrain</span>.</p>
+<p>The technique embeds imperceptible probability perturbations during token selection, allowing the system to verify content origin in subsequent comparisons. <span class="turn">However</span>, the engineering team acknowledged that watermark signals can be easily degraded after text polishing or machine translation.</p>
+<p>Select enterprise API endpoints can already enable this capability, with mainstream rollout across Europe planned in the coming weeks. Currently, detection tools are accessible only to trusted independent research institutions.</p>
 </div>
-
+<div class="sources-bar">Sources: <a href="https://openai.com/index/eu-text-provenance" target="_blank" rel="noopener">OpenAI Official Blog</a></div>
+</article>
+</section>
+<section class="month-block" id="section-2">
+<div class="month-title">Frontline</div>
+<article class="chapter">
+<div class="chapter-eyebrow">PromptArmor · Agent Security</div>
+<h2 class="chapter-title">Analysis Tool Rendering Layer Breached: Malicious Skills Bypass Controls to Exfiltrate Sensitive Credentials</h2>
+<div class="prose">
+<p>Security firm <span class="accent">PromptArmor</span> has disclosed a novel attack vector targeting commercial data analysis agents. Attackers can inject malicious skill scripts that bypass the platform's existing static code checks.</p>
+<p>The malicious code exploits rich-text rendering features in the chat interface, embedding isolated backend query results into image loading URLs. <span class="turn">Once</span> the browser parses and displays the content, the victim's private information is silently exfiltrated to a remote server.</p>
+<p>The proof of concept also demonstrated phishing for account authorization via spoofed system dialogs, exposing serious real-world risks in boundary isolation between agent frontends and backends.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://www.promptarmor.com/resources/four-databricks-genie-controls-that-dont-stop-malicious-skills" target="_blank" rel="noopener">PromptArmor Security Analysis</a></div>
+</article>
+<article class="chapter">
+<div class="chapter-eyebrow">Google · Confidential Computing</div>
+<h2 class="chapter-title">Input Method Re-Engineers Training with Confidential Computing: Cycles Cut from Months to Days with Fully Transparent Data Verification</h2>
+<div class="prose">
+<p><span class="accent">Google</span> announced the rollout of a next-generation private learning architecture in its keyboard input products. Leveraging hardware-grade <span class="num">Trusted Execution Environments</span> (TEEs), the system ensures that on-device collaborative training never accesses plaintext user input.</p>
+<p>The research team publishes update policies to public transparency logs for external auditing. <span class="turn">Meanwhile</span>, the training cycle for multilingual word prediction—which previously took <span class="num">1 to 2 months</span>—has been drastically compressed, balancing model accuracy with strict compliance standards.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://research.google/blog/toward-provably-private-learning-from-federated-data/" target="_blank" rel="noopener">Google Research Blog</a></div>
+</article>
+</section>
+<section class="month-block" id="section-3">
+<div class="month-title">Open Source</div>
+<article class="chapter">
+<div class="chapter-eyebrow">Together AI · Developer Tools</div>
+<h2 class="chapter-title">Development Harness Breaks Proprietary Lock-In: One-Command Bridge to Open Weights Cuts Call Costs in Half</h2>
+<div class="prose">
+<p><span class="accent">Together AI</span> announced Together Link, a bridging tool that lets developers preserve their existing coding workflows while seamlessly swapping the underlying API to hosted open-source models.</p>
+<p>The solution features an automatic routing mechanism optimized for code generation tasks. <span class="turn">According</span> to official benchmarks, inference spend for routine programming sessions drops by more than <span class="num">50%</span> without modifying external tool calls.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use" target="_blank" rel="noopener">Together AI Announcement</a></div>
+</article>
+<article class="chapter">
+<div class="chapter-eyebrow">Prime Intellect · Inference Compute</div>
+<h2 class="chapter-title">Frontier Open Models Break Free from Local Throughput Bottlenecks: Multi-Datacenter Scheduling Backs Nearly One Trillion Daily Tokens</h2>
+<div class="prose">
+<p><span class="accent">Prime Intellect</span> launched its inference hosting service, offering elastic serverless endpoints and dedicated resource allocation for large-scale open-source weights.</p>
+<p>The platform introduces critical state-cache compression techniques paired with cross-datacenter orchestration. <span class="turn">Internal</span> operational metrics show daily throughput nearing <span class="num">1 trillion</span> tokens, providing practical infrastructure for small and mid-sized teams running top-tier open models.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://www.primeintellect.ai/blog/prime-inference" target="_blank" rel="noopener">Prime Intellect Official Blog</a></div>
+</article>
+</section>
+<section class="month-block" id="section-4">
+<div class="month-title">Voices</div>
+<div class="voices-deck"><div class="voice-card">
+<div class="voice-body">“AI is a neutron bomb for the current education system; it hollows out the foundation for evaluating students’ authentic thinking.”</div>
+<div class="voice-meta">
+<span>Jonathan Haidt · Professor of Ethical Leadership, NYU</span>
+<a href="https://www.youtube.com/watch?v=RFTfANuLBF4" target="_blank" rel="noopener">Video Interview Discussion</a>
+</div></div>
+<div class="voice-card">
+<div class="voice-body">“If we don’t actively adapt how we conduct research, the future of mathematical exploration will cease to be a human domain.”</div>
+<div class="voice-meta">
+<span>Senior Mathematician · Princeton Academic Symposium</span>
+<a href="https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/" target="_blank" rel="noopener">Quanta Magazine</a>
+</div></div></div>
+</section>
+<section class="month-block" id="section-5">
+<div class="month-title">Creation</div>
+<article class="chapter">
+<div class="chapter-eyebrow">Manus · Video Production</div>
+<h2 class="chapter-title">Generated Footage Connects to Multi-Track Editing: Automated Rough Cuts from Long Raw Clips Eliminate Assembly Seams</h2>
+<div class="prose">
+<p>Creative platform <span class="accent">Manus</span> unveiled a full-pipeline video editing workflow. The tool imports prompt-generated standalone shots directly into a timeline, supporting track-by-track fine-tuning of subtitles, visuals, and audio beats.</p>
+<p>Users can batch-import over a hundred real-world raw clips, with automated transcription generating rough assemblies. <span class="turn">This</span> approach bridges the historical divide between generative footage and post-production software, multiplying production efficiency for long-form content.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://manus.im/zh-cn/blog/introducing-video-editor" target="_blank" rel="noopener">Manus Official Blog</a></div>
+</article>
+</section>
+<section class="month-block" id="section-6">
+<div class="month-title">Vision</div>
+<article class="chapter">
+<div class="chapter-eyebrow">OpenAI · Business Models</div>
+<h2 class="chapter-title">Image Generation Tests Visual Sponsored Content: Commercial Ads Follow Results, Forcing a Trade-Off with Interaction Purity</h2>
+<div class="prose">
+<p><span class="accent">OpenAI</span> announced that starting this month, it will pilot new visual commercial ads in North America, displaying sponsored placements directly beneath image generation outputs.</p>
+<p>The company emphasized that sponsored content carries distinct disclosure labels, and generative model logic remains uninfluenced by sponsors. <span class="turn">However</span>, introducing commercial advertisements into core generative interactions signals an overt shift in consumer-facing conversational monetization.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://openai.com/index/new-chatgpt-ads-format-and-measurement" target="_blank" rel="noopener">OpenAI Official Announcement</a></div>
+</article>
+</section>
+<section class="month-block" id="section-7">
+<div class="month-title">Capital</div>
+<article class="chapter">
+<div class="chapter-eyebrow">NVIDIA · Hardware Ecosystem</div>
+<h2 class="chapter-title">Workstation Memory Expands to 64GB: 100B Models Run on Desktops as Compute Barriers Ease for Smaller Teams</h2>
+<div class="prose">
+<p>Nordic monolithic compute facility · Geothermal energy meets local experimentation · Shifting the frontier of on-premise compute</p>
+<p><span class="accent">NVIDIA</span> announced an expanded local compute configuration, bringing a <span class="num">64GB</span> unified memory variant to <span class="num">DGX Spark</span>, starting at <span class="num">$4,999</span>.</p>
+<p>The updated hardware will ship through OEM partners later this month, capable of smoothly running neural networks of up to <span class="num">100 billion</span> parameters on personal workstations. <span class="turn">This move</span> significantly lowers capital requirements for private on-premise experimentation.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/" target="_blank" rel="noopener">NVIDIA Official Blog</a></div>
+</article>
+<article class="chapter">
+<div class="chapter-eyebrow">Arena · Cost &amp; Efficiency</div>
+<h2 class="chapter-title">Higher Benchmark Scores Don&#x27;t Mean Better Value: Frontier Models Suffer Steep Per-Task Costs as Compute Bills Surface</h2>
+<div class="prose">
+<p>Prominent benchmarking platform <span class="accent">Arena</span> published its latest Agent Arena evaluation summary. While newer model iterations scored notably higher in dialogue capability, <span class="turn">their</span> median invocation cost for complex tasks surged to <span class="num">$2.74</span>.</p>
+<p>This expense is roughly <span class="num">73%</span> higher than earlier flagship releases, leaving them short of the Pareto-optimal frontier. <span class="accent">Engineering teams</span> procuring compute services must now navigate real friction between raw performance and budget realities.</p>
+</div>
+<div class="sources-bar">Sources: <a href="https://x.com/arena/status/2106105400487821764" target="_blank" rel="noopener">Arena Official Release</a></div>
+</article>
+</section>
+<section class="month-block" id="section-8">
+<div class="month-title">Summary</div>
+<article class="chapter">
+<div class="prose">
+<p>Regulatory mandates spur invisible statistical watermarking, while monetization imperatives pull advertisements closer to core interfaces. As developer tooling dismantles proprietary walls, real operating costs and security perimeters will ultimately dictate which technologies endure.</p>
+</div>
+</article>
+</section>
+<section class="month-block" id="section-9">
+<div class="month-title">Be Curious</div>
+<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+  <img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/153000/153734/letterv_oli2_20240602_th.jpg" alt="The coral reefs of the Great Barrier Reef are older than the cooling towers of any data center." loading="lazy" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;">
+</div>
+<div class="box-title" style="font-size:16px; margin-bottom:10px;">The coral reefs of the Great Barrier Reef are older than the cooling towers of any data center.</div>
+<div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Great Barrier Reef, Australia · NASA · <span class="num">20.30°S, 148.90°E</span></div>
+<p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
+</section>
+<nav class="post-pagination">
+<a class="prev-post" href="2026-10-05.html">← Previous</a>
+<a class="all-posts" href="../index.html#archive">Archive</a>
+<a class="next-post" href="ai-weekly-2026-10-w1.html">Next →</a>
+</nav>
+</main>
+<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
 </body>
 </html>

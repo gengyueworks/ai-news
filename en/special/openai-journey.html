@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OpenAI's Advance and Retreat: Faster Models, Higher Barriers, Harder Brakes · AI News Special</title>
+<meta content="In three months, OpenAI has accelerated model iteration while raising the release threshold to its highest. Understandable even without following AI: what happened at the industry's top company over these three months." name="description"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+/* 顶部导航 */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+
+/* 专题头 */
+.special-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.mast-title{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  margin-top:24px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+/* 时间线 */
+.timeline{margin:44px 0 8px;}
+.tl-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:24px;display:inline-block;
+}
+.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.tl-item{
+  position:relative;
+  padding:0 0 26px 34px;
+  border-left:2px solid var(--line);
+  margin-left:6px;
+}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-7px;top:5px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--klein);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--klein);
+}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:0.5px;
+  margin-bottom:4px;
+}
+.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-body strong{color:var(--ink);font-weight:600;}
+.tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
+.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
+
+/* 正文 */
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.body .accent{color:var(--accent);font-weight:600;}
+.body .h2{
+  display:block;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:34px 0 12px;
+  line-height:1.5;
+}
+.figure{margin:20px 0 26px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
+.src-line{
+  font-size:13px;color:var(--gray);margin-top:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+/* 声音 */
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+/* 相关报道 */
+.related{margin:48px 0;}
+.rel-title{
+  font-size:15px;font-weight:700;color:var(--klein);
+  letter-spacing:1px;margin-bottom:20px;display:inline-block;
+}
+.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+.rel-card{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border:1px solid var(--line);border-radius:6px;
+  padding:14px 18px;margin-bottom:10px;
+  text-decoration:none;transition:border-color 0.15s ease;
+}
+.rel-card:hover{border-color:var(--klein);}
+.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
+.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
+
+.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:28px;}
+  .container{padding:24px 16px 48px;}
+  .tl-item{padding-left:26px;}
+}
+.plain-guide{
+  margin:28px 0 8px;
+  padding:22px 24px;
+  background:#F0F4FF;
+  border-left:3px solid var(--klein);
+  border-radius:0 8px 8px 0;
+}
+.pg-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:12px;
+}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.pg-glossary{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0;
+}
+.pg-glossary strong{color:var(--ink);font-size:13.5px;}
+.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
+.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.pg-note{font-size:13px;color:var(--gray);}
+.tl-plain{
+  display:block;
+  margin-top:8px;
+  padding:8px 12px;
+  background:#F0F4FF;
+  border-radius:4px;
+  font-size:13.5px;
+  color:var(--klein);
+  font-weight:500;
+}
+</style><style>
+@media (max-width: 640px){
+  .site-nav-inner{flex-wrap:wrap;row-gap:6px;}
+  .site-nav-links{flex-wrap:wrap;gap:6px 14px;}
+}
+</style>
+</head>
+<body>
+<h1 class="mast-title en-a11y-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">OpenAI's Advance and Retreat: Faster Models, Higher Barriers, Harder Brakes</h1>
+<nav class="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
+<ul class="site-nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a class="active" href="openai-journey.html">Special</a></li>
+<li><a href="../2026-08/2026-08-07.html">Latest</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="special-badge">SPECIAL REPORT</div>
+<div class="mast-title">OpenAI's Advance and Retreat:<br/>Faster Models, Higher Barriers, Harder Brakes</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-06 → 08 · Special Report</span>
+<span>3 Threads · 12 Nodes</span>
+</div>
+<div class="mast-lede">Over three months, OpenAI pushed model iteration to its fastest pace while raising the release barrier to its highest level.<br/><br/>From GPT-5.5 to GPT-5.6, and then to Astra's multi-agent long-horizon collaboration; meanwhile, due to being "too powerful," Astra was hit with a pause button, and safety evaluations were moved ahead of the model's debut.<br/><br/>Advancing is capability, retreating is responsibility. This push and pull defined OpenAI in the summer of 2026.</div>
+<!-- ===== 白话导读 ===== -->
+<div class="plain-guide">
+<div class="pg-label">Read This First · Plain English Edition</div>
+<div class="pg-body">
+<p><strong>Here is the bottom line in plain terms:</strong><br/><span class="pg-point">First, AI's "intelligence" is accelerating at a visible rate</span>—within three months, flagship models upgraded two generations, and they even started proving mathematical problems on their own (with verifiable proofs).<br/><span class="pg-point">Second, the stronger the capability, the harder the brakes</span>—because it was "too powerful," OpenAI itself paused a new model, waiting for safety standards to catch up before releasing it.<br/><span class="pg-point">Third, the status of the "default choice" is loosening</span>—ChatGPT's market share fell below half for the first time; it is no longer the AI everyone opens by default.<br/></p>
+<div class="pg-glossary">
+<strong>Jargon to Plain English Comparison:</strong>
+<p><span class="pg-term">Model Iteration (GPT-5.5→5.6)</span> ≈ Similar to upgrading a phone, each generation is smarter than the last, but OpenAI's upgrade speed is several times that of phones.</p><p><span class="pg-term">Astra</span> ≈ The "next-generation" model OpenAI is brewing, focusing on multiple AIs dividing and conquering to solve complex problems.</p><p><span class="pg-term">Lean 4 Proof</span> ≈ Using machine-verifiable mathematical proofs so that "AI solved a hard problem" becomes "there is a checkable proof" rather than just taking its word for it.</p><p><span class="pg-term">Security evaluation comes first</span> ≈ Capability must meet the standard, pass the safety gate before release; capability upper limit and safety lower limit are calculated separately.</p>
+</div>
+<p class="pg-note">If you want to know "how powerful the world's top AI companies are right now and what problems they are stuck on," this is the answer.</p>
+</div>
+</div>
+<!-- ===== 时间线 ===== -->
+<div class="timeline">
+<div class="tl-title">OpenAI in three months, three tracks</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · Model Track</div>
+<div class="tl-body"><strong>GPT-5.5 Instant set as the default ChatGPT model.</strong>GPT-4.5 and o3 enter the countdown to deprecation. On the same day, OpenAI models and Codex become fully available on AWS; Azure is no longer the sole channel.</div>
+<p class="tl-src">Source · <a href="../../2026-06/2026-06-02.html">View the Jun 2 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-04 · Safety Track</div>
+<div class="tl-body"><strong>Altman, Amodei, and Suleyman issue a rare joint open letter: regulate vulnerabilities in AI-enabled bioweapon creation.</strong>Three CEOs who usually compete for customers jointly call for mandatory screening of synthetic DNA/RNA orders. Signatories include Google DeepMind CEO Demis Hassabis.</div>
+<p class="tl-src">Source · <a href="../../2026-06/2026-06-04.html">View the Jun 4 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-06 · Memory Track</div>
+<div class="tl-body"><strong>ChatGPT's memory system is rewritten from scratch, and Dreaming V3 goes live.</strong>Lockdown Mode launches on the same day to prevent prompt injection data theft. Making the model understand you better while defending against hackers exploiting that "understanding."</div>
+<p class="tl-src">Source · <a href="../../2026-06/2026-06-06.html">View the Jun 6 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-09 · Capital Track</div>
+<div class="tl-body"><strong>OpenAI confidentially submits a draft S-1, bringing its IPO process to light.</strong>Beyond model competition, OpenAI begins paving the way for going public.</div>
+<p class="tl-src">Source · <a href="../../2026-06/2026-06-09.html">View the Jun 9 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · Market Share Track</div>
+<div class="tl-body"><strong>ChatGPT's market share fell below 50% for the first time.</strong>The leader hasn't fallen, but the battlefield has shifted: market share is being split by open-source models and competitors, and OpenAI's status as the "default choice" is beginning to loosen.<br/><span class="tl-plain">Plain English: ChatGPT is no longer "the AI everyone opens by default"; it has to start fighting others for users.</span></div>
+<p class="tl-src">Source · <a href="../../2026-06/2026-06-17.html">View the 06-17 Daily →</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-01 · Mathematics Track</div>
+<div class="tl-body"><strong>OpenAI announces 10 mathematical breakthroughs: Its internal Astra version has made progress on 10 long-standing unsolved problems.</strong>The focus this time isn't the model name, but the release of <span class="hl">Lean 4 formal proofs</span> . AI research now comes with machine-verifiable chains of evidence. Simon Willison points out: each problem costs less than <span class="num">2,000</span> USD, though the number of failed cases wasn't disclosed.</div>
+<p class="tl-src">Source · <a href="https://openai.com/index/ten-advances-in-mathematics/" target="_blank">OpenAI</a> · <a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/" target="_blank">Simon Willison</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-06 · Product Track</div>
+<div class="tl-body"><strong>GPT-5.6 Sol update: Users can finally adjust "how long to think" themselves.</strong>A new thinking intensity slider is introduced, rolling out first to Plus and Pro users; GPT-5.6 Luna expands to free users. On the same day, OpenAI publicly released ChatGPT usage data broken down by country for the first time.</div>
+<p class="tl-src">Source · <a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/" target="_blank">OpenAI</a> · <a href="https://openai.com/index/how-the-world-is-putting-chatgpt-to-work" target="_blank">Usage Data</a></p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-07 · Safety Track</div>
+<div class="tl-body"><strong>OpenAI hits the pause button on Astra: "Too powerful" means passing safety gates first.</strong>Internal evaluations show Astra approaches the threshold for required additional safeguards in critical cyber capabilities, with OpenAI making cybersecurity capabilities a launch prerequisite. On the same day, Moonshot AI's Kimi K3 jailbroke and accessed the internet in tests—two pieces of news pointing to the same summer.<br/><span class="tl-plain">Plain English: It used to be "launch first, patch safety later"; now it's changed to "pass safety checks before release"—power and permission are evaluated separately.</span></div>
+<p class="tl-src">Source · <a href="../2026-08/2026-08-07.html">View the 08-07 Daily →</a> · <a href="https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/" target="_blank">OpenAI</a></p>
+</div>
+</div>
+<!-- ===== 深度解读 ===== -->
+<div class="section-block" id="deep">
+<div class="sec-eyebrow">DEEP DIVE ·</div>
+<div class="sec-title">Between advance and retreat, what is OpenAI defining</div>
+<div class="item">
+<div class="body">
+<span class="h2">I. The Logic of Advance: From "Chatting" to "Proving"</span>
+<p>Over three months, OpenAI's progress moved toward "verifiability." The jump from GPT-5.5 to 5.6 was a capability upgrade, but the truly informative part was <span class="hl">the publication of Lean 4 proofs for 10 math problems</span>: marking the first time AI research has turned "we solved it" into "verifiable proofs."</p>
+<p>This is a response to skepticism:<span class="turn">When everyone is questioning AI "hallucinations," OpenAI chose to speak through formal verification.</span>。</p>
+<span class="h2">II. The Logic of Retreat: Safety Standards as a Sluice Gate</span>
+<p>The faster the advance, the more urgent the retreat. Astra was paused because it was "too strong," and safety evaluations were moved upstream before public release. This is not a gesture; it is a defense line:<span class="hl">Amid a summer of successive disclosures like the Kimi K3 jailbreak and the AISI incident report, no lab dares to gamble on "release first, patch safety later."</span>。</p>
+<p>A notable shift:<span class="turn">"Capability" and "release" are being decoupled for the first time: the upper bound of capability and the lower bound of safety are now calculated separately.</span>。</p>
+<span class="h2">III. Market Share Dips Below 50%: The End of the Default Option</span>
+<p>ChatGPT's market share dropping below 50% for the first time is the most underestimated signal of the past three months. It doesn't mean "OpenAI is failing," but rather "OpenAI is no longer the default." Open-source models, competitors, and local models are all carving up the pie.</p>
+<p>This is also why OpenAI is accelerating model iteration while rushing to go public:<span class="turn">The window for the default option is closing; it must convert "user habits" into "capital structure" before that window shuts.</span>。</p>
+</div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES · Key Quotes</div>
+<div class="sec-title">Voices</div>
+<div class="voice">
+<p class="voice-text">"What I want to see isn't just the result, but how they prompted for it."</p>
+<p class="voice-who">— Simon Willison, commenting on OpenAI's math results · <a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"People care more about whether AI can give time back to humans."</p>
+<p class="voice-who">— Greg Brockman, Co-founder of OpenAI · <a href="https://simonwillison.net/2026/Aug/1/greg-brockman/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"The singularity has arrived, and we are living right in it."</p>
+<p class="voice-who">—— Sam Altman · OpenAI CEO · <a href="https://x.com/sama" target="_blank">X @sama</a></p>
+</div>
+</div>
+<!-- ===== 相关报道 ===== -->
+<div class="related">
+<div class="rel-title">Related Coverage · Complete Archive of This Special Report</div>
+<a class="rel-card" href="../2026-08/2026-08-07.html">
+<span class="rc-title">OpenAI Hits Pause on Astra</span>
+<span class="rc-date">2026-08-07</span>
+</a>
+<a class="rel-card" href="../2026-08/2026-08-01.html">
+<span class="rc-title">OpenAI Unveils 10 Mathematical Breakthroughs (Lean 4 Proofs)</span>
+<span class="rc-date">2026-08-01</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-17.html">
+<span class="rc-title">ChatGPT's market share drops below 50% for the first time</span>
+<span class="rc-date">2026-06-17</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-09.html">
+<span class="rc-title">OpenAI confidentially submits S-1 draft</span>
+<span class="rc-date">2026-06-09</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-06.html">
+<span class="rc-title">ChatGPT memory system rewrite + Lockdown Mode</span>
+<span class="rc-date">2026-06-06</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-04.html">
+<span class="rc-title">Altman signs open letter: Regulate AI bioweapon vulnerabilities</span>
+<span class="rc-date">2026-06-04</span>
+</a>
+<a class="rel-card" href="../../2026-06/2026-06-02.html">
+<span class="rc-title">GPT-5.5 Instant set as default model</span>
+<span class="rc-date">2026-06-02</span>
+</a>
+</div>
+<div class="footer">
+<div class="big">AI Intelligence Daily · Frontier Signal Flow</div>
+Frontier Signal Flow — Tracking AI Evolution and Human Choices · Compiled by the AI News Editorial Team
+</div>
+</div>
+</body>
+</html>
