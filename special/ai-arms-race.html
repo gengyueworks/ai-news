@@ -252,6 +252,66 @@ body{
   color:var(--klein);
   font-weight:500;
 }
+
+/* 统一全局顶栏 (Site Header) 规范 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+.nav-links a.active {
+  color: #002FA7;
+  font-weight: 700;
+}
+/* 统一出处字号，禁止忽大忽小 */
+.tl-src, .src-line, .source-line, .tl-footnote {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #9CA3AF !important;
+  margin-top: 8px !important;
+  line-height: 1.5 !important;
+}
+.tl-src a, .src-line a, .source-line a, .tl-footnote a {
+  color: #002FA7 !important;
+  text-decoration: none !important;
+}
+.tl-src a:hover, .src-line a:hover, .source-line a:hover, .tl-footnote a:hover {
+  text-decoration: underline !important;
+}
+
 </style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
 </head>
 <body>
@@ -317,13 +377,13 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-06-01 · 弹药线</div>
-<div class="tl-body"><strong>Alphabet 融资 <span class="num">800</span> 亿美元，AI 军备竞赛进入「无限弹药」模式。</strong>这是 Google 自 <span class="num">2005</span> 年以来第一次股权融资。上市 20 年钱多到花不完的搜索巨头，也开始向市场伸手。FT 算了一笔账：2027 年资本开支预计 <span class="num">2500</span> 亿 vs 现金流 <span class="num">2600</span> 亿，明年 Q2 将首次「花得比赚得多」。<span class="tl-plain">白话：全球最赚钱的科技公司之一，都要借钱花在 AI 上了。这轮军备竞赛的账单，开始超出任何一家公司的现金流。</span></div>
+<div class="tl-body"><strong>Alphabet 融资 <span class="num">800</span> 亿美元，AI 军备竞赛进入「无限弹药」模式。</strong>这是 Google 自 <span class="num">2005</span> 年以来第一次股权融资。<br><br>上市 20 年钱多到花不完的搜索巨头，也开始向市场伸手。<br><br>FT 算了一笔账：2027 年资本开支预计 <span class="num">2500</span> 亿 vs 现金流 <span class="num">2600</span> 亿，明年 Q2 将首次「花得比赚得多」。<span class="tl-plain">白话：全球最赚钱的科技公司之一，都要借钱花在 AI 上了。这轮军备竞赛的账单，开始超出任何一家公司的现金流。</span></div>
 <p class="tl-src">出处 · FT · <a href="../2026-06/2026-06-01.html">看 06-01 日报 →</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-06-01 · 中国芯片路线</div>
-<div class="tl-body"><strong>美国算力流通限制，逼出中国自己的芯片路线。</strong>GPU 还是 ASIC，成了路线之争：摩尔线程、壁仞走通用 GPU；华为昇腾、寒武纪思元押注专用 ASIC。摩根士丹利数据：华为昇腾 <span class="num">950</span>、寒武纪思元 <span class="num">690</span> 比英伟达被允许卖给中国的最高端芯片 H20 快 <span class="num">50-150%</span>。华为预计 2026 年拿下中国 AI 加速器市场 <span class="num">62%</span>。<span class="tl-plain">白话：买不到英伟达最好的芯片，中国自己造，而且专为 AI 造的芯片，在某些指标上已经超过英伟达卖到中国的最高端货。</span></div>
+<div class="tl-body"><strong>美国算力流通限制，逼出中国自己的芯片路线。</strong>GPU 还是 ASIC，成了路线之争：摩尔线程、壁仞走通用 GPU；华为昇腾、寒武纪思元押注专用 ASIC。<br><br>摩根士丹利数据：华为昇腾 <span class="num">950</span>、寒武纪思元 <span class="num">690</span> 比英伟达被允许卖给中国的最高端芯片 H20 快 <span class="num">50-150%</span>。<br><br>华为预计 2026 年拿下中国 AI 加速器市场 <span class="num">62%</span>。<span class="tl-plain">白话：买不到英伟达最好的芯片，中国自己造，而且专为 AI 造的芯片，在某些指标上已经超过英伟达卖到中国的最高端货。</span></div>
 <p class="tl-src">出处 · SCMP</p>
 </div>
 
@@ -335,7 +395,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-06-04 · 回报考验</div>
-<div class="tl-body"><strong>钱花完怎么办：AI 的「水电账单」开始咬人。</strong>Uber 几个月烧光全年 AI 预算，给员工设了使用上限；Walmart 限制生成表格工具；一家公司全员部署 Claude 没设限，一个月意外花了 <span class="num">5</span> 亿美元 token 费。去年的 tokenmaxxing（拼命用 AI）退潮，企业开始算账。<span class="tl-plain">白话：去年大家比谁用 AI 用得多，今年开始比谁用得起。AI 从免费狂欢，进入按用量收费的冷静期。</span></div>
+<div class="tl-body"><strong>钱花完怎么办：AI 的「水电账单」开始咬人。</strong>Uber 几个月烧光全年 AI 预算，给员工设了使用上限；Walmart 限制生成表格工具；一家公司全员部署 Claude 没设限，一个月意外花了 <span class="num">5</span> 亿美元 token 费。<br><br>去年的 tokenmaxxing（拼命用 AI）退潮，企业开始算账。<span class="tl-plain">白话：去年大家比谁用 AI 用得多，今年开始比谁用得起。<br><br>AI 从免费狂欢，进入按用量收费的冷静期。</span></div>
 <p class="tl-src">出处 · Bloomberg</p>
 </div>
 
@@ -347,7 +407,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-06-16 · 收购线</div>
-<div class="tl-body"><strong>Meta 以 <span class="num">143</span> 亿美元拿下 Scale AI 近半股权。</strong>28 岁的创始人 Alexandr Wang 入主 Meta 超级智能部门。定义这个时代的人又换了一次雇主。</div>
+<div class="tl-body"><strong>Meta 以 <span class="num">143</span> 亿美元拿下 Scale AI 近半股权。</strong>28 岁的创始人 Alexandr Wang 入主 Meta 超级智能部门。<br><br>定义这个时代的人又换了一次雇主。</div>
 <p class="tl-src">出处 · <a href="../2026-06/2026-06-16.html">看 06-16 日报 →</a></p>
 </div>
 
@@ -383,13 +443,13 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-07-20 · 中国线</div>
-<div class="tl-body"><strong>DeepSeek 启动 IPO 筹备。</strong>6 月刚完成超 <span class="num">74</span> 亿美元融资（投后估值超 <span class="num">500</span> 亿），7 月传 IPO。中国 AI 融资也进入快车道。</div>
+<div class="tl-body"><strong>DeepSeek 启动 IPO 筹备。</strong>6 月刚完成超 <span class="num">74</span> 亿美元融资（投后估值超 <span class="num">500</span> 亿），7 月传 IPO。<br><br>中国 AI 融资也进入快车道。</div>
 <p class="tl-src">出处 · <a href="../2026-07/2026-07-20.html">看 07-20 日报 →</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-01 · 中国线</div>
-<div class="tl-body"><strong>月之暗面 F 轮超 <span class="num">35</span> 亿美元，投后估值 <span class="num">350</span> 亿。</strong>因超募 <span class="num">3</span> 倍提前关闭，G 轮（Pre-IPO）提前启动。开源炸场和融资炸场同一周发生。</div>
+<div class="tl-body"><strong>月之暗面 F 轮超 <span class="num">35</span> 亿美元，投后估值 <span class="num">350</span> 亿。</strong>因超募 <span class="num">3</span> 倍提前关闭，G 轮（Pre-IPO）提前启动。<br><br>开源炸场和融资炸场同一周发生。</div>
 <p class="tl-src">出处 · <a href="../2026-08/2026-08-01.html">看 08-01 日报 →</a></p>
 </div>
 
@@ -400,7 +460,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-08-08 · 电力线</div>
-<div class="tl-body"><strong>英伟达向 Stargate 电力开发商 Lancium 投资至多 <span class="num">30</span> 亿美元。</strong>纯股权投资，不涉及建设担保。估值近 <span class="num">100</span> 亿的 Lancium 提供 AI 数据中心依赖的土地和电网接入。<span class="turn">军备竞赛烧到电力：算力再强，没电也跑不动，英伟达开始给数据中心买电。</span></div>
+<div class="tl-body"><strong>英伟达向 Stargate 电力开发商 Lancium 投资至多 <span class="num">30</span> 亿美元。</strong>纯股权投资，不涉及建设担保。<br><br>估值近 <span class="num">100</span> 亿的 Lancium 提供 AI 数据中心依赖的土地和电网接入。<span class="turn">军备竞赛烧到电力：算力再强，没电也跑不动，英伟达开始给数据中心买电。</span></div>
 <p class="tl-src">出处 · The Information</p>
 </div>
 

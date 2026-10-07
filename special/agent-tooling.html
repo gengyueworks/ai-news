@@ -6,6 +6,66 @@
 <title>Agent 工具革命：从「聊天」到「干活」 · AI News 专题</title>
 <meta name="description" content="上半年 Agent 还是「能聊天的模型」，这个夏天它开始真的干活。不关注 AI 也能看懂：Agent 是什么、能干什么、为什么和你有关。">
 <link rel="stylesheet" href="../assets/css/main.css">
+<style>
+/* 统一全局顶栏 (Site Header) 规范 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+.nav-links a.active {
+  color: #002FA7;
+  font-weight: 700;
+}
+/* 统一出处字号，禁止忽大忽小 */
+.tl-src, .src-line, .source-line, .tl-footnote {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #9CA3AF !important;
+  margin-top: 8px !important;
+  line-height: 1.5 !important;
+}
+.tl-src a, .src-line a, .source-line a, .tl-footnote a {
+  color: #002FA7 !important;
+  text-decoration: none !important;
+}
+.tl-src a:hover, .src-line a:hover, .source-line a:hover, .tl-footnote a:hover {
+  text-decoration: underline !important;
+}
+</style>
 </head>
 <body>
     <header class="site-header">
@@ -76,7 +136,7 @@
             <span class="tl-time">2026-06-03 · 中国消费 Agent</span>
             <span class="tl-subject">阿里把 Qwen 平台开放给品牌：<span class="hl">从炸鸡到航班，一句对话下单</span>。</span>
           </div>
-          <div class="tl-desc">KFC、瑞幸、蜜雪冰城、东方航空首批接入。用户说「在最近的 KFC 点个鸡肉汉堡自取」，agent 自动找店、用优惠券、算取餐时间。Qwen app 每天超 <span class="num">1</span> 亿次生活服务交互。和腾讯在微信里做 agent 的计划，正面撞上。</div>
+          <div class="tl-desc">KFC、瑞幸、蜜雪冰城、东方航空首批接入。<br><br>用户说「在最近的 KFC 点个鸡肉汉堡自取」，agent 自动找店、用优惠券、算取餐时间。<br><br>Qwen app 每天超 <span class="num">1</span> 亿次生活服务交互。和腾讯在微信里做 agent 的计划，正面撞上。</div>
           <div class="tl-footnote">出处 · SCMP</div>
         </div>
       </div>
@@ -87,7 +147,7 @@
             <span class="tl-time">2026-06-09 · 工具汇合</span>
             <span class="tl-subject">语音、代码和 Agent 开始汇合到同一套工作流。</span>
           </div>
-          <div class="tl-desc">Apple WWDC26 更新 Xcode Agent，Claude Managed Agents 进入公开测试，GitHub Copilot CLI 支持自定义 Agent，Hugging Face 发布语音 Agent 基准。Perplexity 与哈佛研究 Agent 如何改变知识工作。</div>
+          <div class="tl-desc">Apple WWDC26 更新 Xcode Agent，Claude Managed Agents 进入公开测试，GitHub Copilot CLI 支持自定义 Agent，Hugging Face 发布语音 Agent 基准。<br><br>Perplexity 与哈佛研究 Agent 如何改变知识工作。</div>
           <div class="tl-footnote">出处 · <a href="../2026-06/2026-06-09.html">看 06-09 日报 →</a></div>
         </div>
       </div>
@@ -98,7 +158,7 @@
             <span class="tl-time">2026-06-18 · 落地中国</span>
             <span class="tl-subject">微信 AI Agent：一句「明天中午 3 人粤菜馆」直接帮你下单。</span>
           </div>
-          <div class="tl-desc">Agent 从「演示」走进真实生活场景，用一句话完成找店、订座、下单整条链路。腾讯紧随阿里，把 agent 做进自己的超级 App。</div>
+          <div class="tl-desc">Agent 从「演示」走进真实生活场景，用一句话完成找店、订座、下单整条链路。<br><br>腾讯紧随阿里，把 agent 做进自己的超级 App。</div>
           <div class="tl-footnote">出处 · <a href="../2026-06/2026-06-18.html">看 06-18 日报 →</a> · SCMP</div>
         </div>
       </div>
@@ -164,7 +224,7 @@
             <span class="tl-time">2026-08-05 · 企业内网</span>
             <span class="tl-subject">Anthropic Inference Hooks 上线，企业可以在 Claude 推理前先拦一刀。</span>
           </div>
-          <div class="tl-desc">每条受管控 prompt 先经过企业自己的安全服务器判定，覆盖 Claude.ai、Cowork、Claude Code。安全控制从「事后审计」挪到「推理前拦截」。</div>
+          <div class="tl-desc">每条受管控 prompt 先经过企业自己的安全服务器判定，覆盖 Claude.ai、Cowork、Claude Code。<br><br>安全控制从「事后审计」挪到「推理前拦截」。</div>
           <div class="tl-footnote">出处 · <a href="https://docs.anthropic.com/en/release-notes/api" target="_blank">Anthropic 文档</a></div>
         </div>
       </div>

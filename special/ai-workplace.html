@@ -252,6 +252,66 @@ body{
   color:var(--klein);
   font-weight:500;
 }
+
+/* 统一全局顶栏 (Site Header) 规范 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+.nav-links a.active {
+  color: #002FA7;
+  font-weight: 700;
+}
+/* 统一出处字号，禁止忽大忽小 */
+.tl-src, .src-line, .source-line, .tl-footnote {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #9CA3AF !important;
+  margin-top: 8px !important;
+  line-height: 1.5 !important;
+}
+.tl-src a, .src-line a, .source-line a, .tl-footnote a {
+  color: #002FA7 !important;
+  text-decoration: none !important;
+}
+.tl-src a:hover, .src-line a:hover, .source-line a:hover, .tl-footnote a:hover {
+  text-decoration: underline !important;
+}
+
 </style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
 </head>
 <body>
@@ -306,13 +366,13 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-09-17 · 办公套件替代</div>
-<div class="tl-body"><strong>Anthropic 将 Claude Cowork 深度嵌入主站，原生推出文档与幻灯片协同。</strong>企业员工在对话框内即可调度多类办公场景，跨应用切换耗时降低 <span class="num">60%</span>。AI 从单纯提供提示词生成，正式转向对传统办公套件的底层工作流替代。</div>
+<div class="tl-body"><strong>Anthropic 将 Claude Cowork 深度嵌入主站，原生推出文档与幻灯片协同。</strong>企业员工在对话框内即可调度多类办公场景，跨应用切换耗时降低 <span class="num">60%</span>。<br><br>AI 从单纯提供提示词生成，正式转向对传统办公套件的底层工作流替代。</div>
 <p class="tl-src">出处 · <a href="https://techcrunch.com/2026/09/16/anthropic-merges-claude-chat-and-cowork-in-one-interface/" target="_blank">TechCrunch</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-09-15 · 软件工厂与角色转变</div>
-<div class="tl-body"><strong>The Pragmatic Engineer 深度解密 OpenAI 内部「软件工厂」运作：</strong>Codex 每天承载超过 <span class="num">10 亿次</span>代码操作，工程师日常工作转为调度与审核并行运行的智能体任务。传统代码审查、测试覆盖率与工程文化正在被全链路重构。</div>
+<div class="tl-body"><strong>The Pragmatic Engineer 深度解密 OpenAI 内部「软件工厂」运作：</strong>Codex 每天承载超过 <span class="num">10 亿次</span>代码操作，工程师日常工作转为调度与审核并行运行的智能体任务。<br><br>传统代码审查、测试覆盖率与工程文化正在被全链路重构。</div>
 <p class="tl-src">出处 · <a href="https://newsletter.pragmaticengineer.com/p/openai-software-factory" target="_blank">The Pragmatic Engineer</a></p>
 </div>
 
@@ -330,7 +390,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-06-04 · 账单来了</div>
-<div class="tl-body"><strong>Uber 几个月就烧光了全年 AI 预算，只好给员工设了使用上限。</strong>Walmart 也限制了生成表格工具的 token；有家公司给全员用 Claude 没设限，一个月意外花了 <span class="num">5</span> 亿美元的 token 费。去年那种拼命用 AI 的 tokenmaxxing 风潮过去了，现在企业都开始算账了。</div>
+<div class="tl-body"><strong>Uber 几个月就烧光了全年 AI 预算，只好给员工设了使用上限。</strong>Walmart 也限制了生成表格工具的 token；有家公司给全员用 Claude 没设限，一个月意外花了 <span class="num">5</span> 亿美元的 token 费。<br><br>去年那种拼命用 AI 的 tokenmaxxing 风潮过去了，现在企业都开始算账了。</div>
 <p class="tl-src">出处 · Bloomberg</p>
 </div>
 
@@ -348,19 +408,19 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-07-07 · 价格冲击</div>
-<div class="tl-body"><strong>中国的 GLM-5.2 来了：够好，还便宜好几倍。</strong>硅谷管这叫「奇迹」，Vercel CEO 说自己「几乎震惊」。现在 OpenRouter 上最火的 6 个模型全是中国的；Coinbase 靠 GLM-5.2 加上 Kimi，把 AI 花费砍掉了一半。RAND 研究员说：<span class="accent">「担心的场景是中国有够好又只要四分之一价格的模型」</span>。</div>
+<div class="tl-body"><strong>中国的 GLM-5.2 来了：够好，还便宜好几倍。</strong>硅谷管这叫「奇迹」，Vercel CEO 说自己「几乎震惊」。<br><br>现在 OpenRouter 上最火的 6 个模型全是中国的；Coinbase 靠 GLM-5.2 加上 Kimi，把 AI 花费砍掉了一半。<br><br>RAND 研究员说：<span class="accent">「担心的场景是中国有够好又只要四分之一价格的模型」</span>。</div>
 <p class="tl-src">出处 · The Atlantic</p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-07-23 · 差距放大</div>
-<div class="tl-body"><strong>KPMG 研究发现，大家同样面对 AI，<span class="num">50.1%</span> 的人表现超过基线，<span class="num">25.8%</span> 的人持平，还有 <span class="num">24.1%</span> 的人反而变弱了。</strong>拉开差距的不是基础技能，并且「怎么和 AI 协作」。AI 并没有统一工作标准，反而放大了人与人之间的差异。</div>
+<div class="tl-body"><strong>KPMG 研究发现，大家同样面对 AI，<span class="num">50.1%</span> 的人表现超过基线，<span class="num">25.8%</span> 的人持平，还有 <span class="num">24.1%</span> 的人反而变弱了。</strong>拉开差距的不是基础技能，并且「怎么和 AI 协作」。<br><br>AI 并没有统一工作标准，反而放大了人与人之间的差异。</div>
 <p class="tl-src">出处 · HBR</p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-05 · 隐形劳动</div>
-<div class="tl-body"><strong>HBR 发现，员工每周要花 <span class="num">6.4</span> 小时「看顾」AI，比真正用 AI 干活的时间都长。</strong>比如要花 <span class="num">2.3</span> 小时给 AI 喂上下文，<span class="num">2.2</span> 小时修改错误，<span class="num">1.7</span> 小时检查输出。人从「用 AI」变成了「AI 的保姆」。</div>
+<div class="tl-body"><strong>HBR 发现，员工每周要花 <span class="num">6.4</span> 小时「看顾」AI，比真正用 AI 干活的时间都长。</strong>比如要花 <span class="num">2.3</span> 小时给 AI 喂上下文，<span class="num">2.2</span> 小时修改错误，<span class="num">1.7</span> 小时检查输出。<br><br>人从「用 AI」变成了「AI 的保姆」。</div>
 <p class="tl-src">出处 · HBR</p>
 </div>
 </div>

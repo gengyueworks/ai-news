@@ -252,6 +252,66 @@ body{
   color:var(--klein);
   font-weight:500;
 }
+
+/* 统一全局顶栏 (Site Header) 规范 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+.nav-links a.active {
+  color: #002FA7;
+  font-weight: 700;
+}
+/* 统一出处字号，禁止忽大忽小 */
+.tl-src, .src-line, .source-line, .tl-footnote {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #9CA3AF !important;
+  margin-top: 8px !important;
+  line-height: 1.5 !important;
+}
+.tl-src a, .src-line a, .source-line a, .tl-footnote a {
+  color: #002FA7 !important;
+  text-decoration: none !important;
+}
+.tl-src a:hover, .src-line a:hover, .source-line a:hover, .tl-footnote a:hover {
+  text-decoration: underline !important;
+}
+
 </style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
 </head>
 <body>
@@ -312,13 +372,13 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-09-09 · 查表时代</div>
-<div class="tl-body"><strong>从「实时算」到「查表用」：<span class="hl">AlphaGenome Atlas</span> 预计算 <span class="num">90 亿</span> 个 DNA 变异。</strong>DeepMind 正式发布 <span class="accent">AlphaGenome Atlas</span>，为人类基因组中 <span class="num">90 亿</span> 个单碱基变异预计算了分子效应预测值与 AVI 评分。生物学家无需自行运行复杂模型，直接查表即可调取变异影响评估。DeepMind 正在把原属于实验室算力的科学 AI 模型彻底转化为标准化的公共科研基础设施。</div>
+<div class="tl-body"><strong>从「实时算」到「查表用」：<span class="hl">AlphaGenome Atlas</span> 预计算 <span class="num">90 亿</span> 个 DNA 变异。</strong>DeepMind 正式发布 <span class="accent">AlphaGenome Atlas</span>，为人类基因组中 <span class="num">90 亿</span> 个单碱基变异预计算了分子效应预测值与 AVI 评分。<br><br>生物学家无需自行运行复杂模型，直接查表即可调取变异影响评估。<br><br>DeepMind 正在把原属于实验室算力的科学 AI 模型彻底转化为标准化的公共科研基础设施。</div>
 <p class="tl-src">出处 · <a href="https://www.marktechpost.com/2026/09/08/google-deepmind-releases-alphagenome-atlas-with-precomputed-molecular-effect-predictions-and-avi-scores-for-9-billion-human-DNA-variants/" target="_blank">MarkTechPost</a> · DeepMind Research</p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-09-05 · 科学前沿</div>
-<div class="tl-body"><strong>科学 AI 新战场：Anthropic 用 Claude 完成费马大定理 Lean 证明。</strong>在 DeepMind 将精力转向 Gemini 与科学基础设施查表化的同时，出走的前 DeepMind 人员所投奔的 <span class="accent">Anthropic</span> 发布了首个经计算机验证的费马大定理机器证明，Claude 在 <span class="num">11 天</span> 内完成形式化并生成 <span class="num">1300 万行</span> Lean 4 代码。AI 挑战重大科学难题的接力棒，已全面向形式化验证与跨机构扩散。</div>
+<div class="tl-body"><strong>科学 AI 新战场：Anthropic 用 Claude 完成费马大定理 Lean 证明。</strong>在 DeepMind 将精力转向 Gemini 与科学基础设施查表化的同时，出走的前 DeepMind 人员所投奔的 <span class="accent">Anthropic</span> 发布了首个经计算机验证的费马大定理机器证明，Claude 在 <span class="num">11 天</span> 内完成形式化并生成 <span class="num">1300 万行</span> Lean 4 代码。<br><br>AI 挑战重大科学难题的接力棒，已全面向形式化验证与跨机构扩散。</div>
 <p class="tl-src">出处 · <a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem" target="_blank">Anthropic 官方研究</a> · Quanta</p>
 </div>
 
@@ -330,19 +390,19 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-06-19 · 我们报道过</div>
-<div class="tl-body"><strong>AlphaFold 之父离开 DeepMind，投奔 Anthropic。</strong>江珀在谷歌做了近九年，宣布转投 <span class="accent">Anthropic</span>。同一天，Transformer 作者之一 Shazeer 去了 OpenAI，48 小时内谷歌连走两人。当时 SignalFire 报告说，DeepMind 工程师跳槽 Anthropic 的概率是反方向的 <span class="num">11 倍</span>。<a href="../2026-06/2026-06-20.html">看 06-20 日报 →</a></div>
+<div class="tl-body"><strong>AlphaFold 之父离开 DeepMind，投奔 Anthropic。</strong>江珀在谷歌做了近九年，宣布转投 <span class="accent">Anthropic</span>。<br><br>同一天，Transformer 作者之一 Shazeer 去了 OpenAI，48 小时内谷歌连走两人。<br><br>当时 SignalFire 报告说，DeepMind 工程师跳槽 Anthropic 的概率是反方向的 <span class="num">11 倍</span>。<a href="../2026-06/2026-06-20.html">看 06-20 日报 →</a></div>
 <p class="tl-src">出处 · <a href="https://www.cnbc.com/2026/06/19/john-jumper-to-leave-google-deepmind-for-anthropic.html" target="_blank">CNBC</a> · <a href="https://www.techtimes.com/articles/318754/20260620/alphafold-nobel-laureate-john-jumper-joins-anthropic-after-nine-years-deepmind.htm" target="_blank">TechTimes</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-07-29 · FT 报道</div>
-<div class="tl-body"><strong>DeepMind 解散专门的 AlphaFold 团队。</strong>英国《金融时报》报道，过去一年里，AlphaFold 论文的大部分署名作者被调往其他项目，近 <span class="num">1/4</span> 已彻底离开公司。有人去了药物发现公司 Isomorphic Labs，有人转向 Gemini 相关的工作。</div>
+<div class="tl-body"><strong>DeepMind 解散专门的 AlphaFold 团队。</strong>英国《金融时报》报道，过去一年里，AlphaFold 论文的大部分署名作者被调往其他项目，近 <span class="num">1/4</span> 已彻底离开公司。<br><br>有人去了药物发现公司 Isomorphic Labs，有人转向 Gemini 相关的工作。</div>
 <p class="tl-src">出处 · Financial Times · <a href="https://the-decoder.com/deepmind-dismantles-its-alphafold-team-as-key-authors-leave-for-anthropic/" target="_blank">The Decoder</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-05 · 人事变动</div>
-<div class="tl-body"><strong>哈萨比斯卸任 DeepMind CEO，转任 Alphabet 首席科学家。</strong>谷歌宣布哈萨比斯升任母公司 Alphabet 的首席科学家。他坚持让 AlphaFold 免费开放，据说在谷歌内部种下了摩擦：突破带来了声望，却没带来直接收入。</div>
+<div class="tl-body"><strong>哈萨比斯卸任 DeepMind CEO，转任 Alphabet 首席科学家。</strong>谷歌宣布哈萨比斯升任母公司 Alphabet 的首席科学家。<br><br>他坚持让 AlphaFold 免费开放，据说在谷歌内部种下了摩擦：突破带来了声望，却没带来直接收入。</div>
 <p class="tl-src">出处 · <a href="https://www.reuters.com/technology/ai-economy/" target="_blank">Reuters</a> · Google Blog</p>
 </div>
 
@@ -366,13 +426,13 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-08-07 · 本篇</div>
-<div class="tl-body"><strong>《科学美国人》深度报道：为什么解散，科学界为什么不吃惊。</strong>科学家们说，AlphaFold 基本完成了它被造出来要解决的问题，而且谷歌之外的研究者早就接过了接力棒。看解读 ↓</div>
+<div class="tl-body"><strong>《科学美国人》深度报道：为什么解散，科学界为什么不吃惊。</strong>科学家们说，AlphaFold 基本完成了它被造出来要解决的问题，而且谷歌之外的研究者早就接过了接力棒。<br><br>看解读 ↓</div>
 <p class="tl-src">出处 · <a href="https://www.scientificamerican.com/article/why-google-deepmind-broke-up-the-alphafold-team/" target="_blank">Scientific American</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-09 · 后续</div>
-<div class="tl-body"><strong>最新：哈萨比斯可能在未来数月彻底离开 DeepMind。</strong>The Decoder 援引报道，Google DeepMind 正失去独立性，创始人 <span class="accent">哈萨比斯</span> 可能彻底离开，日常运营交给 <span class="hl">卡武克库奥卢</span>，且不再设 CEO 头衔。从「升任首席科学家」到「或将离开」，AlphaFold 时代的落幕比想象中更彻底。</div>
+<div class="tl-body"><strong>最新：哈萨比斯可能在未来数月彻底离开 DeepMind。</strong>The Decoder 援引报道，Google DeepMind 正失去独立性，创始人 <span class="accent">哈萨比斯</span> 可能彻底离开，日常运营交给 <span class="hl">卡武克库奥卢</span>，且不再设 CEO 头衔。<br><br>从「升任首席科学家」到「或将离开」，AlphaFold 时代的落幕比想象中更彻底。</div>
 <p class="tl-src">出处 · The Decoder</p>
 </div>
 </div>

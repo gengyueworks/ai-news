@@ -254,6 +254,66 @@ body{
   color:var(--klein);
   font-weight:500;
 }
+
+/* 统一全局顶栏 (Site Header) 规范 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+.nav-links a.active {
+  color: #002FA7;
+  font-weight: 700;
+}
+/* 统一出处字号，禁止忽大忽小 */
+.tl-src, .src-line, .source-line, .tl-footnote {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #9CA3AF !important;
+  margin-top: 8px !important;
+  line-height: 1.5 !important;
+}
+.tl-src a, .src-line a, .source-line a, .tl-footnote a {
+  color: #002FA7 !important;
+  text-decoration: none !important;
+}
+.tl-src a:hover, .src-line a:hover, .source-line a:hover, .tl-footnote a:hover {
+  text-decoration: underline !important;
+}
+
 </style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
 </head>
 <body>
@@ -325,19 +385,19 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-06-02 · 产品线</div>
-<div class="tl-body"><strong>Project Glasswing 大扩展：Mythos 模型开放给 <span class="num">150+</span> 新组织。</strong>覆盖电网、水务等关键基础设施。Anthropic 不只是做聊天，开始做「行业底座」。</div>
+<div class="tl-body"><strong>Project Glasswing 大扩展：Mythos 模型开放给 <span class="num">150+</span> 新组织。</strong>覆盖电网、水务等关键基础设施。<br><br>Anthropic 不只是做聊天，开始做「行业底座」。</div>
 <p class="tl-src">出处 · <a href="../2026-06/2026-06-02.html">看 06-02 日报 →</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-06-05 · 数据线</div>
-<div class="tl-body"><strong>Anthropic 公开内部数据：Claude 写了 <span class="num">80%</span> 以上的代码。</strong>公司内部已有人在问「我还做什么」。这是第一家敢公开「AI 干掉了自己多少活」的头部实验室。</div>
+<div class="tl-body"><strong>Anthropic 公开内部数据：Claude 写了 <span class="num">80%</span> 以上的代码。</strong>公司内部已有人在问「我还做什么」。<br><br>这是第一家敢公开「AI 干掉了自己多少活」的头部实验室。</div>
 <p class="tl-src">出处 · <a href="../2026-06/2026-06-05.html">看 06-05 日报 →</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-06-10 · Agent 线</div>
-<div class="tl-body"><strong>Claude Managed Agents 进入公开测试。</strong>定时运行、环境变量。Anthropic 把 Agent 从「对话」推向「无人值守的自动化」。</div>
+<div class="tl-body"><strong>Claude Managed Agents 进入公开测试。</strong>定时运行、环境变量。<br><br>Anthropic 把 Agent 从「对话」推向「无人值守的自动化」。</div>
 <p class="tl-src">出处 · <a href="../2026-06/2026-06-10.html">看 06-10 日报 →</a></p>
 </div>
 
@@ -361,7 +421,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-07-29 · 人才线</div>
-<div class="tl-body"><strong>AlphaFold 团队解散，关键作者流向 Anthropic。</strong>Jumper 6 月宣布加入，Adler、Pritzel 随行。Anthropic 的 Claude Science 布局，正在接收 DeepMind 的遗产。</div>
+<div class="tl-body"><strong>AlphaFold 团队解散，关键作者流向 Anthropic。</strong>Jumper 6 月宣布加入，Adler、Pritzel 随行。<br><br>Anthropic 的 Claude Science 布局，正在接收 DeepMind 的遗产。</div>
 <p class="tl-src">出处 · <a href="../2026-07/2026-07-29.html">看 07-29 日报 →</a></p>
 </div>
 

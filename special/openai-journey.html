@@ -252,6 +252,66 @@ body{
   color:var(--klein);
   font-weight:500;
 }
+
+/* 统一全局顶栏 (Site Header) 规范 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+.nav-links a.active {
+  color: #002FA7;
+  font-weight: 700;
+}
+/* 统一出处字号，禁止忽大忽小 */
+.tl-src, .src-line, .source-line, .tl-footnote {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #9CA3AF !important;
+  margin-top: 8px !important;
+  line-height: 1.5 !important;
+}
+.tl-src a, .src-line a, .source-line a, .tl-footnote a {
+  color: #002FA7 !important;
+  text-decoration: none !important;
+}
+.tl-src a:hover, .src-line a:hover, .source-line a:hover, .tl-footnote a:hover {
+  text-decoration: underline !important;
+}
+
 </style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
 </head>
 <body>
@@ -300,7 +360,7 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-09-11 · 数学与学界线</div>
-<div class="tl-body"><strong>25 位菲尔兹奖得主联署《人工智能在数学中的严重错位》：</strong>陶哲轩、邓煜等 <span class="num">25</span> 位菲尔兹奖得主发表公开信，批评 OpenAI 等 AI 公司把攻克著名难题当作能力基准。公开信指出这会挤压数学共同体对概念理解、方法传承与学术归因的追求，<span class="hl">仓促发布引发了严重的署名与学术归属争议</span>。</div>
+<div class="tl-body"><strong>25 位菲尔兹奖得主联署《人工智能在数学中的严重错位》：</strong>陶哲轩、邓煜等 <span class="num">25</span> 位菲尔兹奖得主发表公开信，批评 OpenAI 等 AI 公司把攻克著名难题当作能力基准。<br><br>公开信指出这会挤压数学共同体对概念理解、方法传承与学术归因的追求，<span class="hl">仓促发布引发了严重的署名与学术归属争议</span>。</div>
 <p class="tl-src">出处 · <a href="https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/" target="_blank">陶哲轩博客</a> · <a href="https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/" target="_blank">TechCrunch</a></p>
 </div>
 
@@ -324,19 +384,19 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-06-02 · 模型线</div>
-<div class="tl-body"><strong>GPT-5.5 Instant 设为 ChatGPT 默认模型。</strong>GPT-4.5 和 o3 进入停用倒计时。同一天，OpenAI 模型和 Codex 在 AWS 上全面可用，Azure 不再是唯一通道。</div>
+<div class="tl-body"><strong>GPT-5.5 Instant 设为 ChatGPT 默认模型。</strong>GPT-4.5 和 o3 进入停用倒计时。<br><br>同一天，OpenAI 模型和 Codex 在 AWS 上全面可用，Azure 不再是唯一通道。</div>
 <p class="tl-src">出处 · <a href="../2026-06/2026-06-02.html">看 06-02 日报 →</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-06-04 · 安全线</div>
-<div class="tl-body"><strong>Altman、Amodei、Suleyman 罕见联署公开信：管管 AI 造生物武器的漏洞。</strong>平时互相抢客户的三个 CEO，一起呼吁对合成 DNA/RNA 订单做强制筛查。签署方包括 Google DeepMind CEO Hassabis。</div>
+<div class="tl-body"><strong>Altman、Amodei、Suleyman 罕见联署公开信：管管 AI 造生物武器的漏洞。</strong>平时互相抢客户的三个 CEO，一起呼吁对合成 DNA/RNA 订单做强制筛查。<br><br>签署方包括 Google DeepMind CEO Hassabis。</div>
 <p class="tl-src">出处 · <a href="../2026-06/2026-06-04.html">看 06-04 日报 →</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-06-06 · 记忆线</div>
-<div class="tl-body"><strong>ChatGPT 的记忆系统被从头重写，Dreaming V3 上线。</strong>同一天上线 Lockdown Mode，防止提示注入偷数据。一边让模型更懂你，一边防黑客利用这份「懂」。</div>
+<div class="tl-body"><strong>ChatGPT 的记忆系统被从头重写，Dreaming V3 上线。</strong>同一天上线 Lockdown Mode，防止提示注入偷数据。<br><br>一边让模型更懂你，一边防黑客利用这份「懂」。</div>
 <p class="tl-src">出处 · <a href="../2026-06/2026-06-06.html">看 06-06 日报 →</a></p>
 </div>
 
@@ -354,13 +414,13 @@ body{
 
 <div class="tl-item">
 <div class="tl-date">2026-08-01 · 数学线</div>
-<div class="tl-body"><strong>OpenAI 公布 10 个数学进展：内部版 Astra 在 10 个长期未解问题上取得进展。</strong>这次的重点不是模型名，是 <span class="accent">Lean 4 形式化证明</span> 的公开。AI 研究开始附带机器可验证的证据链。Simon Willison 提醒：每个问题成本不到 <span class="num">2,000</span> 美元，但没公布失败案例数量。</div>
+<div class="tl-body"><strong>OpenAI 公布 10 个数学进展：内部版 Astra 在 10 个长期未解问题上取得进展。</strong>这次的重点不是模型名，是 <span class="accent">Lean 4 形式化证明</span> 的公开。<br><br>AI 研究开始附带机器可验证的证据链。<br><br>Simon Willison 提醒：每个问题成本不到 <span class="num">2,000</span> 美元，但没公布失败案例数量。</div>
 <p class="tl-src">出处 · <a href="https://openai.com/index/path-to-astra-frontier-safeguards/ten-advances-in-mathematics/" target="_blank">OpenAI</a> · <a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/" target="_blank">Simon Willison</a></p>
 </div>
 
 <div class="tl-item">
 <div class="tl-date">2026-08-06 · 产品线</div>
-<div class="tl-body"><strong>GPT-5.6 Sol 更新：用户终于能自己调「想多久」。</strong>新增思考强度滑杆，Plus 和 Pro 用户先用上；GPT-5.6 Luna 扩展到免费用户。同一天，OpenAI 首次公开按国家拆分的 ChatGPT 使用数据。</div>
+<div class="tl-body"><strong>GPT-5.6 Sol 更新：用户终于能自己调「想多久」。</strong>新增思考强度滑杆，Plus 和 Pro 用户先用上；GPT-5.6 Luna 扩展到免费用户。<br><br>同一天，OpenAI 首次公开按国家拆分的 ChatGPT 使用数据。</div>
 <p class="tl-src">出处 · <a href="https://openai.com/index/path-to-astra-frontier-safeguards/improving-gpt-5-6-sol-in-chatgpt/" target="_blank">OpenAI</a> · <a href="https://openai.com/index/how-the-world-is-putting-chatgpt-to-work" target="_blank">使用数据</a></p>
 </div>
 
