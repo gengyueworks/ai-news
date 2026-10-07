@@ -204,6 +204,47 @@ body{
   .signal-grid{grid-template-columns:1fr;}
   .container{padding:24px 16px 48px;}
 }
+
+/* 全站标准统一顶栏样式 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+
 </style>
 <!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
 
@@ -228,18 +269,18 @@ body{
 
 </head>
 <body>
-    <nav class="site-nav">
-        <div class="site-nav-inner">
-            <a class="site-nav-brand" href="https://gyread.com/" title="返回 GYREAD 官网首页" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+            <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="https://gyread.com/" title="返回 GYREAD 官网首页" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
                 <span style="width:24px; height:24px; border-radius:6px; background:#002FA7; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:900; box-shadow:0 2px 8px rgba(0,47,167,.26); flex:0 0 auto;">Y</span>
             </a>
-            <ul class="site-nav-links">
+            <ul class="nav-links">
                 <li><a href="../index.html" style="color: #002FA7; font-weight: 700;">新闻首页</a></li>
                 <li><a href="../latest.html">最新</a></li>
                 <li><a href="../ai-news-story.html">幕后故事</a></li>
             </ul>
         </div>
-    </nav>
+    </header>
 <div class="container">
 <div class="masthead">
 <div class="mast-eyebrow">AI Intelligence Briefing</div>
