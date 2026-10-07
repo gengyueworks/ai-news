@@ -43,6 +43,17 @@ PY = "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3"
 if not Path(PY).exists():
     PY = sys.executable
 
+def _resolve_node() -> str:
+    """launchd 下 PATH 精简，显式解析 node，避免英文版式门禁静默失败。"""
+    import shutil as _sh
+    for cand in ("/usr/local/bin/node", "/opt/homebrew/bin/node",
+                 "/usr/bin/node", _sh.which("node") or ""):
+        if cand and Path(cand).exists():
+            return cand
+    return "node"
+
+NODE = _resolve_node()
+
 TZ_SH = timezone(timedelta(hours=8))
 
 # 手册 §10 时间预算（秒），可被 data/schema/pipeline-budget.json 覆盖
@@ -450,6 +461,31 @@ class PipelineRunner:
                      "repair_kind": "none"}]
         return []
 
+    def gate_en_layout(self):
+        """英文站版式门禁：抬头端正 / 无横向溢出，扫全部英文页。
+        Node + 本机 Chrome headless；任一英文页歪斜即 FAIL，阻断发布。"""
+        script = self.site_dir / "scripts" / "check_en_layout.mjs"
+        en_dir = self.site_dir / "en"
+        if not script.exists():
+            return [{"id": "EN_LAYOUT_UNAVAILABLE", "level": "FAIL",
+                     "detail": "check_en_layout.mjs 缺失", "repair_kind": "none"}]
+        if not en_dir.exists():
+            # 英文站尚未建档：不阻断中文发布，但明确记录
+            self.log("[check] en/ 目录不存在，跳过英文版式门禁")
+            return []
+        rc = self.process.run(
+            [NODE, str(script)], timeout=600,
+            log_path=self.logs_dir / f"enlayout-attempt-{self.attempt:02d}.log",
+            cwd=str(self.site_dir))
+        if rc == 2:
+            return [{"id": "EN_LAYOUT_UNAVAILABLE", "level": "FAIL",
+                     "detail": "英文版式门禁环境异常（Chrome/Node 不可达）", "repair_kind": "none"}]
+        if rc != 0:
+            return [{"id": "EN_LAYOUT_FAIL", "level": "FAIL",
+                     "detail": "英文站存在抬头歪斜/横向溢出（详见 enlayout 日志）",
+                     "repair_kind": "none"}]
+        return []
+
     def gate_visual(self):
         daily = self.daily_path()
         rc = self.process.run(
@@ -473,6 +509,7 @@ class PipelineRunner:
                     "repair_kind": c["repair_kind"]} for c in fails]
         defects += self.gate_image()
         defects += self.gate_structure()
+        defects += self.gate_en_layout()
         visual = self.gate_visual()
         if visual:
             if all(d["id"] == "IQA_UNAVAILABLE" for d in visual) and not defects:

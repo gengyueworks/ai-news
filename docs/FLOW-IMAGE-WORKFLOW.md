@@ -19,6 +19,45 @@ Flow 用于那些找不到安全实拍的新闻。
 3. 一次只跑一张，等结果出来、肉眼确认后再跑下一张。
 4. 账号安全高于出图数量。宁可慢，绝不碰风控。
 
+## 一·五、色调铁律：中立明亮 · 高级极简科技感（2026-10-07 主理人亲定）
+
+主理人反馈：早前一批 Flow 图「色调太阴暗、恐怖片/地下古堡/阴曹地府感」，不可用。
+风格基准回到「科技 · 极简 · 高级」——对标 Apple 官网产品页那种干净通透的科技大片。
+
+**要的是：**
+- 明亮、通透、中立的调子；大面积浅灰/象牙白/中性冷白背景；
+- 柔和均匀的棚拍光（soft even studio light / large diffused source），几乎无死黑、无重阴影；
+- 精密几何、干净材质（阳极氧化铝、玻璃、磨砂不锈钢、清水混凝土本色）；
+- 克制的高级感，构图有呼吸感，至多一处极克制的点缀色；
+- 主体明确：真实产品、真实装置、真实设备、极简建筑。
+
+**绝对不要（触发即弃）：**
+- 阴暗、幽暗、暗黑、克苏鲁、惊悚、哥特、诅咒感、深重阴影、风暴黑夜；
+- 恐怖片/地下古堡/阴曹地府氛围；深沉阴影与压抑暗调；
+- 也不要反向走极端成 阳光鸡汤 / 小清新 / 迪斯科俗艳高饱和。
+
+**一句话：明亮、干净、克制、精密。像给苹果配图会用的那种调子。**
+
+**已验证的制胜公式（2026-10-07，Apple 产品页级）**：
+
+```
+Premium minimal <product|installation|architecture> photograph, 16:9.
+<单一明确主体> on a seamless light grey / off-white studio background,
+precise clean geometry, brushed aluminium and subtle glass,
+soft even diffused studio lighting, bright neutral tones,
+gentle soft shadow under the object, generous negative space,
+Apple product-page aesthetic, ultra clean and refined, cinematic yet calm.
+No people, no faces, no text, no letters, no logo, no watermark,
+no dark mood, no heavy shadows, no clutter.
+```
+
+变体：
+- 「合适 + 很酷 + 科技感/电影感」也可以，不必都是旷野。真实装置、真实设备、极简建筑、精密仪器都行，只要调子中立明亮、构图干净。
+- 主体是宏大工程/自然尺度时（大坝、光缆船、卫星站），改用语：`clear daylight, blue sky with soft clouds, bright neutral palette, clean cinematic composition`，同样禁止 dark/moody/storm/gloom。
+
+Prompt 用词：`bright neutral tones, soft even studio lighting, clean minimal composition, light grey and off-white background, premium matte materials, no heavy shadows`；
+禁用词：`dark, moody, gloomy, ominous, gothic, dramatic shadows, chiaroscuro, horror, eerie`。
+
 ## 二、Prompt 标准（目标：干净的纪实感，不像 AI）
 
 用户 6/7 月认可的方向是「纪实摄影感、主体明确、画面干净、构图有呼吸感」。

@@ -56,6 +56,17 @@ BANNED_IMAGE_SRC_TOKENS = [
     "price-chart", "performance-chart", "flowchart", "flow-chart",
     "claude-sonnet5-pricing",
 ]
+# 文件名主干里的禁用词（按 - / _ 切词后逐词比对，避免 "charter"/"chartroom" 之类误杀；
+# 补齐 hy4-chart / stanford-chart / ocr2-chart 这种「连字符 chart」漏网：
+# 2026-10-07 发现 09-06 三张自造对比图正是此形态，旧规则只认 "chart_" 下划线，全部漏检）
+BANNED_STEM_WORDS = {"chart", "charts", "diagram", "diagrams", "infographic",
+                     "infographics", "benchmark", "benchmarks", "flowchart",
+                     "schematic", "pricing"}
+# alt/图注里出现这些中文或英文词 = 自造图表（让人看着更累的那类），一律拦
+BANNED_ALT_TOKENS = ["架构图", "架构示意图", "对比图", "对比图表", "性能图", "性能对比",
+                     "柱状图", "折线图", "流程图", "示意图", "信息图", "数据图",
+                     "参数图", "曲线图", "拓扑图", "路线图", "架构与", "benchmark chart",
+                     "performance chart", "comparison chart", "infographic"]
 # 第三方平台宣传卡片特征（URL 或 alt/说明中出现即拦）
 BANNED_IMAGE_META_TOKENS = [
     "aihot", "ai hot", "精选评分", "评分", "宣传卡片", "performance chart",
@@ -226,10 +237,19 @@ def _is_banned_image(src: str, img_tag: str) -> str:
     for token in BANNED_IMAGE_SRC_TOKENS:
         if token.lower() in low_src:
             return '命中禁用图源特征 %s' % token
+    # 文件名主干按 - / _ / . 切词，逐词比对禁用词（含连字符 chart 漏网）
+    stem = re.split(r'[?#]', low_src)[0].split('/')[-1]
+    words = set(w for w in re.split(r'[-_.]+', stem) if w)
+    for w in words:
+        if w in BANNED_STEM_WORDS:
+            return '命中禁用图源主干词 %s' % w
     low_tag = img_tag.lower()
     for token in BANNED_IMAGE_META_TOKENS:
         if token.lower() in low_tag:
             return '命中禁用宣传/评分特征 %s' % token
+    for token in BANNED_ALT_TOKENS:
+        if token.lower() in low_tag:
+            return '命中自造图表特征 %s' % token
     return ''
 
 
