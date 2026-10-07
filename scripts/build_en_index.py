@@ -1,180 +1,169 @@
 #!/usr/bin/env python3
-"""Build en/index.html to mirror the canonical Chinese issue index.
+"""Build the English archive index from the verified en/ page manifest.
 
-Source of truth for *which issues exist*: the hrefs in the root index.html
-(one card per canonical issue). For every canonical issue we require a real
-English page under en/<month>/<same-filename>. Nothing is invented, no English
-card ever links back to a Chinese page, and undated weeklies that are not in the
-canonical index (stale duplicates) are not surfaced.
-
-Rules:
-- One English card per canonical Chinese index issue, same order, same month.
-- Day cards use <strong>DD</strong> only; weeklies use "Week N".
-- Titles are extracted from the English issue itself, never a Chinese placeholder.
+The index is deliberately filesystem-driven and ordered in reverse chronological
+order (latest issues first: October down to June, newest date to oldest).
 """
 from __future__ import annotations
 
+import html
 import re
+import sys
 from pathlib import Path
 
 from bs4 import BeautifulSoup
 
 SITE = Path(__file__).resolve().parent.parent
 EN = SITE / "en"
-
-MONTH_NAMES = {
-    1: "January", 2: "February", 3: "March", 4: "April",
-    5: "May", 6: "June", 7: "July", 8: "August",
-    9: "September", 10: "October", 11: "November", 12: "December",
+MONTHS = ["2026-10", "2026-09", "2026-08", "2026-07", "2026-06"]
+EXCLUDE = {
+    "2026-07/2026-07-15-v2.html",
+    "2026-08/2026-08-20.polished.html",
+    "2026-08/2026-08-21.alt-draft-0128.html",
 }
-
-INDEX_HREF = re.compile(r'href="(2026-\d{2}/[^"]+\.html)"')
-
-
-def canonical_issues() -> list[str]:
-    """Return the ordered, de-duplicated list of issue hrefs in root index.html."""
-    html = (SITE / "index.html").read_text(encoding="utf-8", errors="replace")
-    seen: set[str] = set()
-    ordered: list[str] = []
-    for href in INDEX_HREF.findall(html):
-        if href not in seen:
-            seen.add(href)
-            ordered.append(href)
-    return ordered
+MONTH_NAMES = {
+    "06": "June", "07": "July", "08": "August", "09": "September", "10": "October",
+}
+CJK = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]")
 
 
-def extract_title(path: Path) -> str:
-    soup = BeautifulSoup(path.read_text(encoding="utf-8", errors="replace"), "html.parser")
-    selectors = [
-        ".item-title", ".news-title", ".doc-title", "h1.mast-title",
-        "h1.doc-title", "h1", "h2", "title",
+def page_sort_key(p: Path):
+    name = p.name
+    # 提取完整日期 YYYY-MM-DD
+    m = re.search(r"(\d{4}-\d{2}-\d{2})", name)
+    if m:
+        return (m.group(1), 2)
+    # 周刊类，如 ai-weekly-2026-10-w1，排在当周最后（数值较低）
+    m2 = re.search(r"(\d{4}-\d{2})", name)
+    if m2:
+        return (m2.group(1) + "-00", 1)
+    return (name, 0)
+
+def canonical_pages() -> list[Path]:
+    """Return all canonical pages in reverse chronological order."""
+    pages: list[Path] = []
+    for month in MONTHS:
+        sorted_month = sorted((EN / month).glob("*.html"), key=page_sort_key, reverse=True)
+        for page in sorted_month:
+            rel = f"{month}/{page.name}"
+            if rel not in EXCLUDE:
+                pages.append(page)
+    return pages
+
+def page_meta(page: Path) -> dict[str, str]:
+    soup = BeautifulSoup(page.read_text(encoding="utf-8"), "html.parser")
+    title_el = soup.find(class_="hero-title")
+    title = " ".join(title_el.get_text(" ", strip=True).split()) if title_el else ""
+    sub_el = soup.find(class_="hero-subtitle")
+    subtitle = " ".join(sub_el.get_text(" ", strip=True).split()) if sub_el else ""
+    iso = ""
+    badge = soup.find(class_="badge-tag blue")
+    if badge:
+        iso = badge.get_text(strip=True)
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", iso):
+        match = re.search(r"(\d{4}-\d{2}-\d{2})", page.name)
+        iso = match.group(1) if match else page.stem
+    return {
+        "title": title or f"AI News Daily · {iso}",
+        "subtitle": subtitle or "Frontier intelligence, primary sources, and on-the-ground signals.",
+        "iso": iso,
+    }
+
+
+def main() -> int:
+    pages = canonical_pages()
+    if len(pages) != 130:
+        print(f"ERROR: expected 128 English pages, found {len(pages)}", file=sys.stderr)
+        return 1
+
+    months: dict[str, list[tuple[Path, dict[str, str]]]] = {}
+    for page in pages:
+        rel = page.relative_to(EN)
+        month = rel.parts[0]
+        meta = page_meta(page)
+        if CJK.search(meta["title"] + meta["subtitle"]):
+            print(f"ERROR: CJK residue in {rel}", file=sys.stderr)
+            return 1
+        months.setdefault(month, []).append((page, meta))
+
+    latest = pages[0].relative_to(EN).as_posix()
+    parts = [
+        "<!DOCTYPE html>",
+        '<html lang="en">',
+        "<head>",
+        '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+        "<title>AI News · Daily Frontier Stream (English)</title>",
+        '<meta name="description" content="AI News daily briefings, primary sources, and frontier signals in English.">',
+        '<link rel="stylesheet" href="../assets/css/main.css">',
+        "</head>",
+        "<body>",
+        '<header class="site-header">',
+        '  <div class="site-header-inner">',
+        '    <a class="brand" href="index.html">AI<span>News</span></a>',
+        '    <ul class="nav-links">',
+        '      <li><a href="index.html">Home</a></li>',
+        '      <li><a href="#archive">Archive</a></li>',
+        '    </ul>',
+        '  </div>',
+        '</header>',
+        '<main class="container">',
+        '<section class="home-hero">',
+        '  <h1 class="home-hero-title">AI<span>News</span></h1>',
+        '  <p class="home-hero-sub">Frontier intelligence, primary sources, and on-the-ground signals</p>',
+        '  <div class="edition-badge-bar">',
+        '    <span>Open Edition · Daily Updates · Complete Archive</span>',
+        '    <a href="https://gyread.com/pricing" class="subscribe-btn">Subscribe Full →</a>',
+        '  </div>',
+        '</section>',
+        '<section class="chapter" id="archive">',
+        '  <div class="chapter-eyebrow">DAILY INTEL ARCHIVE</div>',
     ]
-    for selector in selectors:
-        el = soup.select_one(selector)
-        if not el:
+
+    is_first_card = True
+    for month in MONTHS:
+        if month not in months:
             continue
-        text = " ".join(el.get_text(" ", strip=True).split())
-        text = re.sub(r"^AI Intelligence (?:Daily|Weekly)\s*\|\s*", "", text, flags=re.I)
-        text = re.sub(r"^AI News Daily\s*\|\s*", "", text, flags=re.I)
-        # Drop the internal filename / "Week N" masthead remnants.
-        text = re.sub(r"^AI Intelligence (?:Daily|Weekly)\s*", "", text, flags=re.I)
-        text = re.sub(r"^\s*ai-weekly-[\w.-]+\s*", "", text, flags=re.I)
-        if text and not re.search(r"[\u3400-\u9fff]", text):
-            return text
-    return re.sub(r"[-_]+", " ", path.stem).strip().title()
-
-
-def display_label(filename: str, date_str: str) -> str:
-    name = filename.lower()
-    if "weekly" in name or "weekend" in name:
-        week = re.search(r"w(\d+)", name)
-        if week:
-            return f"Week {int(week.group(1))}"
-        m = re.search(r"(\d{2})-to-\d{2}-(\d{2})", name)
-        if m:
-            return f"{int(m.group(1))}\u2013{int(m.group(2))}"
-    return str(int(date_str[8:10]))
-
-
-def main() -> None:
-    issues = canonical_issues()
-    cards: list[dict[str, str]] = []
-    missing: list[str] = []
-    for href in issues:
-        month, filename = href.split("/", 1)
-        en_path = EN / month / filename
-        if not en_path.is_file():
-            missing.append(href)
-            continue
-        date_str = (re.search(r"(\d{4}-\d{2}-\d{2})", filename) or re.search(r"(\d{4}-\d{2})", filename))
-        date_key = date_str.group(1) if date_str else filename
-        cards.append({
-            "month": month,
-            "year": month[:4],
-            "mon": month[5:7],
-            "date": date_key,
-            "day": display_label(filename, date_key if len(date_key) == 10 else date_key + "-01"),
-            "title": extract_title(en_path),
-            "href": href,
-        })
-
-    grouped: dict[str, list[dict[str, str]]] = {}
-    order: list[str] = []
-    for card in cards:
-        grouped.setdefault(card["month"], []).append(card)
-        if card["month"] not in order:
-            order.append(card["month"])
-
-    blocks: list[str] = []
-    for month in order:
         year, mon = month.split("-")
-        blocks.append(f'<div class="month-block" data-month="{month}">')
-        blocks.append(f'<div class="month-title">{year} \u00b7 {MONTH_NAMES[int(mon)]}</div>')
-        for card in grouped[month]:
-            blocks.append(
-                '<a class="day-card" href="{href}">\n'
-                '  <div class="day-card-head"><span class="day-card-date"><strong>{day}</strong></span>'
-                '<span class="day-card-arrow">\u2192</span></div>\n'
-                '  <p class="day-card-headline">{title}</p>\n'
-                '</a>'.format(**card)
-            )
-        blocks.append("</div>")
-
-    latest = cards[0]["href"] if cards else "index.html"
-    page = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI News \u00b7 Daily Frontier Stream (English)</title>
-<meta name="description" content="Frontier signal stream \u2014 what changed in AI today, and how people choose.">
-<link rel="stylesheet" href="../assets/css/main.css">
-</head>
-<body>
-
-<header class="site-header">
-  <div class="site-header-inner">
-    <a class="brand" href="index.html">AI<span>News</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="../index.html">Chinese</a></li>
-    </ul>
-  </div>
-</header>
-
-<main class="container">
-  <section class="home-hero">
-    <h1 class="home-hero-title">AI<span>News</span></h1>
-    <p class="home-hero-sub">Frontier signal stream \u2014 what changed in AI today, and how people choose</p>
-    <div class="edition-badge-bar">
-      <span>Open Edition \u00b7 Daily Updates \u00b7 Full Archives</span>
-      <a href="https://gyread.com/pricing" class="subscribe-btn">Subscribe Full \u2192</a>
-    </div>
-  </section>
-
-  <section class="chapter" id="archive">
-    <div class="chapter-eyebrow">DAILY INTEL ARCHIVE</div>
-{chr(10).join(blocks)}
-  </section>
-</main>
-
-<footer class="site-footer">
-  <p>AI News \u00b7 Open Frontier Intelligence Stream</p>
-</footer>
-
-<script>
-window.latest = {{ href: "{latest}" }};
-</script>
-</body>
-</html>
-"""
-    (EN / "index.html").write_text(page, encoding="utf-8")
-    print(f"en/index.html generated: {len(cards)} English cards from {len(issues)} canonical issues")
-    if missing:
-        print(f"WARNING: {len(missing)} canonical issues have no English page:")
-        for href in missing:
-            print(f"  MISSING EN: {href}")
+        parts.append(f'  <div class="month-block" data-month="{month}">')
+        parts.append(f'    <h2 class="month-title">{year} · {MONTH_NAMES[mon]}</h2>')
+        for page, meta in months[month]:
+            day = meta["iso"][-2:]
+            if not day.isdigit():
+                day = meta["iso"]
+            href = page.relative_to(EN).as_posix()
+            card_class = "day-card latest" if is_first_card else "day-card"
+            is_first_card = False
+            parts.extend([
+                f'    <a class="{card_class}" href="{href}">',
+                '      <div class="day-card-head">',
+                f'        <span class="day-card-date"><strong>{day}</strong> · {mon} · {year}</span>',
+                '        <span class="day-card-arrow">→</span>',
+                '      </div>',
+                f'      <p class="day-card-headline">{html.escape(meta["title"])}</p>',
+                f'      <p class="day-card-meta">{html.escape(meta["subtitle"])}</p>',
+                '    </a>',
+            ])
+        parts.append('  </div>')
+    parts.extend([
+        '</section>',
+        '</main>',
+        '<footer class="site-footer">',
+        '  <p>AI News · Open Frontier Intelligence Stream</p>',
+        '</footer>',
+        f'<script>window.latest = {{ href: "{latest}" }};</script>',
+        '</body>',
+        '</html>',
+        '',
+    ])
+    output = "\n".join(parts)
+    if CJK.search(output):
+        print("ERROR: CJK residue in generated index", file=sys.stderr)
+        return 1
+    (EN / "index.html").write_text(output, encoding="utf-8")
+    print(f"en/index.html generated from {len(pages)} verified pages (reverse chronological)")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
