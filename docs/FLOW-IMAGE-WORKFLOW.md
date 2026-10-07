@@ -58,6 +58,25 @@ no dark mood, no heavy shadows, no clutter.
 Prompt 用词：`bright neutral tones, soft even studio lighting, clean minimal composition, light grey and off-white background, premium matte materials, no heavy shadows`；
 禁用词：`dark, moody, gloomy, ominous, gothic, dramatic shadows, chiaroscuro, horror, eerie`。
 
+## 一·六、篇章排版黄金三图节奏（2026-10-07 主理人亲定）
+
+一篇标准的 AI News 日报长文，配图节奏固定为「3 张正文图 + 1 张底栏山川湖海」，构成最舒服的阅读呼吸感：
+
+1. **第一张（开篇锚定）**：
+   - 位置：正文第 1~2 段之后（紧随头版第一条核心大新闻）；
+   - 目的：读者点开页面无需深度下滑，视线第一眼就能看到极具质感的科技大片，定住沉静、高级的阅读基调。
+2. **第二张（中段呼吸）**：
+   - 位置：正文中段（前线重点或开源核心硬件条目）；
+   - 目的：打破大篇幅密集文字块，调节长文阅读疲劳，承接阅读节奏。
+3. **第三张（尾段收官）**：
+   - 位置：正文快结束位置（如音频语音、应用落地或硬件末尾条目）；
+   - 目的：作为技术内容的最后一张具象物证，完成科技叙事实体闭环。
+4. **底栏山川湖海（保持好奇）**：
+   - 位置：文末 Be Curious 栏目；
+   - 目的：保留真实的 NASA 地球观测卫星影像，与前三张精密的科技硬件形成“看了一天 AI 新闻，地球上还有不需要 GPU 冷却的地方”的情感对冲。
+
+---
+
 ## 二、Prompt 标准（目标：干净的纪实感，不像 AI）
 
 用户 6/7 月认可的方向是「纪实摄影感、主体明确、画面干净、构图有呼吸感」。
