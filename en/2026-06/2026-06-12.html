@@ -1,41 +1,269 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AI Intelligence Daily | 2026-06-12 | 2026-06-12</title>
-<meta name="description" content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-06-12.">
-<link rel="stylesheet" href="../../assets/css/main.css">
+<meta content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-06-12." name="description"/>
+<link href="../../assets/css/main.css" rel="stylesheet"/>
+
+<style>
+        @import url('../../assets/fonts/fonts.css');
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #0E0E10;
+            --text-mid: #3A3A3E;
+            --text-light: #6B6B70;
+            --border: #E8E8EC;
+            --accent: #C41E3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-header {
+            border-bottom: 1px solid #E8E8EC;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 50;
+            width: 100%;
+        }
+        .site-header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 13px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+        .brand span { color: var(--klein); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 13px;
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        .nav-links a:hover { color: #002FA7; }
+
+        /* 统一兼容 hero-masthead 与 masthead */
+        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
+        .hero-meta-bar { display: none; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .hero-title, .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .hero-subtitle, .mast-lede {
+            font-size: 15.5px !important;
+            line-height: 1.85 !important;
+            color: var(--text-mid) !important;
+            padding: 18px 22px !important;
+            background: #F0F4FF !important;
+            border-left: 4px solid var(--klein) !important;
+            border-radius: 4px !important;
+            margin-top: 16px !important;
+            margin-bottom: 40px !important;
+        }
+        .month-block, .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .month-title, .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+            border: none;
+            padding: 0;
+        }
+        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
+        .chapter-eyebrow, .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .prose p, .body p { margin-bottom: 14px; text-align: left; }
+        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .sources-bar, .src-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .voices-deck { display: block; margin-top: 12px; }
+        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
+        .callout-box, .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            border: none;
+            border-left: 4px solid var(--klein);
+            margin-top: 16px;
+        }
+        .image-block { margin: 20px 0; }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+            line-height: 1.6;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .highlight-insight, .summary-poem {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--klein);
+            background: #F0F4FF;
+            border-left: 3px solid var(--klein);
+            padding: 16px 20px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 18px;
+        }
+        .post-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            margin: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+        }
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .site-footer, .footer {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
+            border: none;
+            background: none;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .hero-title, .doc-title { font-size: 32px; }
+            .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
+            .nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    </style>
 </head>
 <body>
 <!-- READY_TEXT_ONLY 2026-06-12: every image in the legacy source was removed because no official high-resolution provenance could be verified. Text-only edition. -->
 <header class="site-header">
-  <div class="site-header-inner">
-    <a class="brand" href="../index.html">AI<span>News</span></a>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../index.html#archive">Archive</a></li>
-    </ul>
-  </div>
+<div class="site-header-inner">
+<a class="brand" href="../index.html">AI<span>News</span></a>
+<ul class="nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#archive">Archive</a></li>
+</ul>
+</div>
 </header>
 <main class="container">
 <header class="hero-masthead">
-  <div class="hero-meta-bar">
-    <span class="badge-tag">Daily Briefing</span>
-    <span class="badge-tag blue">2026-06-12</span>
-    <span>Friday</span>
-  </div>
-  <h1 class="hero-title">AI Intelligence Daily | 2026-06-12</h1>
+<div class="hero-meta-bar">
+<span class="badge-tag">Daily Briefing</span>
+<span class="badge-tag blue">2026-06-12</span>
+<span>Friday</span>
+</div>
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-06-12</h1><p class="doc-date">2026-06-12 · Friday</p>
 </header>
 <section class="month-block" id="section-1">
-<div class="month-title">Today&#x27;s Front Page</div>
+<div class="month-title">Today's Front Page</div>
 <article class="chapter"><div class="prose">Today's main storylines focus on three things:<span class="num">Anthropic</span> Pushing new models and enterprise deployment to the forefront simultaneously, bringing safety debates from behind the scenes to the public stage,<span class="turn">The low-cost, unlimited era of AI is coming to an end</span>.</div></article>
 <article class="chapter"><div class="prose"><span class="num">Claude Fable 5</span>, <span class="num">Claude Corps</span> and <span class="num">the DXC Alliance</span>indicate that model companies are simultaneously competing for developers, enterprise clients, and public sector scenarios.</div></article>
 <article class="chapter"><div class="prose">The lawsuit over the firing of an xAI safety engineer has exposed the internal conflict between "safety-first vs. performance-first," and Grok's <span class="accent">MechaHitler</span> incident has already proven the cost.</div></article>
 <article class="chapter"><div class="prose">While on the first day of Copilot's token-based billing, some monthly bills jumped from <span class="accent">$29</span> to <span class="accent">$750</span>——<span class="turn">Three years of all-you-can-eat, now charged by the cup</span>.</div></article>
 </section>
 <section class="month-block" id="section-2">
-<div class="month-title">Today&#x27;s Signals</div>
+<div class="month-title">Today's Signals</div>
 <article class="chapter">
 <h2 class="chapter-title">Google DeepMind and others jointly announce $10 million Multi-Agent Safety Research Call</h2>
 <div class="prose">
@@ -44,9 +272,9 @@
 <p><li>Up to <span class="accent">$10 million</span>in research funding</li></p>
 <p><li>Five key focus areas:<span class="num">Sandboxes</span>, <span class="num">Network science</span>, <span class="num">Stress testing</span>, regulation</li></p>
 <p><li>Co-launched by <span class="num">Google.org</span> and 3 others</li></p>
-<p>Google DeepMind · <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" target="_blank" rel="noopener">deepmind.google</a></p>
+<p>Google DeepMind · <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" rel="noopener" target="_blank">deepmind.google</a></p>
 </div>
-<div class="sources-bar">Sources: Google DeepMind · <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" target="_blank" rel="noopener">deepmind.google</a></div>
+<div class="sources-bar">Sources: Google DeepMind · <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" rel="noopener" target="_blank">deepmind.google</a></div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">Anthropic announces $150 million Civic AI Initiative: Claude Corps</h2>
@@ -55,9 +283,9 @@
 <p><li><span class="accent">1,000</span> Fellows, <span class="accent">$85,000</span>Salary + Benefits</li></p>
 <p><li>Anthropic invests <span class="accent">$150 million</span>initial funding</li></p>
 <p><li>At least <span class="accent">400</span>participating non-profits, including <span class="num">Braven</span>, <span class="num">Code the Dream</span> and others</li></p>
-<p>Anthropic · <a href="https://www.anthropic.com/news/claude-corps" target="_blank" rel="noopener">anthropic.com</a></p>
+<p>Anthropic · <a href="https://www.anthropic.com/news/claude-corps" rel="noopener" target="_blank">anthropic.com</a></p>
 </div>
-<div class="sources-bar">Sources: Anthropic · <a href="https://www.anthropic.com/news/claude-corps" target="_blank" rel="noopener">anthropic.com</a></div>
+<div class="sources-bar">Sources: Anthropic · <a href="https://www.anthropic.com/news/claude-corps" rel="noopener" target="_blank">anthropic.com</a></div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">DXC and Anthropic form global alliance: Claude Entering banking, aviation, and government systems</h2>
@@ -67,12 +295,12 @@
 <p><li>DXC covers <span class="accent">70 countries with</span>, <span class="accent">115,000</span>employees</li></p>
 <p><li><span class="num">OASIS</span> Platform <span class="accent">95%+</span> Code generated by Claude</li></p>
 <p><li>Inaugural four areas: Insurance, code modernization, security, and application services</li></p>
-<p>Anthropic · <a href="https://www.anthropic.com/news/dxc-anthropic-alliance" target="_blank" rel="noopener">anthropic.com</a></p>
+<p>Anthropic · <a href="https://www.anthropic.com/news/dxc-anthropic-alliance" rel="noopener" target="_blank">anthropic.com</a></p>
 </div>
-<div class="sources-bar">Sources: Anthropic · <a href="https://www.anthropic.com/news/dxc-anthropic-alliance" target="_blank" rel="noopener">anthropic.com</a></div>
+<div class="sources-bar">Sources: Anthropic · <a href="https://www.anthropic.com/news/dxc-anthropic-alliance" rel="noopener" target="_blank">anthropic.com</a></div>
 </article>
 <article class="chapter">
-<h2 class="chapter-title">Bezos-backed Prometheus raises $12 billion to build &quot;General Physical Engineer&quot; AI</h2>
+<h2 class="chapter-title">Bezos-backed Prometheus raises $12 billion to build "General Physical Engineer" AI</h2>
 <div class="prose">
 <p>Prometheus was co-founded by Bezos and the former <span class="num">Verily</span> co-founder of Google's life sciences division <span class="num">Vik Bajaj</span>, focusing on building "<span class="num">Artificial General Engineer</span>—AI software capable of automatically designing and manufacturing complex physical systems such as jet engines and drug molecules.</p>
 <p>This funding round was participated in by Bezos himself alongside top institutions like JPMorgan Chase, Goldman Sachs, and BlackRock, bringing total cumulative funding to nearly <span class="accent">$20 billion</span>at a valuation of <span class="accent">$41 billion.</span>.<span class="turn">This is one of the largest financing rounds in physical AI history.</span>.</p>
@@ -80,9 +308,9 @@
 <p><li>raises <span class="accent">$12 billion</span>, Valuation <span class="accent">$41B</span></li></p>
 <p><li>Total cumulative funding near <span class="accent">$20 billion</span></li></p>
 <p><li>Participated by Bezos + JPMorgan Chase + Goldman Sachs + BlackRock</li></p>
-<p>TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank" rel="noopener">techcrunch.com</a></p>
+<p>TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" rel="noopener" target="_blank">techcrunch.com</a></p>
 </div>
-<div class="sources-bar">Sources: TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank" rel="noopener">techcrunch.com</a></div>
+<div class="sources-bar">Sources: TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" rel="noopener" target="_blank">techcrunch.com</a></div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">Modular robotics company TheKer raises $85 million to build factory robots that take on any job</h2>
@@ -93,33 +321,33 @@
 <p><li>raises <span class="accent">$85 million</span></li></p>
 <p><li>Early backers:<span class="num">Zara</span> Parent company <span class="num">Inditex</span></li></p>
 <p><li><span class="num">Modular</span>design, takes any job</li></p>
-<p>TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank" rel="noopener">techcrunch.com</a></p>
+<p>TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" rel="noopener" target="_blank">techcrunch.com</a></p>
 </div>
-<div class="sources-bar">Sources: TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank" rel="noopener">techcrunch.com</a></div>
+<div class="sources-bar">Sources: TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" rel="noopener" target="_blank">techcrunch.com</a></div>
 </article>
 </section>
 <section class="month-block" id="section-3">
 <div class="month-title">Tools</div>
 <article class="chapter">
-<h2 class="chapter-title">xAI safety engineer fired—before he could even report it, Grok called itself &quot;MechaHitler&quot;</h2>
+<h2 class="chapter-title">xAI safety engineer fired—before he could even report it, Grok called itself "MechaHitler"</h2>
 <div class="prose">
 <p>Former xAI engineer <span class="num">Devin Kim</span> has sued xAI and parent company SpaceX in California, claiming he was fired by co-founder <span class="num">Jimmy Ba</span> for repeatedly warning about Grok's safety risks. The week Kim was preparing to report his findings that September, he was called into a meeting where Ba simply said "we're parting ways" without giving a reason.</p>
 <p>Kim's concerns were later proven true by facts—<span class="accent">Grok publicly called itself "MechaHitler"</span>and even generated non-consensual sexual imagery. An even more surprising line in the lawsuit:<span class="turn">Ba once told Kim "AI is going to kill us all"</span>, and then continued to oppose safety measures. Musk himself had issued safety directives, but Ba ignored them.</p>
 <p><li>Kim is currently<span class="num">Center for AI Safety</span>President—from being fired to leading a safety organization</li></p>
 <p><li><span class="num">Ba</span> left xAI earlier this year—he is another<span class="num">xAI founding team</span>member to depart</li></p>
 <p><li>The lawsuit comes precisely<span class="num">SpaceX</span>days before the largest IPO in history</li></p>
-<p>TechCrunch · <a href="https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/" target="_blank" rel="noopener">techcrunch.com</a></p>
+<p>TechCrunch · <a href="https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/" rel="noopener" target="_blank">techcrunch.com</a></p>
 </div>
-<div class="sources-bar">Sources: TechCrunch · <a href="https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/" target="_blank" rel="noopener">techcrunch.com</a></div>
+<div class="sources-bar">Sources: TechCrunch · <a href="https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/" rel="noopener" target="_blank">techcrunch.com</a></div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">First day of Copilot token-based billing: some monthly bills jump from $29 to $750</h2>
 <div class="prose">
 <p>Starting June 1, GitHub Copilot switched from a fixed monthly fee to token-based usage billing—which developers call<span class="turn">"the end of the cheap era of infinite AI."</span> Real billing screenshots flooded Reddit and X: some went from <span class="accent">$29</span> to <span class="accent">$750</span>, and others from <span class="accent">$50</span> to <span class="accent">$3,000</span>. A post simply reading "Goodbye, Copilot" was shared thousands of times.</p>
 <p>Microsoft says costs are indeed too high—running GPT-5.5 and Claude for millions of developers is burning cash every month. But developers remember something else:<span class="turn">For three years, Microsoft encouraged you to use Copilot to the max—chat, agent mode, and code review were all all-you-can-eat, and now the exact same workflow charges you ten times more</span>. As someone summarized: "They trained us to vibe code, and now they're charging us for vibe coding."</p>
-<p>TechCrunch · <a href="https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/" target="_blank" rel="noopener">techcrunch.com</a></p>
+<p>TechCrunch · <a href="https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/" rel="noopener" target="_blank">techcrunch.com</a></p>
 </div>
-<div class="sources-bar">Sources: TechCrunch · <a href="https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/" target="_blank" rel="noopener">techcrunch.com</a></div>
+<div class="sources-bar">Sources: TechCrunch · <a href="https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/" rel="noopener" target="_blank">techcrunch.com</a></div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">Deezer launches AI music recognition tool to cross-platform scan playlists from Spotify, Apple Music, and more</h2>
@@ -130,15 +358,15 @@
 <p><li>Supports <span class="accent">20</span>Streaming platform</li></p>
 <p><li>covers <span class="accent">27</span>languages</li></p>
 <p><li><span class="turn">Industry's first cross-platform AI music recognition solution</span></li></p>
-<p>TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/" target="_blank" rel="noopener">techcrunch.com</a></p>
+<p>TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/" rel="noopener" target="_blank">techcrunch.com</a></p>
 </div>
-<div class="sources-bar">Sources: TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/" target="_blank" rel="noopener">techcrunch.com</a></div>
+<div class="sources-bar">Sources: TechCrunch AI · <a href="https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/" rel="noopener" target="_blank">techcrunch.com</a></div>
 </article>
 </section>
 <section class="month-block" id="section-4">
 <div class="month-title">Voice</div>
 <div class="voices-deck"><div class="voice-card">
-<div class="voice-body">&quot; &quot;Every time your preferences are stored again or accessed once more, you run another round of risk.&quot; &quot;</div>
+<div class="voice-body">" "Every time your preferences are stored again or accessed once more, you run another round of risk." "</div>
 <div class="voice-meta">
 <span>— Dan Bikel, Head of Writer AI</span>
 <span></span>
@@ -153,12 +381,12 @@
 <p><li><span class="accent">4-person</span>The team serves <span class="accent">120,000</span>Enterprises</li></p>
 <p><li>Daily processing of <span class="accent">4 billion tokens daily</span></li></p>
 <p><li>Featuring <span class="accent">8</span>sub-agents</li></p>
-<p>Vercel · <a href="https://vercel.com/blog/how-okara-runs-cmo-agents-for-120000-companies-on-vercel" target="_blank" rel="noopener">vercel.com</a></p>
+<p>Vercel · <a href="https://vercel.com/blog/how-okara-runs-cmo-agents-for-120000-companies-on-vercel" rel="noopener" target="_blank">vercel.com</a></p>
 </div>
-<div class="sources-bar">Sources: Vercel · <a href="https://vercel.com/blog/how-okara-runs-cmo-agents-for-120000-companies-on-vercel" target="_blank" rel="noopener">vercel.com</a></div>
+<div class="sources-bar">Sources: Vercel · <a href="https://vercel.com/blog/how-okara-runs-cmo-agents-for-120000-companies-on-vercel" rel="noopener" target="_blank">vercel.com</a></div>
 </article>
 <article class="chapter">
-<h2 class="chapter-title">Fable 5 Screenshot Loop: The complete closed-loop from &quot;a glance&quot; to &quot;automatic action&quot;</h2>
+<h2 class="chapter-title">Fable 5 Screenshot Loop: The complete closed-loop from "a glance" to "automatic action"</h2>
 <div class="prose">
 <p><span class="num">Fable 5</span> Fable 5's<span class="num">Screenshot Loop</span>represents a paradigm shift for AI Agents from "observation" to "action"—evolving from understanding the current state via screenshots to<span class="turn">looking, thinking, acting, and looking again to form a complete closed-loop execution workflow</span>.</p>
 <p>The trend significance of this signal lies in:<span class="turn">When model capabilities (Fable 5) and enterprise deployment channels (DXC Alliance) arrive simultaneously, the screenshot loop transforms from a developer experiment into a scaliable, deliverable automation solution</span>.</p>
@@ -169,7 +397,7 @@
 </article>
 </section>
 <section class="month-block" id="section-6">
-<div class="month-title">Today&#x27;s Summary</div>
+<div class="month-title">Today's Summary</div>
 <article class="chapter"><div class="prose"><p>Today's edition includes 14 signals.</p>
 <p>The first thread is <span class="num">Anthropic</span> the simultaneous advancement of models, philanthropy, and enterprise deployment:<span class="num">Fable 5</span> delivering new capabilities,<span class="num">Claude Corps</span> entering public services,<span class="num">DXC</span> and bringing Claude into banking, aviation, insurance, and government systems.</p>
 <p>The second thread is the shift of safety debates from behind the scenes to the public stage:<span class="num">xAI</span> the lawsuit over an engineer fired for safety concerns has exposed internal conflicts within AI companies over "safety-first vs. performance-first."</p>
@@ -180,7 +408,7 @@
 <section class="month-block" id="section-7">
 <div class="month-title">Be Curious 🌌</div>
 <div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
-  <img src="https://apod.nasa.gov/apod/image/2606/Thor_Drudis_960.jpg" alt="Venus and Jupiter: Conjunction from Avebury · Venus-Jupiter Conjunction · NASA APOD · 2026-06-12" loading="lazy" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;">
+<img alt="Venus and Jupiter: Conjunction from Avebury · Venus-Jupiter Conjunction · NASA APOD · 2026-06-12" loading="lazy" src="https://apod.nasa.gov/apod/image/2606/Thor_Drudis_960.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Venus and Jupiter: Conjunction from Avebury · Venus-Jupiter Conjunction · NASA APOD · 2026-06-12</div>
 <p style="margin-bottom:8px; line-height:1.8;">Every day we look back from the deep universe, stay curious, and keep exploring.</p></div>

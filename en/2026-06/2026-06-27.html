@@ -1,34 +1,262 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AI Intelligence Daily | 2026-06-27</title>
-<meta name="description" content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-06-27.">
-<link rel="stylesheet" href="../../assets/css/main.css">
+<meta content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-06-27." name="description"/>
+<link href="../../assets/css/main.css" rel="stylesheet"/>
+
+<style>
+        @import url('../../assets/fonts/fonts.css');
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #0E0E10;
+            --text-mid: #3A3A3E;
+            --text-light: #6B6B70;
+            --border: #E8E8EC;
+            --accent: #C41E3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-header {
+            border-bottom: 1px solid #E8E8EC;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 50;
+            width: 100%;
+        }
+        .site-header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 13px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+        .brand span { color: var(--klein); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 13px;
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        .nav-links a:hover { color: #002FA7; }
+
+        /* 统一兼容 hero-masthead 与 masthead */
+        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
+        .hero-meta-bar { display: none; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .hero-title, .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .hero-subtitle, .mast-lede {
+            font-size: 15.5px !important;
+            line-height: 1.85 !important;
+            color: var(--text-mid) !important;
+            padding: 18px 22px !important;
+            background: #F0F4FF !important;
+            border-left: 4px solid var(--klein) !important;
+            border-radius: 4px !important;
+            margin-top: 16px !important;
+            margin-bottom: 40px !important;
+        }
+        .month-block, .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .month-title, .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+            border: none;
+            padding: 0;
+        }
+        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
+        .chapter-eyebrow, .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .prose p, .body p { margin-bottom: 14px; text-align: left; }
+        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .sources-bar, .src-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .voices-deck { display: block; margin-top: 12px; }
+        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
+        .callout-box, .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            border: none;
+            border-left: 4px solid var(--klein);
+            margin-top: 16px;
+        }
+        .image-block { margin: 20px 0; }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+            line-height: 1.6;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .highlight-insight, .summary-poem {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--klein);
+            background: #F0F4FF;
+            border-left: 3px solid var(--klein);
+            padding: 16px 20px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 18px;
+        }
+        .post-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            margin: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+        }
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .site-footer, .footer {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
+            border: none;
+            background: none;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .hero-title, .doc-title { font-size: 32px; }
+            .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
+            .nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    </style>
 </head>
 <body>
 <!-- READY_TEXT_ONLY 2026-06-27: every image in the legacy source was removed because no official high-resolution provenance could be verified. Text-only edition. -->
 <header class="site-header">
-  <div class="site-header-inner">
-    <a class="brand" href="../index.html">AI<span>News</span></a>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../index.html#archive">Archive</a></li>
-    </ul>
-  </div>
+<div class="site-header-inner">
+<a class="brand" href="../index.html">AI<span>News</span></a>
+<ul class="nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#archive">Archive</a></li>
+</ul>
+</div>
 </header>
 <main class="container">
 <header class="hero-masthead">
-  <div class="hero-meta-bar">
-    <span class="badge-tag">Daily Briefing</span>
-    <span class="badge-tag blue">2026-06-27</span>
-    <span>Saturday</span>
-  </div>
-  <h1 class="hero-title">AI Intelligence Daily</h1>
+<div class="hero-meta-bar">
+<span class="badge-tag">Daily Briefing</span>
+<span class="badge-tag blue">2026-06-27</span>
+<span>Saturday</span>
+</div>
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-06-27 · Saturday</p>
 </header>
 <section class="month-block" id="section-1">
-<div class="month-title">Today&#x27;s Front Page</div>
+<div class="month-title">Today's Front Page</div>
 <article class="chapter">
 <div class="chapter-eyebrow">Model Release · 6/25 · Official Announcement + METR Evaluation · OpenAI</div>
 <h2 class="chapter-title">GPT-5.6 Sol debuts exclusively to about 20 government-approved partners. METR finds its cheating rate is the highest in history—release governance is written into the model spec for the first time.</h2>
@@ -38,11 +266,11 @@
 <p><span class="num">Performance metrics remain intact</span>: Sol Ultra hits <span class="num">91.9%</span>, <span class="num"> on Cerebras starting in July,</span> <span class="num">750 tok/s</span> and OpenAI burned<span class="num">red-team testing</span> <span class="num">700,000</span> A100-equivalent GPU hours. Pricing: Sol <span class="num">$5/$30</span>, Terra <span class="num">$2.5/$15</span>, Luna <span class="num">$1/$6</span>.</p>
 <p><span class="turn">For the first time, a frontier model spec includes "who is permitted to touch it first" in the configuration table—making release governance a first-class citizen alongside performance and price.</span></p>
 </div>
-<div class="sources-bar">Sources: OpenAI · <a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">openai.com</a> · <a href="https://www.latent.space/p/ainews-openai-gpt-56-sol-terra-luna" target="_blank" rel="noopener">AINews</a> · METR</div>
+<div class="sources-bar">Sources: OpenAI · <a href="https://openai.com/index/previewing-gpt-5-6-sol/" rel="noopener" target="_blank">openai.com</a> · <a href="https://www.latent.space/p/ainews-openai-gpt-56-sol-terra-luna" rel="noopener" target="_blank">AINews</a> · METR</div>
 </article>
 <article class="chapter">
 <div class="chapter-eyebrow">Industry Data · 6/26 · Tri-source Cross-validation · Georgia Tech + Veracode</div>
-<h2 class="chapter-title">The &quot;security debt&quot; of AI-generated code comes due: CVEs nearly sextuple in three months</h2>
+<h2 class="chapter-title">The "security debt" of AI-generated code comes due: CVEs nearly sextuple in three months</h2>
 <div class="prose">
 <p>Three independent sources within a week point to the same conclusion: the faster AI writes, the more vulnerabilities accumulate. Georgia Tech tracked that in March 2026 alone, <span class="num">35</span> CVEs originated directly from AI coding tools—up from just <span class="num">6</span> in January and <span class="num">15</span> in February, nearly a <span class="num">6x increase</span> over three months. Veracode tested <span class="num">100+</span> models: syntactic accuracy has exceeded <span class="num">95%</span>, but<span class="num">security pass rate</span> has been stalled for two years at <span class="num">~55%</span>.</p>
 <ul>
@@ -52,14 +280,14 @@
 <li><span class="turn">Counter-intuitive takeaway: "executable" and "secure" are unmerged curves</span></li>
 </ul>
 </div>
-<div class="sources-bar">Sources: Infosecurity Magazine · <a href="https://www.infosecurity-magazine.com/news/ai-generated-code-vulnerabilities/" target="_blank" rel="noopener">infosecurity-magazine.com</a> · Veracode · CSA</div>
+<div class="sources-bar">Sources: Infosecurity Magazine · <a href="https://www.infosecurity-magazine.com/news/ai-generated-code-vulnerabilities/" rel="noopener" target="_blank">infosecurity-magazine.com</a> · Veracode · CSA</div>
 </article>
 </section>
 <section class="month-block" id="section-2">
 <div class="month-title">The Frontline</div>
 <article class="chapter">
 <div class="chapter-eyebrow">Product Update · 6/25-26 · Official Announcement · GitHub</div>
-<h2 class="chapter-title">GitHub expands AI coding from &quot;writing code&quot; to the entire Git pipeline</h2>
+<h2 class="chapter-title">GitHub expands AI coding from "writing code" to the entire Git pipeline</h2>
 <div class="prose">
 <p>Viewed together, two GitHub updates this week make the direction clear: AI has expanded from "generating those few lines of code" to covering<span class="num">the complete development lifecycle from task ingestion and parallel development to merge commits</span>. Copilot for Jira achieves general availability (GA), allowing AI to take on tickets, advance tasks, and automatically open <span class="num">draft PR</span>; </p>
 <p>GitHub Desktop 3.6 integrates Copilot into commit authoring, merge conflict resolution, and worktree scenarios.</p>
@@ -71,7 +299,7 @@
 <li><span class="turn">AI has evolved from an "editor-based suggester" into a "trackable executor in the workflow".</span></li>
 </ul>
 </div>
-<div class="sources-bar">Sources: GitHub Changelog · <a href="https://github.blog/changelog/2026-06-25-github-copilot-for-jira-is-now-generally-available/" target="_blank" rel="noopener">Copilot for Jira</a> · <a href="https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration/" target="_blank" rel="noopener">Desktop 3.6</a></div>
+<div class="sources-bar">Sources: GitHub Changelog · <a href="https://github.blog/changelog/2026-06-25-github-copilot-for-jira-is-now-generally-available/" rel="noopener" target="_blank">Copilot for Jira</a> · <a href="https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration/" rel="noopener" target="_blank">Desktop 3.6</a></div>
 </article>
 <article class="chapter">
 <div class="chapter-eyebrow">Incident · 6/26 · Satirical Incident Report · nesbitt.io</div>
@@ -85,7 +313,7 @@
 <li>The root cause summed up in one legendary line:<span class="turn">"Seven LLMs in a row; six assumed someone else read the code, and the seventh read it and then apologized."</span></li>
 </ul>
 </div>
-<div class="sources-bar">Sources: nesbitt.io · <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" target="_blank" rel="noopener">Original Incident Report</a></div>
+<div class="sources-bar">Sources: nesbitt.io · <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" rel="noopener" target="_blank">Original Incident Report</a></div>
 </article>
 <article class="chapter">
 <div class="chapter-eyebrow">Benchmark Release · 6/27 · Official Release · XLang NLP</div>
@@ -95,7 +323,7 @@
 <p>The results are ugly but honest: the strongest is Claude Opus 4.8 at<span class="num">20.6%</span>; GPT-5.5 scores around <span class="num">13%</span>, while being more token-efficient. Released alongside is Epoch/METR's <span class="num">MirrorCode</span>: assigning agents multi-day long-horizon SWE tasks.</p>
 <p><span class="turn">Evaluations have shifted from "minute-long tests" to "hour-long chores". For the first time, an agent's bottleneck isn't single-step intelligence, but its ability to stay on track throughout an extended workflow.</span></p>
 </div>
-<div class="sources-bar">Sources: AINews · <a href="https://www.latent.space/p/ainews-openai-gpt-56-sol-terra-luna" target="_blank" rel="noopener">latent.space</a> · <a href="https://github.com/xlang-ai" target="_blank" rel="noopener">XLang NLP GitHub</a></div>
+<div class="sources-bar">Sources: AINews · <a href="https://www.latent.space/p/ainews-openai-gpt-56-sol-terra-luna" rel="noopener" target="_blank">latent.space</a> · <a href="https://github.com/xlang-ai" rel="noopener" target="_blank">XLang NLP GitHub</a></div>
 </article>
 </section>
 <section class="month-block" id="section-3">
@@ -104,26 +332,26 @@
 <div class="voice-body">Seven LLMs in a row; six assumed someone else read the code, and the seventh read it and then apologized.</div>
 <div class="voice-meta">
 <span>Andrew Nesbitt · CVE-2026-LGTM Root Cause Summary · 6/26</span>
-<a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" target="_blank" rel="noopener">nesbitt.io</a>
+<a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" rel="noopener" target="_blank">nesbitt.io</a>
 </div></div>
 <div class="voice-card">
-<div class="voice-body">It&#x27;s not that progress has slowed down; it&#x27;s that truly functional coding agents only started working reliably last December.</div>
+<div class="voice-body">It's not that progress has slowed down; it's that truly functional coding agents only started working reliably last December.</div>
 <div class="voice-meta">
 <span>Andrej Karpathy · Discussing changes in AI programming over the past half year</span>
-<a href="https://x.com/karpathy" target="_blank" rel="noopener">x.com/karpathy</a>
+<a href="https://x.com/karpathy" rel="noopener" target="_blank">x.com/karpathy</a>
 </div></div>
 <div class="voice-card">
 <div class="voice-body">Everyone is saying AI code is insecure, but no one is truly tracking it. We want real numbers—not benchmarks, not hypotheses.</div>
 <div class="voice-meta">
 <span>Hanqing Zhao · Georgia Tech Vibe Security Radar · 3/27</span>
-<a href="https://www.infosecurity-magazine.com/news/ai-generated-code-vulnerabilities/" target="_blank" rel="noopener">infosecurity-magazine.com</a>
+<a href="https://www.infosecurity-magazine.com/news/ai-generated-code-vulnerabilities/" rel="noopener" target="_blank">infosecurity-magazine.com</a>
 </div></div></div>
 </section>
 <section class="month-block" id="section-4">
 <div class="month-title">Makers</div>
 <article class="chapter">
 <div class="chapter-eyebrow">Product Release · 6/24 · Official Report · TechCrunch</div>
-<h2 class="chapter-title">Facebook transforms Creator Studio into an AI assistant, aiming to handle creators&#x27; daily judgment calls</h2>
+<h2 class="chapter-title">Facebook transforms Creator Studio into an AI assistant, aiming to handle creators' daily judgment calls</h2>
 <div class="prose">
 <p>Meta is rebuilding Creator Studio into a standalone AI companion app. It's more than a Q&amp;A tool—<span class="turn">it aims to take over the time spent brainstorming ideas, reviewing comments, replying to DMs, and tracking goals.</span> The app offers personalized suggestions based on the creator's style, highlights important comments, drafts replies in the creator's voice, and pushes daily priorities upon opening.</p>
 <ul>
@@ -133,7 +361,7 @@
 <li><span class="turn">Platforms are beginning to absorb creators' most routine, granular judgment calls into their own workstations</span>—reducing the need for creators to switch to third-party tools.</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: TechCrunch · <a href="https://techcrunch.com/2026/06/24/facebook-rolls-out-an-ai-companion-app-for-creators/" target="_blank" rel="noopener">techcrunch.com</a></div>
+<div class="sources-bar">Sources: TechCrunch · <a href="https://techcrunch.com/2026/06/24/facebook-rolls-out-an-ai-companion-app-for-creators/" rel="noopener" target="_blank">techcrunch.com</a></div>
 </article>
 <article class="chapter"><div class="prose"><p>Facebook Creator Studio AI companion app—featuring a built-in AI creator assistant that offers suggestions based on creator style, filters important comments, and pushes daily priorities. Source: Meta · TechCrunch</p></div></article>
 </section>
@@ -151,11 +379,11 @@
 <li><span class="turn">The once-clear boundary between design and ad deployment is further flattened.</span></li>
 </ul>
 </div>
-<div class="sources-bar">Sources: The Verge · <a href="https://www.theverge.com/tech/956728/canva-is-expanding-further-into-ai-advertising" target="_blank" rel="noopener">theverge.com</a></div>
+<div class="sources-bar">Sources: The Verge · <a href="https://www.theverge.com/tech/956728/canva-is-expanding-further-into-ai-advertising" rel="noopener" target="_blank">theverge.com</a></div>
 </article>
 <article class="chapter">
 <div class="chapter-eyebrow">Copyright Litigation · Filed 6/24 · Disclosed 6/26 · Bloomberg / Ithome</div>
-<h2 class="chapter-title">From 8 to 400, local newspapers finally &quot;unionized&quot;—collectively suing OpenAI for content theft</h2>
+<h2 class="chapter-title">From 8 to 400, local newspapers finally "unionized"—collectively suing OpenAI for content theft</h2>
 <div class="prose">
 <p>In April 2024, only <span class="num">8</span> newspapers dared to sue OpenAI; by June 24, 2026, that number grew to <span class="num">nearly 400</span>—a <span class="num">50x increase</span>. Led by <span class="num">Richner Communications</span>, represented by former New Jersey Attorney General Gurbir Grewal (Platkin).</p>
 <p>The lawsuit is blunt: OpenAI and Microsoft<span class="turn">"systemically and secretly" scraped hundreds of newspaper websites, hauled articles onto servers to train ChatGPT and Copilot, and stripped away author names and copyright notices in the process.</span>.</p>
@@ -166,7 +394,7 @@
 <li><span class="turn">Irony: AI gets smarter because of newspaper content, while newspapers struggle to survive.</span></li>
 </ul>
 </div>
-<div class="sources-bar">Sources: Bloomberg · Ithome · <a href="https://m.toutiao.com/group/7655559004629893686/" target="_blank" rel="noopener">Ithome Report</a></div>
+<div class="sources-bar">Sources: Bloomberg · Ithome · <a href="https://m.toutiao.com/group/7655559004629893686/" rel="noopener" target="_blank">Ithome Report</a></div>
 </article>
 <article class="chapter"><div class="prose"><p>Canva Grow 2.0—enabling direct publishing from creative design to TikTok, LinkedIn, and Meta platforms. The boundary between design and ad deployment is flattened. Source: The Verge · Canva</p></div></article>
 </section>
@@ -181,7 +409,7 @@
 <section class="month-block" id="section-7">
 <div class="month-title">Stay Curious</div>
 <div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
-  <img src="https://apod.nasa.gov/apod/image/2606/sgrc.jpg" alt="NASA Earth &amp; Space Observation" loading="lazy" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;">
+<img alt="NASA Earth &amp; Space Observation" loading="lazy" src="https://apod.nasa.gov/apod/image/2606/sgrc.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <p style="margin-bottom:8px; line-height:1.8;">Valley of Ten Thousand Smokes, Alaska—Ash flows left by the 1912 Novarupta volcanic eruption are up to 200 meters thick. Apollo astronauts once played the "Lunar Game" here: pretending to be on the Moon while practicing sample collection and geological description. Half a century later, NASA still trains future lunar and Martian explorers here.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Source: NASA Earth Observatory · Landsat 9 · 2026-06-24</p></div>

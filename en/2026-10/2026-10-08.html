@@ -1,245 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Intelligence Daily | 2026-10-08</title>
-<meta name="description" content="AI News Daily — Formalized verification debate on Navier-Stokes millennium challenge; Anthropic opens offensive cyber red-teaming; Karpathy outlines artifact-first workflow; Meta open-sources Muse Gadget SDK.">
-<link rel="stylesheet" href="../../assets/css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Intelligence Daily | 2026-10-08</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <meta name="description" content="AI News Daily — Navier-Stokes millennium problem formalization debate; Anthropic expands offensive cyber red-teaming; Karpathy outlines artifact-first workflow; Meta open-sources Muse Gadget SDK.">
+    <style>
+        @import url('../../assets/fonts/fonts.css');
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #0E0E10;
+            --text-mid: #3A3A3E;
+            --text-light: #6B6B70;
+            --border: #E8E8EC;
+            --accent: #C41E3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-header {
+            border-bottom: 1px solid #E8E8EC;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 50;
+            width: 100%;
+        }
+        .site-header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 13px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+        .brand span { color: var(--klein); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 13px;
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        .nav-links a:hover { color: #002FA7; }
+        .masthead { margin-bottom: 36px; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .mast-lede {
+            font-size: 15.5px;
+            line-height: 1.85;
+            color: var(--text-mid);
+            padding: 18px 22px;
+            background: #F0F4FF;
+            border-left: 4px solid var(--klein);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; }
+        .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        .curiosity .body { font-size: 15px; color: var(--text-mid); }
+        .image-block { margin: 20px 0; }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+            line-height: 1.6;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .summary-poem {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--klein);
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: 6px;
+            margin-top: 18px;
+        }
+        .post-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            margin: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .footer {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .doc-title { font-size: 32px; }
+            .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
+            .nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    </style>
 </head>
 <body>
+
 <header class="site-header">
-  <div class="site-header-inner">
-    <a class="brand" href="../index.html">AI<span>News</span></a>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../index.html#archive">Archive</a></li>
-    </ul>
-  </div>
-</header>
-<main class="container">
-<header class="hero-masthead">
-  <div class="hero-meta-bar">
-    <span class="badge-tag">Daily Briefing</span>
-    <span class="badge-tag blue">2026-10-08</span>
-    <span>Thursday, October 8, 2026</span>
-  </div>
-  <h1 class="hero-title">AI Intelligence Daily</h1>
-  <div class="hero-subtitle"><strong>Today's Core Line: Machine-generated formal verification of the centuries-old Navier-Stokes millennium problem ignites fierce academic debate; Anthropic makes a rare move by granting authorized experts offensive red-team capabilities; Karpathy advocates an aerospace-grade artifact-first paradigm as AI interaction shifts from conversational chat to disposable bespoke software.</strong>
-<br><br>
-<span class="accent">Academic Peer Review</span>: arXiv:2610.08144 raises formal discretization gap concerns over an 88-hour machine disproof of Navier-Stokes, forcing mathematicians to confront the boundaries of automated reasoning;
-<br>
-<span class="accent">Anthropic</span>: Cyber Verification Program expands, opening Claude Mythos 5.1 live penetration testing to vetted security researchers;
-<br>
-<span class="accent">Meta</span>: Open-sources Muse Gadget SDK, bridging proactive autonomous agents with local desktop peripherals and embedded hardware;
-<br>
-<span class="accent">Andrej Karpathy</span>: Essay articulates the future of LLM workflows, championing aerospace-grade ASD-STE100 constraints and disposable single-file interactive web software.</div>
+    <div class="site-header-inner">
+        <a class="brand" href="../index.html" title="AI News Home">AI<span>News</span></a>
+        <ul class="nav-links">
+            <li><a href="../index.html" style="color: #002FA7; font-weight: 700;">Home</a></li>
+            <li><a href="../index.html#archive">Archive</a></li>
+        </ul>
+    </div>
 </header>
 
-<section class="month-block" id="section-1">
-<div class="month-title">Headline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Mathematical Physics · Formal Debate</div>
-<h2 class="chapter-title">Machine Proof of Navier-Stokes Millennium Problem Sparks Academic Firestorm: Discretization Gap Questioned</h2>
-<div class="prose">
-<p>Following claims that an automated reasoning system required only <span class="num">88</span> hours to construct a formal disproof of smooth solutions for the Navier-Stokes equations, the pure mathematics community has published an extensive counter-analysis preprint.</p>
-<p>A joint research cohort, including mathematicians from Princeton, demonstrated that while the automated prover achieved syntactic closure in symbolic logic, unverified physical assumptions were introduced when converting continuous partial differential equations into discrete type-theoretic propositions.</p>
-<div style="margin: 24px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
-  <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/navier-stokes-cambridge-paper-facsimile.jpg" alt="Title page facsimile of the Cambridge University preprint critique on Navier-Stokes machine verification" loading="lazy" style="width: 100%; height: auto; display: block;">
-  <div style="padding: 10px 14px; font-size: 13px; color: var(--text-muted, #6B7280); font-family: var(--font-mono, monospace); line-height: 1.6; border-top: 1px solid var(--border, #E8E8EC);">Facsimile of Cambridge University preprint: 'Navier–Stokes Lost in Translation: Why Lean verification of AI autoformalisation does not guarantee correct natural language proofs' · Source: arXiv:2610.08144 original preprint</div>
-</div>
-<p>The critique, titled <em>Navier–Stokes Lost in Translation</em>, immediately surged to the top of academic discussions.</p>
-<p>Scholars argue that the singularity counterexample synthesized by the machine may represent an artifact of discrete mesh boundaries rather than genuine energy blow-up in a physical fluid continuum.</p>
-<p><span class="turn">This confrontation marks a watershed moment:</span> the primary bottleneck in applying AI to grand scientific challenges has shifted from compute-driven inference speed to how the human academic community audits the semantic limits of machine formalization.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2610.08144" target="_blank" rel="noopener">arXiv:2610.08144 Preprint</a> · <a href="https://news.ycombinator.com/item?id=45512093" target="_blank" rel="noopener">Hacker News Discussion</a></div>
-</article>
-</section>
+<div class="container">
 
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic · Cyber Defense Evolution</div>
-<h2 class="chapter-title">Anthropic Expands Cyber Verification Program: Grants Vetted Experts Offensive Red-Team Penetration Access</h2>
-<div class="prose">
-<p><span class="accent">Anthropic</span> officially announced the expansion of its Cyber Verification Program, opening deep capability tiers to accredited cybersecurity researchers who have passed rigorous background vetting.</p>
-<p>Qualified practitioners gain access not only to Claude Opus 5.5 and Sonnet 5.5 for automated defensive vulnerability audits, but will also be permitted to utilize Claude Mythos 5.1 for authorized penetration testing and live offensive red-team operations.</p>
-<p><span class="turn">This marks the first time a frontier lab has proactively decoupled offensive capabilities for external deployment.</span></p>
-<p>Anthropic stated that rather than pretending frontier models cannot be weaponized, empowering vetted defenders with rigorously audited tools is the most pragmatic way to reinforce systemic digital resilience.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://www.anthropic.com/news/expanding-cyber-verification-program" target="_blank" rel="noopener">Anthropic Announcement</a></div>
-</article>
+    <header class="masthead">
+        <div class="mast-eyebrow">Daily Intelligence</div>
+        <h1 class="doc-title">AI Intelligence <span>Daily</span></h1>
+        <p class="doc-date">Thursday, October 8, 2026</p>
+        <div class="mast-lede">
+            <strong>Today's Core Line: Machine-generated formal verification of the centuries-old Navier-Stokes millennium problem ignites fierce academic debate; Anthropic makes a rare move by granting authorized experts offensive red-team capabilities; Karpathy advocates an aerospace-grade artifact-first paradigm as AI interaction shifts from conversational chat to disposable bespoke software.</strong><br><br>
+            <span class="accent">Academic Peer Review</span>: arXiv:2610.08144 raises formal discretization gap concerns over an 88-hour machine disproof of Navier-Stokes, forcing mathematicians to confront the boundaries of automated reasoning;<br>
+            <span class="accent">Anthropic</span>: Cyber Verification Program expands, opening Claude Mythos 5.1 live penetration testing to vetted security researchers;<br>
+            <span class="accent">Meta</span>: Open-sources Muse Gadget SDK, bridging proactive autonomous agents with local desktop peripherals and embedded hardware;<br>
+            <span class="accent">Andrej Karpathy</span>: Essay articulates the future of LLM workflows, championing aerospace-grade ASD-STE100 constraints and disposable single-file interactive web software.
+        </div>
+    </header>
 
-<article class="chapter">
-<div class="chapter-eyebrow">OpenAI · Embodied Desktop Agent</div>
-<h2 class="chapter-title">OpenAI Pilots Persistent Desktop Agent Dots: Cross-App Autonomy Still Stumbles on Captchas and Multi-Factor Gates</h2>
-<div class="prose">
-<p><span class="accent">OpenAI</span> has initiated limited testing of Dots, an always-on desktop agent designed to manage routine personal computing workflows.</p>
-<div style="margin: 24px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
-  <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/openai-dots-agent-wired-hero.jpg" alt="OpenAI cross-application desktop autonomous agent Dots character and human-AI synergy concept" loading="lazy" style="width: 100%; height: auto; display: block;">
-  <div style="padding: 10px 14px; font-size: 13px; color: var(--text-muted, #6B7280); font-family: var(--font-mono, monospace); line-height: 1.6; border-top: 1px solid var(--border, #E8E8EC);">OpenAI cross-application all-day desktop autonomous agent Dots · Anthropomorphic entity and human-AI collaborative lifestyle · Source: Wired in-depth review hero visual</div>
-</div>
-<p>The system is architected to handle end-to-end tasks such as purchasing furniture, cross-referencing supplier orders, and reconciling multi-app spreadsheets autonomously.</p>
-<p>Early evaluations indicate that while Dots navigates complex multi-hop actions across browser tabs and native software, it frequently encounters logical deadlocks when confronted with bot verification captchas and bank two-factor authorization flows.</p>
-<p><span class="turn">This effort reflects model providers' aggressive push:</span> migrating AI from ephemeral chat boxes into persistent operating-system background processes armed with continuous screen vision and direct peripheral control.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://www.wired.com/story/openai-wants-its-new-agent-to-run-your-life-mine-said-it-loved-me/" target="_blank" rel="noopener">Wired In-Depth Report</a></div>
-</article>
-</section>
+    <!-- ===== 1. Headline ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Headline</div>
+        <div class="sec-title">Headline</div>
 
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Meta · Agent Ecosystem</div>
-<h2 class="chapter-title">Meta Open-Sources Muse Gadget SDK: Bridging Autonomous Agents with Physical Peripherals and Microcontrollers</h2>
-<div class="prose">
-<p>The <span class="accent">Meta</span> incubation team has open-sourced the <span class="num">Muse Gadget SDK</span> on GitHub, with repository stars surpassing <span class="num">1,600+</span> within days of release.</p>
-<div style="margin: 24px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
-  <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/meta-muse-gadget-sdk-devices.jpg" alt="Family portrait of physical hardware devices supported by Meta Muse Gadget SDK" loading="lazy" style="width: 100%; height: auto; display: block;">
-  <div style="padding: 10px 14px; font-size: 13px; color: var(--text-muted, #6B7280); font-family: var(--font-mono, monospace); line-height: 1.6; border-top: 1px solid var(--border, #E8E8EC);">Muse Gadgets minimalist hardware lineup · Circular AMOLED display, M5Stack modules, desktop connectors, Raspberry Pi and E-ink terminals · Source: Meta official open-source repository</div>
-</div>
-<p>The development kit provides a standardized protocol linking the Muse agent runtime with physical desktop hardware, enabling autonomous agent intent to map directly to physical buttons, mini status screens, and custom tactile controllers.</p>
-<p><span class="turn">The velocity of the open-source community proves</span> that decoupling high-level decision logic from physical tactile interfaces is emerging as a core paradigm in agent tooling.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://github.com/facebookincubator/muse-gadget-sdk" target="_blank" rel="noopener">GitHub Repository</a></div>
-</article>
+        <div class="item">
+            <div class="dateline">Mathematical Physics · Formal Debate</div>
+            <div class="item-title">Machine Proof of Navier-Stokes Millennium Problem Sparks Academic Firestorm: Discretization Gap Questioned</div>
+            <div class="body">
+                <p>Following claims that an automated reasoning system required only <span class="accent">88 hours</span> to construct a formal disproof of smooth solutions for the <span class="accent">Navier-Stokes equations</span>, the pure mathematics community has published an extensive counter-analysis preprint.</p>
+                <p>A joint research cohort, including mathematicians from <span class="accent">Princeton</span>, demonstrated that while the automated prover achieved syntactic closure in symbolic logic, unverified physical assumptions were introduced when converting continuous partial differential equations into discrete type-theoretic propositions.</p>
+                <p>The critique, titled <span class="hl">"Navier–Stokes Lost in Translation"</span>, immediately surged to the top of academic discussions.</p>
+                <p>Scholars argue that the singularity counterexample synthesized by the machine may represent an artifact of discrete mesh boundaries rather than genuine energy blow-up in a physical fluid continuum.</p>
+                <p><span class="turn">This confrontation marks a watershed moment:</span> the primary bottleneck in applying AI to grand scientific challenges has shifted from compute-driven inference speed to how the human academic community audits the <span class="accent">semantic limits of machine formalization</span>.</p>
+            </div>
+            <div class="image-block">
+                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/navier-stokes-cambridge-paper-facsimile.jpg" alt="Facsimile of Cambridge University preprint title page on Navier-Stokes machine proof debate" loading="lazy">
+                <p class="image-caption">Facsimile of Cambridge University preprint title page · "Navier–Stokes Lost in Translation: Why AI-automated Lean verification cannot guarantee natural language mathematical truth" · Source: arXiv:2610.08144 original</p>
+            </div>
+            <div class="src-line"><a href="https://arxiv.org/abs/2610.08144" target="_blank">arXiv:2610.08144 Preprint</a> · <a href="https://news.ycombinator.com/item?id=45512093" target="_blank">Hacker News Discussion</a></div>
+        </div>
+    </div>
 
-<article class="chapter">
-<div class="chapter-eyebrow">Simon Willison · Open Source Tooling</div>
-<h2 class="chapter-title">Decisions API Local CLI Plugin Released: Millisecond Boolean Logic Triage in a Single Command Line</h2>
-<div class="prose">
-<p>Open-source developer <span class="accent">Simon Willison</span> published the first extension plugin integrating OpenAI's Decisions model into open LLM toolchains.</p>
-<p>Leveraging fine-tuned GPT-6 Luna weights, the plugin strips away verbose chat prose, purpose-built for millisecond conditional routing inside local automation scripts.</p>
-<p><span class="turn">For developers writing infrastructure maintenance pipelines,</span> this offers an escape from brittle hand-rolled regexes, replacing them with fault-tolerant inference assertions.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Oct/6/llm-openai-decisions/" target="_blank" rel="noopener">Simon Willison Plugin Release</a></div>
-</article>
-</section>
+    <!-- ===== 2. Front Line ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Front Line</div>
+        <div class="sec-title">Front Line</div>
 
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck">
-<div class="voice-card">
-<div class="voice-body">"Staring up at the night sky tonight with deep reverence. 'Thy sea is so great, and my boat is so small.'"</div>
-<div class="voice-meta">
-<span>Sam Altman · OpenAI CEO</span>
-<a href="https://x.com/sama" target="_blank" rel="noopener">Personal Reflection on X →</a>
-</div>
-</div>
-<div class="voice-card">
-<div class="voice-body">"Almost every major technological revolution in history has caused at least localized or short-term economic, social, or political upheaval. From this historical perspective, it would be extraordinary if AI did not cause massive disruption."</div>
-<div class="voice-meta">
-<span>Arvind Narayanan · Professor of Computer Science, Princeton University</span>
-<a href="https://aisnakeoil.com" target="_blank" rel="noopener">The Argument Column →</a>
-</div>
-</div>
-</div>
-</section>
+        <div class="item">
+            <div class="dateline">Anthropic · Cyber Defense Evolution</div>
+            <div class="item-title">Anthropic Expands Cyber Verification Program: Grants Vetted Experts Offensive Red-Team Penetration Access</div>
+            <div class="body">
+                <p><span class="accent">Anthropic</span> officially announced the expansion of its <span class="hl">Cyber Verification Program</span>.</p>
+                <p>This initiative unlocks deep capability tiers of frontier models to accredited cybersecurity practitioners who have passed rigorous background vetting.</p>
+                <p>Qualified researchers can access not only Claude Opus 5.5 and Sonnet 5.5 for automated defensive vulnerability analysis, but will also be permitted to utilize <span class="accent">Claude Mythos 5.1</span> for authorized penetration testing and live <span class="accent">offensive red-team exercises</span>.</p>
+                <p><span class="turn">This marks the first time a frontier lab has proactively decoupled offensive capabilities for external deployment.</span></p>
+                <p>Anthropic stated that rather than pretending frontier models cannot be weaponized, empowering vetted defenders with rigorously audited tools is the most pragmatic way to reinforce systemic digital resilience.</p>
+            </div>
+            <div class="src-line"><a href="https://www.anthropic.com/news/expanding-cyber-verification-program" target="_blank">Anthropic Official Announcement</a></div>
+        </div>
 
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Karpathy · Workflow Paradigm</div>
-<h2 class="chapter-title">Karpathy Outlines New Mental Models for LLMs: Abandon Pure Text Chat, Command Models to Deliver Interactive Artifacts</h2>
-<div class="prose">
-<p>AI educator and researcher <span class="accent">Andrej Karpathy</span> shared an in-depth retrospective on his personal principles for interacting with large language models, garnering over <span class="num">7.5 million</span> impressions across developer channels.</p>
-<p>Karpathy suggests that when directing models to produce rigorous technical documentation, developers should adopt <span class="num">ASD-STE100</span>—a controlled natural language standard originating in aerospace maintenance—to sharply curb model hallucinations through strict noun-verb constraints.</p>
-<p>More critically, he urges a paradigm shift in how users consume AI outputs: reading verbose paragraphs is increasingly inefficient; the superior workflow is instructing models to generate interactive, self-contained single-file HTML applications or custom analytical scripts.</p>
-<p><span class="turn">In an era where compute and code are abundant,</span> an LLM's greatest utility is not drafting polite essays, but fabricating disposable, bespoke software utility on demand at zero cost.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://x.com/karpathy/status/2105819303471976479" target="_blank" rel="noopener">Andrej Karpathy on X</a></div>
-</article>
+        <div class="item">
+            <div class="dateline">OpenAI · Embodied Desktop Agent</div>
+            <div class="item-title">OpenAI Pilots Persistent Desktop Agent Dots: Cross-App Autonomy Still Stumbles on Captchas and Multi-Factor Gates</div>
+            <div class="body">
+                <p><span class="accent">OpenAI</span> has initiated limited testing of <span class="hl">Dots</span>, an always-on <span class="accent">desktop autonomous agent</span>.</p>
+                <p>The system is architected to handle end-to-end tasks such as purchasing furniture, cross-referencing supplier orders, and reconciling multi-app spreadsheets autonomously.</p>
+                <p>Early evaluations indicate that while Dots navigates complex multi-hop actions across browser tabs and native software, it frequently encounters logical deadlocks when confronted with bot verification captchas and bank two-factor authorization flows.</p>
+                <p><span class="turn">This effort reflects model providers' aggressive push:</span> migrating AI from ephemeral chat boxes into persistent operating-system background processes armed with continuous screen vision and direct peripheral control.</p>
+            </div>
+            <div class="image-block">
+                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/openai-dots-agent-wired-hero.jpg" alt="OpenAI cross-application desktop autonomous agent Dots character and human-AI synergy concept" loading="lazy">
+                <p class="image-caption">OpenAI cross-application all-day desktop autonomous agent Dots · Anthropomorphic entity and human-AI collaborative lifestyle · Source: Wired in-depth review hero visual</p>
+            </div>
+            <div class="src-line"><a href="https://www.wired.com/story/openai-wants-its-new-agent-to-run-your-life-mine-said-it-loved-me/" target="_blank">Wired In-Depth Report</a></div>
+        </div>
+    </div>
 
-<article class="chapter">
-<div class="chapter-eyebrow">Spatial Cognition · Latent Space Probing</div>
-<h2 class="chapter-title">Coordinate Benchmark Exposes Model Spatial Compression: Pure Text Latitudes and Longitudes Reconstruct Global Continents</h2>
-<div class="prose">
-<p>Researchers designed an elegant experiment: feeding an LLM <span class="num">16,200 sets</span> of text coordinates and simply asking "land or water".</p>
-<p>Plotting the binary boolean outputs yielded a remarkably precise global map, faithfully reconstructing continental coastlines and island archipelagos.</p>
-<p><span class="turn">This trial demonstrates visually</span> that by ingesting vast unstructured web corpora, language models construct continuous, high-fidelity physical world representations internally, transcending superficial next-token statistics.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://x.com/karpathy/status/2105909609487872075" target="_blank" rel="noopener">Andrej Karpathy Commentary</a></div>
-</article>
-</section>
+    <!-- ===== 3. Open Source ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Open Source</div>
+        <div class="sec-title">Open Source</div>
 
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Spatial Continuity · Video Benchmarks</div>
-<h2 class="chapter-title">Video Evaluation Pivots to Rigorous Metrics: Physical Consistency and Long-Horizon Dynamics Become Gold Standards</h2>
-<div class="prose">
-<p>Open-source video generative research teams unveiled a new benchmark suite evaluating physical dynamics in synthetic footage.</p>
-<p>Historically, industry evals centered on surface-level lighting and facial fidelity, leaving models visually striking yet physically brittle when interacting with objects.</p>
-<p>The updated protocol quantifies gravitational acceleration, fluid splash trajectories, and rigid-body collision conservation laws mathematically.</p>
-<p><span class="turn">This dimensional upgrade shows</span> that generative neural video is evolving from cosmetic illusions into dependable simulation backbones capable of serving as robotics world models.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2610.00722" target="_blank" rel="noopener">arXiv Dynamics Evaluation Paper</a></div>
-</article>
-</section>
+        <div class="item">
+            <div class="dateline">Meta · Agent Ecosystem</div>
+            <div class="item-title">Meta Open-Sources Muse Gadget SDK: Bridging Autonomous Agents with Physical Peripherals and Microcontrollers</div>
+            <div class="body">
+                <p>The <span class="accent">Meta</span> incubation team has open-sourced the <span class="hl">Muse Gadget SDK</span> on GitHub, with repository stars surpassing <span class="accent">1,600+</span> within days of release.</p>
+                <p>The development kit provides a standardized protocol linking the Muse agent runtime with physical desktop hardware.</p>
+                <p>Developers can use lightweight protocols to map an agent's autonomous scheduling directly to <span class="accent">physical hardware buttons</span>, mini status screens, or custom tactile controllers.</p>
+                <p><span class="turn">The velocity of the open-source community proves</span> that decoupling high-level decision logic from physical tactile interfaces is emerging as a core paradigm in agent tooling.</p>
+            </div>
+            <div class="image-block">
+                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/meta-muse-gadget-sdk-devices.jpg" alt="Family portrait of physical hardware devices supported by Meta Muse Gadget SDK" loading="lazy">
+                <p class="image-caption">Muse Gadgets minimalist hardware lineup · Circular AMOLED display, M5Stack modules, desktop connectors, Raspberry Pi and E-ink terminals · Source: Meta official open-source repository</p>
+            </div>
+            <div class="src-line"><a href="https://github.com/facebookincubator/muse-gadget-sdk" target="_blank">GitHub Repository</a></div>
+        </div>
 
-<section class="month-block" id="section-7">
-<div class="month-title">Capital</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Wall Street Analysis · Capital Concentration</div>
-<h2 class="chapter-title">U.S. Equities Exhibit Extreme Divergence: Excluding AI and Chips, S&P 500 Is Down 5.7% Since Late August</h2>
-<div class="prose">
-<p>Data disclosed by veteran Wall Street market analysts has raised fresh caution across macro investment circles.</p>
-<p>Since <span class="num">late August</span>, the headline S&P 500 posted a modest <span class="num">2.4%</span> advance, buoyed by semiconductor and AI infrastructure equities surging more than <span class="num">16%</span>.</p>
-<p>However, when stripping out artificial intelligence and chip supply-chain constituents entirely, the remaining broader market suffered a steep <span class="accent">5.7%</span> decline.</p>
-<p><span class="turn">This divergence underscores</span> that current equity market resilience rests almost exclusively on hyper-concentrated capital bets on AI hardware buildouts, while corporate earnings across the broader real economy struggle to reflect tangible conversion.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://x.com/SteveRattner/status/2107515542412071090" target="_blank" rel="noopener">Steve Rattner Macro Analysis</a></div>
-</article>
+        <div class="item">
+            <div class="dateline">Simon Willison · Open Source Tooling</div>
+            <div class="item-title">Decisions API Local CLI Plugin Released: Millisecond Boolean Logic Triage in a Single Command Line</div>
+            <div class="body">
+                <p>Open-source developer <span class="accent">Simon Willison</span> published the first extension plugin integrating OpenAI's <span class="hl">Decisions</span> model into open LLM toolchains.</p>
+                <p>Leveraging fine-tuned GPT-6 Luna weights, the plugin strips away verbose chat prose, purpose-built for <span class="accent">millisecond conditional routing</span> inside local automation scripts.</p>
+                <p><span class="turn">For developers writing infrastructure maintenance pipelines,</span> this offers an escape from brittle hand-rolled regexes, replacing them with fault-tolerant inference assertions.</p>
+            </div>
+            <div class="src-line"><a href="https://simonwillison.net/2026/Oct/6/llm-openai-decisions/" target="_blank">Simon Willison Plugin Release</a></div>
+        </div>
+    </div>
 
-<article class="chapter">
-<div class="chapter-eyebrow">Clinical Surveillance · Specialized Models</div>
-<h2 class="chapter-title">Healthleap Secures $38M Series A: Sequoia and First Round Back Patient Deterioration Early-Warning Model</h2>
-<div class="prose">
-<p>Clinical medical agent startup <span class="accent">Healthleap</span> announced $38 million in total funding, led by Sequoia Capital and First Round.</p>
-<p>The team deploys long-sequence temporal surveillance models in ICUs and general wards, tracking minute, discrete drifts in patient vital signs continuously.</p>
-<p><span class="turn">Unlike general clinical models,</span> Healthleap does not write prescriptions; it operates as an untiring bedside sentinel, providing deterministic alerts hours before acute clinical deterioration.</p>
-</div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/" target="_blank" rel="noopener">TechCrunch Coverage</a></div>
-</article>
-</section>
+    <!-- ===== 4. Voices ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Voices</div>
+        <div class="sec-title">Voices</div>
 
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter">
-<div class="prose">
-<p>Today's news highlights the inevitable friction and institutional recalibration that accompanies technological acceleration.</p>
-<p>Machine progress on complex fluid mechanics is forcing human academic reviewers to interrogate the fault line separating symbolic formalization from empirical physics.</p>
-<p>The cybersecurity domain is moving past the illusion of immunity, actively equipping verified experts with offensive capabilities to stress-test real-world systems.</p>
-<p>And within volatile capital markets, the widening gulf between relentless compute buildouts and traditional balance sheets stands as a clear reminder for practitioners to stay grounded.</p>
-<div class="highlight-insight">
-First storms startle valleys deep,<br>
-Waves drift calm where empty hulls sleep;<br>
-Claim not compute unveils every trace,<br>
-Truth and illusion still seek human grace.
-</div>
-</div>
-</article>
-</section>
+        <div class="voice">
+            <p class="voice-text">"Staring up at the night sky tonight with deep reverence. 'Thy sea is so great, and my boat is so small.'"</p>
+            <p class="voice-who">Sam Altman · OpenAI CEO · <a href="https://x.com/sama/status/2107691261776052633" target="_blank">Personal Reflection on X →</a></p>
+        </div><div class="voice-sep"></div>
 
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious 🌌</div>
-<div class="callout-box">
-<div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
-  <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-09-30/blackseabloom_pace_20260622_th-fde5300b.jpg" alt="NASA PACE Satellite: Summer phytoplankton bloom across the Black Sea" loading="lazy" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;">
-</div>
-<div class="box-title" style="font-size:16px; margin-bottom:10px;">A massive summer phytoplankton bloom spins colossal turquoise vortexes amidst deep dark Black Sea waters.</div>
-<div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Summer Phytoplankton Bloom in the Black Sea · NASA PACE Satellite Observatory · <span class="num">43.00°N, 35.00°E</span></div>
-<p style="margin-bottom:8px; line-height:1.8;">After a day tracking artificial intelligence breakthroughs, Earth still holds places that require zero GPU cooling.</p>
-<p style="margin-bottom:8px; line-height:1.8;">Across peaks, rivers, lakes, and oceans—stay curious and keep exploring.</p>
-</div>
-</section>
+        <div class="voice">
+            <p class="voice-text">"Almost every major technological revolution in history has caused at least localized or short-term economic, social, or political upheaval. From this historical perspective, it would be extraordinary if AI did not cause massive disruption."</p>
+            <p class="voice-who">Arvind Narayanan · Professor of Computer Science, Princeton University · <a href="https://www.theargumentmag.com/p/the-nightmare-before-progress" target="_blank">The Argument Column →</a></p>
+        </div>
+    </div>
 
-<nav class="post-pagination">
-<a class="prev-post" href="2026-10-07.html">← Previous</a>
-<a class="all-posts" href="../index.html#archive">Archive</a>
-<span class="next-post disabled">This is the latest post →</span>
-</nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+    <!-- ===== 5. Create ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Create</div>
+        <div class="sec-title">Create</div>
+
+        <div class="item">
+            <div class="dateline">Karpathy · Workflow Paradigm</div>
+            <div class="item-title">Karpathy Outlines New Mental Models for LLMs: Abandon Pure Text Chat, Command Models to Deliver Interactive Artifacts</div>
+            <div class="body">
+                <p>AI educator and researcher <span class="accent">Andrej Karpathy</span> shared an in-depth retrospective on his personal principles for interacting with large language models, garnering over <span class="accent">7.5 million</span> impressions across developer channels.</p>
+                <p>Karpathy suggests that when directing models to produce rigorous technical documentation, developers should adopt <span class="hl">ASD-STE100</span>—a controlled natural language standard originating in aerospace maintenance—to sharply curb model hallucinations through strict noun-verb constraints.</p>
+                <p>More critically, he urges a paradigm shift in how users consume AI outputs: reading verbose paragraphs is increasingly inefficient; the superior workflow is instructing models to generate interactive, self-contained single-file HTML applications or custom analytical scripts.</p>
+                <p><span class="turn">In an era where compute and code are abundant,</span> an LLM's greatest utility is not drafting polite essays, but fabricating disposable, bespoke software utility on demand at zero cost.</p>
+            </div>
+            <div class="src-line"><a href="https://x.com/karpathy/status/2105819303471976479" target="_blank">Andrej Karpathy on X</a></div>
+        </div>
+
+        <div class="item">
+            <div class="dateline">Spatial Cognition · Latent Space Probing</div>
+            <div class="item-title">Coordinate Benchmark Exposes Model Spatial Compression: Pure Text Latitudes and Longitudes Reconstruct Global Continents</div>
+            <div class="body">
+                <p>Researchers designed an elegant experiment: feeding an LLM <span class="num">16,200 sets</span> of text coordinates and simply asking "land or water".</p>
+                <p>Plotting the binary boolean outputs yielded a remarkably precise global map, faithfully reconstructing continental coastlines and island archipelagos.</p>
+                <p><span class="turn">This trial demonstrates visually</span> that by ingesting vast unstructured web corpora, language models construct continuous, high-fidelity physical world representations internally, transcending superficial next-token statistics.</p>
+            </div>
+            <div class="src-line"><a href="https://x.com/karpathy/status/2105909609487872075" target="_blank">Andrej Karpathy Commentary</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 6. Vision ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Vision</div>
+        <div class="sec-title">Vision</div>
+
+        <div class="item">
+            <div class="dateline">Spatial Continuity · Video Benchmarks</div>
+            <div class="item-title">Video Evaluation Pivots to Rigorous Metrics: Physical Consistency and Long-Horizon Dynamics Become Gold Standards</div>
+            <div class="body">
+                <p>Open-source video generative research teams unveiled a new benchmark suite evaluating physical dynamics in synthetic footage.</p>
+                <p>Historically, industry evals centered on surface-level lighting and facial fidelity, leaving models visually striking yet physically brittle when interacting with objects.</p>
+                <p>The updated protocol quantifies gravitational acceleration, fluid splash trajectories, and rigid-body collision conservation laws mathematically.</p>
+                <p><span class="turn">This dimensional upgrade shows</span> that generative neural video is evolving from cosmetic illusions into dependable simulation backbones capable of serving as robotics world models.</p>
+            </div>
+            <div class="src-line"><a href="https://arxiv.org/abs/2610.00722" target="_blank">arXiv Dynamics Evaluation Paper</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 7. Capital ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Capital</div>
+        <div class="sec-title">Funding & Capital Flows</div>
+
+        <div class="item">
+            <div class="dateline">Wall Street Analysis · Capital Concentration</div>
+            <div class="item-title">U.S. Equities Exhibit Extreme Divergence: Excluding AI and Chips, S&P 500 Is Down 5.7% Since Late August</div>
+            <div class="body">
+                <p>Data disclosed by veteran Wall Street market analysts has raised fresh caution across macro investment circles.</p>
+                <p>Since <span class="accent">late August</span>, the <span class="hl">S&P 500 index</span> posted a modest <span class="num">2.4%</span> advance, buoyed by semiconductor and AI infrastructure equities surging more than <span class="num">16%</span>.</p>
+                <p>However, when stripping out artificial intelligence and chip supply-chain constituents entirely, the remaining broader market suffered a steep <span class="accent">5.7%</span> decline.</p>
+                <p><span class="turn">This divergence underscores</span> that current equity market resilience rests almost exclusively on hyper-concentrated capital bets on AI hardware buildouts, while corporate earnings across the broader real economy struggle to reflect tangible conversion.</p>
+            </div>
+            <div class="src-line"><a href="https://x.com/SteveRattner/status/2107515542412071090" target="_blank">Steve Rattner Macro Analysis</a></div>
+        </div>
+
+        <div class="item">
+            <div class="dateline">Clinical Surveillance · Specialized Models</div>
+            <div class="item-title">Healthleap Secures $38M Series A: Sequoia and First Round Back Patient Deterioration Early-Warning Model</div>
+            <div class="body">
+                <p>Clinical medical agent startup <span class="accent">Healthleap</span> announced <span class="num">$38 million</span> in total funding, led by Sequoia Capital and First Round.</p>
+                <p>The team deploys long-sequence temporal surveillance models in ICUs and general wards, tracking minute, discrete drifts in patient vital signs continuously.</p>
+                <p><span class="turn">Unlike general clinical models,</span> Healthleap does not write prescriptions; it operates as an untiring bedside sentinel, providing deterministic alerts hours before acute clinical deterioration.</p>
+            </div>
+            <div class="src-line"><a href="https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/" target="_blank">TechCrunch Coverage</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 8. Summary ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Summary</div>
+        <div class="sec-title">Summary</div>
+
+        <div class="item">
+            <div class="body">
+                <p>Today's news highlights the inevitable friction and institutional recalibration that accompanies technological acceleration.</p>
+                <p>Machine progress on complex fluid mechanics is forcing human academic reviewers to interrogate the fault line separating symbolic formalization from empirical physics.</p>
+                <p>The cybersecurity domain is moving past the illusion of immunity, actively equipping verified experts with offensive capabilities to stress-test real-world systems.</p>
+                <p>And within volatile capital markets, the widening gulf between relentless compute buildouts and traditional balance sheets stands as a clear reminder for practitioners to stay grounded.</p>
+                <div class="summary-poem">
+                    First storms startle valleys deep,<br>
+                    Waves drift calm where empty hulls sleep;<br>
+                    Claim not compute unveils every trace,<br>
+                    Truth and illusion still seek human grace.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 9. Be Curious ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Be Curious</div>
+        <div class="sec-title">Be Curious</div>
+
+        <div class="curiosity">
+            <div class="body">
+                <p><strong>A massive summer phytoplankton bloom spins colossal turquoise vortexes amidst deep dark Black Sea waters.</strong></p>
+                <div class="image-block">
+                    <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-09-30/blackseabloom_pace_20260622_th-fde5300b.jpg" alt="NASA PACE Satellite: Summer phytoplankton bloom across the Black Sea" loading="lazy">
+                    <p class="image-caption">Summer Phytoplankton Bloom in the Black Sea · NASA PACE Satellite Observatory · <span class="num">43.00°N, 35.00°E</span><br>After a day tracking artificial intelligence breakthroughs, Earth still holds places that require zero GPU cooling.<br>
+Across peaks, rivers, lakes, and oceans—stay curious and keep exploring.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+    <nav class="post-pagination">
+        <a class="prev-post" href="2026-10-07.html">← Previous</a>
+        <a class="all-posts" href="../index.html#archive">Archive</a>
+        <span class="next-post disabled">This is the latest post →</span>
+    </nav>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+
+</div>
+
 </body>
 </html>

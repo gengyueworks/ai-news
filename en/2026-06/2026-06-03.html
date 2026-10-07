@@ -1,34 +1,262 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AI News Daily · 2026-06-03 | 2026-06-03</title>
-<meta name="description" content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-06-03.">
-<link rel="stylesheet" href="../../assets/css/main.css">
+<meta content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-06-03." name="description"/>
+<link href="../../assets/css/main.css" rel="stylesheet"/>
+
+<style>
+        @import url('../../assets/fonts/fonts.css');
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #0E0E10;
+            --text-mid: #3A3A3E;
+            --text-light: #6B6B70;
+            --border: #E8E8EC;
+            --accent: #C41E3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-header {
+            border-bottom: 1px solid #E8E8EC;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 50;
+            width: 100%;
+        }
+        .site-header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 13px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+        .brand span { color: var(--klein); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 13px;
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        .nav-links a:hover { color: #002FA7; }
+
+        /* 统一兼容 hero-masthead 与 masthead */
+        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
+        .hero-meta-bar { display: none; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .hero-title, .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .hero-subtitle, .mast-lede {
+            font-size: 15.5px !important;
+            line-height: 1.85 !important;
+            color: var(--text-mid) !important;
+            padding: 18px 22px !important;
+            background: #F0F4FF !important;
+            border-left: 4px solid var(--klein) !important;
+            border-radius: 4px !important;
+            margin-top: 16px !important;
+            margin-bottom: 40px !important;
+        }
+        .month-block, .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .month-title, .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+            border: none;
+            padding: 0;
+        }
+        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
+        .chapter-eyebrow, .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .prose p, .body p { margin-bottom: 14px; text-align: left; }
+        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .sources-bar, .src-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .voices-deck { display: block; margin-top: 12px; }
+        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
+        .callout-box, .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            border: none;
+            border-left: 4px solid var(--klein);
+            margin-top: 16px;
+        }
+        .image-block { margin: 20px 0; }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+            line-height: 1.6;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .highlight-insight, .summary-poem {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--klein);
+            background: #F0F4FF;
+            border-left: 3px solid var(--klein);
+            padding: 16px 20px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 18px;
+        }
+        .post-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            margin: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+        }
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .site-footer, .footer {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
+            border: none;
+            background: none;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .hero-title, .doc-title { font-size: 32px; }
+            .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
+            .nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    </style>
 </head>
 <body>
 <!-- READY_TEXT_ONLY 2026-06-03: every image in the legacy source was removed because no official high-resolution provenance could be verified. Text-only edition. -->
 <header class="site-header">
-  <div class="site-header-inner">
-    <a class="brand" href="../index.html">AI<span>News</span></a>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../index.html#archive">Archive</a></li>
-    </ul>
-  </div>
+<div class="site-header-inner">
+<a class="brand" href="../index.html">AI<span>News</span></a>
+<ul class="nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#archive">Archive</a></li>
+</ul>
+</div>
 </header>
 <main class="container">
 <header class="hero-masthead">
-  <div class="hero-meta-bar">
-    <span class="badge-tag">Daily Briefing</span>
-    <span class="badge-tag blue">2026-06-03</span>
-    <span>Wednesday</span>
-  </div>
-  <h1 class="hero-title">AI News Daily · 2026-06-03</h1>
+<div class="hero-meta-bar">
+<span class="badge-tag">Daily Briefing</span>
+<span class="badge-tag blue">2026-06-03</span>
+<span>Wednesday</span>
+</div>
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI News <span>Daily</span> · 2026-06-03</h1><p class="doc-date">2026-06-03 · Wednesday</p>
 </header>
 <section class="month-block" id="section-1">
-<div class="month-title">Today&#x27;s Front Page</div>
+<div class="month-title">Today's Front Page</div>
 <article class="chapter">
 <h2 class="chapter-title">Microsoft Build Day 2: Introducing MAI-Thinking-1, Its First Reasoning Model—Finally Its Own Engine</h2>
 <div class="prose">
@@ -37,7 +265,7 @@
 <p>Suleyman also shared cost data: after tuning for McKinsey, the MAI models surpass GPT-5.5 in quality, with cost efficiency reportedly reaching <span class="accent">10x</span> that of OpenAI. Microsoft's official statement is that "running proprietary models on Azure eliminates third-party inference fees."</p>
 <p><span class="turn">What It Means for You: Microsoft has transitioned from a model buyer to a model builder. This isn't abandoning OpenAI—it's doing both. However, for developers, a third optional reasoning engine (Microsoft + OpenAI + Open Source) will soon be available on Azure.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.euronews.com/next/2026/06/03/microsoft-launches-its-own-ai-models-to-take-on-openai-and-anthropic" target="_blank" rel="noopener">Euronews</a> · The Verge · The Letter Two · Build Fast With AI</div>
+<div class="sources-bar">Sources: <a href="https://www.euronews.com/next/2026/06/03/microsoft-launches-its-own-ai-models-to-take-on-openai-and-anthropic" rel="noopener" target="_blank">Euronews</a> · The Verge · The Letter Two · Build Fast With AI</div>
 </article>
 </section>
 <section class="month-block" id="section-2">
@@ -48,7 +276,7 @@
 <p>Nadella announced in his Build keynote <span class="num">Majorana 2</span>, Microsoft's second-generation quantum processor. If Majorana 1 proved that "basic physics is feasible," Majorana 2 marks "the start of engineering." The timeline given by Nadella:<span class="accent">Scalable quantum computer by 2029</span>.</p>
 <p>1,000x reliability improvement—a metric from Microsoft's internal testing. Also released is the Aion 1.0 series: two small models (14B parameters) specifically designed to run AI agents locally on Windows devices, currently in preview.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-3-2026" target="_blank" rel="noopener">Build Fast With AI</a> · A Guide to Cloud</div>
+<div class="sources-bar">Sources: <a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-3-2026" rel="noopener" target="_blank">Build Fast With AI</a> · A Guide to Cloud</div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">OpenAI Models and Codex Fully Available on AWS—Azure No Longer the Sole Gateway</h2>
@@ -57,7 +285,7 @@
 <p>Pricing matches OpenAI's official rates with no extra fees, and usage counts toward existing AWS cloud commitments. Weekly active users for Codex have surpassed <span class="accent">5 million</span>—up 1 million from 4 million during the April preview. OpenAI also teased that the Daybreak cybersecurity initiative will be the next capability to land on AWS.</p>
 <p><span class="turn">Background: On April 27, Microsoft and OpenAI amended their contract to end the Azure exclusivity clause; the very next day, OpenAI and AWS announced their partnership. GA launched on June 1, with widespread media coverage on June 3. Exactly five weeks from contract amendment to general availability.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/" target="_blank" rel="noopener">OpenAI</a> · Memeburn · A Guide to Cloud</div>
+<div class="sources-bar">Sources: <a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/" rel="noopener" target="_blank">OpenAI</a> · Memeburn · A Guide to Cloud</div>
 </article>
 </section>
 <section class="month-block" id="section-3">
@@ -69,7 +297,7 @@
 <p>One of Altman's most candid remarks:<span class="accent">"Coding models are the single largest demand driver. They became remarkably good between late last year and early this year, and took another major leap in recent months."</span> He also admitted underestimating model "jaggedness"—performing exceptionally well at some tasks while still exhibiting weak supervision capabilities for long-term, complex workflows. He noted a notable phenomenon: the companies using the most AI are also the ones hiring the most people.</p>
 <p><span class="turn">The Oracle CEO echoed this sentiment on-site: "Demand right now exceeds what we are able to deliver."</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.cnbc.com/2026/06/01/cnbc-exclusive-transcript-openai-ceo-sam-altman-speaks-with-cnbcs-david-faber-on-power-lunch-today.html" target="_blank" rel="noopener">CNBC</a> · Smart Content Report</div>
+<div class="sources-bar">Sources: <a href="https://www.cnbc.com/2026/06/01/cnbc-exclusive-transcript-openai-ceo-sam-altman-speaks-with-cnbcs-david-faber-on-power-lunch-today.html" rel="noopener" target="_blank">CNBC</a> · Smart Content Report</div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">GPT-5.5 Generally Available on Microsoft Foundry</h2>
@@ -77,7 +305,7 @@
 <p>On the same day, OpenAI's <span class="num">GPT-5.5</span> became Generally Available (GA) on Microsoft Foundry, including the GPT-5.5 Pro version. Pricing: GPT-5.5 is $5/million input · $30/million output; Pro version is $30/million input · $180/million output. Eligible for Azure Consumption Commitment deduction.</p>
 <p><span class="turn">The Subtlety: On the very same day, OpenAI's models became GA simultaneously on AWS and Azure. The era of exclusivity has ended, and OpenAI has officially become a multi-cloud provider.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.aguidetocloud.com/blog/microsoft-build-2026-recap/" target="_blank" rel="noopener">A Guide to Cloud</a></div>
+<div class="sources-bar">Sources: <a href="https://www.aguidetocloud.com/blog/microsoft-build-2026-recap/" rel="noopener" target="_blank">A Guide to Cloud</a></div>
 </article>
 </section>
 <section class="month-block" id="section-4">
@@ -88,22 +316,22 @@
 <p>Microsoft released the <span class="num">Aion 1.0</span> series, consisting of two small models (14B parameters): Aion 1.0 Instruct and Aion 1.0 Plan. Positioned to provide local AI agent capabilities for Windows devices—independent of the cloud, running directly on laptops.</p>
 <p>Also released <span class="num">Microsoft Scout</span> is the first "Autopilot"—an always-on personal agent running across Windows and Mac, reading Teams, Outlook, calendars, OneDrive, and SharePoint to coordinate schedules, identify workflow bottlenecks, and handle them proactively.<span class="turn">You can think of it as an AI assistant built on the OpenClaw tech stack running permanently in the background.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.theverge.com/ai-artificial-intelligence/942242/microsoft-build-ai-agents-openai-competition" target="_blank" rel="noopener">The Verge</a> · A Guide to Cloud</div>
+<div class="sources-bar">Sources: <a href="https://www.theverge.com/ai-artificial-intelligence/942242/microsoft-build-ai-agents-openai-competition" rel="noopener" target="_blank">The Verge</a> · A Guide to Cloud</div>
 </article>
 </section>
 <section class="month-block" id="section-5">
 <div class="month-title">Voices</div>
 <div class="voices-deck"><div class="voice-card">
-<div class="voice-body">&quot;Coding models are currently the single largest demand driver. They became remarkably good between late last year and early this year, and took another major leap in recent months.&quot;</div>
+<div class="voice-body">"Coding models are currently the single largest demand driver. They became remarkably good between late last year and early this year, and took another major leap in recent months."</div>
 <div class="voice-meta">
 <span>Sam Altman · OpenAI CEO · CNBC Stargate Datacenter Interview · June 1</span>
-<a href="https://www.cnbc.com/2026/06/01/cnbc-exclusive-transcript-openai-ceo-sam-altman-speaks-with-cnbcs-david-faber-on-power-lunch-today.html" target="_blank" rel="noopener">Read Original →</a>
+<a href="https://www.cnbc.com/2026/06/01/cnbc-exclusive-transcript-openai-ceo-sam-altman-speaks-with-cnbcs-david-faber-on-power-lunch-today.html" rel="noopener" target="_blank">Read Original →</a>
 </div></div>
 <div class="voice-card">
-<div class="voice-body">&quot;Demand right now exceeds what we are able to deliver.&quot;</div>
+<div class="voice-body">"Demand right now exceeds what we are able to deliver."</div>
 <div class="voice-meta">
 <span>Oracle CEO · Same Stargate Event · June 1</span>
-<a href="https://www.cnbc.com/2026/06/01/cnbc-exclusive-transcript-openai-ceo-sam-altman-speaks-with-cnbcs-david-faber-on-power-lunch-today.html" target="_blank" rel="noopener">Read Original →</a>
+<a href="https://www.cnbc.com/2026/06/01/cnbc-exclusive-transcript-openai-ceo-sam-altman-speaks-with-cnbcs-david-faber-on-power-lunch-today.html" rel="noopener" target="_blank">Read Original →</a>
 </div></div></div>
 </section>
 <section class="month-block" id="section-6">
@@ -116,7 +344,7 @@
 <section class="month-block" id="section-7">
 <div class="month-title">Be Curious 🌌</div>
 <div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
-  <img src="https://apod.nasa.gov/apod/image/2606/Thor_Drudis_960.jpg" alt="Andromeda Galaxy (M31) · 2.5 million light-years from Earth · First recorded by Persian astronomer al-Sufi in 964 AD · This image has a 202-hour exposure, featuring ionized hydrogen and oxygen clouds within the Milky Way in the foreground · Photographer Nick Fritz · NASA APOD · 2026-06-03" loading="lazy" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;">
+<img alt="Andromeda Galaxy (M31) · 2.5 million light-years from Earth · First recorded by Persian astronomer al-Sufi in 964 AD · This image has a 202-hour exposure, featuring ionized hydrogen and oxygen clouds within the Milky Way in the foreground · Photographer Nick Fritz · NASA APOD · 2026-06-03" loading="lazy" src="https://apod.nasa.gov/apod/image/2606/Thor_Drudis_960.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Andromeda Galaxy (M31) · 2.5 million light-years from Earth · First recorded by Persian astronomer al-Sufi in 964 AD · This image has a 202-hour exposure, featuring ionized hydrogen and oxygen clouds within the Milky Way in the foreground · Photographer Nick Fritz · NASA APOD · 2026-06-03</div>
 <p style="margin-bottom:8px; line-height:1.8;">Andromeda is the closest major galaxy to the Milky Way, expected to collide and merge with our galaxy in about 4 billion years. The pink regions in the image are hydrogen clouds ionized by young stars.</p></div>

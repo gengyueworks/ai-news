@@ -1,31 +1,259 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AI Intelligence Weekly · Week 1, June | 2026-06-01</title>
-<meta name="description" content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-06-01.">
-<link rel="stylesheet" href="../../assets/css/main.css">
+<meta content="AI News Daily — frontier intelligence, primary sources and on-the-ground signals for 2026-06-01." name="description"/>
+<link href="../../assets/css/main.css" rel="stylesheet"/>
+
+<style>
+        @import url('../../assets/fonts/fonts.css');
+        :root {
+            --klein: #002FA7;
+            --klein-bright: #0044FF;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FB;
+            --text-dark: #0E0E10;
+            --text-mid: #3A3A3E;
+            --text-light: #6B6B70;
+            --border: #E8E8EC;
+            --accent: #C41E3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-header {
+            border-bottom: 1px solid #E8E8EC;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 50;
+            width: 100%;
+        }
+        .site-header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 13px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+        .brand span { color: var(--klein); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 13px;
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        .nav-links a:hover { color: #002FA7; }
+
+        /* 统一兼容 hero-masthead 与 masthead */
+        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
+        .hero-meta-bar { display: none; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .hero-title, .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .hero-subtitle, .mast-lede {
+            font-size: 15.5px !important;
+            line-height: 1.85 !important;
+            color: var(--text-mid) !important;
+            padding: 18px 22px !important;
+            background: #F0F4FF !important;
+            border-left: 4px solid var(--klein) !important;
+            border-radius: 4px !important;
+            margin-top: 16px !important;
+            margin-bottom: 40px !important;
+        }
+        .month-block, .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .month-title, .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+            border: none;
+            padding: 0;
+        }
+        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
+        .chapter-eyebrow, .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .prose p, .body p { margin-bottom: 14px; text-align: left; }
+        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .sources-bar, .src-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .voices-deck { display: block; margin-top: 12px; }
+        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
+        .callout-box, .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            border: none;
+            border-left: 4px solid var(--klein);
+            margin-top: 16px;
+        }
+        .image-block { margin: 20px 0; }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+            line-height: 1.6;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .highlight-insight, .summary-poem {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--klein);
+            background: #F0F4FF;
+            border-left: 3px solid var(--klein);
+            padding: 16px 20px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 18px;
+        }
+        .post-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            margin: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+        }
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .site-footer, .footer {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
+            border: none;
+            background: none;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .hero-title, .doc-title { font-size: 32px; }
+            .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
+            .nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    </style>
 </head>
 <body>
 <!-- READY_TEXT_ONLY 2026-06-01: every image in the legacy source was removed because no official high-resolution provenance could be verified. Text-only edition. -->
 <header class="site-header">
-  <div class="site-header-inner">
-    <a class="brand" href="../index.html">AI<span>News</span></a>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../index.html#archive">Archive</a></li>
-    </ul>
-  </div>
+<div class="site-header-inner">
+<a class="brand" href="../index.html">AI<span>News</span></a>
+<ul class="nav-links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#archive">Archive</a></li>
+</ul>
+</div>
 </header>
 <main class="container">
 <header class="hero-masthead">
-  <div class="hero-meta-bar">
-    <span class="badge-tag">Daily Briefing</span>
-    <span class="badge-tag blue">2026-06-01</span>
-    <span>Monday</span>
-  </div>
-  <h1 class="hero-title">AI Intelligence Weekly · Week 1, June</h1>
+<div class="hero-meta-bar">
+<span class="badge-tag">Daily Briefing</span>
+<span class="badge-tag blue">2026-06-01</span>
+<span>Monday</span>
+</div>
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence Weekly · Week 1, June</h1><p class="doc-date">2026-06-01 · Monday</p>
 </header>
 <section class="month-block" id="section-1">
 <div class="month-title">Dispatch</div>
@@ -34,7 +262,7 @@
 <section class="month-block" id="section-2">
 <div class="month-title">Front Page</div>
 <article class="chapter">
-<h2 class="chapter-title">AI Uncovers Hidden Flaw in 50-Year-Old Economic Proof, Nearly Prompting a Mathematician&#x27;s Retirement</h2>
+<h2 class="chapter-title">AI Uncovers Hidden Flaw in 50-Year-Old Economic Proof, Nearly Prompting a Mathematician's Retirement</h2>
 <div class="prose">
 <p>On June 1, Fortune exclusively reported that Axiom Math used an AI formal verification system to check the<span class="num">"Consensus Theorem"</span>— a mathematical cornerstone of information economics and antitrust law taught in textbooks for 50 years, with its proof process never once questioned.</p>
 <p>AI discovered: there is an<span class="turn">implicit assumption in the proof that was never explicitly verified</span>. One link in the logical chain supporting the conclusion has been assumed valid by everyone for half a century, yet never actually proven.<span class="num">Aumann won the 2005 Nobel Prize in Economics for this theorem</span>.</p>
@@ -45,10 +273,10 @@
 <p>If you are doing academic research, legal analysis, or any work requiring "rigorous proof" —<span class="num">AI is not just helping you look up information; it is starting to check for unawares flaws in your own proof process</span>.</p>
 <p>Image: Unsplash · Oleg Magni · Not original news photo</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://fortune.com" target="_blank" rel="noopener">Fortune Exclusive</a> · <a href="https://axiommath.ai/papers" target="_blank" rel="noopener">Axiom Math</a></div>
+<div class="sources-bar">Sources: <a href="https://fortune.com" rel="noopener" target="_blank">Fortune Exclusive</a> · <a href="https://axiommath.ai/papers" rel="noopener" target="_blank">Axiom Math</a></div>
 </article>
 <article class="chapter">
-<h2 class="chapter-title">On the First Day of Copilot&#x27;s Usage-Based Billing, Some Users Saw Monthly Fees Skyrocket from $28 to $746</h2>
+<h2 class="chapter-title">On the First Day of Copilot's Usage-Based Billing, Some Users Saw Monthly Fees Skyrocket from $28 to $746</h2>
 <div class="prose">
 <p>On June 1, GitHub Copilot officially transitioned from "unlimited monthly subscription" to<span class="num">token consumption-based billing</span>. Pro users get $10 of AI Credits for $10 a month — once depleted, they either stop or pay more. The previous fallback mechanism has also been canceled: previously, when credits ran out, it automatically switched to cheaper models to keep running; now,<span class="turn">once credits hit zero, it stops immediately</span>.</p>
 <p>A developer on Reddit crunched the numbers and posted a screenshot: under the new billing, their actual April usage went from<span class="accent">$28</span>to<span class="accent">$746</span>, a 25-fold increase. Another user saw an even wilder estimate, with monthly fees jumping from $50 to nearly $3,000. "Bye Bye Copilot" posts flooded Reddit and X.</p>
@@ -57,7 +285,7 @@
 <p>If you are using any AI coding tool, the first thing you should do this week is check how many tokens you actually consumed —<span class="num">you might think you're using a tool, but you're actually burning money</span>.</p>
 <p>Image: Unsplash · Pavan Trikutam · Not original news photo</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arstechnica.com" target="_blank" rel="noopener">Ars Technica</a> · <a href="https://github.blog/changelog/2026-06-01-updates-to-github-copilot-billing-and-plans/" target="_blank" rel="noopener">GitHub Blog</a></div>
+<div class="sources-bar">Sources: <a href="https://arstechnica.com" rel="noopener" target="_blank">Ars Technica</a> · <a href="https://github.blog/changelog/2026-06-01-updates-to-github-copilot-billing-and-plans/" rel="noopener" target="_blank">GitHub Blog</a></div>
 </article>
 </section>
 <section class="month-block" id="section-3">
@@ -71,7 +299,7 @@
 <p>Adobe has already rearchitected Photoshop and Premiere from the ground up to adapt to this chip.<span class="num">ASUS, Dell, HP, Lenovo, Microsoft Surface, MSI</span>will release the first wave of devices.</p>
 <p><span class="turn">The PC is shifting from a tool to a teammate</span>— you tell it what you want, and it finds software, combines operations, and delivers results. If you are upgrading your PC next year, this chip means you aren't just buying a faster computer; it becomes<span class="num">a personal workstation capable of running AI agents locally</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Microsoft-Reinvent-Windows-PCs-for-the-Age-of-Personal-AI/default.aspx" target="_blank" rel="noopener">NVIDIA</a> · Microsoft Build</div>
+<div class="sources-bar">Sources: <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Microsoft-Reinvent-Windows-PCs-for-the-Age-of-Personal-AI/default.aspx" rel="noopener" target="_blank">NVIDIA</a> · Microsoft Build</div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">Google Turns Your Gmail and Photos into a Daily Animated Story</h2>
@@ -83,7 +311,7 @@
 <p>Currently available only to US<span class="accent">AI Ultra subscribers</span>, with others on a waitlist. If you are building personalized products, this direction is worth noting:<span class="turn">extracting connections you didn't notice from the information you already have</span>.</p>
 <p>Dreambeans · Google Labs · June 3, 2026</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/dreambeans/" target="_blank" rel="noopener">Google Blog</a> · <a href="https://techcrunch.com" target="_blank" rel="noopener">TechCrunch</a></div>
+<div class="sources-bar">Sources: <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/dreambeans/" rel="noopener" target="_blank">Google Blog</a> · <a href="https://techcrunch.com" rel="noopener" target="_blank">TechCrunch</a></div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">AI Discovers Security Vulnerability Unnoticed by Humans for 27 Years — Missed Despite Tens of Millions of Automated Tests</h2>
@@ -97,7 +325,7 @@
 <p>Anthropic has granted access to a<span class="num">coalition of 12 companies</span> — Amazon, Apple, Google, Microsoft, Cisco, NVIDIA, JPMorgan, Palo Alto Networks, CrowdStrike, Broadcom, Linux Foundation — plus over 40 critical infrastructure organizations.<span class="turn">Defense first, openness later.</span></p>
 <p>If you work in security, operations, or any code-auditing domain —<span class="num">AI's capability in discovering vulnerabilities has surpassed that of almost all human security experts.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.anthropic.com/glasswing" target="_blank" rel="noopener">Anthropic</a></div>
+<div class="sources-bar">Sources: <a href="https://www.anthropic.com/glasswing" rel="noopener" target="_blank">Anthropic</a></div>
 </article>
 <article class="chapter">
 <h2 class="chapter-title">A Person Built a Cage for AI, Locking the Strongest Model Inside to See If It Could Escape</h2>
@@ -111,7 +339,7 @@
 <p>A developer in their bedroom, taking a few days, used AI to build a cage that AI cannot escape from. One person, not a corporate research lab or national security team.</p>
 <p>If you are working on plugin systems, Agent tool-calling, or any scenario requiring the execution of external code —<span class="turn">a 362KB WASM blob may be safer than your entire Docker deployment setup</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/" target="_blank" rel="noopener">Simon Willison's Weblog</a> · <a href="https://github.com/simonw/micropython-wasm" target="_blank" rel="noopener">GitHub</a></div>
+<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/" rel="noopener" target="_blank">Simon Willison's Weblog</a> · <a href="https://github.com/simonw/micropython-wasm" rel="noopener" target="_blank">GitHub</a></div>
 </article>
 </section>
 <section class="month-block" id="section-4">
@@ -124,26 +352,26 @@
 <p>It can clone voices too. Give it a few seconds of audio, it replicates that person's voice, and then you can control the speed, emotion, and tone—<span class="num">voice cloning is no longer a black box; you can tune voices like adjusting colors</span>. 30 languages, 9 Chinese dialects, fully open source, under the Apache 2.0 license.</p>
 <p>Previously, voice cloning required paying for closed-source services, and sound design was strictly the domain of professionals.<span class="turn">Now, as long as you can describe the voice you want, you can get it</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/OpenBMB/VoxCPM" target="_blank" rel="noopener">GitHub</a> · <a href="https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo" target="_blank" rel="noopener">Demo</a></div>
+<div class="sources-bar">Sources: <a href="https://github.com/OpenBMB/VoxCPM" rel="noopener" target="_blank">GitHub</a> · <a href="https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo" rel="noopener" target="_blank">Demo</a></div>
 </article>
 </section>
 <section class="month-block" id="section-5">
 <div class="month-title">Voice</div>
 <article class="chapter"><div class="prose">The understanding of AI itself has changed</div></article>
 <div class="voices-deck"><div class="voice-card">
-<div class="voice-body">&quot;A large number of patches used to mean a large amount of effort, and effort used to be a proxy for good intentions. That assumption no longer holds.&quot;</div>
+<div class="voice-body">"A large number of patches used to mean a large amount of effort, and effort used to be a proxy for good intentions. That assumption no longer holds."</div>
 <div class="voice-meta">
 <span>Andreas Kling · Founder of Ladybird Browser · Ladybird Blog · June 5</span>
 <span></span>
 </div></div>
 <div class="voice-card">
-<div class="voice-body">&quot;Two groups of people live in the same reality, but there is no natural feedback loop connecting them.&quot;</div>
+<div class="voice-body">"Two groups of people live in the same reality, but there is no natural feedback loop connecting them."</div>
 <div class="voice-meta">
 <span>Charity Majors · CEO of Honeycomb · Honeycomb Blog · June 2</span>
 <span></span>
 </div></div>
 <div class="voice-card">
-<div class="voice-body">&quot;Your disappointment in yourself is often not because AI isn&#x27;t strong enough, but because you fell into its jagged frontier without realizing it.&quot;</div>
+<div class="voice-body">"Your disappointment in yourself is often not because AI isn't strong enough, but because you fell into its jagged frontier without realizing it."</div>
 <div class="voice-meta">
 <span>Andrej Karpathy · Founding Member of OpenAI · Sequoia Ascent 2026 Interview · Early May (Still widely discussed in June)</span>
 <span></span>
@@ -160,7 +388,7 @@
 <section class="month-block" id="section-7">
 <div class="month-title">Be Curious 🌌</div>
 <div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
-  <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg" alt="Hydra Cluster · Rayleigh Sampaio · NASA APOD · June 5, 2026" loading="lazy" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;">
+<img alt="Hydra Cluster · Rayleigh Sampaio · NASA APOD · June 5, 2026" loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Hydra Cluster · Rayleigh Sampaio · NASA APOD · June 5, 2026</div>
 <p style="margin-bottom:8px; line-height:1.8;">Each bright spot is a galaxy, and each galaxy contains hundreds of billions of stars. What we do is minuscule on a cosmic scale, but we are doing it. Stay curious, keep exploring.</p></div>
