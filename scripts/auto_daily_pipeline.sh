@@ -474,6 +474,8 @@ exec >> "${LOG}" 2>&1
 echo "===== AI News 流水线入口 ${DATE} $(date '+%H:%M:%S') tick=${USE_TICK} collect=${COLLECT_ONLY} finalize=${FINALIZE_ONLY} ====="
 
 run_collect_stage() {
+  # 优先调用 157 信源池一手雷达引擎（涵盖 EML、RSS、Twitter 与 GitHub）
+  python3 scripts/collect_primary_radar.py --date "" || true
   # 强韧化铁律：先就地生成基础任务书，确保护城河打底，任何网络故障绝不阻断出刊
   gen_task_book || true
   collect_aihot || true

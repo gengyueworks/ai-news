@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 信息源池总览 · 本地管理页</title>
+<style>
+:root{--bg:#f7f6f3;--fg:#1c1b19;--mut:#6d6963;--line:#e0ddd6;--card:#fff;
+--s:#b3261e;--a:#1f5f8b;--b:#7a6f52;--c:#6b7280;--img:#0f766e;--agg:#7c3aed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.7 -apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
+header.top{border-bottom:2px solid var(--fg);padding-bottom:18px;margin-bottom:8px}
+h1{font-size:27px;margin:0 0 6px}
+.sub{color:var(--mut);font-size:13.5px;margin:0}
+.priv{display:inline-block;margin-top:10px;font-size:12px;color:#8a5a00;background:#fff7e6;
+border:1px solid #f0dcae;border-radius:4px;padding:3px 9px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 6px}
+.stat{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 15px}
+.stat b{display:block;font-size:27px;line-height:1.15;font-variant-numeric:tab-nums}
+.stat span{font-size:12.5px;color:var(--mut)}
+.stat.hot b{color:var(--s)}
+.bar{height:9px;background:var(--line);border-radius:5px;margin:14px 0 4px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+.legend{font-size:12px;color:var(--mut);margin-bottom:8px}
+.legend em{font-style:normal;padding-left:12px;position:relative}
+.legend em::before{content:"";position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:2px}
+.legend em.l1::before{background:var(--a)}.legend em.l2::before{background:var(--img)}
+.legend em.l3::before{background:var(--agg)}.legend em.l4::before{background:var(--c)}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0}
+nav a{font-size:13px;text-decoration:none;color:var(--fg);border:1px solid var(--line);
+background:var(--card);border-radius:20px;padding:5px 13px}
+section{margin-top:38px;scroll-margin-top:12px}
+.sh h2{font-size:20px;margin:0 0 4px;display:flex;align-items:center;gap:9px}
+.cnt{font-size:12.5px;background:var(--fg);color:#fff;border-radius:11px;padding:1px 9px;font-weight:600}
+.sh p{margin:0 0 14px;color:var(--mut);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px 15px;
+border-left:3px solid var(--c)}
+.card.k-S{border-left-color:var(--s)}.card.k-A{border-left-color:var(--a)}
+.card.k-B{border-left-color:var(--b)}.card.k-candidate{border-left-color:var(--c)}
+.card.t_image{border-top:2px solid var(--img)}.card.t_aggregate{border-top:2px solid var(--agg)}
+.ch{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h3{font-size:15.5px;margin:0 0 5px;line-height:1.4}
+.tier{font-size:11px;border-radius:3px;padding:1px 6px;white-space:nowrap;
+background:#eef1f4;color:var(--mut)}
+.tier.S{background:#fbeae9;color:var(--s)}.tier.A{background:#e9f1f7;color:var(--a)}
+.tier.candidate{background:#f0f0ee;color:var(--mut)}
+.meta{margin:0 0 7px;font-size:11.5px;color:var(--mut);display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.tag{border:1px solid var(--line);border-radius:3px;padding:0 5px}
+.own,.dom{border:1px solid var(--line);border-radius:3px;padding:0 5px}
+.fresh{margin-left:auto}
+.url{margin:0 0 7px;font-size:12.5px;word-break:break-all}
+.url a{color:var(--a)} .nourl{color:var(--mut)}
+.used{margin:0 0 7px;font-size:12px;color:var(--mut)}
+.chip{display:inline-block;background:#f2f0ec;border:1px solid var(--line);border-radius:3px;
+padding:0 5px;margin:2px 3px 0 0;font-size:11px}
+.note{margin:0 0 8px;font-size:12.5px;color:#403d38}
+details{font-size:11.5px;color:var(--mut)}
+details summary{cursor:pointer;color:var(--a)}
+details ul{margin:6px 0 0;padding-left:17px}
+code{font:11.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;background:#f2f0ec;
+padding:0 3px;border-radius:3px;word-break:break-all}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+border-radius:8px;overflow:hidden;font-size:13px}
+th,td{padding:9px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{background:#efede8;font-size:12.5px}
+table.dep tbody th{width:120px;font-size:13.5px}
+.sm{font-size:11.5px;color:#403d38}
+.pri{font-size:11px;font-weight:700;border-radius:3px;padding:1px 6px;color:#fff}
+.pri.p0{background:var(--s)}.pri.p1{background:#b7791f}.pri.p2{background:var(--c)}
+ol.next{padding-left:20px;font-size:14px} ol.next li{margin-bottom:8px}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--mut)}
+@media(max-width:640px){.grid{grid-template-columns:1fr}h1{font-size:22px}}
+</style></head><body><div class="wrap">
+
+<header class="top">
+<h1>AI 信息源池总览</h1>
+<p class="sub">池内信息源盘点 · 分类 / 去重 / 近期使用与依赖健康度 ｜ 生成时间 2026-09-20T16:34:52+08:00 ｜ 更新 2026-09-20T17:11:19+08:00 ｜
+数据源 <code>WS/ai-source-pool.json</code></p>
+<p class="sub">口径：同一媒体只记一条（按域名或 X handle 去重），每条都带本地文件路径 + 行号证据；2026-09-20 晚更新：经浏览器通读陈大黄两条推文，采纳 10 条候选源并入（见第四区末尾）。</p>
+<span class="priv">本地管理页 · 不进入发布仓库、不含任何密钥</span>
+
+<div class="stats">
+<div class="stat"><b>153</b><span>池内信息源总数（去重后）</span></div>
+<div class="stat"><b>46</b><span>短信息源</span></div>
+<div class="stat"><b>37</b><span>长信息源</span></div>
+<div class="stat"><b>8</b><span>图片 / 素材源</span></div>
+<div class="stat"><b>55</b><span>用户投喂 / 待纳入候选源</span></div>
+<div class="stat hot"><b>2.2%</b><span>AIHot 依赖占比（近 30 期成品 6/269 条来源链接）</span></div>
+</div>
+<div class="bar">
+<i style="width:30.0654%;background:var(--a)"></i>
+<i style="width:24.183%;background:var(--img)"></i>
+<i style="width:5.22876%;background:var(--agg)"></i>
+<i style="width:4.57516%;background:#c4b5a0"></i>
+<i style="width:35.9477%;background:var(--c)"></i>
+</div>
+<p class="legend"><em class="l1">短 46</em><em class="l2">长 37</em>
+<em class="l3">图片 8</em><em class="l4">聚合 7 · 候选 55</em></p>
+<p class="sub">AIHot 依赖的另一面：每日采集共 5 条通道，AIHot 占 1 条、Perplexity 占 1 条；
+池内登记源里 AIHot 相关 2 条（1.4%）。RSS 16-23 / 29 个源每日实际命中，
+近 30 期成品共 <b>67</b> 个不同来源域名。数量级估算，非精确值。</p>
+
+<!-- POOL-DASHBOARD:START -->
+<section id="live-dashboard" style="margin-top:22px;background:#fff;border:1px solid #e0ddd6;border-left:4px solid #1a7f37;border-radius:8px;padding:16px 18px">
+<h2 style="font-size:18px;margin:0 0 4px">🌊 今日活水看板 <span style="font-size:12px;color:#6d6963;font-weight:400">生成于 2026-09-21 13:22 · SSOT ai-source-pool.json</span></h2>
+<div><span style="display:inline-block;margin:2px 8px 2px 0;font-size:12.5px"><b style="color:#1a7f37">69</b> 活水</span> <span style="display:inline-block;margin:2px 8px 2px 0;font-size:12.5px"><b style="color:#7c3aed">39</b> 人工通道</span> <span style="display:inline-block;margin:2px 8px 2px 0;font-size:12.5px"><b style="color:#0f766e">21</b> 本地文件</span> <span style="display:inline-block;margin:2px 8px 2px 0;font-size:12.5px"><b style="color:#b58900">11</b> 休眠>7天</span> <span style="display:inline-block;margin:2px 8px 2px 0;font-size:12.5px"><b style="color:#6b7280">7</b> 无RSS</span> <span style="display:inline-block;margin:2px 8px 2px 0;font-size:12.5px"><b style="color:#b3261e">6</b> 墙内不可达</span> <span style="display:inline-block;margin:2px 8px 2px 0;font-size:12.5px"><b style="color:#8a8f98">4</b> 待探活</span></div>
+<div style="margin-top:10px;font-size:13.5px">📊 <b>今日采集（2026-09-21，15.5s，51 源）</b>：轨A 快讯 <b>44</b> 条 · 轨B 深读落库 <b>1</b> 篇 · 轨C 雷达 <b>104</b> 条</div><div style="font-size:12.5px;color:#6d6963;margin-top:3px">高产源：Buzzing 中文快译雷达 598 ｜ arXiv cs.AI 214 ｜ WIRED 长文（深读候选） 19 ｜ TechCrunch AI 12 ｜ 量子位 10 ｜ FT（付费墙） 9 ｜ The Verge AI 7 ｜ MarkTechPost 7</div><div style="font-size:12.5px;color:#6d6963;margin-top:2px">→ editorial-inbox：20260921-better-call-sol-or-better-yet-claude-or-astra</div>
+<div style="margin-top:6px;font-size:13px">🛒 深读小推车巡检：<b style="color:#b58900">YELLOW</b> <span style="color:#6d6963;font-size:12px">门禁发现 1 项收件箱契约违规（2026-09-21T13:22）</span></div>
+<details style="margin-top:10px"><summary style="cursor:pointer;font-size:13px">19 个核心长线源接入状态</summary>
+<table style="font-size:13px;margin-top:6px;border-collapse:collapse"><tr><td style="padding:3px 10px 3px 0">AI as Normal Technology（Sayash Kapoor / </td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">deep</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://www.normaltech.ai/feed</td></tr><tr><td style="padding:3px 10px 3px 0">AINews（swyx / Latent Space 每日信 + 邮箱 .eml</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">news、radar</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://www.latent.space/feed</td></tr><tr><td style="padding:3px 10px 3px 0">Anthropic News（GitHub 镜像 RSS）</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">news、deep</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://raw.githubusercontent.com/Olshansk/rss-feeds/mai</td></tr><tr><td style="padding:3px 10px 3px 0">Apple Machine Learning Research</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">deep、radar</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://machinelearning.apple.com/rss.xml</td></tr><tr><td style="padding:3px 10px 3px 0">arXiv cs.AI</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">radar</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://export.arxiv.org/rss/cs.AI</td></tr><tr><td style="padding:3px 10px 3px 0">Google DeepMind Blog</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">news</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://deepmind.google/blog/rss.xml</td></tr><tr><td style="padding:3px 10px 3px 0">Ethan Mollick (One Useful Thing)</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">deep、news</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://www.oneusefulthing.org/feed</td></tr><tr><td style="padding:3px 10px 3px 0">Google Blog · AI 频道</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">news</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://blog.google/technology/ai/rss/</td></tr><tr><td style="padding:3px 10px 3px 0">Hugging Face Daily Papers</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">radar、news</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://hf-mirror.com/api/daily_papers?p=0</td></tr><tr><td style="padding:3px 10px 3px 0">Meta Newsroom（about.fb.com，ai.meta.com 镜</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">news</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://about.fb.com/feed/</td></tr><tr><td style="padding:3px 10px 3px 0">MIT Technology Review</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">deep、news</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://www.technologyreview.com/feed/</td></tr><tr><td style="padding:3px 10px 3px 0">OpenAI News</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">news</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://openai.com/news/rss.xml</td></tr><tr><td style="padding:3px 10px 3px 0">Reddit r/LocalLLaMA</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">radar</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://www.reddit.com/r/LocalLLaMA/new/.rss</td></tr><tr><td style="padding:3px 10px 3px 0">Simon Willison</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">news、deep</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://simonwillison.net/atom/everything/</td></tr><tr><td style="padding:3px 10px 3px 0">The Batch (DeepLearning.AI)</td><td style="padding:3px 10px 3px 0;color:#1a7f37">活水</td><td style="padding:3px 10px 3px 0">news、deep</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://www.deeplearning.ai/the-batch/tag/the-batch/</td></tr><tr><td style="padding:3px 10px 3px 0">GitHub Trending Daily</td><td style="padding:3px 10px 3px 0;color:#6b7280">无RSS</td><td style="padding:3px 10px 3px 0">radar</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">none</td></tr><tr><td style="padding:3px 10px 3px 0">Import AI (Jack Clark)</td><td style="padding:3px 10px 3px 0;color:#b58900">休眠>7天</td><td style="padding:3px 10px 3px 0">news、radar</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://importai.substack.com/feed</td></tr><tr><td style="padding:3px 10px 3px 0">LINUX DO 大模型实测社区</td><td style="padding:3px 10px 3px 0;color:#b3261e">墙内不可达</td><td style="padding:3px 10px 3px 0">radar</td><td style="padding:3px 10px 3px 0;font-size:12px;color:#6d6963">https://linux.do/latest.rss</td></tr></table></details>
+<div style="font-size:12px;color:#6d6963;margin-top:8px">信源总数 157 · 每日 05:30 launchd 探活→同步→采集→巡检，产物：rss-candidates/*-harvest.* · editorial-inbox · _temp/ai-radar · _temp/source-usage</div>
+</section>
+<!-- POOL-DASHBOARD:END -->
+<nav><a href="#short_info">短信息源</a><a href="#long_info">长信息源</a>
+<a href="#image">图片/素材源</a><a href="#manual_candidate">用户新增候选源</a>
+<a href="#dep">依赖健康度</a><a href="#gap">缺口清单</a><a href="#next">下一步自有源建设</a></nav>
+</header>
+
+<section id="short_info">
+ <div class="sh"><h2>一、短信息源（快讯 / 动态 / 聚合雷达）<span class="cnt">53</span></h2><p>日更为主：官方新闻房、科技媒体 AI 频道、HN、聚合与雷达源（排在末尾 3 张卡）。这一层决定日报「今天有什么」。</p></div>
+ <div class="grid"><article class="card t-short_info k-A">
+  <div class="ch"><h3>OpenAI News</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Official</span><span class="dom">openai.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://openai.com/news/rss.xml" rel="noreferrer noopener">https://openai.com/news/rss.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">官方一手源，头版/前线主供；近 30 期 openai.com 引用 9 次。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:11</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li><li><code>ROOT/source-engine.json:48</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Google DeepMind Blog</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Official</span><span class="dom">deepmind.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.deepmind.com/blog/rss.xml" rel="noreferrer noopener">https://www.deepmind.com/blog/rss.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:18</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li><li><code>ROOT/source-engine.json:76</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>NVIDIA AI Blog</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Official</span><span class="dom">blogs.nvidia.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://blogs.nvidia.com/feed/" rel="noreferrer noopener">https://blogs.nvidia.com/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:25</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>LangChain Blog</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Official</span><span class="dom">blog.langchain.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://blog.langchain.com/rss.xml" rel="noreferrer noopener">https://blog.langchain.com/rss.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:32</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>GitHub Blog</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">GitHub</span><span class="dom">github.blog</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://github.blog/feed/" rel="noreferrer noopener">https://github.blog/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:39</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li><li><code>ROOT/source-engine.json:90</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>TechCrunch AI</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">techcrunch.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://techcrunch.com/category/artificial-intelligence/feed/" rel="noreferrer noopener">https://techcrunch.com/category/artificial-intelligence/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:61</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li><li><code>OP/01-AI前线情报与日报/00-交接与报告/2026-06-10-AI-News-信源筛选能力复盘与升级总报告.md:321</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>VentureBeat AI</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">venturebeat.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://venturebeat.com/category/ai/feed/" rel="noreferrer noopener">https://venturebeat.com/category/ai/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:69</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>The Verge AI</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">theverge.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.theverge.com/rss/ai-artificial-intelligence/index.xml" rel="noreferrer noopener">https://www.theverge.com/rss/ai-artificial-intelligence/index.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:77</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Ars Technica AI</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">arstechnica.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://arstechnica.com/ai/feed/" rel="noreferrer noopener">https://arstechnica.com/ai/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:85</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>MIT Technology Review</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">technologyreview.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.technologyreview.com/feed/" rel="noreferrer noopener">https://www.technologyreview.com/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:93</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Wired AI</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">wired.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.wired.com/feed/tag/ai/latest/rss" rel="noreferrer noopener">https://www.wired.com/feed/tag/ai/latest/rss</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:101</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>CNBC AI</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">cnbc.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.cnbc.com/id/10000664/device/rss/rss.html" rel="noreferrer noopener">https://www.cnbc.com/id/10000664/device/rss/rss.html</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:109</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>MarkTechPost</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">marktechpost.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.marktechpost.com/feed/" rel="noreferrer noopener">https://www.marktechpost.com/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:117</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Ben&#x27;s Bites</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">bensbites.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.bensbites.com/feed" rel="noreferrer noopener">https://www.bensbites.com/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:157</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Understanding AI (Holly Elmore)</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">understandingai.org</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.understandingai.org/feed" rel="noreferrer noopener">https://www.understandingai.org/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:188</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Hacker News（hnrss 首页）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">hnrss.org</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://hnrss.org/frontpage" rel="noreferrer noopener">https://hnrss.org/frontpage</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">泛科技源，靠 keywords/exclude_keywords 过滤；sources.json 把「Hacker News 热门」列为 blocked，仅按线索用。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:222</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li><li><code>ROOT/source-engine.json:336</code></li><li><code>ROOT/sources.json:46</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>量子位</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">RSS</span><span class="dom">qbitai.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.qbitai.com/feed" rel="noreferrer noopener">https://www.qbitai.com/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">image_manifest</span></p>
+  <p class="note">⚠ 状态冲突：仍在采集中，但已被 sources.json blockedSources、source-engine blocked_sources 与信息源指南同时列为「不用」。近 30 期引用 12 次、09-18 图片 manifest 命中 8 张，需人工裁决去留。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:231</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:138</code></li><li><code>ROOT/sources.json:48</code></li><li><code>ROOT/source-engine.json:34</code></li><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:81</code></li></ul></details>
+</article>
+<article class="card t-short_info k-S">
+  <div class="ch"><h3>Anthropic News（GitHub 镜像 RSS）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">GitHub</span><span class="dom">raw.githubusercontent.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml" rel="noreferrer noopener">https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。官方一手源却走第三方镜像，稳定性依赖别人仓库；未进 fetch_rss_sources 链。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:62</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Microsoft AI Blog</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Official</span><span class="dom">blogs.microsoft.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://blogs.microsoft.com/ai/feed/" rel="noreferrer noopener">https://blogs.microsoft.com/ai/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。已登记未接入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:104</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Vercel Changelog</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Official</span><span class="dom">vercel.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://vercel.com/changelog/rss.xml" rel="noreferrer noopener">https://vercel.com/changelog/rss.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。产品更新源，已登记未接入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:118</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@swyx（Swyx）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/swyx" rel="noreferrer noopener">https://x.com/swyx</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:49</code></li><li><code>OP/data/feed-x-raw.json:8</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@bcherny（Boris Cherny）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/bcherny" rel="noreferrer noopener">https://x.com/bcherny</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:59</code></li><li><code>OP/data/feed-x-raw.json:49</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@thsottiaux（Thibault Sottiaux）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/thsottiaux" rel="noreferrer noopener">https://x.com/thsottiaux</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:129</code></li><li><code>OP/data/feed-x-raw.json:79</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@petergyang（Peter Yang）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/petergyang" rel="noreferrer noopener">https://x.com/petergyang</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:139</code></li><li><code>OP/data/feed-x-raw.json:120</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@realmadhuguru（Madhu Guru）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/realmadhuguru" rel="noreferrer noopener">https://x.com/realmadhuguru</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:159</code></li><li><code>OP/data/feed-x-raw.json:150</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@amasad（Amjad Masad）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/amasad" rel="noreferrer noopener">https://x.com/amasad</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:209</code></li><li><code>OP/data/feed-x-raw.json:169</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@rauchg（Guillermo Rauch）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/rauchg" rel="noreferrer noopener">https://x.com/rauchg</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:219</code></li><li><code>OP/data/feed-x-raw.json:210</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@levie（Aaron Levie）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/levie" rel="noreferrer noopener">https://x.com/levie</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:229</code></li><li><code>OP/data/feed-x-raw.json:251</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@ryolu（Ryo Lu）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/ryolu" rel="noreferrer noopener">https://x.com/ryolu</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:239</code></li><li><code>OP/data/feed-x-raw.json:270</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@garrytan（Garry Tan）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/garrytan" rel="noreferrer noopener">https://x.com/garrytan</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:249</code></li><li><code>OP/data/feed-x-raw.json:289</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@mattturck（Matt Turck）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/mattturck" rel="noreferrer noopener">https://x.com/mattturck</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:259</code></li><li><code>OP/data/feed-x-raw.json:330</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@nikunj（Nikunj Kothari）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/nikunj" rel="noreferrer noopener">https://x.com/nikunj</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:269</code></li><li><code>OP/data/feed-x-raw.json:349</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@danshipper（Dan Shipper）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/danshipper" rel="noreferrer noopener">https://x.com/danshipper</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:279</code></li><li><code>OP/data/feed-x-raw.json:379</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@adityaag（Aditya Agarwal）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/adityaag" rel="noreferrer noopener">https://x.com/adityaag</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:289</code></li><li><code>OP/data/feed-x-raw.json:420</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>@claudeai（Claude 官方）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/claudeai" rel="noreferrer noopener">https://x.com/claudeai</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">follow_builders_brief</span><span class="chip">manual</span></p>
+  <p class="note">X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:99</code></li><li><code>OP/data/feed-x-raw.json:450</code></li><li><code>OP/scripts/build_follow_builders_v5.py:9</code></li></ul></details>
+</article>
+<article class="card t-short_info k-S">
+  <div class="ch"><h3>Reuters</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">reuters.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://reuters.com" rel="noreferrer noopener">https://reuters.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">一手事实校验；无 feed、无脚本，纯手工搜索层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:13</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:231</code></li></ul></details>
+</article>
+<article class="card t-short_info k-S">
+  <div class="ch"><h3>Bloomberg</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">bloomberg.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://bloomberg.com" rel="noreferrer noopener">https://bloomberg.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">商业/金融数据，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:14</code></li></ul></details>
+</article>
+<article class="card t-short_info k-S">
+  <div class="ch"><h3>AP（美联社）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">apnews.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://apnews.com" rel="noreferrer noopener">https://apnews.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">基础事实，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:15</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>WSJ（付费墙）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">wsj.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://wsj.com" rel="noreferrer noopener">https://wsj.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">需 archive.ph 绕墙；近 30 期仅 1 次引用。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:28</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>FT（付费墙）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">ft.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://ft.com" rel="noreferrer noopener">https://ft.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">需 archive.ph；池中未自动化。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:29</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Fortune</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">fortune.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://fortune.com" rel="noreferrer noopener">https://fortune.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">商业/人物，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:30</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Axios</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">axios.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://axios.com" rel="noreferrer noopener">https://axios.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">简洁摘要，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:31</code></li></ul></details>
+</article>
+<article class="card t-short_info k-A">
+  <div class="ch"><h3>Semafor</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">semafor.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://semafor.com" rel="noreferrer noopener">https://semafor.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">全球简报，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:32</code></li></ul></details>
+</article>
+<article class="card t-short_info k-B">
+  <div class="ch"><h3>Defense News</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">defensenews.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://defensenews.com" rel="noreferrer noopener">https://defensenews.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">AI 军事应用维度，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:40</code></li></ul></details>
+</article>
+<article class="card t-short_info k-B">
+  <div class="ch"><h3>Product Hunt</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">producthunt.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://producthunt.com" rel="noreferrer noopener">https://producthunt.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">新产品/工具维度，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:47</code></li></ul></details>
+</article>
+<article class="card t-short_info k-B">
+  <div class="ch"><h3>X 外发弹药队列（日报 → x-auto-post）</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">短信息源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">SITE/scripts/export_to_x.py</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">x_export</span></p>
+  <p class="note">把成品反向输出到 X 队列，指向另一个仓库的 ammo/posts.json；本次未改动该脚本。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/export_to_x.py:25</code></li><li><code>SITE/scripts/export_to_x.py:83</code></li><li><code>/Users/a0302/Documents/Qoder/2026-09-18/a9cd1c57/ai-source-pool-overview.html:1</code></li></ul></details>
+</article>
+<article class="card t-aggregate k-A">
+  <div class="ch"><h3>AI HOT 精选流（含 /all · /daily · /agent）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">聚合与雷达源</span>
+     <span class="own">AIHot</span><span class="dom">aihot.virxact.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://aihot.virxact.com" rel="noreferrer noopener">https://aihot.virxact.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">aihot</span><span class="chip">image_manifest</span><span class="chip">deep_read_candidates</span></p>
+  <p class="note">当前最大外部雷达；线索价值高但属二手聚合，出处必须回原始源。成品来源行仍偶见该域名，应清零。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/fetch_aihot_sources.py:28</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:65</code></li><li><code>ROOT/source-engine.json:322</code></li><li><code>SITE/data/aihot-candidates/2026-09-18.md:1</code></li><li><code>ROOT/ai-hot-feed-data.json:2</code></li><li><code>SITE/scripts/build_image_manifest.py:72</code></li><li><code>OBS/20-短线社交雷达源-2026-05-24.md:44</code></li></ul></details>
+</article>
+<article class="card t-aggregate k-S">
+  <div class="ch"><h3>Perplexity 实时深度检索（K3 主力 + 兜底 + 逐条补细节）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">聚合与雷达源</span>
+     <span class="own">Aggregate</span><span class="dom">perplexity.ai</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.perplexity.ai" rel="noreferrer noopener">https://www.perplexity.ai</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">perplexity</span><span class="chip">image_manifest</span></p>
+  <p class="note">唯一的实时网页检索通道，CDP(3456) 不可用即整体跳过，属单点依赖。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/fetch_perplexity_daily.py:71</code></li><li><code>SITE/scripts/fetch_perplexity_details.py:52</code></li><li><code>SITE/scripts/fetch_perplexity_k3_daily.py:62</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:88</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:109</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:130</code></li><li><code>SITE/scripts/build_image_manifest.py:30</code></li></ul></details>
+</article>
+<article class="card t-aggregate k-S">
+  <div class="ch"><h3>AINews（swyx / Latent Space 每日信 + 邮箱 .eml）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">聚合与雷达源</span>
+     <span class="own">Aggregate</span><span class="dom">latent.space</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.latent.space/feed" rel="noreferrer noopener">https://www.latent.space/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">ainews</span><span class="chip">image_manifest</span><span class="chip">publish_reference</span></p>
+  <p class="note">近 30 期成品引用 30 次（排名第 2）。覆盖 Twitter/Reddit 深度聚合，是国内模型与中文 builder 的重要补漏源。<b>2026-09-20 起 RSS 直采</b>：feed 实测全文日更（北京时间 13-15 点，早于次日 06:00 晨窗），已登记 rss-sources.json 首位 + fetch_ainews() 死函数接回采集链；手动下载 eml 降级为兜底。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:ainews-latent-space</code></li><li><code>SITE/scripts/fetch_ainews_web.py:35</code></li><li><code>SITE/scripts/fetch_ainews_web.py:68</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:182</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:200</code></li><li><code>SITE/scripts/parse_ainews_eml.py:7</code></li><li><code>SITE/tests/pipeline/test_ainews_rss_t37.py:1</code></li><li><code>SITE/data/ainews-mail-2026-08-13.md:1</code></li><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/00-索引与融合要点.md:1</code></li></ul></details>
+</article>
+<article class="card t-aggregate k-A">
+  <div class="ch"><h3>AI HOT 每日候选归档池</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">聚合与雷达源</span>
+     <span class="own">AIHot</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><span class="nourl">data/aihot-candidates/</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">aihot</span><span class="chip">image_manifest</span></p>
+  <p class="note">34 份日更归档（2026-08-09 起），缺 09-09/09-12/09-13/09-16/09-17/09-19/09-20 等日。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/aihot-candidates/2026-09-18.md:1</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:66</code></li></ul></details>
+</article>
+<article class="card t-aggregate k-S">
+  <div class="ch"><h3>自有信源白/黑名单（sources.json）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">聚合与雷达源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">sources.json</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">gate_config</span><span class="chip">manual</span></p>
+  <p class="note">39 个允许源名 + 8 个禁用源名 + 6 个深读偏好源；纯名称列表，无 URL，无法与采集脚本对齐。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/sources.json:2</code></li><li><code>ROOT/sources.json:43</code></li><li><code>ROOT/sources.json:83</code></li></ul></details>
+</article>
+<article class="card t-aggregate k-S">
+  <div class="ch"><h3>自有信息发动机（source-engine.json）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">聚合与雷达源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">source-engine.json</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">26 源 × core/longline/radar 分层，最接近「唯一事实源」的现有资产，但版本停在 2026-05-24、与 rss-sources.json 双轨并存。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:48</code></li><li><code>ROOT/source-engine.json:1</code></li><li><code>ROOT/source-engine.json:20</code></li><li><code>ROOT/source-engine.json:322</code></li></ul></details>
+</article>
+<article class="card t-aggregate k-S">
+  <div class="ch"><h3>质量校验硬编码域名表（黑名单 / 深度源白名单）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">聚合与雷达源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">SITE/scripts/quality_gate.py</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">gate_config</span></p>
+  <p class="note">F10 黑名单 14 域、F11 深度源白名单 14 域、公司名映射表全部写死在 quality_gate.py，改源必须改代码。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/quality_gate.py:188</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li><li><code>SITE/scripts/quality_gate.py:212</code></li></ul></details>
+</article></div></section>
+
+<section id="long_info">
+ <div class="sh"><h2>二、长信息源（深读 / 长文 / 论文 / 外刊）<span class="cnt">37</span></h2><p>周更为主：个人博客、Substack 深度分析、学术与外刊长文。这一层决定日报「声音」栏与深读候选池，也是自有资产最厚的一层。</p></div>
+ <div class="grid"><article class="card t-long_info k-S">
+  <div class="ch"><h3>BAIR Blog</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">bair.berkeley.edu</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://bair.berkeley.edu/blog/feed.xml" rel="noreferrer noopener">https://bair.berkeley.edu/blog/feed.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:46</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:19</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>arXiv cs.AI</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">export.arxiv.org</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://export.arxiv.org/rss/cs.AI" rel="noreferrer noopener">https://export.arxiv.org/rss/cs.AI</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">论文源，只进「论文速递」栏，不混入新闻栏（fetch_rss_sources.py:63）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:52</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>Quanta Magazine</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">quantamagazine.org</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://www.quantamagazine.org/feed/" rel="noreferrer noopener">https://www.quantamagazine.org/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:125</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>IEEE Spectrum</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">spectrum.ieee.org</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://spectrum.ieee.org/rss/fulltext" rel="noreferrer noopener">https://spectrum.ieee.org/rss/fulltext</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:133</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>Sequoia Blog</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">sequoiacap.com</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://www.sequoiacap.com/feed/" rel="noreferrer noopener">https://www.sequoiacap.com/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:142</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li></ul></details>
+</article>
+<article class="card t-long_info k-S">
+  <div class="ch"><h3>Simon Willison</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">simonwillison.net</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://simonwillison.net/atom/everything/" rel="noreferrer noopener">https://simonwillison.net/atom/everything/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:150</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li><li><code>ROOT/source-engine.json:132</code></li><li><code>SITE/data/verified-deep-sources.json:3</code></li></ul></details>
+</article>
+<article class="card t-long_info k-S">
+  <div class="ch"><h3>Stratechery (Ben Thompson)</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">stratechery.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://stratechery.com/feed/" rel="noreferrer noopener">https://stratechery.com/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:164</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li><li><code>ROOT/source-engine.json:160</code></li><li><code>SITE/data/verified-deep-sources.json:24</code></li><li><code>SITE/data/verified-deep-sources.json:48</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>The Zvi</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">thezvi.substack.com</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://thezvi.substack.com/feed" rel="noreferrer noopener">https://thezvi.substack.com/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:171</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li></ul></details>
+</article>
+<article class="card t-long_info k-S">
+  <div class="ch"><h3>Interconnects (Nathan Lambert)</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">interconnects.ai</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.interconnects.ai/feed" rel="noreferrer noopener">https://www.interconnects.ai/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:180</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li><li><code>ROOT/source-engine.json:160</code></li></ul></details>
+</article>
+<article class="card t-long_info k-B">
+  <div class="ch"><h3>AI Supremacy</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">ai-supremacy.com</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://www.ai-supremacy.com/feed" rel="noreferrer noopener">https://www.ai-supremacy.com/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:196</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>The Pragmatic Engineer</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">newsletter.pragmaticengineer.com</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://newsletter.pragmaticengineer.com/feed" rel="noreferrer noopener">https://newsletter.pragmaticengineer.com/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:204</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li></ul></details>
+</article>
+<article class="card t-long_info k-B">
+  <div class="ch"><h3>Lenny&#x27;s Newsletter</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">lennysnewsletter.com</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://www.lennysnewsletter.com/feed" rel="noreferrer noopener">https://www.lennysnewsletter.com/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">rss</span><span class="chip">deep_reading</span><span class="chip">gate_config</span></p>
+  <p class="note">已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:213</code></li><li><code>SITE/scripts/fetch_rss_sources.py:49</code></li><li><code>SITE/scripts/quality_gate.py:195</code></li></ul></details>
+</article>
+<article class="card t-long_info k-S">
+  <div class="ch"><h3>Hugging Face Daily Papers</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Paper</span><span class="dom">huggingface.co</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://huggingface.co/api/daily_papers" rel="noreferrer noopener">https://huggingface.co/api/daily_papers</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。近 30 期 huggingface.co 被引用 9 次（第 9 名）却不在采集链里——靠人工补，属高价值缺口。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:350</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>arXiv q-fin × AI 交叉</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Paper</span><span class="dom">export.arxiv.org</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://export.arxiv.org/api/query?search_query=cat:q-fin*" rel="noreferrer noopener">https://export.arxiv.org/api/query?search_query=cat:q-fin*</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。AI × 金融观察线唯一学术源，已登记未接入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:258</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>Two Sigma Research</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Official</span><span class="dom">twosigma.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://www.twosigma.com/articles/feed/" rel="noreferrer noopener">https://www.twosigma.com/articles/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。量化机构研究，已登记未接入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:274</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>Man Institute AI</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Official</span><span class="dom">man.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://www.man.com/maninstitute/ai" rel="noreferrer noopener">https://www.man.com/maninstitute/ai</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。登记为 enabled=false，且无 feed，纯网页人工源。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:290</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>Risk.net Cutting Edge</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">risk.net</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://www.risk.net/feeds/rss/category/cutting-edge" rel="noreferrer noopener">https://www.risk.net/feeds/rss/category/cutting-edge</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。已登记未接入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:306</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>OpenAI Cookbook（GitHub commits atom）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">GitHub</span><span class="dom">github.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://github.com/openai/openai-cookbook/commits/main.atom" rel="noreferrer noopener">https://github.com/openai/openai-cookbook/commits/main.atom</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。工程实践信号源，已登记未接入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:392</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>Claude Developer Guides（cookbook atom）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">GitHub</span><span class="dom">raw.githubusercontent.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://raw.githubusercontent.com/anthropics/anthropic-cookbook/main/feed.atom" rel="noreferrer noopener">https://raw.githubusercontent.com/anthropics/anthropic-cookbook/main/feed.atom</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。第三方维护的 atom，与 Anthropic News 同一风险。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:406</code></li></ul></details>
+</article>
+<article class="card t-long_info k-S">
+  <div class="ch"><h3>Import AI (Jack Clark)</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">importai.substack.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://importai.substack.com/feed" rel="noreferrer noopener">https://importai.substack.com/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。深度分析主力周报，未进采集链。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:364</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>The Batch (DeepLearning.AI)</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">deeplearning.ai</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://www.deeplearning.ai/the-batch/feed/" rel="noreferrer noopener">https://www.deeplearning.ai/the-batch/feed/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。精选周报，未进采集链。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:378</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>Dwarkesh Patel（长访谈）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">dwarkesh.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://www.dwarkesh.com/feed" rel="noreferrer noopener">https://www.dwarkesh.com/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。人物访谈证据链，未进采集链。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:244</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>Sebastian Raschka</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">sebastianraschka.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://sebastianraschka.com/rss_feed.xml" rel="noreferrer noopener">https://sebastianraschka.com/rss_feed.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。唯一有固定监测回写记录的博主源（OBS/30-稳定探测中心/71 号文件）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:188</code></li></ul></details>
+</article>
+<article class="card t-long_info k-S">
+  <div class="ch"><h3>Ethan Mollick (One Useful Thing)</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">oneusefulthing.org</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://www.oneusefulthing.org/feed" rel="noreferrer noopener">https://www.oneusefulthing.org/feed</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。F11 深度源白名单成员，但不在 rss-sources.json 中。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:146</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>Addy Osmani</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">addyosmani.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://addyosmani.com/blog/rss.xml" rel="noreferrer noopener">https://addyosmani.com/blog/rss.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。登记为 enabled=false（已停用）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:174</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>Armin Ronacher</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">lucumr.pocoo.org</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://lucumr.pocoo.org/feed.atom" rel="noreferrer noopener">https://lucumr.pocoo.org/feed.atom</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。已登记未接入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:202</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>Mitchell Hashimoto</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">mitchellh.com</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://mitchellh.com/feed.xml" rel="noreferrer noopener">https://mitchellh.com/feed.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。已登记未接入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:216</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>Philipp Schmid</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">philschmid.de</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://www.philschmid.de/rss.xml" rel="noreferrer noopener">https://www.philschmid.de/rss.xml</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">source_engine_registry</span></p>
+  <p class="note">登记在自有 source-engine.json，但未进每日采集链。登记为 enabled=false（已停用）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/source-engine.json:230</code></li></ul></details>
+</article>
+<article class="card t-long_info k-B">
+  <div class="ch"><h3>Nature</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Local</span><span class="dom">nature.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://nature.com" rel="noreferrer noopener">https://nature.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">学术论文维度，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:43</code></li></ul></details>
+</article>
+<article class="card t-long_info k-B">
+  <div class="ch"><h3>Matt Wolfe</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Local</span><span class="dom">mattwolfe.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://mattwolfe.com" rel="noreferrer noopener">https://mattwolfe.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">AI 工具评测博主，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:56</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>Karpathy 博客</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Local</span><span class="dom">karpathy.github.io</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://karpathy.github.io" rel="noreferrer noopener">https://karpathy.github.io</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">低频高权重，手工层。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:58</code></li></ul></details>
+</article>
+<article class="card t-long_info k-S">
+  <div class="ch"><h3>The Atlantic（本地合法落盘 drop）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><span class="nourl">本地目录投送</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">deep_reading</span></p>
+  <p class="note">深读主力长文源，走本地 watch_dir 而非网络抓取；exclude_patterns 控制杂志版/PureFlow 版重复。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/02-AI-Deep-Reading/config/sources.yaml:6</code></li><li><code>OP/02-AI-Deep-Reading/00-SSOT与Agent任务规范.md:1</code></li></ul></details>
+</article>
+<article class="card t-long_info k-S">
+  <div class="ch"><h3>The New Yorker（editorial-inbox drop）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><span class="nourl">editorial-inbox/drop</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">deep_reading</span></p>
+  <p class="note">近 5 期 inbox 内 New Yorker 条目持续入库（含 09-16/09-17 多篇）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/02-AI-Deep-Reading/config/sources.yaml:18</code></li><li><code>OP/02-AI-Deep-Reading/editorial-inbox/intake-2026-09-15.json:1</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>The Atlantic RSS 位（占位未启用）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Local</span><span class="dom">（未定）</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><span class="nourl">（空 URL）</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">deep_reading</span></p>
+  <p class="note">配置存在但 enabled=false、url 为空——需用户订阅后填 URL 才生效。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/02-AI-Deep-Reading/config/sources.yaml:26</code></li></ul></details>
+</article>
+<article class="card t-long_info k-candidate">
+  <div class="ch"><h3>The New Yorker RSS 位（占位未启用）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Local</span><span class="dom">（未定）</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><span class="nourl">（空 URL）</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">deep_reading</span></p>
+  <p class="note">同上，占位待填。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/02-AI-Deep-Reading/config/sources.yaml:34</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>WIRED 长文（深读候选）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">RSS</span><span class="dom">wired.com</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://www.wired.com" rel="noreferrer noopener">https://www.wired.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">deep_reading</span><span class="chip">daily_collect</span></p>
+  <p class="note">同一媒体两条链：短讯走 Wired AI feed，长文进深读候选池。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/rss-sources.json:101</code></li><li><code>OP/02-AI-Deep-Reading/20-深读候选池/咕咕读精选/2026-07-30-WIRED-NvidiasOpenSourceAllianceIsMissing.md:1</code></li></ul></details>
+</article>
+<article class="card t-long_info k-A">
+  <div class="ch"><h3>深读已核验原始源集合</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">长信息源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><span class="nourl">data/verified-deep-sources.json</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">deep_reading</span><span class="chip">publish_reference</span></p>
+  <p class="note">逐条 URL 级核验台账（含 anthropic.com / news.ycombinator.com 等池外域名），是「回原始源」的落地证据。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/verified-deep-sources.json:1</code></li></ul></details>
+</article></div></section>
+
+<section id="image">
+ <div class="sh"><h2>三、图片 / 素材源<span class="cnt">8</span></h2><p>全部落到自建 COS，不外链第三方图床；含备用官方图库、每日 manifest 抓取链、Be Curious NASA 地貌池与视觉质检环节。</p></div>
+ <div class="grid"><article class="card t-image k-S">
+  <div class="ch"><h3>官方配图库（COS 图床 + 分类备用池）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">图片/素材源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><span class="nourl">data/official-image-library.json</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">image_manifest</span><span class="chip">daily_write</span></p>
+  <p class="note">3 个语义类（chips_compute / frontier_models / embodied_robotics）共 8 张已验证备用图，全部落自有 COS；09-18 当天 manifest 未命中时由此兜底。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/official-image-library.json:1</code></li><li><code>SITE/scripts/sync_official_library.py:29</code></li><li><code>SITE/scripts/sync_official_library.py:30</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:174</code></li></ul></details>
+</article>
+<article class="card t-image k-S">
+  <div class="ch"><h3>每日新闻 og:image 抓取 → COS 图床 manifest</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">图片/素材源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><span class="nourl">SITE/data/image-manifest/</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span><span class="chip">image_manifest</span></p>
+  <p class="note">素材 URL 来源硬编码为 5 个文件（AIHOT/Perplexity×2/RSS/AINews）；09-18 共 25 条，13 张拿到 COS、12 张 no_official_image。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/build_image_manifest.py:24</code></li><li><code>SITE/scripts/build_image_manifest.py:29</code></li><li><code>SITE/scripts/build_image_manifest.py:72</code></li><li><code>SITE/scripts/fetch_official_image.py:23</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:154</code></li><li><code>SITE/data/image-manifest/2026-09-18.json:1</code></li></ul></details>
+</article>
+<article class="card t-image k-A">
+  <div class="ch"><h3>Be Curious 备用地貌图池（NASA EO 已核验）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">图片/素材源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><span class="nourl">data/be-curious-ready-pool.json</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_write</span></p>
+  <p class="note">45 张已 http_verified 的地貌图，配 7 天不重复 + 全网史不重复去重规则。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/be-curious-ready-pool.json:1</code></li><li><code>SITE/scripts/pick_be_curious.py:26</code></li><li><code>SITE/scripts/scan_be_curious_pool.py:27</code></li><li><code>SITE/scripts/pick_be_curious.py:29</code></li></ul></details>
+</article>
+<article class="card t-image k-A">
+  <div class="ch"><h3>NASA EO Image-of-the-Day 候选池</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">图片/素材源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><span class="nourl">data/eo-candidate-pool.json</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_write</span></p>
+  <p class="note">28 张（含 1 张 usable=false 的坏 URL 已标记）；由 fetch_eo_gallery.py 从 science.nasa.gov IOTD 页扩充。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/data/eo-candidate-pool.json:1</code></li><li><code>SITE/scripts/pick_be_curious.py:28</code></li><li><code>SITE/scripts/fetch_eo_gallery.py:39</code></li><li><code>SITE/scripts/fetch_eo_gallery.py:80</code></li></ul></details>
+</article>
+<article class="card t-image k-A">
+  <div class="ch"><h3>NASA 地球观测图源域名</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">图片/素材源</span>
+     <span class="own">Official</span><span class="dom">science.nasa.gov</span>
+     <span class="fresh">新鲜度：周更</span></p>
+  <p class="url"><a href="https://science.nasa.gov/earth/earth-observatory/image-of-the-day/" rel="noreferrer noopener">https://science.nasa.gov/earth/earth-observatory/image-of-the-day/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_write</span><span class="chip">image_manifest</span></p>
+  <p class="note">两个静态资源域（assets.science.nasa.gov / eoimages.gsfc.nasa.gov）+ 列表页，三处硬编码在脚本常量与数据里。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/fetch_eo_gallery.py:80</code></li><li><code>SITE/scripts/fetch_eo_gallery.py:128</code></li><li><code>SITE/data/be-curious-ready-pool.json:10</code></li><li><code>SITE/data/eo-candidate-pool.json:11</code></li></ul></details>
+</article>
+<article class="card t-image k-B">
+  <div class="ch"><h3>NASA JSC 地球观测实验室（ISS 大图）</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">图片/素材源</span>
+     <span class="own">Official</span><span class="dom">eol.jsc.nasa.gov</span>
+     <span class="fresh">新鲜度：未知</span></p>
+  <p class="url"><a href="https://eol.jsc.nasa.gov/DatabaseImages/ESC/" rel="noreferrer noopener">https://eol.jsc.nasa.gov/DatabaseImages/ESC/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">legacy_generator</span></p>
+  <p class="note">旧版生成器里的固定 ISS 图片 ID 列表（按日期取图），与新 Be Curious 池并行存在，属重复实现。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/v7_generate.py:37</code></li><li><code>SITE/scripts/v7_generate.py:41</code></li><li><code>SITE/scripts/fix_sample_html.py:30</code></li></ul></details>
+</article>
+<article class="card t-image k-S">
+  <div class="ch"><h3>自建腾讯云 COS 图床（唯一图片出口）</h3><span class="tier S">S 级</span></div>
+  <p class="meta"><span class="tag">图片/素材源</span>
+     <span class="own">Local</span><span class="dom">myqcloud.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/" rel="noreferrer noopener">https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">image_manifest</span><span class="chip">publish</span></p>
+  <p class="note">自有资产（非第三方图床），三处脚本各自写死同一 base URL，应迁到源池 JSON。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/fetch_official_image.py:23</code></li><li><code>SITE/scripts/build_image_manifest.py:24</code></li><li><code>SITE/scripts/sync_official_library.py:30</code></li><li><code>SITE/data/official-image-library.json:3</code></li></ul></details>
+</article>
+<article class="card t-image k-A">
+  <div class="ch"><h3>候选图视觉质检（图文一致性 fit≥7）</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">图片/素材源</span>
+     <span class="own">Local</span><span class="dom">local</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><span class="nourl">SITE/scripts/image-qa.py</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">daily_collect</span></p>
+  <p class="note">对当天预抓图逐张打分，fit&lt;7 提前淘汰；评分回写进图库条目（novelty_score / visual_reason）。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>SITE/scripts/image-qa.py:1</code></li><li><code>SITE/scripts/auto_daily_pipeline.sh:168</code></li><li><code>SITE/data/official-image-library.json:35</code></li></ul></details>
+</article></div></section>
+
+<section id="manual_candidate">
+ <div class="sh"><h2>四、用户新增候选源（已登记、尚未接入采集）<span class="cnt">55</span></h2><p>X / Twitter 账号池、中文快译雷达、信息源指南里的手工搜索层、长线池在册但无机器登记的博客。@realchendahuang 位于本区顶部；2026-09-20 并入陈大黄清单 10 源（本区末尾）。</div>
+ <div class="grid"><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@karpathy（Andrej Karpathy）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/karpathy" rel="noreferrer noopener">https://x.com/karpathy</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:39</code></li><li><code>OBS/20-短线社交雷达源-2026-05-24.md:9</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@alexalbert（Alex Albert）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/alexalbert" rel="noreferrer noopener">https://x.com/alexalbert</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:69</code></li><li><code>OBS/20-短线社交雷达源-2026-05-24.md:12</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@steipete（Peter Steinberger）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/steipete" rel="noreferrer noopener">https://x.com/steipete</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:79</code></li><li><code>OBS/20-短线社交雷达源-2026-05-24.md:10</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@sama（Sam Altman）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/sama" rel="noreferrer noopener">https://x.com/sama</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:89</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@zarazhangrui（Zara Zhang）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/zarazhangrui" rel="noreferrer noopener">https://x.com/zarazhangrui</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:109</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@joshwoodward（Josh Woodward）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/joshwoodward" rel="noreferrer noopener">https://x.com/joshwoodward</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:119</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@thenanyu（Nan Yu）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/thenanyu" rel="noreferrer noopener">https://x.com/thenanyu</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:149</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@amandaaskell（Amanda Askell）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/amandaaskell" rel="noreferrer noopener">https://x.com/amandaaskell</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:169</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@catwu（Cat Wu）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/catwu" rel="noreferrer noopener">https://x.com/catwu</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:179</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@trq212（Thariq）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/trq212" rel="noreferrer noopener">https://x.com/trq212</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:189</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@googlelabs（Google Labs）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/googlelabs" rel="noreferrer noopener">https://x.com/googlelabs</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>ROOT/follow-builders-source.json:199</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@emollick（Ethan Mollick）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/emollick" rel="noreferrer noopener">https://x.com/emollick</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:11</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@gregisenberg（Greg Isenberg）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/gregisenberg" rel="noreferrer noopener">https://x.com/gregisenberg</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:17</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@rileybrown（Riley Brown）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/rileybrown" rel="noreferrer noopener">https://x.com/rileybrown</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:18</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@corbinbraun（Corbin Braun）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/corbinbraun" rel="noreferrer noopener">https://x.com/corbinbraun</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:19</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@levelsio（Levelsio）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/levelsio" rel="noreferrer noopener">https://x.com/levelsio</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:20</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@marclou（Marc Lou）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/marclou" rel="noreferrer noopener">https://x.com/marclou</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:21</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@exm7777（EXM7777）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/exm7777" rel="noreferrer noopener">https://x.com/exm7777</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:22</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@vasuman（Vasuman）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/vasuman" rel="noreferrer noopener">https://x.com/vasuman</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:23</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@mengto（Meng To）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/mengto" rel="noreferrer noopener">https://x.com/mengto</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:24</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@hesamation（Hesamation）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/hesamation" rel="noreferrer noopener">https://x.com/hesamation</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:25</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@godofprompt（God of Prompt）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/godofprompt" rel="noreferrer noopener">https://x.com/godofprompt</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:26</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@jimfan（Jim Fan）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/jimfan" rel="noreferrer noopener">https://x.com/jimfan</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:15</code></li><li><code>OP/data/feed-x-raw.json:1</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>@realchendahuang 陈大黄（信息源清单投喂，已通读）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">User-fed</span><span class="dom">x.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://x.com/realchendahuang" rel="noreferrer noopener">https://x.com/realchendahuang</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">2026-09-20 已通过浏览器通读两条推文全文并归档原文（见证据）。账号定位：中文 AI 工具、独立开发与信息源方法论分享，清单质量高、思路与我方源池同构，建议进 X 候选池日更首批。两条清单共采纳 10 源（本池新条目）；明确不采：NodeSeek／LowEndTalk（廉价 VPS 基建，非 AI News 主线）、V2EX（泛开发者社区，信号密度不足）、Mobbin／Godly（设计素材库，无新闻流）、r/Affiliatemarketing（广告联盟噪音）。另记下其方法论：高噪音论坛交给 AI 先总结筛选、人只看筛后结果——与我们的自动采集＋质量闸同构。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>（未知/缺口：本次投喂前，仓库内不存在该账号的任何文件证据）</code></li><li><code>OP/data/feed-x-raw.json:1（现有 X 抓取池仅 15 个账号，不含该 handle）</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-A">
+  <div class="ch"><h3>苏剑林的科学空间</h3><span class="tier A">A 级</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">（未定）</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">待补</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">中文硬核解释，文档判定「可进长线」，但无链接无 feed，从未落进任何机器可读池。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:34</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-B">
+  <div class="ch"><h3>马东锡NLP</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">（未定）</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">待补</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">论文快译雷达，原文需回溯；未接采集链。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:35</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-B">
+  <div class="ch"><h3>ByCloud</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">X</span><span class="dom">（未定）</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">待补</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">论文与 AI timeline 线索，链接待补。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:36</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-B">
+  <div class="ch"><h3>知乎 AI 快译账号（泛指）</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">（未定）</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">待补</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">只作热点发现；zhihu.com 已在 quality_gate 素材源黑名单（190 行），不可进成品。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:37</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-B">
+  <div class="ch"><h3>公众号 AI 工具号（泛指）</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">（未定）</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">待补</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">不可验证、无法引用；信息源指南明确列为「不用」。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/20-短线社交雷达源-2026-05-24.md:38</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-B">
+  <div class="ch"><h3>36氪</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">36kr.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://36kr.com" rel="noreferrer noopener">https://36kr.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">⚠ 状态冲突：指南允许用于融资新闻（须含金额），但 quality_gate SOURCE_BLACKLIST_DOMAINS 与 sources.json blockedSources 两处均将其列为不采信源。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:66</code></li><li><code>SITE/scripts/quality_gate.py:191</code></li><li><code>ROOT/sources.json:50</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-B">
+  <div class="ch"><h3>东方财富</h3><span class="tier B">B 级</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">eastmoney.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://eastmoney.com" rel="noreferrer noopener">https://eastmoney.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">仅市场数据；未在任何机器池。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/.workbuddy/skills/ai-news-sources-guide.md:67</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Salvatore Sanfilippo</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">antirez.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://antirez.com/" rel="noreferrer noopener">https://antirez.com/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:14</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Sean Goedecke</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">www.seangoedecke.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://www.seangoedecke.com/" rel="noreferrer noopener">https://www.seangoedecke.com/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:16</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Matt Shumer</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">（待补）</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><span class="nourl">待补</span></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:17</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Paul Graham</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">paulgraham.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://paulgraham.com/" rel="noreferrer noopener">https://paulgraham.com/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:21</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Dan Abramov</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">overreacted.io</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://overreacted.io/" rel="noreferrer noopener">https://overreacted.io/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:22</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Jeff Geerling</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">www.jeffgeerling.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://www.jeffgeerling.com/" rel="noreferrer noopener">https://www.jeffgeerling.com/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:23</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>George Hotz</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">geohot.github.io</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://geohot.github.io/" rel="noreferrer noopener">https://geohot.github.io/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:24</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Gary Marcus</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">garymarcus.substack.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://garymarcus.substack.com/" rel="noreferrer noopener">https://garymarcus.substack.com/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:25</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Gwern</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">gwern.net</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://gwern.net/" rel="noreferrer noopener">https://gwern.net/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:26</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Raymond Chen</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">devblogs.microsoft.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://devblogs.microsoft.com/oldnewthing/" rel="noreferrer noopener">https://devblogs.microsoft.com/oldnewthing/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:27</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Troy Hunt</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">www.troyhunt.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://www.troyhunt.com/" rel="noreferrer noopener">https://www.troyhunt.com/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:28</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Eli Bendersky</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">eli.thegreenplace.net</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://eli.thegreenplace.net/" rel="noreferrer noopener">https://eli.thegreenplace.net/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:29</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Fabien Sanglard</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">fabiensanglard.net</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://fabiensanglard.net/" rel="noreferrer noopener">https://fabiensanglard.net/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:30</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Hillel Wayne</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">Local</span><span class="dom">buttondown.com</span>
+     <span class="fresh">新鲜度：人工/不定期</span></p>
+  <p class="url"><a href="https://buttondown.com/hillelwayne" rel="noreferrer noopener">https://buttondown.com/hillelwayne</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">obsidian_pool</span></p>
+  <p class="note">长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OBS/10-长线人物与博客信源池-2026-05-24.md:31</code></li><li><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104</code></li></ul></details>
+</article>
+<!-- chendahuang-20260920 -->
+<article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>LINUX DO 大模型实测社区</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">linux.do</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://linux.do" rel="noreferrer noopener">https://linux.do</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">中文圈民间大模型降智、逆向与 API 低成本玩法的实测社区，信号常比官方通告快几天；直接服务「国内模型与本地运行生态不能被海外大厂淹没」选题铁律。论坛噪音高（推文评论区自评含噪量大），必须 AI 预筛＋回原文核实，不作权威源。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Reddit r/LocalLLaMA</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">reddit.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.reddit.com/r/LocalLLaMA/" rel="noreferrer noopener">https://www.reddit.com/r/LocalLLaMA/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">全球开源模型与本地推理源头：GGUF/EXL2 量化首发测评、消费级显卡压榨、DeepSeek/Qwen 本地部署与轻量 Harness；与 mlx-vlm/Ollama/llama.cpp/端侧量化铁律维度逐一对应。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Reddit r/cursor</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">reddit.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.reddit.com/r/cursor/" rel="noreferrer noopener">https://www.reddit.com/r/cursor/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">Coding Agent 前线真实口碑：官方更新后暗改、Token 计费实测、长上下文失灵、AGENTS.md 支持进展；是「Reality Check 编辑姿态」的一线验证场—— benchmark 与官方声量结论在此找反例。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Reddit r/ClaudeAI</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">reddit.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.reddit.com/r/ClaudeAI/" rel="noreferrer noopener">https://www.reddit.com/r/ClaudeAI/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">同 r/cursor，Claude 侧一线用户反馈与额度计费实测。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Reddit r/SaaS</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">reddit.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.reddit.com/r/SaaS/" rel="noreferrer noopener">https://www.reddit.com/r/SaaS/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">微型 SaaS 创始人现实账本：真实获客、定价陷阱与冷启动教训；「创造／创业投资」栏的素材池与清醒剂。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Indie Hackers</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">indiehackers.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.indiehackers.com" rel="noreferrer noopener">https://www.indiehackers.com</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">独立开发者真实 MRR 账单与变现踩坑记录，反成功学泡沫；适合「创造」栏案例。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Reddit r/SideProject</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">reddit.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.reddit.com/r/SideProject/" rel="noreferrer noopener">https://www.reddit.com/r/SideProject/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">野生极客解决单点痛点的微型 MVP 交付广场，捕捉轻量产品灵感。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>GitHub Trending Daily</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">github.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://github.com/trending" rel="noreferrer noopener">https://github.com/trending</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">开源生态即时风向标：Star 增速极猛的单点工具、Agent 框架与开发者基建。无 RSS，接入需抓取脚本；注意 github.com 域名在图片链黑名单逻辑里另有用途，接入时按 feed 来源与图片来源分开判定。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>Buzzing 中文快译雷达</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">buzzing.cc</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://buzzing.cc" rel="noreferrer noopener">https://buzzing.cc</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">HN／Reddit／Product Hunt 热帖中文翻译镜像，每天 3 分钟扫全球趋势。与 AIHot 同性质的二手聚合：只用于发现线索，入稿前必须回原帖，成品来源行不留 buzzing.cc 痕迹。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article><article class="card t-manual_candidate k-candidate">
+  <div class="ch"><h3>阮一峰的网络日志（每周科技文集）</h3><span class="tier candidate">候选</span></div>
+  <p class="meta"><span class="tag">候选/待纳入源</span>
+     <span class="own">陈大黄清单（用户投喂）</span><span class="dom">ruanyifeng.com</span>
+     <span class="fresh">新鲜度：日更</span></p>
+  <p class="url"><a href="https://www.ruanyifeng.com/blog/" rel="noreferrer noopener">https://www.ruanyifeng.com/blog/</a></p>
+  <p class="used"><b>被这些链使用：</b><span class="chip">manual</span></p>
+  <p class="note">每周五更新的 KOL 策展周刊，视野宽但本质是二手精选。定位＝参考位而非选题源：只看它对中文圈注意力的元信号（圈内同行这周在传什么），条目真值得时直接回一手发布方核源；禁止照抄其选品跟发，成品来源行不留 ruanyifeng.com。</p>
+  <details><summary>证据（本地文件 + 行号）</summary><ul><li><code>OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md</code></li><li><code>https://x.com/realchendahuang/status/2101319926103593285</code></li><li><code>https://x.com/realchendahuang/status/2101321535508406675</code></li></ul></details>
+</article></div></section>
+
+<section id="dep"><div class="sh"><h2>五、依赖健康度<span class="cnt">7</span></h2>
+<p>哪些脚本与配置把信息源写死了。三处域名表（rss-sources.json / source-engine.json / quality_gate.py）互不相通，是源多样性的主要瓶颈。</p></div>
+<table class="dep"><thead><tr><th>依赖项</th><th>写死位置</th><th>具体文件:行号</th><th>现状与风险</th></tr></thead>
+<tbody><tr><th>AI HOT</th><td><code>aihot.virxact.com</code></td><td class='sm'>fetch_aihot_sources.py:28 · auto_daily_pipeline.sh:65 · build_image_manifest.py:72 · fetch_perplexity_details.py:183 · batch_fix_all.py:20 · batch_repair_all.py:33 · source-engine.json:322 · ai-hot-feed-data.json</td><td class='sm'>写死在采集脚本常量 + 图片链排除表 + 修复脚本替换表；候选归档 34 份</td></tr>
+<tr><th>RSS 源清单</th><td><code>data/rss-sources.json</code></td><td class='sm'>fetch_rss_sources.py:49（读文件）· 29 源内联 240 行 · auto_daily_pipeline.sh:138</td><td class='sm'>唯一走「配置文件」的通道，但关键词/上限/栏目映射都在同一 JSON，与 source-engine.json 双轨</td></tr>
+<tr><th>Perplexity</th><td><code>perplexity.ai + CDP:3456</code></td><td class='sm'>fetch_perplexity_daily.py:71 · fetch_perplexity_details.py:52 · fetch_perplexity_k3_daily.py:62 · auto_daily_pipeline.sh:88/109/130</td><td class='sm'>URL 与本地 CDP 代理端口写死；CDP 不可用即整通道跳过（近 30 期成品引用 perplexity.ai 2 次）</td></tr>
+<tr><th>官方图源 / COS</th><td><code>ainews-images-…myqcloud.com</code></td><td class='sm'>fetch_official_image.py:23 · build_image_manifest.py:24 · sync_official_library.py:30 · official-image-library.json:3</td><td class='sm'>同一 base URL 在 4 处各写一遍；manifest 素材来源清单硬编码 5 个文件路径</td></tr>
+<tr><th>Be Curious / NASA</th><td><code>science.nasa.gov · assets.science.nasa.gov · eol.jsc.nasa.gov</code></td><td class='sm'>fetch_eo_gallery.py:80/128 · pick_be_curious.py:26/28/29 · scan_be_curious_pool.py:27 · v7_generate.py:37/41</td><td class='sm'>三处池文件 + 一套旧生成器内联 ISS 图片 ID，重复实现</td></tr>
+<tr><th>X / Twitter</th><td><code>x.com · twitter.com</code></td><td class='sm'>build_image_manifest.py:72（当黑名单排除）· export_to_x.py:25/83 · feed-x-raw.json · follow-builders-source.json · build_follow_builders_v5.py:9</td><td class='sm'>X 既是候选源又被图片链当噪声排除；自有 X 池无统一配置文件</td></tr>
+<tr><th>质量校验域名表</th><td><code>quality_gate.py</code></td><td class='sm'>SOURCE_BLACKLIST_DOMAINS:188（14 域）· DEEP_SOURCE_DOMAINS:195（14 域）· COMPANY_NAME_MAP:212</td><td class='sm'>改源必须改代码；与 sources.json 名称名单不互通</td></tr></tbody></table></section>
+
+<section id="gap"><div class="sh"><h2>六、缺口清单<span class="cnt">9</span></h2>
+<p>只列本地有据可查的问题，P0 优先。</p></div>
+<table><thead><tr><th style="width:56px">优先级</th><th>问题</th><th>建议动作</th></tr></thead>
+<tbody><tr><td><span class='pri p0'>P0</span></td><td>同一 RSS 源分散在 3 处机器配置（rss-sources.json 29 源 / source-engine.json 26 源 / sources.json 39 个名称），DeepMind、GitHub 两处 feed URL 还不一样</td><td>以 ai-source-pool.json 为唯一事实源，三处配置改为只读快照或由脚本注入</td></tr>
+<tr><td><span class='pri p0'>P0</span></td><td>每日采集只有 5 条通道，其中 AI HOT 与 Perplexity 两条完全依赖第三方站点/CDP，RSS 只覆盖 rss-sources.json 的 29 源</td><td>把 source-engine.json 里 19 个「已登记未接入」源（HF Daily Papers、Import AI、The Batch、Anthropic News、Ethan Mollick 等）迁入 rss-sources.json 或采集链</td></tr>
+<tr><td><span class='pri p1'>P1</span></td><td>量子位同时在 rss-sources.json 采集中与 sources.json / source-engine / 信息源指南的禁用名单里；36氪同样冲突</td><td>人工裁决去留，并把裁决结果写进源池 JSON 的 status 字段，让采集与质量校验共用一份判定</td></tr>
+<tr><td><span class='pri p1'>P1</span></td><td>X 自有候选池 39 个账号里只有 15 个曾在 2026-06-06 实抓过；feed-x-raw.json 之后未再刷新，follow-builders 链已断 3 个多月</td><td>新建独立 X 候选池配置，先把 @realchendahuang 与 15 个已验证账号纳入日更监测</td></tr>
+<tr><td><span class='pri p1'>P1</span></td><td>近 30 期成品来源行里 aihot.virxact.com 仍出现 6 次，与「不留聚合站痕迹、回原始源」的既定要求不符</td><td>对成品来源行做一次域名回查，把聚合站链接替换为原始源；质量校验脚本增加一条池外域名检查</td></tr>
+<tr><td><span class='pri p1'>P1</span></td><td>RSS/Perplexity/AIHOT/COS base/黑白名单域名等源信息写死在 12+ 个脚本常量里</td><td>脚本改为读取 ai-source-pool.json，逐步删除硬编码常量</td></tr>
+<tr><td><span class='pri p2'>P2</span></td><td>图片链路存在两套并行实现（Be Curious NASA 池 vs v7_generate 的 ISS 固定 ID 列表），且 manifest 素材来源文件列表硬编码</td><td>统一走 image 源类型配置，废弃旧生成器内联图片 ID</td></tr>
+<tr><td><span class='pri p1'>P1</span></td><td>缺少「实际使用了哪些源、各命中几条」的落盘记录，只能从成品 HTML 反推</td><td>每日采集后写 data/source-usage-YYYY-MM-DD.md 或 JSON，回灌本总览页</td></tr>
+<tr><td><span class='pri p2'>P2</span></td><td>长线池 B 级 3 位作者（Geoffrey Litt、Rachel Kroll、Gergely Orosz）出现在分层设置文档但未进信源池表格</td><td>补齐表格行并登记 URL/RSS 状态，或直接标注为放弃</td></tr></tbody></table></section>
+
+<section id="next"><div class="sh"><h2>七、下一步自有源建设</h2>
+<p>目标：从「借公共聚合站当眼睛」转到「自己的新鲜源」，同时不降低国内模型、本地运行与中文 builder 的覆盖。</p></div>
+<ol class="next"><li>新建自有 ai-source-pool.json（本文件）作为信息源唯一事实源：稳定 id + type + tier + url + owner + freshness，先与 source-engine.json 做一次合并评审。</li>
+<li>把散落脚本里的硬编码 RSS / AIHot / COS / 黑白名单域名逐步迁到 JSON：fetch_rss_sources.py、fetch_aihot_sources.py、build_image_manifest.py、sync_official_library.py、quality_gate.py 改为读池不读常量。</li>
+<li>为 X / Twitter 账号建独立候选池（x-pool），首批样例 @realchendahuang 已登记；恢复 feed-x-raw.json 的日更抓取，让 39 个在册账号都有实际数据。</li>
+<li>每日采集后把「实际使用源 / 命中数 / 失败源」写入 data/source-usage-YYYY-MM-DD.md（或 JSON），本总览页据此展示真实使用情况，而不是从成品 HTML 反推。</li>
+<li>降低 AIHot 依赖不能以牺牲覆盖为代价：国内模型、本地运行、开源发布、中文 builder 这几维目前主要由 AINews、量子位、AIHot 补，替换前须先为每一维准备等量的自有源。</li>
+<li>先补 5 个高引用未接入源（Hugging Face Daily Papers、Import AI、The Batch、Ethan Mollick、Anthropic News），用实测命中数验证后再讨论减少 AIHot 采集频次。</li></ol></section>
+
+<section id="roots"><div class="sh"><h2>八、证据路径根目录</h2>
+<p>卡片内证据路径使用前缀缩写，展开如下；把本文件与 <code>ai-source-pool.json</code> 放在同一台机器上即可直接定位。</p></div>
+<table><thead><tr><th style="width:80px">前缀</th><th>绝对路径</th></tr></thead><tbody><tr><td><code>OP</code></td><td><code>/Volumes/拓展坞 1T2022/2 Codex-Workspace/Codex-Workspace-Main/32-AI高质量阅读库/05-情报与深读系统/AI精华情报与深读操作台</code></td></tr>
+<tr><td><code>ROOT</code></td><td><code>/Volumes/拓展坞 1T2022/2 Codex-Workspace/Codex-Workspace-Main/32-AI高质量阅读库/05-情报与深读系统/AI精华情报与深读操作台/10-源头网站活文件/00-站点根文件</code></td></tr>
+<tr><td><code>SITE</code></td><td><code>/Volumes/拓展坞 1T2022/2 Codex-Workspace/Codex-Workspace-Main/32-AI高质量阅读库/05-情报与深读系统/AI精华情报与深读操作台/10-源头网站活文件/00-站点根文件/ai-news-site</code></td></tr>
+<tr><td><code>DEPLOY</code></td><td><code>/Volumes/拓展坞 1T2022/2 Codex-Workspace/Codex-Workspace-Main/gengyueworks-Github/ai-news</code></td></tr>
+<tr><td><code>OBS</code></td><td><code>/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库</code></td></tr>
+<tr><td><code>WS</code></td><td><code>/Users/a0302/Documents/Qoder/2026-09-18/a9cd1c57</code></td></tr></tbody></table></section>
+
+<footer>本页由 <code>WS/ai-source-pool.json</code> 渲染生成，静态 HTML + 内联 CSS，无构建工具、无外部请求。
+统计与卡片内容全部来自仓库 / 工作区内文件的读取结果；标注「未知」或「缺口」处表示本地无证据，未做推断。
+不修改任何生产脚本、配置与发布仓库。</footer>
+</div></body></html>

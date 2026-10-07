@@ -1,0 +1,5043 @@
+{
+ "updated_at": "2026-09-21T13:21:09+0800",
+ "path_roots": {
+  "OP": "/Volumes/拓展坞 1T2022/2 Codex-Workspace/Codex-Workspace-Main/32-AI高质量阅读库/05-情报与深读系统/AI精华情报与深读操作台",
+  "ROOT": "/Volumes/拓展坞 1T2022/2 Codex-Workspace/Codex-Workspace-Main/32-AI高质量阅读库/05-情报与深读系统/AI精华情报与深读操作台/10-源头网站活文件/00-站点根文件",
+  "SITE": "/Volumes/拓展坞 1T2022/2 Codex-Workspace/Codex-Workspace-Main/32-AI高质量阅读库/05-情报与深读系统/AI精华情报与深读操作台/10-源头网站活文件/00-站点根文件/ai-news-site",
+  "DEPLOY": "/Volumes/拓展坞 1T2022/2 Codex-Workspace/Codex-Workspace-Main/gengyueworks-Github/ai-news",
+  "OBS": "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库",
+  "WS": "/Users/a0302/Documents/Qoder/2026-09-18/a9cd1c57"
+ },
+ "summary": {
+  "total_sources": 153,
+  "short_info_sources": 46,
+  "long_info_sources": 37,
+  "image_sources": 8,
+  "aggregate_sources": 7,
+  "owned_source_candidates": 55,
+  "by_type": {
+   "aggregate": 7,
+   "short_info": 46,
+   "long_info": 37,
+   "manual_candidate": 55,
+   "image": 8
+  },
+  "by_tier": {
+   "A": 60,
+   "S": 21,
+   "B": 14,
+   "candidate": 58
+  },
+  "by_owner": {
+   "AIHot": 2,
+   "Aggregate": 2,
+   "Official": 10,
+   "GitHub": 4,
+   "RSS": 35,
+   "Paper": 2,
+   "X": 39,
+   "User-fed": 11,
+   "Local": 48
+  },
+  "aihot_dependency": {
+   "pool_share_percent": 1.4,
+   "collect_channels_total": 5,
+   "collect_channels_aihot": 1,
+   "collect_channels_perplexity": 1,
+   "published_source_links_last_30_editions": 269,
+   "published_distinct_domains_last_30_editions": 67,
+   "published_aihot_hits": 6,
+   "published_aihot_percent": 2.2,
+   "published_latent_space_hits": 30,
+   "rss_sources_hit_per_day_range": "16-23 / 29"
+  }
+ },
+ "evidence_notes": [
+  "统计口径：近 30 期成品来源链接由 2026-06/07/08/09 月日报 HTML 的「来源 · <a href>」行解析得出（脚本内正则，含 aihot 与 x.com 域名计数）。",
+  "RSS 命中数取自 data/rss-candidates/2026-09-18.json 与 2026-09-20.json 两份实际产出。",
+  "本次未访问任何外部 URL，未抓取任何推文正文；@realchendahuang 仅作为用户投喂的待纳入 X 源登记。",
+  "标注「未知/缺口」处代表本地无证据，未做推断。",
+  "2026-09-20 晚：陈大黄两条推文（status 2101319926103593285 与 2101321535508406675）已经浏览器通读全文，采纳 10 条候选源并入本池，原文归档于 OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md；其余条目不采理由写在 x-realchendahuang 条目。"
+ ],
+ "sources": [
+  {
+   "id": "aihot",
+   "name": "AI HOT 精选流（含 /all · /daily · /agent）",
+   "type": "aggregate",
+   "tier": "A",
+   "url": "https://aihot.virxact.com",
+   "domain": "aihot.virxact.com",
+   "owner": "AIHot",
+   "used_by": [
+    "daily_collect",
+    "aihot",
+    "image_manifest",
+    "deep_read_candidates"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/fetch_aihot_sources.py:28",
+    "SITE/scripts/auto_daily_pipeline.sh:65",
+    "ROOT/source-engine.json:322",
+    "SITE/data/aihot-candidates/2026-09-18.md:1",
+    "ROOT/ai-hot-feed-data.json:2",
+    "SITE/scripts/build_image_manifest.py:72",
+    "OBS/20-短线社交雷达源-2026-05-24.md:44"
+   ],
+   "freshness": "daily",
+   "notes": "当前最大外部雷达；线索价值高但属二手聚合，出处必须回原始源。成品来源行仍偶见该域名，应清零。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 1.6,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "perplexity",
+   "name": "Perplexity 实时深度检索（K3 主力 + 兜底 + 逐条补细节）",
+   "type": "aggregate",
+   "tier": "S",
+   "url": "https://www.perplexity.ai",
+   "domain": "perplexity.ai",
+   "owner": "Aggregate",
+   "used_by": [
+    "daily_collect",
+    "perplexity",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/fetch_perplexity_daily.py:71",
+    "SITE/scripts/fetch_perplexity_details.py:52",
+    "SITE/scripts/fetch_perplexity_k3_daily.py:62",
+    "SITE/scripts/auto_daily_pipeline.sh:88",
+    "SITE/scripts/auto_daily_pipeline.sh:109",
+    "SITE/scripts/auto_daily_pipeline.sh:130",
+    "SITE/scripts/build_image_manifest.py:30"
+   ],
+   "freshness": "daily",
+   "notes": "唯一的实时网页检索通道，CDP(3456) 不可用即整体跳过，属单点依赖。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "blocked_cn",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "consecutive_errors": 3,
+    "last_error": "HTTP 403",
+    "http": 403
+   }
+  },
+  {
+   "id": "ainews-latent-space",
+   "name": "AINews（swyx / Latent Space 每日信 + 邮箱 .eml）",
+   "type": "aggregate",
+   "tier": "S",
+   "url": "https://www.latent.space/feed",
+   "domain": "latent.space",
+   "owner": "Aggregate",
+   "used_by": [
+    "daily_collect",
+    "ainews",
+    "image_manifest",
+    "publish_reference"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:ainews-latent-space",
+    "SITE/scripts/fetch_ainews_web.py:35",
+    "SITE/scripts/fetch_ainews_web.py:68",
+    "SITE/scripts/auto_daily_pipeline.sh:182",
+    "SITE/scripts/auto_daily_pipeline.sh:200",
+    "SITE/scripts/parse_ainews_eml.py:7",
+    "SITE/data/ainews-mail-2026-08-13.md:1",
+    "SITE/tests/pipeline/test_ainews_rss_t37.py:1",
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/00-索引与融合要点.md:1",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "daily",
+   "notes": "近 30 期成品引用 30 次（排名第 2）。覆盖 Twitter/Reddit 深度聚合，是国内模型与中文 builder 的重要补漏源。2026-09-20 起 RSS 直采（feed 实测全文日更，约北京时间 13-15 点发布，早于次日 06:00 晨窗），手动下载 eml 降级为兜底；fetch_ainews() 死函数同步接回采集链。",
+   "rss_url": "https://www.latent.space/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 2.8,
+    "items": 20,
+    "latest_age_h": 47.5,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:49+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "openai-news",
+   "name": "OpenAI News",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://openai.com/news/rss.xml",
+   "domain": "openai.com",
+   "owner": "Official",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:11",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138",
+    "ROOT/source-engine.json:48",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "daily",
+   "notes": "官方一手源，头版/前线主供；近 30 期 openai.com 引用 9 次。",
+   "rss_url": "https://openai.com/news/rss.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 2.3,
+    "items": 1210,
+    "latest_age_h": 65.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:49+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "deepmind-blog",
+   "name": "Google DeepMind Blog",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.deepmind.com/blog/rss.xml",
+   "domain": "deepmind.com",
+   "owner": "Official",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:18",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138",
+    "ROOT/source-engine.json:76",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。 2026-09-20：deepmind.com/rss 已 302 至 deepmind.google，登记新址。 2026-09-20：deepmind.com/rss 已 302 至 deepmind.google，登记新址。",
+   "rss_url": "https://deepmind.google/blog/rss.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 1.9,
+    "items": 100,
+    "latest_age_h": 132.2,
+    "consecutive_errors": 0,
+    "last_error": null
+   },
+   "core19": true
+  },
+  {
+   "id": "nvidia-ai-blog",
+   "name": "NVIDIA AI Blog",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://blogs.nvidia.com/feed/",
+   "domain": "blogs.nvidia.com",
+   "owner": "Official",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:25",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://blogs.nvidia.com/feed/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 2.0,
+    "items": 18,
+    "latest_age_h": 88.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:03:17+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "langchain-blog",
+   "name": "LangChain Blog",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://blog.langchain.com/rss.xml",
+   "domain": "blog.langchain.com",
+   "owner": "Official",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:32",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://blog.langchain.com/rss.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 2.9,
+    "items": 100,
+    "latest_age_h": 10.5,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:49+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "github-blog",
+   "name": "GitHub Blog",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://github.blog/feed/",
+   "domain": "github.blog",
+   "owner": "GitHub",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:39",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138",
+    "ROOT/source-engine.json:90"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。 | 2026-09-20 user_inbox 转正机制验证通过（重复条目已合并回本条）",
+   "rss_url": "https://github.blog/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 3.5,
+    "items": 10,
+    "latest_age_h": 62.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:49+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "techcrunch-ai",
+   "name": "TechCrunch AI",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+   "domain": "techcrunch.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:61",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138",
+    "OP/01-AI前线情报与日报/00-交接与报告/2026-06-10-AI-News-信源筛选能力复盘与升级总报告.md:321"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "consecutive_errors": 0,
+    "last_error": null,
+    "http": 200,
+    "elapsed_s": 1.3,
+    "items": 20,
+    "latest_age_h": 7.7,
+    "last_new_item_at": "2026-09-21T13:20:49+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "venturebeat-ai",
+   "name": "VentureBeat AI",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://venturebeat.com/category/ai/feed/",
+   "domain": "venturebeat.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:69",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://venturebeat.com/category/ai/feed/",
+   "fetch_kind": "rss",
+   "status": "unprobed",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 429,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 429"
+   }
+  },
+  {
+   "id": "theverge-ai",
+   "name": "The Verge AI",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+   "domain": "theverge.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:77",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 3.9,
+    "items": 10,
+    "latest_age_h": 16.4,
+    "consecutive_errors": 1,
+    "last_error": "IncompleteRead: IncompleteRead(64234 bytes read, 12682 more expected)",
+    "last_new_item_at": "2026-09-20T21:07:06+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "arstechnica-ai",
+   "name": "Ars Technica AI",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://arstechnica.com/ai/feed/",
+   "domain": "arstechnica.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:85",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://arstechnica.com/ai/feed/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:49+0800",
+    "http": 200,
+    "elapsed_s": 2.1,
+    "items": 20,
+    "latest_age_h": 56.9,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:49+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "mit-tech-review",
+   "name": "MIT Technology Review",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.technologyreview.com/feed/",
+   "domain": "technologyreview.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:93",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://www.technologyreview.com/feed/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep",
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:50+0800",
+    "http": 200,
+    "elapsed_s": 1.7,
+    "items": 10,
+    "latest_age_h": 65.2,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:50+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "wired-ai",
+   "name": "Wired AI",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.wired.com/feed/tag/ai/latest/rss",
+   "domain": "wired.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:101",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://www.wired.com/feed/tag/ai/latest/rss",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:50+0800",
+    "http": 200,
+    "elapsed_s": 1.3,
+    "items": 10,
+    "latest_age_h": 18.8,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:50+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "cnbc-ai",
+   "name": "CNBC AI",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.cnbc.com/id/10000664/device/rss/rss.html",
+   "domain": "cnbc.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:109",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://www.cnbc.com/id/10000664/device/rss/rss.html",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:50+0800",
+    "http": 200,
+    "elapsed_s": 1.4,
+    "items": 30,
+    "latest_age_h": 16.6,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:50+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "marktechpost",
+   "name": "MarkTechPost",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.marktechpost.com/feed/",
+   "domain": "marktechpost.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:117",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://www.marktechpost.com/feed/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:51+0800",
+    "http": 200,
+    "elapsed_s": 2.1,
+    "items": 10,
+    "latest_age_h": 8.5,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:51+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "bens-bites",
+   "name": "Ben's Bites",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.bensbites.com/feed",
+   "domain": "bensbites.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:157",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://www.bensbites.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:51+0800",
+    "http": 200,
+    "elapsed_s": 2.3,
+    "items": 20,
+    "latest_age_h": 88.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:03:21+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "understanding-ai",
+   "name": "Understanding AI (Holly Elmore)",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.understandingai.org/feed",
+   "domain": "understandingai.org",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:188",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138"
+   ],
+   "freshness": "daily",
+   "notes": "已接入每日采集链（fetch_rss_sources.py，回看 48h/2 天）。",
+   "rss_url": "https://www.understandingai.org/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:51+0800",
+    "http": 200,
+    "elapsed_s": 2.1,
+    "items": 20,
+    "latest_age_h": 81.0,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:07:09+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "hacker-news",
+   "name": "Hacker News（hnrss 首页）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://hnrss.org/frontpage",
+   "domain": "hnrss.org",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:222",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138",
+    "ROOT/source-engine.json:336",
+    "ROOT/sources.json:46"
+   ],
+   "freshness": "daily",
+   "notes": "泛科技源，靠 keywords/exclude_keywords 过滤；sources.json 把「Hacker News 热门」列为 blocked，仅按线索用。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:51+0800",
+    "http": 200,
+    "elapsed_s": 1.7,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "qbitai",
+   "name": "量子位",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://www.qbitai.com/feed",
+   "domain": "qbitai.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:231",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/auto_daily_pipeline.sh:138",
+    "ROOT/sources.json:48",
+    "ROOT/source-engine.json:34",
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:81"
+   ],
+   "freshness": "daily",
+   "notes": "⚠ 状态冲突：仍在采集中，但已被 sources.json blockedSources、source-engine blocked_sources 与信息源指南同时列为「不用」。近 30 期引用 12 次、09-18 图片 manifest 命中 8 张，需人工裁决去留。",
+   "rss_url": "https://www.qbitai.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:51+0800",
+    "http": 200,
+    "elapsed_s": 3.1,
+    "items": 10,
+    "latest_age_h": 1.6,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:51+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "bair-blog",
+   "name": "BAIR Blog",
+   "type": "long_info",
+   "tier": "S",
+   "url": "https://bair.berkeley.edu/blog/feed.xml",
+   "domain": "bair.berkeley.edu",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:46",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195",
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:19"
+   ],
+   "freshness": "daily",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://bair.berkeley.edu/blog/feed.xml",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:51+0800",
+    "http": 200,
+    "elapsed_s": 1.9,
+    "items": 10,
+    "latest_age_h": 1292.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "arxiv-cs-ai",
+   "name": "arXiv cs.AI",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://export.arxiv.org/rss/cs.AI",
+   "domain": "export.arxiv.org",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:52",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "weekly",
+   "notes": "论文源，只进「论文速递」栏，不混入新闻栏（fetch_rss_sources.py:63）。",
+   "rss_url": "https://export.arxiv.org/rss/cs.AI",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:52+0800",
+    "http": 200,
+    "elapsed_s": 2.1,
+    "items": 214,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "latest_age_h": 1.3,
+    "last_new_item_at": "2026-09-21T13:20:52+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "quanta-magazine",
+   "name": "Quanta Magazine",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://www.quantamagazine.org/feed/",
+   "domain": "quantamagazine.org",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:125",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195"
+   ],
+   "freshness": "weekly",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://www.quantamagazine.org/feed/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:52+0800",
+    "http": 200,
+    "elapsed_s": 1.3,
+    "items": 5,
+    "latest_age_h": 63.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:52+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "ieee-spectrum",
+   "name": "IEEE Spectrum",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://spectrum.ieee.org/rss/fulltext",
+   "domain": "spectrum.ieee.org",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:133",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195"
+   ],
+   "freshness": "weekly",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://spectrum.ieee.org/rss/fulltext",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:52+0800",
+    "http": 200,
+    "elapsed_s": 6.0,
+    "items": 30,
+    "latest_age_h": 43.1,
+    "consecutive_errors": 2,
+    "last_error": "IncompleteRead: IncompleteRead(434752 bytes read, 3902 more expected)",
+    "last_new_item_at": "2026-09-20T21:03:23+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "sequoia-blog",
+   "name": "Sequoia Blog",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://www.sequoiacap.com/feed/",
+   "domain": "sequoiacap.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:142",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195"
+   ],
+   "freshness": "weekly",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://www.sequoiacap.com/feed/",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:52+0800",
+    "http": 200,
+    "elapsed_s": 5.0,
+    "items": 50,
+    "latest_age_h": 797.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "simon-willison",
+   "name": "Simon Willison",
+   "type": "long_info",
+   "tier": "S",
+   "url": "https://simonwillison.net/atom/everything/",
+   "domain": "simonwillison.net",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:150",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195",
+    "ROOT/source-engine.json:132",
+    "SITE/data/verified-deep-sources.json:3",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "daily",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://simonwillison.net/atom/everything/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news",
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:52+0800",
+    "http": 200,
+    "elapsed_s": 1.6,
+    "items": 30,
+    "latest_age_h": 8.2,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:52+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "stratechery",
+   "name": "Stratechery (Ben Thompson)",
+   "type": "long_info",
+   "tier": "S",
+   "url": "https://stratechery.com/feed/",
+   "domain": "stratechery.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:164",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195",
+    "ROOT/source-engine.json:160",
+    "SITE/data/verified-deep-sources.json:24",
+    "SITE/data/verified-deep-sources.json:48"
+   ],
+   "freshness": "daily",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://stratechery.com/feed/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:53+0800",
+    "http": 200,
+    "elapsed_s": 1.6,
+    "items": 10,
+    "latest_age_h": 60.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:53+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "the-zvi",
+   "name": "The Zvi",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://thezvi.substack.com/feed",
+   "domain": "thezvi.substack.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:171",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195"
+   ],
+   "freshness": "weekly",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://thezvi.substack.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:53+0800",
+    "http": 200,
+    "elapsed_s": 2.5,
+    "items": 20,
+    "latest_age_h": 9.6,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:53+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "interconnects",
+   "name": "Interconnects (Nathan Lambert)",
+   "type": "long_info",
+   "tier": "S",
+   "url": "https://www.interconnects.ai/feed",
+   "domain": "interconnects.ai",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:180",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195",
+    "ROOT/source-engine.json:160"
+   ],
+   "freshness": "daily",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://www.interconnects.ai/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:53+0800",
+    "http": 200,
+    "elapsed_s": 2.3,
+    "items": 20,
+    "latest_age_h": 37.6,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:53+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "ai-supremacy",
+   "name": "AI Supremacy",
+   "type": "long_info",
+   "tier": "B",
+   "url": "https://www.ai-supremacy.com/feed",
+   "domain": "ai-supremacy.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:196",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195"
+   ],
+   "freshness": "weekly",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://www.ai-supremacy.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:53+0800",
+    "http": 200,
+    "elapsed_s": 2.2,
+    "items": 20,
+    "latest_age_h": 77.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:07:14+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "pragmatic-engineer",
+   "name": "The Pragmatic Engineer",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://newsletter.pragmaticengineer.com/feed",
+   "domain": "newsletter.pragmaticengineer.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:204",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195"
+   ],
+   "freshness": "weekly",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://newsletter.pragmaticengineer.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:53+0800",
+    "http": 200,
+    "elapsed_s": 2.3,
+    "items": 20,
+    "latest_age_h": 89.9,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "lennys-newsletter",
+   "name": "Lenny's Newsletter",
+   "type": "long_info",
+   "tier": "B",
+   "url": "https://www.lennysnewsletter.com/feed",
+   "domain": "lennysnewsletter.com",
+   "owner": "RSS",
+   "used_by": [
+    "daily_collect",
+    "rss",
+    "deep_reading",
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:213",
+    "SITE/scripts/fetch_rss_sources.py:49",
+    "SITE/scripts/quality_gate.py:195"
+   ],
+   "freshness": "weekly",
+   "notes": "已接入采集链，同时是 quality_gate F11 深度源白名单成员（每天至少 2 条）。",
+   "rss_url": "https://www.lennysnewsletter.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:53+0800",
+    "http": 200,
+    "elapsed_s": 2.2,
+    "items": 20,
+    "latest_age_h": 16.8,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:53+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "anthropic-news",
+   "name": "Anthropic News（GitHub 镜像 RSS）",
+   "type": "short_info",
+   "tier": "S",
+   "url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
+   "domain": "raw.githubusercontent.com",
+   "owner": "GitHub",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:62",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。官方一手源却走第三方镜像，稳定性依赖别人仓库；未进 fetch_rss_sources 链。",
+   "rss_url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news",
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:53+0800",
+    "http": 200,
+    "elapsed_s": 1.8,
+    "items": 259,
+    "latest_age_h": 77.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:07:15+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "microsoft-ai-blog",
+   "name": "Microsoft AI Blog",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://blogs.microsoft.com/ai/feed/",
+   "domain": "blogs.microsoft.com",
+   "owner": "Official",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:104"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。已登记未接入。",
+   "rss_url": "https://blogs.microsoft.com/ai/feed/",
+   "fetch_kind": "rss",
+   "status": "no_feed",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-20T21:03:27+0800",
+    "http": 410,
+    "consecutive_errors": 1,
+    "last_error": "HTTP 410"
+   }
+  },
+  {
+   "id": "vercel-changelog",
+   "name": "Vercel Changelog",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://vercel.com/changelog/rss.xml",
+   "domain": "vercel.com",
+   "owner": "Official",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:118"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。产品更新源，已登记未接入。",
+   "rss_url": "https://vercel.com/changelog/rss.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:54+0800",
+    "http": 200,
+    "elapsed_s": 3.8,
+    "items": 1595,
+    "latest_age_h": 57.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:54+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "huggingface-daily-papers",
+   "name": "Hugging Face Daily Papers",
+   "type": "long_info",
+   "tier": "S",
+   "url": "https://huggingface.co/api/daily_papers",
+   "domain": "huggingface.co",
+   "owner": "Paper",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:350",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。近 30 期 huggingface.co 被引用 9 次（第 9 名）却不在采集链里——靠人工补，属高价值缺口。 2026-09-20：huggingface.co 在本机被连接重置，走 hf-mirror 官方镜像 API（200/320KB 实测）。 2026-09-20：huggingface.co 在本机被连接重置，走 hf-mirror 官方镜像 API（200/320KB 实测）。",
+   "rss_url": "https://hf-mirror.com/api/daily_papers?p=0",
+   "fetch_kind": "json_api",
+   "status": "active",
+   "route_target": [
+    "radar",
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:54+0800",
+    "consecutive_errors": 0,
+    "last_error": null,
+    "http": 200,
+    "elapsed_s": 3.9,
+    "items": 50,
+    "latest_age_h": 81.3
+   },
+   "core19": true
+  },
+  {
+   "id": "arxiv-qfin",
+   "name": "arXiv q-fin × AI 交叉",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "https://export.arxiv.org/api/query?search_query=cat:q-fin*",
+   "domain": "export.arxiv.org",
+   "owner": "Paper",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:258"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。AI × 金融观察线唯一学术源，已登记未接入。",
+   "rss_url": "https://export.arxiv.org/api/query?search_query=cat:q-fin*",
+   "fetch_kind": "rss",
+   "status": "unprobed",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:54+0800",
+    "http": 406,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 406"
+   }
+  },
+  {
+   "id": "twosigma-research",
+   "name": "Two Sigma Research",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "https://www.twosigma.com/articles/feed/",
+   "domain": "twosigma.com",
+   "owner": "Official",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:274"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。量化机构研究，已登记未接入。",
+   "rss_url": "https://www.twosigma.com/articles/feed/",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:54+0800",
+    "http": 200,
+    "elapsed_s": 1.6,
+    "items": 10,
+    "latest_age_h": 462.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "man-institute-ai",
+   "name": "Man Institute AI",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "https://www.man.com/maninstitute/ai",
+   "domain": "man.com",
+   "owner": "Official",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:290"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。登记为 enabled=false，且无 feed，纯网页人工源。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "no_feed",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-20T21:03:30+0800",
+    "http": 404,
+    "consecutive_errors": 1,
+    "last_error": "HTTP 404"
+   }
+  },
+  {
+   "id": "risknet-cutting-edge",
+   "name": "Risk.net Cutting Edge",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "https://www.risk.net/feeds/rss/category/cutting-edge",
+   "domain": "risk.net",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:306"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。已登记未接入。",
+   "rss_url": "https://www.risk.net/feeds/rss/category/cutting-edge",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:55+0800",
+    "http": 200,
+    "elapsed_s": 1.4,
+    "items": 50,
+    "latest_age_h": 98.1,
+    "consecutive_errors": 1,
+    "last_error": "ParseError: not well-formed (invalid token): line 1, column 0"
+   }
+  },
+  {
+   "id": "openai-cookbook",
+   "name": "OpenAI Cookbook（GitHub commits atom）",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://github.com/openai/openai-cookbook/commits/main.atom",
+   "domain": "github.com",
+   "owner": "GitHub",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:392"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。工程实践信号源，已登记未接入。",
+   "rss_url": "https://github.com/openai/openai-cookbook/commits/main.atom",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:55+0800",
+    "http": 200,
+    "elapsed_s": 1.7,
+    "items": 20,
+    "latest_age_h": 60.0,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:55+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "claude-dev-guides",
+   "name": "Claude Developer Guides（cookbook atom）",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://raw.githubusercontent.com/anthropics/anthropic-cookbook/main/feed.atom",
+   "domain": "raw.githubusercontent.com",
+   "owner": "GitHub",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:406"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。第三方维护的 atom，与 Anthropic News 同一风险。",
+   "rss_url": "https://raw.githubusercontent.com/anthropics/anthropic-cookbook/main/feed.atom",
+   "fetch_kind": "rss",
+   "status": "no_feed",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-20T21:03:32+0800",
+    "http": 404,
+    "consecutive_errors": 1,
+    "last_error": "HTTP 404"
+   }
+  },
+  {
+   "id": "import-ai",
+   "name": "Import AI (Jack Clark)",
+   "type": "long_info",
+   "tier": "S",
+   "url": "https://importai.substack.com/feed",
+   "domain": "importai.substack.com",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:364",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。深度分析主力周报，未进采集链。 2026-09-20：*.substack.com 与 jack-clark.net(CF 403) 双路均不可达；其新闻由 AINews 聚合覆盖。 2026-09-20：*.substack.com 与 jack-clark.net(CF 403) 双路均不可达；其新闻由 AINews 聚合覆盖。",
+   "rss_url": "https://importai.substack.com/feed",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:55+0800",
+    "http": 200,
+    "elapsed_s": 2.1,
+    "items": 20,
+    "latest_age_h": 328.9,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   },
+   "core19": true
+  },
+  {
+   "id": "the-batch",
+   "name": "The Batch (DeepLearning.AI)",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://www.deeplearning.ai/the-batch/feed/",
+   "domain": "deeplearning.ai",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:378",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。精选周报，未进采集链。 2026-09-20：无官方 RSS（/feed 404），列表页可解析 issue 链接（html_list 适配器）。 2026-09-20：无官方 RSS（/feed 404），列表页可解析 issue 链接（html_list 适配器）。",
+   "rss_url": "https://www.deeplearning.ai/the-batch/tag/the-batch/",
+   "fetch_kind": "html_list",
+   "status": "active",
+   "route_target": [
+    "news",
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:55+0800",
+    "consecutive_errors": 0,
+    "last_error": null,
+    "http": 200,
+    "elapsed_s": 3.1,
+    "items": 17,
+    "latest_age_h": 0.0,
+    "last_new_item_at": "2026-09-21T13:20:55+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "dwarkesh-patel",
+   "name": "Dwarkesh Patel（长访谈）",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://www.dwarkesh.com/feed",
+   "domain": "dwarkesh.com",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:244"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。人物访谈证据链，未进采集链。",
+   "rss_url": "https://www.dwarkesh.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:55+0800",
+    "http": 200,
+    "elapsed_s": 2.4,
+    "items": 20,
+    "latest_age_h": 85.7,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:03:33+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "sebastian-raschka",
+   "name": "Sebastian Raschka",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://sebastianraschka.com/rss_feed.xml",
+   "domain": "sebastianraschka.com",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:188"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。唯一有固定监测回写记录的博主源（OBS/30-稳定探测中心/71 号文件）。",
+   "rss_url": "https://sebastianraschka.com/rss_feed.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:55+0800",
+    "http": 200,
+    "elapsed_s": 1.9,
+    "items": 153,
+    "latest_age_h": 14.1,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:55+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "ethan-mollick",
+   "name": "Ethan Mollick (One Useful Thing)",
+   "type": "long_info",
+   "tier": "S",
+   "url": "https://www.oneusefulthing.org/feed",
+   "domain": "oneusefulthing.org",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:146",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。F11 深度源白名单成员，但不在 rss-sources.json 中。",
+   "rss_url": "https://www.oneusefulthing.org/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep",
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:55+0800",
+    "http": 200,
+    "elapsed_s": 2.4,
+    "items": 20,
+    "latest_age_h": 59.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:55+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "addy-osmani",
+   "name": "Addy Osmani",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "https://addyosmani.com/blog/rss.xml",
+   "domain": "addyosmani.com",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:174"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。登记为 enabled=false（已停用）。",
+   "rss_url": "https://addyosmani.com/blog/rss.xml",
+   "fetch_kind": "rss",
+   "status": "no_feed",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-20T21:03:34+0800",
+    "http": 404,
+    "consecutive_errors": 1,
+    "last_error": "HTTP 404"
+   }
+  },
+  {
+   "id": "armin-ronacher",
+   "name": "Armin Ronacher",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "https://lucumr.pocoo.org/feed.atom",
+   "domain": "lucumr.pocoo.org",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:202"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。已登记未接入。",
+   "rss_url": "https://lucumr.pocoo.org/feed.atom",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:55+0800",
+    "http": 200,
+    "elapsed_s": 1.9,
+    "items": 10,
+    "latest_age_h": 173.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "mitchell-hashimoto",
+   "name": "Mitchell Hashimoto",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "https://mitchellh.com/feed.xml",
+   "domain": "mitchellh.com",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:216"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。已登记未接入。",
+   "rss_url": "https://mitchellh.com/feed.xml",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:56+0800",
+    "http": 200,
+    "elapsed_s": 1.3,
+    "items": 53,
+    "latest_age_h": 1301.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "philipp-schmid",
+   "name": "Philipp Schmid",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "https://www.philschmid.de/rss.xml",
+   "domain": "philschmid.de",
+   "owner": "RSS",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:230"
+   ],
+   "freshness": "unknown",
+   "notes": "登记在自有 source-engine.json，但未进每日采集链。登记为 enabled=false（已停用）。",
+   "rss_url": "https://www.philschmid.de/rss.xml",
+   "fetch_kind": "rss",
+   "status": "no_feed",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-20T21:03:36+0800",
+    "http": 404,
+    "consecutive_errors": 1,
+    "last_error": "HTTP 404"
+   }
+  },
+  {
+   "id": "x-swyx",
+   "name": "@swyx（Swyx）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/swyx",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:49",
+    "OP/data/feed-x-raw.json:8",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-bcherny",
+   "name": "@bcherny（Boris Cherny）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/bcherny",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:59",
+    "OP/data/feed-x-raw.json:49",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-thsottiaux",
+   "name": "@thsottiaux（Thibault Sottiaux）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/thsottiaux",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:129",
+    "OP/data/feed-x-raw.json:79",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-petergyang",
+   "name": "@petergyang（Peter Yang）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/petergyang",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:139",
+    "OP/data/feed-x-raw.json:120",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-realmadhuguru",
+   "name": "@realmadhuguru（Madhu Guru）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/realmadhuguru",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:159",
+    "OP/data/feed-x-raw.json:150",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-amasad",
+   "name": "@amasad（Amjad Masad）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/amasad",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:209",
+    "OP/data/feed-x-raw.json:169",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-rauchg",
+   "name": "@rauchg（Guillermo Rauch）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/rauchg",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:219",
+    "OP/data/feed-x-raw.json:210",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-levie",
+   "name": "@levie（Aaron Levie）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/levie",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:229",
+    "OP/data/feed-x-raw.json:251",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-ryolu",
+   "name": "@ryolu（Ryo Lu）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/ryolu",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:239",
+    "OP/data/feed-x-raw.json:270",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-garrytan",
+   "name": "@garrytan（Garry Tan）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/garrytan",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:249",
+    "OP/data/feed-x-raw.json:289",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-mattturck",
+   "name": "@mattturck（Matt Turck）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/mattturck",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:259",
+    "OP/data/feed-x-raw.json:330",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-nikunj",
+   "name": "@nikunj（Nikunj Kothari）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/nikunj",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:269",
+    "OP/data/feed-x-raw.json:349",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-danshipper",
+   "name": "@danshipper（Dan Shipper）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/danshipper",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:279",
+    "OP/data/feed-x-raw.json:379",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-adityaag",
+   "name": "@adityaag（Aditya Agarwal）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/adityaag",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:289",
+    "OP/data/feed-x-raw.json:420",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-claudeai",
+   "name": "@claudeai（Claude 官方）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://x.com/claudeai",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "follow_builders_brief",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:99",
+    "OP/data/feed-x-raw.json:450",
+    "OP/scripts/build_follow_builders_v5.py:9"
+   ],
+   "freshness": "manual",
+   "notes": "X builder 候选池中曾在 2026-06-06 实抓过推文的账号；feed-x-raw.json 自 06-06 后未再刷新。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-karpathy",
+   "name": "@karpathy（Andrej Karpathy）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/karpathy",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:39",
+    "OBS/20-短线社交雷达源-2026-05-24.md:9",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-alexalbert",
+   "name": "@alexalbert（Alex Albert）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/alexalbert",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:69",
+    "OBS/20-短线社交雷达源-2026-05-24.md:12",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-steipete",
+   "name": "@steipete（Peter Steinberger）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/steipete",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:79",
+    "OBS/20-短线社交雷达源-2026-05-24.md:10",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-sama",
+   "name": "@sama（Sam Altman）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/sama",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:89",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-zarazhangrui",
+   "name": "@zarazhangrui（Zara Zhang）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/zarazhangrui",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:109",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-joshwoodward",
+   "name": "@joshwoodward（Josh Woodward）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/joshwoodward",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:119",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-thenanyu",
+   "name": "@thenanyu（Nan Yu）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/thenanyu",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:149",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-amandaaskell",
+   "name": "@amandaaskell（Amanda Askell）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/amandaaskell",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:169",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-catwu",
+   "name": "@catwu（Cat Wu）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/catwu",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:179",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-trq212",
+   "name": "@trq212（Thariq）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/trq212",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:189",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-googlelabs",
+   "name": "@googlelabs（Google Labs）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/googlelabs",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/follow-builders-source.json:199",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-emollick",
+   "name": "@emollick（Ethan Mollick）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/emollick",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:11",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-gregisenberg",
+   "name": "@gregisenberg（Greg Isenberg）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/gregisenberg",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:17",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-rileybrown",
+   "name": "@rileybrown（Riley Brown）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/rileybrown",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:18",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-corbinbraun",
+   "name": "@corbinbraun（Corbin Braun）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/corbinbraun",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:19",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-levelsio",
+   "name": "@levelsio（Levelsio）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/levelsio",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:20",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-marclou",
+   "name": "@marclou（Marc Lou）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/marclou",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:21",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-exm7777",
+   "name": "@exm7777（EXM7777）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/exm7777",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:22",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-vasuman",
+   "name": "@vasuman（Vasuman）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/vasuman",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:23",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-mengto",
+   "name": "@mengto（Meng To）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/mengto",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:24",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-hesamation",
+   "name": "@hesamation（Hesamation）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/hesamation",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:25",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-godofprompt",
+   "name": "@godofprompt（God of Prompt）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/godofprompt",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:26",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-jimfan",
+   "name": "@jimfan（Jim Fan）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/jimfan",
+   "domain": "x.com",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:15",
+    "OP/data/feed-x-raw.json:1"
+   ],
+   "freshness": "manual",
+   "notes": "在自有 X 候选池名单内，但从未被任何抓取脚本拉到实数据（feed-x-raw.json 无该 handle）——待纳入。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-realchendahuang",
+   "name": "@realchendahuang 陈大黄（信息源清单投喂，已通读）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://x.com/realchendahuang",
+   "domain": "x.com",
+   "owner": "User-fed",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675"
+   ],
+   "freshness": "manual",
+   "notes": "2026-09-20 已通过浏览器通读两条推文全文并归档原文（见证据）。账号定位：中文 AI 工具、独立开发与信息源方法论分享，清单质量高、思路与我方源池同构，建议进 X 候选池日更首批。两条清单共采纳 10 源（本池新条目）；明确不采：NodeSeek／LowEndTalk（廉价 VPS 基建，非 AI News 主线）、V2EX（泛开发者社区，信号密度不足）、Mobbin／Godly（设计素材库，无新闻流）、r/Affiliatemarketing（广告联盟噪音）。另记下其方法论：高噪音论坛交给 AI 先总结筛选、人只看筛后结果——与我们的自动采集＋质量闸同构。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "manual_only",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "su-jianlin",
+   "name": "苏剑林的科学空间",
+   "type": "manual_candidate",
+   "tier": "A",
+   "url": "待补",
+   "domain": "（未定）",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:34"
+   ],
+   "freshness": "manual",
+   "notes": "中文硬核解释，文档判定「可进长线」，但无链接无 feed，从未落进任何机器可读池。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "madongxi-nlp",
+   "name": "马东锡NLP",
+   "type": "manual_candidate",
+   "tier": "B",
+   "url": "待补",
+   "domain": "（未定）",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:35"
+   ],
+   "freshness": "manual",
+   "notes": "论文快译雷达，原文需回溯；未接采集链。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "bycloud",
+   "name": "ByCloud",
+   "type": "manual_candidate",
+   "tier": "B",
+   "url": "待补",
+   "domain": "（未定）",
+   "owner": "X",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:36"
+   ],
+   "freshness": "manual",
+   "notes": "论文与 AI timeline 线索，链接待补。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "zhihu-ai-translate",
+   "name": "知乎 AI 快译账号（泛指）",
+   "type": "manual_candidate",
+   "tier": "B",
+   "url": "待补",
+   "domain": "（未定）",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:37"
+   ],
+   "freshness": "manual",
+   "notes": "只作热点发现；zhihu.com 已在 quality_gate 素材源黑名单（190 行），不可进成品。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "gzh-ai-tools",
+   "name": "公众号 AI 工具号（泛指）",
+   "type": "manual_candidate",
+   "tier": "B",
+   "url": "待补",
+   "domain": "（未定）",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OBS/20-短线社交雷达源-2026-05-24.md:38"
+   ],
+   "freshness": "manual",
+   "notes": "不可验证、无法引用；信息源指南明确列为「不用」。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "reuters",
+   "name": "Reuters",
+   "type": "short_info",
+   "tier": "S",
+   "url": "https://reuters.com",
+   "domain": "reuters.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:13",
+    "SITE/scripts/auto_daily_pipeline.sh:231"
+   ],
+   "freshness": "manual",
+   "notes": "一手事实校验；无 feed、无脚本，纯手工搜索层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "unprobed",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:57+0800",
+    "http": 401,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 401"
+   }
+  },
+  {
+   "id": "bloomberg",
+   "name": "Bloomberg",
+   "type": "short_info",
+   "tier": "S",
+   "url": "https://bloomberg.com",
+   "domain": "bloomberg.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:14"
+   ],
+   "freshness": "manual",
+   "notes": "商业/金融数据，手工层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "blocked_cn",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:57+0800",
+    "http": 403,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 403"
+   }
+  },
+  {
+   "id": "ap-news",
+   "name": "AP（美联社）",
+   "type": "short_info",
+   "tier": "S",
+   "url": "https://apnews.com",
+   "domain": "apnews.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:15"
+   ],
+   "freshness": "manual",
+   "notes": "基础事实，手工层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "blocked_cn",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:57+0800",
+    "http": 403,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 403"
+   }
+  },
+  {
+   "id": "wsj",
+   "name": "WSJ（付费墙）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://wsj.com",
+   "domain": "wsj.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:28"
+   ],
+   "freshness": "manual",
+   "notes": "需 archive.ph 绕墙；近 30 期仅 1 次引用。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "unprobed",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:57+0800",
+    "http": 401,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 401"
+   }
+  },
+  {
+   "id": "ft",
+   "name": "FT（付费墙）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://ft.com",
+   "domain": "ft.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:29"
+   ],
+   "freshness": "manual",
+   "notes": "需 archive.ph；池中未自动化。",
+   "rss_url": "https://www.ft.com/rss/home/international",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:57+0800",
+    "http": 200,
+    "elapsed_s": 1.5,
+    "items": 9,
+    "latest_age_h": 1.2,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:57+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "fortune",
+   "name": "Fortune",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://fortune.com",
+   "domain": "fortune.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:30"
+   ],
+   "freshness": "manual",
+   "notes": "商业/人物，手工层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:57+0800",
+    "http": 200,
+    "elapsed_s": 2.0,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "axios",
+   "name": "Axios",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://axios.com",
+   "domain": "axios.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:31"
+   ],
+   "freshness": "manual",
+   "notes": "简洁摘要，手工层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "blocked_cn",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:57+0800",
+    "http": 403,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 403"
+   }
+  },
+  {
+   "id": "semafor",
+   "name": "Semafor",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://semafor.com",
+   "domain": "semafor.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:32"
+   ],
+   "freshness": "manual",
+   "notes": "全球简报，手工层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:58+0800",
+    "http": 200,
+    "elapsed_s": 3.3,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "defense-news",
+   "name": "Defense News",
+   "type": "short_info",
+   "tier": "B",
+   "url": "https://defensenews.com",
+   "domain": "defensenews.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:40"
+   ],
+   "freshness": "manual",
+   "notes": "AI 军事应用维度，手工层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:58+0800",
+    "http": 200,
+    "elapsed_s": 4.0,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "nature",
+   "name": "Nature",
+   "type": "long_info",
+   "tier": "B",
+   "url": "https://nature.com",
+   "domain": "nature.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:43"
+   ],
+   "freshness": "manual",
+   "notes": "学术论文维度，手工层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:58+0800",
+    "http": 200,
+    "elapsed_s": 2.5,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "product-hunt",
+   "name": "Product Hunt",
+   "type": "short_info",
+   "tier": "B",
+   "url": "https://producthunt.com",
+   "domain": "producthunt.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:47"
+   ],
+   "freshness": "manual",
+   "notes": "新产品/工具维度，手工层。",
+   "rss_url": "https://www.producthunt.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "news"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:58+0800",
+    "http": 200,
+    "elapsed_s": 1.5,
+    "items": 50,
+    "latest_age_h": 23.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:20:58+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "matt-wolfe",
+   "name": "Matt Wolfe",
+   "type": "long_info",
+   "tier": "B",
+   "url": "https://mattwolfe.com",
+   "domain": "mattwolfe.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:56"
+   ],
+   "freshness": "manual",
+   "notes": "AI 工具评测博主，手工层。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:58+0800",
+    "http": 200,
+    "elapsed_s": 2.0,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "karpathy-blog",
+   "name": "Karpathy 博客",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://karpathy.github.io",
+   "domain": "karpathy.github.io",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:58"
+   ],
+   "freshness": "manual",
+   "notes": "低频高权重，手工层。",
+   "rss_url": "https://karpathy.github.io/feed.xml",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:58+0800",
+    "http": 200,
+    "elapsed_s": 2.3,
+    "items": 10,
+    "latest_age_h": 5302.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "36kr",
+   "name": "36氪",
+   "type": "manual_candidate",
+   "tier": "B",
+   "url": "https://36kr.com",
+   "domain": "36kr.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:66",
+    "SITE/scripts/quality_gate.py:191",
+    "ROOT/sources.json:50"
+   ],
+   "freshness": "manual",
+   "notes": "⚠ 状态冲突：指南允许用于融资新闻（须含金额），但 quality_gate SOURCE_BLACKLIST_DOMAINS 与 sources.json blockedSources 两处均将其列为不采信源。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:59+0800",
+    "http": 200,
+    "elapsed_s": 3.7,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "eastmoney",
+   "name": "东方财富",
+   "type": "manual_candidate",
+   "tier": "B",
+   "url": "https://eastmoney.com",
+   "domain": "eastmoney.com",
+   "owner": "Local",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/.workbuddy/skills/ai-news-sources-guide.md:67"
+   ],
+   "freshness": "manual",
+   "notes": "仅市场数据；未在任何机器池。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:59+0800",
+    "http": 200,
+    "elapsed_s": 4.7,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "antirez",
+   "name": "Salvatore Sanfilippo",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://antirez.com/",
+   "domain": "antirez.com",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:14",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://antirez.com/rss",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:59+0800",
+    "http": 200,
+    "elapsed_s": 2.8,
+    "items": 100,
+    "latest_age_h": 1316.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "sean-goedecke",
+   "name": "Sean Goedecke",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.seangoedecke.com/",
+   "domain": "www.seangoedecke.com",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:16",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://www.seangoedecke.com/rss.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:20:59+0800",
+    "http": 200,
+    "elapsed_s": 2.1,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "items": 30,
+    "latest_age_h": 29.4,
+    "last_new_item_at": "2026-09-21T13:20:59+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "matt-shumer",
+   "name": "Matt Shumer",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "待补",
+   "domain": "（待补）",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:17",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "paul-graham",
+   "name": "Paul Graham",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://paulgraham.com/",
+   "domain": "paulgraham.com",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:21",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "http://www.aaronsw.com/2002/feeds/pgessays.rss",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:00+0800",
+    "http": 200,
+    "elapsed_s": 1.4,
+    "items": 219,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "dan-abramov",
+   "name": "Dan Abramov",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://overreacted.io/",
+   "domain": "overreacted.io",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:22",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://overreacted.io/atom.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:00+0800",
+    "http": 200,
+    "elapsed_s": 1.3,
+    "items": 59,
+    "latest_age_h": 77.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:07:28+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "jeff-geerling",
+   "name": "Jeff Geerling",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.jeffgeerling.com/",
+   "domain": "www.jeffgeerling.com",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:23",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:00+0800",
+    "http": 200,
+    "elapsed_s": 1.3,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "george-hotz",
+   "name": "George Hotz",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://geohot.github.io/",
+   "domain": "geohot.github.io",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:24",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "no_feed",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-20T21:03:46+0800",
+    "http": 404,
+    "consecutive_errors": 1,
+    "last_error": "HTTP 404"
+   }
+  },
+  {
+   "id": "gary-marcus",
+   "name": "Gary Marcus",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://garymarcus.substack.com/",
+   "domain": "garymarcus.substack.com",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:25",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://garymarcus.substack.com/feed",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:00+0800",
+    "http": 200,
+    "elapsed_s": 2.1,
+    "items": 20,
+    "latest_age_h": 38.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:21:00+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "gwern",
+   "name": "Gwern",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://gwern.net/",
+   "domain": "gwern.net",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:26",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://gwern.substack.com/feed",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:00+0800",
+    "http": 200,
+    "elapsed_s": 1.7,
+    "items": 14,
+    "latest_age_h": 46263.1,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "raymond-chen",
+   "name": "Raymond Chen",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://devblogs.microsoft.com/oldnewthing/",
+   "domain": "devblogs.microsoft.com",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:27",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:01+0800",
+    "http": 200,
+    "elapsed_s": 2.0,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "troy-hunt",
+   "name": "Troy Hunt",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.troyhunt.com/",
+   "domain": "www.troyhunt.com",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:28",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://www.troyhunt.com/rss/",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:01+0800",
+    "http": 200,
+    "elapsed_s": 1.7,
+    "items": 15,
+    "latest_age_h": 224.7,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "eli-bendersky",
+   "name": "Eli Bendersky",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://eli.thegreenplace.net/",
+   "domain": "eli.thegreenplace.net",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:29",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://eli.thegreenplace.net/feeds/all.atom.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:01+0800",
+    "http": 200,
+    "elapsed_s": 2.2,
+    "items": 5,
+    "latest_age_h": 36.7,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:21:01+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "fabien-sanglard",
+   "name": "Fabien Sanglard",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://fabiensanglard.net/",
+   "domain": "fabiensanglard.net",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:30",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://fabiensanglard.net/rss.xml",
+   "fetch_kind": "rss",
+   "status": "stale",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:01+0800",
+    "http": 200,
+    "elapsed_s": 1.8,
+    "items": 146,
+    "latest_age_h": 113572.2,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "stale_days": 7
+   }
+  },
+  {
+   "id": "hillel-wayne",
+   "name": "Hillel Wayne",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://buttondown.com/hillelwayne",
+   "domain": "buttondown.com",
+   "owner": "Local",
+   "used_by": [
+    "obsidian_pool"
+   ],
+   "last_seen_files": [
+    "OBS/10-长线人物与博客信源池-2026-05-24.md:31",
+    "/Users/a0302/Library/Mobile Documents/iCloud~md~obsidian/Documents/【1】Projects/01-AI文科学习营/04-资料库/AI前沿精选阅读库（悦）/05-工作台/AI一手信息源库/00-AI信息源系统设置-长线短线分层-2026-05-24.md:104"
+   ],
+   "freshness": "manual",
+   "notes": "长线池在册（A/B 级），但既无机器可读登记也无采集脚本，属纯文档候选。",
+   "rss_url": "https://buttondown.com/hillelwayne/rss",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:01+0800",
+    "consecutive_errors": 0,
+    "last_error": null,
+    "http": 200,
+    "elapsed_s": 2.0,
+    "items": 30,
+    "latest_age_h": 105.4
+   }
+  },
+  {
+   "id": "the-atlantic",
+   "name": "The Atlantic（本地合法落盘 drop）",
+   "type": "long_info",
+   "tier": "S",
+   "url": "本地目录投送",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "deep_reading"
+   ],
+   "last_seen_files": [
+    "OP/02-AI-Deep-Reading/config/sources.yaml:6",
+    "OP/02-AI-Deep-Reading/00-SSOT与Agent任务规范.md:1"
+   ],
+   "freshness": "weekly",
+   "notes": "深读主力长文源，走本地 watch_dir 而非网络抓取；exclude_patterns 控制杂志版/PureFlow 版重复。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "the-new-yorker",
+   "name": "The New Yorker（editorial-inbox drop）",
+   "type": "long_info",
+   "tier": "S",
+   "url": "editorial-inbox/drop",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "deep_reading"
+   ],
+   "last_seen_files": [
+    "OP/02-AI-Deep-Reading/config/sources.yaml:18",
+    "OP/02-AI-Deep-Reading/editorial-inbox/intake-2026-09-15.json:1"
+   ],
+   "freshness": "weekly",
+   "notes": "近 5 期 inbox 内 New Yorker 条目持续入库（含 09-16/09-17 多篇）。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "atlantic-rss",
+   "name": "The Atlantic RSS 位（占位未启用）",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "（空 URL）",
+   "domain": "（未定）",
+   "owner": "Local",
+   "used_by": [
+    "deep_reading"
+   ],
+   "last_seen_files": [
+    "OP/02-AI-Deep-Reading/config/sources.yaml:26"
+   ],
+   "freshness": "unknown",
+   "notes": "配置存在但 enabled=false、url 为空——需用户订阅后填 URL 才生效。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "newyorker-rss",
+   "name": "The New Yorker RSS 位（占位未启用）",
+   "type": "long_info",
+   "tier": "candidate",
+   "url": "（空 URL）",
+   "domain": "（未定）",
+   "owner": "Local",
+   "used_by": [
+    "deep_reading"
+   ],
+   "last_seen_files": [
+    "OP/02-AI-Deep-Reading/config/sources.yaml:34"
+   ],
+   "freshness": "unknown",
+   "notes": "同上，占位待填。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "wired-longform",
+   "name": "WIRED 长文（深读候选）",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://www.wired.com",
+   "domain": "wired.com",
+   "owner": "RSS",
+   "used_by": [
+    "deep_reading",
+    "daily_collect"
+   ],
+   "last_seen_files": [
+    "SITE/data/rss-sources.json:101",
+    "OP/02-AI-Deep-Reading/20-深读候选池/咕咕读精选/2026-07-30-WIRED-NvidiasOpenSourceAllianceIsMissing.md:1"
+   ],
+   "freshness": "weekly",
+   "notes": "同一媒体两条链：短讯走 Wired AI feed，长文进深读候选池。",
+   "rss_url": "https://www.wired.com/feed/rss",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:02+0800",
+    "http": 200,
+    "elapsed_s": 1.3,
+    "items": 50,
+    "latest_age_h": 18.2,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:21:02+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "deep-reading-verified",
+   "name": "深读已核验原始源集合",
+   "type": "long_info",
+   "tier": "A",
+   "url": "data/verified-deep-sources.json",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "deep_reading",
+    "publish_reference"
+   ],
+   "last_seen_files": [
+    "SITE/data/verified-deep-sources.json:1"
+   ],
+   "freshness": "daily",
+   "notes": "逐条 URL 级核验台账（含 anthropic.com / news.ycombinator.com 等池外域名），是「回原始源」的落地证据。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "deep"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "aihot-candidates-pool",
+   "name": "AI HOT 每日候选归档池",
+   "type": "aggregate",
+   "tier": "A",
+   "url": "data/aihot-candidates/",
+   "domain": "local",
+   "owner": "AIHot",
+   "used_by": [
+    "aihot",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/data/aihot-candidates/2026-09-18.md:1",
+    "SITE/scripts/auto_daily_pipeline.sh:66"
+   ],
+   "freshness": "daily",
+   "notes": "34 份日更归档（2026-08-09 起），缺 09-09/09-12/09-13/09-16/09-17/09-19/09-20 等日。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "official-image-library",
+   "name": "官方配图库（COS 图床 + 分类备用池）",
+   "type": "image",
+   "tier": "S",
+   "url": "data/official-image-library.json",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "image_manifest",
+    "daily_write"
+   ],
+   "last_seen_files": [
+    "SITE/data/official-image-library.json:1",
+    "SITE/scripts/sync_official_library.py:29",
+    "SITE/scripts/sync_official_library.py:30",
+    "SITE/scripts/auto_daily_pipeline.sh:174"
+   ],
+   "freshness": "weekly",
+   "notes": "3 个语义类（chips_compute / frontier_models / embodied_robotics）共 8 张已验证备用图，全部落自有 COS；09-18 当天 manifest 未命中时由此兜底。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [],
+   "probe": {}
+  },
+  {
+   "id": "image-manifest-pipeline",
+   "name": "每日新闻 og:image 抓取 → COS 图床 manifest",
+   "type": "image",
+   "tier": "S",
+   "url": "SITE/data/image-manifest/",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "daily_collect",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/build_image_manifest.py:24",
+    "SITE/scripts/build_image_manifest.py:29",
+    "SITE/scripts/build_image_manifest.py:72",
+    "SITE/scripts/fetch_official_image.py:23",
+    "SITE/scripts/auto_daily_pipeline.sh:154",
+    "SITE/data/image-manifest/2026-09-18.json:1"
+   ],
+   "freshness": "daily",
+   "notes": "素材 URL 来源硬编码为 5 个文件（AIHOT/Perplexity×2/RSS/AINews）；09-18 共 25 条，13 张拿到 COS、12 张 no_official_image。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [],
+   "probe": {}
+  },
+  {
+   "id": "be-curious-ready-pool",
+   "name": "Be Curious 备用地貌图池（NASA EO 已核验）",
+   "type": "image",
+   "tier": "A",
+   "url": "data/be-curious-ready-pool.json",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "daily_write"
+   ],
+   "last_seen_files": [
+    "SITE/data/be-curious-ready-pool.json:1",
+    "SITE/scripts/pick_be_curious.py:26",
+    "SITE/scripts/scan_be_curious_pool.py:27",
+    "SITE/scripts/pick_be_curious.py:29"
+   ],
+   "freshness": "weekly",
+   "notes": "45 张已 http_verified 的地貌图，配 7 天不重复 + 全网史不重复去重规则。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [],
+   "probe": {}
+  },
+  {
+   "id": "eo-candidate-pool",
+   "name": "NASA EO Image-of-the-Day 候选池",
+   "type": "image",
+   "tier": "A",
+   "url": "data/eo-candidate-pool.json",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "daily_write"
+   ],
+   "last_seen_files": [
+    "SITE/data/eo-candidate-pool.json:1",
+    "SITE/scripts/pick_be_curious.py:28",
+    "SITE/scripts/fetch_eo_gallery.py:39",
+    "SITE/scripts/fetch_eo_gallery.py:80"
+   ],
+   "freshness": "weekly",
+   "notes": "28 张（含 1 张 usable=false 的坏 URL 已标记）；由 fetch_eo_gallery.py 从 science.nasa.gov IOTD 页扩充。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [],
+   "probe": {}
+  },
+  {
+   "id": "nasa-eo-sources",
+   "name": "NASA 地球观测图源域名",
+   "type": "image",
+   "tier": "A",
+   "url": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
+   "domain": "science.nasa.gov",
+   "owner": "Official",
+   "used_by": [
+    "daily_write",
+    "image_manifest"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/fetch_eo_gallery.py:80",
+    "SITE/scripts/fetch_eo_gallery.py:128",
+    "SITE/data/be-curious-ready-pool.json:10",
+    "SITE/data/eo-candidate-pool.json:11"
+   ],
+   "freshness": "weekly",
+   "notes": "两个静态资源域（assets.science.nasa.gov / eoimages.gsfc.nasa.gov）+ 列表页，三处硬编码在脚本常量与数据里。",
+   "rss_url": "https://science.nasa.gov/feed/",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:02+0800",
+    "http": 200,
+    "elapsed_s": 3.5,
+    "items": 10,
+    "latest_age_h": 1.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:21:02+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "nasa-eol-iss",
+   "name": "NASA JSC 地球观测实验室（ISS 大图）",
+   "type": "image",
+   "tier": "B",
+   "url": "https://eol.jsc.nasa.gov/DatabaseImages/ESC/",
+   "domain": "eol.jsc.nasa.gov",
+   "owner": "Official",
+   "used_by": [
+    "legacy_generator"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/v7_generate.py:37",
+    "SITE/scripts/v7_generate.py:41",
+    "SITE/scripts/fix_sample_html.py:30"
+   ],
+   "freshness": "unknown",
+   "notes": "旧版生成器里的固定 ISS 图片 ID 列表（按日期取图），与新 Be Curious 池并行存在，属重复实现。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:02+0800",
+    "http": 403,
+    "elapsed_s": 5.5,
+    "consecutive_errors": 1,
+    "last_error": "HTTP 403"
+   }
+  },
+  {
+   "id": "tencent-cos-image-host",
+   "name": "自建腾讯云 COS 图床（唯一图片出口）",
+   "type": "image",
+   "tier": "S",
+   "url": "https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/",
+   "domain": "myqcloud.com",
+   "owner": "Local",
+   "used_by": [
+    "image_manifest",
+    "publish"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/fetch_official_image.py:23",
+    "SITE/scripts/build_image_manifest.py:24",
+    "SITE/scripts/sync_official_library.py:30",
+    "SITE/data/official-image-library.json:3"
+   ],
+   "freshness": "daily",
+   "notes": "自有资产（非第三方图床），三处脚本各自写死同一 base URL，应迁到源池 JSON。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "blocked_cn",
+   "route_target": [],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:02+0800",
+    "http": 403,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 403"
+   }
+  },
+  {
+   "id": "image-qa-visual-gate",
+   "name": "候选图视觉质检（图文一致性 fit≥7）",
+   "type": "image",
+   "tier": "A",
+   "url": "SITE/scripts/image-qa.py",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "daily_collect"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/image-qa.py:1",
+    "SITE/scripts/auto_daily_pipeline.sh:168",
+    "SITE/data/official-image-library.json:35"
+   ],
+   "freshness": "daily",
+   "notes": "对当天预抓图逐张打分，fit<7 提前淘汰；评分回写进图库条目（novelty_score / visual_reason）。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [],
+   "probe": {}
+  },
+  {
+   "id": "sources-allowlist",
+   "name": "自有信源白/黑名单（sources.json）",
+   "type": "aggregate",
+   "tier": "S",
+   "url": "sources.json",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "gate_config",
+    "manual"
+   ],
+   "last_seen_files": [
+    "ROOT/sources.json:2",
+    "ROOT/sources.json:43",
+    "ROOT/sources.json:83"
+   ],
+   "freshness": "manual",
+   "notes": "39 个允许源名 + 8 个禁用源名 + 6 个深读偏好源；纯名称列表，无 URL，无法与采集脚本对齐。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "source-engine",
+   "name": "自有信息发动机（source-engine.json）",
+   "type": "aggregate",
+   "tier": "S",
+   "url": "source-engine.json",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "source_engine_registry"
+   ],
+   "last_seen_files": [
+    "ROOT/source-engine.json:48",
+    "ROOT/source-engine.json:1",
+    "ROOT/source-engine.json:20",
+    "ROOT/source-engine.json:322"
+   ],
+   "freshness": "manual",
+   "notes": "26 源 × core/longline/radar 分层，最接近「唯一事实源」的现有资产，但版本停在 2026-05-24、与 rss-sources.json 双轨并存。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "gate-domain-lists",
+   "name": "质量校验硬编码域名表（黑名单 / 深度源白名单）",
+   "type": "aggregate",
+   "tier": "S",
+   "url": "SITE/scripts/quality_gate.py",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "gate_config"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/quality_gate.py:188",
+    "SITE/scripts/quality_gate.py:195",
+    "SITE/scripts/quality_gate.py:212"
+   ],
+   "freshness": "manual",
+   "notes": "F10 黑名单 14 域、F11 深度源白名单 14 域、公司名映射表全部写死在 quality_gate.py，改源必须改代码。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "news",
+    "radar"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "x-export-ammo",
+   "name": "X 外发弹药队列（日报 → x-auto-post）",
+   "type": "short_info",
+   "tier": "B",
+   "url": "SITE/scripts/export_to_x.py",
+   "domain": "local",
+   "owner": "Local",
+   "used_by": [
+    "x_export"
+   ],
+   "last_seen_files": [
+    "SITE/scripts/export_to_x.py:25",
+    "SITE/scripts/export_to_x.py:83",
+    "/Users/a0302/Documents/Qoder/2026-09-18/a9cd1c57/ai-source-pool-overview.html:1"
+   ],
+   "freshness": "manual",
+   "notes": "把成品反向输出到 X 队列，指向另一个仓库的 ammo/posts.json；本次未改动该脚本。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "local",
+   "route_target": [
+    "news"
+   ],
+   "probe": {}
+  },
+  {
+   "id": "linux-do",
+   "name": "LINUX DO 大模型实测社区",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://linux.do",
+   "domain": "linux.do",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "daily",
+   "notes": "中文圈民间大模型降智、逆向与 API 低成本玩法的实测社区，信号常比官方通告快几天；直接服务「国内模型与本地运行生态不能被海外大厂淹没」选题铁律。论坛噪音高（推文评论区自评含噪量大），必须 AI 预筛＋回原文核实，不作权威源。 2026-09-20：连接重置 + 需登录态（与 09-20 拍板一致：最后评估）。 2026-09-20：连接重置 + 需登录态（与 09-20 拍板一致：最后评估）。",
+   "rss_url": "https://linux.do/latest.rss",
+   "fetch_kind": "rss",
+   "status": "blocked_cn",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:02+0800",
+    "http": 403,
+    "consecutive_errors": 3,
+    "last_error": "HTTP 403"
+   },
+   "core19": true
+  },
+  {
+   "id": "reddit-localllama",
+   "name": "Reddit r/LocalLLaMA",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.reddit.com/r/LocalLLaMA/",
+   "domain": "reddit.com",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "daily",
+   "notes": "全球开源模型与本地推理源头：GGUF/EXL2 量化首发测评、消费级显卡压榨、DeepSeek/Qwen 本地部署与轻量 Harness；与 mlx-vlm/Ollama/llama.cpp/端侧量化铁律维度逐一对应。 2026-09-20：reddit 全域名重置；社区信号暂由 AINews/Perplexity 覆盖。 2026-09-20：reddit 全域名重置；社区信号暂由 AINews/Perplexity 覆盖。",
+   "rss_url": "https://www.reddit.com/r/LocalLLaMA/new/.rss",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:02+0800",
+    "http": 200,
+    "elapsed_s": 2.0,
+    "items": 25,
+    "latest_age_h": 0.7,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:21:02+0800",
+    "stale_days": 0
+   },
+   "core19": true
+  },
+  {
+   "id": "reddit-cursor",
+   "name": "Reddit r/cursor",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.reddit.com/r/cursor/",
+   "domain": "reddit.com",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675"
+   ],
+   "freshness": "daily",
+   "notes": "Coding Agent 前线真实口碑：官方更新后暗改、Token 计费实测、长上下文失灵、AGENTS.md 支持进展；是「Reality Check 编辑姿态」的一线验证场—— benchmark 与官方声量结论在此找反例。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:03+0800",
+    "http": 200,
+    "elapsed_s": 1.0,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "reddit-claudeai",
+   "name": "Reddit r/ClaudeAI",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.reddit.com/r/ClaudeAI/",
+   "domain": "reddit.com",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675"
+   ],
+   "freshness": "daily",
+   "notes": "同 r/cursor，Claude 侧一线用户反馈与额度计费实测。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:03+0800",
+    "http": 200,
+    "elapsed_s": 1.0,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "reddit-saas",
+   "name": "Reddit r/SaaS",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.reddit.com/r/SaaS/",
+   "domain": "reddit.com",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675"
+   ],
+   "freshness": "daily",
+   "notes": "微型 SaaS 创始人现实账本：真实获客、定价陷阱与冷启动教训；「创造／创业投资」栏的素材池与清醒剂。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:03+0800",
+    "http": 200,
+    "elapsed_s": 1.0,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "indiehackers",
+   "name": "Indie Hackers",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.indiehackers.com",
+   "domain": "indiehackers.com",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675"
+   ],
+   "freshness": "daily",
+   "notes": "独立开发者真实 MRR 账单与变现踩坑记录，反成功学泡沫；适合「创造」栏案例。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:03+0800",
+    "http": 200,
+    "elapsed_s": 1.9,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "reddit-sideproject",
+   "name": "Reddit r/SideProject",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.reddit.com/r/SideProject/",
+   "domain": "reddit.com",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675"
+   ],
+   "freshness": "daily",
+   "notes": "野生极客解决单点痛点的微型 MVP 交付广场，捕捉轻量产品灵感。",
+   "rss_url": null,
+   "fetch_kind": "page",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:03+0800",
+    "http": 200,
+    "elapsed_s": 1.0,
+    "consecutive_errors": 0,
+    "last_error": null
+   }
+  },
+  {
+   "id": "github-trending-daily",
+   "name": "GitHub Trending Daily",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://github.com/trending",
+   "domain": "github.com",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675",
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "freshness": "daily",
+   "notes": "开源生态即时风向标：Star 增速极猛的单点工具、Agent 框架与开发者基建。无 RSS，接入需抓取脚本；注意 github.com 域名在图片链黑名单逻辑里另有用途，接入时按 feed 来源与图片来源分开判定。",
+   "rss_url": null,
+   "fetch_kind": "none",
+   "status": "no_feed",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {},
+   "core19": true
+  },
+  {
+   "id": "buzzing",
+   "name": "Buzzing 中文快译雷达",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://buzzing.cc",
+   "domain": "buzzing.cc",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675"
+   ],
+   "freshness": "daily",
+   "notes": "HN／Reddit／Product Hunt 热帖中文翻译镜像，每天 3 分钟扫全球趋势。与 AIHot 同性质的二手聚合：只用于发现线索，入稿前必须回原帖，成品来源行不留 buzzing.cc 痕迹。",
+   "rss_url": "https://www.buzzing.cc/feed.xml",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:03+0800",
+    "consecutive_errors": 0,
+    "last_error": null,
+    "http": 200,
+    "elapsed_s": 2.4,
+    "items": 744,
+    "latest_age_h": 0.2,
+    "last_new_item_at": "2026-09-21T13:21:03+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "id": "ruanyifeng-weekly",
+   "name": "阮一峰的网络日志（每周科技文集）",
+   "type": "manual_candidate",
+   "tier": "candidate",
+   "url": "https://www.ruanyifeng.com/blog/",
+   "domain": "ruanyifeng.com",
+   "owner": "陈大黄清单（用户投喂）",
+   "used_by": [
+    "manual"
+   ],
+   "last_seen_files": [
+    "OP/01-AI前线情报与日报/30-国际同行参考-AINews/2026-09-19陈大黄信息源清单（两条推文原文）.md",
+    "https://x.com/realchendahuang/status/2101319926103593285",
+    "https://x.com/realchendahuang/status/2101321535508406675"
+   ],
+   "freshness": "weekly",
+   "notes": "每周五更新的 KOL 策展周刊，视野宽但本质是二手精选。定位＝参考位而非选题源：只看它对中文圈注意力的元信号（圈内同行这周在传什么），条目真值得时直接回一手发布方核源；禁止照抄其选品跟发，成品来源行不留 ruanyifeng.com。",
+   "rss_url": "https://feeds.feedburner.com/ruanyifeng",
+   "fetch_kind": "rss",
+   "status": "active",
+   "route_target": [
+    "radar"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:04+0800",
+    "http": 200,
+    "elapsed_s": 1.8,
+    "items": 6,
+    "latest_age_h": 77.3,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:07:37+0800",
+    "stale_days": 0
+   }
+  },
+  {
+   "name": "AI as Normal Technology（Sayash Kapoor / AI Snake Oil 主创新刊）",
+   "type": "long_info",
+   "tier": "S",
+   "url": "https://www.normaltech.ai/",
+   "domain": "normaltech.ai",
+   "owner": "Expert",
+   "freshness": "weekly",
+   "used_by": [
+    "deep_reading",
+    "daily_collect"
+   ],
+   "notes": "AI Snake Oil 作者 Sayash Kapoor 的 Substack custom domain，实测 feed 可达；原 snakeoils 域名本机不可达。",
+   "id": "ai-snake-oil",
+   "core19": true,
+   "last_seen_files": [
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:04+0800",
+    "http": 200,
+    "elapsed_s": 2.4,
+    "items": 20,
+    "latest_age_h": 162.8,
+    "consecutive_errors": 0,
+    "last_error": null
+   },
+   "rss_url": "https://www.normaltech.ai/feed",
+   "fetch_kind": "rss",
+   "route_target": [
+    "deep"
+   ],
+   "status": "active"
+  },
+  {
+   "name": "Meta Newsroom（about.fb.com，ai.meta.com 镜像替代）",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://about.fb.com/news",
+   "domain": "about.fb.com",
+   "owner": "Official",
+   "freshness": "weekly",
+   "used_by": [
+    "daily_collect"
+   ],
+   "notes": "ai.meta.com 在本机被重置；about.fb.com 为 Meta 官方新闻室 RSS（实测 200）。",
+   "id": "meta-newsroom",
+   "core19": true,
+   "last_seen_files": [
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:04+0800",
+    "http": 200,
+    "elapsed_s": 2.2,
+    "items": 10,
+    "latest_age_h": 62.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:21:04+0800",
+    "stale_days": 0
+   },
+   "rss_url": "https://about.fb.com/feed/",
+   "fetch_kind": "rss",
+   "route_target": [
+    "news"
+   ],
+   "status": "active"
+  },
+  {
+   "name": "Google Blog · AI 频道",
+   "type": "short_info",
+   "tier": "A",
+   "url": "https://blog.google/technology/ai/",
+   "domain": "blog.google",
+   "owner": "Official",
+   "freshness": "weekly",
+   "used_by": [
+    "daily_collect"
+   ],
+   "notes": "2026-09-20 实测 feed 200。Gemini/DeepMind 产品线的官方发布口径。",
+   "id": "google-ai-blog",
+   "core19": true,
+   "last_seen_files": [
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:04+0800",
+    "http": 200,
+    "elapsed_s": 2.7,
+    "items": 20,
+    "latest_age_h": 63.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-21T13:21:04+0800",
+    "stale_days": 0
+   },
+   "rss_url": "https://blog.google/technology/ai/rss/",
+   "fetch_kind": "rss",
+   "route_target": [
+    "news"
+   ],
+   "status": "active"
+  },
+  {
+   "name": "Apple Machine Learning Research",
+   "type": "long_info",
+   "tier": "A",
+   "url": "https://machinelearning.apple.com/research",
+   "domain": "machinelearning.apple.com",
+   "owner": "Official",
+   "freshness": "monthly",
+   "used_by": [
+    "deep_reading",
+    "daily_collect"
+   ],
+   "notes": "2026-09-20 实测 rss.xml 200。端侧模型/私有云计算论文一手源。",
+   "id": "apple-ml-research",
+   "core19": true,
+   "last_seen_files": [
+    "WS/ai-source-pool.json:schema-v2"
+   ],
+   "probe": {
+    "checked_at": "2026-09-21T13:21:04+0800",
+    "http": 200,
+    "elapsed_s": 1.2,
+    "items": 10,
+    "latest_age_h": 77.4,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "last_new_item_at": "2026-09-20T21:07:38+0800",
+    "stale_days": 0
+   },
+   "rss_url": "https://machinelearning.apple.com/rss.xml",
+   "fetch_kind": "rss",
+   "route_target": [
+    "deep",
+    "radar"
+   ],
+   "status": "active"
+  }
+ ],
+ "gaps": [
+  {
+   "issue": "同一 RSS 源分散在 3 处机器配置（rss-sources.json 29 源 / source-engine.json 26 源 / sources.json 39 个名称），DeepMind、GitHub 两处 feed URL 还不一样",
+   "action": "以 ai-source-pool.json 为唯一事实源，三处配置改为只读快照或由脚本注入",
+   "priority": "P0"
+  },
+  {
+   "issue": "每日采集只有 5 条通道，其中 AI HOT 与 Perplexity 两条完全依赖第三方站点/CDP，RSS 只覆盖 rss-sources.json 的 29 源",
+   "action": "把 source-engine.json 里 19 个「已登记未接入」源（HF Daily Papers、Import AI、The Batch、Anthropic News、Ethan Mollick 等）迁入 rss-sources.json 或采集链",
+   "priority": "P0"
+  },
+  {
+   "issue": "量子位同时在 rss-sources.json 采集中与 sources.json / source-engine / 信息源指南的禁用名单里；36氪同样冲突",
+   "action": "人工裁决去留，并把裁决结果写进源池 JSON 的 status 字段，让采集与质量校验共用一份判定",
+   "priority": "P1"
+  },
+  {
+   "issue": "X 自有候选池 39 个账号里只有 15 个曾在 2026-06-06 实抓过；feed-x-raw.json 之后未再刷新，follow-builders 链已断 3 个多月",
+   "action": "新建独立 X 候选池配置，先把 @realchendahuang 与 15 个已验证账号纳入日更监测",
+   "priority": "P1"
+  },
+  {
+   "issue": "近 30 期成品来源行里 aihot.virxact.com 仍出现 6 次，与「不留聚合站痕迹、回原始源」的既定要求不符",
+   "action": "对成品来源行做一次域名回查，把聚合站链接替换为原始源；质量校验脚本增加一条池外域名检查",
+   "priority": "P1"
+  },
+  {
+   "issue": "RSS/Perplexity/AIHOT/COS base/黑白名单域名等源信息写死在 12+ 个脚本常量里",
+   "action": "脚本改为读取 ai-source-pool.json，逐步删除硬编码常量",
+   "priority": "P1"
+  },
+  {
+   "issue": "图片链路存在两套并行实现（Be Curious NASA 池 vs v7_generate 的 ISS 固定 ID 列表），且 manifest 素材来源文件列表硬编码",
+   "action": "统一走 image 源类型配置，废弃旧生成器内联图片 ID",
+   "priority": "P2"
+  },
+  {
+   "issue": "缺少「实际使用了哪些源、各命中几条」的落盘记录，只能从成品 HTML 反推",
+   "action": "每日采集后写 data/source-usage-YYYY-MM-DD.md 或 JSON，回灌本总览页",
+   "priority": "P1"
+  },
+  {
+   "issue": "长线池 B 级 3 位作者（Geoffrey Litt、Rachel Kroll、Gergely Orosz）出现在分层设置文档但未进信源池表格",
+   "action": "补齐表格行并登记 URL/RSS 状态，或直接标注为放弃",
+   "priority": "P2"
+  }
+ ],
+ "next_actions": [
+  "新建自有 ai-source-pool.json（本文件）作为信息源唯一事实源：稳定 id + type + tier + url + owner + freshness，先与 source-engine.json 做一次合并评审。",
+  "把散落脚本里的硬编码 RSS / AIHot / COS / 黑白名单域名逐步迁到 JSON：fetch_rss_sources.py、fetch_aihot_sources.py、build_image_manifest.py、sync_official_library.py、quality_gate.py 改为读池不读常量。",
+  "为 X / Twitter 账号建独立候选池（x-pool），首批样例 @realchendahuang 已登记；恢复 feed-x-raw.json 的日更抓取，让 39 个在册账号都有实际数据。",
+  "每日采集后把「实际使用源 / 命中数 / 失败源」写入 data/source-usage-YYYY-MM-DD.md（或 JSON），本总览页据此展示真实使用情况，而不是从成品 HTML 反推。",
+  "降低 AIHot 依赖不能以牺牲覆盖为代价：国内模型、本地运行、开源发布、中文 builder 这几维目前主要由 AINews、量子位、AIHot 补，替换前须先为每一维准备等量的自有源。",
+  "先补 5 个高引用未接入源（Hugging Face Daily Papers、Import AI、The Batch、Ethan Mollick、Anthropic News），用实测命中数验证后再讨论减少 AIHot 采集频次。"
+ ],
+ "schema_version": 2,
+ "user_inbox": [],
+ "field_docs": {
+  "rss_url": "可机读抓取 URL（feed/API/列表页），探活与 harvest 只认此字段",
+  "fetch_kind": "rss|json_api|html_list|page|none",
+  "route_target": "分流去向：news=AI News 日报 / deep=02 深读 inbox / radar=选题与时间轴",
+  "status": "active|unprobed|stale|blocked_cn|no_feed|local|manual_only；只有 active 进每日抓取",
+  "probe": "source_probe.py 每晚回写：last_checked_at/http/latest_age_h/consecutive_errors"
+ }
+}

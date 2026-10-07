@@ -327,28 +327,34 @@ class PipelineRunner:
         self._save("PRECHECK", stage_started_at=sh_now().isoformat())
 
     def stage_collect(self):
-        """素材采集：回调唯一 shell 入口的 --collect-only（保留旧采集链）。
+        """素材采集：统一调用 157 信源池一手雷达引擎 collect_primary_radar.py。
 
-        断点复用：当日任务书已生成 = 采集段已完成。launchd 每 5 分钟 tick 恢复
-        时严禁重跑整段采集。
-        强韧化：即使外部网络抓取超时，只要任务书生成（或自动保底生成），绝不阻断后续起草。
+        断点复用：当日任务书已生成且包含 ≥ 5 条真实一手素材 = 采集段已完成。
+        铁律：严禁空壳保底放行，严禁“自动保底生成”虚晃一枪。
         """
         task_book = self.site_dir / "data" / f"daily-task-{self.date}.md"
-        if task_book.exists() or self.attempt > 0:
-            self.log("[collect] 当日素材已采集（任务书存在），断点复用，跳过")
-            return
-        shell = self.site_dir / "scripts" / "auto_daily_pipeline.sh"
+        if task_book.exists():
+            text = task_book.read_text(encoding="utf-8", errors="replace")
+            item_count = text.count("### ")
+            if item_count >= 5:
+                self.log(f"[collect] 当日素材已采集（任务书存在且有 {item_count} 条一手素材），断点复用，跳过")
+                return
+
+        collector = self.site_dir / "scripts" / "collect_primary_radar.py"
         rc = self.process.run(
-            ["/bin/bash", str(shell), "--collect-only", "--date", self.date],
+            [PY, str(collector), "--date", self.date],
             timeout=self.stage_budget("COLLECT"),
             log_path=self.logs_dir / "collect.log", cwd=str(self.site_dir))
         self._save("COLLECT", collect_rc=rc)
 
-        # 强韧化保底：若 shell 异常退出但任务书未生成，就地生成保底任务书放行，绝不掐死整条流水线
         if not task_book.exists():
-            task_book.parent.mkdir(parents=True, exist_ok=True)
-            task_book.write_text(f"# AI News 日报任务书 · {self.date}\n\n> 采集自愈保底\n\n## 一、素材清单\n- 自动保底生成\n", encoding="utf-8")
-            self.log("[collect] 外部采集触发超时保护，已生成保底任务书，平滑放行至起草阶段")
+            raise RuntimeError(f"[collect] 采集失败：任务书未生成，信源不足或网络异常")
+        
+        text = task_book.read_text(encoding="utf-8", errors="replace")
+        item_count = text.count("### ")
+        if item_count < 5:
+            raise RuntimeError(f"[collect] 采集失败：任务书仅有 {item_count} 条素材（要求 ≥ 5 条），严禁空壳出稿")
+        self.log(f"[collect] 一手雷达采集成功：捕获 {item_count} 条一手顶级素材")
 
     def stage_draft(self):
         """起草：真实返回码 + 墙钟时限 + 一次受控重试。已有文件必须核验。"""
