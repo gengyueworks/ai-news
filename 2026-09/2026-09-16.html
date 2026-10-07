@@ -176,26 +176,12 @@
             line-height: 1.6;
             }
 
-        .voice {
-            background: #F4F7FF;
-            border-left: 3px solid var(--klein);
-            border-radius: 4px;
-            padding: 16px 20px;
-            margin-bottom: 20px;
-        }
-        .voice-text {
-            font-size: 15.5px;
-            color: var(--text-dark);
-            font-style: italic;
-            line-height: 1.75;
-            margin-bottom: 8px;
-        }
-        .voice-who {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--text-light);
-        }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); }
         .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
 
         .curiosity {
             padding: 24px;

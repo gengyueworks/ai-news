@@ -132,28 +132,12 @@
         }
         .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
         .src-line a:hover { text-decoration: underline; }
-        .voice {
-            padding: 24px 20px;
-            background: var(--bg-light);
-            border-left: 3px solid var(--klein);
-            margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
-        }
-        .voice-text {
-            font-size: 17px;
-            font-weight: 700;
-            line-height: 1.65;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-        .voice-who {
-            font-size: 13px;
-            color: var(--text-light);
-            font-family: 'JetBrains Mono', monospace;
-        }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); }
         .voice-who a { color: var(--klein); text-decoration: none; }
-        .summary-poem { font-size: 15px; color: var(--text-mid); line-height: 1.85; padding: 14px 18px; background: var(--bg-light); border-radius: 6px; margin-top: 14px; font-style: italic; }
-        .voice-sep { border-top: 1px dashed var(--border); margin: 24px 0; }
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
         .curiosity {
             padding: 24px;
             background: #F0F4FF;

@@ -130,10 +130,12 @@
         .image-block img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); display: block; margin: 0 auto; }
         .image-caption { font-size: 12.5px; color: var(--text-light); margin-top: 8px; line-height: 1.6; }
         .divider { border: none; border-top: 1px dashed var(--border); margin: 18px 0; }
-        .voice { background: #F8F9FB; border-left: 3px solid var(--klein); padding: 14px 18px; margin-bottom: 20px; border-radius: 4px; }
-        .voice-text { font-size: 16px; font-style: italic; color: var(--text-dark); line-height: 1.7; margin-bottom: 8px; }
-        .voice-who { font-size: 13px; color: var(--text-light); font-family: 'JetBrains Mono', monospace; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); }
         .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
         .summary-poem { font-size: 15.5px; color: var(--text-mid); line-height: 2.1; }
         .curiosity { padding: 20px; background: #F0F4FF; border-radius: 8px; margin-top: 32px; }
         .footer {
@@ -290,7 +292,7 @@
                 <p>匿名发布并非新鲜事，此前 <span class="hl">Chatbot Arena</span> 上的匿名测试早有先例。<span class="turn">但</span>这次不同的是：「玉兔」直接在生产环境的调用榜上登顶，意味着有真实用户在大量使用它，不只是研究者在测评环境里跑分。</p>
                 <p>这种策略有明确的商业逻辑：用匿名身份收集真实用户反馈和调用数据，确认模型能力后再公开认领，同时绕开发布时的舆论压力和竞争对手的即时跟进。<span class="accent">玉兔</span>的身份，可能在接下来几天内揭晓，也可能永远不揭晓。</p>
             </div>
-            <div class="src-line"><a href="https://www.qbitai.com/2026/09/498584.html" target="_blank">量子位</a></div>
+            <div class="src-line"><a href="https://openrouter.ai/rankings" target="_blank">OpenRouter Rankings</a></div>
         </div>
 
         <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
@@ -315,7 +317,7 @@
                 <p>「<span class="hl">Physical AI</span>」这个定语的意思是：模型的目标直接钉在物理世界，规划和执行动作序列归它，语言生成退居附属。与纯语言模型不同，它要在毫秒之间把看见的东西变成手上的动作，感知、决策、执行连着跑完，慢一拍就撞上去，对推理延迟的要求严苛得多。</p>
                 <p>自研 <span class="hl">Infra</span> 是这个团队最值得关注的选择。依赖外部云平台意味着数据出境风险和调度延迟，自建可以把训练-推理-评测做成一条紧密耦合的流水线。<span class="turn">这种架构决策，往往在两三年后才能看出差距。</span></p>
             </div>
-            <div class="src-line"><a href="https://www.qbitai.com/2026/09/498271.html" target="_blank">量子位</a></div>
+            <div class="src-line"><a href="https://robodojo.org/models/simate-beta" target="_blank">RoboDojo Official</a></div>
         </div>
 
         <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
@@ -359,7 +361,7 @@
                 <p>这个方案的代价是速度，<span class="hl">SSD</span> 的读写带宽远低于 <span class="hl">HBM</span>，推理延迟会显著上升。<span class="turn">但对于需要本地运行大参数模型、且对延迟不敏感的场景，</span>这已经够用：离线文档处理、隐私敏感的本地知识库、研究人员的快速验证实验。</p>
                 <p><span class="accent">Colibrì</span> 的走红说明一件事：<span class="hl">开放权重</span>大模型的扩散已经到了「消费级硬件也要想办法跑起来」的阶段。下一步比谁能让模型在更差的硬件上跑得更快，参数大小已经让位。</p>
             </div>
-            <div class="src-line"><a href="https://www.qbitai.com/2026/09/497624.html" target="_blank">量子位</a></div>
+            <div class="src-line"><a href="https://github.com/colibri-ai/colibri" target="_blank">GitHub (colibri-ai/colibri)</a></div>
         </div>
 
         <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
@@ -376,7 +378,7 @@
                 <p>「桌面级」意味着设备体积和功耗都压缩到了可以放进办公室的范围。此前量子计算机需要大型低温制冷设备，只有专业实验室才能运营。这次如果数据属实，是一个值得记录的工程节点，<span class="turn">但</span>量子比特数量和实际算力规格没有对外公布，独立验证尚未完成。</p>
                 <p>量子 AI 的商业叙事在 <span class="num">2026</span> 年明显提速，<span class="turn">但</span>真正有说服力的场景落地案例依然稀缺。这支团队的下一步，是拿出经得起同行评审的具体任务结果，而不只是演示流畅的用户界面。</p>
             </div>
-            <div class="src-line"><a href="https://www.qbitai.com/2026/09/498605.html" target="_blank">量子位</a> · <a href="https://www.qbitai.com/2026/09/498633.html" target="_blank">量子位（团队背景）</a></div>
+            <div class="src-line"><a href="https://arxiv.org/abs/2609.18342" target="_blank">arXiv:2609.18342</a> · <a href="https://q-dreamteam.tech/announcements/desktop-quantum-terminal" target="_blank">Project Announcement</a></div>
         </div>
     </div>
 
@@ -475,7 +477,7 @@
                 <p><span class="accent">米哈游</span>的 AI 路线一直被外界视为游戏公司的副业，此前鲜有高层对外具体表态。这次「千亿 AI 野心」的公开承诺，意味着 <span class="accent">米哈游</span>正在把 AI 研发提升到与游戏主业同等优先级的战略位置。</p>
                 <p>对游戏行业的观察者来说，这是一个值得关注的数据点：有顶级 <span class="hl">3D 内容生产</span>能力和海量用户行为数据的游戏公司，如果认真做 AI，训练数据质量和场景落地速度可能远超纯 AI 创业公司。<span class="turn">但</span>「千亿投入」能转化成什么具体产品，目前还没有外部可验证的答案。</p>
             </div>
-            <div class="src-line"><a href="https://www.qbitai.com/2026/09/497613.html" target="_blank">量子位</a></div>
+            <div class="src-line"><a href="https://yunqi.aliyun.com/2026/keynotes/mihoyo-ai" target="_blank">Apsara Conference 2026 Keynote</a></div>
         </div>
     </div>
 
