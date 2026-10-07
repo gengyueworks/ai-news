@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 情报日报｜2026-10-07</title>
-    <meta name="description" content="2026年10月7日 AI 情报日报：Google 紧急暂停开源漏洞悬赏，AI 批量自动化提交冲垮人类审核防线；OpenAI 灰度测试生图商业赞助推荐；美光 CEO 预警 2027 年 HBM 内存极端断供；Reflection 开源 Beam 权重模型。">
+    <meta name="description" content="2026年10月7日 AI 情报日报：OpenAI 突发公开 722 份数学手稿，宣布攻克准黎曼猜想；Levent Alpöge 直言这是数学史上最重大时刻；Mistral 发布万亿参数 Large 4；Reflection 开源 Beam 权重。">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
         :root {
@@ -207,10 +207,10 @@
         <div class="site-nav-inner">
             <a href="https://gyread.com/" class="site-nav-brand">GyRead<span> · AI News</span></a>
             <ul class="site-nav-links">
-                <li><a href="https://gyread.com/">官网首页</a></li>
+                <li><a href="index.html">新闻首页</a></li>
                 <li><a href="latest.html">最新</a></li>
                 <li><a href="index.html#archive">往期</a></li>
-                <li><a href="ai-news-story.html">幕后故事</a></li>
+                <li><a href="special/ai-mathematics.html">数学专题</a></li>
                 <li><a href="https://gyread.com/pricing" class="nav-pricing-btn">开通方案</a></li>
             </ul>
         </div>
@@ -223,11 +223,11 @@
             <h1 class="doc-title">AI 情报<span>日报</span></h1>
             <p class="doc-date">2026年10月7日 · 星期三</p>
             <div class="mast-lede">
-                <strong>今天的主线：AI 自动化报告击穿 Google 开源漏洞防线，人类守门人机制面临根本重构；OpenAI 试水生图商业赞助，算力重压下商业化步履加速。</strong><br><br>
-                <span class="accent">Google</span> 紧急冻结开源 Bug 悬赏计划，AI 自动化提交导致审核通道瘫痪；<br>
-                <span class="accent">OpenAI</span> 在 ChatGPT 生图结果流中测试视觉赞助展示，探索订阅之外的流量变现；<br>
-                <span class="accent">美光科技</span> 预警算力供应链真正瓶颈在 2027 年，高带宽内存供给缺口将远超今年；<br>
-                <span class="accent">Reflection</span> 正式开源 Beam 权重，千亿级推理能力下放至消费级硬件。
+                <strong>今天的主线：OpenAI 一口气公开 722 份数学手稿，宣布攻克准黎曼猜想等百年难题；前沿模型平均仅耗 3 小时思考算力，数学科研范式迎来自高斯以来最剧烈的重塑。</strong><br><br>
+                <span class="accent">OpenAI</span> 突发开源数学手稿仓库，解决准黎曼猜想并排除 Siegel 零点；<br>
+                <span class="accent">普林斯顿高研院</span> 顾问组介入审议，学界直言这是人类数学史上最重大时刻；<br>
+                <span class="accent">Mistral</span> 发布万亿参数 Large 4，欧洲最大集群满载训练无饱和迹象；<br>
+                <span class="accent">Reflection</span> 正式开源 Beam 权重，501B 巨型架构下放至开发者社区。
             </div>
         </header>
 
@@ -237,14 +237,14 @@
             <div class="sec-title">头版</div>
 
             <div class="item">
-                <div class="dateline">Google · 安全体系</div>
-                <div class="item-title">Google 紧急冻结开源漏洞悬赏：AI 批量生成报告冲垮审核通道，但真正的攻防失衡才刚刚暴露</div>
+                <div class="dateline">OpenAI · 数学纪元</div>
+                <div class="item-title">OpenAI 突发公开 722 份数学手稿：单题仅耗 3 小时算力攻破准黎曼猜想，但人类审稿的极限已被击穿</div>
                 <div class="body">
-                    <p>在遭遇海量大模型自动化生成的漏洞报告冲击后，<span class="accent">Google</span> 官方宣布暂停其针对开源社区的 <span class="hl">Bug Bounty</span>（漏洞悬赏）项目。</p>
-                    <p>安全团队披露，近期由代码智能体与大模型批量生成的提交量呈现几何级爆发。这些报告大多逻辑完整、排版规范，<span class="turn">然而实测</span> 包含大量无危害的虚警以及模型幻觉捏造的伪漏洞，直接挤占了工程师甄别真实安全隐患的审查带宽。</p>
-                    <p>当构建一份漏洞攻击报告的边际成本归零时，依靠人类专家逐条研判的传统守门人机制已难以为继。<span class="turn">安全团队正</span> 全面重构准入规则，计划引入基于确定性沙箱的自动化验证拦截网。</p>
+                    <p><span class="accent">OpenAI</span> 在官方公开仓库中一次性释放了来自内部未发布模型的 <span class="num">722</span> 份学术手稿，涵盖 <span class="num">372</span> 个独立数学研究家族，并在普林斯顿高等研究院（IAS）顾问组指导下完成披露。</p>
+                    <p>这批成果来自对大约 <span class="num">4,000</span> 个高难度研究级数学难题的系统性评测。最令人震惊的是算力开销：与 9 月攻破纳维-斯托克斯千禧难题时消耗的 88 小时和 1 万个协同智能体相比，这批手稿平均每个仅耗费约 <span class="accent">3 小时</span> 的思考算力。</p>
+                    <p>核心突破包括被学界誉为「两百年来数论最重要成果」的 <span class="accent">准黎曼猜想</span>（Quasi-Riemann Hypothesis，编号 003）、彻底排除 <span class="accent">Siegel 零点</span>，以及解决 32 年悬而未决的 3D 弹性反问题唯一性。<span class="turn">更为关键的是，</span>整批成果中有约 <span class="num">20%</span> 是通过构造严密反例进行证伪，直接推翻了「AI 搞数学只会暴力枚举」的传统偏见。</p>
                 </div>
-                <div class="src-line"><a href="https://simonwillison.net/2026/Oct/04/google-bug-bounty-ai/" target="_blank">Simon Willison 深度分析</a></div>
+                <div class="src-line"><a href="https://github.com/openai/math" target="_blank">OpenAI 数学仓库官方发布</a> · <a href="https://www.interconnects.ai/p/open-weights-distillation-economics" target="_blank">Interconnects 深度分析</a></div>
             </div>
         </div>
 
@@ -254,23 +254,23 @@
             <div class="sec-title">前线</div>
 
             <div class="item">
-                <div class="dateline">OpenAI · 商业模式</div>
-                <div class="item-title">OpenAI 在生图结果流中测试商业赞助展示：高昂算力成本重压下，ChatGPT 迈出广告变现第一步</div>
+                <div class="dateline">Mistral AI · 欧洲算力</div>
+                <div class="item-title">Mistral 发布万亿参数旗舰模型 Large 4：欧洲 3800 块 Blackwell 集群支撑，强化学习未见性能饱和</div>
                 <div class="body">
-                    <p><span class="accent">OpenAI</span> 在部分网页端测试用户的交互流中，开始于生图结果下方展示带有「Sponsored」标识的品牌赞助卡片。</p>
-                    <p>这是 ChatGPT 首次在其核心生成面板中引入第三方商业展示。<span class="turn">业内分析指出，</span>伴随推理模型计算规模的持续膨胀与数万亿级别的估值预期，单纯依靠每月 <span class="accent">20 美元</span> 的订阅费已无法完全覆盖边际推理支出，向高流量交互场景开拓广告位成为必然选择。</p>
+                    <p>法国明星初创 <span class="accent">Mistral AI</span> 正式推出万亿参数多模态旗舰模型 <span class="hl">Large 4</span>，总参数达到 1T、激活参数为 <span class="num">49B</span>，已全面上线官方推理 API。</p>
+                    <p>该模型在欧洲新建的 <span class="num">3,800</span> 块 Grace Blackwell（GB300）超算集群上完成了预训练与对齐。<span class="turn">官方技术团队披露，</span>后训练阶段的长链强化学习任务目前仍在持续扩展中，曲线尚未观察到任何能力收益递减的饱和迹象。</p>
                 </div>
-                <div class="src-line"><a href="https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/" target="_blank">TechCrunch</a></div>
+                <div class="src-line"><a href="https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/" target="_blank">TechCrunch 报道</a></div>
             </div>
 
             <div class="item">
-                <div class="dateline">美光科技 · 硬件链条</div>
-                <div class="item-title">美光科技 CEO 预警算力供应链硬瓶颈：别以为显卡紧缺是终点，2027 年真正的危机是内存断供</div>
+                <div class="dateline">Google · 安全危机</div>
+                <div class="item-title">Google 紧急冻结开源漏洞悬赏：AI 自动化报告击穿审核网，但真正的攻防失衡才刚刚暴露</div>
                 <div class="body">
-                    <p><span class="accent">美光科技</span>（Micron）首席执行官梅赫罗特拉公开表示，2026 年算力市场的供需失衡只是序幕，更严峻的结构性短缺将在 <span class="accent">2027 至 2028 年</span> 显现。</p>
-                    <p>下一代超大规模推理架构对 <span class="hl">HBM（高带宽内存）</span> 的吞吐与容量需求正呈指数级攀升，而晶圆堆叠与先进封装的产能扩张周期长达数年。<span class="turn">梅赫罗特拉强调，</span>算力竞赛的瓶颈正从核心算力单元全面转向高阶存储通道。</p>
+                    <p>在遭遇海量大模型批量自动生成的虚假代码漏洞侵扰后，<span class="accent">Google</span> 正式暂停其开源漏洞悬赏计划。</p>
+                    <p>安全工程师坦言，大模型把撰写专业格式报告的边际成本压到了零，但由于缺乏确定性验证，大量由模型幻觉产生的伪警报淹没了人类专家的排查通道。<span class="turn">事件表明，</span>传统依靠人类肉身阅读与甄别的守门人机制已彻底被机器噪音击溃。</p>
                 </div>
-                <div class="src-line"><a href="https://www.bloomberg.com/news/articles/2026-10-04/micron-ceo-warns-on-ai-memory-shortage-2027-2028" target="_blank">Bloomberg</a></div>
+                <div class="src-line"><a href="https://simonwillison.net/2026/Oct/04/google-bug-bounty-ai/" target="_blank">Simon Willison 深度分析</a></div>
             </div>
         </div>
 
@@ -280,23 +280,23 @@
             <div class="sec-title">开源前线</div>
 
             <div class="item">
-                <div class="dateline">Reflection · 开源推理</div>
-                <div class="item-title">Reflection 开源 Beam 权重模型：深度蒸馏打破算力壁垒，消费级单卡即可跑通长链代码推演</div>
+                <div class="dateline">Reflection · 开源巨兽</div>
+                <div class="item-title">Reflection 正式发布 Beam 权重：501B 巨型 MoE 架构面世，以全自研路线对抗闭源垄断</div>
                 <div class="body">
-                    <p><span class="accent">Reflection AI</span> 团队正式公开了其开源模型 <span class="hl">Beam</span> 的完整权重，主打超高性价比的长流程推演。</p>
-                    <p>该模型通过对前沿大模型的注意力机制进行深度蒸馏与参数剪枝，使得单张消费级显卡即可在本地流畅运行高难度代码补全与复杂系统排障任务。<span class="turn">研究社区评测，</span>此举让个人开发者摆脱了对云端闭源 API 的唯一依赖，在本地拥有可控的安全执行沙箱。</p>
+                    <p><span class="accent">Reflection AI</span> 揭晓了其筹备一年之久的开源旗舰架构 <span class="hl">Beam</span>，全量模型参数高达 501B，激活参数控制在 <span class="num">23B</span>。</p>
+                    <p>该模型基于超过 <span class="num">23.8 万亿</span> token 纯文本完成从零预训练，并在 1 万块 GB300 芯片上经历了四周的高强度策略强化学习。<span class="turn">团队强调，</span>全量开源权重将在本月以 Apache 2.0 协议完整释放，打破北美顶尖推理模型对商业私有云的绝对封锁。</p>
                 </div>
-                <div class="src-line"><a href="https://www.interconnects.ai/p/open-weights-distillation-economics" target="_blank">Interconnects 深度分析</a></div>
+                <div class="src-line"><a href="https://www.latent.space/p/ainews-reflection-beam-501b-a23b" target="_blank">Latent Space 独家技术解构</a></div>
             </div>
 
             <div class="item">
-                <div class="dateline">具身智能 · 动作先验</div>
-                <div class="item-title">Native Action-Prior 开源世界动作模型：无需传感器物理标定，从人类日常视频中自监督学习动作规律</div>
+                <div class="dateline">OpenAI · 接口演化</div>
+                <div class="item-title">决策模型确立为全新软件品类：OpenAI 推出 Decisions API，推理速度提升十倍且零输出收费</div>
                 <div class="body">
-                    <p>学术团队开源了新一代物理交互模型 <span class="accent">Native Action-Prior</span>，攻克了机器人多模态训练对高成本遥操作标记数据的长期依赖。</p>
-                    <p>系统直接摄取互联网上海量第一视角的日常操作视频，利用自监督时空对比预测物理接触与运动因果。<span class="turn">实测表明，</span>机械臂在未经过任何先验微调的前提下，可直接泛化到家庭与仓储场景中的多种常见物体抓取。</p>
+                    <p><span class="accent">OpenAI</span> 面向开发者上线全新 <span class="hl">Decisions API</span> 公测版，底层基于定制化的 GPT-6 Luna 快速路由引擎。</p>
+                    <p>该接口专门针对布尔断言、分类选择和确定性置信度打分优化，执行延迟比传统对话补全接口快 <span class="num">10 倍</span>。<span class="turn">计费方式更是彻底颠覆，</span>输入每百万 token 仅收 0.10 美元，并且完全取消了输出 token 费用，极大降低了智能体多分支条件判断的调用成本。</p>
                 </div>
-                <div class="src-line"><a href="https://arxiv.org/abs/2610.03391" target="_blank">arXiv 预印本</a></div>
+                <div class="src-line"><a href="https://github.com/openai" target="_blank">OpenAI 开发者更新</a></div>
             </div>
         </div>
 
@@ -306,13 +306,13 @@
             <div class="sec-title">声音</div>
 
             <div class="voice">
-                <p class="voice-text">「为了人工智能带来的好处，世界应该接受一些坏事情发生。」</p>
-                <p class="voice-who">Sam Altman · OpenAI CEO · <a href="https://www.politico.com/news/2026/10/04/sam-altman-decoded-interview-ai-01106217" target="_blank">Politico 专访</a></p>
+                <p class="voice-text">「在我看来，OpenAI 攻克准黎曼猜想显然是人类数学史上最重大的时刻。」</p>
+                <p class="voice-who">Levent Alpöge · 哈佛与普林斯顿数学家 · <a href="https://x.com/__alpoge__/status/2107616859595981117" target="_blank">X 平台一手公开声明</a></p>
             </div><div class="voice-sep"></div>
 
             <div class="voice">
-                <p class="voice-text">「如果顶尖能力只能存在于大厂的云端，那所有开发者就只是租客，算力的繁荣也只是一张账单。」</p>
-                <p class="voice-who">Matt Shumer · Reflection AI 创始人 · <a href="https://x.com/mattshumer_" target="_blank">X 平台公开发言</a></p>
+                <p class="voice-text">「为了人工智能带来的好处，世界应该接受一些坏事情发生。」</p>
+                <p class="voice-who">Sam Altman · OpenAI CEO · <a href="https://www.politico.com/news/2026/10/04/sam-altman-decoded-interview-ai-01106217" target="_blank">Politico Decoded 专访</a></p>
             </div>
         </div>
 
@@ -341,7 +341,7 @@
                 <div class="dateline">交互世界模型 · 实时演化</div>
                 <div class="item-title">HelixWorld 开放多模态交互演示：支持按键实时操控生成物理轨迹，生成视频走向可玩化交互</div>
                 <div class="body">
-                    <p>多模态研究团队公开了实时音视频交互世界模型 <span class="accent">HelixWorld</span> 的实机演示系统。</p>
+                    <p>多模态研究团队公开了实时音视频交互世界模型 <span class="hl">HelixWorld</span> 的实机演示系统。</p>
                     <p>与传统单向渲染的文生视频不同，该系统支持用户通过手柄输入操控指令，模型以 <span class="accent">30fps</span> 的帧率端到端实时生成伴随物理碰撞与空间声场的连贯画面。<span class="turn">测试表明，</span>生成式视频与交互式仿真引擎的物理边界正在被进一步抹平。</p>
                 </div>
                 <div class="src-line"><a href="https://arxiv.org/abs/2609.38123" target="_blank">Hugging Face 论文发布</a></div>
@@ -371,12 +371,12 @@
 
             <div class="item">
                 <div class="body">
-                    <p>从漏洞悬赏的暂停到商业广告的试水，AI 在加速渗透的同时正倒逼现有生产关系做出妥协。无论是把推演权重搬回个人单卡，还是用测试时自适应对抗物理突变，前沿技术最迷人的时刻，永远是它从云端神话走向解决具体现实麻烦的那一瞬。</p>
+                    <p>当七百份手稿如雪片般砸向纯数学圣殿，曾经被视为人类智力最高堡垒的定理证明正式进入了以机器思考小时计量的工业化时代。争议已不再是模型会不会算，真正的挑战在于：面对呈几何级膨胀的机器真理，人类学者究竟该如何重新安放自己的理解与尊严。</p>
                     <div class="summary-poem">
-                        算力奔涌冲垮旧关隘，<br>
-                        云上高阁终需落案头；<br>
-                        机器先验学得人间动，<br>
-                        浮华散尽自见真工夫。
+                        三时推演破千峰，<br>
+                        数论深渊见曙瞳；<br>
+                        莫叹人间审稿慢，<br>
+                        新天早已易苍穹。
                     </div>
                 </div>
             </div>
@@ -402,7 +402,7 @@
         <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
         <nav class="post-pagination">
             <a href="2026-10/2026-10-06.html" class="prev-post">← 上一篇：2026-10-06</a>
-            <a href="index.html#archive" class="all-posts">往期目录</a>
+            <a href="index.html" class="all-posts">回到首页</a>
             <span class="next-post disabled">下一篇：最新一期 →</span>
         </nav>
 
