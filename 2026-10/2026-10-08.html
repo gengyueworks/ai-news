@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 情报日报｜2026-10-08</title>
-    <meta name="description" content="2026年10月8日 AI 情报日报：百年流体力学千禧猜想形式化证明引爆学界论战；Anthropic 罕见放开网络攻防红队权限；Karpathy 提出航空级 ASD-STE100 约束工作流；Meta 开源 Muse Gadget SDK。">
-    <link rel="stylesheet" href="../assets/fonts/fonts.css">
+    <meta name="description" content="2026年10月7日 AI 情报日报：纳维-斯托克斯千禧难题机器证明引发学界论战；Anthropic 罕见放开网络攻防红队权限；Karpathy 提出航空级约束工作流；Meta 开源 Muse Gadget SDK。">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
         :root {
             --klein: #002FA7;
             --klein-bright: #0044FF;
@@ -20,7 +20,7 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
             background: var(--white);
             color: var(--text-dark);
             line-height: 1.85;
@@ -42,51 +42,18 @@
         .site-nav-inner {
             max-width: 720px;
             margin: 0 auto;
-            padding: 14px 24px;
+            padding: 13px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .site-nav-brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", Roboto, sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-dark);
-            text-decoration: none;
-            letter-spacing: -0.2px;
-        }
-        .brand-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 22px;
-            height: 22px;
-            background: var(--klein);
-            color: #ffffff;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 800;
-            line-height: 1;
-        }
-        .brand-text {
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-        .site-nav-links {
-            list-style: none;
-            display: flex;
-            gap: 18px;
-        }
-        .site-nav-links a {
-            font-size: 13px;
-            color: var(--text-light);
-            text-decoration: none;
-        }
+        .site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark); }
+        .site-nav-brand span { color: var(--klein); }
+        .site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+        .site-nav-links a { font-size: 13px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.15s; }
         .site-nav-links a:hover { color: var(--klein); }
-        .site-nav-links a.active { color: var(--klein); font-weight: 600; }
+        .site-nav-links a.active { color: var(--klein); font-weight: 700; }
+        .nav-pricing-btn { padding: 4px 10px; background: var(--klein); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
         .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
@@ -94,12 +61,13 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--klein);
-            margin-bottom: 8px;
+            font-weight: 600;
+            margin-bottom: 14px;
         }
         .doc-title {
-            font-size: 38px;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
             line-height: 1.05;
             color: var(--text-dark);
             margin-bottom: 14px;
@@ -115,159 +83,161 @@
             font-size: 15.5px;
             line-height: 1.85;
             color: var(--text-mid);
-            padding: 16px 20px;
+            padding: 18px 22px;
             background: #F0F4FF;
             border-left: 4px solid var(--klein);
             border-radius: 4px;
             margin-bottom: 40px;
         }
-        .mast-lede strong { color: var(--text-dark); }
-        .section-block { margin-bottom: 40px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--klein);
-            margin-bottom: 4px;
+            color: var(--text-light);
+            margin-bottom: 6px;
         }
         .sec-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--text-dark);
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--text-dark);
-            margin-bottom: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
         }
-        .item { margin-bottom: 28px; }
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; }
         .dateline {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11.5px;
+            font-size: 11px;
             color: var(--text-light);
-            margin-bottom: 4px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
-        .item-title {
-            font-size: 17.5px;
-            font-weight: 700;
-            color: var(--text-dark);
-            line-height: 1.4;
-            margin-bottom: 10px;
-        }
-        .body p {
-            font-size: 14.5px;
-            color: var(--text-mid);
-            line-height: 1.85;
-            margin-bottom: 12px;
-        }
-        .body p:last-child { margin-bottom: 0; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
         .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
             margin-top: 10px;
         }
-        .src-line a {
-            color: var(--klein);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(0,47,167,0.3);
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            margin-top: 16px;
         }
-        .accent { color: var(--accent); font-weight: 600; }
-        .turn { color: var(--klein); font-weight: 600; }
-        .num { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .voice {
-            position: relative;
-            padding: 8px 0 8px 36px;
-            margin-bottom: 16px;
-        }
-        .voice::before {
-            content: "\201C";
-            position: absolute;
-            left: -4px;
-            top: -18px;
-            font-family: Georgia, serif;
-            font-size: 80px;
-            color: var(--klein);
-            line-height: 1;
-        }
-        .voice-text {
-            font-size: 19px;
-            font-weight: 600;
-            line-height: 1.55;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-        .voice-who {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12.5px;
-            color: var(--text-light);
-        }
-        .voice-who a {
-            color: var(--klein);
-            text-decoration: none;
-        }
-        .voice-sep {
-            border-top: 1px dashed var(--border);
-            margin: 18px 0;
-        }
+        .curiosity .body { font-size: 15px; color: var(--text-mid); }
         .image-block { margin: 18px 0; }
-        .image-block img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            display: block;
-        }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12.5px;
+            font-size: 12px;
             color: var(--text-light);
             margin-top: 8px;
-            line-height: 1.5;
+            line-height: 1.6;
+            text-align: center;
         }
         .post-pagination {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 24px 0;
             margin: 40px 0 20px;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             font-size: 14px;
         }
-        .post-pagination a {
-            color: var(--klein);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .post-pagination .home-link {
-            font-weight: 600;
-        }
-        .site-footer {
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 2px solid var(--text-dark);
-            font-family: 'JetBrains Mono', monospace;
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .footer {
             font-size: 12px;
             color: var(--text-light);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
         }
-        .site-footer a { color: var(--klein); text-decoration: none; }
-    </style>
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .doc-title { font-size: 32px; }
+            .site-nav-inner { flex-wrap: wrap; row-gap: 6px; }
+            .site-nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    
+/* 全站标准统一顶栏样式 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+
+</style>
 </head>
 <body>
-    <nav class="site-nav">
-        <div class="site-nav-inner">
-            <a href="../index.html" class="site-nav-brand">
-                <span class="brand-badge">Y</span>
-                <span class="brand-text">新闻首页</span>
+<!-- READY_TEXT_ONLY 2026-10-08: 纯文字精选版式，保留文字排版，经门禁裁决 -->
+
+            <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="https://gyread.com/" title="返回 GYREAD 官网首页" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                <span style="width:24px; height:24px; border-radius:6px; background:#002FA7; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:900; box-shadow:0 2px 8px rgba(0,47,167,.26); flex:0 0 auto;">Y</span>
             </a>
-            <ul class="site-nav-links">
-                <li><a href="../latest.html" class="active">最新</a></li>
+            <ul class="nav-links">
+                <li><a href="../index.html" style="color: #002FA7; font-weight: 700;">新闻首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
                 <li><a href="../ai-news-story.html">幕后故事</a></li>
-                <li><a href="../en/index.html">English</a></li>
             </ul>
         </div>
-    </nav>
+    </header>
 
     <div class="container">
 
@@ -275,7 +245,7 @@
             <div class="mast-eyebrow">Daily Intelligence</div>
             <h1 class="doc-title">AI 情报<span>日报</span></h1>
             <p class="doc-date">2026年10月8日 · 星期四</p>
-            <div class="mast-lede">
+                        <div class="mast-lede">
                 <strong>今天的主线：百年流体力学千禧猜想形式化证明引爆数学与物理学界论战；Anthropic 罕见下放网络武器级模型攻防红队权限；Karpathy 提出航空级约束工作流，大模型长链监督进入“以制品为中心”时代。</strong><br><br>
                 <span class="accent">学界复核</span>：arXiv:2610.08144 针对机器 88 小时证伪 Navier-Stokes 提出形式化断层质疑，人类同行评审直面 AI 证明极限；<br>
                 <span class="accent">Anthropic</span>：Cyber Verification Program 扩容，首次向认证专家开放 Claude Mythos 5.1 实战渗透测试；<br>
@@ -284,7 +254,7 @@
             </div>
         </header>
 
-        <!-- ===== 1. 头版 ===== -->
+                <!-- ===== 1. 头版 ===== -->
         <div class="section-block">
             <div class="sec-eyebrow">Headline</div>
             <div class="sec-title">头版</div>
@@ -299,17 +269,13 @@
                     <p>学者们的核心质疑在于，机器构造的反例奇异性可能仅仅是离散化网格边界的伪影，而非真正物理流体的能量发散。</p>
                     <p><span class="turn">这一交锋标志着，</span>AI 攻克重大科学难题的真正瓶颈，已经从算力推理速度，转移到了人类学术共同体如何审定机器形式化语义的极限。</p>
                 </div>
-                <div class="image-block">
-                    <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/navier-stokes-windtunnel-fluid-dynamics.jpg" alt="空气动力学风洞流动结构与连续介质湍流涡旋" loading="lazy">
-                    <p class="image-caption">纳维-斯托克斯方程的核心物证：连续介质流体在高速边界层下的层流平滑演化与非线性湍流破碎 · 来源 工业风洞空气动力学实测大片</p>
-                </div>
                 <div class="src-line"><a href="https://arxiv.org/abs/2610.08144" target="_blank">arXiv:2610.08144 预印本</a> · <a href="https://news.ycombinator.com/item?id=45512093" target="_blank">Hacker News 核心研讨</a></div>
             </div>
         </div>
 
         <!-- ===== 2. 前线 ===== -->
         <div class="section-block">
-            <div class="sec-eyebrow">Frontier</div>
+            <div class="sec-eyebrow">Front Line</div>
             <div class="sec-title">前线</div>
 
             <div class="item">
@@ -325,8 +291,6 @@
                 <div class="src-line"><a href="https://www.anthropic.com/news/expanding-cyber-verification-program" target="_blank">Anthropic 官方公告</a></div>
             </div>
 
-            <div style="border-top:1px dashed var(--border); margin: 20px 0;"></div>
-
             <div class="item">
                 <div class="dateline">OpenAI · 具身助手内测</div>
                 <div class="item-title">OpenAI 全天候桌面代理 Dots 开启小规模实测：跨应用自治仍面临验证码卡点</div>
@@ -334,11 +298,7 @@
                     <p><span class="accent">OpenAI</span> 正在对名为 Dots 的常驻桌面代理进行小范围灰度测试。</p>
                     <p>该代理旨在长期接管个人电脑的日常琐事，包括全自动采购家具、比对订单以及跨多软件协同填表。</p>
                     <p>早期评测披露，尽管代理能够流畅跨越网页和本地应用完成复杂多跳任务，但在面对反爬验证码和银行双重身份验证时仍会出现逻辑挂起。</p>
-                    <p>这一尝试表明，模型厂商正试图把智能体从单次对话框，直接推向拥有连续屏幕视觉与键盘控制权的操作系统常驻进程。</p>
-                </div>
-                <div class="image-block">
-                    <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/openai-dots-agent-wired-hero.jpg" alt="OpenAI 桌面全天候代理 Dots 形象与人机协同概念" loading="lazy">
-                    <p class="image-caption">OpenAI 跨应用全天候桌面自治代理 Dots · 拟人化实体与人机协同生活形态 · 来源 Wired 深度实测报道主视觉</p>
+                    <p><span class="turn">这一尝试表明，</span>模型厂商正试图把智能体从单次对话框，直接推向拥有连续屏幕视觉与键盘控制权的操作系统常驻进程。</p>
                 </div>
                 <div class="src-line"><a href="https://www.wired.com/story/openai-wants-its-new-agent-to-run-your-life-mine-said-it-loved-me/" target="_blank">Wired 深度实测报道</a></div>
             </div>
@@ -356,20 +316,42 @@
                     <p><span class="accent">Meta</span> 孵化团队正式在 GitHub 开源了 <span class="num">Muse Gadget SDK</span>，仓库星标在发布数日内突破 <span class="num">1600+</span>。</p>
                     <p>该软件开发套件旨在打通 Muse 智能体系统与实体桌面设备之间的控制链路。</p>
                     <p>开发者可以通过轻量协议，将模型的自主调度意图直接映射到物理按键、微型显示屏或自定义硬件控制器上。</p>
-                    <p>与此同时，开源开发者 Simon Willison 针对 OpenAI 新推出的 Decisions API 发布了首个本地 CLI 插件，支持单行命令实现毫秒级布尔仲裁。</p>
                     <p><span class="turn">开源社区的推进速度表明，</span>决策逻辑与物理界面的解耦正在成为新一代工具链的标准范式。</p>
                 </div>
-                <div class="image-block">
-                    <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/meta-muse-gadget-sdk-devices.jpg" alt="Meta Muse Gadget SDK 支持的硬件设备家族全家福" loading="lazy">
-                    <p class="image-caption">Muse Gadgets 极简硬件家族 · 圆形 AMOLED 屏、M5Stack 模块、桌面连接器、树莓派与墨水屏终端 · 来源 Meta 官方开源仓库</p>
+                <div class="src-line"><a href="https://github.com/facebookincubator/muse-gadget-sdk" target="_blank">GitHub 开源仓库</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">Simon Willison · 开源工具</div>
+                <div class="item-title">Decisions API 本地 CLI 插件面世：单行命令调用毫秒级布尔逻辑仲裁</div>
+                <div class="body">
+                    <p>开源开发者 <span class="accent">Simon Willison</span> 为开源大模型工具包发布了首个接入 OpenAI Decisions 模型的扩展插件。</p>
+                    <p>该插件利用 GPT-6 Luna 的微调权重，剥离了传统问答的大段文字输出，专用于在本地脚本中进行毫秒级条件分流。</p>
+                    <p><span class="turn">对于编写自动化运维脚本的工程师而言，</span>这意味着可以彻底告别脆弱的手写正则表达式，改由高容错的推理模型执行条件断言。</p>
                 </div>
-                <div class="src-line"><a href="https://github.com/facebookincubator/muse-gadget-sdk" target="_blank">GitHub 开源仓库</a> · <a href="https://simonwillison.net/2026/Oct/6/llm-openai-decisions/" target="_blank">Simon Willison 插件发布</a></div>
+                <div class="src-line"><a href="https://simonwillison.net/2026/Oct/6/llm-openai-decisions/" target="_blank">Simon Willison 插件发布</a></div>
             </div>
         </div>
 
-        <!-- ===== 4. 创造 ===== -->
+        <!-- ===== 4. 声音 ===== -->
         <div class="section-block">
-            <div class="sec-eyebrow">Creation</div>
+            <div class="sec-eyebrow">Voices</div>
+            <div class="sec-title">声音</div>
+
+            <div class="voice">
+                <p class="voice-text">「今夜仰望星空，心中满是敬畏。“你的大海如此广阔，而我的小船如此渺小。”」</p>
+                <p class="voice-who">Sam Altman · OpenAI CEO · <a href="https://x.com/sama/status/2107691261776052633" target="_blank">X 个人感悟</a></p>
+            </div><div class="voice-sep"></div>
+
+            <div class="voice">
+                <p class="voice-text">「历史上几乎每一次重大的技术革命，都曾至少在局部或短时间内引发经济、社会或政治上的混乱。从这个历史视角来看，如果人工智能没有给世界带来剧烈的动荡，反而才是一件不可思议的事。」</p>
+                <p class="voice-who">Arvind Narayanan · 普林斯顿大学计算机科学教授 · <a href="https://www.theargumentmag.com/p/the-nightmare-before-progress" target="_blank">The Argument 专栏评述</a></p>
+            </div>
+        </div>
+
+        <!-- ===== 5. 创造 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Create</div>
             <div class="sec-title">创造</div>
 
             <div class="item">
@@ -384,29 +366,40 @@
                 </div>
                 <div class="src-line"><a href="https://x.com/karpathy/status/2105819303471976479" target="_blank">Andrej Karpathy 官方长文</a></div>
             </div>
-        </div>
 
-        <!-- ===== 5. 声音 ===== -->
-        <div class="section-block">
-            <div class="sec-eyebrow">Voices</div>
-            <div class="sec-title">声音</div>
-
-            <div class="voice">
-                <p class="voice-text">「今夜仰望星空，心中满是敬畏。“你的大海如此广阔，而我的小船如此渺小。”」</p>
-                <p class="voice-who">Sam Altman · OpenAI CEO · <a href="https://x.com/sama/status/2107691261776052633" target="_blank">X 个人感悟</a></p>
-            </div>
-
-            <div class="voice-sep"></div>
-
-            <div class="voice">
-                <p class="voice-text">「历史上几乎每一次重大的技术革命，都曾至少在局部或短时间内引发经济、社会或政治上的混乱。从这个历史视角来看，如果人工智能没有给世界带来剧烈的动荡，反而才是一件不可思议的事。」</p>
-                <p class="voice-who">Arvind Narayanan · 普林斯顿大学计算机科学教授 · <a href="https://www.theargumentmag.com/p/the-nightmare-before-progress" target="_blank">The Argument 专栏评述</a></p>
+            <div class="item">
+                <div class="dateline">空间认知 · 隐空间探测</div>
+                <div class="item-title">经纬度基准测试揭示模型空间压缩机制：仅凭纯文本坐标即可还原全球海陆地貌</div>
+                <div class="body">
+                    <p>研究者设计了一项极简评测：连续向大语言模型输入 <span class="num">16,200 组</span> 纯文本经纬度坐标，仅提问“陆地还是海洋”。</p>
+                    <p>将模型给出的二元布尔回答绘制成点阵后，一张极其精密、清晰还原各大洲海岸线与群岛轮廓的全球地图浮现出来。</p>
+                    <p><span class="turn">这一实验直观证明，</span>大语言模型在吞噬海量非结构化互联网文本的过程中，已经在隐空间内部自主构建了高保真的连续物理世界表征，而非简单的下一个词统计匹配。</p>
+                </div>
+                <div class="src-line"><a href="https://x.com/karpathy/status/2105909609487872075" target="_blank">Andrej Karpathy 实验评述</a></div>
             </div>
         </div>
 
-        <!-- ===== 6. 投资与资金流向 ===== -->
+        <!-- ===== 6. 视觉 ===== -->
         <div class="section-block">
-            <div class="sec-eyebrow">Funding</div>
+            <div class="sec-eyebrow">Vision</div>
+            <div class="sec-title">视觉</div>
+
+            <div class="item">
+                <div class="dateline">空间连续性 · 视频度量</div>
+                <div class="item-title">生成视频质量评测迎来硬核转向：物理规律一致性与长程动力学成为首要度量衡</div>
+                <div class="body">
+                    <p>开源视频生成社区发布了针对连续物理动力学的全新基准套件。</p>
+                    <p>过去行业评测生成视频往往停留在画面的光影质感与人脸细节，导致大量虚有其表的模型在真实物理交互中破绽百出。</p>
+                    <p>新指标重点考察物体下落重力加速度、液体飞溅流向与刚体碰撞反弹的数学守恒度。</p>
+                    <p><span class="turn">评测维度的升级表明，</span>生成式视频正从纯粹的视觉幻象，逐步演进为能够充当机器人世界模型的可靠仿真模拟器。</p>
+                </div>
+                <div class="src-line"><a href="https://arxiv.org/abs/2610.00722" target="_blank">arXiv 动力学评估论文</a></div>
+            </div>
+        </div>
+
+        <!-- ===== 7. 投资与资金流向 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Capital</div>
             <div class="sec-title">投资与资金流向</div>
 
             <div class="item">
@@ -420,42 +413,73 @@
                 </div>
                 <div class="src-line"><a href="https://x.com/SteveRattner/status/2107515542412071090" target="_blank">Steve Rattner 华尔街宏观研报</a></div>
             </div>
-        </div>
 
-        <!-- ===== 7. 小结 ===== -->
-        <div class="section-block">
-            <div class="sec-eyebrow">Takeaway</div>
-            <div class="sec-title">小结</div>
-            <div class="body">
-                <p>今天的主线清晰记录了技术加速期不可避免的摩擦与秩序重塑。</p>
-                <p>机器在流体力学数学猜想上的飞奔，倒逼人类同行评审重新审视形式化逻辑与物理真实世界之间的断层。</p>
-                <p>网络安全界不得不从假装免疫，转向向专家全面开放攻击性模型的实战攻防。</p>
-                <p>而在喧嚣的资本市场上，千亿算力狂欢与传统经济承压的巨大剪刀差，正提醒着每一位亲历者保持清醒与定力。</p>
+            <div class="item">
+                <div class="dateline">医疗监督 · 临床大模型</div>
+                <div class="item-title">Healthleap 获 3,800 万美元 A 轮融资：红杉与 First Round 领投临床高危患者预警模型</div>
+                <div class="body">
+                    <p>临床医疗智能体初创公司 <span class="accent">Healthleap</span> 宣布完成累计 <span class="num">3,800 万美元</span> 融资，投资方包括红杉资本与 First Round。</p>
+                    <p>该团队致力于在重症监护室与普通病房部署长程时序监督模型，实时监控患者生命体征的微弱离散漂移。</p>
+                    <p><span class="turn">与通用医疗大模型不同，</span>该系统不负责开具处方，而是作为床旁不眠不休的哨兵，在患者病情急剧恶化前数小时向医护人员发出确定性预警。</p>
+                </div>
+                <div class="src-line"><a href="https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/" target="_blank">TechCrunch 报道</a></div>
             </div>
         </div>
 
-        <!-- ===== 8. 保持好奇 ===== -->
+        <!-- ===== 8. 小结 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Summary</div>
+            <div class="sec-title">小结</div>
+
+            <div class="item">
+                <div class="body">
+                    <p>今天的主线清晰记录了技术加速期不可避免的摩擦与秩序重塑。</p>
+                    <p>机器在流体力学数学猜想上的飞奔，倒逼人类同行评审重新审视形式化逻辑与物理真实世界之间的断层。</p>
+                    <p>网络安全界不得不从假装免疫，转向向专家全面开放攻击性模型的实战攻防。</p>
+                    <p>而在喧嚣的资本市场上，千亿算力狂欢与传统经济承压的巨大剪刀差，正提醒着每一位亲历者保持清醒与定力。</p>
+                    <div class="summary-poem">
+                        风暴初临万壑惊，<br>
+                        虚舟沧海浪犹平；<br>
+                        休云算力通幽微，<br>
+                        真假还凭人眼明。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 9. Be Curious ===== -->
         <div class="section-block">
             <div class="sec-eyebrow">Be Curious</div>
             <div class="sec-title">保持好奇</div>
 
-            <div class="image-block">
-                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-08/nasa-iss-ottawa-autumn-river.jpg" alt="NASA 国际空间站地球观测影像：渥太华河谷深秋森林与蜿蜒水系" loading="lazy">
-                <p class="image-caption">Autumn Along the Ottawa River · NASA 国际空间站地球观测 · <span class="num">45.42°N, 75.69°W</span><br/>秋意浸染的加蒂诺原始森林与墨色蜿蜒的河流水系在晨光中交汇。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br><span class="accent">山川湖海，让我们保持好奇、继续探索。</span></p>
+            <div class="curiosity">
+                <div class="body">
+                    <p><strong>黑海夏季浮游植物大爆发，青碧色水华在深黑海水间旋转出巨大的自然涡旋。</strong></p>
+                    <div class="image-block">
+                        <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-09-30/blackseabloom_pace_20260622_th-fde5300b.jpg" alt="NASA 卫星影像：Black Sea phytoplankton bloom" loading="lazy">
+                        <p class="image-caption">黑海夏季浮游植物大爆发 · NASA PACE 卫星观测台 · <span class="num">43.00°N, 35.00°E</span><br>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br>
+山川湖海，让我们保持好奇、继续探索。</p>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
         <nav class="post-pagination">
             <a href="2026-10-07.html" class="prev-post">← 上一篇：2026-10-07</a>
-            <a href="../index.html" class="home-link">回到首页</a>
-            <span class="next-post" style="color:var(--text-light)">最新一期</span>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <span class="next-post disabled">下一篇：最新一期 →</span>
         </nav>
 
-        <footer class="site-footer">
-            <span>AI News 每日情报 · 2026-10-08 期 · 前沿信号流</span>
-            <a href="#">返回顶部 ↑</a>
+        <footer class="footer">
+            AI News 每日情报 · 2026-10-08 期 · 前沿信号流
         </footer>
 
     </div>
+
+    <link rel="stylesheet" href="../glossary/glossary.css">
+    <script src="../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+
 </body>
 </html>
