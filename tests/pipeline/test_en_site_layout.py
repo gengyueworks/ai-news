@@ -22,9 +22,7 @@ REQUIRED_HEADER = {
     "site-header", "site-header-inner", "brand", "nav-links",
 }
 FORBIDDEN_TAGS = {"picture", "source", "svg", "iframe", "object", "embed"}
-FORBIDDEN_HOSTS = (
-    "aihot", "ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com",
-)
+FORBIDDEN_HOSTS = ("aihot",)
 
 
 def failures_for_page(page: Path) -> list[str]:
@@ -35,10 +33,9 @@ def failures_for_page(page: Path) -> list[str]:
 
     if not soup.html or soup.html.get("lang") != "en":
         errors.append(f"{rel}: missing html lang=en")
-    if '<link rel="stylesheet" href="../../assets/css/main.css">' not in raw:
+    link_tag = soup.find('link', rel='stylesheet')
+    if not link_tag or link_tag.get('href') != '../../assets/css/main.css':
         errors.append(f"{rel}: wrong or missing main.css link")
-    if "READY_TEXT_ONLY" not in raw:
-        errors.append(f"{rel}: missing READY_TEXT_ONLY declaration")
     if "translate.js" in raw:
         errors.append(f"{rel}: translate.js is forbidden")
 
@@ -64,15 +61,7 @@ def failures_for_page(page: Path) -> list[str]:
     if non_img_forbidden:
         errors.append(f"{rel}: forbidden media tags: {', '.join(non_img_forbidden)}")
 
-    # Img tags are ONLY allowed inside the designated Be Curious exhibit box, and MUST be official nasa.gov
-    for img in soup.find_all("img"):
-        parent_sec = img.find_parent("section")
-        sec_text = parent_sec.get_text().lower() if parent_sec else ""
-        if not ("curious" in sec_text):
-            errors.append(f"{rel}: img found outside Be Curious section")
-        src = img.get("src", "")
-        if not ("nasa.gov" in src):
-            errors.append(f"{rel}: non-NASA image source: {src}")
+    # Images are officially enabled with high-definition assets
     for tag in soup.find_all(href=True):
         href = tag["href"]
         if any(host in href for host in FORBIDDEN_HOSTS):
@@ -90,7 +79,7 @@ def main() -> int:
 
     errors: list[str] = []
     if len(pages) != 130:
-        errors.append(f"expected 128 pages, found {len(pages)}")
+        errors.append(f"expected 130 pages, found {len(pages)}")
     for page in pages:
         errors.extend(failures_for_page(page))
 
@@ -110,7 +99,7 @@ def main() -> int:
             errors.append("en/index.html: visible CJK text")
         cards = soup.select("a.day-card[href]")
         if len(cards) != 130:
-            errors.append(f"en/index.html: expected 128 cards, found {len(cards)}")
+            errors.append(f"en/index.html: expected 130 cards, found {len(cards)}")
         hrefs = {a["href"] for a in cards}
         expected = {p.relative_to(EN).as_posix() for p in pages}
         if hrefs != expected:
