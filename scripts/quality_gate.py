@@ -1215,6 +1215,45 @@ class GateChecker:
                          f"index.html 双语页 {a9_total} 个可译中文节点全部带非空 data-en"
                          if a9_total else "首页未声明双语（无 data-en），本项跳过")
 
+        # A10: 专题时间轴严格倒序检查
+        # 扫描 special/*.html 中的时间轴卡片，确保每一个专题的时间轴都是从最新到最旧严格倒序排列
+        special_dir = self.site_dir / "special"
+        if special_dir.exists():
+            special_errors = []
+            for sp_file in sorted(special_dir.glob("*.html")):
+                if sp_file.name.startswith(".") or ".bak" in sp_file.name or sp_file.name.endswith("~"):
+                    continue
+                sp_text = self._read(sp_file)
+                # 提取时间轴日期标记 (支持 tl-date 与 tl-time)
+                date_matches = re.findall(r'(?:tl-date|tl-time)[^>]*>([^<]+)<', sp_text)
+                parsed_dates = []
+                for dm in date_matches:
+                    clean_m = re.search(r'(\d{4}[-/]\d{1,2}[-/]\d{1,2}|\d{4})', dm)
+                    if clean_m:
+                        raw_d = clean_m.group(1).replace('/', '-')
+                        parts = [int(p) for p in raw_d.split('-')]
+                        if len(parts) == 1:
+                            parsed_dates.append((parts[0], 1, 1, dm.strip()))
+                        elif len(parts) == 2:
+                            parsed_dates.append((parts[0], parts[1], 1, dm.strip()))
+                        else:
+                            parsed_dates.append((parts[0], parts[1], parts[2], dm.strip()))
+
+                # 校验倒序：每一项必须 <= 前一项
+                for i in range(1, len(parsed_dates)):
+                    prev_key = parsed_dates[i-1][:3]
+                    curr_key = parsed_dates[i][:3]
+                    if curr_key > prev_key:
+                        special_errors.append(f"{sp_file.name}: 时间轴顺序错误，「{parsed_dates[i][3]}」排在「{parsed_dates[i-1][3]}」之后")
+
+            if not special_errors:
+                self._record(self.LEVEL_PASS, "A", "A10", "专题时间轴严格倒序",
+                             "全站 special/ 专题时间轴全部按最新到最旧严格倒序排列")
+            else:
+                self._record(self.LEVEL_FAIL, "A", "A10", "专题时间轴严格倒序",
+                             f"发现 {len(special_errors)} 处专题时间轴乱序：\n  - " + "\n  - ".join(special_errors[:5]))
+
+
     # ---------- B 类：品牌 ----------
     def check_B(self):
         if self.files_only:
@@ -1456,6 +1495,18 @@ class GateChecker:
             self._record(self.LEVEL_PASS, "C", "C12", "去 AI 味道与反翻案句",
                          f"{fname}: check_ai_flavor 模块未加载，跳过")
 
+        # C13: 彻底封杀 Google 等境外远程字体外链（全站同源自托管字体栈）
+        # 严禁在 HTML / CSS 中出现 fonts.googleapis.com 或 fonts.gstatic.com
+        raw_text_for_fonts = self._read(html_file)
+        google_fonts = re.findall(r'https?://fonts\.(?:googleapis|gstatic)\.com[^\s\'"<>\)]+', raw_text_for_fonts)
+        if not google_fonts:
+            self._record(self.LEVEL_PASS, "C", "C13", "无Google远程字体外链",
+                         f"{fname}: 0 处境外远程字体外链")
+        else:
+            self._record(self.LEVEL_FAIL, "C", "C13", "无Google远程字体外链",
+                         f"{fname}: 检出 {len(google_fonts)} 处 Google 远程字体外链（违反全站同源字体铁律）：\n  - " + "\n  - ".join(google_fonts[:5]))
+
+
     # ---------- D 类：图片 ----------
     def _url_reachable(self, src: str):
         """检查单个图片 URL 是否可达。
@@ -1529,42 +1580,47 @@ class GateChecker:
             self._record(self.LEVEL_FAIL, "D", "D1", "图片HTTP可达",
                          f"{fname}: {len(unreachable)}/{len(img_srcs)} 不可达\n  - " + "\n  - ".join(unreachable))
 
-        # D2: 7天内图片不重复
+        # D2: 全站图片无跨期重复（历史期全面查重 + 7天硬隔离）
         # 找当前文件在 all_files 中的位置
         try:
             current_idx = all_files.index(html_file)
         except ValueError:
             current_idx = 0
-        recent_files = all_files[max(0, current_idx - 6):current_idx]  # 前6天
-        recent_srcs = set()
-        recent_basenames = set()
-        for rf in recent_files:
+
+        # 对比全量历史期（排除自身）
+        history_files = [f for i, f in enumerate(all_files) if i != current_idx and f.name != fname]
+        history_srcs = {}
+        history_basenames = {}
+        for rf in history_files:
             rhtml = self._read(rf)
             rparser = self._parse(rhtml)
             for img in rparser.images:
-                if img["src"].startswith("http"):
-                    recent_srcs.add(img["src"])
-                    recent_basenames.add(img["src"].rsplit('/', 1)[-1])
-        current_srcs = set(img["src"] for img in parser.images if img["src"].startswith("http"))
-        duplicates = current_srcs & recent_srcs
-        # 2026-09-20 根治：同一张图重新上传 COS 会得到新 URL，整串比对拦不住；
-        # 文件名（basename）级再查一遍——重传改名复用同样算重复。
-        dup_by_name = {s for s in current_srcs
-                       if s.rsplit('/', 1)[-1] in recent_basenames
-                       and s not in duplicates}
-        duplicates |= dup_by_name
+                s = img["src"]
+                if s.startswith("http") and not any(k in s.lower() for k in ["logo", "avatar", "favicon", "badge"]):
+                    history_srcs[s] = rf.name
+                    history_basenames[s.rsplit('/', 1)[-1]] = rf.name
+
+        current_srcs = set(img["src"] for img in parser.images if img["src"].startswith("http") and not any(k in img["src"].lower() for k in ["logo", "avatar", "favicon", "badge"]))
+        duplicates = []
+        for s in current_srcs:
+            if s in history_srcs:
+                duplicates.append(f"{s[:80]} (与历史期 {history_srcs[s]} 完全重复)")
+            else:
+                base = s.rsplit('/', 1)[-1]
+                if base in history_basenames:
+                    duplicates.append(f"{s[:80]} (文件名与历史期 {history_basenames[base]} 重复)")
 
         if not duplicates:
-            self._record(self.LEVEL_PASS, "D", "D2", "7天内图片不重复",
-                         f"{fname}: 0 处重复（{len(current_srcs)} 张新图 vs {len(recent_srcs)} 张历史）")
+            self._record(self.LEVEL_PASS, "D", "D2", "全站图片无跨期重复",
+                         f"{fname}: 0 处跨期重复（{len(current_srcs)} 张新图 vs {len(history_srcs)} 张历史图）")
         elif _is_aggregation_edition(fname):
             # 仅周报/回顾/精选类汇总期允许复用本周图，降级 WARN 不阻断
-            self._record(self.LEVEL_WARN, "D", "D2", "7天内图片不重复",
-                         f"{fname}: 汇总期复用本周 {len(duplicates)} 张图片，符合回顾特性（建议下周首日换新）")
+            self._record(self.LEVEL_WARN, "D", "D2", "全站图片无跨期重复",
+                         f"{fname}: 汇总期复用历史图片 {len(duplicates)} 处，符合回顾特性（建议下周首日换新）")
         else:
-            extra = f"（其中重传改名 {len(dup_by_name)} 处，按文件名识别）" if dup_by_name else ""
-            self._record(self.LEVEL_FAIL, "D", "D2", "7天内图片不重复",
-                         f"{fname}: {len(duplicates)} 处重复{extra}\n  - " + "\n  - ".join(d[:80] for d in duplicates))
+            dup_msg = "\n  - " + "\n  - ".join(duplicates[:5])
+            self._record(self.LEVEL_FAIL, "D", "D2", "全站图片无跨期重复",
+                         f"{fname}: {len(duplicates)} 处跨期重复" + dup_msg)
 
         # D3: alt 非禁用描述
         bad_alts = []

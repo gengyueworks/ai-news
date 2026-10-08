@@ -186,7 +186,7 @@ def render_item(item: dict, date_str: str, has_divider: bool = True) -> str:
       <div class="item-title">{title}</div>
       <div class="body">
 {body_html}      </div>
-      <div class="src-line">来源：<a href="{url}" target="_blank">{source}</a></div>
+      <div class="src-line"><a href="{url}" target="_blank">{source}</a></div>
     </div>
 """
     if has_divider:
@@ -252,7 +252,9 @@ def main():
         <p><strong>巴塔哥尼亚 · Tyndall 冰川，冰崩后散落的碎冰浮在 Lago Geikie 湖面。这片冰正在以每年数公里的速度退去，留下的水面越来越宽，冰面越来越窄。没有 GPU，没有数据中心，只有重力和时间在做计算。</strong></p>
         <div class="image-block">
           <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tyndall%E2%80%99s-trail-of-bergs/ISS074-E-582898_th.jpg" alt="NASA 卫星影像：巴塔哥尼亚 Tyndall 冰川碎冰浮于 Lago Geikie 湖面" loading="lazy">
-          <p class="image-caption">Tyndall Glacier, Patagonia · NASA / ISS · <span class="num">51.0</span>°S, <span class="num">73.5</span>°W<br/>冰崩后的碎冰漂浮在 Lago Geikie 湖面。看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br/>
+          <p class="image-caption">Tyndall Glacier, Patagonia · NASA / ISS · <span class="num">51.0</span>°S, <span class="num">73.5</span>°W<br/>
+冰崩后的碎冰漂浮在 Lago Geikie 湖面。<br/><br/>
+看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br/>
 山川湖海，让我们保持好奇、继续探索。</p>
         </div>
       </div>
