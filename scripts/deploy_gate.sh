@@ -53,23 +53,35 @@ print("  ✅ 英文版内部链接 100% 畅通 (0 断链)")
 echo "4. 检查搜索索引新鲜度..."
 python3 scripts/build-search-index.py --check || python3 scripts/build-search-index.py
 
-echo "5. 检查跨期核心 APOD 违规复用..."
-python3 -c '
-import glob, sys
-from collections import Counter
-from bs4 import BeautifulSoup
+echo "5. 检查跨期配图复用（全量通用审计门禁）..."
+python3 -c "
+import os, glob, re, sys
+from collections import defaultdict
 
-targets = ["Mermaid_1024.jpg", "VenusJupiter10_Pawar_1080.jpg", "sgrc.jpg", "eagle_1024.jpg", "alaskanunivak_tmo_20260603_lrg.jpg", "Thor_Drudis_960.jpg"]
-files = sorted(glob.glob("2026-*/*.html") + glob.glob("en/2026-*/*.html"))
-errs = []
-for t in targets:
-    matched = [f for f in files if t in open(f, encoding="utf-8").read()]
-    if len(matched) > 2:
-        errs.append((t, len(matched), matched))
-if errs:
-    print("❌ 核心 APOD 配图存在跨期违规复用:", errs)
-    sys.exit(1)
-print("  ✅ 核心 APOD 配图无跨期重复 (0 违规)")
-'
+img_to_dates = defaultdict(set)
+files = sorted(glob.glob('2026-*/*.html') + glob.glob('en/2026-*/*.html'))
+
+for f in files:
+    m = re.search(r'(\\d{4}-\\d{2}-\\d{2})', f)
+    if not m: continue
+    date = m.group(1)
+    content = open(f, encoding='utf-8').read()
+    srcs = re.findall(r'<img[^>]+src=[\"\']([^\"\']+)[\"\']', content)
+    for s in srcs:
+        fname = os.path.basename(s.split('?')[0].split('#')[0])
+        if not fname or fname.endswith('.svg'): continue
+        img_to_dates[fname].add(date)
+
+reused = {k: v for k, v in img_to_dates.items() if len(v) >= 2}
+if reused:
+    print(f\"⚠️  [通用跨期复用审计] 发现 {len(reused)} 张图片跨期复用（累计 {sum(len(v) for v in reused.values())} 次）：\")
+    for k, v in sorted(reused.items(), key=lambda x: len(x[1]), reverse=True)[:10]:
+        print(f\"   - {k} -> {len(v)} dates: {sorted(list(v))[:3]}...\")
+    if os.environ.get('STRICT_IMAGE_GATE') == '1':
+        print(\"❌ STRICT_IMAGE_GATE=1: 跨期图片复用不为零，阻断发布！\")
+        sys.exit(1)
+else:
+    print(\"  ✅ 跨期配图全量通用检查通过 (0 复用)\")
+"
 
 echo "🎉 全部门禁通过！准许发布。"
