@@ -84,7 +84,7 @@
             
             <div class="edition-badge-bar">
                 <span data-zh="每日持续更新 · 前沿信号流" data-en="Daily updates · Frontier Signal Stream">每日持续更新 · 前沿信号流</span>
-                <a href="https://gyread.com/pricing" class="subscribe-btn" data-zh="订阅完整版 →" data-en="Subscribe Full →">订阅完整版 →</a>
+                <a href="/pricing" class="subscribe-btn" data-zh="订阅完整版 →" data-en="Subscribe Full →">订阅完整版 →</a>
                 <a href="ai-news-story.html" class="story-link" id="storyDayLink" data-zh="本站走过的 129 天" data-en="The 129 days behind this site">本站走过的 129 天</a>
             </div>
         </section>
@@ -93,15 +93,16 @@
         <div class="filter-toolbar">
             <div class="filter-chips">
                 <button class="filter-chip active" onclick="filterContent('all', this)" data-zh="全部内容" data-en="All">全部内容</button>
-                <button class="filter-chip" onclick="filterContent('2026-10', this)" data-zh="2026年10月" data-en="Oct 2026">2026年10月</button>
-                <button class="filter-chip" onclick="filterContent('2026-09', this)" data-zh="2026年9月" data-en="Sep 2026">2026年9月</button>
-                <button class="filter-chip" onclick="filterContent('2026-08', this)" data-zh="2026年8月" data-en="Aug 2026">2026年8月</button>
-                <button class="filter-chip" onclick="filterContent('2026-07', this)" data-zh="2026年7月" data-en="Jul 2026">2026年7月</button>
-                <button class="filter-chip" onclick="filterContent('2026-06', this)" data-zh="2026年6月" data-en="Jun 2026">2026年6月</button>
+                <span class="filter-year">2026</span>
+                <button class="filter-chip" onclick="filterContent('2026-10', this)" data-zh="10月" data-en="Oct">10月</button>
+                <button class="filter-chip" onclick="filterContent('2026-09', this)" data-zh="9月" data-en="Sep">9月</button>
+                <button class="filter-chip" onclick="filterContent('2026-08', this)" data-zh="8月" data-en="Aug">8月</button>
+                <button class="filter-chip" onclick="filterContent('2026-07', this)" data-zh="7月" data-en="Jul">7月</button>
+                <button class="filter-chip" onclick="filterContent('2026-06', this)" data-zh="6月" data-en="Jun">6月</button>
             </div>
             <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="liveSearch" class="search-input" placeholder="搜索全站新闻，可输多个词..." onfocus="srLoadIndex(function(){})" oninput="handleSearch(this.value)" autocomplete="off">
+                <span class="search-icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+                <input type="text" id="liveSearch" class="search-input" placeholder="搜索全站新闻，可输多个词…" onfocus="srLoadIndex(function(){})" oninput="handleSearch(this.value)" autocomplete="off">
             </div>
         </div>
 
