@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI 情报日报｜2026-08-04</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.enhanced-badge{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid #C41E3A;color:#C41E3A;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;vertical-align:1px;}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
+
+<style>
+/* 统一导航与翻页样式 */
+.site-nav { border-bottom: 1px solid var(--border, #E8E8EC); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 50; }
+.site-nav-inner { max-width: 720px; margin: 0 auto; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+.site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark, #0E0E10); }
+.site-nav-brand span { color: var(--klein, #002FA7); }
+.site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+.site-nav-links a { font-size: 13px; color: var(--text-light, #6B7280); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.site-nav-links a:hover { color: var(--klein, #002FA7); }
+.site-nav-links a.active { color: var(--klein, #002FA7); font-weight: 700; }
+.nav-pricing-btn { padding: 4px 10px; background: var(--klein, #002FA7); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+.post-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 40px auto 20px; padding: 14px 18px; background: #F8F9FB; border: 1px solid #E8E8EC; border-radius: 8px; font-size: 13px; }
+.post-pagination a, .post-pagination span { text-decoration: none; color: #374151; display: inline-flex; align-items: center; gap: 4px; }
+.post-pagination a:hover { color: #002FA7; }
+.post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
+.post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
+@media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+</style>
+
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="https://gyread.com/">GyRead<span> · AI News</span></a>
+            <ul class="site-nav-links">
+                <li><a href="https://gyread.com/">官网首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../index.html#archive">往期</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+                <li><a href="https://gyread.com/pricing" class="nav-pricing-btn">订阅完整版</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-04 · </span>
+
+<span>本期 4 条</span>
+</div>
+<div class="mast-lede">开发者工具这一天抢了所有风头。<br/><br/>Simon Willison 发布 LLM 0.32，把「看模型怎么想」变成默认能力；同一周，MiniMax H3 第一次跑进 MacBook，MCP 工具链开始围绕「无状态」重组。<br/><br/>工具链的夏天，AI 开始长进每个开发者的日常。</div>
+</div>
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-04 · LLM · 工具升级</div>
+<div class="item-title">LLM 0.32 发布：推理轨迹、服务端工具、SQLite 日志一起上桌，但真正的硬仗才刚刚开始</div>
+<div class="body">
+<p><strong>Simon Willison 发布 LLM <span class="num">0.32</span>，称这是项目初始发布以来最重要的一次升级。<br/>
+推理轨迹可以输出到 stderr，不污染标准输出；新增 OpenAI Responses、服务端工具、content-addressable SQLite logs；默认模型切到 GPT-5.6 Luna。<br/>
+</strong></p>
+<p>对开发者来说，这意味着三件事同时落地：能看到模型「怎么想的」（推理轨迹）、能接服务端工具（不只是本地）、能查历史（SQLite 日志）。<br/>
+<span class="turn">以前模型是黑箱，现在从思考到调用到记录，全链路可查。<br/>
+</span></p>
+<div class="image-block">
+<img alt="Simon Willison：LLM 工具链的开发者工作台" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-04/skunk.jpg"/>
+<p class="image-caption">Simon Willison · 官方图 · LLM 工具链全链路可查</p>
+</div>
+</div>
+<div class="src-line"><a href="https://simonwillison.net/2026/Aug/4/new-release-of-llm/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-04 · MiniMax · 本地实测</div>
+<div class="item-title">MiniMax H3 跑进 MacBook：下载 115GB，生成视频接近 45 分钟，但真正的硬仗才刚刚开始</div>
+<div class="body">
+<p><strong>Simon Willison 在 M5 Max MacBook Pro 上跑通了 <span class="accent">MiniMax H3</span>（PipeNetwork/minimax-h3-mlx）。<br/>
+下载约 <span class="num">115GB</span>，生成一个视频接近 <span class="num">45</span> 分钟。<br/>
+</strong></p>
+<p>视频效果不错，但音频因为没给提示，变成了「怪异的语音噪声」。<br/>
+这是本地跑的常态：权重拿到了，提示词还得自己调。<br/>
+<span class="turn">当开源视频模型能本地跑，调参的乐趣和烦恼，都回到了用户手里。<br/>
+</span></p>
+</div>
+<div class="image-block">
+<img alt="MiniMax H3 跑进 MacBook：下载 " loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-04/minimax-h3-mlx.jpg"/>
+<p class="img-cap">MiniMax H3 跑进 MacBook：下载 。</p>
+</div>
+<div class="src-line"><a href="https://simonwillison.net/2026/Aug/4/minimax-h3-mlx/" target="_blank">Simon Willison</a></div>
+</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-04 · 阿里 · 开源模型</div>
+<div class="item-title">Qwen3.8-Max 宣布开源 2.4T 旗舰：<span class="accent">但「开源」和「能跑」第一次被拉到最远</span></div>
+<div class="body">
+<p><strong><span class="accent">阿里</span>把 <span class="accent">Qwen3.8-Max</span> 的开源时间定在下周：<span class="num">2.4T</span> 总参数、<span class="num">95B</span> 激活，API 定价 <span class="num">$2</span> 输入 / <span class="num">$6</span> 输出每百万 token，同批开源的还有 <span class="num">27B</span> 的小旗舰 Qwen3.8-27B。<br/>
+</strong></p>
+<p>第三方评测把它的位置摆得很清楚。<br/>
+Frontend Code Arena 上 <span class="num">1668</span> Elo 排第 4，只落后 Claude Opus 5 Max（1705）和 Kimi K3 Max（1676）；Vision Arena 1305 排第 2。<br/>
+<span class="accent">Vals 综合指数 <span class="num">66.1</span>，是开源模型第 2、全部 43 家第 10。<br/>
+</span> SWE-bench <span class="num">87.3%</span>，压过 GPT-5.5（82.6%）和 GLM-5.2（83.3%）。<br/>
+更值得看的是提速曲线：Vals 指数从 3.7 Max 的 57.5 涨到 66.1，两个半月涨了 8.6 分，价格还从 $2.5/$7.5 降到 $2/$6。<br/>
+<span class="accent">分数在涨，价格在跌，两个方向第一次一起动。<br/>
+</span></p>
+<p><span class="hl">这份规格把「开源」和「能跑」之间的距离拉到史上最大。<br/>
+</span> 95B 激活对上 2.4T 总量，激活率只有约 4%，比 Qwen3-235B 更极端的稀疏 MoE。<br/>
+Jamin Ball 算了笔账：K3 光加载权重就超过 1TB 内存，至少 8 张 H100 起步，开放权重不等于能本地跑，真正的价值在生态影响力。<br/>
+还有一层悬案，有开发者指出许可条款疑似禁止在美、欧、英、韩下载使用，阿里当天没有澄清。<br/>
+<span class="hl">开放权重可能只是「能下载」，不等于「能合法用」。<br/>
+</span></p>
+<p><span class="turn">当开源旗舰从「别人服务器上能调」变成「权重发到你手里」，竞争的第一性问题从模型多聪明，变成了谁能真正用起来。<br/>
+</span></p>
+</div>
+<div class="image-block">
+<img alt="Qwen3.8-Max 宣布开源 2.4T 旗舰：" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-04/qwen38-latent.jpg"/>
+<p class="img-cap">Qwen3.8-Max 宣布开源 2.4T 旗舰：。</p>
+</div>
+<div class="src-line"><a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" target="_blank">AINews</a> · <a href="https://x.com/Alibaba_Qwen" target="_blank">Qwen 官方</a></div>
+</div>
+</div>
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-04 · MCP · 工具链重组</div>
+<div class="item-title">MCP 2.0 之后：<span class="hl">工具接入开始围绕「无状态」重做</span></div>
+<div class="body">
+<p><strong>Simon Willison 继续围绕 MCP 工具链做实验，说明 7 月 31 日的规范变化已经开始带动工具链更新。<br/>
+</strong></p>
+<p>他已经在 LLM、Datasette、MCP 之间打通更多工作流。<br/>
+<span class="turn">对开发者来说，这意味着 agent 工具接入会更像普通 Web 服务，并非单纯是复杂的协议握手。<br/>
+</span></p>
+</div>
+<div class="src-line"><a href="https://simonwillison.net/2026/Aug/4/new-release-of-llm/" target="_blank">Simon Willison</a> · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">MCP 无状态</a></div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">「这是项目初始发布以来最重要的一次升级。」</p>
+<p class="voice-who">— Simon Willison · LLM 作者 · <a href="https://simonwillison.net/2026/Aug/4/new-release-of-llm/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">「coding agent 的价值，不在会写代码，而在能自己验证代码。」</p>
+<p class="voice-who">— Steve Yegge · 软件工程师 · <a href="https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/" target="_blank">simonwillison.net</a></p>
+</div>
+</div>
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>LLM 0.32 把推理轨迹、服务端工具、SQLite 日志一起搬上桌。</p>
+<p>MiniMax H3 第一次在 MacBook 上本地跑通，下载 115GB、生成 45 分钟。</p>
+<p>MCP 工具链围绕「无状态」重组，agent 接工具越来越像接 Web 服务。</p>
+<p class="turn">这一天的主角是开发者工具，AI 的价值，正在从「模型多聪明」转向「工具多顺手」。</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>峡谷里的地质史，比任何模型训练都久。</strong></p>
+<div class="image-block">
+
+<p class="image-caption">Grand Canyon, Arizona, USA · NASA · <span class="num">36.06°N, 112.14°W</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br>
+山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="2026-08-03.html" class="prev-post">← 上一篇：2026-08-03</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <a href="2026-08-05.html" class="next-post">下一篇：2026-08-05 →</a>
+        </nav>
+
+        <div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流，AI每天在变什么，人在怎么选
+</div>
+
+</div>
+</body>
+</html>

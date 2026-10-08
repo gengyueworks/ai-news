@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI 情报日报｜2026-08-01</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
+
+<style>
+/* 统一导航与翻页样式 */
+.site-nav { border-bottom: 1px solid var(--border, #E8E8EC); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 50; }
+.site-nav-inner { max-width: 720px; margin: 0 auto; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+.site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark, #0E0E10); }
+.site-nav-brand span { color: var(--klein, #002FA7); }
+.site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+.site-nav-links a { font-size: 13px; color: var(--text-light, #6B7280); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.site-nav-links a:hover { color: var(--klein, #002FA7); }
+.site-nav-links a.active { color: var(--klein, #002FA7); font-weight: 700; }
+.nav-pricing-btn { padding: 4px 10px; background: var(--klein, #002FA7); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+.post-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 40px auto 20px; padding: 14px 18px; background: #F8F9FB; border: 1px solid #E8E8EC; border-radius: 8px; font-size: 13px; }
+.post-pagination a, .post-pagination span { text-decoration: none; color: #374151; display: inline-flex; align-items: center; gap: 4px; }
+.post-pagination a:hover { color: #002FA7; }
+.post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
+.post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
+@media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+</style>
+
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="https://gyread.com/">GyRead<span> · AI News</span></a>
+            <ul class="site-nav-links">
+                <li><a href="https://gyread.com/">官网首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../index.html#archive">往期</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+                <li><a href="https://gyread.com/pricing" class="nav-pricing-btn">订阅完整版</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-01 · 周六</span>
+<span>本期 6 条</span>
+</div>
+<div class="mast-lede">OpenAI 把 Astra 带去了华盛顿。<br/><br/>多智能体长周期协作的新模型家族曝光，疑似 GPT-6；同一天，月之暗面把 Kimi K3 全量开源，F 轮融资超 <span class="num">35</span> 亿美元。<br/><br/>中国开源模型，第一次让美股 AI 板块一上午蒸发几千亿。</div>
+</div>
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-01 · 月之暗面 · 开源</div>
+<div class="item-title">Kimi K3 全量开源：2.8 万亿参数，上线两天挤爆，但真正的硬仗才刚刚开始</div>
+<div class="body">
+<p><strong>8 月 1 日月之暗面旗舰模型 Kimi K3（参数 <span class="num">2.8</span> 万亿）正式全量开源。<br/>
+上线两天，Hugging Face 模型页被挤到响应迟缓，GitHub 代码仓 issue 数半天破千；硅谷几位长期关注中国开源的工程师说「impressive」，并感叹中国 AI 的崛起速度。<br/>
+同日内，月之暗面完成超 <span class="num">35</span> 亿美元 F 轮融资，投后估值 <span class="num">350</span> 亿美元。<br/>
+</strong></p>
+<p>K3 的开源不是只放权重，它把预训练数据分布、训练超参的搜索轨迹、后训练对齐阶段的 reward model 也全部打包上传。<br/>
+一位跑过 K2 全流程的研究员说，他想要的不是「另一个 DeepSeek-V3」，并且 K3 那份「为什么这一版超参最终赢」的推理记录：「光给模型，不给方法，社区会永远在追数字；有方法，下一代模型就能站在 K3 肩膀上。」</p>
+<p><span class="turn">全量权重放出来，等于把最贵的那块能力免费交出去，开源这步，逼着闭源阵营重新算账。<br/>
+</span></p>
+<div class="image-block">
+<img alt="月之暗面 Kimi K3：2.8 万亿参数全量开源" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/kimi-k3-opensource.jpg"/>
+<p class="image-caption">月之暗面 Kimi K3 · 官方图 · 2.8 万亿参数全量开源</p>
+</div>
+</div>
+<div class="src-line">月之暗面开放平台 · <a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank">Hugging Face</a></div>
+</div>
+</div>
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-01 · OpenAI · 新模型</div>
+<div class="item-title">Astra 曝光：多智能体长周期协作，疑似 GPT-6，但真正的硬仗才刚刚开始</div>
+<div class="body">
+<p><strong>据 The Information，OpenAI 正筹备新模型家族 Astra，主打多个智能体在较长时间内协同解决高难任务，可用于大型项目或高阶数学；Altman 本周向美国政策制定者与监管机构做了演示，模型或按新前沿 AI 审查框架在发布前提交联邦审查。<br/>
+Astra 可能命名为 GPT-6，或作为 GPT-5 系列的 GPT-5.7。<br/>
+</strong></p>
+<p><span class="turn">从「单智能体对话」到「多智能体项目组」，OpenAI 把产品的想象空间，从聊天框挪到了工作台。<br/>
+</span></p>
+<div class="image-block">
+<img alt="Astra 曝光：多智能体长周期协作，疑似 GPT-6" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/openai-astra-preview.jpg"/>
+<p class="img-cap">Astra 曝光：多智能体长周期协作，疑似 GPT-6。</p>
+</div>
+</div>
+<div class="src-line">The Information（Astra 消息源）</div>
+</div>
+</div>
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-01 ·  · 数学</div>
+<div class="item-title">前沿实验室 公布 10 个数学进展：<span class="accent">重点不是模型名，是 Lean 证书</span></div>
+<div class="body">
+<p><strong>前沿实验室 发布一组数学与理论计算机科学结果，称内部版 Astra 在 <span class="num">10</span> 个长期未解问题上取得进展，并公开了 <span class='\"hl\"'>openai/ten-proofs</span> 仓库，包含 Lean 4 形式化证明。<br/>
+</strong></p>
+<p>Simon Willison 指指出，前沿实验室 声称每个问题成本不到 <span class="num">2,000</span> 美元，但没公布失败案例数量。<br/>
+他更想看到的是 prompts，「我想看的不是结果，是他们怎么问出来的」。</p>
+<p><span class="turn">AI 研究开始附带机器可验证的证据链，「解出来了」正在变成「有证明能查」。<br/>
+</span></p>
+<div class="image-block">
+<img alt="前沿实验室 公布 10 个数学进展：重点不是模型名，是 Lean 证书" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/openai-ten-advances.jpg"/>
+<p class="img-cap">前沿实验室 公布 10 个数学进展：重点不是模型名，是 Lean 证书。</p>
+</div>
+</div>
+<div class="src-line"><a href="https://openai.com/index/path-to-astra-frontier-safeguards/ten-advances-in-mathematics/" target="_blank">前沿实验室</a> · <a href="https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">「人们更在意 AI 能不能把时间还给人。」</p>
+<p class="voice-who">— Greg Brockman · 前沿实验室 联合创始人 · <a href="https://simonwillison.net/2026/Aug/1/greg-brockman/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">「我想看的不是结果，是他们怎么问出来的。」</p>
+<p class="voice-who">— Simon Willison · AI 研究者 · <a href="https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/" target="_blank">simonwillison.net</a></p>
+</div>
+</div>
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-01 · Google · 具身智能</div>
+<div class="item-title">Google 发 ER2 具身模型：<span class="accent">让机器人判断「活干完了没」</span></div>
+<div class="body">
+<p><strong>Google 发布三款具身智能模型，主攻「机器人何时算完成任务」这一难题；其中 ER 2 在「时间智能」上突破，能准确判断任务完成状态，支持本地边缘部署，并向新型机器人本体快速适配。<br/>
+</strong></p>
+<p><span class="turn">具身落地卡在「做到哪了」这种细活上，ER 2 补的是机器人自己心里那本账。<br/>
+</span></p>
+<div class="image-block">
+<img alt="Google 发 ER2 具身模型：让机器人判断"活干完了没"" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/deepmind-models.jpg"/>
+<p class="img-cap">Google 发 ER2 具身模型：让机器人判断「活干完了没」。</p>
+</div>
+</div>
+<div class="src-line"><a href="https://deepmind.google/models/" target="_blank">Google DeepMind</a></div>
+</div>
+</div>
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-01 · 开发者 · 体验变化</div>
+<div class="item-title">把 Kimi K3 拽到本地：<span class="accent">我的显卡，第一次跑起万亿模型</span></div>
+<div class="body">
+<p><strong>一位开发者把 K3 全量权重拉到本地多卡机器，跑通长文档分析与代码生成，说过去要调三家 API 的活，现在一台机器内完整链路；社区里芯片厂商也开始做适配。<br/>
+</strong></p>
+<p>他用的是 8 张消费级显卡串起来的方案，关键是把 K3 的 2.8 万亿参数按 8 路张量并行切片，每张卡吃 3,500 亿。<br/>
+原本他估的是「能跑起来就不错了」，结果实测下来，50 页合同的分析任务从调 前沿实验室 的 22 秒降到了本地的 9 秒，且文档从头到尾不出机器。<br/>
+他在 B 站记录了第一次跑通的全过程，第二天播放量破百万，社区里跟着做适配的显卡厂商排了 6 家。</p>
+<p><span class="turn">当万亿模型能塞进自己的机房，数据不出门、调参不受限，开源的真正红利，是控制权。<br/>
+</span></p>
+</div>
+<div class="image-block">
+<img alt="把 Kimi K3 拽到本地：我的显卡，第一次跑起" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-01/platform-moonshot-ai.jpg"/>
+<p class="img-cap">把 Kimi K3 拽到本地：我的显卡，第一次跑起。</p>
+</div>
+<div class="src-line">月之暗面开放平台</div>
+</div>
+</div>
+<!-- ===== 投资 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">FUNDING</div>
+<div class="sec-title">投资与资金流向</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-01 · 月之暗面 · 融资</div>
+<div class="item-title">月之暗面 F 轮超 35 亿美元：<span class="accent">G 轮提前，奔 Pre-IPO</span></div>
+<div class="body">
+<p><strong>据创业邦，月之暗面完成超 <span class="num">35</span> 亿美元 F 轮，因超募 <span class="num">3</span> 倍提前关闭，投后估值 <span class="num">350</span> 亿美元；原定 8 月的 G 轮（Pre-IPO）提前启动，投前估值升至 <span class="num">500</span> 亿美元，预计最快 <span class="num">6</span> 个月内冲刺港股。<br/>
+</strong></p>
+<p><span class="turn">开源炸场和融资炸场同一周发生，说明资本看好的是开源聚起的开发者网络，不是单次发布。<br/>
+</span></p>
+</div>
+<div class="src-line">月之暗面（融资细节待核实）</div>
+</div>
+</div>
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>Kimi K3 全量开源，2.8 万亿参数上线两天挤爆；月之暗面 F 轮超 35 亿美元。</p>
+<p>前沿实验室 Astra 曝光，多智能体长周期协作，疑似 GPT-6。</p>
+<p>DeepSeek V4-Flash 将免费开放 API。</p>
+<p>Google 发 ER2 具身模型，主攻任务完成判断。</p>
+<p class="turn">一边把最强模型免费开源，一边把多智能体搬上工作台，这一天的两条主线，都在把 AI 的「可用」往前推。</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>巴塔哥尼亚的安第斯山脉，在 2026 年南半球初秋被一层新雪勾出轮廓。</strong></p>
+<div class="image-block">
+
+<p class="image-caption">Snow in the Shadow of the Andes · NASA · <span class="num">45.00°S, 72.00°W</span><br/>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br>
+山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="../2026-07/2026-07-31.html" class="prev-post">← 上一篇：2026-07-31</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <a href="2026-08-02.html" class="next-post">下一篇：2026-08-02 →</a>
+        </nav>
+
+        <div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流，AI每天在变什么，人在怎么选
+</div>
+
+</div>
+</body>
+</html>

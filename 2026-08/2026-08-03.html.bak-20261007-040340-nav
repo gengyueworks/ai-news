@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI 情报日报｜2026-08-03</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --klein:#002FA7;
+  --klein-bright:#0044FF;
+  --paper:#FFFFFF;
+  --ink:#0E0E10;
+  --ink-soft:#3A3A3E;
+  --gray:#6B6B70;
+  --gray-light:#9CA3AF;
+  --line:#E8E8EC;
+  --accent:#C41E3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+
+.masthead{margin-bottom:36px;}
+.mast-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--klein);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.mast-title{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  line-height:1.02;
+  color:var(--klein);
+  margin-bottom:16px;
+}
+.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 10px;}
+.mast-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--gray);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mast-meta .issue{color:var(--klein);font-weight:600;}
+.mast-lede{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-top:22px;
+  padding-left:16px;
+  border-left:3px solid var(--klein);
+}
+
+.section-block{margin:48px 0;}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray-light);
+  margin-bottom:6px;
+}
+.sec-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--klein);
+  letter-spacing:1px;
+  margin-bottom:24px;
+  display:inline-block;
+}
+.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
+
+.item{margin-bottom:38px;}
+.item:last-child{margin-bottom:0;}
+.dateline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:10px;
+}
+.dateline .src{color:var(--klein);font-weight:600;}
+.item-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.item-title .hl{color:var(--klein);}
+.body{font-size:15.5px;color:var(--ink-soft);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--ink);font-weight:600;}
+.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.body .tag{
+  display:inline-block;
+  font-size:11px;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--gray);
+  background:var(--line);
+  padding:1px 8px;
+  border-radius:3px;
+  margin-right:4px;
+}
+.body .turn{color:var(--klein);font-weight:700;}
+.body .hl{color:var(--klein);font-weight:600;}
+.points{margin:12px 0 0;padding:0;list-style:none;}
+.points li{
+  font-size:14px;
+  color:var(--ink-soft);
+  padding:3px 0;
+  padding-left:16px;
+  position:relative;
+}
+.points li::before{content:"–";position:absolute;left:0;color:var(--gray-light);}
+.src-line{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;
+}
+.src-line a{color:var(--klein);text-decoration:none;}
+.src-line a:hover{text-decoration:underline;}
+
+.figure{margin:18px 0 24px;}
+.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
+.image-block{margin:18px 0 24px;}
+.image-block img{max-width:560px;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:0 auto;}
+.img-cap, .image-caption{
+  font-size:12.5px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
+.voice::before{
+  content:"\201C";
+  position:absolute;
+  left:-4px;top:-18px;
+  font-family:Georgia,serif;
+  font-size:80px;
+  color:var(--klein);
+  line-height:1;
+}
+.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
+.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
+.voice-who a{color:var(--klein);text-decoration:none;}
+.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
+
+.curiosity{
+  padding:20px;
+  background:#F0F4FF;
+  border-radius:8px;
+  margin-top:32px;
+}
+.curiosity .body{font-size:15px;color:var(--ink-soft);}
+
+.footer{margin-top:48px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.footer .big{color:var(--ink);font-weight:600;}
+
+@media(max-width:520px){
+  .mast-title{font-size:34px;}
+  .container{padding:24px 16px 48px;}
+}
+
+/* 顶部导航（日报页） */
+.site-nav{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+  z-index:10;
+}
+.site-nav-inner{
+  max-width:720px;margin:0 auto;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
+.site-nav-brand span{color:var(--klein);}
+.site-nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;}
+.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
+.site-nav-links a:hover{color:var(--klein);}
+.site-nav-links a.active{color:var(--klein);font-weight:600;}
+</style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
+
+<style>
+/* 统一导航与翻页样式 */
+.site-nav { border-bottom: 1px solid var(--border, #E8E8EC); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 50; }
+.site-nav-inner { max-width: 720px; margin: 0 auto; padding: 13px 24px; display: flex; align-items: center; justify-content: space-between; }
+.site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark, #0E0E10); }
+.site-nav-brand span { color: var(--klein, #002FA7); }
+.site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+.site-nav-links a { font-size: 13px; color: var(--text-light, #6B7280); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.site-nav-links a:hover { color: var(--klein, #002FA7); }
+.site-nav-links a.active { color: var(--klein, #002FA7); font-weight: 700; }
+.nav-pricing-btn { padding: 4px 10px; background: var(--klein, #002FA7); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+.post-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 40px auto 20px; padding: 14px 18px; background: #F8F9FB; border: 1px solid #E8E8EC; border-radius: 8px; font-size: 13px; }
+.post-pagination a, .post-pagination span { text-decoration: none; color: #374151; display: inline-flex; align-items: center; gap: 4px; }
+.post-pagination a:hover { color: #002FA7; }
+.post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
+.post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
+@media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+</style>
+
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="https://gyread.com/">GyRead<span> · AI News</span></a>
+            <ul class="site-nav-links">
+                <li><a href="https://gyread.com/">官网首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../index.html#archive">往期</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+                <li><a href="https://gyread.com/pricing" class="nav-pricing-btn">订阅完整版</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+<div class="masthead">
+<div class="mast-eyebrow">AI Intelligence Briefing</div>
+<div class="mast-title">AI 情报日报</div>
+<div class="mast-rule"></div>
+<div class="mast-meta">
+<span class="issue">2026-08-03 · 周一</span>
+<span>本期 5 条</span>
+</div>
+<div class="mast-lede">具身智能这一天，两笔融资同时落。<br/><br/>破壳机器人拿了亿美元级 Pre-A，求之科技再完成 <span class="num">1</span> 亿美元天使+轮、跻身独角兽；Google DeepMind 的 Gemini Robotics 2，让机器人第一次从脚控到指尖。<br/><br/>机器人的手，终于开始学着干活了。</div>
+</div>
+<!-- ===== 头版 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">头版</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-03 · MiniMax · 开源</div>
+<div class="item-title">MiniMax H3 正式开源：视频生成开始从 API 走向本地工作流，但真正的硬仗才刚刚开始</div>
+<div class="body">
+<p><strong>MiniMax 正式开源 <span class="accent">H3</span>，放出 H3-Base 两个 checkpoint，支持 SGLang、vLLM、diffusers、ComfyUI，并给出本地部署、API 复现和 prompting 指南。<br/>
+创作者和开发者第一次能把「直出 2K 视频的模型」接进自己的工具链。<br/>
+</strong></p>
+<p>H3 是一个支持文本、图片、视频、音频混合输入的多模态生成系统，输出规格最高 <span class="num">2K</span>、<span class="num">24</span> FPS、<span class="num">32kHz</span> 原生立体声。<br/>
+注意一个细节：<span class="num">2K</span> 生成依赖 H3-Regenerate-2K，这部分还没开源，发布、API、权重、完整能力，四件事分四步走。</p>
+<p><span class="turn">当开源视频模型能本地跑起来，「生成视频」这件事，第一次像跑一个开源库一样简单。<br/>
+</span></p>
+<div class="image-block">
+<img alt="MiniMax H3 多模态视频生成模型官方图" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-03/minimax_h3.jpg"/>
+<p class="image-caption">MiniMax H3 · 官方图 · 直出 2K 视频的开源多模态模型</p>
+</div>
+</div>
+<div class="src-line"><a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 官方公告</a></div>
+</div>
+</div>
+<!-- ===== 前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-03 · Google DeepMind · 机器人</div>
+<div class="item-title">Gemini Robotics 2 发布：从脚控到指尖，全身协同，但真正的硬仗才刚刚开始</div>
+<div class="body">
+<p><strong>Google DeepMind 7 月 <span class="num">30</span> 日发布 Gemini Robotics 2 系列，首次实现人形机器人从脚部到指尖的全身协同控制，在桌面拾取、灵巧操作等任务中表现突出；同一周特斯拉 Optimus 负责人官宣 <span class="num">1000</span> 万台产能规划。<br/>
+</strong></p>
+<p>Gemini Robotics 2 的关键，是让机器人「蹲下来捡东西」变成一件自然的事。<br/>
+过去的机器人控制几乎都把下肢和上肢拆开训练，下半身管平衡、上半身管抓取，切换的瞬间总有零点几秒的失神。<br/>
+这次模型把下肢和十根手指放进同一个策略网络，蹲下—伸手—拿起—站起一气呵成。</p>
+<p><span class="turn">当控制从「下半身平衡」扩到「十根手指」，机器人才真正开始碰真实世界的细节。<br/>
+</span></p>
+<div class="image-block">
+<img alt="Gemini Robotics 2 发布：从脚控到指尖，全身协同" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-03/gemini-robotics.jpg"/>
+<p class="img-cap">Gemini Robotics 2 发布：从脚控到指尖，全身协同。</p>
+</div>
+</div>
+<div class="src-line"><a href="https://deepmind.google/models/" target="_blank">Google DeepMind</a></div>
+</div>
+</div>
+<!-- ===== 开源前线 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">OPEN SOURCE · 实用工具前线</div>
+<div class="sec-title">开源前线</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-03 · 安全 · 自主编程</div>
+<div class="item-title">GitHub Agent 曝漏洞：<span class="accent">AI 自主编程的隔离边界再受拷问</span></div>
+<div class="body">
+<p><strong>GitHub Agent 被曝安全漏洞，自主写代码、跑命令的 Agent 在隔离环境上再出状况；同期「AI 股神」巨亏也提醒行业，自主 Agent 的容错边界远没到放心的时候。<br/>
+</strong></p>
+<p>这次的漏洞细节有警示性：Agent 在沙箱里跑命令时，绕过了对临时目录的权限限制，去读了宿主机的 SSH 配置和某些 dotfile 文件。<br/>
+GitHub 在 24 小时内出了热补丁，但更深的问题是，现在的 Agent 沙箱是基于「预期任务」的，而 Agent 自己拼出来的命令路径永远超出预期。<br/>
+Gartner 在最新报告里把「Agent 沙箱」列为今年企业最该补的安全债，比去年的「模型越狱」优先级还高。</p>
+<p><span class="turn">让 Agent 自己动键盘是趋势，但每一次越界都在提醒：autonomy 和 safety，得一起长。<br/>
+</span></p>
+</div>
+<div class="image-block">
+<img alt="GitHub Agent 曝漏洞：AI 自主编程的" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-03/github-blog.jpg"/>
+<p class="img-cap">GitHub Agent 曝漏洞：AI 自主编程的。</p>
+</div>
+<div class="src-line">GitHub Blog</div>
+</div>
+</div>
+<!-- ===== 声音 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">VOICES</div>
+<div class="sec-title">声音</div>
+<div class="voice">
+<p class="voice-text">「别做 meat proxy—别把 AI 输出原封不动转给别人。」</p>
+<p class="voice-who">— Niklas Gruhn · 提出「meat proxy」一词 · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">simonwillison.net</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">「重点不是别用 AI，并且别只做转发器。」</p>
+<p class="voice-who">— Simon Willison · AI 研究者 · <a href="https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/" target="_blank">simonwillison.net</a></p>
+</div>
+</div>
+<!-- ===== 创造 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">CREATE</div>
+<div class="sec-title">创造</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-03 · agent · 软件维护</div>
+<div class="item-title">一个提示词，把软件维护交给夜间 agent：<span class="accent">David Crawshaw 的自动 rebase</span></div>
+<div class="body">
+<p><strong>Simon Willison 摘录了 <span class="accent">David Crawshaw</span> 的一个提示词：让 agent 每晚抓取上游变更、rebase 本地修改、检查结果并替换当前版本，把最枯燥的软件维护，交给夜间自动跑的 agent。<br/>
+</strong></p>
+<p>这不是产品发布，但很有画面感：第二天早上打开仓库，昨天的上游改动已经合并、冲突已经解决、构建已经验证。<br/>
+它和「meat proxy」放在一起，正好构成一个讨论的两端，人该把哪部分工作交出去，哪些部分必须自己把关。</p>
+<p><span class="turn">agent 进入软件维护，不是「取代程序员」，是把最机械的那班夜班接走。<br/>
+</span></p>
+</div>
+<div class="src-line"><a href="https://simonwillison.net/2026/Aug/3/david-crawshaw/" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<!-- ===== 视觉 ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">视觉</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
+<div class="item">
+<div class="dateline">08-03 · ComfyUI · 创作者工作流</div>
+<div class="item-title">MiniMax H3 进 ComfyUI：<span class="hl">视频生成接入创作者常用工作流</span></div>
+<div class="body">
+<p><strong>ComfyUI 官方页面显示，MiniMax H3 已可通过 Open Weights 或 Partner Nodes 使用，支持多模态输入、原生立体声、最高 <span class="num">2K</span>、<span class="num">5</span>–<span class="num">15</span> 秒生成。<br/>
+</strong></p>
+<p>对创作者来说，这意味着 H3 不再是「去官网试一下」的玩具，并且能接进自己熟悉的节点工作流：文字/图片/音频同时作为生成条件，视频和声音一次出，做完直接进剪辑。<br/>
+开源 + ComfyUI，是把「用 AI 做视频」从尝鲜变成日常的最后一公里。</p>
+<p><span class="turn">当开源模型长进 ComfyUI 这样的入口，创作工具的生态，开始把生成能力当成水电一样接。<br/>
+</span></p>
+</div>
+<div class="src-line"><a href="https://comfy.org/minimax/" target="_blank">ComfyUI</a> · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax</a></div>
+</div>
+</div>
+<!-- ===== 小结 ===== -->
+<div class="section-block" style="margin-top:24px;">
+<div class="sec-eyebrow">TAKEAWAY</div>
+<div class="sec-title">小结</div>
+<div class="body">
+<p>MiniMax H3 正式开源，视频生成从 API 走向本地工作流；ComfyUI 已接入。</p>
+<p>Gemini Robotics 2 发布，全身协同；GitHub Agent 曝漏洞。</p>
+<p>「别做 meat proxy」，人该把哪部分工作交给 agent，成了社区在讨论的事。</p>
+<p>David Crawshaw 把软件维护交给夜间 agent：自动 rebase、自动验证。</p>
+<p class="turn">开源模型、机器人、agent 维护三条线同一天收口，AI 的竞争，从模型跑分挪到了「谁先长进真实工作流」。</p>
+</div>
+</div>
+<!-- ===== Be Curious ===== -->
+<div class="section-block">
+<div class="sec-eyebrow">BE CURIOUS</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
+<div class="body">
+<p><strong>斯图尔特岛 · 新西兰，NASA 的卫星在 S47.0、E167.8 一带，拍下南太平洋里浮着一座被森林盖住的岛，是新西兰的第三大岛，鸟比人密。<br/>
+</strong></p>
+<div class="image-block">
+<img alt="NASA 卫星影像：新西兰斯图尔特岛" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-03/nasa_stewart_island.jpg"/>
+<p class="image-caption">斯图尔特岛 · 新西兰 · NASA 卫星拍下 <span class="num">47.0</span>°S, <span class="num">167.8</span>°E<br/>一座被森林盖住的岛卧在南纬四十几度的冷水里，是新西兰的第三大岛，鸟比人密。<br/>
+我们在屏幕上争论机器人能不能做家务，斯图尔特岛的潮水正按月亮的引力，替岛缘数着日子。<br/>
+看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br/>
+山川湖海，让我们保持好奇、继续探索。</p>
+</div>
+</div>
+</div>
+</div>
+
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="2026-08-02.html" class="prev-post">← 上一篇：2026-08-02</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <a href="2026-08-04.html" class="next-post">下一篇：2026-08-04 →</a>
+        </nav>
+
+        <div class="footer">
+<div class="big">AI 情报日报 · 前沿信号流</div>
+前沿信号流，AI每天在变什么，人在怎么选
+</div>
+
+</div>
+</body>
+</html>
