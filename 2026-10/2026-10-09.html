@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026年10月9日</title>
+    <meta name="description" content="2026年10月9日 AI 情报日报：人类数学家抢在机器前发表唯一游戏证明；Reflection 发布 501B 美国开源大模型 Beam；Claude Haiku 5.5 同价反超 GPT-6 Luna；微软联手 NVIDIA 推出 Surface Laptop Ultra。">
+    <style>
+        @import url('../assets/fonts/fonts.css');
+        :root {
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
+}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-nav {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            z-index: 50;
+        }
+        .site-nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 13px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark); }
+        .site-nav-brand span { color: var(--klein); }
+        .site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+        .site-nav-links a { font-size: 13px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+        .site-nav-links a:hover { color: var(--klein); }
+        .site-nav-links a.active { color: var(--klein); font-weight: 700; }
+        .nav-pricing-btn { padding: 4px 10px; background: var(--klein); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+        .masthead { margin-bottom: 36px; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .mast-lede {
+            font-size: 15.5px;
+            line-height: 1.85;
+            color: var(--text-mid);
+            padding: 18px 22px;
+            background: #F0F4FF;
+            border-left: 4px solid var(--klein);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; }
+        .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        .curiosity .body { font-size: 15px; color: var(--text-mid); }
+        .image-block { margin: 18px 0; }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .post-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            margin: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .footer {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .doc-title { font-size: 32px; }
+            .site-nav-inner { flex-wrap: wrap; row-gap: 6px; }
+            .site-nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    
+/* 全站标准统一顶栏样式 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+
+</style>
+</head>
+<body>
+<!-- READY_TEXT_ONLY 2026-10-09: 纯文字精选版式，保留文字排版，经门禁裁决 -->
+
+            <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="https://gyread.com/" title="返回 GYREAD 官网首页" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                <span style="width:24px; height:24px; border-radius:6px; background:#002FA7; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:900; box-shadow:0 2px 8px rgba(0,47,167,.26); flex:0 0 auto;">Y</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html" style="color: #002FA7; font-weight: 700;">新闻首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <header class="masthead">
+            <div class="mast-eyebrow">Daily Intelligence</div>
+            <h1 class="doc-title">AI 情报<span>日报</span></h1>
+            <p class="doc-date">10月9日 · 星期五</p>
+                        <div class="mast-lede">
+                <span class="accent">Quanta</span>：人类数学家抢在机器之前发表「唯一游戏」证明，一场罕见的公开竞速；<br>
+                <span class="accent">Reflection</span>：发布 501B 参数美国开源大模型 Beam，正面回应开源生态的算力质疑；<br>
+                <span class="accent">Anthropic</span>：Claude Haiku 5.5 同价位反超 GPT-6 Luna，小模型战线再升温；<br>
+                <span class="accent">OpenAI</span>：ChatGPT 青少年版上线升学规划器，进入大学申请季。
+            </div>
+        </header>
+
+        <!-- ===== 1. 头版 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Headline</div>
+            <div class="sec-title">头版</div>
+
+            <div class="item">
+                <div class="dateline">数学共同体 · 人机竞速</div>
+                <div class="item-title">这一次人类抢在了机器前面：三位计算机科学家连夜发表「唯一游戏」证明，暂时守住了阵地</div>
+                <div class="body">
+                    <p><span class="accent">Quanta Magazine</span> 记录了一场数学界罕见的公开竞速。</p>
+                    <p>在机器可能已攻克 <span class="accent">唯一游戏猜想</span> 的传闻之下，三位计算机科学家抢先发表了自己的里程碑式证明。</p>
+                    <p>这个猜想是计算复杂性理论的支柱之一，它的走向直接决定一大批近似算法的理论上限。</p>
+                    <p><span class="turn">这一次是人类先交卷，</span>但所有人都清楚，机器与人类在同一张时间表上做题的时代已经开始了。</p>
+                </div>
+                <div class="src-line"><a href="https://www.quantamagazine.org/as-ai-closed-in-on-unique-games-proof-researchers-raced-to-beat-the-machines-20261007/" target="_blank">Quanta Magazine 深度报道</a></div>
+            </div>
+        </div>
+
+        <!-- ===== 2. 前线 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Front Line</div>
+            <div class="sec-title">前线</div>
+
+            <div class="item">
+                <div class="dateline">Reflection · 开源底座</div>
+                <div class="item-title">Reflection 发布 501B 参数开源模型 Beam：美国开源阵营时隔一年重回牌桌</div>
+                <div class="body">
+                    <p><span class="accent">Reflection</span> 正式发布 <span class="accent">Beam 501B-A23B</span>，一个 <span class="num">5010 亿</span> 总参数、单次激活 <span class="num">230 亿</span> 的混合专家模型，权重完全开放。</p>
+                    <p>这家公司一年多前以编程模型起家，此后长期沉寂，被不少观察者归入高开低走的名单。</p>
+                    <p>Beam 的放出正面回应了「美国是否还能产出一线开源大模型」的质疑，开源底座竞争重新回到多极格局。</p>
+                    <p><span class="turn">开源生态的焦点，</span>正从有没有开源，转向开源底座能否持续跟上闭源前沿的节奏。</p>
+                </div>
+                <div class="src-line"><a href="https://www.understandingai.org/p/why-agent-swarms-could-be-the-next" target="_blank">Understanding AI 深度分析</a> · <a href="https://www.technologyreview.com/2026/10/08/1145923/ai-breakthroughs-in-robotics-wont-change-your-life-any-time-soon/" target="_blank">MIT Technology Review 深度对照</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">小模型战线 · 价格带</div>
+                <div class="item-title">Claude Haiku 5.5 发布：同价位跑分反超 GPT-6 Luna，小模型进入贴身肉搏</div>
+                <div class="body">
+                    <p><span class="accent">Anthropic</span> 推出小模型 <span class="hl">Claude Haiku 5.5</span>，定价与 OpenAI 的 <span class="hl">GPT-6 Luna</span> 完全持平。</p>
+                    <p>在同等价格档位上，Haiku 5.5 多项公开基准成绩反超 Luna，把竞争压进同价不同质的硬碰硬区间。</p>
+                    <p><span class="turn">小模型正在从旗舰的降级版，</span>变成调用量最大、决定厂商真实收入的正面战场。</p>
+                </div>
+                <div class="src-line"><a href="https://www.latent.space/p/ainews-claude-haiku-55-better-than" target="_blank">Latent Space AINews 一手内参</a></div>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin: 0 0 36px;"></div>
+            <div class="item">
+                <div class="dateline">Nous Research · 智能体商用</div>
+                <div class="item-title">Nous Research 确认 15 亿美元估值：Hermes Agent 正式面向企业用户开放</div>
+                <div class="body">
+                    <p>开源模型团队 <span class="accent">Nous Research</span> 确认完成 <span class="num">9000 万美元</span> B 轮融资，估值达到 <span class="accent">15 亿美元</span>。</p>
+                    <p>同步上线的 <span class="hl">Hermes Agent</span> 面向企业用户，把其开源模型能力封装为可托管的业务智能体。</p>
+                    <p><span class="turn">从开源社区走向企业服务，</span>社区口碑可以直接转化为商业合同，中间不必再经过闭源转型。</p>
+                </div>
+                <div class="src-line"><a href="https://techcrunch.com/2026/10/07/nous-research-confirms-it-hit-1-5b-valuation-launches-ai-agents-for-business-users/" target="_blank">TechCrunch 报道</a> · <a href="https://huggingface.co/NousResearch" target="_blank">Hugging Face 官方主页</a></div>
+            </div>
+        </div>
+
+        <!-- ===== 3. 开源前线 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Open Source</div>
+            <div class="sec-title">开源前线</div>
+
+            <div class="item">
+                <div class="dateline">LangChain · 后训练工具链</div>
+                <div class="item-title">LangSmith 上线微调工作台：不开数据流水线，也能给模型做后训练</div>
+                <div class="body">
+                    <p><span class="hl">LangChain</span> 发布 <span class="hl">LangSmith Fine-Tuning</span> 与配套命令行工具 <span class="hl">SmithTune</span>。</p>
+                    <p>开发者可以直接在观测平台上挑选线上真实调用记录，一键启动垂直场景微调，不再手工搭建数据清洗与训练流水线。</p>
+                    <p><span class="turn">后训练的门槛被再次削平，</span>中小团队第一次能以天为单位迭代自己的专属模型。</p>
+                </div>
+                <div class="src-line"><a href="https://www.langchain.com/blog/langsmith-fine-tuning" target="_blank">LangChain 官方博客</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">GitHub 高星 · 中文开源</div>
+                <div class="item-title">answer-me-with-html 走红：让 Agent 用一页可读的 HTML 回答复杂问题</div>
+                <div class="body">
+                    <p>中文开源项目 <span class="accent">answer-me-with-html</span> 登上 GitHub 热榜，星标突破 <span class="num">2,200</span>。</p>
+                    <p>它是一个 Agent 技能：遇到复杂问题时，模型不再甩回一堵文字墙，它直接产出一页排版克制、可当场读完的单文件网页。</p>
+                    <p><span class="turn">输出形态之争最近持续升温，</span>大模型的输出形态正在从聊天消息，转向即产即用的定制制品。</p>
+                </div>
+                <div class="src-line"><a href="https://github.com/QingYunA/answer-me-with-html" target="_blank">GitHub 开源仓库</a></div>
+            </div>
+            <div style="border-top:1px dashed var(--border); margin: 0 0 36px;"></div>
+
+            <div class="item">
+                <div class="dateline">开源工具 · 创意软件</div>
+                <div class="item-title">「软件已死」派开发者向 Adobe 下战书：Opus 驱动的开源替代品集体开工</div>
+                <div class="body">
+                    <p>一批开发者喊出 <span class="accent">Software is over</span> 的口号，开始用大模型逐一重写 <span class="hl">Creative Cloud</span> 的核心组件。</p>
+                    <p>这些替代品野心很大、完全免费，但作者自己也承认，完成度离专业工作流还有很长的路。</p>
+                    <p><span class="turn">当写软件的成本趋近于零，</span>专有套装软件的护城河第一次被从社区侧持续冲刷。</p>
+                </div>
+                <div class="src-line"><a href="https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones/" target="_blank">Ars Technica 报道</a></div>
+            </div>
+        </div>
+
+        <!-- ===== 4. 声音 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Voices</div>
+            <div class="sec-title">声音</div>
+
+            <div class="voice">
+                <p class="voice-text">「我们绝不能再让自己处在低估 AI 的位置上。」</p>
+                <p class="voice-who">Noam Brown · OpenAI 研究员 · <a href="https://www.dwarkesh.com/p/noam-brown" target="_blank">Dwarkesh Podcast 长访谈</a></p>
+            </div><div class="voice-sep"></div>
+
+            <div class="voice">
+                <p class="voice-text">「如果数学界不去适应，五十年后可能就没有我们今天所说的数学了。」</p>
+                <p class="voice-who">数学界匿名受访者 · <a href="https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/" target="_blank">Quanta Magazine 深度报道</a></p>
+            </div>
+        </div>
+
+        <!-- ===== 5. 创造 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Create</div>
+            <div class="sec-title">创造</div>
+
+            <div class="item">
+                <div class="dateline">微软 · 本地算力</div>
+                <div class="item-title">微软联手 NVIDIA 发布 Surface Laptop Ultra：RTX 级本地算力正式下沉到笔记本</div>
+                <div class="body">
+                    <p><span class="hl">微软</span> 在旧金山发布会上推出 <span class="accent">Surface Laptop Ultra</span>，首次在笔记本上搭载 NVIDIA 芯片，黄仁勋与纳德拉同台站台。</p>
+                    <p>新机器可以在本地直接运行大模型与智能体，配合 Windows 11 的深度改造，系统层为智能体开放了跨应用操作接口。</p>
+                    <p><span class="turn">AI PC 的竞争正式从营销话术进入硬件规格战，</span>本地推理能力开始写进消费级产品的配置单。</p>
+                </div>
+                <div class="src-line"><a href="https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/" target="_blank">NVIDIA 官方博客</a> · <a href="https://www.theverge.com/tech/1007147/microsoft-surface-laptop-ultra-windows-event-everything-announced" target="_blank">The Verge 发布会全记录</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">Google · 实验平台</div>
+                <div class="item-title">Google 上线 Playground：一句话生成可玩的小游戏，创作门槛再降一档</div>
+                <div class="body">
+                    <p><span class="hl">Google</span> 发布实验性游戏平台 <span class="accent">Playground</span>，用户可以创建、游玩并分享自己定制的游戏。</p>
+                    <p>平台把游戏从需要团队开发的工程，压缩成一次对话就能产出的轻量作品。</p>
+                    <p><span class="turn">创作的边界继续外扩，</span>不会写代码的人第一次能把自己脑子里的玩法直接变成能上手的东西。</p>
+                </div>
+                <div class="src-line"><a href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/" target="_blank">Google 官方博客</a> · <a href="https://karpathy.github.io/2026/02/12/microgpt/" target="_blank">Karpathy 个人博客</a></div>
+            </div>
+        </div>
+
+        <!-- ===== 6. 视觉 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Vision</div>
+            <div class="sec-title">视觉</div>
+
+            <div class="item">
+                <div class="dateline">Perplexity · 嵌入模型</div>
+                <div class="item-title">Perplexity 发布 pplx-embed-v2：0.6B 边缘小模型与 9B 检索底座同批开源</div>
+                <div class="body">
+                    <p><span class="accent">Perplexity</span> 开源嵌入模型 <span class="hl">pplx-embed-v2-late</span>，一次给出两个尺寸。</p>
+                    <p><span class="num">0.6B</span> 版本为边缘设备设计，可在本地完成向量化；<span class="num">9B</span> 版本面向高质量索引构建，在 MADQA 基准上取得 <span class="num">92.4</span> 分。</p>
+                    <p>两个版本均采用 MIT 协议开放，检索增强的核心组件进一步向社区让渡。</p>
+                    <p><span class="turn">嵌入层正在成为新的开源必争之地，</span>谁掌握检索底座，谁就握住 RAG 应用的入口。</p>
+                </div>
+                <div class="src-line"><a href="https://www.marktechpost.com/2026/10/07/perplexity-ai-releases-pplx-embed-v2-late-a-0-6b-edge-model-and-a-9b-model-scoring-92-4-on-madqa/" target="_blank">MarkTechPost 报道</a></div>
+            </div>
+
+            <div style="border-top:1px dashed var(--border); margin: 0 0 36px;"></div>
+            <div class="item">
+                <div class="dateline">Meta · 公益实践</div>
+                <div class="item-title">Meta 向新加坡残障社群捐赠 1,000 副 AI 眼镜：可穿戴设备走进日常辅助场景</div>
+                <div class="body">
+                    <p><span class="accent">Meta</span> 宣布向新加坡残障社群捐赠 <span class="num">1,000</span> 副 AI 智能眼镜。</p>
+                    <p>这些眼镜可以实时描述眼前的场景、朗读文字、辨认物体，成为视障人士日常出行的随身辅助。</p>
+                    <p><span class="turn">可穿戴 AI 最有说服力的落点，</span>往往落在最朴素的地方：安静地帮人把日子过下去。</p>
+                </div>
+                <div class="src-line"><a href="https://about.fb.com/news/2026/10/meta-donates-1000-ai-glasses-to-singapores-disability-community/" target="_blank">Meta 官方公告</a></div>
+            </div>
+        </div>
+
+        <!-- ===== 7. 投资与资金流向 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Capital</div>
+            <div class="sec-title">投资与资金流向</div>
+
+            <div class="item">
+                <div class="dateline">机器人 · 冷思考</div>
+                <div class="item-title">MIT Technology Review 泼冷水：机器人 AI 的突破，短期之内不会走进你的生活</div>
+                <div class="body">
+                    <p><span class="accent">MIT Technology Review</span> 与非营利机构 Aventine 联合发布长篇分析，给人形机器人热潮降温。</p>
+                    <p>报告指出，演示视频里的灵活动作与真实家庭环境之间，还隔着可靠性、成本与安全认证三道高墙。</p>
+                    <p>资本市场为机器人概念开出的估值，已经把未来十年的进步提前计入了价格。</p>
+                    <p><span class="turn">对普通消费者而言，</span>真正可用的家庭机器人仍是一个需要耐心等上许多年的工程命题。</p>
+                </div>
+                <div class="src-line"><a href="https://www.technologyreview.com/2026/10/08/1145923/ai-breakthroughs-in-robotics-wont-change-your-life-any-time-soon/" target="_blank">MIT Technology Review 深度分析</a></div>
+            </div>
+        </div>
+
+        <!-- ===== 8. 小结 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Summary</div>
+            <div class="sec-title">小结</div>
+
+            <div class="item">
+                <div class="body">
+                    <p>今天最值得记住的，是数学家们抢先交卷的那个瞬间。</p>
+                    <p>机器在同一张时间表上做题的时代已经开始，人类用一次连夜发表守住了阵地，也看清了未来的常态。</p>
+                    <p>开源阵营在这一天同时补上了底座、嵌入层与工具链，闭源与开源的咬合越来越紧。</p>
+                    <p>而小模型同价反超的一幕说明，真正的胜负手，往往藏在调用量最大的那一档。</p>
+                    <div class="summary-poem">
+                        一夜千篇落玉盘，<br>
+                        人间难证机中难；<br>
+                        开源自有后来者，<br>
+                        静水流深看寸竿。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 9. Be Curious ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Be Curious</div>
+            <div class="sec-title">保持好奇</div>
+
+            <div class="curiosity">
+                <div class="body">
+                    <p><strong>英国乡间的晴朗之夜，摄影师用「幸运成像」从数千张底片里挑出最清晰的瞬间，拼出土星环的锐利细节。</strong></p>
+<p style="font-size: 14.5px; color: var(--text-mid); margin-top: 12px; line-height: 1.8;">大气湍流每天都在扭曲星光，但只要拍得足够多，总能等到最干净的那几帧。<br><span style="color:var(--accent); font-weight:700;">山川湖海，让我们保持好奇、继续探索。</span></p>
+</div>
+</div>
+        </div>
+
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="2026-10-08.html" class="prev-post">← 上一篇：2026-10-08</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <span class="next-post disabled">下一篇：最新一期 →</span>
+        </nav>
+
+        <footer class="footer">
+            AI News 每日情报 · 2026年10月9日 期 · 前沿信号流
+        </footer>
+
+    </div>
+
+    <link rel="stylesheet" href="../glossary/glossary.css">
+    <script src="../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+
+</body>
+</html>

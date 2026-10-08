@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Intelligence Daily | 2026-10-09</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <meta name="description" content="AI News Daily — Human mathematicians race ahead of AI on the Unique Games proof; Reflection ships 501B open model Beam; Claude Haiku 5.5 beats GPT-6 Luna at the same price; Microsoft and NVIDIA launch Surface Laptop Ultra.">
+    <style>
+        @import url('../../assets/fonts/fonts.css');
+        :root {
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
+}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-header {
+            border-bottom: 1px solid #E8E8EC;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 50;
+            width: 100%;
+        }
+        .site-header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 13px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+        .brand span { color: var(--klein); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 13px;
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        .nav-links a:hover { color: #002FA7; }
+        .masthead { margin-bottom: 36px; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .mast-lede {
+            font-size: 15.5px;
+            line-height: 1.85;
+            color: var(--text-mid);
+            padding: 18px 22px;
+            background: #F0F4FF;
+            border-left: 4px solid var(--klein);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; }
+        .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        .curiosity .body { font-size: 15px; color: var(--text-mid); }
+        .image-block { margin: 20px 0; }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+        .image-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+            line-height: 1.6;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .summary-poem {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--klein);
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: 6px;
+            margin-top: 18px;
+        }
+        .post-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            margin: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .footer {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .doc-title { font-size: 32px; }
+            .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
+            .nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand" href="../index.html" title="AI News Home">AI<span>News</span></a>
+        <ul class="nav-links">
+            <li><a href="../index.html" style="color: #002FA7; font-weight: 700;">Home</a></li>
+            <li><a href="../index.html#archive">Archive</a></li>
+        </ul>
+    </div>
+</header>
+
+<div class="container">
+
+    <header class="masthead">
+        <div class="mast-eyebrow">Daily Intelligence</div>
+        <h1 class="doc-title">AI Intelligence <span>Daily</span></h1>
+        <p class="doc-date">Friday, October 9, 2026</p>
+        <div class="mast-lede">
+            <span class="accent">Quanta</span>: Three computer scientists race to publish a milestone Unique Games proof before the machines arrive;<br>
+            <span class="accent">Reflection</span>: Beam, a 501B-parameter open-weight model, puts American open source back on the board;<br>
+            <span class="accent">Anthropic</span>: Claude Haiku 5.5 outperforms GPT-6 Luna at identical pricing;<br>
+            <span class="accent">OpenAI</span>: ChatGPT for Teens gains a College Planner just in time for application season.
+        </div>
+    </header>
+
+    <!-- ===== 1. Headline ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Headline</div>
+        <div class="sec-title">Headline</div>
+
+        <div class="item">
+            <div class="dateline">Mathematics · Human-Machine Race</div>
+            <div class="item-title">This Time Humans Submitted First: Three Computer Scientists Rush a Unique Games Proof Into Print, Holding the Line for Now</div>
+            <div class="body">
+                <p><span class="accent">Quanta Magazine</span> documents a rare public race in mathematics.</p>
+                <p>Amid rumors that an AI system had closed in on the <span class="accent">Unique Games Conjecture</span>, three computer scientists hurried to publish their own milestone result.</p>
+                <p>The conjecture is a pillar of computational complexity theory; its resolution determines the theoretical ceiling of a wide family of approximation algorithms.</p>
+                <p><span class="turn">Humans submitted first this time,</span> but everyone involved understands that an era of humans and machines working the same problems on the same clock has already begun.</p>
+            </div>
+            <div class="src-line"><a href="https://www.quantamagazine.org/as-ai-closed-in-on-unique-games-proof-researchers-raced-to-beat-the-machines-20261007/" target="_blank">Quanta Magazine In-Depth Report</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 2. Front Line ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Front Line</div>
+        <div class="sec-title">Front Line</div>
+
+        <div class="item">
+            <div class="dateline">Reflection · Open Foundation Model</div>
+            <div class="item-title">Reflection Unveils Beam, a 501B-Parameter Open Model: American Open Source Returns to the Table After a Year</div>
+            <div class="body">
+                <p><span class="accent">Reflection</span> has released <span class="accent">Beam 501B-A23B</span>, a mixture-of-experts model with <span class="num">501 billion</span> total parameters and <span class="num">23 billion</span> active per token, with fully open weights.</p>
+                <p>The company debuted over a year ago with a focus on coding models, then went quiet long enough for observers to write it off.</p>
+                <p>Beam directly answers the question of whether the United States can still produce a frontier-class open model, returning open-weight competition to a multipolar race.</p>
+                <p><span class="turn">The focus of the open ecosystem is shifting</span> from whether models are open at all to whether open foundations can keep pace with the closed frontier.</p>
+            </div>
+            <div class="src-line"><a href="https://www.understandingai.org/p/why-agent-swarms-could-be-the-next" target="_blank">Understanding AI Analysis</a> · <a href="https://www.technologyreview.com/2026/10/08/1145923/ai-breakthroughs-in-robotics-wont-change-your-life-any-time-soon/" target="_blank">MIT Technology Review Context</a></div>
+        </div>
+
+        <div class="item">
+            <div class="dateline">Small Models · Price Band</div>
+            <div class="item-title">Claude Haiku 5.5 Launches: Outperforming GPT-6 Luna at the Same Price, as Small Models Enter Close Combat</div>
+            <div class="body">
+                <p><span class="accent">Anthropic</span> has introduced <span class="hl">Claude Haiku 5.5</span>, priced exactly in line with OpenAI's <span class="hl">GPT-6 Luna</span>.</p>
+                <p>At the same price point, Haiku 5.5 posts higher scores on multiple public benchmarks, compressing the competition into a same-price, different-quality fight.</p>
+                <p><span class="turn">Small models are moving beyond their role as discounted flagships,</span> becoming the highest-volume front line that determines real vendor revenue.</p>
+            </div>
+            <div class="src-line"><a href="https://www.latent.space/p/ainews-claude-haiku-55-better-than" target="_blank">Latent Space AINews Briefing</a></div>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin: 0 0 36px;"></div>
+
+        <div class="item">
+            <div class="dateline">Nous Research · Agents for Business</div>
+            <div class="item-title">Nous Research Confirms $1.5B Valuation: Hermes Agent Opens to Enterprise Users</div>
+            <div class="body">
+                <p>Open-source model lab <span class="accent">Nous Research</span> confirmed a <span class="num">$90 million</span> Series B at a <span class="accent">$1.5 billion</span> valuation.</p>
+                <p>The newly launched <span class="hl">Hermes Agent</span> packages its open-model capabilities into managed business agents for enterprise customers.</p>
+                <p><span class="turn">Community credibility can now convert directly into commercial contracts,</span> without a detour through going closed.</p>
+            </div>
+            <div class="src-line"><a href="https://techcrunch.com/2026/10/07/nous-research-confirms-it-hit-1-5b-valuation-launches-ai-agents-for-business-users/" target="_blank">TechCrunch Coverage</a> · <a href="https://huggingface.co/NousResearch" target="_blank">Hugging Face Organization</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 3. Open Source ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Open Source</div>
+        <div class="sec-title">Open Source</div>
+
+        <div class="item">
+            <div class="dateline">LangChain · Post-Training Toolchain</div>
+            <div class="item-title">LangSmith Launches Fine-Tuning Workbench: Post-Training Without Building Data Pipelines by Hand</div>
+            <div class="body">
+                <p><span class="hl">LangChain</span> has shipped <span class="hl">LangSmith Fine-Tuning</span> alongside <span class="hl">SmithTune</span>, a CLI for post-training models.</p>
+                <p>Developers can select real production traces directly inside the observability platform and kick off vertical fine-tunes in one step, skipping the manual data-cleaning and training-pipeline work.</p>
+                <p><span class="turn">The barrier to post-training drops again,</span> letting small teams iterate on specialized models on a daily cadence.</p>
+            </div>
+            <div class="src-line"><a href="https://www.langchain.com/blog/langsmith-fine-tuning" target="_blank">LangChain Official Blog</a></div>
+        </div>
+
+        <div class="item">
+            <div class="dateline">GitHub Trending · Chinese Open Source</div>
+            <div class="item-title">answer-me-with-html Goes Viral: An Agent Skill That Answers Hard Questions with One Readable Page</div>
+            <div class="body">
+                <p>The Chinese open-source project <span class="accent">answer-me-with-html</span> has trended on GitHub, passing <span class="num">2,200</span> stars.</p>
+                <p>It is an agent skill: instead of returning a wall of text to a hard question, the model produces a single-file webpage with restrained typography that can be read on the spot.</p>
+                <p><span class="turn">The debate over output formats is heating up,</span> as LLM output shifts from chat messages toward disposable, purpose-built artifacts.</p>
+            </div>
+            <div class="src-line"><a href="https://github.com/QingYunA/answer-me-with-html" target="_blank">GitHub Repository</a></div>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin: 0 0 36px;"></div>
+
+        <div class="item">
+            <div class="dateline">Open Source Tools · Creative Software</div>
+            <div class="item-title">"Software Is Over" Developers Take Aim at Adobe: Opus-Built Open-Source Alternatives Get Underway</div>
+            <div class="body">
+                <p>A group of developers rallying behind the slogan <span class="accent">Software is over</span> has begun rebuilding core <span class="hl">Creative Cloud</span> components with frontier models.</p>
+                <p>The alternatives are ambitious and entirely free, though their authors openly concede they remain far from finished for professional workflows.</p>
+                <p><span class="turn">As the cost of writing software approaches zero,</span> the moat around proprietary creative suites faces sustained erosion from the community side.</p>
+            </div>
+            <div class="src-line"><a href="https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones/" target="_blank">Ars Technica Coverage</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 4. Voices ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Voices</div>
+        <div class="sec-title">Voices</div>
+
+        <div class="voice">
+            <p class="voice-text">"We never want to be in a situation again where we underestimate the AI."</p>
+            <p class="voice-who">Noam Brown · Research Scientist, OpenAI · <a href="https://www.dwarkesh.com/p/noam-brown" target="_blank">Dwarkesh Podcast Interview</a></p>
+        </div><div class="voice-sep"></div>
+
+        <div class="voice">
+            <p class="voice-text">"If we don't adapt, there's just no more math in 50 years."</p>
+            <p class="voice-who">Anonymous Mathematician · <a href="https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/" target="_blank">Quanta Magazine In-Depth Report</a></p>
+        </div>
+    </div>
+
+    <!-- ===== 5. Create ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Create</div>
+        <div class="sec-title">Create</div>
+
+        <div class="item">
+            <div class="dateline">Microsoft · Local Compute</div>
+            <div class="item-title">Microsoft and NVIDIA Launch Surface Laptop Ultra: RTX-Class Local Compute Officially Reaches the Laptop</div>
+            <div class="body">
+                <p><span class="hl">Microsoft</span> unveiled the <span class="accent">Surface Laptop Ultra</span> in San Francisco, its first laptop powered by NVIDIA silicon, with Jensen Huang and Satya Nadella sharing the stage.</p>
+                <p>The machine runs large models and agents locally, and a reworked Windows 11 exposes cross-application interfaces for agents at the operating-system level.</p>
+                <p><span class="turn">The AI PC race has officially moved from marketing language to a hardware spec war,</span> with local inference now printed on the configuration sheet of consumer products.</p>
+            </div>
+            <div class="src-line"><a href="https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/" target="_blank">NVIDIA Official Blog</a> · <a href="https://www.theverge.com/tech/1007147/microsoft-surface-laptop-ultra-windows-event-everything-announced" target="_blank">The Verge Event Rundown</a></div>
+        </div>
+
+        <div class="item">
+            <div class="dateline">Google · Experimental Platform</div>
+            <div class="item-title">Google Launches Playground: One Prompt Yields a Playable Game, Lowering the Creation Bar Another Notch</div>
+            <div class="body">
+                <p><span class="hl">Google</span> has released <span class="accent">Playground</span>, an experimental platform where users create, play, and share custom games.</p>
+                <p>The platform compresses game-making from a team engineering effort into a lightweight artifact produced in a single conversation.</p>
+                <p><span class="turn">The boundary of creation keeps expanding outward,</span> letting people who cannot code turn an idea into something playable for the first time.</p>
+            </div>
+            <div class="src-line"><a href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/" target="_blank">Google Official Blog</a> · <a href="https://karpathy.github.io/2026/02/12/microgpt/" target="_blank">Karpathy Personal Blog</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 6. Vision ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Vision</div>
+        <div class="sec-title">Vision</div>
+
+        <div class="item">
+            <div class="dateline">Perplexity · Embedding Models</div>
+            <div class="item-title">Perplexity Releases pplx-embed-v2: A 0.6B Edge Model and a 9B Retrieval Backbone Open-Sourced Together</div>
+            <div class="body">
+                <p><span class="accent">Perplexity</span> has open-sourced the embedding model <span class="hl">pplx-embed-v2-late</span> in two sizes.</p>
+                <p>The <span class="num">0.6B</span> variant is built for edge devices and local vectorization; the <span class="num">9B</span> variant targets high-quality index construction and scores <span class="num">92.4</span> on the MADQA benchmark.</p>
+                <p>Both ship under the MIT license, further handing the core components of retrieval-augmented generation to the community.</p>
+                <p><span class="turn">The embedding layer is becoming contested open-source territory,</span> because whoever holds the retrieval backbone holds the entrance to RAG applications.</p>
+            </div>
+            <div class="src-line"><a href="https://www.marktechpost.com/2026/10/07/perplexity-ai-releases-pplx-embed-v2-late-a-0-6b-edge-model-and-a-9b-model-scoring-92-4-on-madqa/" target="_blank">MarkTechPost Coverage</a></div>
+        </div>
+
+        <div style="border-top:1px dashed var(--border); margin: 0 0 36px;"></div>
+
+        <div class="item">
+            <div class="dateline">Meta · Assistive Practice</div>
+            <div class="item-title">Meta Donates 1,000 AI Glasses to Singapore's Disability Community: Wearables Enter Everyday Assistance</div>
+            <div class="body">
+                <p><span class="accent">Meta</span> is donating <span class="num">1,000</span> pairs of AI smart glasses to Singapore's disability community.</p>
+                <p>The glasses describe surroundings in real time, read text aloud, and recognize objects, serving as a constant companion for visually impaired users on the move.</p>
+                <p><span class="turn">The most convincing use case for wearable AI</span> often sits in the plainest place: quietly helping someone get through the day.</p>
+            </div>
+            <div class="src-line"><a href="https://about.fb.com/news/2026/10/meta-donates-1000-ai-glasses-to-singapores-disability-community/" target="_blank">Meta Official Announcement</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 7. Funding & Capital Flows ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Capital</div>
+        <div class="sec-title">Funding &amp; Capital Flows</div>
+
+        <div class="item">
+            <div class="dateline">Robotics · Sober Assessment</div>
+            <div class="item-title">MIT Technology Review Pours Cold Water: Robotics AI Breakthroughs Won't Reach Your Life Any Time Soon</div>
+            <div class="body">
+                <p><span class="accent">MIT Technology Review</span>, in collaboration with the nonprofit Aventine, has published a long-form analysis cooling the humanoid-robot hype.</p>
+                <p>The report argues that between the fluid motion of demo videos and a real home environment stand three walls: reliability, cost, and safety certification.</p>
+                <p>Valuations attached to robotics concepts already price in a decade of future progress.</p>
+                <p><span class="turn">For ordinary consumers,</span> a genuinely useful household robot remains an engineering problem that demands years of patience.</p>
+            </div>
+            <div class="src-line"><a href="https://www.technologyreview.com/2026/10/08/1145923/ai-breakthroughs-in-robotics-wont-change-your-life-any-time-soon/" target="_blank">MIT Technology Review In-Depth Analysis</a></div>
+        </div>
+    </div>
+
+    <!-- ===== 8. Summary ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Summary</div>
+        <div class="sec-title">Summary</div>
+
+        <div class="item">
+            <div class="body">
+                <p>The moment worth remembering today is the mathematicians submitting first.</p>
+                <p>An era in which machines work the same problems on the same clock has begun; humans held the line with an overnight publication, and saw the future clearly.</p>
+                <p>Open source replenished its foundation, its embedding layer, and its toolchain in a single day, and the mesh between open and closed keeps tightening.</p>
+                <p>And the small-model upset at identical pricing is a reminder that the decisive battleground is often the tier with the most calls.</p>
+                <div class="summary-poem">
+                    A thousand scripts descend at night,<br>
+                    Machines pose proofs we must re-write;<br>
+                    Open weights will find their heirs,<br>
+                    Still waters run where patience dares.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 9. Be Curious ===== -->
+    <div class="section-block">
+        <div class="sec-eyebrow">Be Curious</div>
+        <div class="sec-title">Be Curious</div>
+
+        <div class="curiosity">
+            <div class="body">
+                <p><strong>On a clear night in the English countryside, a photographer used "lucky imaging" to pull the sharpest frames out of thousands of exposures, revealing the crisp detail of Saturn's rings.</strong></p>
+                <p style="font-size: 14.5px; color: var(--text-mid); margin-top: 12px; line-height: 1.8;">Atmospheric turbulence distorts starlight every single night, but take enough frames and the cleanest few will always arrive.<br><span style="color:var(--accent); font-weight:700;">Across peaks, rivers, lakes, and oceans—stay curious and keep exploring.</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+    <nav class="post-pagination">
+        <a class="prev-post" href="2026-10-08.html">← Previous</a>
+        <a class="all-posts" href="../index.html#archive">Archive</a>
+        <span class="next-post disabled">This is the latest post →</span>
+    </nav>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
