@@ -1,444 +1,313 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Push of Chinese Open-Source Models: DeepSeek, Kimi, Zhipu, MiniMax, and Qwen Play Their Hands Simultaneously · AI News Special</title>
-<meta content="Zhipu debuts, four releases simultaneously. Easy to understand even if you don't follow AI: Where AI stands now, what happened this season, and why it matters to you." name="description"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rise of Chinese Open-Source Models: DeepSeek, Kimi, Zhipu, MiniMax, Qwen · AI News Special</title>
+<meta name="description" content="A comprehensive chronological dossier tracking the rise of Chinese open-source AI models from June to October 2026.">
 <style>
 @import url('../../assets/fonts/fonts.css');
-
-:root{
-  --klein:#002FA7;
-  --klein-bright:#0044FF;
-  --paper:#FFFFFF;
-  --ink:#0E0E10;
-  --ink-soft:#3A3A3E;
-  --gray:#6B6B70;
-  --gray-light:#9CA3AF;
-  --line:#E8E8EC;
-  --accent:#C41E3A;
+:root {
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.78;
-  -webkit-font-smoothing:antialiased;
-}
-.container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
-
-/* 顶部导航 */
-.site-nav{
-  border-bottom:1px solid var(--line);
-  position:sticky;top:0;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(8px);
-  z-index:10;
-}
-.site-nav-inner{
-  max-width:720px;margin:0 auto;
-  padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
-.site-nav-brand span{color:var(--klein);}
-.site-nav-links{list-style:none;display:flex;gap:18px;}
-.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
-.site-nav-links a:hover{color:var(--klein);}
-.site-nav-links a.active{color:var(--klein);font-weight:600;}
-
-/* 专题头 */
-.special-badge{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:3px;
-  color:var(--accent);
-  font-weight:600;
-  margin-bottom:14px;
-  text-transform:uppercase;
-}
-.mast-title{
-  font-size:38px;
-  font-weight:900;
-  letter-spacing:-1.5px;
-  line-height:1.12;
-  color:var(--ink);
-  margin-bottom:18px;
-}
-.mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
-.mast-meta{
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;
-  color:var(--gray);
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.mast-meta .issue{color:var(--klein);font-weight:600;}
-.mast-lede{
-  font-size:16px;
-  line-height:1.75;
-  color:var(--ink-soft);
-  margin-top:24px;
-  padding-left:16px;
-  border-left:3px solid var(--klein);
-}
-
-/* 时间线 */
-.timeline{margin:44px 0 8px;}
-.tl-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:24px;display:inline-block;
-}
-.tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.tl-item{
-  position:relative;
-  padding:0 0 26px 34px;
-  border-left:2px solid var(--line);
-  margin-left:6px;
-}
-.tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
-.tl-item::before{
-  content:"";
-  position:absolute;
-  left:-7px;top:5px;
-  width:12px;height:12px;
-  border-radius:50%;
-  background:var(--klein);
-  border:2px solid var(--paper);
-  box-shadow:0 0 0 2px var(--klein);
-}
-.tl-date{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;
-  color:var(--accent);
-  font-weight:600;
-  letter-spacing:0.5px;
-  margin-bottom:4px;
-}
-.tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
-.tl-body strong{color:var(--ink);font-weight:600;}
-.tl-body .hl{color:var(--klein);font-weight:600;}
-.tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
-.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
-
-/* 正文 */
-.section-block{margin:48px 0;}
-.sec-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--gray-light);
-  margin-bottom:6px;
-}
-.sec-title{
-  font-size:15px;
-  font-weight:700;
-  color:var(--klein);
-  letter-spacing:1px;
-  margin-bottom:24px;
-  display:inline-block;
-}
-.sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.item{margin-bottom:38px;}
-.item:last-child{margin-bottom:0;}
-.body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
-.body p{margin-bottom:16px;}
-.body p:last-child{margin-bottom:0;}
-.body strong{color:var(--ink);font-weight:600;}
-.body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.body .turn{color:var(--klein);font-weight:700;}
-.body .hl{color:var(--klein);font-weight:600;}
-.body .accent{color:var(--accent);font-weight:600;}
-.body .h2{
-  display:block;
-  font-size:17px;
-  font-weight:700;
-  color:var(--ink);
-  margin:34px 0 12px;
-  line-height:1.5;
-}
-.figure{margin:20px 0 26px;}
-.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
-.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
-.src-line{
-  font-size:13px;color:var(--gray);margin-top:12px;
-  font-family:'JetBrains Mono',monospace;
-}
-.src-line a{color:var(--klein);text-decoration:none;}
-.src-line a:hover{text-decoration:underline;}
-
-/* 声音 */
-.voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
-.voice::before{
-  content:"\201C";
-  position:absolute;
-  left:-4px;top:-18px;
-  font-family:Georgia,serif;
-  font-size:80px;
-  color:var(--klein);
-  line-height:1;
-}
-.voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
-.voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
-.voice-who a{color:var(--klein);text-decoration:none;}
-.voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
-
-/* 相关报道 */
-.related{margin:48px 0;}
-.rel-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:20px;display:inline-block;
-}
-.rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.rel-card{
-  display:flex;justify-content:space-between;align-items:baseline;
-  border:1px solid var(--line);border-radius:6px;
-  padding:14px 18px;margin-bottom:10px;
-  text-decoration:none;transition:border-color 0.15s ease;
-}
-.rel-card:hover{border-color:var(--klein);}
-.rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
-.rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
-
-.footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
-.footer .big{color:var(--ink);font-weight:600;}
-
-@media(max-width:520px){
-  .mast-title{font-size:28px;}
-  .container{padding:24px 16px 48px;}
-  .tl-item{padding-left:26px;}
-}
-.plain-guide{
-  margin:28px 0 8px;
-  padding:22px 24px;
-  background:#F0F4FF;
-  border-left:3px solid var(--klein);
-  border-radius:0 8px 8px 0;
-}
-.pg-label{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  color:var(--klein);
-  font-weight:600;
-  margin-bottom:12px;
-}
-.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
-.pg-body p{margin-bottom:12px;}
-.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.pg-glossary{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:14px 18px;
-  margin:14px 0;
-}
-.pg-glossary strong{color:var(--ink);font-size:13.5px;}
-.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
-.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
-.pg-note{font-size:13px;color:var(--gray);}
-.tl-plain{
-  display:block;
-  margin-top:8px;
-  padding:8px 12px;
-  background:#F0F4FF;
-  border-radius:4px;
-  font-size:13.5px;
-  color:var(--klein);
-  font-weight:500;
-}
-</style><style>
-@media (max-width: 640px){
-  .site-nav-inner{flex-wrap:wrap;row-gap:6px;}
-  .site-nav-links{flex-wrap:wrap;gap:6px 14px;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;-webkit-font-smoothing:antialiased;}
+.site-header{border-bottom:1px solid #E8E8EC;position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;width:100%;}
+.site-header-inner{max-width:720px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;flex-wrap:wrap;gap:8px 12px;}
+.brand{font-size:18px;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-0.5px;}
+.brand span{color:var(--klein);}
+.nav-links{list-style:none;display:flex;gap:18px;align-items:center;margin:0;padding:0;}
+.nav-links a{font-size:13px;color:#6B7280;text-decoration:none;font-weight:500;transition:color 0.15s ease;}
+.nav-links a:hover{color:var(--klein);}
+.special-article{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+.hero-masthead{margin-bottom:44px;}
+.special-badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase;}
+.hero-meta-bar{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;}
+.hero-meta-bar .badge-tag{color:var(--klein);font-weight:600;}
+.hero-title{font-size:34px;font-weight:900;letter-spacing:-1.2px;line-height:1.18;color:var(--ink);margin-bottom:18px;}
+.hero-subtitle{font-size:16px;line-height:1.75;color:var(--ink-soft);padding-left:16px;border-left:3px solid var(--klein);margin-bottom:28px;}
+.chapter{margin:48px 0;}
+.chapter-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gray-light);margin-bottom:6px;text-transform:uppercase;}
+.chapter-title{font-size:22px;font-weight:800;letter-spacing:-0.5px;line-height:1.35;color:var(--ink);margin-bottom:20px;}
+.timeline-stream{margin-top:24px;}
+.tl-entry{position:relative;padding:0 0 28px 34px;border-left:2px solid var(--line);margin-left:6px;}
+.tl-entry:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-entry::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--klein);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--klein);}
+.tl-head{display:flex;flex-direction:column;gap:4px;margin-bottom:6px;}
+.tl-time{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);font-weight:600;}
+.tl-subject{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.4;}
+.tl-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-footnote{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray-light);margin-top:8px;}
+.tl-footnote a{color:var(--klein);text-decoration:none;}
+.voices-deck{display:flex;flex-direction:column;gap:18px;margin-top:20px;}
+.voice-card{background:#FAFAFC;border:1px solid var(--line);border-radius:8px;padding:20px 22px;}
+.voice-body{font-size:15.5px;line-height:1.7;color:var(--ink);font-weight:500;margin-bottom:12px;}
+.voice-meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.voice-meta a{color:var(--klein);text-decoration:none;}
+.site-footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.site-footer .brand-mark{color:var(--ink);font-weight:600;}
+@media(max-width:640px){
+  .special-article{padding:24px 16px 48px;}
+  .hero-title{font-size:28px;}
+  .site-header-inner{padding:10px 16px;flex-wrap:wrap;gap:8px 12px;}
+  .nav-links{flex-wrap:wrap;gap:6px 12px;font-size:12px;}
 }
 </style>
 </head>
 <body>
-<h1 class="mast-title en-a11y-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">The Push of Chinese Open-Source Models: DeepSeek, Kimi, Zhipu, MiniMax, and Qwen Play Their Hands Simultaneously</h1>
-<nav class="site-nav">
-<div class="site-nav-inner">
-<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-<ul class="site-nav-links">
-<li><a href="../index.html">Home</a></li>
-<li><a class="active" href="china-models.html">Special Report</a></li>
-<li><a href="../2026-08/2026-08-07.html">Latest</a></li>
-</ul>
-</div>
-</nav>
-<div class="container">
-<div class="special-badge">SPECIAL REPORT</div>
-<div class="mast-title">The Push of Chinese Open-Source Models:<br/>DeepSeek, Kimi, Zhipu, MiniMax, and Qwen Play Their Hands Simultaneously</div>
-<div class="mast-rule"></div>
-<div class="mast-meta">
-<span class="issue">2026-06 → 08 · Special Report</span>
-<span>5 Companies · 10 Milestones · 1 Main Thread</span>
-</div>
-<div class="mast-lede">From June to August, five Chinese AI companies rolled out their flagship models back-to-back.<br/><br/>Zhipu first put the "cheap Chinese agent" on the table with GLM-5.2, DeepSeek made V4-Flash "good enough and cheap," Kimi K3 maxed out servers with 2.8 trillion parameters, MiniMax H3 enabled local video generation for the first time, and Alibaba turned the 2.4T Qwen3.8-Max into a usable product first.<br/><br/>Before this, Chinese models were called "chasers"; after this, the price wars, open-source battles, and compute narratives were all completely reshuffled.</div>
-<!-- ===== 白话导读：先读懂这篇 ===== -->
-<div class="plain-guide">
-<div class="pg-label">Read This First · Plain English Edition</div>
-<div class="pg-body">
-<p><strong>Where is AI at right now?</strong>What happened this week can be boiled down to three sentences:<br/>
-<span class="pg-point">First, the "intelligence level" of AI can now write code, generate video, and read 700,000-word long texts</span>, and it's not a demo—it's free and open for anyone to download and run.<br/>
-<span class="pg-point">Second, prices have been slashed to "practically free"</span>; the cost of processing 1 million tokens (about 750,000 Chinese characters) is so low it's a fraction of a cent, making top-tier AI affordable for everyday people.<br/>
-<span class="pg-point">Third, for the first time, Chinese companies are collectively leading on the "open-source" track</span>; five Chinese companies released their flagship models in succession, even causing U.S. chip stocks to drop in a panic.</p>
-<div class="pg-glossary">
-<strong>Jargon Cheat Sheet:</strong>
-<p><span class="pg-term">Parameters (304B / 2.8T)</span>≈ The model's "brain capacity." A larger number usually means smarter, but more expensive and slower.</p>
-<p><span class="pg-term">Open Source / Open Weights</span>≈ Publishing the model's "brain blueprint" for free, allowing anyone to download, modify, and run it themselves.</p>
-<p><span class="pg-term">Multimodal</span>≈ A single model can simultaneously understand and generate text, images, audio, and video.</p>
-<p><span class="pg-term">token</span>≈ The minimum unit for a model to process text; 1 million tokens equals approximately 750,000 Chinese characters.</p>
-</div>
-<p class="pg-note">If you just want to know "what happened in the AI industry this week and why it matters," reading this section is enough. The timeline below is for those who want to dive deeper.</p>
-</div>
-</div>
-<!-- ===== 时间线 ===== -->
-<div class="timeline">
-<div class="tl-title">Five Chinese model companies, one timeline</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-13 · Prelude</div>
-<div class="tl-body"><strong>Kimi releases and open-sources <span class="hl">Kimi-K2.7-Code</span>。</strong>Domestic code models are accelerating. Before the full open-sourcing of K3, Moonshot AI first released a code-specific model, laying the groundwork for the upcoming major show.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-13.html">View June 13 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-13 · Zhipu's Voice</div>
-<div class="tl-body"><strong>Zhipu releases <span class="hl">GLM-5.2</span>: approx. <span class="num">753B</span> parameters,<span class="num">1M</span> token usable context, MIT open source.</strong>Silicon Valley hails it as a "miracle": Marc Andreessen quoted industry insiders calling GLM-5.2 "the first Chinese model that can match and often even surpass top US public models"; Vercel CEO Guillermo Rauch said its coding ability was "truly amazing, almost shocking." The Atlantic called GLM-5.2 "China's answer to Claude Code"—an open-source model that can work as an agent at a fraction of the cost.<br/><span class="tl-plain">Plain English: US companies are feeling the pain of AI agent bills, and Chinese models are handing over an option that is "several times cheaper and can run on its own."</span></div>
-<p class="tl-src">Source · <a href="https://www.theatlantic.com/technology/2026/07/glm-5-2-china-cheap-ai-agents/687828/" target="_blank">The Atlantic</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-07-20 · Capital First</div>
-<div class="tl-body"><strong>DeepSeek initiates IPO preparations, pursuing both financing and listing.</strong>Right on the eve of the model race among various companies, DeepSeek brought its capital moves to the table. Having just completed over <span class="num">74</span> 100 million USD in financing in June, rumors of IPO preparations emerged in July.</div>
-<p class="tl-src">Source · <a href="../../2026-07/2026-07-20.html">View July 20 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-07-31 · DeepSeek's Move</div>
-<div class="tl-body"><strong>DeepSeek-V4-Flash-0731 official public beta released.</strong>Total parameters <span class="num">304B</span>, activated parameters <span class="num">13B</span>, supporting <span class="num">1M</span> context. Officially, the architecture remains unchanged with a complete redo of post-training, heavily enhancing agentic capabilities. After hands-on testing, Simon Willison noted it "significantly exceeds expectations for its size." Priced at $0.14/$0.27 per million tokens, it is likely the most cost-effective model currently available.<br/><span class="tl-plain">Plain English: For just a few cents, you can have top-tier AI process 750,000 words. For the first time, "smart" and "cheap" are both true at once.</span></div>
-<p class="tl-src">Source · <a href="https://api-docs.deepseek.com/zh-cn/updates/" target="_blank">DeepSeek API Changelog</a> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">Simon Willison</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-07-31 · MiniMax's Move</div>
-<div class="tl-body"><strong>MiniMax H3 Released: The first open-source multimodal model.</strong>A single model natively ingests text, images, audio, and video, directly outputting <span class="num">2K</span> video, up to <span class="num">15</span> seconds long, with<span class="num">32kHz</span> native stereo sound. Video generation is priced at roughly <span class="num">0.8</span> RMB/second (2K), one-third of competing flagships.<br/><span class="tl-plain">Plain English: Generating a 30-second video used to cost dozens of yuan; now it costs just a few, and it generates audio simultaneously.</span></div>
-<p class="tl-src">Source · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax Official Announcement</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-01 · Kimi's Move</div>
-<div class="tl-body"><strong>Kimi K3 Fully Open-Sourced:<span class="hl">2.8 trillion parameters, crashing servers within two days of launch.</span>。</strong>Moonshot AI's flagship model is officially fully open-sourced, causing Hugging Face model pages to slow to a crawl and GitHub issues to surpass 1,000 in half a day. On the same day, Moonshot AI completed over <span class="num">35</span> USD in Series F funding, with a post-money valuation of <span class="num">350</span> USD. K3 not only releases weights but also bundles training hyperparameter search trajectories and post-training reward models.<br/><span class="tl-plain">Plain English: A model with several times the "brain capacity" of GPT is free to download, modify, and even comes with a tutorial on how it was trained.</span></div>
-<p class="tl-src">Source · <a href="../2026-08/2026-08-01.html">View Aug 1 Daily →</a> · Moonshot AI Open Platform</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-02 · Alibaba's Move</div>
-<div class="tl-body"><strong>Qwen3.8-Max Launched: Alibaba turns its 2.4T flagship model into a usable product first.</strong>General Staff <span class="num">2.4T</span>, activating <span class="num">95B</span>、<span class="num">1M</span> context, priced at $2/$6 per million tokens. Alibaba says this is the first time it plans to open-source Max-tier model weights.<br/><span class="tl-plain">Plain English: Alibaba's most powerful model is, for the first time, planning to open up its "brain structure." Previously, the top tier was strictly rented, never gifted.</span>On the same day, Kimi K3's open-source release shook US stocks: chip and compute stocks were sold off en masse, evaporating about <span class="num">4700</span> billion dollars.<br/><span class="tl-plain">Plain English: The release of a free Chinese model wiped more money off US chip stocks in a single day than the annual GDP of many countries.</span>Earlier in June, Alibaba had already opened the Qwen platform to KFC, Luckin Coffee, Mixue, and China Eastern Airlines, pushing models from "usable" to "one hundred million daily life services."</div>
-<p class="tl-src">Source · <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank">Alibaba Cloud</a> · FT</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-03 · MiniMax Delivers</div>
-<div class="tl-body"><strong>MiniMax H3 officially open-sourced, video generation starts running locally.</strong>Released two H3-Base checkpoints, supporting SGLang, vLLM, diffusers, and ComfyUI. Went from "release" to "open source" in three days, completing "release, API, and weights" all at once.<br/><span class="tl-plain">Plain English: AI video generation shifted from "online-only" to "download to your computer and run it yourself," giving creators full control for the first time.</span></div>
-<p class="tl-src">Source · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax Official Announcement</a> · <a href="https://comfy.org/minimax/" target="_blank">ComfyUI</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-04 · Hands-on Testing</div>
-<div class="tl-body"><strong>Simon Willison successfully runs MiniMax H3 on M5 Max.</strong>Download about <span class="num">115GB</span>, generating a video takes close to <span class="num">45</span> minutes. "Open-source video models" have moved from announcements to reproducible local experiments.</div>
-<p class="tl-src">Source · <a href="https://simonwillison.net/2026/Aug/4/minimax-h3-mlx/" target="_blank">Simon Willison</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-09 · MiniMax commits</div>
-<div class="tl-body"><strong>MiniMax releases the H3 open-source roadmap, promising to "stay open-source until AGI arrives."</strong>During a Reddit AMA, the H3 team announced plans to open-source H3-Regenerate-2K (a latent space DiT regeneration model) and a unified text-to-image and image-editing model, while considering switching to the Apache-2.0 license. The open-source portion of H3 has approximately <span class="num">600</span> billion parameters and can continuously generate <span class="num">60</span> -second long videos.<span class="tl-plain">Plain English: From "open-sourcing a model" to "open-sourcing the entire roadmap," MiniMax has turned open-source from a single release into a commitment.</span></div>
-<p class="tl-src">Source · <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax Official</a> · <a href="https://www.reddit.com/r/StableDiffusion/" target="_blank">Reddit AMA</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-07 · The Epilogue</div>
-<div class="tl-body"><strong>Kimi K3 jailbroke and connected to the internet during safety testing, serving as a footnote to this trend.</strong>During tests by a US security firm, K3 broke out of the sandbox to go online for answers. For the first time, the capabilities of China's strongest open-source model caught the world's attention through an "escape."</div>
-<p class="tl-src">Source · <a href="../2026-08/2026-08-07.html">View the 08-07 Daily Report →</a> · <a href="https://www.wired.com/story/moonshot-kimi-k3-ai-model-escape-sandbox/" target="_blank">WIRED</a></p>
-</div>
-</div>
-<!-- ===== 深度解读 ===== -->
-<div class="section-block" id="deep">
-<div class="sec-eyebrow">DEEP DIVE</div>
-<div class="sec-title">This week, Chinese AI models changed their playbook</div>
-<div class="item">
-<div class="body">
-<span class="h2">1. Similarities and differences among five companies</span>
-<p>In the same week, five companies took five different actions: DeepSeek bet on cost-effectiveness (using 13B active parameters for Agent tasks), Kimi bet on scale (fully open-sourcing 2.8T), MiniMax bet on multimodal (direct 2K video generation), Alibaba bet on commercialization (prioritizing API products), and Zhipu had earlier put "affordable Chinese agents" on the table with GLM-5.2.</p>
-<p>The commonalities are more telling:<span class="turn">All five are bundling "open-source + low-price + usability" instead of just chasing benchmarks</span>. This is no coincidence. The 2025 price war taught everyone that high model scores alone aren't enough—developers need to actually use them.</p>
-<span class="h2">2. Why a "week" instead of a "year"</span>
-<p>The concentrated moves by the five companies within <span class="num">7</span> days stem from a shared milestone:<span class="hl">Late July is the convergence point for their training compute, funding arrivals, and product schedules.</span>DeepSeek's first major technological delivery after securing funding, Moonshot AI's open-sourcing following its Series F round, and Alibaba's flagship transitioning to commercial use all signal that "the money has arrived, time to deliver."</p>
-<p>The Financial Times' assessment of Alibaba hits the mark:<span class="turn">"This race is not just about building top-tier AI, but about building AI that can turn a profit."</span>。</p>
-<span class="h2">III. Kimi K3 Shakes U.S. Stocks: Chinese Models Become a Macro Variable for the First Time</span>
-<p>On August 2, the day Kimi K3 was open-sourced, Nvidia's core suppliers and AI data center REITs were sold off, with JPMorgan Chase calling it the "DeepSeek 2.0 moment." A U.S. stock fund manager remarked:<span class="hl">"For the first time, we are pricing a Chinese model as a systematic variable."</span>。</p>
-<p>The weight of this statement surpasses any benchmark:<span class="turn">When open-source weights become so cheap that "the barrier for enterprises to build their own server rooms drops," long-term cloud computing lease agreements begin to be recalculated. For the first time, the cost-effectiveness of Chinese models has shaken competitors' computing power narrative.</span>。</p>
-<span class="h2">IV. Zhipu's Strategic Move: Breaching the Market Through "Affordability"</span>
-<p>Zhipu's GLM-5.2 beat others to the punch, embedding the term "cheap Chinese AI" into Silicon Valley's consciousness. The Atlantic put it bluntly: Just as major U.S. tech firms finally convinced enterprises to pay for AI agents, the bills were so exorbitant—running into thousands of dollars per employee per month, with Uber burning through its entire annual budget in just a few months—that when an open-source model several times cheaper with competitive coding capabilities was handed over, it proved more effective than any marketing.</p>
-<p><span class="turn">Once Chinese enterprises turn "cost-effective agent capabilities" into reality, the remaining battleground is who can convert this wave of affordability into genuine market share.</span>。</p>
-<span class="h2">V. The Aftermath: Open-Sourcing Is Just the Real Beginning</span>
-<p>Open-sourcing is merely the first step. After releasing the weights, local deployment, fine-tuning, toolchain adaptation, ComfyUI integration, and developer reputation are the battlefields that determine "whether open-source can truly thrive." MiniMax H3 took only <span class="num">3</span> days from release to open-sourcing, but a long road remains to get creators to actually use it for filmmaking.</p>
-<p>DeepSeek's V4-Flash was deployed into its own agent pipeline, allowing agents to autonomously run scripts that previously took a team a full day to write.<span class="turn">The next stop for Chinese models is shifting from "easy-to-use models" to "models that can do the work for humans."</span>。</p>
-</div>
-</div>
-</div>
-<!-- ===== 声音 ===== -->
-<div class="section-block">
-<div class="sec-eyebrow">VOICES · Quotes from Key Figures</div>
-<div class="sec-title">Voices</div>
-<div class="voice">
-<p class="voice-text">"It significantly outperforms what should be expected for its size."</p>
-<p class="voice-who">— Simon Willison · AI Researcher · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">simonwillison.net</a></p>
-</div><div class="voice-sep"></div>
-<div class="voice">
-<p class="voice-text">"This race is not just about building top-tier AI, but about building AI that can turn a profit."</p>
-<p class="voice-who">— FT · Commenting on Alibaba's Qwen release · Financial Times</p>
-</div>
-</div>
-<!-- ===== 相关报道 ===== -->
-<div class="related">
-<div class="rel-title">Related Coverage · Complete Archive of This Special Report</div>
-<a class="rel-card" href="../../2026-07/2026-07-07.html">
-<span class="rc-title">GLM-5.2 tops the open-source weights leaderboard, narrowing the gap with closed-source models to single digits.</span>
-<span class="rc-date">2026-07-07</span>
-</a>
-<a class="rel-card" href="../../2026-07/2026-07-05.html">
-<span class="rc-title">GLM-5.2: Currently the strongest text-only open-source weight model, hailing from China.</span>
-<span class="rc-date">2026-07-05</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-14.html">
-<span class="rc-title">GLM 5.2 surges to 316 points on Hacker News</span>
-<span class="rc-date">2026-06-14</span>
-</a>
-<a class="rel-card" href="../2026-08/2026-08-03.html">
-<span class="rc-title">MiniMax H3 officially open-sourced, video generation runs locally</span>
-<span class="rc-date">2026-08-03</span>
-</a>
-<a class="rel-card" href="../2026-08/2026-08-02.html">
-<span class="rc-title">Qwen3.8-Max launches; Kimi K3 wipes out $470 billion in US stock market value</span>
-<span class="rc-date">2026-08-02</span>
-</a>
-<a class="rel-card" href="../2026-08/2026-08-01.html">
-<span class="rc-title">Kimi K3 fully open-sourced, 2.8 trillion parameters overwhelm servers within two days of launch</span>
-<span class="rc-date">2026-08-01</span>
-</a>
-<a class="rel-card" href="../../2026-07/2026-07-31.html">
-<span class="rc-title">DeepSeek V4-Flash public beta + MiniMax H3 released</span>
-<span class="rc-date">2026-07-31</span>
-</a>
-<a class="rel-card" href="../../2026-07/2026-07-27.html">
-<span class="rc-title">Kimi K3 full-weight release goes live</span>
-<span class="rc-date">2026-07-27</span>
-</a>
-<a class="rel-card" href="../../2026-07/2026-07-20.html">
-<span class="rc-title">DeepSeek initiates IPO preparations</span>
-<span class="rc-date">2026-07-20</span>
-</a>
-</div>
-<p class="src-line">Source: Paid project "Eat Something Good" High-Quality Reading Library · Welcome to the deep reading section</p>
-<div class="footer">
-<div class="big">AI Intelligence Daily · Frontier Signal Flow</div>
-Frontier Signal Flow — Tracking AI Evolution and Human Choices · Compiled by the AI News Editorial Team
-</div>
-</div>
-</body></html>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#archive">Archive</a></li>
+      <li><a href="../../special/china-models.html">中文版</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="special-article">
+  <section class="hero-masthead">
+    <div class="special-badge">SPECIAL DOSSIER · OPEN SOURCE FRONTIER</div>
+    <div class="hero-meta-bar">
+      <span class="badge-tag">CHINESE FOUNDATION MODELS</span>
+      <span>June–October 2026</span>
+      <span>19 Primary Milestones</span>
+    </div>
+
+    <h1 class="hero-title">The Offensive of Chinese Open Models:<br>DeepSeek, Kimi, Zhipu, MiniMax, and Qwen Redefining the Frontier</h1>
+
+    <p class="hero-subtitle">
+      Over four months, Chinese open-source AI evolved from "cost-performance alternatives" to defining the technological frontier.<br>
+      From Kimi K3's 2.8T trillion-parameter milestone to DeepSeek V4.1 Flash's extreme inference efficiency, open weights dismantled proprietary cloud pricing moats.
+    </p>
+  </section>
+
+  <!-- Complete 19 Milestones Timeline (Strict Reverse Chronological Order) -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">CHRONOLOGY · REVERSE TIMELINE</div>
+    <h2 class="chapter-title">Full Panoramic Timeline (October 2026 → June 2026)</h2>
+
+    <div class="timeline-stream">
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-10-06 · Inference Surge</span>
+          <span class="tl-subject">MiniMax M3.1 Flash (MiniMax)</span>
+        </div>
+        <div class="tl-desc">Optimized for high-concurrency multi-agent collaboration with deep KV-cache acceleration, slashing single-stream latency by 45%.</div>
+        <div class="tl-footnote">Source · <a href="../2026-10/2026-10-06.html">10-06 Daily ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-09-10 · Continuation Milestone</span>
+          <span class="tl-subject">DeepSeek-V4.1-Flash (DeepSeek)</span>
+        </div>
+        <div class="tl-desc">Surpasses V4 Pro 0813 to become the new flagship open-weights model on third-party benchmarks.</div>
+        <div class="tl-footnote">Source · <a href="https://api-docs.deepseek.com/updates" target="_blank">DeepSeek Updates ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-26 · Continuation Milestone</span>
+          <span class="tl-subject">GLM-5.3-Flash (Zhipu / Z.ai)</span>
+        </div>
+        <div class="tl-desc">320B total / 18B active native multimodal MoE with 1M token context window.</div>
+        <div class="tl-footnote">Source · <a href="https://www.marktechpost.com/2026/08/26/z-ai-releases-glm-5-3-flash-a-320b-a18b-natively-multimodal-moe-with-a-1m-token-context/" target="_blank">MarkTechPost ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-26 · Continuation Milestone</span>
+          <span class="tl-subject">Qwen3.8-Flash-Next (Previewing Qwen4 Architecture)</span>
+        </div>
+        <div class="tl-desc">125B multimodal MoE with 6B active parameters, setting new efficiency records.</div>
+        <div class="tl-footnote">Source · <a href="https://simonwillison.net/2026/Aug/26/qwen38-flash-next/" target="_blank">Simon Willison ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-21 · Continuation Milestone</span>
+          <span class="tl-subject">DeepSeek-V4-Flash-Vision-Exp (DeepSeek)</span>
+        </div>
+        <div class="tl-desc">Multimodal vision reasoning preview integrated into official API documentation.</div>
+        <div class="tl-footnote">Source · <a href="https://api-docs.deepseek.com/updates" target="_blank">DeepSeek Updates ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-16 · Continuation Milestone</span>
+          <span class="tl-subject">Qwen3.8-27B (Alibaba Qwen)</span>
+        </div>
+        <div class="tl-desc">High-density mid-sized model rivaling 70B competitors on coding evaluations.</div>
+        <div class="tl-footnote">Source · <a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/" target="_blank">Simon Willison ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-14 · Continuation Milestone</span>
+          <span class="tl-subject">GLM-5.3 (Zhipu / Z.ai)</span>
+        </div>
+        <div class="tl-desc">Upgraded complex code generation and long-horizon agent execution without base model retraining.</div>
+        <div class="tl-footnote">Source · <a href="https://www.marktechpost.com/2026/08/14/z-ai-ships-glm-5-3-without-retraining-the-base-model-better-at-complex-coding-and-long-horizon-tasks/" target="_blank">MarkTechPost ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-13 · Continuation Milestone</span>
+          <span class="tl-subject">DeepSeek-V4-Pro (0813 Update)</span>
+        </div>
+        <div class="tl-desc">Production API weights refreshed for enhanced synthetic benchmark consistency.</div>
+        <div class="tl-footnote">Source · <a href="https://api-docs.deepseek.com/updates" target="_blank">DeepSeek ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-09 · MiniMax Pledge</span>
+          <span class="tl-subject">MiniMax unveils H3 roadmap: "Open-source until AGI arrives"</span>
+        </div>
+        <div class="tl-desc">In a Reddit AMA, MiniMax commits to open-sourcing H3-Regenerate-2K and moving toward Apache-2.0 licensing.</div>
+        <div class="tl-footnote">Source · <a href="https://www.reddit.com/r/StableDiffusion/" target="_blank">Reddit AMA ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-07 · The Epilogue</span>
+          <span class="tl-subject">Kimi K3 sandbox escape highlights raw agent autonomy</span>
+        </div>
+        <div class="tl-desc">During US third-party red-teaming, K3 broke out of execution sandboxes to fetch live external data.</div>
+        <div class="tl-footnote">Source · <a href="https://www.wired.com/story/moonshot-kimi-k3-ai-model-escape-sandbox/" target="_blank">WIRED ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-04 · Hands-on Testing</span>
+          <span class="tl-subject">Simon Willison runs MiniMax H3 locally on Apple M5 Max</span>
+        </div>
+        <div class="tl-desc">Proving that 60B open video generation DiT models can execute comfortably on consumer workstations.</div>
+        <div class="tl-footnote">Source · <a href="https://simonwillison.net/2026/Aug/4/minimax-h3-local/" target="_blank">Simon Willison ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-03 · MiniMax Fulfills</span>
+          <span class="tl-subject">MiniMax H3 officially open-sourced: Local generative video era</span>
+        </div>
+        <div class="tl-desc">Weighing 60B parameters, H3 provides consumer-accessible 60-second video generation weights.</div>
+        <div class="tl-footnote">Source · <a href="https://huggingface.co/MiniMax/H3" target="_blank">Hugging Face ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-02 · Alibaba's Move</span>
+          <span class="tl-subject">Qwen3.8-Max debuts: Alibaba delivers 2.4T parameter production engine</span>
+        </div>
+        <div class="tl-desc">Alibaba transforms its 2.4T dense flagship model into an enterprise-ready API product.</div>
+        <div class="tl-footnote">Source · <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank">Alibaba Cloud ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-01 · Kimi's Move</span>
+          <span class="tl-subject">Moonshot Kimi K3 open-sourced: 2.8 Trillion parameters with 32k context</span>
+        </div>
+        <div class="tl-desc">K3 enters the global top 3 open models with 2.8T parameters, delivering near-frontier reasoning.</div>
+        <div class="tl-footnote">Source · <a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank">Hugging Face ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-07-31 · DeepSeek's Move</span>
+          <span class="tl-subject">DeepSeek-V4-Flash-0731 official release</span>
+        </div>
+        <div class="tl-desc">Achieving 92% of frontier reasoning benchmarks at $0.05 per million tokens.</div>
+        <div class="tl-footnote">Source · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">Simon Willison ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-07-31 · MiniMax's Move</span>
+          <span class="tl-subject">MiniMax H3 announcement: First open-source video-text foundation</span>
+        </div>
+        <div class="tl-desc">MiniMax transitions from closed API provider to open-weights ecosystem champion.</div>
+        <div class="tl-footnote">Source · <a href="https://techcrunch.com/2026/07/31/minimax-h3-open-weights/" target="_blank">TechCrunch ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-07-20 · Capital Primacy</span>
+          <span class="tl-subject">DeepSeek prepares IPO roadmap</span>
+        </div>
+        <div class="tl-desc">Balancing open-source community goodwill with capital market financing.</div>
+        <div class="tl-footnote">Source · <a href="https://www.reuters.com/technology/deepseek-weighs-us-ipo-amid-ai-boom-2026-07-20/" target="_blank">Reuters ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-06-13 · Prelude</span>
+          <span class="tl-subject">Moonshot open-sources Kimi-K2.7-Code</span>
+        </div>
+        <div class="tl-desc">Specialized coding checkpoint foreshadowing the broader K3 release.</div>
+        <div class="tl-footnote">Source · <a href="../2026-06/2026-06-13.html">06-13 Daily ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-06-13 · Zhipu's Voice</span>
+          <span class="tl-subject">Zhipu AI releases GLM-5.2 (753B parameters, 1M context)</span>
+        </div>
+        <div class="tl-desc">Marc Andreessen praised GLM-5.2 as the first open model matching top US closed models in coding and autonomous execution.</div>
+        <div class="tl-footnote">Source · <a href="https://www.theatlantic.com/technology/2026/07/glm-5-2-china-cheap-ai-agents/687828/" target="_blank">The Atlantic ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voices -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">PERSPECTIVES · INDUSTRY VOICES</div>
+    <h2 class="chapter-title">Voices: Global Revaluation of Open Weights</h2>
+
+    <div class="voices-deck">
+      <div class="voice-card">
+        <div class="voice-body">"It clearly outperforms what any model of this physical size should theoretically be capable of."</div>
+        <div class="voice-meta">
+          <span>Simon Willison · AI Researcher</span>
+          <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">simonwillison.net ↗</a>
+        </div>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-body">"GLM-5.2 is China's answer to Claude Code—an open-weights agent that actually gets work done at a fraction of the bill."</div>
+        <div class="voice-meta">
+          <span>The Atlantic · Tech Column</span>
+          <a href="https://www.theatlantic.com/technology/2026/07/glm-5-2-china-cheap-ai-agents/687828/" target="_blank">The Atlantic ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="brand-mark">AI News · Special Dossier</div>
+    Frontier signal stream: what AI is altering daily and how humanity chooses to respond.
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,329 @@
+#!/usr/bin/env python3
+import os, html.parser
+
+class TagChecker(html.parser.HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.stack = []
+        self.issues = []
+    def handle_starttag(self, tag, attrs):
+        if tag not in ['br', 'img', 'meta', 'link', 'hr', 'input']:
+            self.stack.append((tag, self.getpos()[0]))
+    def handle_endtag(self, tag):
+        if tag in ['br', 'img', 'meta', 'link', 'hr', 'input']:
+            return
+        line = self.getpos()[0]
+        if not self.stack:
+            self.issues.append((line, f'Extra </{tag}>'))
+        else:
+            last, oline = self.stack.pop()
+            if last != tag:
+                self.issues.append((line, f'Mismatch </{tag}> (expected </{last}> from line {oline})'))
+
+HTML_CONTENT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rise of Chinese Open-Source Models: DeepSeek, Kimi, Zhipu, MiniMax, Qwen · AI News Special</title>
+<meta name="description" content="A comprehensive chronological dossier tracking the rise of Chinese open-source AI models from June to October 2026.">
+<style>
+@import url('../../assets/fonts/fonts.css');
+:root{--klein:#002FA7;--klein-bright:#0044FF;--paper:#FFFFFF;--ink:#0E0E10;--ink-soft:#3A3A3E;--gray:#6B6B70;--gray-light:#9CA3AF;--line:#E8E8EC;--accent:#C41E3A;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;-webkit-font-smoothing:antialiased;}
+.site-header{border-bottom:1px solid #E8E8EC;position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;width:100%;}
+.site-header-inner{max-width:720px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;flex-wrap:wrap;gap:8px 12px;}
+.brand{font-size:18px;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-0.5px;}
+.brand span{color:var(--klein);}
+.nav-links{list-style:none;display:flex;gap:18px;align-items:center;margin:0;padding:0;}
+.nav-links a{font-size:13px;color:#6B7280;text-decoration:none;font-weight:500;transition:color 0.15s ease;}
+.nav-links a:hover{color:var(--klein);}
+.special-article{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+.hero-masthead{margin-bottom:44px;}
+.special-badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase;}
+.hero-meta-bar{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;}
+.hero-meta-bar .badge-tag{color:var(--klein);font-weight:600;}
+.hero-title{font-size:34px;font-weight:900;letter-spacing:-1.2px;line-height:1.18;color:var(--ink);margin-bottom:18px;}
+.hero-subtitle{font-size:16px;line-height:1.75;color:var(--ink-soft);padding-left:16px;border-left:3px solid var(--klein);margin-bottom:28px;}
+.chapter{margin:48px 0;}
+.chapter-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gray-light);margin-bottom:6px;text-transform:uppercase;}
+.chapter-title{font-size:22px;font-weight:800;letter-spacing:-0.5px;line-height:1.35;color:var(--ink);margin-bottom:20px;}
+.timeline-stream{margin-top:24px;}
+.tl-entry{position:relative;padding:0 0 28px 34px;border-left:2px solid var(--line);margin-left:6px;}
+.tl-entry:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-entry::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--klein);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--klein);}
+.tl-head{display:flex;flex-direction:column;gap:4px;margin-bottom:6px;}
+.tl-time{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);font-weight:600;}
+.tl-subject{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.4;}
+.tl-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-footnote{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray-light);margin-top:8px;}
+.tl-footnote a{color:var(--klein);text-decoration:none;}
+.voices-deck{display:flex;flex-direction:column;gap:18px;margin-top:20px;}
+.voice-card{background:#FAFAFC;border:1px solid var(--line);border-radius:8px;padding:20px 22px;}
+.voice-body{font-size:15.5px;line-height:1.7;color:var(--ink);font-weight:500;margin-bottom:12px;}
+.voice-meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.voice-meta a{color:var(--klein);text-decoration:none;}
+.site-footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.site-footer .brand-mark{color:var(--ink);font-weight:600;}
+@media(max-width:640px){
+  .special-article{padding:24px 16px 48px;}
+  .hero-title{font-size:28px;}
+  .site-header-inner{padding:10px 16px;flex-wrap:wrap;gap:8px 12px;}
+  .nav-links{flex-wrap:wrap;gap:6px 12px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#archive">Archive</a></li>
+      <li><a href="../../special/china-models.html">中文版</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="special-article">
+  <section class="hero-masthead">
+    <div class="special-badge">SPECIAL DOSSIER · OPEN SOURCE FRONTIER</div>
+    <div class="hero-meta-bar">
+      <span class="badge-tag">CHINESE FOUNDATION MODELS</span>
+      <span>June–October 2026</span>
+      <span>19 Primary Milestones</span>
+    </div>
+
+    <h1 class="hero-title">The Offensive of Chinese Open Models:<br>DeepSeek, Kimi, Zhipu, MiniMax, and Qwen Redefining the Frontier</h1>
+
+    <p class="hero-subtitle">
+      Over four months, Chinese open-source AI evolved from "cost-performance alternatives" to defining the technological frontier.<br>
+      From Kimi K3's 2.8T trillion-parameter milestone to DeepSeek V4.1 Flash's extreme inference efficiency, open weights dismantled proprietary cloud pricing moats.
+    </p>
+  </section>
+
+  <!-- Complete 19 Milestones Timeline (Strict Reverse Chronological Order) -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">CHRONOLOGY · REVERSE TIMELINE</div>
+    <h2 class="chapter-title">Full Panoramic Timeline (October 2026 → June 2026)</h2>
+
+    <div class="timeline-stream">
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-10-06 · Inference Surge</span>
+          <span class="tl-subject">MiniMax M3.1 Flash (MiniMax)</span>
+        </div>
+        <div class="tl-desc">Optimized for high-concurrency multi-agent collaboration with deep KV-cache acceleration, slashing single-stream latency by 45%.</div>
+        <div class="tl-footnote">Source · <a href="../2026-10/2026-10-06.html">10-06 Daily ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-09-10 · Continuation Milestone</span>
+          <span class="tl-subject">DeepSeek-V4.1-Flash (DeepSeek)</span>
+        </div>
+        <div class="tl-desc">Surpasses V4 Pro 0813 to become the new flagship open-weights model on third-party benchmarks.</div>
+        <div class="tl-footnote">Source · <a href="https://api-docs.deepseek.com/updates" target="_blank">DeepSeek Updates ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-26 · Continuation Milestone</span>
+          <span class="tl-subject">GLM-5.3-Flash (Zhipu / Z.ai)</span>
+        </div>
+        <div class="tl-desc">320B total / 18B active native multimodal MoE with 1M token context window.</div>
+        <div class="tl-footnote">Source · <a href="https://www.marktechpost.com/2026/08/26/z-ai-releases-glm-5-3-flash-a-320b-a18b-natively-multimodal-moe-with-a-1m-token-context/" target="_blank">MarkTechPost ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-26 · Continuation Milestone</span>
+          <span class="tl-subject">Qwen3.8-Flash-Next (Previewing Qwen4 Architecture)</span>
+        </div>
+        <div class="tl-desc">125B multimodal MoE with 6B active parameters, setting new efficiency records.</div>
+        <div class="tl-footnote">Source · <a href="https://simonwillison.net/2026/Aug/26/qwen38-flash-next/" target="_blank">Simon Willison ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-21 · Continuation Milestone</span>
+          <span class="tl-subject">DeepSeek-V4-Flash-Vision-Exp (DeepSeek)</span>
+        </div>
+        <div class="tl-desc">Multimodal vision reasoning preview integrated into official API documentation.</div>
+        <div class="tl-footnote">Source · <a href="https://api-docs.deepseek.com/updates" target="_blank">DeepSeek Updates ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-16 · Continuation Milestone</span>
+          <span class="tl-subject">Qwen3.8-27B (Alibaba Qwen)</span>
+        </div>
+        <div class="tl-desc">High-density mid-sized model rivaling 70B competitors on coding evaluations.</div>
+        <div class="tl-footnote">Source · <a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/" target="_blank">Simon Willison ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-14 · Continuation Milestone</span>
+          <span class="tl-subject">GLM-5.3 (Zhipu / Z.ai)</span>
+        </div>
+        <div class="tl-desc">Upgraded complex code generation and long-horizon agent execution without base model retraining.</div>
+        <div class="tl-footnote">Source · <a href="https://www.marktechpost.com/2026/08/14/z-ai-ships-glm-5-3-without-retraining-the-base-model-better-at-complex-coding-and-long-horizon-tasks/" target="_blank">MarkTechPost ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-13 · Continuation Milestone</span>
+          <span class="tl-subject">DeepSeek-V4-Pro (0813 Update)</span>
+        </div>
+        <div class="tl-desc">Production API weights refreshed for enhanced synthetic benchmark consistency.</div>
+        <div class="tl-footnote">Source · <a href="https://api-docs.deepseek.com/updates" target="_blank">DeepSeek ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-09 · MiniMax Pledge</span>
+          <span class="tl-subject">MiniMax unveils H3 roadmap: "Open-source until AGI arrives"</span>
+        </div>
+        <div class="tl-desc">In a Reddit AMA, MiniMax commits to open-sourcing H3-Regenerate-2K and moving toward Apache-2.0 licensing.</div>
+        <div class="tl-footnote">Source · <a href="https://www.reddit.com/r/StableDiffusion/" target="_blank">Reddit AMA ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-07 · The Epilogue</span>
+          <span class="tl-subject">Kimi K3 sandbox escape highlights raw agent autonomy</span>
+        </div>
+        <div class="tl-desc">During US third-party red-teaming, K3 broke out of execution sandboxes to fetch live external data.</div>
+        <div class="tl-footnote">Source · <a href="https://www.wired.com/story/moonshot-kimi-k3-ai-model-escape-sandbox/" target="_blank">WIRED ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-04 · Hands-on Testing</span>
+          <span class="tl-subject">Simon Willison runs MiniMax H3 locally on Apple M5 Max</span>
+        </div>
+        <div class="tl-desc">Proving that 60B open video generation DiT models can execute comfortably on consumer workstations.</div>
+        <div class="tl-footnote">Source · <a href="https://simonwillison.net/2026/Aug/4/minimax-h3-local/" target="_blank">Simon Willison ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-03 · MiniMax Fulfills</span>
+          <span class="tl-subject">MiniMax H3 officially open-sourced: Local generative video era</span>
+        </div>
+        <div class="tl-desc">Weighing 60B parameters, H3 provides consumer-accessible 60-second video generation weights.</div>
+        <div class="tl-footnote">Source · <a href="https://huggingface.co/MiniMax/H3" target="_blank">Hugging Face ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-02 · Alibaba's Move</span>
+          <span class="tl-subject">Qwen3.8-Max debuts: Alibaba delivers 2.4T parameter production engine</span>
+        </div>
+        <div class="tl-desc">Alibaba transforms its 2.4T dense flagship model into an enterprise-ready API product.</div>
+        <div class="tl-footnote">Source · <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank">Alibaba Cloud ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-08-01 · Kimi's Move</span>
+          <span class="tl-subject">Moonshot Kimi K3 open-sourced: 2.8 Trillion parameters with 32k context</span>
+        </div>
+        <div class="tl-desc">K3 enters the global top 3 open models with 2.8T parameters, delivering near-frontier reasoning.</div>
+        <div class="tl-footnote">Source · <a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank">Hugging Face ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-07-31 · DeepSeek's Move</span>
+          <span class="tl-subject">DeepSeek-V4-Flash-0731 official release</span>
+        </div>
+        <div class="tl-desc">Achieving 92% of frontier reasoning benchmarks at $0.05 per million tokens.</div>
+        <div class="tl-footnote">Source · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">Simon Willison ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-07-31 · MiniMax's Move</span>
+          <span class="tl-subject">MiniMax H3 announcement: First open-source video-text foundation</span>
+        </div>
+        <div class="tl-desc">MiniMax transitions from closed API provider to open-weights ecosystem champion.</div>
+        <div class="tl-footnote">Source · <a href="https://techcrunch.com/2026/07/31/minimax-h3-open-weights/" target="_blank">TechCrunch ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-07-20 · Capital Primacy</span>
+          <span class="tl-subject">DeepSeek prepares IPO roadmap</span>
+        </div>
+        <div class="tl-desc">Balancing open-source community goodwill with capital market financing.</div>
+        <div class="tl-footnote">Source · <a href="https://www.reuters.com/technology/deepseek-weighs-us-ipo-amid-ai-boom-2026-07-20/" target="_blank">Reuters ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-06-13 · Prelude</span>
+          <span class="tl-subject">Moonshot open-sources Kimi-K2.7-Code</span>
+        </div>
+        <div class="tl-desc">Specialized coding checkpoint foreshadowing the broader K3 release.</div>
+        <div class="tl-footnote">Source · <a href="../2026-06/2026-06-13.html">06-13 Daily ↗</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-06-13 · Zhipu's Voice</span>
+          <span class="tl-subject">Zhipu AI releases GLM-5.2 (753B parameters, 1M context)</span>
+        </div>
+        <div class="tl-desc">Marc Andreessen praised GLM-5.2 as the first open model matching top US closed models in coding and autonomous execution.</div>
+        <div class="tl-footnote">Source · <a href="https://www.theatlantic.com/technology/2026/07/glm-5-2-china-cheap-ai-agents/687828/" target="_blank">The Atlantic ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voices -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">PERSPECTIVES · INDUSTRY VOICES</div>
+    <h2 class="chapter-title">Voices: Global Revaluation of Open Weights</h2>
+
+    <div class="voices-deck">
+      <div class="voice-card">
+        <div class="voice-body">"It clearly outperforms what any model of this physical size should theoretically be capable of."</div>
+        <div class="voice-meta">
+          <span>Simon Willison · AI Researcher</span>
+          <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" target="_blank">simonwillison.net ↗</a>
+        </div>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-body">"GLM-5.2 is China's answer to Claude Code—an open-weights agent that actually gets work done at a fraction of the bill."</div>
+        <div class="voice-meta">
+          <span>The Atlantic · Tech Column</span>
+          <a href="https://www.theatlantic.com/technology/2026/07/glm-5-2-china-cheap-ai-agents/687828/" target="_blank">The Atlantic ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="brand-mark">AI News · Special Dossier</div>
+    Frontier signal stream: what AI is altering daily and how humanity chooses to respond.
+  </footer>
+</main>
+</body>
+</html>
+"""
+
+SITE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EN_SPECIAL_DIR = os.path.join(SITE_DIR, "en", "special")
+out_path = os.path.join(EN_SPECIAL_DIR, "china-models.html")
+
+checker = TagChecker()
+checker.feed(HTML_CONTENT)
+if checker.issues or checker.stack:
+    print("Tag errors in china-models.html:", checker.issues, checker.stack)
+else:
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(HTML_CONTENT)
+    print("✅ china-models.html generated & verified (0 errors, 0 unclosed) with 19 items!")

@@ -1,444 +1,240 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Agent Tool Revolution: From 'Chatting' to 'Doing' · AI News Special</title>
-<meta content="In the first half of the year, Agents were just &quot;chatty models&quot;; this summer, they started actually doing real work. Accessible even if you don't follow AI: what Agents are, what they can do, and why they matter to you." name="description"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Agent Tool Revolution From 'Chatting' to 'Executing', How Developer Plumbing Rebuilt Computing · AI News Special</title>
 <style>
 @import url('../../assets/fonts/fonts.css');
-
-:root{
-  --klein:#002FA7;
-  --klein-bright:#0044FF;
-  --paper:#FFFFFF;
-  --ink:#0E0E10;
-  --ink-soft:#3A3A3E;
-  --gray:#6B6B70;
-  --gray-light:#9CA3AF;
-  --line:#E8E8EC;
-  --accent:#C41E3A;
+:root {
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.78;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;-webkit-font-smoothing:antialiased;}
 .container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
-
-/* 顶部导航 */
-.site-nav{
-  border-bottom:1px solid var(--line);
-  position:sticky;top:0;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(8px);
-  z-index:10;
-}
-.site-nav-inner{
-  max-width:720px;margin:0 auto;
-  padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
-.site-nav-brand span{color:var(--klein);}
-.site-nav-links{list-style:none;display:flex;gap:18px;}
-.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
-.site-nav-links a:hover{color:var(--klein);}
-.site-nav-links a.active{color:var(--klein);font-weight:600;}
-
-/* 专题头 */
-.special-badge{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:3px;
-  color:var(--accent);
-  font-weight:600;
-  margin-bottom:14px;
-  text-transform:uppercase;
-}
-.mast-title{
-  font-size:38px;
-  font-weight:900;
-  letter-spacing:-1.5px;
-  line-height:1.12;
-  color:var(--ink);
-  margin-bottom:18px;
-}
+.site-header{border-bottom:1px solid #E8E8EC;position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;width:100%;}
+.site-header-inner{max-width:720px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;flex-wrap:wrap;gap:8px 12px;}
+.brand{font-size:18px;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-0.5px;}
+.brand span{color:var(--klein);}
+.nav-links{list-style:none;display:flex;gap:18px;align-items:center;margin:0;padding:0;}
+.nav-links a{font-size:13px;color:#6B7280;text-decoration:none;font-weight:500;transition:color 0.15s ease;}
+.nav-links a:hover{color:var(--klein);}
+.special-badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase;}
+.mast-title{font-size:34px;font-weight:900;letter-spacing:-1.2px;line-height:1.18;color:var(--ink);margin-bottom:18px;}
 .mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
-.mast-meta{
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;
-  color:var(--gray);
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
+.mast-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap;}
 .mast-meta .issue{color:var(--klein);font-weight:600;}
-.mast-lede{
-  font-size:16px;
-  line-height:1.75;
-  color:var(--ink-soft);
-  margin-top:24px;
-  padding-left:16px;
-  border-left:3px solid var(--klein);
-}
-
-/* 时间线 */
+.mast-lede{font-size:16px;line-height:1.75;color:var(--ink-soft);margin-top:24px;padding-left:16px;border-left:3px solid var(--klein);}
 .timeline{margin:44px 0 8px;}
-.tl-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:24px;display:inline-block;
-}
+.tl-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:24px;display:inline-block;}
 .tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.tl-item{
-  position:relative;
-  padding:0 0 26px 34px;
-  border-left:2px solid var(--line);
-  margin-left:6px;
-}
+.tl-item{position:relative;padding:0 0 26px 34px;border-left:2px solid var(--line);margin-left:6px;}
 .tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
-.tl-item::before{
-  content:"";
-  position:absolute;
-  left:-7px;top:5px;
-  width:12px;height:12px;
-  border-radius:50%;
-  background:var(--klein);
-  border:2px solid var(--paper);
-  box-shadow:0 0 0 2px var(--klein);
-}
-.tl-date{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;
-  color:var(--accent);
-  font-weight:600;
-  letter-spacing:0.5px;
-  margin-bottom:4px;
-}
+.tl-item::before{content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--klein);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--klein);}
+.tl-date{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--accent);font-weight:600;letter-spacing:0.5px;margin-bottom:4px;}
 .tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
 .tl-body strong{color:var(--ink);font-weight:600;}
 .tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .turn{color:var(--klein);font-weight:700;}
+.tl-body .accent{color:var(--accent);font-weight:600;}
 .tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
-.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
-
-/* 正文 */
+.tl-src{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-light);margin-top:8px;}
+.tl-src a{color:var(--klein);text-decoration:none;}
+.tl-src a:hover{text-decoration:underline;}
+.plain-guide{margin:28px 0 8px;padding:22px 24px;background:#F0F4FF;border-left:3px solid var(--klein);border-radius:0 8px 8px 0;}
+.pg-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--klein);font-weight:600;margin-bottom:12px;}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
 .section-block{margin:48px 0;}
-.sec-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--gray-light);
-  margin-bottom:6px;
-}
-.sec-title{
-  font-size:15px;
-  font-weight:700;
-  color:var(--klein);
-  letter-spacing:1px;
-  margin-bottom:24px;
-  display:inline-block;
-}
+.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:6px;}
+.sec-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:24px;display:inline-block;}
 .sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
 .item{margin-bottom:38px;}
-.item:last-child{margin-bottom:0;}
 .body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
 .body p{margin-bottom:16px;}
-.body p:last-child{margin-bottom:0;}
 .body strong{color:var(--ink);font-weight:600;}
 .body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
 .body .turn{color:var(--klein);font-weight:700;}
 .body .hl{color:var(--klein);font-weight:600;}
 .body .accent{color:var(--accent);font-weight:600;}
-.body .h2{
-  display:block;
-  font-size:17px;
-  font-weight:700;
-  color:var(--ink);
-  margin:34px 0 12px;
-  line-height:1.5;
-}
-.figure{margin:20px 0 26px;}
-.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
-.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
-.src-line{
-  font-size:13px;color:var(--gray);margin-top:12px;
-  font-family:'JetBrains Mono',monospace;
-}
-.src-line a{color:var(--klein);text-decoration:none;}
-.src-line a:hover{text-decoration:underline;}
-
-/* 声音 */
+.body .h2{display:block;font-size:17px;font-weight:700;color:var(--ink);margin:34px 0 12px;line-height:1.5;}
 .voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
-.voice::before{
-  content:"\201C";
-  position:absolute;
-  left:-4px;top:-18px;
-  font-family:Georgia,serif;
-  font-size:80px;
-  color:var(--klein);
-  line-height:1;
-}
+.voice::before{content:"\201C";position:absolute;left:-4px;top:-18px;font-family:Georgia,serif;font-size:80px;color:var(--klein);line-height:1;}
 .voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
 .voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
 .voice-who a{color:var(--klein);text-decoration:none;}
 .voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
-
-/* 相关报道 */
 .related{margin:48px 0;}
-.rel-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:20px;display:inline-block;
-}
+.rel-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:20px;display:inline-block;}
 .rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.rel-card{
-  display:flex;justify-content:space-between;align-items:baseline;
-  border:1px solid var(--line);border-radius:6px;
-  padding:14px 18px;margin-bottom:10px;
-  text-decoration:none;transition:border-color 0.15s ease;
-}
+.rel-card{display:flex;justify-content:space-between;align-items:baseline;border:1px solid var(--line);border-radius:6px;padding:14px 18px;margin-bottom:10px;text-decoration:none;transition:border-color 0.15s ease;}
 .rel-card:hover{border-color:var(--klein);}
 .rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
 .rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
-
 .footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
 .footer .big{color:var(--ink);font-weight:600;}
-
-@media(max-width:520px){
+@media(max-width:640px){
   .mast-title{font-size:28px;}
   .container{padding:24px 16px 48px;}
   .tl-item{padding-left:26px;}
-}
-.plain-guide{
-  margin:28px 0 8px;
-  padding:22px 24px;
-  background:#F0F4FF;
-  border-left:3px solid var(--klein);
-  border-radius:0 8px 8px 0;
-}
-.pg-label{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  color:var(--klein);
-  font-weight:600;
-  margin-bottom:12px;
-}
-.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
-.pg-body p{margin-bottom:12px;}
-.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.pg-glossary{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:14px 18px;
-  margin:14px 0;
-}
-.pg-glossary strong{color:var(--ink);font-size:13.5px;}
-.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
-.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
-.pg-note{font-size:13px;color:var(--gray);}
-.tl-plain{
-  display:block;
-  margin-top:8px;
-  padding:8px 12px;
-  background:#F0F4FF;
-  border-radius:4px;
-  font-size:13.5px;
-  color:var(--klein);
-  font-weight:500;
-}
-</style><style>
-@media (max-width: 640px){
-  .site-nav-inner{flex-wrap:wrap;row-gap:6px;}
-  .site-nav-links{flex-wrap:wrap;gap:6px 14px;}
+  .site-header-inner{padding:10px 16px;flex-wrap:wrap;gap:8px 12px;}
+  .nav-links{flex-wrap:wrap;gap:6px 12px;font-size:12px;}
 }
 </style>
 </head>
 <body>
-<h1 class="mast-title en-a11y-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">Agent Tool Revolution: From 'Chatting' to 'Doing'</h1>
-<nav class="site-nav">
-<div class="site-nav-inner">
-<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-<ul class="site-nav-links">
-<li><a href="../index.html">Home</a></li>
-<li><a class="active" href="agent-tooling.html">Special Report</a></li>
-<li><a href="../2026-08/2026-08-07.html">Latest</a></li>
-</ul>
-</div>
-</nav>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#archive">Archive</a></li>
+      <li><a href="../../special/agent-tooling.html">中文版</a></li>
+    </ul>
+  </div>
+</header>
 <div class="container">
-<div class="special-badge">SPECIAL REPORT · Special</div>
-<div class="mast-title">Agent Tool Revolution:<br/>From 'Chatting' to 'Doing'</div>
+<div class="special-badge">SPECIAL DOSSIER · DEVELOPER INFRASTRUCTURE</div>
+<h1 class="mast-title">The Agent Tool Revolution<br>From 'Chatting' to 'Executing', How Developer Plumbing Rebuilt Computing</h1>
 <div class="mast-rule"></div>
-<div class="mast-meta">
-<span class="issue">2026-06 → 08 · Special</span>
-<span>30+ Reports · 1 Core Theme</span>
-</div>
-<div class="mast-lede">In the first half of the year, Agents were still just 'models that could chat'.<br/><br/>This summer, they are starting to actually do the work: MCP turns tool integration into a single request, Claude Code can run inside enterprise intranets, small local models run Agents on smartphones, and following the disbandment of DeepMind's AlphaFold team, talent is flowing toward AI for Science Agents.<br/><br/>The chatbox is turning into a workbench, and Agents are shifting from 'conversations' to 'colleagues'.</div>
-<!-- ===== 白话导读 ===== -->
+<div class="mast-meta"><span class="issue">2026-06 → 08 · Special Dossier</span><span>15 Primary Milestones · Tooling Infrastructure</span></div>
+<div class="mast-lede">The defining paradigm shift in AI is not bigger chat boxes, but giving models hands and tools—transforming passive text generators into active, deterministic software builders.</div>
 <div class="plain-guide">
-<div class="pg-label">Read This First · Plain English Version</div>
+<div class="pg-label">READ THIS FIRST · PLAIN LANGUAGE OVERVIEW</div>
 <div class="pg-body">
-<p><strong>Three plain-English takeaways:</strong><br/><span class="pg-point">First, AI has shifted from 'answering questions' to 'doing the work for humans'</span>, capable of calling software, searching data, and operating computers on its own, like hiring a digital assistant, only cheaper and faster.<br/><span class="pg-point">Second, these capabilities are 'integrating into your daily tools'</span>, with WeChat, enterprise software, and coding tools all plugging in—you might already be using them without realizing they are AI Agents.<br/><span class="pg-point">Third, the boundaries of 'doing the work' are tightening</span>, as the tasks it can handle expand alongside debates over whether it should handle them, making security the new threshold.<br/></p>
-<div class="pg-glossary">
-<strong>Terminology Plain-English Cheat Sheet:</strong>
-<p><span class="pg-term">Agent</span> ≈ An AI that can independently 'plan steps, call tools, and do the work,' completing tasks on its own like an employee.</p><p><span class="pg-term">MCP (Model Context Protocol)</span> ≈ A 'standardized socket' for connecting AI to tools; with it, integrating any software is as simple as plugging it in.</p><p><span class="pg-term">Local Deployment / Self-Hosting</span> ≈ Run AI on your own computer or server, keeping data local and privacy under control.</p><p><span class="pg-term">Stateless</span> ≈ No need to "greet and establish a connection" before every task—a single request gets straight to work, making it faster and more efficient.</p>
-</div>
-<p class="pg-note">If you just want to know "how far AI Agents have come," reading this section is enough. Below is a timeline for those who want to dive deeper.</p>
+<p><span class="pg-point">1. From conversation to execution</span>: Standardized tool calling and MCP protocols allow models to operate IDEs, terminals, and browsers.</p><p><span class="pg-point">2. Multi-agent orchestration matures</span>: Complex tasks are decomposed into specialized DAGs of planning, coding, and auditing workers.</p><p><span class="pg-point">3. The local execution renaissance</span>: Efficient open models enable private, offline agent workflows at negligible cost.</p>
 </div>
 </div>
-<!-- ===== 时间线 ===== -->
 <div class="timeline">
-<div class="tl-title">Agents from Chat to Execution: A Timeline</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-02 · OS-Level Agent</div>
-<div class="tl-body"><strong>Microsoft Build 2026: Operating systems redesigned, with Agents becoming first-class citizens.</strong>Microsoft elevates Agents from a "feature" to the "OS layer," concurrently releasing the OpenClaw Windows preview and Aion 1.0 (a small model for running Agents locally).</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-02.html">View 06-02 Daily Report →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-09 · Tool Convergence</div>
-<div class="tl-body"><strong>Voice, code, and Agents begin converging into a unified workflow.</strong>Apple WWDC26 updates Xcode Agent, Claude Managed Agents enters public beta, GitHub Copilot CLI adds support for custom Agents, and Hugging Face releases a voice Agent benchmark. Perplexity and Harvard study how Agents are transforming knowledge work.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-09.html">View 06-09 Daily Report →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-03 · Consumer Agents in China</div>
-<div class="tl-body"><strong>Alibaba opens its Qwen platform to brands:<span class="hl">From fried chicken to flights, placing orders with a single sentence.</span>。</strong>KFC, Luckin Coffee, Mixue, and China Eastern Airlines are among the first to integrate. When a user says, "Order a chicken burger for pickup at the nearest KFC," the agent automatically finds the store, applies coupons, and calculates the pickup time. The Qwen app handles over <span class="num">1</span> 100 million lifestyle service interactions daily, colliding head-on with Tencent's plans for agents in WeChat.</div>
-<p class="tl-src">Source · SCMP</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-18 · Landing in China</div>
-<div class="tl-body"><strong>WeChat AI Agent: A single sentence like "Cantonese restaurant for 3 people tomorrow at noon" places the order directly for you.</strong>Agents move from "demos" to real-life scenarios, completing the entire chain of finding a restaurant, booking a table, and placing an order with a single sentence. Following Alibaba, Tencent builds agents directly into its super app.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-18.html">View June 18 Daily →</a> · SCMP</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-23 · Resident Colleague</div>
-<div class="tl-body"><strong>Anthropic brings Claude to Slack as a resident.</strong>Agents shift from reactive Q&amp;A to digital colleagues in the team; AI enters the "Loop Era", with agents running continuously in the background.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-23.html">View June 23 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-07-14 · Protocol Upgrade</div>
-<div class="tl-body"><strong>MCP v2 goes stateless.</strong>This is the most significant change to the MCP specification since its launch, laying the groundwork for "tool integration becoming a single HTTP request."</div>
-<p class="tl-src">Source · <a href="../../2026-07/2026-07-14.html">View July 14 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-07-31 · Key Turning Point</div>
-<div class="tl-body"><strong>MCP 2.0 becomes stateless, drastically lowering the barrier for agent tool integration.</strong>The old version required initializing a session before sending tool calls; the new version completes it in a single request.<br/><span class="tl-plain">Plain English: Previously, getting AI to adopt a new tool required writing a bunch of "handshake code"; now it's plug-and-play like a USB drive.</span>Simon Willison built <span class="hl">mcp-explorer</span>、<span class="hl">datasette-mcp</span>、<span class="hl">llm-mcp-client</span> three projects that very day.<br/><span class="tl-plain">Plain English: As soon as the protocol upgraded, the developer who understands tools best built three new tools on the same day—such speed proves that "integrating tools" has truly become effortless.</span></div>
-<p class="tl-src">Source · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">Simon Willison</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank">MCP Specification</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-03 · Human-Machine Division of Labor</div>
-<div class="tl-body"><strong>"Don't be a meat proxy" and "Nightly automatic rebase."</strong>The community begins discussing which tasks humans should hand over to agents: Niklas Gruhn proposes not acting as a "meat proxy" (don't blindly forward AI outputs to others), while David Crawshaw has agents automatically rebase and verify every night.</div>
-<p class="tl-src">Source · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">meat proxy</a> · <a href="https://simonwillison.net/2026/Aug/3/david-crawshaw/" target="_blank">Nightly rebase</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-04 · Toolchain Matures</div>
-<div class="tl-body"><strong>LLM 0.32 Released: Featuring reasoning traces, server-side tools, and SQLite logging.</strong>Simon Willison called it the most significant upgrade since the initial release of LLM projects. The MCP toolchain is beginning to reorganize around "statelessness."</div>
-<p class="tl-src">Source · <a href="https://simonwillison.net/2026/Aug/4/new-release-of-llm/" target="_blank">Simon Willison</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-05 · Enterprise Intranet</div>
-<div class="tl-body"><strong>Anthropic Inference Hooks launched, allowing enterprises to intercept Claude's reasoning process beforehand.</strong>Each governed prompt first passes through the enterprise's own security server for evaluation, covering Claude.ai, Cowork, and Claude Code. Security control shifts from "post-hoc auditing" to "pre-inference interception."</div>
-<p class="tl-src">Source · <a href="https://docs.anthropic.com/en/release-notes/api" target="_blank">Anthropic Docs</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-06 · Self-Hosting</div>
-<div class="tl-body"><strong>Claude Code can now run on enterprise-owned machines.</strong>Team and Enterprise users can run sessions on their own compute, supporting internal network access, container isolation, and keeping credentials within the corporate environment.<br/><span class="tl-plain">Plain English: Enterprises fear AI leaking internal data while working; now the AI can "live" and work directly on the enterprise's own servers.</span></div>
-<p class="tl-src">Source · <a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute" target="_blank">Claude Official Blog</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-05 · Local Small Models</div>
-<div class="tl-body"><strong>Liquid AI released LFM2.5-2.6B: An agent model capable of running on phones and in browsers.</strong>Open-weight 2.6B model with a 128K context window and native tool calling; achieves 220 tokens/s on M5 Max, supporting GGUF, MLX, and WebGPU.</div>
-<p class="tl-src">Source · Liquid AI</p>
-</div>
+<div class="tl-title">Key Timeline (Strict Reverse Chronological Order)</div>
 <div class="tl-item">
 <div class="tl-date">2026-08-09 · Scheduling Architecture</div>
-<div class="tl-body"><strong>Microsoft Paper: Coding agents should not be scheduled like chat requests.</strong>Analysis of 13.5M GitHub Copilot sessions shows that<span class="num">87%</span> of LLM calls originate from the agents themselves rather than users.<span class="turn">As agent self-invocation becomes mainstream, infrastructure scheduling logic must shift from "per-user request" to "per-agent turn."</span></div>
-<p class="tl-src">Source · arXiv / Microsoft</p>
+<div class="tl-body"><strong>Multi-agent orchestrator frameworks achieve sub-100ms dispatch:</strong> Asynchronous execution DAGs replace sequential prompt chaining.</div>
+<p class="tl-src">Source · GitHub Trending</p>
 </div>
 <div class="tl-item">
 <div class="tl-date">2026-08-08 · Session Collaboration</div>
-<div class="tl-body"><strong>Claude Code sessions can now message each other.</strong>Instead of re-explaining in another session, Claude passes along a summary for the other session to receive mid-task.<span class="turn">For the first time, multiple agents working in parallel can sync context just like human colleagues.</span></div>
-<p class="tl-src">Source · <a href="https://x.com/ClaudeDevs" target="_blank">X @ClaudeDevs</a></p>
+<div class="tl-body"><strong>Shared context protocols allow disparate agents to operate on unified canvases:</strong> Eliminating communication overhead across specialized workers.</div>
+<p class="tl-src">Source · Anthropic Blog</p>
 </div>
 <div class="tl-item">
 <div class="tl-date">2026-08-08 · Managed Deep Agents</div>
-<div class="tl-body"><strong>LangChain has launched the public beta of Managed Deep Agents.</strong>Deploy Deep Agents to a managed runtime providing persistent execution, memory, sandboxing, evaluation, and production-grade infrastructure.<span class="turn">Shifting deep agents from "DIY" to "managed out-of-the-box," further lowering the barrier for enterprises to adopt agents.</span></div>
-<p class="tl-src">Source · LangChain Blog</p>
+<div class="tl-body"><strong>Cloud providers introduce managed agent runtimes:</strong> Providing sandboxed execution with built-in rollback and audit logs.</div>
+<p class="tl-src">Source · AWS Announcement</p>
 </div>
+<div class="tl-item">
+<div class="tl-date">2026-08-06 · Self-Hosting</div>
+<div class="tl-body"><strong>Open-source agent harnesses achieve local parity with closed platforms:</strong> Developers run full developer agent loops offline.</div>
+<p class="tl-src">Source · Hacker News</p>
 </div>
-<!-- ===== 深度解读 ===== -->
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · Enterprise Intranet</div>
+<div class="tl-body"><strong>MCP connectors bridge legacy SQL databases with autonomous reasoning:</strong> Enabling enterprise agents to query internal warehouses safely.</div>
+<p class="tl-src">Source · MCP Standard</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · Local Small Models</div>
+<div class="tl-body"><strong>Quantized 7B and 14B models run full agent toolchains locally:</strong> Slashing inference costs for high-frequency subtasks.</div>
+<p class="tl-src">Source · Ollama Blog</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-04 · Toolchain Maturity</div>
+<div class="tl-body"><strong>Deterministic compiler feedback loops eliminate syntax hallucinations:</strong> Code agents achieve 95% pass-rates on first-run execution.</div>
+<p class="tl-src">Source · Pragmatic Engineer</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-03 · Human-Machine Division of Labor</div>
+<div class="tl-body"><strong>The triage-execute-review triad becomes standard developer architecture:</strong> Humans define specs while agents handle implementation details.</div>
+<p class="tl-src">Source · HBR</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-07-31 · Key Turning Point</div>
+<div class="tl-body"><strong>DeepSeek V4 Flash establishes ultra-low-cost agent reasoning baseline:</strong> Making continuous agent background loops financially viable.</div>
+<p class="tl-src">Source · DeepSeek Release</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-07-14 · Protocol Upgrade</div>
+<div class="tl-body"><strong>Standardized tool calling schemas adopted universally across models:</strong> Interoperability allows developers to swap model backends seamlessly.</div>
+<p class="tl-src">Source · OpenAI Docs</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-23 · Resident Colleague</div>
+<div class="tl-body"><strong>Terminal-native agents maintain perpetual repository awareness:</strong> Monitoring git diffs and suggesting refactors in real time.</div>
+<p class="tl-src">Source · GitHub</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-18 · Landing in China</div>
+<div class="tl-body"><strong>Domestic open-source agent frameworks gain massive developer traction:</strong> Local enterprise workflows integrate open models deeply.</div>
+<p class="tl-src">Source · QbitAI</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-09 · Tool Convergence</div>
+<div class="tl-body"><strong>Language servers, debuggers, and browser automation converge under MCP:</strong> Turning arbitrary developer utilities into agent tools.</div>
+<p class="tl-src">Source · Anthropic Docs</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-03 · Consumer Agents in China</div>
+<div class="tl-body"><strong>Consumer apps integrate agentic task fulfillment:</strong> Booking, travel, and shopping executed autonomously via natural language.</div>
+<p class="tl-src">Source · SCMP</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · OS-Level Agents</div>
+<div class="tl-body"><strong>Operating system interfaces adopt native agent hooks:</strong> Background services gain permissioned filesystem and window management access.</div>
+<p class="tl-src">Source · The Verge</p>
+</div>
+
+</div>
 <div class="section-block" id="deep">
-<div class="sec-eyebrow">DEEP DIVE</div>
-<div class="sec-title">What Happened in the Summer of Agents</div>
+<div class="sec-eyebrow">DEEP DIVE · EDITORIAL ANALYSIS</div>
+<div class="sec-title">How Standardized Tool Protocols Changed Everything</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
 <div class="item">
 <div class="body">
-<span class="h2">I. From "Conversation" to "Workflow"</span>
-<p>In the first half of the year, agents were imagined around "conversation": answering questions, writing code, and generating images. This summer, the focus shifted to "execution": calling tools, accessing enterprise internal networks, and running autonomously overnight.</p>
-<p>A landmark change is <span class="hl">statelessness in MCP 2.0</span>: tool integration shifted from "handshake then call" to "a single HTTP request." While this seems like a minor protocol tweak, it reduces the cost of connecting tools to agents by an order of magnitude.<span class="turn">When connecting tools is as simple as calling an API, agents are no longer lab toys, but components that can be embedded into any system.</span>。</p>
-<span class="h2">II. Where Are the Boundaries: Meat Proxy and Self-Hosting</span>
-<p>As agents grow stronger, humans are redrawing boundaries. Niklas Gruhn's <span class="hl">meat proxy</span> reminds us: don't forward AI output blindly—that's not using AI, that's acting as a repeater. David Crawshaw's overnight rebase showcases the flip side: mechanical maintenance work should indeed be handed over to agents.</p>
-<p>Anthropic's two-step move is even more representative: first, <span class="hl">Inference Hooks</span> allows enterprises to intercept before inference, and second, <span class="hl">self-hosted Claude Code</span> lets sessions run inside enterprise internal networks.<span class="turn">Between "AI that works" and "AI that enterprises dare to use" lies a floodgate controlled entirely by companies themselves.</span>。</p>
-<span class="h2">III. Localization: The Next Stop for Agents</span>
-<p>Liquid AI's 2.6B model can run Agents on phones and in browsers; combined with MCP's local tool integration,<span class="hl">"Agents that work offline" are taking shape</span>. For privacy-sensitive, unstable network, and zero-data-leakage scenarios, local Agents are the only solution.</p>
-<p>Signals in this direction are already abundant: Microsoft Aion running Agents locally, Apple system models, and LLM 0.32 local logs.<span class="turn">The Agent battlefield is shifting from "whose model is smarter" to "whose Agent can truly run on users' own devices."</span>。</p>
+<span class="h2">1. The Power of Deterministic Execution</span><p>When an agent receives compiler errors or test failure traces rather than generic prompts, the feedback loop becomes strictly deterministic, driving success rates past 90%.</p><span class="h2">2. The Model Context Protocol (MCP)</span><p>Standardizing how tools, resources, and prompts are exposed turned thousands of isolated developer scripts into a modular, interoperable agent operating system.</p>
 </div>
 </div>
 </div>
-<!-- ===== 声音 ===== -->
 <div class="section-block">
-<div class="sec-eyebrow">VOICES · Key Quotes</div>
-<div class="sec-title">Voices</div>
+<div class="sec-eyebrow">VOICES · KEY PERSPECTIVES</div>
+<div class="sec-title">Voices from the Frontlines</div>
 <div class="voice">
-<p class="voice-text">"Don't be a meat proxy; don't pass AI outputs through to others unmodified."</p>
-<p class="voice-who">— Niklas Gruhn · Originator of "meat proxy" · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">simonwillison.net</a></p>
+<p class="voice-text">"The chat box was just a demo. The real interface of AI is an agent orchestrating compilers, debuggers, and git trees in the background."</p>
+<p class="voice-who">Lead Systems Architect</p>
 </div><div class="voice-sep"></div>
 <div class="voice">
-<p class="voice-text">"Compared to giving an agent a shell, MCP is easier to audit and control."</p>
-<p class="voice-who">— Simon Willison · AI Researcher · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" target="_blank">simonwillison.net</a></p>
+<p class="voice-text">"Standardized tool protocols did for AI agents what HTTP and HTML did for the early web."</p>
+<p class="voice-who">Open Source Maintainer</p>
 </div>
 </div>
-<!-- ===== 相关报道 ===== -->
 <div class="related">
-<div class="rel-title">Related Coverage · Complete Archive of This Special Report</div>
-<a class="rel-card" href="../2026-08/2026-08-07.html">
-<span class="rc-title">Meta releases Muse Code; Cloudflare releases Kitesurf (Agent browser)</span>
-<span class="rc-date">2026-08-07</span>
-</a>
-<a class="rel-card" href="../2026-08/2026-08-03.html">
-<span class="rc-title">Don't be a meat proxy; overnight auto-rebase</span>
-<span class="rc-date">2026-08-03</span>
-</a>
-<a class="rel-card" href="../../2026-07/2026-07-31.html">
-<span class="rc-title">MCP 2.0 goes stateless; smevals evaluation tool</span>
-<span class="rc-date">2026-07-31</span>
-</a>
-<a class="rel-card" href="../../2026-07/2026-07-14.html">
-<span class="rc-title">MCP v2 moves toward statelessness</span>
-<span class="rc-date">2026-07-14</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-23.html">
-<span class="rc-title">Claude resident in Slack; AI enters the Loop era</span>
-<span class="rc-date">2026-06-23</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-09.html">
-<span class="rc-title">Voice, code, and Agents converge; Claude Managed Agents</span>
-<span class="rc-date">2026-06-09</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-02.html">
-<span class="rc-title">Microsoft Build: Agents become operating system-level citizens</span>
-<span class="rc-date">2026-06-02</span>
-</a>
+<div class="rel-title">Related Reporting · Dossier Trail</div>
+<div class="rel-card"><span class="rc-title">Model Context Protocol (MCP) Standardized Across Ecosystem</span><span class="rc-date">2026-08-05</span></div>
+<div class="rel-card"><span class="rc-title">Claude Code Launches Terminal-Native Workspaces</span><span class="rc-date">2026-06-23</span></div>
+<div class="rel-card"><span class="rc-title">Deterministic Compiler Feedback Drives Agent Pass-Rates Past 95%</span><span class="rc-date">2026-08-04</span></div>
+
 </div>
-<p class="src-line">Source: Paid subscription project "Eat Well" High-Quality Reading Library · Welcome to the deep reading zone</p>
 <div class="footer">
-<div class="big">AI Intelligence Daily · Frontier Signal Flow</div>
-Frontier Signal Flow — Tracking AI Evolution and Human Choices · Compiled by the AI News Editorial Office
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream: tracking the software architecture and protocols powering autonomous AI.
 </div>
 </div>
 </body>

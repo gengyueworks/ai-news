@@ -8,16 +8,26 @@
     <style>
         @import url('../assets/fonts/fonts.css');
         :root {
-            --klein: #002FA7;
-            --klein-bright: #0044FF;
-            --white: #FFFFFF;
-            --bg-light: #F8F9FB;
-            --text-dark: #0E0E10;
-            --text-mid: #3A3A3E;
-            --text-light: #6B6B70;
-            --border: #E8E8EC;
-            --accent: #C41E3A;
-        }
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
+}
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
@@ -165,7 +175,7 @@
   padding: 13px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; flex-wrap: wrap; gap: 8px 12px;
   box-sizing: border-box;
 }
 .nav-links {
@@ -188,6 +198,13 @@
   color: #002FA7;
 }
 
+
+@media (max-width: 640px) {
+  .container { padding: 20px 16px 40px !important; }
+  .site-header-inner { padding: 10px 16px !important; flex-wrap: wrap !important; gap: 8px 12px !important; }
+  .nav-links { flex-wrap: wrap !important; gap: 6px 12px !important; font-size: 12px !important; }
+}
+
 </style>
 
 <style>
@@ -207,6 +224,13 @@
 .post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
 .post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
 @media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+
+@media (max-width: 640px) {
+  .container { padding: 20px 16px 40px !important; }
+  .site-header-inner { padding: 10px 16px !important; flex-wrap: wrap !important; gap: 8px 12px !important; }
+  .nav-links { flex-wrap: wrap !important; gap: 6px 12px !important; font-size: 12px !important; }
+}
+
 </style>
 
 </head>
@@ -383,10 +407,7 @@
                 <p><span class="hl">提示缓存</span>对高频调用场景的成本影响很直接：重复的系统提示和上下文前缀不需要每次都重新计算，命中缓存的 token 通常以折扣价计费。<span class="turn">此前的问题是</span>缓存命中率不稳定，开发者难以预测实际节省幅度。</p>
                 <p>新增的断点控制让开发者可以精确指定哪段提示应该被缓存，解决了之前「缓存失效位置不可预测」的工程痛点。这不是模型能力升级，<span class="turn">但对实际在生产环境跑 <span class="accent">GPT-6</span> 的团队，账单变化从今天就开始了。</span></p>
             </div>
-            <div class="image-block">
-                <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/library/frontier_models/openai-usage-dashboard.jpg" alt="OpenAI API 用量与调用监控面板" loading="lazy">
-                <p class="image-caption">OpenAI API 用量与调用监控面板截图 · OpenAI 官方界面</p>
-            </div>
+            
             <div class="src-line"><a href="https://openai.com/index/better-prompt-caching-for-gpt-6" target="_blank">OpenAI 官方公告</a></div>
         </div>
 

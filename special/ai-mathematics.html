@@ -24,7 +24,7 @@
   padding: 13px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; flex-wrap: wrap; gap: 8px 12px;
   box-sizing: border-box;
 }
 .nav-links {
@@ -82,6 +82,13 @@
   line-height: 1.8;
   color: #1F2937;
 }
+
+@media (max-width: 640px) {
+  .container { padding: 20px 16px 40px !important; }
+  .site-header-inner { padding: 10px 16px !important; flex-wrap: wrap !important; gap: 8px 12px !important; }
+  .nav-links { flex-wrap: wrap !important; gap: 6px 12px !important; font-size: 12px !important; }
+}
+
 </style>
 </head>
 <body>

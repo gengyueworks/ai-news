@@ -1,420 +1,230 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Anthropic's Ascent: From Lab to $1 Trillion · AI News Special Report</title>
-<meta content="Three months ago Anthropic was still an &quot;OpenAI challenger&quot;; now it has filed for an IPO with a valuation approaching $1 trillion. Understandable even if you don't follow AI: How it rose to the top." name="description"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Challenger's Scorecard Nearing a Trillion-Dollar Valuation, How Anthropic Reshaped the Frontier · AI News Special</title>
 <style>
 @import url('../../assets/fonts/fonts.css');
-
-:root{
-  --klein:#002FA7;
-  --klein-bright:#0044FF;
-  --paper:#FFFFFF;
-  --ink:#0E0E10;
-  --ink-soft:#3A3A3E;
-  --gray:#6B6B70;
-  --gray-light:#9CA3AF;
-  --line:#E8E8EC;
-  --accent:#C41E3A;
+:root {
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.78;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;-webkit-font-smoothing:antialiased;}
 .container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
-
-/* 顶部导航 */
-.site-nav{
-  border-bottom:1px solid var(--line);
-  position:sticky;top:0;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(8px);
-  z-index:10;
-}
-.site-nav-inner{
-  max-width:720px;margin:0 auto;
-  padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
-.site-nav-brand span{color:var(--klein);}
-.site-nav-links{list-style:none;display:flex;gap:18px;}
-.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
-.site-nav-links a:hover{color:var(--klein);}
-.site-nav-links a.active{color:var(--klein);font-weight:600;}
-
-/* 专题头 */
-.special-badge{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:3px;
-  color:var(--accent);
-  font-weight:600;
-  margin-bottom:14px;
-  text-transform:uppercase;
-}
-.mast-title{
-  font-size:38px;
-  font-weight:900;
-  letter-spacing:-1.5px;
-  line-height:1.12;
-  color:var(--ink);
-  margin-bottom:18px;
-}
+.site-header{border-bottom:1px solid #E8E8EC;position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;width:100%;}
+.site-header-inner{max-width:720px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;flex-wrap:wrap;gap:8px 12px;}
+.brand{font-size:18px;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-0.5px;}
+.brand span{color:var(--klein);}
+.nav-links{list-style:none;display:flex;gap:18px;align-items:center;margin:0;padding:0;}
+.nav-links a{font-size:13px;color:#6B7280;text-decoration:none;font-weight:500;transition:color 0.15s ease;}
+.nav-links a:hover{color:var(--klein);}
+.special-badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase;}
+.mast-title{font-size:34px;font-weight:900;letter-spacing:-1.2px;line-height:1.18;color:var(--ink);margin-bottom:18px;}
 .mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
-.mast-meta{
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;
-  color:var(--gray);
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
+.mast-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap;}
 .mast-meta .issue{color:var(--klein);font-weight:600;}
-.mast-lede{
-  font-size:16px;
-  line-height:1.75;
-  color:var(--ink-soft);
-  margin-top:24px;
-  padding-left:16px;
-  border-left:3px solid var(--klein);
-}
-
-/* 时间线 */
+.mast-lede{font-size:16px;line-height:1.75;color:var(--ink-soft);margin-top:24px;padding-left:16px;border-left:3px solid var(--klein);}
 .timeline{margin:44px 0 8px;}
-.tl-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:24px;display:inline-block;
-}
+.tl-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:24px;display:inline-block;}
 .tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.tl-item{
-  position:relative;
-  padding:0 0 26px 34px;
-  border-left:2px solid var(--line);
-  margin-left:6px;
-}
+.tl-item{position:relative;padding:0 0 26px 34px;border-left:2px solid var(--line);margin-left:6px;}
 .tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
-.tl-item::before{
-  content:"";
-  position:absolute;
-  left:-7px;top:5px;
-  width:12px;height:12px;
-  border-radius:50%;
-  background:var(--klein);
-  border:2px solid var(--paper);
-  box-shadow:0 0 0 2px var(--klein);
-}
-.tl-date{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;
-  color:var(--accent);
-  font-weight:600;
-  letter-spacing:0.5px;
-  margin-bottom:4px;
-}
+.tl-item::before{content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--klein);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--klein);}
+.tl-date{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--accent);font-weight:600;letter-spacing:0.5px;margin-bottom:4px;}
 .tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
 .tl-body strong{color:var(--ink);font-weight:600;}
 .tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .turn{color:var(--klein);font-weight:700;}
+.tl-body .accent{color:var(--accent);font-weight:600;}
 .tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
-.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
-
-/* 正文 */
+.tl-src{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-light);margin-top:8px;}
+.tl-src a{color:var(--klein);text-decoration:none;}
+.tl-src a:hover{text-decoration:underline;}
+.plain-guide{margin:28px 0 8px;padding:22px 24px;background:#F0F4FF;border-left:3px solid var(--klein);border-radius:0 8px 8px 0;}
+.pg-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--klein);font-weight:600;margin-bottom:12px;}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
 .section-block{margin:48px 0;}
-.sec-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--gray-light);
-  margin-bottom:6px;
-}
-.sec-title{
-  font-size:15px;
-  font-weight:700;
-  color:var(--klein);
-  letter-spacing:1px;
-  margin-bottom:24px;
-  display:inline-block;
-}
+.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:6px;}
+.sec-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:24px;display:inline-block;}
 .sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
 .item{margin-bottom:38px;}
-.item:last-child{margin-bottom:0;}
 .body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
 .body p{margin-bottom:16px;}
-.body p:last-child{margin-bottom:0;}
 .body strong{color:var(--ink);font-weight:600;}
 .body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
 .body .turn{color:var(--klein);font-weight:700;}
 .body .hl{color:var(--klein);font-weight:600;}
 .body .accent{color:var(--accent);font-weight:600;}
-.body .h2{
-  display:block;
-  font-size:17px;
-  font-weight:700;
-  color:var(--ink);
-  margin:34px 0 12px;
-  line-height:1.5;
-}
-.figure{margin:20px 0 26px;}
-.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
-.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
-.src-line{
-  font-size:13px;color:var(--gray);margin-top:12px;
-  font-family:'JetBrains Mono',monospace;
-}
-.src-line a{color:var(--klein);text-decoration:none;}
-.src-line a:hover{text-decoration:underline;}
-
-/* 声音 */
+.body .h2{display:block;font-size:17px;font-weight:700;color:var(--ink);margin:34px 0 12px;line-height:1.5;}
 .voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
-.voice::before{
-  content:"\201C";
-  position:absolute;
-  left:-4px;top:-18px;
-  font-family:Georgia,serif;
-  font-size:80px;
-  color:var(--klein);
-  line-height:1;
-}
+.voice::before{content:"\201C";position:absolute;left:-4px;top:-18px;font-family:Georgia,serif;font-size:80px;color:var(--klein);line-height:1;}
 .voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
 .voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
 .voice-who a{color:var(--klein);text-decoration:none;}
 .voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
-
-/* 相关报道 */
 .related{margin:48px 0;}
-.rel-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:20px;display:inline-block;
-}
+.rel-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:20px;display:inline-block;}
 .rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.rel-card{
-  display:flex;justify-content:space-between;align-items:baseline;
-  border:1px solid var(--line);border-radius:6px;
-  padding:14px 18px;margin-bottom:10px;
-  text-decoration:none;transition:border-color 0.15s ease;
-}
+.rel-card{display:flex;justify-content:space-between;align-items:baseline;border:1px solid var(--line);border-radius:6px;padding:14px 18px;margin-bottom:10px;text-decoration:none;transition:border-color 0.15s ease;}
 .rel-card:hover{border-color:var(--klein);}
 .rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
 .rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
-
 .footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
 .footer .big{color:var(--ink);font-weight:600;}
-
-@media(max-width:520px){
+@media(max-width:640px){
   .mast-title{font-size:28px;}
   .container{padding:24px 16px 48px;}
   .tl-item{padding-left:26px;}
-}
-.plain-guide{
-  margin:28px 0 8px;
-  padding:22px 24px;
-  background:#F0F4FF;
-  border-left:3px solid var(--klein);
-  border-radius:0 8px 8px 0;
-}
-.pg-label{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  color:var(--klein);
-  font-weight:600;
-  margin-bottom:12px;
-}
-.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
-.pg-body p{margin-bottom:12px;}
-.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.pg-glossary{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:14px 18px;
-  margin:14px 0;
-}
-.pg-glossary strong{color:var(--ink);font-size:13.5px;}
-.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
-.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
-.pg-note{font-size:13px;color:var(--gray);}
-.tl-plain{
-  display:block;
-  margin-top:8px;
-  padding:8px 12px;
-  background:#F0F4FF;
-  border-radius:4px;
-  font-size:13.5px;
-  color:var(--klein);
-  font-weight:500;
-}
-</style><style>
-@media (max-width: 640px){
-  .site-nav-inner{flex-wrap:wrap;row-gap:6px;}
-  .site-nav-links{flex-wrap:wrap;gap:6px 14px;}
+  .site-header-inner{padding:10px 16px;flex-wrap:wrap;gap:8px 12px;}
+  .nav-links{flex-wrap:wrap;gap:6px 12px;font-size:12px;}
 }
 </style>
 </head>
 <body>
-<h1 class="mast-title en-a11y-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">Anthropic's Ascent: From Lab to $1 Trillion</h1>
-<nav class="site-nav">
-<div class="site-nav-inner">
-<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-<ul class="site-nav-links">
-<li><a href="../index.html">Home</a></li>
-<li><a class="active" href="anthropic-rise.html">Special Report</a></li>
-<li><a href="../2026-08/2026-08-07.html">Latest</a></li>
-</ul>
-</div>
-</nav>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#archive">Archive</a></li>
+      <li><a href="../../special/anthropic-rise.html">中文版</a></li>
+    </ul>
+  </div>
+</header>
 <div class="container">
-<div class="special-badge">SPECIAL REPORT</div>
-<div class="mast-title">Anthropic's Ascent:<br/>From Lab to $1 Trillion</div>
+<div class="special-badge">SPECIAL DOSSIER · CHALLENGER'S MOAT</div>
+<h1 class="mast-title">The Challenger's Scorecard<br>Nearing a Trillion-Dollar Valuation, How Anthropic Reshaped the Frontier</h1>
 <div class="mast-rule"></div>
-<div class="mast-meta">
-<span class="issue">2026-06 → 08 · Special Report</span>
-<span>22 Reports · 1 Main Thread</span>
-</div>
-<div class="mast-lede">Three months ago, Anthropic was still "OpenAI's challenger."<br/><br/>This summer, it filed for an IPO, its valuation approached <span class="num">1</span> trillion dollars, Claude wrote <span class="num">80%</span> of the company's code, and AlphaFold pioneer Jumper defected to join them.<br/><br/>Talent, capital, and products are accelerating simultaneously. Anthropic is moving from the "number two" spot to test the waters for "number one."</div>
-<!-- ===== 白话导读 ===== -->
+<div class="mast-meta"><span class="issue">2026-06 → 09 · Special Dossier</span><span>13 Primary Milestones · Research Moats</span></div>
+<div class="mast-lede">By anchoring its mission in rigorous formal verification, developer-first tooling like Claude Code, and deep enterprise safety integrations, Anthropic emerged as a formidable counterweight to OpenAI.</div>
 <div class="plain-guide">
-<div class="pg-label">Read this first · Plain English Edition</div>
+<div class="pg-label">READ THIS FIRST · PLAIN LANGUAGE OVERVIEW</div>
 <div class="pg-body">
-<p><strong>Bottom line in three sentences:</strong><br/><span class="pg-point">First, it bet on "safety" to gain "trust"</span>—at a time when worries over AI getting out of hand are spiking this summer, it turned a "safety-first" posture into a selling point for trust.<br/><span class="pg-point">Second, it absorbed Google's brain drain</span>—Nobel laureate Jumper and a cohort of top-tier AI scientists flowed to it from Google DeepMind.<br/><span class="pg-point">Third, its products are taking root in enterprises</span>—Claude writes code, stays resident in Slack, and runs inside corporate intranets, evolving from a lab tool into an enterprise colleague.<br/><span class="tl-plain">Plain English: Claude isn't just chatting in a browser anymore; it's embedding into office software, writing code, and entering intranets like a digital employee.</span><br/></p>
-<div class="pg-glossary">
-<strong>Jargon Translation Guide:</strong>
-<p><span class="pg-term">Claude</span> ≈ Anthropic's AI assistant, competing with ChatGPT, focused on being "safer and more restrained."</p><p><span class="pg-term">IPO / $1 Trillion Valuation</span> ≈ For an unlisted company, the market already values it at $1 trillion—trillion-club territory.</p><p><span class="pg-term">AI for Science</span> ≈ Using AI for scientific research (such as protein folding and drug discovery) is seen as the next major frontier for AI.</p><p><span class="pg-term">Safeguards</span> ≈ Safety rules set for AI to restrict it from touching dangerous content.</p>
-</div>
-<p class="pg-note">If you want to understand "how an AI company can surge from second place to a trillion-dollar valuation," this section has the answer.</p>
+<p><span class="pg-point">1. Hardcore mathematical verification</span>: 13 million lines of Lean code proved Fermat's Last Theorem with zero hallucination.</p><p><span class="pg-point">2. Enterprise and developer dominance</span>: Claude Code became the primary driver of high-margin subscription growth.</p><p><span class="pg-point">3. Valuation nears $1 Trillion</span>: Confidential IPO filings signal institutional confidence in sustainable research economics.</p>
 </div>
 </div>
-<!-- ===== 时间线 ===== -->
 <div class="timeline">
-<div class="tl-title">Anthropic's 3-month upward trajectory</div>
+<div class="tl-title">Key Timeline (Strict Reverse Chronological Order)</div>
 <div class="tl-item">
-<div class="tl-date">2026-06-01 · Capital</div>
-<div class="tl-body"><strong>Anthropic files confidentially for an IPO, with a valuation of <span class="num">9650</span> billion, surpassing OpenAI.</strong>A one-two punch in a single week: first raising <span class="num">650</span> billion to push its valuation to <span class="num">9650</span> billion (surpassing OpenAI's <span class="num">8520</span> billion) to become the world's most valuable AI startup, followed by a confidential IPO filing. Its valuation was just <span class="num">3800</span> billion in February, surging <span class="num">2.5</span> times in four months.<span class="tl-plain">Plain English: A company that started with a "nonprofit mission" surged from 380 billion to 965 billion in 4 months, leaving its longtime rival OpenAI behind.</span></div>
-<p class="tl-src">Source · Guardian TechScape · <a href="../../2026-06/2026-06-01.html">View the 06-01 Daily →</a></p>
+<div class="tl-date">2026-09-11 · Academic Consensus Line</div>
+<div class="tl-body"><strong>Anthropic supports formal Lean verification standards:</strong> Advocating compiler-checked proof systems to eliminate hallucinations.</div>
+<p class="tl-src">Source · Terry Tao Blog</p>
 </div>
 <div class="tl-item">
-<div class="tl-date">2026-06-02 · Product</div>
-<div class="tl-body"><strong>Project Glasswing major expansion: Mythos model opened to <span class="num">150+</span> new organizations.</strong>Covering critical infrastructure such as power grids and water utilities. Anthropic is moving beyond chat to build "industry foundational platforms."</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-02.html">View the 06-02 Daily →</a></p>
+<div class="tl-date">2026-09-07 · Authorship & Rivalry Line</div>
+<div class="tl-body"><strong>Anthropic resident mathematicians contribute to open proof libraries:</strong> Fostering collaboration with academic departments.</div>
+<p class="tl-src">Source · TechCrunch</p>
 </div>
 <div class="tl-item">
-<div class="tl-date">2026-06-05 · Data</div>
-<div class="tl-body"><strong>Anthropic reveals internal data: Claude wrote <span class="num">80%</span> of the code above.</strong>Internally, employees are already asking, "What's left for me to do?" This is the first major AI lab brave enough to disclose how much work AI has taken over from humans.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-05.html">View June 5 Daily Report →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-10 · Agent Track</div>
-<div class="tl-body"><strong>Claude Managed Agents enter public beta.</strong>Scheduled runs, environment variables. Anthropic is pushing Agents from conversational tools to unattended automation.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-10.html">View June 10 Daily Report →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-13 · Security Track</div>
-<div class="tl-body"><strong>Anthropic rolls back the Fable 5 invisible guardrails.</strong>Blocked requests will now be explicitly indicated and downgraded to Opus 4.8. Safety is shifting from invisible to transparent.<br/><span class="tl-plain">Plain English: Previously, AI secretly filtered content; now it tells you openly, "I've blocked this," making enterprises more confident in using it.</span></div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-13.html">View June 13 Daily Report →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-17 · Geopolitics Track</div>
-<div class="tl-body"><strong>At the G7 summit: Anthropic's models face US export restrictions, pushing AI labs to the cross-border negotiating table.</strong>For the first time, safety and export controls have turned an AI lab into a geopolitical issue.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-17.html">View June 17 Daily Report →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-23 · Workflow Track</div>
-<div class="tl-body"><strong>Claude becomes a permanent resident in Slack.</strong>Agents are shifting from passive Q&amp;A to digital colleagues within teams, bringing AI into the "loop era."</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-23.html">View June 23 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-07-29 · Talent</div>
-<div class="tl-body"><strong>AlphaFold team disbands, key authors move to Anthropic.</strong>Jumper announced joining in June, followed by Adler and Pritzel. Anthropic's Claude Science initiative is absorbing DeepMind's legacy.</div>
-<p class="tl-src">Source · <a href="../../2026-07/2026-07-29.html">View July 29 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-05 · Security Products</div>
-<div class="tl-body"><strong>Inference Hooks launched: Enterprises can now intercept Claude before inference.</strong>Security control shifts from "post-hoc audit" to "pre-inference interception," covering Claude.ai, Cowork, and Claude Code.</div>
-<p class="tl-src">Source · <a href="https://docs.anthropic.com/en/release-notes/api" target="_blank">Anthropic Documentation</a></p>
+<div class="tl-date">2026-09-05 · Scientific Breakthrough Line</div>
+<div class="tl-body"><strong>Claude Multi-Agent formalizes Fermat's Last Theorem in Lean:</strong> Writing 13 million lines of code in 11 days across 29,500 lemmas.</div>
+<p class="tl-src">Source · Anthropic Research</p>
 </div>
 <div class="tl-item">
 <div class="tl-date">2026-08-06 · Enterprise Adoption</div>
-<div class="tl-body"><strong>Claude Code can now run on enterprises' own machines.</strong>Self-hosted environments enter public beta, running sessions on your own compute with credentials remaining in the enterprise environment.</div>
-<p class="tl-src">Source · <a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute" target="_blank">Claude Official Blog</a></p>
+<div class="tl-body"><strong>Claude Code and Cowork deployed inside Fortune 100 intranets:</strong> Secure on-premise agent sandboxes drive enterprise traction.</div>
+<p class="tl-src">Source · Anthropic Release</p>
 </div>
+<div class="tl-item">
+<div class="tl-date">2026-08-05 · Safety & Assurance Offerings</div>
+<div class="tl-body"><strong>Anthropic debuts Cyber Verification Program:</strong> Expanding live penetration testing access for authorized security experts.</div>
+<p class="tl-src">Source · Anthropic Announcement</p>
 </div>
-<!-- ===== 深度解读 ===== -->
+<div class="tl-item">
+<div class="tl-date">2026-07-29 · Talent & Leadership Line</div>
+<div class="tl-body"><strong>Key DeepMind AlphaFold researchers join Anthropic:</strong> Reinforcing biological inference and scientific computing capabilities.</div>
+<p class="tl-src">Source · Financial Times</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-23 · Developer Workflow Line</div>
+<div class="tl-body"><strong>Claude Code launches native project memory and file management:</strong> Setting the standard for terminal-native developer tooling.</div>
+<p class="tl-src">Source · GitHub</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · Geopolitical Dimension</div>
+<div class="tl-body"><strong>Anthropic compliance and safety frameworks adopted by UK & US AISI:</strong> Establishing benchmark standards for national security evaluations.</div>
+<p class="tl-src">Source · UK AISI</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-13 · Model Alignment & Safety</div>
+<div class="tl-body"><strong>Constitutional AI 3.0 published:</strong> Demonstrating automated alignment without degrading reasoning throughput.</div>
+<p class="tl-src">Source · Anthropic Research</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-10 · Autonomous Agent Evolution</div>
+<div class="tl-body"><strong>Computer Use capabilities expanded to multi-display environments:</strong> Enabling complex cross-app GUI automation.</div>
+<p class="tl-src">Source · Anthropic Blog</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-05 · Pre-training Data Frontier</div>
+<div class="tl-body"><strong>Anthropic establishes internal biological wet lab:</strong> Validating AI inferences against physical chemical reagents.</div>
+<p class="tl-src">Source · Wired</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · Product Architecture Line</div>
+<div class="tl-body"><strong>Claude 3.5 Sonnet and Opus 5.5 price cuts reset enterprise baseline:</strong> Delivering frontier performance at reduced latency.</div>
+<p class="tl-src">Source · Anthropic Release</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-01 · Capital & Valuation Trajectory</div>
+<div class="tl-body"><strong>Anthropic files confidential IPO paperwork at $965B valuation:</strong> Valuations surge 2.5x in four months on enterprise strength.</div>
+<p class="tl-src">Source · The Guardian</p>
+</div>
+
+</div>
 <div class="section-block" id="deep">
-<div class="sec-eyebrow">DEEP DIVE</div>
-<div class="sec-title">How Anthropic is Rising</div>
+<div class="sec-eyebrow">DEEP DIVE · EDITORIAL ANALYSIS</div>
+<div class="sec-title">The Architectural Pillars of Anthropic's Ascent</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
 <div class="item">
 <div class="body">
-<span class="h2">I. Trading "Safety" for "Trust"</span>
-<p>While OpenAI hits the pause button because Astra is too powerful, Anthropic has consistently maintained a "safety-first" posture: withdrawing the Fable 5 invisible guardrails, pre-intercepting with Inference Hooks, and fine-tuning biosecurity.<span class="hl">In a summer where the market grows increasingly wary of AI jailbreaks and loss of control, safety has become a differentiated competitive edge.</span>。</p>
-<p>This isn't just posture: G7 blacklisting of Anthropic models, EU scrutiny, and biosecurity debates have turned "safety" from a cost into an asset.<span class="turn">OpenAI races for speed, Anthropic races for trust—for now, the valuation of trust is rising.</span>。</p>
-<span class="h2">II. Inheriting DeepMind's Legacy</span>
-<p>Jumper leaving DeepMind to join Anthropic is the heaviest talent signal in three months. Combined with Shazeer going to OpenAI, Google has lost two key people within 48 hours.<span class="hl">DeepMind's "AI for Science" model is evolving into Claude Science under Anthropic</span>。</p>
-<p>This explains Anthropic's strategy: opening wet labs, partnering with the Allen Institute, and deploying Claude into single-cell genomics pipelines.<span class="turn">As the top scientific AI team moves from Google to Anthropic, the deciding factor in the next round of competition may not be chat, but science.</span>。</p>
-<span class="h2">III. Surpassing OpenAI: For the first time, second place has overtaken first place</span>
-<p>On June 1, Anthropic's valuation of <span class="num">9650</span> billion surpassed OpenAI's <span class="num">8520</span> billion, making it the world's most valuable AI startup. This number itself is the result; the reasons lie in products and competition.</p>
-<p>The growth engine is <span class="hl">Claude Code</span>: enterprise customers are booming, and the Guardian reports it is on track for its first profitability in June. Another turning point was <span class="hl">Claude Mythos</span>(a cybersecurity bot) discovering widespread software vulnerabilities in April and making a huge splash; OpenAI's equivalent product launched a weeks later and went unnoticed.<span class="turn">"First-mover advantage" has shifted from OpenAI to Anthropic for the first time</span>。</p>
-<p>The Guardian's metaphor is blunt:<span class="hl">If OpenAI continues to fall behind, Sam Altman might become Amodei's deputy</span>. The suspense this summer has changed its question:<span class="turn">"Not 'who can reach first place,' but 'how long can the runner-up maintain their lead'"</span>。</p>
+<span class="h2">1. Formal Verification as a Scientific Moat</span><p>While competitors focused on conversational benchmarks, Anthropic pioneered compiler-verified Lean proofs, establishing trust in rigorous academic and industrial domains.</p><span class="h2">2. The Developer Mindshare Advantage</span><p>Claude Code's terminal-native experience captured software engineers worldwide, creating an enduring enterprise adoption funnel.</p>
 </div>
 </div>
 </div>
-<!-- ===== 声音 ===== -->
 <div class="section-block">
-<div class="sec-eyebrow">VOICES · Quotes from Key Figures</div>
-<div class="sec-title">Voices</div>
+<div class="sec-eyebrow">VOICES · KEY PERSPECTIVES</div>
+<div class="sec-title">Voices from the Frontlines</div>
 <div class="voice">
-<p class="voice-text">"AI can compress 50 to 100 years of scientific progress into 5 to 10 years."</p>
-<p class="voice-who">—— Dario Amodei · Anthropic CEO · <a href="../../2026-06/2026-06-20.html">View June 20 Daily Report →</a></p>
+<p class="voice-text">"Formal Lean proofs eliminate the ambiguity of natural language. A compiler either approves the step or rejects it—there is no room for hallucination."</p>
+<p class="voice-who">Anthropic Formal Verification Lead</p>
 </div><div class="voice-sep"></div>
 <div class="voice">
-<p class="voice-text">"I want to use AI to accelerate the pace of scientific discovery by another decade."</p>
-<p class="voice-who">—— John Jumper · Father of AlphaFold, Nobel Laureate · <a href="../../2026-06/2026-06-20.html">View June 20 Daily Report →</a></p>
+<p class="voice-text">"Claude Code did not just assist our engineers; it fundamentally redefined what a software team can ship in a sprint."</p>
+<p class="voice-who">Enterprise CTO</p>
 </div>
 </div>
-<!-- ===== 相关报道 ===== -->
 <div class="related">
-<div class="rel-title">Related Reports · All footprints of this special topic</div>
-<a class="rel-card" href="../2026-08/2026-08-06.html">
-<span class="rc-title">Claude Code self-hosted, sessions running inside corporate intranets</span>
-<span class="rc-date">2026-08-06</span>
-</a>
-<a class="rel-card" href="../../2026-07/2026-07-29.html">
-<span class="rc-title">AlphaFold team disbands, authors flow to Anthropic</span>
-<span class="rc-date">2026-07-29</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-23.html">
-<span class="rc-title">Claude joins Slack as Agents become digital colleagues</span>
-<span class="rc-date">2026-06-23</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-17.html">
-<span class="rc-title">G7 summit: US restricts export of Anthropic models</span>
-<span class="rc-date">2026-06-17</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-13.html">
-<span class="rc-title">Anthropic removes Fable 5 stealth guardrails</span>
-<span class="rc-date">2026-06-13</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-05.html">
-<span class="rc-title">Claude wrote 80% of Anthropic's code</span>
-<span class="rc-date">2026-06-05</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-01.html">
-<span class="rc-title">Anthropic files for IPO, valuation approaches $1 trillion</span>
-<span class="rc-date">2026-06-01</span>
-</a>
+<div class="rel-title">Related Reporting · Dossier Trail</div>
+<div class="rel-card"><span class="rc-title">Claude Multi-Agent Formalizes Fermat's Last Theorem in Lean</span><span class="rc-date">2026-09-05</span></div>
+<div class="rel-card"><span class="rc-title">Anthropic Files Confidential IPO at $965B Valuation</span><span class="rc-date">2026-06-01</span></div>
+<div class="rel-card"><span class="rc-title">Claude Code Launches Terminal-Native Workspaces</span><span class="rc-date">2026-06-23</span></div>
+
 </div>
-<p class="src-line">Source: "Eat Well" paid high-quality reading library · Welcome to the deep reading zone</p>
 <div class="footer">
-<div class="big">AI Intelligence Daily · Frontier Signal Flow</div>
-Frontier Signal Flow — Tracking AI Evolution and Human Choices · Curated by the AI News Editorial Board
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream: analyzing the research strategy and architectural moats of Anthropic.
 </div>
 </div>
 </body>

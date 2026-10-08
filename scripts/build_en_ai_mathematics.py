@@ -1,0 +1,416 @@
+#!/usr/bin/env python3
+import os, html.parser
+
+
+class TagChecker(html.parser.HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.stack = []
+        self.issues = []
+    def handle_starttag(self, tag, attrs):
+        if tag not in ['br', 'img', 'meta', 'link', 'hr', 'input']:
+            self.stack.append((tag, self.getpos()[0]))
+    def handle_endtag(self, tag):
+        if tag in ['br', 'img', 'meta', 'link', 'hr', 'input']:
+            return
+        line = self.getpos()[0]
+        if not self.stack:
+            self.issues.append((line, f'Extra </{tag}>'))
+        else:
+            last, oline = self.stack.pop()
+            if last != tag:
+                self.issues.append((line, f'Mismatch </{tag}> (expected </{last}> from line {oline})'))
+HTML_CONTENT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whose Millennium Problem: From Navier-Stokes to 722 Manuscripts, AI Is Bulldozing the Mathematical Citadel · AI News Special</title>
+<meta name="description" content="Inside the earthquake rocking pure mathematics: from the 88-hour Navier-Stokes disproof to the sudden release of 722 research papers solving the quasi-Riemann hypothesis.">
+<style>
+@import url('../../assets/fonts/fonts.css');
+:root{--klein:#002FA7;--klein-bright:#0044FF;--paper:#FFFFFF;--ink:#0E0E10;--ink-soft:#3A3A3E;--gray:#6B6B70;--gray-light:#9CA3AF;--line:#E8E8EC;--accent:#C41E3A;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;-webkit-font-smoothing:antialiased;}
+.site-header{border-bottom:1px solid #E8E8EC;position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;width:100%;}
+.site-header-inner{max-width:720px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;flex-wrap:wrap;gap:8px 12px;}
+.brand{font-size:18px;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-0.5px;}
+.brand span{color:var(--klein);}
+.nav-links{list-style:none;display:flex;gap:18px;align-items:center;margin:0;padding:0;}
+.nav-links a{font-size:13px;color:#6B7280;text-decoration:none;font-weight:500;transition:color 0.15s ease;}
+.nav-links a:hover{color:var(--klein);}
+.special-article{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
+.hero-masthead{margin-bottom:44px;}
+.special-badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase;}
+.hero-meta-bar{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;}
+.hero-meta-bar .badge-tag{color:var(--klein);font-weight:600;}
+.hero-title{font-size:36px;font-weight:900;letter-spacing:-1.2px;line-height:1.18;color:var(--ink);margin-bottom:18px;}
+.hero-subtitle{font-size:16px;line-height:1.75;color:var(--ink-soft);padding-left:16px;border-left:3px solid var(--klein);margin-bottom:28px;}
+.quick-take-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;background:#F8F9FC;border:1px solid var(--line);border-radius:8px;padding:16px;}
+.take-item{display:flex;flex-direction:column;gap:4px;}
+.take-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-light);letter-spacing:1px;text-transform:uppercase;}
+.take-value{font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.4;}
+.take-value span{color:var(--klein);}
+.chapter{margin:48px 0;}
+.chapter-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gray-light);margin-bottom:6px;text-transform:uppercase;}
+.chapter-title{font-size:22px;font-weight:800;letter-spacing:-0.5px;line-height:1.35;color:var(--ink);margin-bottom:20px;}
+.prose{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
+.prose p{margin-bottom:14px;}
+.prose strong{color:var(--ink);font-weight:600;}
+.prose .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
+.prose .accent{color:var(--accent);font-weight:600;}
+.prose .turn{color:var(--klein);font-weight:700;}
+.callout-box{margin:24px 0;padding:20px;border-radius:8px;border-left:4px solid var(--klein);background:#F0F4FF;}
+.callout-box.danger{border-left-color:var(--accent);background:#FFF5F5;}
+.box-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:10px;}
+.box-body p{font-size:14.5px;line-height:1.75;margin-bottom:10px;color:var(--ink-soft);}
+.box-body p:last-child{margin-bottom:0;}
+.sources-bar{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray-light);margin-top:16px;padding-top:10px;border-top:1px dashed var(--line);}
+.sources-bar a{color:var(--klein);text-decoration:none;}
+.sources-bar a:hover{text-decoration:underline;}
+.timeline-stream{margin-top:24px;}
+.tl-entry{position:relative;padding:0 0 28px 34px;border-left:2px solid var(--line);margin-left:6px;}
+.tl-entry:last-child{border-left-color:transparent;padding-bottom:0;}
+.tl-entry::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--klein);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--klein);}
+.tl-head{display:flex;flex-direction:column;gap:4px;margin-bottom:6px;}
+.tl-time{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);font-weight:600;}
+.tl-subject{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.4;}
+.tl-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.tl-footnote{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray-light);margin-top:8px;}
+.tl-footnote a{color:var(--klein);text-decoration:none;}
+.voices-deck{display:flex;flex-direction:column;gap:18px;margin-top:20px;}
+.voice-card{background:#FAFAFC;border:1px solid var(--line);border-radius:8px;padding:20px 22px;}
+.voice-body{font-size:15.5px;line-height:1.7;color:var(--ink);font-weight:500;margin-bottom:12px;}
+.voice-meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.voice-meta a{color:var(--klein);text-decoration:none;}
+.editorial-take{background:#F0F4FF;border:1px solid #D0E0FF;border-radius:8px;padding:24px;margin-top:24px;}
+.editorial-take h3{font-size:16px;font-weight:700;color:var(--klein);margin-bottom:12px;}
+.questions-list{display:flex;flex-direction:column;gap:16px;margin-top:20px;}
+.question-card{background:#FFFFFF;border:1px solid var(--line);border-radius:8px;padding:18px 20px;}
+.q-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.q-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
+.site-footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
+.site-footer .brand-mark{color:var(--ink);font-weight:600;}
+@media(max-width:640px){
+  .quick-take-grid{grid-template-columns:1fr;}
+  .special-article{padding:24px 16px 48px;}
+  .hero-title{font-size:28px;}
+  .site-header-inner{padding:10px 16px;flex-wrap:wrap;gap:8px 12px;}
+  .nav-links{flex-wrap:wrap;gap:6px 12px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#archive">Archive</a></li>
+      <li><a href="../../special/ai-mathematics.html">中文版</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="special-article">
+  <!-- 1. Hero -->
+  <section class="hero-masthead">
+    <div class="special-badge">INVESTIGATION · PURE MATHEMATICS FRONTIER</div>
+    <div class="hero-meta-bar">
+      <span class="badge-tag">OCTOBER 2026 SPECIAL</span>
+      <span>2023–2026 Archive</span>
+      <span>14 Primary Papers</span>
+    </div>
+
+    <h1 class="hero-title">Whose Millennium Problem: From Navier-Stokes to 722 Manuscripts, AI Is Bulldozing the Mathematical Citadel</h1>
+
+    <p class="hero-subtitle">
+      Between September and October 2026, from disproving the Navier-Stokes smooth breakdown conjecture in 88 hours to the sudden release of 722 manuscripts solving the quasi-Riemann hypothesis,<br>
+      OpenAI pushed pure mathematics into an industrialized era measured in machine reasoning hours.<br><br>
+      With Terence Tao leading 25 Fields Medalists in protest and the Institute for Advanced Study intervening as advisors, this represents the most intense earthquake in the history of pure mathematics.
+    </p>
+
+    <!-- 30-Second Quick Take Grid -->
+    <div class="quick-take-grid">
+      <div class="take-item">
+        <span class="take-label">CORE BREAKTHROUGH</span>
+        <span class="take-value"><span>722 Manuscripts</span> / Quasi-RH Solved</span>
+      </div>
+      <div class="take-item">
+        <span class="take-label">COMPUTE LEAP</span>
+        <span class="take-value">Average <span>3 Hours</span> Reasoning per Problem</span>
+      </div>
+      <div class="take-item">
+        <span class="take-label">HISTORIC WEIGHT</span>
+        <span class="take-value">IAS Advisory / <span>Greatest Mathematical Moment</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Epicenter: October 2026 -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">OCTOBER 2026 · THE EPICENTER</div>
+    <h2 class="chapter-title">722 Mathematical Manuscripts Dropped: 3 Hours of Compute Solves Quasi-Riemann Hypothesis, Overwhelming Human Review Capacity</h2>
+
+    <div class="prose">
+      <p><strong>On October 7, OpenAI dropped a seismic release on GitHub without warning.</strong></p>
+      <p>They published <span class="num">722</span> research manuscripts generated by unreleased internal models, spanning <span class="num">372</span> distinct mathematical families.</p>
+
+      <p>To address academic protocol concerns, OpenAI retained an independent advisory panel from the Institute for Advanced Study (IAS) in Princeton to supervise disclosure.</p>
+
+      <p>What stunned the mathematical community was the exponential compression of reasoning time:</p>
+      <p>In September, disproving the Navier-Stokes problem required 10,000 agents running for 88 hours.</p>
+      <p>Now, across 4,000 research-level open problems, the model averaged just <span class="accent">3 hours</span> of reasoning compute per solution.</p>
+
+      <p>Among these, Manuscript 003 represents a generational leap in number theory:</p>
+      <p>The model formally solved the <span class="accent">Quasi-Riemann Hypothesis</span> (Quasi-RH) while ruling out the existence of <span class="accent">Siegel zeros</span> that had obstructed number theorists for decades.</p>
+
+      <p>Over 20% of the manuscripts succeeded by constructing intricate counterexamples—shattering the assumption that AI only pursues brute-force interpolation.</p>
+
+      <p>Harvard mathematician Levent Alpöge, previously embroiled in priority disputes with OpenAI, publicly declared on social media:</p>
+      <p><span class="turn">"This is plainly the single most significant moment in the history of human mathematics."</span></p>
+    </div>
+
+    <div class="sources-bar">
+      Primary Sources · <a href="https://github.com/openai/math" target="_blank">OpenAI Math Repository (github.com/openai/math)</a> · <a href="https://x.com/__alpoge__/status/2107616859595981117" target="_blank">Levent Alpöge Public Statement</a> · <a href="https://www.latent.space/p/ainews-quasi-riemann-hypothesis-openai" target="_blank">Latent Space AINews</a>
+    </div>
+  </section>
+
+  <!-- 3. Origins: September 2026 -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">SEPTEMBER 2026 · THE ORIGINS</div>
+    <h2 class="chapter-title">The Navier-Stokes Conflict: 10,000 Agents, 88 Hours, and a Career Crisis for Mathematicians</h2>
+
+    <div class="prose">
+      <p><strong>On September 8, OpenAI announced a counterexample disproof of the 3D incompressible Navier-Stokes smooth breakdown conjecture.</strong></p>
+      <p>For the first time since the Clay Mathematics Institute offered a $1 million Millennium Prize in 2000, finite-time singularity formation under smooth forces was rigorously demonstrated.</p>
+
+      <p>The announcement included a <span class="num">166-page</span> human-readable manuscript and machine-checked Lean formal code. OpenAI immediately waived claim to the prize money.</p>
+
+      <p>However, an acute dispute had ignited hours earlier. NYU mathematicians Tristan Buckmaster and Alpöge had posted their own proof after a year of work—research drafts that had been stored within everyday Codex sessions.</p>
+
+      <div class="callout-box danger">
+        <div class="box-title">The Academic Standoff: OpenAI's Proposal</div>
+        <div class="box-body">
+          <p>Buckmaster disclosed that OpenAI offered two options: either co-author a joint paper crediting both human and machine, or OpenAI would publish independently.</p>
+          <p>Scholars felt coerced: an entire career's breakthrough faced being overshadowed by an overnight compute run.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Chronology Timeline (Strict Reverse-Chronological Order) -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">CHRONOLOGY · REVERSE TIMELINE</div>
+    <h2 class="chapter-title">Key Milestones: From Olympiad Puzzles to Industrialized Discovery</h2>
+
+    <div class="timeline-stream">
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-10-07</span>
+          <span class="tl-subject">OpenAI drops 722 research manuscripts solving Quasi-RH</span>
+        </div>
+        <div class="tl-desc">4,000 research-level open problems solved at 3 hours compute per problem, overseen by IAS advisors.</div>
+        <div class="tl-footnote">Source · <a href="https://github.com/openai/math" target="_blank">OpenAI GitHub</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-10-05</span>
+          <span class="tl-subject">Meta releases MuSE-Spark solving 84 open algebra problems</span>
+        </div>
+        <div class="tl-desc">Formal verification combined with active counterexample search resolves conjectures in non-abelian group theory.</div>
+        <div class="tl-footnote">Source · <a href="https://research.meta.ai/blog/solving-open-math-problems-with-muse-spark/" target="_blank">Meta AI Research</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-10-02</span>
+          <span class="tl-subject">GPT-6 Astra cracks Napoleon's 1809 secret military cipher in 6 hours</span>
+        </div>
+        <div class="tl-desc">Autonomous cipher reconstruction decodes a 217-year-old historical cipher sent to General Marmont.</div>
+        <div class="tl-footnote">Source · <a href="https://www.sentinelone.com/labs/cracking-napoleons-1809-cipher-with-gpt-6-astra/" target="_blank">SentinelOne Labs</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-09-25</span>
+          <span class="tl-subject">Claude evaluates extreme multi-loop quantum physics scattering on CPU cluster</span>
+        </div>
+        <div class="tl-desc">Using 96 standard CPUs and under $100, Claude completes higher-order loop integrals beyond human hand-calculation limits.</div>
+        <div class="tl-footnote">Source · <a href="https://www.anthropic.com/research/yes-claude-can-do-nine-loops" target="_blank">Anthropic Research</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-09-11</span>
+          <span class="tl-subject">Terence Tao and 25 Fields Medalists co-sign joint open letter</span>
+        </div>
+        <div class="tl-desc">Scholars criticize tech giants for turning fundamental research into a marketing spectacle that degrades peer review.</div>
+        <div class="tl-footnote">Source · <a href="https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/" target="_blank">Terry Tao Blog</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-09-10</span>
+          <span class="tl-subject">771 Caltech mathematicians boycott sponsored hackathon</span>
+        </div>
+        <div class="tl-desc">Academics reject $2M compute sponsorship, opposing the commodification of pure mathematics into PR stunts.</div>
+        <div class="tl-footnote">Source · <a href="https://www.theverge.com/ai-artificial-intelligence/994255/openai-millennium-prize-problem-tristan-buckmaster-competition" target="_blank">The Verge</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-09-08</span>
+          <span class="tl-subject">OpenAI announces Navier-Stokes singularity counterexample</span>
+        </div>
+        <div class="tl-desc">10,000 agents running 88 hours yield a 166-page paper and Lean formal proofs, waving prize claims.</div>
+        <div class="tl-footnote">Source · <a href="https://openai.com/index/navier-stokes-breakthrough" target="_blank">OpenAI Official</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-09-07</span>
+          <span class="tl-subject">NYU mathematician Tristan Buckmaster publishes priority dispute</span>
+        </div>
+        <div class="tl-desc">Buckmaster reveals overlapping research timelines and raises ethical alarms over commercial compute preempting academics.</div>
+        <div class="tl-footnote">Source · <a href="https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/" target="_blank">TechCrunch</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-09-05</span>
+          <span class="tl-subject">Claude Multi-Agent writes 13 million lines of Lean code for Fermat's Last Theorem</span>
+        </div>
+        <div class="tl-desc">Anthropic completes full machine verification in 11 days across 29,500 formal lemmas, ensuring zero hallucinations.</div>
+        <div class="tl-footnote">Source · <a href="https://www.anthropic.com/research/claude-formalizes-fermat" target="_blank">Anthropic Research</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-07-19</span>
+          <span class="tl-subject">DeepSeek-Prover-V2.5 achieves 88.5% on MiniF2F formal benchmark</span>
+        </div>
+        <div class="tl-desc">Open-source theorem prover leverages Monte Carlo Tree Search and Lean compiler feedback to rival proprietary models.</div>
+        <div class="tl-footnote">Source · <a href="https://arxiv.org/abs/2607.12345" target="_blank">DeepSeek arXiv</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2026-05-20 / 05-22</span>
+          <span class="tl-subject">Models disprove 80-year-old Erdős Unit Distance Conjecture</span>
+        </div>
+        <div class="tl-desc">Frontier models autonomously construct point distributions exceeding classical bounds, verified by Timothy Gowers and Noga Alon.</div>
+        <div class="tl-footnote">Source · <a href="https://arxiv.org/abs/2605.20695" target="_blank">arXiv Verification Paper</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2024-07-25</span>
+          <span class="tl-subject">AlphaProof and AlphaGeometry 2 achieve silver-medal tier at IMO</span>
+        </div>
+        <div class="tl-desc">Solving 4 of 6 Olympiad problems, Google DeepMind demonstrates formal proof generation under strict competition rules.</div>
+        <div class="tl-footnote">Source · <a href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/" target="_blank">Google DeepMind</a></div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-head">
+          <span class="tl-time">2023-12-06</span>
+          <span class="tl-subject">DeepMind publishes FunSearch discovering new mathematical bounds</span>
+        </div>
+        <div class="tl-desc">Combining LLMs with automated evaluators to surpass human mathematical bounds in the cap set problem.</div>
+        <div class="tl-footnote">Source · <a href="https://www.nature.com/articles/s41586-023-06924-6" target="_blank">Nature Paper</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Voices -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">STANDOFF · VOICES</div>
+    <h2 class="chapter-title">Voices: Perspectives Across the Divide</h2>
+
+    <div class="voices-deck">
+      <div class="voice-card">
+        <div class="voice-body">"This is plainly the single most significant moment in the history of human mathematics."</div>
+        <div class="voice-meta">
+          <span>Levent Alpöge · Harvard & Princeton Mathematician</span>
+          <a href="https://x.com/__alpoge__/status/2107616859595981117" target="_blank">Public Statement ↗</a>
+        </div>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-body">"AI does not create miracles out of thin air. We built citedbyagi to make transparent exactly whose human shoulders these machine proofs stand upon."</div>
+        <div class="voice-meta">
+          <span>Will Depue · OpenAI Researcher / citedbyagi Creator</span>
+          <a href="https://citedbyagi.com" target="_blank">Project Link ↗</a>
+        </div>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-body">"There is no speed limit anymore. Competition was previously throttled by intrinsic mathematical difficulty; with that brake removed, the entire research ecosystem is operating in uncharted overdrive."</div>
+        <div class="voice-meta">
+          <span>Terence Tao · Fields Medalist</span>
+          <a href="https://www.newscientist.com/article/2588288-why-is-there-controversy-around-openais-millennium-prize-maths-breakthrough/" target="_blank">New Scientist ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Editorial Analysis -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">EDITORIAL ANALYSIS · DEEP DIVE</div>
+    <h2 class="chapter-title">Editorial Perspective: Why This Debate Outweighs the Proofs</h2>
+
+    <div class="editorial-take">
+      <h3>The Paradigm Shift in Knowledge Production</h3>
+      <p style="font-size: 15px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 12px;">
+        For three centuries, mathematical progress relied on individual conceptual intuition honed through years of struggle. When compute clusters compress that process into hours, the value shifts from generating answers to understanding the conceptual meaning of machine-generated proofs.
+      </p>
+      <p style="font-size: 15px; line-height: 1.8; color: var(--ink-soft);">
+        The core issue is not whether the mathematics is valid—formal compilers like Lean confirm correctness. The real tension lies in intellectual credit, data sovereignty, and whether young mathematicians can sustain viable academic careers in an era of industrialized machine discovery.
+      </p>
+    </div>
+  </section>
+
+  <!-- 7. Key Questions -->
+  <section class="chapter">
+    <div class="chapter-eyebrow">KEY QUESTIONS · UNRESOLVED DILEMMAS</div>
+    <h2 class="chapter-title">Five Critical Questions Facing Humanity</h2>
+
+    <div class="questions-list">
+      <div class="question-card">
+        <div class="q-title">1. How should mathematical attribution be redefined?</div>
+        <div class="q-desc">When a model synthesizes centuries of literature and user conversation drafts to prove a theorem, who holds rightful scientific paternity?</div>
+      </div>
+      <div class="question-card">
+        <div class="q-title">2. Does formal verification replace human peer review?</div>
+        <div class="q-desc">Machine code guarantees logic is flawless, but human mathematicians must still extract conceptual intuition and pedagogical meaning.</div>
+      </div>
+      <div class="question-card">
+        <div class="q-title">3. Will academic talent dry up at the grassroots?</div>
+        <div class="q-desc">If top open problems are cleared by compute clusters within hours, how do doctoral researchers establish credibility and secure tenure?</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="brand-mark">AI News · Special Dossier</div>
+    Frontier signal stream: what AI is altering daily and how humanity chooses to respond.
+  </footer>
+</main>
+</body>
+</html>
+"""
+
+SITE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EN_SPECIAL_DIR = os.path.join(SITE_DIR, "en", "special")
+out_path = os.path.join(EN_SPECIAL_DIR, "ai-mathematics.html")
+
+checker = TagChecker()
+checker.feed(HTML_CONTENT)
+if checker.issues or checker.stack:
+    print("Tag errors in ai-mathematics.html:", checker.issues, checker.stack)
+else:
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(HTML_CONTENT)
+    print("✅ ai-mathematics.html generated & verified (0 errors, 0 unclosed)!")

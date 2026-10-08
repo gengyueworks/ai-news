@@ -8,15 +8,26 @@
         @import url('../assets/fonts/fonts.css');
 
         :root {
-            --klein: #002FA7;
-            --klein-bright: #0044FF;
-            --white: #FFFFFF;
-            --bg-light: #F8F9FB;
-            --text-dark: #1A1A1A;
-            --text-mid: #6B6B6B;
-            --text-light: #9CA3AF;
-            --border: #E5E7EB;
-        }
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
+}
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -335,7 +346,7 @@
   padding: 13px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; flex-wrap: wrap; gap: 8px 12px;
   box-sizing: border-box;
 }
 .nav-links {
@@ -358,6 +369,13 @@
   color: #002FA7;
 }
 
+
+@media (max-width: 640px) {
+  .container { padding: 20px 16px 40px !important; }
+  .site-header-inner { padding: 10px 16px !important; flex-wrap: wrap !important; gap: 8px 12px !important; }
+  .nav-links { flex-wrap: wrap !important; gap: 6px 12px !important; font-size: 12px !important; }
+}
+
 </style>
 
 <style>
@@ -377,6 +395,13 @@
 .post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
 .post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
 @media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+
+@media (max-width: 640px) {
+  .container { padding: 20px 16px 40px !important; }
+  .site-header-inner { padding: 10px 16px !important; flex-wrap: wrap !important; gap: 8px 12px !important; }
+  .nav-links { flex-wrap: wrap !important; gap: 6px 12px !important; font-size: 12px !important; }
+}
+
 </style>
 
 </head>

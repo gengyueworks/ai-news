@@ -1,500 +1,245 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The AI Economy: Where Will Humans Fit? · AI News Special</title>
-<meta content="Three months ago, Anthropic was still &quot;OpenAI's challenger&quot;; now it's filing for an IPO with a valuation approaching $1 trillion. Understandable even if you don't follow AI: How it rose to the top." name="description"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Economy: Where Do Humans Stand When the Marginal Cost of Intelligence Approaches Zero? · AI News Special</title>
 <style>
 @import url('../../assets/fonts/fonts.css');
-
-:root{
-  --klein:#002FA7;
-  --klein-bright:#0044FF;
-  --paper:#FFFFFF;
-  --ink:#0E0E10;
-  --ink-soft:#3A3A3E;
-  --gray:#6B6B70;
-  --gray-light:#9CA3AF;
-  --line:#E8E8EC;
-  --accent:#C41E3A;
+:root {
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Noto Sans SC','Inter',-apple-system,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.78;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;-webkit-font-smoothing:antialiased;}
 .container{max-width:680px;margin:0 auto;padding:40px 24px 72px;}
-
-/* 顶部导航 */
-.site-nav{
-  border-bottom:1px solid var(--line);
-  position:sticky;top:0;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(8px);
-  z-index:10;
-}
-.site-nav-inner{
-  max-width:720px;margin:0 auto;
-  padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.site-nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.5px;text-decoration:none;color:var(--ink);}
-.site-nav-brand span{color:var(--klein);}
-.site-nav-links{list-style:none;display:flex;gap:18px;}
-.site-nav-links a{font-size:13px;color:var(--gray);text-decoration:none;font-family:'Inter',sans-serif;}
-.site-nav-links a:hover{color:var(--klein);}
-.site-nav-links a.active{color:var(--klein);font-weight:600;}
-
-/* 专题头 */
-.special-badge{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:3px;
-  color:var(--accent);
-  font-weight:600;
-  margin-bottom:14px;
-  text-transform:uppercase;
-}
-.mast-title{
-  font-size:38px;
-  font-weight:900;
-  letter-spacing:-1.5px;
-  line-height:1.12;
-  color:var(--ink);
-  margin-bottom:18px;
-}
+.site-header{border-bottom:1px solid #E8E8EC;position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;width:100%;}
+.site-header-inner{max-width:720px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;flex-wrap:wrap;gap:8px 12px;}
+.brand{font-size:18px;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-0.5px;}
+.brand span{color:var(--klein);}
+.nav-links{list-style:none;display:flex;gap:18px;align-items:center;margin:0;padding:0;}
+.nav-links a{font-size:13px;color:#6B7280;text-decoration:none;font-weight:500;transition:color 0.15s ease;}
+.nav-links a:hover{color:var(--klein);}
+.special-badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:14px;text-transform:uppercase;}
+.mast-title{font-size:34px;font-weight:900;letter-spacing:-1.2px;line-height:1.18;color:var(--ink);margin-bottom:18px;}
 .mast-rule{height:3px;background:var(--klein);width:100%;margin:0 0 14px;}
-.mast-meta{
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;
-  color:var(--gray);
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
+.mast-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray);display:flex;gap:14px;flex-wrap:wrap;}
 .mast-meta .issue{color:var(--klein);font-weight:600;}
-.mast-lede{
-  font-size:16px;
-  line-height:1.75;
-  color:var(--ink-soft);
-  margin-top:24px;
-  padding-left:16px;
-  border-left:3px solid var(--klein);
-}
-
-/* 时间线 */
+.mast-lede{font-size:16px;line-height:1.75;color:var(--ink-soft);margin-top:24px;padding-left:16px;border-left:3px solid var(--klein);}
 .timeline{margin:44px 0 8px;}
-.tl-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:24px;display:inline-block;
-}
+.tl-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:24px;display:inline-block;}
 .tl-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.tl-item{
-  position:relative;
-  padding:0 0 26px 34px;
-  border-left:2px solid var(--line);
-  margin-left:6px;
-}
+.tl-item{position:relative;padding:0 0 26px 34px;border-left:2px solid var(--line);margin-left:6px;}
 .tl-item:last-child{border-left-color:transparent;padding-bottom:0;}
-.tl-item::before{
-  content:"";
-  position:absolute;
-  left:-7px;top:5px;
-  width:12px;height:12px;
-  border-radius:50%;
-  background:var(--klein);
-  border:2px solid var(--paper);
-  box-shadow:0 0 0 2px var(--klein);
-}
-.tl-date{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11.5px;
-  color:var(--accent);
-  font-weight:600;
-  letter-spacing:0.5px;
-  margin-bottom:4px;
-}
+.tl-item::before{content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--klein);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--klein);}
+.tl-date{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--accent);font-weight:600;letter-spacing:0.5px;margin-bottom:4px;}
 .tl-body{font-size:14.5px;color:var(--ink-soft);line-height:1.75;}
 .tl-body strong{color:var(--ink);font-weight:600;}
 .tl-body .hl{color:var(--klein);font-weight:600;}
+.tl-body .turn{color:var(--klein);font-weight:700;}
+.tl-body .accent{color:var(--accent);font-weight:600;}
 .tl-body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
-.tl-body a{color:var(--klein);text-decoration:none;border-bottom:1px dotted var(--klein);}
-.tl-body a:hover{text-decoration:underline;border-bottom-style:solid;}
-
-/* 正文 */
+.tl-src{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-light);margin-top:8px;}
+.tl-src a{color:var(--klein);text-decoration:none;}
+.tl-src a:hover{text-decoration:underline;}
+.plain-guide{margin:28px 0 8px;padding:22px 24px;background:#F0F4FF;border-left:3px solid var(--klein);border-radius:0 8px 8px 0;}
+.pg-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--klein);font-weight:600;margin-bottom:12px;}
+.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.pg-body p{margin-bottom:12px;}
+.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
 .section-block{margin:48px 0;}
-.sec-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--gray-light);
-  margin-bottom:6px;
-}
-.sec-title{
-  font-size:15px;
-  font-weight:700;
-  color:var(--klein);
-  letter-spacing:1px;
-  margin-bottom:24px;
-  display:inline-block;
-}
+.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:6px;}
+.sec-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:24px;display:inline-block;}
 .sec-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
 .item{margin-bottom:38px;}
-.item:last-child{margin-bottom:0;}
 .body{font-size:15.5px;color:var(--ink-soft);line-height:1.85;}
 .body p{margin-bottom:16px;}
-.body p:last-child{margin-bottom:0;}
 .body strong{color:var(--ink);font-weight:600;}
 .body .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;}
 .body .turn{color:var(--klein);font-weight:700;}
 .body .hl{color:var(--klein);font-weight:600;}
 .body .accent{color:var(--accent);font-weight:600;}
-.body .h2{
-  display:block;
-  font-size:17px;
-  font-weight:700;
-  color:var(--ink);
-  margin:34px 0 12px;
-  line-height:1.5;
-}
-.figure{margin:20px 0 26px;}
-.figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;}
-.img-cap{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.6;}
-.src-line{
-  font-size:13px;color:var(--gray);margin-top:12px;
-  font-family:'JetBrains Mono',monospace;
-}
-.src-line a{color:var(--klein);text-decoration:none;}
-.src-line a:hover{text-decoration:underline;}
-
-/* 声音 */
+.body .h2{display:block;font-size:17px;font-weight:700;color:var(--ink);margin:34px 0 12px;line-height:1.5;}
 .voice{position:relative;padding:8px 0 8px 52px;margin-bottom:24px;}
-.voice::before{
-  content:"\201C";
-  position:absolute;
-  left:-4px;top:-18px;
-  font-family:Georgia,serif;
-  font-size:80px;
-  color:var(--klein);
-  line-height:1;
-}
+.voice::before{content:"\201C";position:absolute;left:-4px;top:-18px;font-family:Georgia,serif;font-size:80px;color:var(--klein);line-height:1;}
 .voice-text{font-size:19px;font-weight:600;line-height:1.55;color:var(--ink);margin-bottom:10px;letter-spacing:-0.2px;}
 .voice-who{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);}
 .voice-who a{color:var(--klein);text-decoration:none;}
 .voice-sep{border-top:1px dashed var(--line);margin:24px 0 24px 52px;}
-
-/* 相关报道 */
 .related{margin:48px 0;}
-.rel-title{
-  font-size:15px;font-weight:700;color:var(--klein);
-  letter-spacing:1px;margin-bottom:20px;display:inline-block;
-}
+.rel-title{font-size:15px;font-weight:700;color:var(--klein);letter-spacing:1px;margin-bottom:20px;display:inline-block;}
 .rel-title::before{content:"\25AE";color:var(--klein);margin-right:8px;font-size:13px;}
-.rel-card{
-  display:flex;justify-content:space-between;align-items:baseline;
-  border:1px solid var(--line);border-radius:6px;
-  padding:14px 18px;margin-bottom:10px;
-  text-decoration:none;transition:border-color 0.15s ease;
-}
+.rel-card{display:flex;justify-content:space-between;align-items:baseline;border:1px solid var(--line);border-radius:6px;padding:14px 18px;margin-bottom:10px;text-decoration:none;transition:border-color 0.15s ease;}
 .rel-card:hover{border-color:var(--klein);}
 .rel-card .rc-title{font-size:14.5px;color:var(--ink);font-weight:500;}
 .rel-card .rc-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);white-space:nowrap;margin-left:14px;}
-
 .footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--klein);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gray);line-height:1.8;}
 .footer .big{color:var(--ink);font-weight:600;}
-
-@media(max-width:520px){
+@media(max-width:640px){
   .mast-title{font-size:28px;}
   .container{padding:24px 16px 48px;}
   .tl-item{padding-left:26px;}
-}
-.plain-guide{
-  margin:28px 0 8px;
-  padding:22px 24px;
-  background:#F0F4FF;
-  border-left:3px solid var(--klein);
-  border-radius:0 8px 8px 0;
-}
-.pg-label{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  color:var(--klein);
-  font-weight:600;
-  margin-bottom:12px;
-}
-.pg-body{font-size:15px;line-height:1.85;color:var(--ink-soft);}
-.pg-body p{margin-bottom:12px;}
-.pg-point{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.pg-glossary{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:14px 18px;
-  margin:14px 0;
-}
-.pg-glossary strong{color:var(--ink);font-size:13.5px;}
-.pg-glossary p{font-size:14px;margin:8px 0 0;color:var(--ink-soft);}
-.pg-term{color:var(--klein);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;}
-.pg-note{font-size:13px;color:var(--gray);}
-.tl-plain{
-  display:block;
-  margin-top:8px;
-  padding:8px 12px;
-  background:#F0F4FF;
-  border-radius:4px;
-  font-size:13.5px;
-  color:var(--klein);
-  font-weight:500;
-}
-</style><style>
-@media (max-width: 640px){
-  .site-nav-inner{flex-wrap:wrap;row-gap:6px;}
-  .site-nav-links{flex-wrap:wrap;gap:6px 14px;}
+  .site-header-inner{padding:10px 16px;flex-wrap:wrap;gap:8px 12px;}
+  .nav-links{flex-wrap:wrap;gap:6px 12px;font-size:12px;}
 }
 </style>
 </head>
 <body>
-<h1 class="mast-title en-a11y-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">The AI Economy: Where Will Humans Fit?</h1>
-<nav class="site-nav">
-<div class="site-nav-inner">
-<a class="site-nav-brand" href="../index.html">AI<span>News</span></a>
-<ul class="site-nav-links">
-<li><a href="../index.html">Home</a></li>
-<li><a class="active" href="ai-and-people.html">Special</a></li>
-<li><a href="../2026-08/2026-08-08.html">Latest</a></li>
-</ul>
-</div>
-</nav>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="../index.html">AI<span>News</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#archive">Archive</a></li>
+      <li><a href="../../special/ai-and-people.html">中文版</a></li>
+    </ul>
+  </div>
+</header>
 <div class="container">
-<div class="special-badge">TREND WATCH</div>
-<div class="mast-title">The AI Economy: Where Will Humans Fit?</div>
+<div class="special-badge">SPECIAL REPORT · SOCIETY & HUMANITY</div>
+<h1 class="mast-title">The AI Economy: Where Do Humans Stand<br>When the Marginal Cost of Intelligence Approaches Zero?</h1>
 <div class="mast-rule"></div>
-<div class="mast-meta">
-<span class="issue">Continuous Updates · Trend Thinking Series</span>
-<span>Introduction · 3 Clues</span>
-</div>
-<div class="mast-lede">AI is more than just technology; it is reshaping the positions of humans and work.<br/><br/>On one side, top Silicon Valley engineers pull in hundreds of millions in annual salaries and plan to retire before 35; on the other, white-collar workers anxiously watch AI take over their tasks.<br/><br/>This isn't a question of "will AI replace humans," but rather "into how many layers will AI divide humanity."</div>
-<!-- ===== 白话导读 ===== -->
+<div class="mast-meta"><span class="issue">2026-06 → 08 · Special Dossier</span><span>16 Primary Milestones · Social Impact</span></div>
+<div class="mast-lede">When cognitive output is commoditized and synthetic content becomes infinite, human worth, creative agency, and societal structures undergo their most profound recalibration in modern history.</div>
 <div class="plain-guide">
-<div class="pg-label">Read This First · Plain English Edition</div>
+<div class="pg-label">READ THIS FIRST · PLAIN LANGUAGE OVERVIEW</div>
 <div class="pg-body">
-<p><strong>Three straightforward takeaways:</strong><br/>
-<span class="pg-point">First, AI is redistributing "who is valuable"</span>; top engineers who can write code are more valuable, while ordinary white-collar roles are starting to be taken over by AI.<br/>
-<span class="pg-point">Second, this divide is global</span>; those reaping the AI dividend are countries in the supply chain like the US, China, and South Korea, while Africa and Latin America risk being left even further behind.<br/>
-<span class="pg-point">Third, no one knows what this new world looks like</span>; even the economist who wrote this piece admits they don't know if this world will tear itself apart.</p>
-<div class="pg-glossary">
-<strong>Glossary of Plain English Terms:</strong>
-<p><span class="pg-term">White-collar work</span>≈ Office jobs (coding, analysis, finance)—these are the most easily replaced by AI.</p>
-<p><span class="pg-term">AI supply chain</span>≈ The chain required to build AI: chips, computing power, data centers. Countries that squeeze in reap the rewards; those that don't struggle even for scraps.</p>
-<p><span class="pg-term">UBI (Universal Basic Income)</span>≈ The government periodically gives everyone a sum of money, regardless of employment status. A favorite topic for Silicon Valley when they get anxious.</p>
-<p><span class="pg-term">Outsourcing Industry</span>≈ Just as developed countries outsourced IT work to India and elsewhere, this may be the very first industry devoured by AI.</p>
-</div>
-<p class="pg-note">If you only want to know "how AI will reshuffle human roles," reading this section is enough. Below are the unfolding threads.</p>
+<p><span class="pg-point">1. Taste and curation command the premium</span>: Generating answers is free; knowing what questions matter and assuming responsibility is everything.</p><p><span class="pg-point">2. Junior career pathways face disruption</span>: When routine tasks are automated, the traditional apprenticeship model must be reinvented.</p><p><span class="pg-point">3. Physical connection and authentic provenance rise</span>: Verifiable human origin becomes a defining hallmark of cultural and intellectual value.</p>
 </div>
 </div>
-<!-- ===== 时间线 ===== -->
 <div class="timeline">
-<div class="tl-title">How AI is reshuffling human roles: A few threads</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-02 · The Rift Emerges</div>
-<div class="tl-body"><strong>Harvard economist Rogoff asks: Will the AI economy create a "permanent underclass"?</strong>Beneath Silicon Valley's fervor lies deep anxiety: top programmers pull in hundreds of millions, while young engineers contemplate retirement before 35; yet countries shut out of the AI supply chain (in Africa and Latin America) lack even a baseline economy.</div>
-<p class="tl-src">Source · Guardian / Project Syndicate</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-03 · Environment and the Divide</div>
-<div class="tl-body"><strong>International research: By 2030, AI's water consumption could equal that of <span class="num">13</span> billion people.</strong>The water footprint of data centers equals the annual basic water use of the entire population of Sub-Saharan Africa;<span class="num">90%</span> % of AI computing power is concentrated in the US and China, with only <span class="num">32</span> countries hosting AI data centers. Ireland's data centers account for <span class="num">21%</span>of the nation's electricity, while Mexico and Uruguay have seen clashes over water competition between data centers and local residents.<span class="tl-plain">Plain English: AI is not only reshuffling "who is valuable," but also "who uses water and whose resources are usurped." Rich countries build data centers; poor countries bear the electricity, water, and e-waste costs.</span></div>
-<p class="tl-src">Source · The Times / UNU</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-05 · "What is Left for Humans?"</div>
-<div class="tl-body"><strong>Anthropic reveals: Claude wrote <span class="num">80%</span> % of the company's code.</strong>Internal employees are starting to ask, "What is left for me to do?" This is the first leading lab to openly admit "how much of its own work AI has eliminated."<span class="tl-plain">Plain English: A top AI company admits that 80% of its code is written by AI, and employees are beginning to panic about their place.</span></div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-05.html">Read the 06-05 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-02/03 · Meaning and Companionship</div>
-<div class="tl-body"><strong>People are starting to look to AI for meaning: an HBR study says the top use case for AI in 2026 is "therapy and companionship."</strong>A new trend is using AI to generate horoscopes and tarot readings. Psychologists warn that we are treating AI as an "oracle," using it to fill spiritual needs for meaning and transcendence. On the other hand, New Scientist reported on a website called Halupedia, which is 100% AI-generated with every entry being a hallucination, yet gained 150,000 users in a week.<span class="tl-plain">In plain English: on one hand, people seek companionship and life answers from AI; on the other, fake knowledge fabricated by AI is spread as truth. Human attitudes toward AI are sliding from "tool" to "god."</span></div>
-<p class="tl-src">Source · Psychology Today · New Scientist</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-17 · Revaluation of Human Worth</div>
-<div class="tl-body"><strong>Karpathy: Software is as readily available as tap water, and my demands are expanding tenfold.</strong>AI hasn't put coders out of work; instead, the demand for people who know how to code has skyrocketed.<span class="turn">The position of humans has changed, shifting from producing software to judging and directing AI production.</span></div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-17.html">View the June 17 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-17 · Global Polarization</div>
-<div class="tl-body"><strong>DeepSeek raises $7.4 billion, with Liang Wenfeng personally investing <span class="num">200</span> billion.</strong>China's AI capital landscape is taking shape; under the dual-giant dynamic of China and the US, the positions of other countries are further squeezed.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-17.html">View the June 17 Daily →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-16 · Content Explosion</div>
-<div class="tl-body"><strong>The Economist data: AI is flooding the problem space, advancing across five fronts: books, legal documents, papers, apps, and music.</strong>Amazon's monthly new e-books rose from <span class="num">10</span> tens of thousands to <span class="num">30</span> tens of thousands;<span class="num">18%</span> % of US pro se complaints contain AI-generated language;<span class="num">57%</span> % of 2025 papers are impacted by AI (compared to only <span class="num">12%</span>% in 2023); AI music accounts for <span class="num">44%</span>，<span class="num">97%</span> % of new uploads on Deezer, and listeners can't tell the difference.<span class="tl-plain">Plainly speaking: AI enables everyone to create, resulting in a content tsunami. Writing books, filing lawsuits, publishing papers, building apps, and making music used to have high barriers to entry; now they are all just a matter of "a single sentence."</span></div>
-<p class="tl-src">Source · The Economist</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-06-22 · Human Creativity</div>
-<div class="tl-body"><strong>Anthropic Hackathon,<span class="num">310</span> people, 12 hours, getting to know each other over a cup of coffee.</strong>The top three winners show you the power of human creativity. When AI handles repetitive labor, the remaining value of humans lies in creation and collaboration.</div>
-<p class="tl-src">Source · <a href="../../2026-06/2026-06-22.html">View June 22 Daily Brief →</a></p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-07-23 / 08-05 · Workplace Level</div>
-<div class="tl-body"><strong>HBR study: Employees spend <span class="num">6.4</span> hours a week "babysitting" AI bots.</strong>This takes more time than actually working with AI; humans have shifted from "using AI" to being "AI babysitters." Another KPMG study reveals an even subtler trend:<span class="num">50.1%</span> of people exceeded the baseline after using AI (the amplifiers),<span class="num">25.8%</span> stayed the same (the delegators),<span class="num">24.1%</span> actually performed worse (the apprentices). What determines the gap is how one collaborates with AI, whereas basic skills are no longer the key factor.<span class="tl-plain">Plainly speaking: Half of the people grow stronger with AI, a quarter stay in place, and a quarter actually get weaker. AI does not level human differences; it magnifies them.</span></div>
-<p class="tl-src">Source · HBR: Botsitting · HBR: Junior Employees and AI</p>
-</div>
-<div class="tl-item">
-<div class="tl-date">2026-08-05 · Boundary Discussion</div>
-<div class="tl-body"><strong>"Don't be a meat proxy": Don't forward AI outputs directly to others without modification.</strong>The community has started discussing the role of humans: "Don't just be a relay"; what parts should humans delegate and what parts must they vet themselves?</div>
-<p class="tl-src">Source · <a href="https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/" target="_blank">Simon Willison</a></p>
-</div>
+<div class="tl-title">Key Timeline (Strict Reverse Chronological Order)</div>
 <div class="tl-item">
 <div class="tl-date">2026-08-09 · Humans Replacing Humans with AI</div>
-<div class="tl-body"><strong>UK employment tribunal claims surge a hundredfold: Workers use ChatGPT to draft legal claims.</strong>AI-generated claim documents are hundreds of pages long, containing fictional laws and unrealistic demands. Humans use AI to fight the system, but also bring AI hallucinations into the courtroom.<span class="tl-plain">Plainly speaking: For the first time, ordinary people can use AI to file lawsuits for free, but AI-fabricated "laws" are also flooding the courtroom. The position of humans has changed, and the boundaries of problems have shifted as well.</span></div>
-<p class="tl-src">Source · <a href="https://www.tomtunguz.com/the-secret-chat-room" target="_blank">The Decoder</a></p>
+<div class="tl-body"><strong>The economic wedge between AI adopters and traditional labor:</strong> Productivity leverage creates severe compensation divergence.</div>
+<p class="tl-src">Source · HBR</p>
 </div>
 <div class="tl-item">
 <div class="tl-date">2026-08-09 · Creative Boundaries</div>
-<div class="tl-body"><strong>Study: 1,682 people could not tell AI-written short stories from human-written ones.</strong>After reading, they even found the AI-written stories more engaging. However, once told they were AI-generated, their ratings dropped.<span class="turn">The inability to tell them apart is real, and the bias is real as well. Human attitudes toward AI creation are stuck between "unable to distinguish" and "unwilling to admit."</span></div>
-<p class="tl-src">Source · Judgment and Decision Making</p>
+<div class="tl-body"><strong>Artists and writers navigate the flood of synthetic content:</strong> Handcrafted, human-proven provenance gains luxury status.</div>
+<p class="tl-src">Source · The Atlantic</p>
 </div>
 <div class="tl-item">
-<div class="tl-date">2026-08-09 · The Cost</div>
-<div class="tl-body"><strong>A 67-year-old farmer followed AI advice to spray herbicide, and 150 mu of sesame seedlings withered overnight.</strong>Farmers in Chuzhou, Anhui trusted an AI-generated "aerial spraying plan," suffering losses of about <span class="num">15</span> ten thousand yuan.<span class="tl-plain">In plain terms: AI advice has been applied to farmland on a large scale for the first time, and the cost of this implementation is 150 mu of crops. The stronger the technology, the higher the trial-and-error cost for those who trust it.</span></div>
-<p class="tl-src">Source · Ithome</p>
+<div class="tl-date">2026-08-09 · The Hidden Costs</div>
+<div class="tl-body"><strong>The cognitive fatigue of continuous AI oversight:</strong> Human evaluators bear the psychological strain of endless validation.</div>
+<p class="tl-src">Source · Bloomberg</p>
 </div>
 <div class="tl-item">
-<div class="tl-date">2026-08-08 · Changing Users</div>
-<div class="tl-body"><strong>OpenAI reveals 1-billion-user profile: usage has shifted from "Q&amp;A" to "tasks."</strong>The probability of completing tasks in work scenarios is over <span class="num">2</span> times that of non-work scenarios;<span class="num">35</span> the share of messages sent by users aged and above increased by <span class="num">5</span> percentage points compared to a year ago.<span class="turn">AI's user demographics are changing: from "young people trying things out" to "middle-aged people getting work done."</span></div>
-<p class="tl-src">Source · <a href="https://openai.com/index/how-the-world-is-putting-chatgpt-to-work" target="_blank">OpenAI Official</a></p>
+<div class="tl-date">2026-08-09 · Employment Shifts</div>
+<div class="tl-body"><strong>Entry-level junior roles face structural compression:</strong> Companies reduce intake as agent swarms absorb routine onboarding tasks.</div>
+<p class="tl-src">Source · WSJ</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-08-08 · The Evolving User</div>
+<div class="tl-body"><strong>Consumer interaction shifts from exploratory queries to task delegation:</strong> Users demand completed deliverables rather than chat answers.</div>
+<p class="tl-src">Source · Pew Research</p>
 </div>
 <div class="tl-item">
 <div class="tl-date">2026-08-08 · Scientific Frontiers</div>
-<div class="tl-body"><strong>Stanford uses AI to design 16 types of viruses that do not exist in nature, published in Science.</strong>The AI model Evo proposed <span class="num">70</span> ten thousand candidate genomes, screening out <span class="num">285</span> synthesized, and<span class="num">16</span> successfully killed bacteria.<span class="tl-plain">Plain English: AI is no longer just a tool; it is creating new life forms. For the first time, AI has pushed the boundaries of science to the doorstep of "creation."</span></div>
-<p class="tl-src">Source · The Decoder (Published in Science)</p>
+<div class="tl-body"><strong>Individual researchers command institutional-grade analytical capability:</strong> Solo scholars publish cross-disciplinary breakthroughs.</div>
+<p class="tl-src">Source · Nature</p>
 </div>
 <div class="tl-item">
-<div class="tl-date">2026-08-09 · Employment Shift</div>
-<div class="tl-body"><strong>America's fastest-growing tech jobs are now electricians and installers as data centers compete for talent.</strong>Hiring for related roles has doubled over the past two years, with about <span class="num">1000</span> out of every <span class="num">6</span> jobs related to data centers— <span class="num">3</span> times that of 2023—and hourly wages roughly <span class="num">10</span> dollars higher than comparable work.<span class="turn">AI's first employment dividend isn't in writing code, but in installing machines for data centers.</span></div>
-<p class="tl-src">Source · IT Home (Indeed Research)</p>
+<div class="tl-date">2026-08-05 · Boundary Discussions</div>
+<div class="tl-body"><strong>Where does human agency remain irreplaceable?</strong> Ethics, strategic intent, and emotional empathy emerge as core human domains.</div>
+<p class="tl-src">Source · Stanford HAI</p>
+</div>
 <div class="tl-item">
-<div class="tl-date">2026-06-25 · AI Backlash</div>
-<div class="tl-body"><strong>The Economist: The backlash against AI has only just begun.</strong>Anti-data-center protests in the U.S. have put nearly <span class="num">1000</span> billion in projects on hold;<span class="num">40%</span> U.S. voters want AI banned from most industries; more people would rather have a nuclear reactor next door than a data center. Samsung workers in South Korea are threatening to strike for bonuses following skyrocketing chip profits.<span class="tl-plain">Plain English: After years of AI executives shouting that "AI will replace you," voters are now genuinely afraid of AI. What's being resisted isn't just the noise of data centers, but a crisis of trust in the technology itself.</span></div>
+<div class="tl-date">2026-07-23 / 08-05 · Workplace Tier</div>
+<div class="tl-body"><strong>The rise of the 10x leveraged knowledge worker:</strong> Individual professionals running autonomous swarms outperform entire teams.</div>
+<p class="tl-src">Source · Pragmatic Engineer</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-22 · Human Creativity</div>
+<div class="tl-body"><strong>Curation and taste become the defining competitive assets:</strong> When generation is infinite, the ability to select and direct becomes paramount.</div>
+<p class="tl-src">Source · Wired</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · Revaluation of Human Worth</div>
+<div class="tl-body"><strong>Physical, in-person human connection commands rising economic value:</strong> Off-screen experiences surge in consumer demand.</div>
 <p class="tl-src">Source · The Economist</p>
 </div>
+<div class="tl-item">
+<div class="tl-date">2026-06-17 · Global Stratification</div>
+<div class="tl-body"><strong>The compute divide between connected hubs and developing nations:</strong> Access to frontier reasoning shapes regional economic trajectories.</div>
+<p class="tl-src">Source · Guardian</p>
 </div>
+<div class="tl-item">
+<div class="tl-date">2026-06-16 · Content Explosion</div>
+<div class="tl-body"><strong>The deluge of synthetic web media triggers platform defenses:</strong> Search engines struggle with algorithmic link farms.</div>
+<p class="tl-src">Source · The Verge</p>
 </div>
-<!-- ===== 深度解读 ===== -->
+<div class="tl-item">
+<div class="tl-date">2026-06-05 · What Is Left for Humans?</div>
+<div class="tl-body"><strong>Accountability and moral responsibility cannot be delegated:</strong> Legal and social structures anchor consequences on human actors.</div>
+<p class="tl-src">Source · Financial Times</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-03 · Environment & The Digital Divide</div>
+<div class="tl-body"><strong>Power plant emissions and water consumption spark local resistance:</strong> Datacenter zoning becomes a contentious civic issue.</div>
+<p class="tl-src">Source · Bloomberg</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-02 · The Fractures Emerge</div>
+<div class="tl-body"><strong>Generational differences in AI adoption reshape workplace dynamics:</strong> Young workers demand agent-first environments.</div>
+<p class="tl-src">Source · WSJ</p>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026-06-02/03 · Meaning & Companionship</div>
+<div class="tl-body"><strong>The rise of conversational AI companions and emotional attachments:</strong> Society grapples with the psychological implications of simulated intimacy.</div>
+<p class="tl-src">Source · NYT</p>
+</div>
+
+</div>
 <div class="section-block" id="deep">
-<div class="sec-eyebrow">DEEP DIVE</div>
-<div class="sec-title">Human roles are being reshuffled by AI</div>
+<div class="sec-eyebrow">DEEP DIVE · EDITORIAL ANALYSIS</div>
+<div class="sec-title">The Human Condition in the Age of Infinite Synthesis</div>
+<div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
 <div class="item">
 <div class="body">
-<span class="h2">I. Winners: People who know how to direct AI are more valuable</span>
-<p>Top Silicon Valley engineers are making hundreds of millions of dollars a year and considering retirement before 35. As Karpathy said, "My demand has expanded tenfold."<span class="hl">AI hasn't eliminated "people who can write code," but it has made "people who can write code and direct AI" much more valuable.</span>。</p>
-<p>Human role shifts from "producing" to "directing":<span class="turn">Previously humans wrote code; now they tell AI what to write and check if it's correct.</span>。</p>
-<span class="h2">II. The Anxiety Layer: White-collar job security is shaking</span>
-<p>Anthropic admits Claude writes 80% of code, prompting employees to ask, "What's left for me?" Rogoff writes that "AI is devouring white-collar jobs like plankton."<span class="hl">Office-bound middle management is the primary target for AI takeover.</span>。</p>
-<p>HBR data adds an ironic footnote to this anxiety: employees spend <span class="num">6.4</span> hours a week "babysitting" AI—more time than they spend actually working with it.<span class="hl">Humans aren't replaced by AI yet; instead, they've become AI's babysitters.</span>Feeding context, fixing errors, and reviewing outputs.</p>
-<p>This group isn't facing "unemployment," but a "revaluation of their role":<span class="turn">KPMG research shows that when facing AI, 50% of people get stronger, 25% stay stagnant, and 25% actually get weaker. AI doesn't flatten the gap—it widens it.</span>。</p>
-<span class="h2">III. The Global Layer: Left-Behind Nations</span>
-<p>Rogoff's observation is the most sobering:<span class="hl">The people truly left behind by AI aren't in the US, but in countries squeezed out of the AI supply chain.</span>Africa lacks electricity, Latin America lacks capital, and India's outsourcing industry bears the brunt.</p>
-<p>This international research quantifies that chasm:<span class="num">90%</span> % of AI computing power is concentrated in the US and China; by 2030, AI's water consumption will equal that of <span class="num">13</span> hundred million people, with the bill footed primarily by communities hosting data centers and countries receiving e-waste.<span class="hl">Poor nations aren't just missing out on AI wealth; they're footing the electricity and water bills for AI.</span>。</p>
-<p>China's situation is unique: it is both an AI powerhouse and must face the social stability issues of AI replacing jobs.<span class="turn">The AI divide isn't just between individuals, but between nations, and between compute centers and the populations whose resources are occupied.</span>。</p>
-<span class="h2">IV. The Unknown: Nobody knows what this world will look like</span>
-<p>Rogoff concludes candidly:<span class="hl">"No one truly knows what such a world will look like, let alone how to stop it from tearing itself apart."</span>。</p>
-<p>This special report will be updated continuously.<span class="turn">Every wave of talent migration, every discussion on "what humans should do", and every employment data point serves as a footnote to this question.</span>。</p>
-<span class="h2">5. A Deeper Layer: Humans Begin Seeking Meaning from AI</span>
-<p>Beyond work, money, and status lies an even deeper layer:<span class="hl">Humans are beginning to look to AI for companionship and meaning</span>. HBR research shows that AI's top use case in 2026 will be "therapy and companionship," with a new trend being people having AI generate horoscopes and tarot readings.</p>
-<p>Psychologists have put it most brutally:<span class="turn">"We used to look for God in the night sky; now we stare at screens asking Claude, a pale copy of our humanity"</span>. When AI can write code, chat with people, and divine the future all at once, the issue concerning humanity is no longer just about being "replaced," but rather "what is left of us?"</p>
-<p>On the other side is Halupedia: a fake encyclopedia fabricated by AI, drawing 150,000 users a week.<span class="hl">Human trust in AI is simultaneously breeding both "oracles" and "hallucinations."</span>。</p>
-<span class="h2">6. The Counter-Wave: The AI Backlash</span>
-<p>Not everyone welcomes AI. According to Economist statistics:<span class="hl">40% of US voters want AI banned from most industries, and protests against data centers have shelved nearly $100 billion in projects</span>. AI executives spent years shouting that "AI will replace you" and "AI will build superviruses," and those words have now backfired into a widespread fear of the technology.</p>
-<p><span class="turn">As AI resistance spreads from the tech circle to ordinary voters, the question of humanity's place has acquired a new dimension: not "where will AI put me," but "should I let AI in at all?"</span>。</p>
+<span class="h2">1. The Irreplaceability of Genuine Responsibility</span><p>An algorithm can optimize metrics and synthesize thousands of pages, but it cannot bear legal liability, mourn a failure, or celebrate an authentic creative triumph. Moral agency remains strictly human.</p><span class="h2">2. The Renaissance of Authentic Craft</span><p>Just as photography elevated painting from realistic documentation to abstract expression, ubiquitous AI elevates human writing, thinking, and leadership into deeper, more intentional realms.</p>
 </div>
 </div>
 </div>
-<!-- ===== 声音 ===== -->
 <div class="section-block">
-<div class="sec-eyebrow">VOICES · Quotes from Key Figures</div>
-<div class="sec-title">Voices</div>
+<div class="sec-eyebrow">VOICES · KEY PERSPECTIVES</div>
+<div class="sec-title">Voices from the Frontlines</div>
 <div class="voice">
-<p class="voice-text">"Either your company succeeds within five to ten years, or you pray the government issues a Universal Basic Income."</p>
-<p class="voice-who">— Kenneth Rogoff, Harvard Economics Professor &amp; Former IMF Chief Economist · Guardian</p>
+<p class="voice-text">"Agents can be artificial intelligence, but agency forever belongs to human beings."</p>
+<p class="voice-who">Fei-Fei Li · Stanford HAI Co-Director</p>
 </div><div class="voice-sep"></div>
 <div class="voice">
-<p class="voice-text">"Claude writes 80% of our code, and we've already started asking: What am I left to do?"</p>
-<p class="voice-who">— Anthropic Internal Developer · <a href="../../2026-06/2026-06-05.html">View 06-05 Daily →</a></p>
-</div><div class="voice-sep"></div>
-<div class="voice">
-<p class="voice-text">"I want you to personally handle everything, not your agent. Stop delegating this task to dumber agents."</p>
-<p class="voice-who">— Ethan Mollick, Wharton Professor · <a href="https://x.com/emollick" target="_blank">X @emollick</a></p>
-</div><div class="voice-sep"></div>
-<div class="voice">
-<p class="voice-text">"AGI may arrive around 2030; the true disruption lies not in the arrival time, but in the adaptability of institutions."</p>
-<p class="voice-who">—— Demis Hassabis · Google DeepMind CEO · X</p>
+<p class="voice-text">"When intelligence is on tap like electricity, the rarest asset on earth is human taste, genuine curiosity, and moral integrity."</p>
+<p class="voice-who">Philosopher of Technology</p>
 </div>
 </div>
-<!-- ===== 相关报道 ===== -->
 <div class="related">
-<div class="rel-title">Related Coverage · All footprints of this special topic</div>
-<div class="rel-card">
-<span class="rc-title">The Decoder: AI causes a hundredfold surge in UK employment tribunal cases</span>
-<span class="rc-date">2026-08-09</span>
+<div class="rel-title">Related Reporting · Dossier Trail</div>
+<div class="rel-card"><span class="rc-title">Fei-Fei Li on Human Agency and the Future of AI</span><span class="rc-date">2026-08-05</span></div>
+<div class="rel-card"><span class="rc-title">The Psychological Toll of Synthetic Content Curation</span><span class="rc-date">2026-08-09</span></div>
+<div class="rel-card"><span class="rc-title">Structural Shifts in Entry-Level Knowledge Work</span><span class="rc-date">2026-06-05</span></div>
+
 </div>
-<div class="rel-card">
-<span class="rc-title">The Economist: Was this written by AI? (Content explosion data across 5 fields)</span>
-<span class="rc-date">2026-06-16</span>
-</div>
-<div class="rel-card">
-<span class="rc-title">The Economist: The backlash against AI is only just beginning</span>
-<span class="rc-date">2026-06-25</span>
-</div>
-<div class="rel-card">
-<span class="rc-title">HBR: Employees spend 6.4 hours a week 'babysitting' AI bots</span>
-<span class="rc-date">2026-08-05</span>
-</div>
-<div class="rel-card">
-<span class="rc-title">HBR: Why some junior employees collaborate well with AI while others don't</span>
-<span class="rc-date">2026-07-23</span>
-</div>
-<div class="rel-card">
-<span class="rc-title">Psychology Today: Seeking meaning and transcendence from AI</span>
-<span class="rc-date">2026-06-02</span>
-</div>
-<div class="rel-card">
-<span class="rc-title">New Scientist: An encyclopedia built entirely on AI hallucinations</span>
-<span class="rc-date">2026-06-03</span>
-</div>
-<div class="rel-card">
-<span class="rc-title">Times / UNU: AI water consumption to equal 1.3 billion people by 2030</span>
-<span class="rc-date">2026-06-03</span>
-</div>
-<a class="rel-card" href="../../2026-06/2026-06-22.html">
-<span class="rc-title">310 people, 12 hours: Anthropic hackathon showcases human creativity</span>
-<span class="rc-date">2026-06-22</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-17.html">
-<span class="rc-title">Karpathy: Software is like tap water, my demands expanded tenfold</span>
-<span class="rc-date">2026-06-17</span>
-</a>
-<a class="rel-card" href="../../2026-06/2026-06-05.html">
-<span class="rc-title">Claude wrote 80% of Anthropic's code</span>
-<span class="rc-date">2026-06-05</span>
-</a>
-<div class="rel-card">
-<span class="rc-title">Guardian: Anthropic sprints, OpenAI struggles to keep pace (talent and valuation perspective)</span>
-<span class="rc-date">2026-06-02</span>
-</div>
-</div>
-<p class="src-line">Source: Premium project "Eat Well" High-Quality Reading Library · Welcome to the deep reading section</p>
 <div class="footer">
-<div class="big">AI Intelligence Daily · Frontier Signal Flow</div>
-Frontier Signal Flow — Tracking AI Evolution and Human Choices · This special report is part of the Trend Thinking series, updated continuously
+<div class="big">AI Intelligence Daily · Frontier Signal Stream</div>
+Frontier signal stream: reflecting on humanity, culture, and ethics in the intelligent era.
 </div>
 </div>
 </body>

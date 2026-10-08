@@ -7,16 +7,26 @@
 <style>
 @import url('../assets/fonts/fonts.css');
 
-:root{
-  --klein:#002FA7;
-  --klein-bright:#0044FF;
-  --paper:#FFFFFF;
-  --ink:#0E0E10;
-  --ink-soft:#3A3A3E;
-  --gray:#6B6B70;
-  --gray-light:#9CA3AF;
-  --line:#E8E8EC;
-  --accent:#C41E3A;
+:root {
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
@@ -219,6 +229,13 @@ body{
   color: #002FA7;
 }
 
+
+@media (max-width: 640px) {
+  .container { padding: 20px 16px 40px !important; }
+  .site-header-inner { padding: 10px 16px !important; flex-wrap: wrap !important; gap: 8px 12px !important; }
+  .nav-links { flex-wrap: wrap !important; gap: 6px 12px !important; font-size: 12px !important; }
+}
+
 </style><!-- READY_TEXT_ONLY: 有限检索后无合格官方正文图，保留纯文字保事实求真 -->
 
 <style>
@@ -238,6 +255,13 @@ body{
 .post-pagination .all-posts { padding: 3px 10px; background: #fff; border: 1px solid #E8E8EC; border-radius: 5px; color: #6B7280; font-size: 12px; }
 .post-pagination .disabled { color: #9CA3AF; opacity: 0.5; cursor: not-allowed; }
 @media (max-width: 540px) { .post-pagination { flex-direction: column; align-items: stretch; gap: 8px; } }
+
+@media (max-width: 640px) {
+  .container { padding: 20px 16px 40px !important; }
+  .site-header-inner { padding: 10px 16px !important; flex-wrap: wrap !important; gap: 8px 12px !important; }
+  .nav-links { flex-wrap: wrap !important; gap: 6px 12px !important; font-size: 12px !important; }
+}
+
 </style>
 
 </head>
@@ -319,10 +343,7 @@ body{
 <p><strong>Vera Rubin NVL72 官方称每兆瓦 token 数约为 Blackwell 的 <span class="num">10</span> 倍，训练同样万亿参数模型少用四分之一 GPU。</strong>智能体吃掉的 token 是传统应用的 <span class="num">15</span> 倍。</p>
 <p><span class="turn">当 agent 吞掉 15 倍 token，能效不再是参数表脚注，是能不能开机的硬约束。</span></p>
 </div>
-<div class="image-block">
-<img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/library/chips_compute/nvidia-gpu-cluster.jpg" alt="Vera Rubin NVL72 能效达到 Blackwell 十倍" loading="lazy">
-<p class="img-cap">Vera Rubin NVL72 能效达到 Blackwell 十倍。</p>
-</div>
+
 <div class="src-line"><a href="https://nvidia.com/en-us/data-center/vera-rubin-nvl72/" target="_blank">NVIDIA</a></div>
 </div>
 <div style="border-top:1px dashed #E8E8EC; margin: 18px 0;"></div>
