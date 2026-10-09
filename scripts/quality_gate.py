@@ -187,6 +187,13 @@ def _is_be_curious_section(sec):
         or "保持好奇" in (sec or "")
     )
 
+
+def _is_voice_section(sec):
+    """Return True for both the Chinese and English voice-column headings."""
+    if not sec:
+        return False
+    return "声音" in sec or "voice" in sec.lower()
+
 # 从 Be Curious 的 alt+caption 提取地貌类型，并剥离标准结尾句避免误触发
 def extract_be_curious_terrain_types(combined):
     combined_clean = re.sub(r'<[^>]+>', '', combined).lower()
@@ -1375,7 +1382,7 @@ class GateChecker:
         parser = self._parse(html)
         voice_section = None
         for sec in parser.sections:
-            if sec["header"] and "声音" in sec["header"]:
+            if _is_voice_section(sec["header"]):
                 voice_section = sec
                 break
         if voice_section:
@@ -2274,8 +2281,7 @@ class GateChecker:
                              f"{fname}: 最高={max_company} ({max_count}/{total_items}={max_ratio:.0%})，无公司超过阈值")
 
         # F9: 声音栏引语来源同公司检查——两条引语不能都来自同一公司官网的客户证言
-        voice_quotes = [q for q in parser.quotes
-                        if q["section"] and "声音" in q["section"]]
+        voice_quotes = [q for q in parser.quotes if _is_voice_section(q["section"])]
         if len(voice_quotes) >= 2:
             # 提取每条引语的来源URL域名
             voice_domains = set()
@@ -2510,7 +2516,7 @@ class GateChecker:
         parser = self._parse(html)
 
         # H1: 声音条数 >= 2
-        voice_quote_count = sum(1 for q in parser.quotes if q["section"] and "声音" in q["section"])
+        voice_quote_count = sum(1 for q in parser.quotes if _is_voice_section(q["section"]))
         if voice_quote_count >= 2:
             self._record(self.LEVEL_PASS, "H", "H1", "声音条数≥2",
                          f"{fname}: {voice_quote_count} 条")
@@ -2655,7 +2661,7 @@ class GateChecker:
         # 提取声音栏人名
         voice_names = set()
         for q in parser.quotes:
-            if q["section"] and "声音" in q["section"]:
+            if _is_voice_section(q["section"]):
                 # source 形如 "Charles Poon · Ford硬件工程VP · <a ..."
                 source_text = re.sub(r'<[^>]+>', '', q["source"])
                 # 第一个 · 之前是名字
@@ -2815,7 +2821,14 @@ class GateChecker:
         # 口径与 HEAL_HH11 自愈共用 split_paragraph_walls.line_segments：
         # 块级标签/<br>/display:block span 处才算断行，内联 span·strong 不算（防逃逸）；
         # .footer（小字来源清单）与 .image-caption（NASA 图注，自带 <br> 分行）不计入。
-        max_chars = int(self.edition_config.get("paragraph_max_chars", 150))
+        # CJK and English have different reasonable paragraph lengths. The
+        # Chinese daily keeps the 150-character ceiling; the English edition
+        # uses 400 visible characters so normal English paragraphs are not
+        # falsely treated as unreadable walls.
+        if re.search(r'<html[^>]*\blang=["\']en(?:-|["\'])', html, re.I):
+            max_chars = int(self.edition_config.get("paragraph_max_chars_en", 400))
+        else:
+            max_chars = int(self.edition_config.get("paragraph_max_chars", 150))
         walls = _walls.count_walls(html, max_chars)
         if walls:
             self._record(self.LEVEL_FAIL, "H", "H11", f"正文单块≤{max_chars}字",
