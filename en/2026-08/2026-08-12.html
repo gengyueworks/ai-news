@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-12</span>
-<span>Wednesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-12</h1><p class="doc-date">2026-08-12 · Wednesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today's keyword is "change": entrances are shifting, habits are shifting, efficiency is shifting.Below, who is adapting.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Wednesday, August 12, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today's keyword is "change": entrances are shifting, habits are shifting, efficiency is shifting.Below, who is adapting.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Top Story</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Google · Gemini</div>
-<h2 class="chapter-title">Gemini nears a billion users, and Google's AI finally has an "entrance": the search moat, reskinned</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Top Story</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">Google · Gemini</div>
+<div class="item-title">Gemini nears a billion users, and Google's AI finally has an "entrance": the search moat, reskinned</div>
+<div class="body">
 <p><strong>Google's <span class="accent">Gemini</span> monthly active users are approaching <span class="num">1</span> billion (officially <span class="num">950M</span>), nearly <span class="num">3</span>x growth in a year, making it the fastest-growing product in Google's history.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Gemini nears a billion users, and Google's AI finally has an &quot;entrance&quot;: the search moat, reskinned · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-12/gemini-1billion-users.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -280,15 +270,16 @@
 <p>From Search to Android, Google has never pushed a product past the billion-user mark this fast. <span class="turn">When the AI assistant becomes the default entrance, Google's biggest asset changes from "the search box" to "the conversation interface".</span></p>
 <p>Google Gemini · official image · the AI assistant nearing a billion monthly users</p>
 </div>
-<div class="sources-bar">Sources: Ars Technica</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Musk · Revenue</div>
-<h2 class="chapter-title">Musk: AI revenue has passed rocket launches: the turning point in SpaceX's first earnings report</h2>
-<div class="prose">
+<div class="src-line">Sources: Ars Technica</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">Musk · Revenue</div>
+<div class="item-title">Musk: AI revenue has passed rocket launches: the turning point in SpaceX's first earnings report</div>
+<div class="body">
 <p><strong>SpaceX's first earnings report shows AI business Q2 revenue of <span class="num">$2.56B</span> (up 250% year-on-year), already exceeding the rocket launch business (about <span class="num">$960M</span>).</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Musk: AI revenue has passed rocket launches: the turning point in SpaceX's first earnings report · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-12/chatgpt-students-free.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -296,12 +287,12 @@
 </div>
 <p>When AI revenue is <span class="num">2.6</span> times rocket launch revenue, the center of gravity in Musk's empire is visibly tilting. <span class="turn">Musk's AI business has gone from "the money burner" to "the money maker".</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/technology/spacex-reports-first-earnings-2026/" rel="noopener" target="_blank">Reuters</a> · <a href="https://stratechery.com/2026/nvidias-risky-business/" rel="noopener" target="_blank">Stratechery (on compute economics)</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">OpenAI · Education</div>
-<h2 class="chapter-title">OpenAI gives US college students a year of free ChatGPT Plus: capturing habits starts on campus</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/technology/spacex-reports-first-earnings-2026/" rel="noopener" target="_blank">Reuters</a> · <a href="https://stratechery.com/2026/nvidias-risky-business/" rel="noopener" target="_blank">Stratechery (on compute economics)</a></div>
+</div>
+<div class="item">
+<div class="dateline">OpenAI · Education</div>
+<div class="item-title">OpenAI gives US college students a year of free ChatGPT Plus: capturing habits starts on campus</div>
+<div class="body">
 <p><strong>Per TestingCatalog leaks, OpenAI plans to offer students at <span class="num">220+</span> US colleges a free year of <span class="accent">ChatGPT Plus</span> (verified via SheerID); not yet officially live.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="OpenAI gives US college students a year of free ChatGPT Plus: capturing habits starts on campus · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-12/ainews-how-to-steal-a-reasoning-trace.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -310,15 +301,16 @@
 <p>A free year of Plus is not charity; it is a grab for "future heavy users". <span class="turn">Once college students get used to the Plus experience, their first post-graduation subscription will probably be the same one.</span></p>
 <p>OpenAI's free Plus program for college students.</p>
 </div>
-<div class="sources-bar">Sources: TestingCatalog</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">NVIDIA · Open Models</div>
-<h2 class="chapter-title">Nvidia Nemotron 3.5 Lightning: a 30B model with 3B active parameters prices agent work at "practically free"</h2>
-<div class="prose">
+<div class="src-line">Sources: TestingCatalog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">NVIDIA · Open Models</div>
+<div class="item-title">Nvidia Nemotron 3.5 Lightning: a 30B model with 3B active parameters prices agent work at "practically free"</div>
+<div class="body">
 <p><strong><span class="accent">NVIDIA</span> released <span class="accent">Nemotron 3.5 Lightning</span>: a sparse MoE with <span class="num">30B</span> total and about <span class="num">3B</span> active parameters, <span class="num">1M</span> context, aimed at resident agent workloads with claimed throughput up to 4x.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Nvidia Nemotron 3.5 Lightning: a 30B model with 3B active parameters prices agent work at "practically free" · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-12/ltx-2.5-model.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -329,12 +321,12 @@
 <p><span class="turn">When "3B active running agents" becomes standard, the compute battlefield moves from "train bigger models" to "do more work with less power".</span></p>
 <p>Nvidia Nemotron 3.5 Lightning.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-how-to-steal-a-reasoning-trace" rel="noopener" target="_blank">AINews</a> · <a href="https://x.com/ArtificialAnlys" rel="noopener" target="_blank">Artificial Analysis</a> · <a href="https://x.com/NVIDIAAI" rel="noopener" target="_blank">NVIDIA AI</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Lightricks · Video</div>
-<h2 class="chapter-title">LTX-2.5 ships: the video production stack, compressed onto one desktop</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-how-to-steal-a-reasoning-trace" rel="noopener" target="_blank">AINews</a> · <a href="https://x.com/ArtificialAnlys" rel="noopener" target="_blank">Artificial Analysis</a> · <a href="https://x.com/NVIDIAAI" rel="noopener" target="_blank">NVIDIA AI</a></div>
+</div>
+<div class="item">
+<div class="dateline">Lightricks · Video</div>
+<div class="item-title">LTX-2.5 ships: the video production stack, compressed onto one desktop</div>
+<div class="body">
 <p><strong>Lightricks released open-weight "world model" <span class="accent">LTX-2.5</span>, optimized for local inference on RTX GPUs, compressing the video production stack onto <span class="num">one desktop</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="LTX-2.5 ships: the video production stack, compressed onto one desktop · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-12/stealing-reasoning-traces.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -343,36 +335,29 @@
 <p>From generation to editing, workflows that used to require a whole suite of cloud services now aim to run locally via an open model. <span class="turn">When video generation runs locally too, creators stop depending on cloud vendors' moods for the first time.</span></p>
 <p>Lightricks open-sources the LTX-2.5 video model.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://huggingface.co/Lightricks/LTX-2.5" rel="noopener" target="_blank">Hugging Face</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"AI business revenue has passed rocket launches, for the first time."</div>
-<div class="voice-meta">
-<span>first earnings report</span>
-<a href="https://www.spacex.com/" rel="noopener" target="_blank">SpaceX</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"AI made writing code 10 times faster, but the people reviewing code did not get 10 times faster. That asymmetry is becoming a new source of production incidents."</div>
-<div class="voice-meta">
-<span>Attending engineer · World's Fair</span>
-<a href="https://www.ai.engineer/" rel="noopener" target="_blank">AI Engineer</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Nvidia turned compute into an asset, which is really securitizing risk too. Behind the residual-value guarantees sits a long-term bet on AI demand."</div>
-<div class="voice-meta">
-<span>Ben Thompson</span>
-<a href="https://stratechery.com/2026/nvidias-risky-business/" rel="noopener" target="_blank">Stratechery</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Deep Dive · Security</div>
-<h2 class="chapter-title">Encrypted "thinking processes" can be stolen: Claude, GPT and Gemini reasoning blocks are cross-decodable</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://huggingface.co/Lightricks/LTX-2.5" rel="noopener" target="_blank">Hugging Face</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"AI business revenue has passed rocket launches, for the first time."</p>
+<p class="voice-who">first earnings report <a href="https://www.spacex.com/" rel="noopener" target="_blank">SpaceX</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI made writing code 10 times faster, but the people reviewing code did not get 10 times faster. That asymmetry is becoming a new source of production incidents."</p>
+<p class="voice-who">Attending engineer · World's Fair <a href="https://www.ai.engineer/" rel="noopener" target="_blank">AI Engineer</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Nvidia turned compute into an asset, which is really securitizing risk too. Behind the residual-value guarantees sits a long-term bet on AI demand."</p>
+<p class="voice-who">Ben Thompson <a href="https://stratechery.com/2026/nvidias-risky-business/" rel="noopener" target="_blank">Stratechery</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">Deep Dive · Security</div>
+<div class="item-title">Encrypted "thinking processes" can be stolen: Claude, GPT and Gemini reasoning blocks are cross-decodable</div>
+<div class="body">
 <p><strong>A new paper reveals that encrypted reasoning blocks from Anthropic, OpenAI and Google are interchangeable within their ecosystems: an attacker can inject a strong model's encrypted chain-of-thought into a weaker model to force plaintext decoding, recovering <span class="num">704</span> real secrets and credentials from public repositories.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Encrypted "thinking processes" can be stolen: Claude, GPT and Gemini reasoning blocks are cross-decodable · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-12/london-tube-face-recognition.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -381,15 +366,16 @@
 <p>Each vendor assumed "encrypted thinking" was a security boundary; it turns out that boundary can be bypassed across models. <span class="turn">AI's privacy promises have been shown for the first time to be "look secure" rather than "be secure".</span></p>
 <p>Diagram of an attacker recovering a strong model's encrypted CoT inside a weak model via injection.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Aug/11/stealing-reasoning-traces/" rel="noopener" target="_blank">Simon Willison deep dive</a> · <a href="https://arxiv.org/abs/2608.06712" rel="noopener" target="_blank">arXiv</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Cities · Face Recognition</div>
-<h2 class="chapter-title">The London Underground starts face recognition: before AI enters the city, it must pass the gate of privacy</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/11/stealing-reasoning-traces/" rel="noopener" target="_blank">Simon Willison deep dive</a> · <a href="https://arxiv.org/abs/2608.06712" rel="noopener" target="_blank">arXiv</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Cities · Face Recognition</div>
+<div class="item-title">The London Underground starts face recognition: before AI enters the city, it must pass the gate of privacy</div>
+<div class="body">
 <p><strong>The <span class="accent">London Underground</span> has begun facial recognition of passengers, sparking debate over the privacy boundaries of public space.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="The London Underground starts face recognition: before AI enters the city, it must pass the gate of privacy · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-12/manus-cnbc.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -398,44 +384,55 @@
 <p>When AI enters public spaces crossed by millions daily, the line between "identifying you" and "protecting you" blurs. <span class="turn">AI deployment's first lesson usually stalls on whether people are willing to be "seen".</span></p>
 <p>The London Underground begins large-scale face recognition trials.</p>
 </div>
-<div class="sources-bar">Sources: BBC</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Funding &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Manus · Capital</div>
-<h2 class="chapter-title">Meta's $2B acquisition blocked: Manus returns to independence, and general agents return to the open market</h2>
-<div class="prose">
+<div class="src-line">Sources: BBC</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Capital Flows</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">Manus · Capital</div>
+<div class="item-title">Meta's $2B acquisition blocked: Manus returns to independence, and general agents return to the open market</div>
+<div class="body">
 <p><strong>Chinese regulators required Meta to unwind its roughly <span class="num">$2B</span> acquisition; general-agent company <span class="accent">Manus</span> will resume operating as an independent company.</strong></p>
 <p>From joining a giant to being stopped by regulators, Manus's story shows the value of a general agent is something even giants scramble for. <span class="turn">When regulators press the "independence button" for a company, pricing power on the general-agent track returns to startups.</span></p>
 <p>CNBC reports Manus resuming independent operations.</p>
 </div>
-<div class="sources-bar">Sources: CNBC</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p>Gemini's monthly actives near a billion, making it Google's fastest-growing product ever.</p>
+<div class="src-line">Sources: CNBC</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p>Gemini's monthly actives near a billion, making it Google's fastest-growing product ever.</p>
 <p>SpaceX's filing shows AI revenue passing rocket launches; OpenAI hands students a year of free Plus.</p>
 <p>Nvidia shipped Nemotron 3.5, LTX-2.5 runs video production locally, and encrypted reasoning blocks proved cross-model decodable.</p>
-<p class="turn">Growth players grab entrances, spenders grab habits, builders grab efficiency: in AI's 2026, every player is looking for its position.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">Growth players grab entrances, spenders grab habits, builders grab efficiency: in AI's 2026, every player is looking for its position.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The canyons of the Colorado Plateau, North America — NASA's satellite captured a deep-cut cliff face, rock layers like pages turned by time." loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-grand,-snow-rimmed-canyon/ISS074-E-208848_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The canyons of the Colorado Plateau, North America — NASA's satellite captured a deep-cut cliff face, rock layers like pages turned by time.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Canyons of the Colorado Plateau · North America · photographed by NASA · <span class="num">36.1</span>°N, <span class="num">112.1</span>°W</div>
 <p style="margin-bottom:8px; line-height:1.8;">A deep-cut cliff face, rock layers like pages turned by time. While we argue on screens about whose model passes a billion users first, this canyon stacks eons into layers at its own age's pace. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-11.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-13.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

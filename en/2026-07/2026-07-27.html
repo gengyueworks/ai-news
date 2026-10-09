@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-27</span>
-<span>Monday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-27</h1><p class="doc-date">2026-07-27 · Monday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>For the first time, an open model 3 has released its complete set of trillion-parameter weights.On the day Kimi K3 launched on Hugging Face, nearly 3700 users queued up for downloads.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Microsoft pushed the offense-defense win rate of its security model to 95.95% .This week's signals are clear: frontier capabilities are no longer locked in labs, shifting toward a paradigm where you can run and audit them yourself.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Monday, July 27, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>For the first time, an open model 3 has released its complete set of trillion-parameter weights.On the day Kimi K3 launched on Hugging Face, nearly 3700 users queued up for downloads.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Microsoft pushed the offense-defense win rate of its security model to 95.95% .This week's signals are clear: frontier capabilities are no longer locked in labs, shifting toward a paradigm where you can run and audit them yourself.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-27 · Moonshot AI / Hugging Face · Open Weights</div>
-<h2 class="chapter-title">Kimi K3 Full Weights Released, Open Models Reach the 3-Trillion Scale for the First Time</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-27 · Moonshot AI / Hugging Face · Open Weights</div>
+<div class="item-title">Kimi K3 Full Weights Released, Open Models Reach the 3-Trillion Scale for the First Time</div>
+<div class="body">
 <p>Kimi K3 full weights officially released.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Kimi K3 Full Weights Released, Open Models Reach the 3-Trillion Scale for the First Time · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-27/kimi-k3.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -280,15 +270,16 @@
 <p><strong>On July 27, Moonshot AI open-sourced the full weights of Kimi K3 on Hugging Face,<span class="num">2.8</span> trillion parameters,<span class="num">896</span> experts activating only <span class="num">16</span> per token, and a million-token context window. Under the Modified MIT license, it is available for download, modification, and self-deployment.</strong>Additionally, three infrastructural tools were open-sourced: MoonEP, FlashKDA, and AgentEnv.</p>
 <p><span class="turn">The leverage held by closed-source labs that "only we can run the frontier" has been loosened by this weight release. The competition moving forward is not about who has a model, but whether you can verify it yourself.</span></p>
 </div>
-<div class="sources-bar">Sources: Moonshot AI · Hugging Face</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-27 · Microsoft · Security Model</div>
-<h2 class="chapter-title">Microsoft MAI-Cyber-1-Flash achieves a 95.95% offense-defense win rate, 10 points higher than GPT-5.5 Cyber, but the real battle has just begun</h2>
-<div class="prose">
+<div class="src-line">Sources: Moonshot AI · Hugging Face</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-27 · Microsoft · Security Model</div>
+<div class="item-title">Microsoft MAI-Cyber-1-Flash achieves a 95.95% offense-defense win rate, 10 points higher than GPT-5.5 Cyber, but the real battle has just begun</div>
+<div class="body">
 <p><strong>Microsoft's security model MAI-Cyber-1-Flash scored <span class="num">95.95%</span> win rate on CyberGym, surpassing Mythos's <span class="num">83.8%</span> and GPT-5.5 Cyber's <span class="num">85.6%</span>; with inference costs at half of benchmarked models, it has been integrated into the MDASH platform, handling about <span class="num">90%</span> of the workload independently, leaving the remaining <span class="num">10%</span> to GPT-5.4.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Microsoft MAI-Cyber-1-Flash achieves a 95.95% offense-defense win rate, 10 points higher than GPT-5.5 Cyber, but the real battle has just begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-27/microsoft-cyber.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -297,12 +288,12 @@
 <p><span class="turn">Red-teaming tools are shifting to "model-versus-model" workflows, replacing manual labor with automated pipelines on the front line.</span></p>
 <p>Microsoft MAI-Cyber-1-Flash.</p>
 </div>
-<div class="sources-bar">Sources: FromGeek · cnBeta</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-03 Preview · Microsoft · Security Evaluation</div>
-<h2 class="chapter-title">Project Perception previewing next month, featuring simultaneous Red, Blue, and Green teams</h2>
-<div class="prose">
+<div class="src-line">Sources: FromGeek · cnBeta</div>
+</div>
+<div class="item">
+<div class="dateline">08-03 Preview · Microsoft · Security Evaluation</div>
+<div class="item-title">Project Perception previewing next month, featuring simultaneous Red, Blue, and Green teams</div>
+<div class="body">
 <p><strong>Microsoft announced the Project Perception preview for August 3, splitting model security evaluation into parallel Red, Blue, and Green teams: one attacking, one defending, and one providing independent adjudication, moving beyond single-report assessments. The initial launch will open all three evaluation teams.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Project Perception previewing next month, featuring simultaneous Red, Blue, and Green teams · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-27/github-copilot-workspace.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -310,15 +301,16 @@
 </div>
 <p><span class="turn">Evaluation has shifted from "submitting reports" to "running confrontations." A model's ceiling is now determined by how many attack vectors it can withstand.</span></p>
 </div>
-<div class="sources-bar">Sources: Microsoft</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-27 · Moonshot AI · Auditable</div>
-<h2 class="chapter-title">The most valuable aspect of K3 is not its parameters, but that you can run and audit it yourself</h2>
-<div class="prose">
+<div class="src-line">Sources: Microsoft</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontline</div>
+<div class="sec-title">Open Source Frontline</div>
+<div class="item">
+<div class="dateline">07-27 · Moonshot AI · Auditable</div>
+<div class="item-title">The most valuable aspect of K3 is not its parameters, but that you can run and audit it yourself</div>
+<div class="body">
 <p><strong>The accompanying open-source infrastructure for K3—MoonEP, FlashKDA, and AgentEnv—allows researchers for the first time to rigorously test claims of "efficient attention." Previously, such claims were often falsifiable; now, everyone can download and verify them firsthand.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="The most valuable aspect of K3 is not its parameters, but that you can run and audit it yourself · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-27/deepseek-v4.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -327,12 +319,12 @@
 <p><span class="turn">The significance of open weights has never been just about being free—it's about holding claims of "high efficiency" immediately accountable.</span></p>
 <p>K3 infrastructure open-sourced and audited.</p>
 </div>
-<div class="sources-bar">Sources: Hugging Face · Moonshot AI</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">July · DeepSeek · Pricing</div>
-<h2 class="chapter-title">DeepSeek cuts V4-Pro prices making them permanent</h2>
-<div class="prose">
+<div class="src-line">Sources: Hugging Face · Moonshot AI</div>
+</div>
+<div class="item">
+<div class="dateline">July · DeepSeek · Pricing</div>
+<div class="item-title">DeepSeek cuts V4-Pro prices making them permanent</div>
+<div class="body">
 <p><strong>Prior to K3, the price war among Chinese open models was already underway. DeepSeek made its V4-Pro price cuts permanent, establishing "affordable and sufficient" as the default stance. In the same month, GLM-5.2 topped multiple programming benchmarks.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="DeepSeek cuts V4-Pro prices making them permanent · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-27/dobot-robot.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -341,30 +333,26 @@
 <p><span class="turn">In the second half of the open-source model race, it's not about who launches first, but how large a model you can run for the same budget.</span></p>
 <p>DeepSeek permanent pricing.</p>
 </div>
-<div class="sources-bar">Sources: DeepSeek</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"K3 hit the trending list 30 minutes after launch, with nearly 3,700 people in line to download."</div>
-<div class="voice-meta">
-<span>, Clem Delangue · Hugging Face CEO</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"We let the models fight it out in offense and defense first, then decide which tasks to hand over to humans."</div>
-<div class="voice-meta">
-<span>, Hayete Gallot · Microsoft EVP of Security · Microsoft</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-24 · DOBOT · Physical AI</div>
-<h2 class="chapter-title">DOBOT humanoid robots, migrating collaborative arm technology to the "upper limbs"</h2>
-<div class="prose">
+<div class="src-line">Sources: DeepSeek</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"K3 hit the trending list 30 minutes after launch, with nearly 3,700 people in line to download."</p>
+<p class="voice-who">, Clem Delangue · Hugging Face CEO</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"We let the models fight it out in offense and defense first, then decide which tasks to hand over to humans."</p>
+<p class="voice-who">, Hayete Gallot · Microsoft EVP of Security · Microsoft</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-24 · DOBOT · Physical AI</div>
+<div class="item-title">DOBOT humanoid robots, migrating collaborative arm technology to the "upper limbs"</div>
+<div class="body">
 <p><strong>DOBOT has migrated the motion control technology of collaborative arms to the upper limbs of humanoid robots, proposing the concept of "<span class="accent">one brain, multiple bodies</span>", where a single agent can manage multiple robotic bodies simultaneously. On July 24, the company disclosed large-scale delivery across multiple industrial sites, initially taking over the most repetitive and hazardous tasks in factories.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='DOBOT humanoid robots, migrating collaborative arm technology to the "upper limbs" · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-27/bijagosarchipelago.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -373,15 +361,16 @@
 <p><span class="turn">What domestic humanoid robots are taking over first are the most repetitive and hazardous jobs on production lines—this isn't a demo, it's live production.</span></p>
 <p>Humanoid robots with one brain and multiple bodies.</p>
 </div>
-<div class="sources-bar">Sources: DOBOT · Shenzhen News</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-27 · Developer · Experience Shift</div>
-<h2 class="chapter-title">Pulling K3 locally, From "trusting PR" to "verifying yourself"</h2>
-<div class="prose">
+<div class="src-line">Sources: DOBOT · Shenzhen News</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-27 · Developer · Experience Shift</div>
+<div class="item-title">Pulling K3 locally, From "trusting PR" to "verifying yourself"</div>
+<div class="body">
 <p>Pulling K3 locally.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Pulling K3 locally, From "trusting PR" to "verifying yourself" · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-27/pixverse-funding.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -390,56 +379,67 @@
 <p><strong>On the same day, a developer downloaded the K3 weights without watching the launch event. They ran long-context retrieval and KDA decoding acceleration on their own machine, instantly replicating the officially claimed "<span class="num">6.3</span> x speedup" using the exact same input.</strong></p>
 <p><span class="turn">Models are now being "taken apart and inspected": the wall between creators and auditors is quietly being leveled by moments of "download it and run it yourself."</span></p>
 </div>
-<div class="sources-bar">Sources: Hugging Face</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · PixVerse · AI Video</div>
-<h2 class="chapter-title">PixVerse closes Series C round of nearly 30 hundred million, Alibaba heavily invests in AI video</h2>
-<div class="prose">
+<div class="src-line">Sources: Hugging Face</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Capital Flows</div>
+<div class="sec-title">Investment &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">07-14 · PixVerse · AI Video</div>
+<div class="item-title">PixVerse closes Series C round of nearly 30 hundred million, Alibaba heavily invests in AI video</div>
+<div class="body">
 <p><strong>AI video company PixVerse has completed its comprehensive Series C financing, accumulating <span class="num">29.8</span> hundred million yuan, with the C+ round led by Alibaba and co-invested by more than ten institutions including Wang Huiwen's family office; its PixVerse users now span <span class="num">177</span> countries, and the real-time world model R1 launched earlier this year supports 1080P.</strong></p>
 <p><span class="turn">AI video is succeeding AI Coding as the second track to achieve scaled commercialization, with capital backing its conviction with hard cash.</span></p>
 <p>Aish Technology secures financing.</p>
 </div>
-<div class="sources-bar">Sources: Toutiao · <a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">Sina Finance</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · Emergent · AI Website Building</div>
-<h2 class="chapter-title">Emergent secures 1.3 million USD C round, enabling people who don't know how to code to build software</h2>
-<div class="prose">
+<div class="src-line">Sources: Toutiao · <a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">Sina Finance</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-17 · Emergent · AI Website Building</div>
+<div class="item-title">Emergent secures 1.3 million USD C round, enabling people who don't know how to code to build software</div>
+<div class="body">
 <p><strong>AI software creation platform Emergent completes <span class="num">1.3</span> million USD C round, with its valuation soaring to <span class="num">15</span> hundred million, becoming a unicorn; the platform has enabled users to build over <span class="num">1200</span> ten thousand applications, with 70% of users having no prior programming experience.</strong></p>
 <p><span class="turn">The narrative that "anyone can build software" has found scaled evidence for the first time, shifting the bottleneck from "knowing how to code" to "knowing what you want."</span></p>
 </div>
-<div class="sources-bar">Sources: The Hindu · Emergent</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>Kimi K3 full weights go live, with open models touching the 3-trillion scale for the first time.</p>
+<div class="src-line">Sources: The Hindu · Emergent</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>Kimi K3 full weights go live, with open models touching the 3-trillion scale for the first time.</p>
 <p>Microsoft MAI-Cyber-1-Flash achieves a 95.95% win rate in offense and defense, as security enters the era of "model vs. model."</p>
 <p>K3 opens sources its three sets of infrastructure, allowing you to download and verify whether the "efficiency" is real.</p>
 <p>DOBOT humanoid robots migrate upper-limb technology from collaborative arms, achieving large-scale delivery on production lines.</p>
 <p>Aish raises nearly 3 billion, and Emergent secures 130 million USD, as capital bets on AI video and AI website building.</p>
-<p class="turn">Affordable open models, verifiable weights, and AI that builds its own tools are moving capabilities out of a select few server rooms and onto "your own machine."</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">Affordable open models, verifiable weights, and AI that builds its own tools are moving capabilities out of a select few server rooms and onto "your own machine."</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The geological history in the canyons is older than any model training." loading="lazy" src="https://apod.nasa.gov/apod/image/2606/alaskanunivak_tmo_20260603.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The geological history in the canyons is older than any model training.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Grand Canyon, Arizona, USA · NASA · <span class="num">36.06°N, 112.14°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After looking at AI news all day, are there still places on Earth that don't need GPU cooling?</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let us stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-26.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-28.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-13</span>
-<span>Monday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-13</h1><p class="doc-date">2026-07-13 · Monday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">New week: enterprises are embedding agents into core business systems, while researchers have thrown some cold water showing long-range planning remains a bottleneck. Regulatory and sovereignty issues also heated up early in the week. This edition focuses on two things: capabilities dropping into real workflows, and capability boundaries being empirically tested.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Monday, July 13, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">New week: enterprises are embedding agents into core business systems, while researchers have thrown some cold water showing long-range planning remains a bottleneck. Regulatory and sovereignty issues also heated up early in the week. This edition focuses on two things: capabilities dropping into real workflows, and capability boundaries being empirically tested.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · OpenAI · Computer Use Capability Open to Enterprises</div>
-<h2 class="chapter-title">OpenAI opens computer-operating agent capabilities to enterprise customers, allowing models to click buttons, fill out forms, and handle cross-software data transfer independently, but the real hard battle has just begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-13 · OpenAI · Computer Use Capability Open to Enterprises</div>
+<div class="item-title">OpenAI opens computer-operating agent capabilities to enterprise customers, allowing models to click buttons, fill out forms, and handle cross-software data transfer independently, but the real hard battle has just begun</div>
+<div class="body">
 <p><strong>OpenAI has opened the computer use capabilities of GPT-5.6 to enterprise customers—allowing models to view screens, click buttons, fill out forms, and migrate data across software just like humans, rather than merely generating text.</strong>This marks the first time agents are entering routine manual chores on a large scale.
 As capabilities transition from 'answering questions' to 'handling interface tasks for you,' enterprises care most about whether operations can be halted immediately upon error with complete audit trails for every step.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -284,15 +274,16 @@ As capabilities transition from 'answering questions' to 'handling interface tas
 <li>Focus: Interruptible, auditable, error-rollback support</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">Frontier Lab Blog</a> · <a href="https://github.com/openai/openai-python" rel="noopener" target="_blank">openai-python · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · Mistral · European Sovereignty Flagship</div>
-<h2 class="chapter-title">Mistral releases new flagship, treating 'European sovereignty + multilingualism' on par with parameter scale, but the real hard battle has just begun</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">Frontier Lab Blog</a> · <a href="https://github.com/openai/openai-python" rel="noopener" target="_blank">openai-python · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-13 · Mistral · European Sovereignty Flagship</div>
+<div class="item-title">Mistral releases new flagship, treating 'European sovereignty + multilingualism' on par with parameter scale, but the real hard battle has just begun</div>
+<div class="body">
 <p><strong>Mistral has released a new-generation flagship model, focusing heavily on <span class="num">3</span> European languages including French, German, and Spanish, emphasizing that training and inference remain within European borders to champion the 'Sovereign AI' narrative.</strong>As the boundaries of compute and data are redrawn, multilingual capabilities and data localization are no longer auxiliary selling points, but hard procurement thresholds for certain clients.
 Model competitiveness is expanding from single leaderboards to questions of 'who governs and where it runs.'</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -306,12 +297,12 @@ Model competitiveness is expanding from single leaderboards to questions of 'who
 </ul>
 <p>Mistral launches new flagship, treating 'European sovereignty + multilingualism' on par with parameter scale.</p>
 </div>
-<div class="sources-bar">Sources: Mistral AI · <a href="https://github.com/mistralai/mistral-src" rel="noopener" target="_blank">mistral-src · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · Microsoft · Multi-agent Collaboration Productized</div>
-<h2 class="chapter-title">Microsoft turns multi-agent collaboration into an enterprise-grade product, moving beyond research demos</h2>
-<div class="prose">
+<div class="src-line">Sources: Mistral AI · <a href="https://github.com/mistralai/mistral-src" rel="noopener" target="_blank">mistral-src · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-13 · Microsoft · Multi-agent Collaboration Productized</div>
+<div class="item-title">Microsoft turns multi-agent collaboration into an enterprise-grade product, moving beyond research demos</div>
+<div class="body">
 <p><strong>Microsoft has pushed the multi-agent collaboration framework Autogen into its enterprise product line, supporting task division, handover, and manual approval nodes across multiple dedicated agents, integrating directly into enterprise workflow systems.</strong>It turns 'how multiple agents cooperate' from paper schematics into components deployable in corporate workflows.
 For buyers, a single smarter model is nothing new; what's remarkable is a digital squad that 'needs no hiring, never tires, and handles handovers.'</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -324,15 +315,16 @@ For buyers, a single smarter model is nothing new; what's remarkable is a digita
 <li>From research demo to product component</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: Microsoft · <a href="https://github.com/microsoft/autogen" rel="noopener" target="_blank">Autogen · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Signals</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · Research Institution · Long-range Planning Still Abandoned</div>
-<h2 class="chapter-title">Benchmark test pours cold water, showing frontier models still abandon tasks midway during long-range planning</h2>
-<div class="prose">
+<div class="src-line">Sources: Microsoft · <a href="https://github.com/microsoft/autogen" rel="noopener" target="_blank">Autogen · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Signals</div>
+<div class="sec-title">Signals</div>
+<div class="item">
+<div class="dateline">07-13 · Research Institution · Long-range Planning Still Abandoned</div>
+<div class="item-title">Benchmark test pours cold water, showing frontier models still abandon tasks midway during long-range planning</div>
+<div class="body">
 <p><strong>Independent benchmarks show that even the strongest frontier models still experience failure rates exceeding <span class="num">50</span> steps in planning tasks requiring continuous execution without mid-course correction— <span class="num">40</span>%—often drifting quietly off course a third of the way through.</strong>A substantial engineering gap still remains between 'answering a single question well' and 'carrying out a long-running task seamlessly from start to finish.'
 For companies planning to deploy agents into critical workflows, this data should be read before any product launch event.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -346,12 +338,12 @@ For companies planning to deploy agents into critical workflows, this data shoul
 </ul>
 <p>A benchmark test pours cold water: frontier models still abandon tasks midway during long-range planning.</p>
 </div>
-<div class="sources-bar">Sources: arXiv · <a href="https://github.com/deepseek-ai/DeepSeek-V3" rel="noopener" target="_blank">DeepSeek-V3 · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · Regulation · Third-party Audits for High-risk Systems</div>
-<h2 class="chapter-title">Another regulatory milestone lands: independent third-party audits required for high-risk AI systems</h2>
-<div class="prose">
+<div class="src-line">Sources: arXiv · <a href="https://github.com/deepseek-ai/DeepSeek-V3" rel="noopener" target="_blank">DeepSeek-V3 · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-13 · Regulation · Third-party Audits for High-risk Systems</div>
+<div class="item-title">Another regulatory milestone lands: independent third-party audits required for high-risk AI systems</div>
+<div class="body">
 <p><strong>A jurisdiction enacted new regulations this week requiring independent third-party audits for AI systems used in recruitment, credit, healthcare, and other <span class="num">3</span> AI systems in high-risk scenarios must undergo regular independent third-party audits with key findings publicly disclosed.</strong>Audits transform model reliability from vendor claims into externally verifiable facts.
 For enterprise buyers, model selection now requires asking not just about accuracy, but whether an independent audit was performed.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -365,15 +357,16 @@ For enterprise buyers, model selection now requires asking not just about accura
 </ul>
 <p>New regulatory milestone: independent third-party audits mandated for high-risk AI systems.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/technology/ai-economy/" rel="noopener" target="_blank">Reuters</a> · <a href="https://github.com/run-llama/llama_index" rel="noopener" target="_blank">LlamaIndex · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Open Source Frontier</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · LlamaIndex · Long-context retrieval-augmented generation</div>
-<h2 class="chapter-title">New LlamaIndex update improves long-context retrieval accuracy and contextual integration</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/technology/ai-economy/" rel="noopener" target="_blank">Reuters</a> · <a href="https://github.com/run-llama/llama_index" rel="noopener" target="_blank">LlamaIndex · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontier</div>
+<div class="sec-title">Open Source Frontier</div>
+<div class="item">
+<div class="dateline">07-13 · LlamaIndex · Long-context retrieval-augmented generation</div>
+<div class="item-title">New LlamaIndex update improves long-context retrieval accuracy and contextual integration</div>
+<div class="body">
 <p><strong>LlamaIndex has released a new version enhancing ultra-long document retrieval and assembly, enabling agents to parse correct paragraphs and stitch context accurately before responding.</strong>The core pain point of RAG has always been retrieving genuinely relevant sentences, as basic search capability was solved long ago.
 As the community refines this capability, the gap between wrapper apps and truly functional assistants widens.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -386,12 +379,12 @@ As the community refines this capability, the gap between wrapper apps and truly
 <li>RAG evolution: From searchable to search-accurate</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/run-llama/llama_index" rel="noopener" target="_blank">LlamaIndex · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-12 · Anthropic · Desktop Browser</div>
-<h2 class="chapter-title">Claude Code desktop version adds a built-in browser, enabling Claude to check documentation directly within the app</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/run-llama/llama_index" rel="noopener" target="_blank">LlamaIndex · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-12 · Anthropic · Desktop Browser</div>
+<div class="item-title">Claude Code desktop version adds a built-in browser, enabling Claude to check documentation directly within the app</div>
+<div class="body">
 <p><strong>Anthropic has integrated an in-app browser into Claude Code desktop, allowing Claude to open docs and websites directly in the interface to reference while coding without switching to external browsers.</strong>For agents, this is a small step toward completing the ability to "read the environment." Previously, they could only read the text provided to them; now, they can query real-time web pages on their own.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Claude Code desktop version adds a built-in browser, enabling Claude to check documentation directly within the app · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-13/project-workflow-e5877259.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -399,12 +392,12 @@ As the community refines this capability, the gap between wrapper apps and truly
 </div>
 <p>Within the narrative of agents connecting to the real world,<span class="num">in-app browsing serves as a low-cost, high-frequency capability upgrade</span>: documentation sites, API references, and issue discussions are daily essentials for coding agents.<span class="turn">The focus of toolchain competition is shifting from model intelligence to an agent's ability to autonomously gather information.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://x.com/ClaudeDevs" rel="noopener" target="_blank">x.com/@ClaudeDevs</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · Jina AI · Webpage-to-model-readable conversion</div>
-<h2 class="chapter-title">Jina Reader converts any webpage into clean, model-ready text</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://x.com/ClaudeDevs" rel="noopener" target="_blank">x.com/@ClaudeDevs</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-13 · Jina AI · Webpage-to-model-readable conversion</div>
+<div class="item-title">Jina Reader converts any webpage into clean, model-ready text</div>
+<div class="body">
 <p><strong>Jina AI's Reader converts cluttered web pages into structured, model-friendly text with a single click, stripping away navigation and ads to leave only the main content, making it easy for agents to scrape as reference material.</strong>It solves the foundational step for agents: reliably acquiring clean information sources.
 When models read the web on your behalf, a denoising reading layer is sometimes more critical than an extra layer of inference.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -417,12 +410,12 @@ When models read the web on your behalf, a denoising reading layer is sometimes 
 <li>Reading layer for agent reference scraping</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/jina-ai/reader" rel="noopener" target="_blank">Jina AI Reader · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · MLCAI · In-browser inference</div>
-<h2 class="chapter-title">WebLLM enables fully in-browser model execution for offline Q&amp;A</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/jina-ai/reader" rel="noopener" target="_blank">Jina AI Reader · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-13 · MLCAI · In-browser inference</div>
+<div class="item-title">WebLLM enables fully in-browser model execution for offline Q&amp;A</div>
+<div class="body">
 <p><strong>WebLLM brings model inference into the browser, running dialogues directly on the web using local GPUs without sending inputs to servers.</strong>It pushes edge privacy to its lightest form—starting instantly via a webpage and continuing offline.
 For privacy-conscious users, this is the most seamless and secure way to integrate AI into daily workflows.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -436,15 +429,16 @@ For privacy-conscious users, this is the most seamless and secure way to integra
 </ul>
 <p>WebLLM runs models completely in-browser: enabling offline Q&amp;A.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/mlc-ai/web-llm" rel="noopener" target="_blank">WebLLM · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-12 · Meta · Open-source music generation</div>
-<h2 class="chapter-title">New AudioCraft version lowers the open-source barrier for text-to-music generation</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/mlc-ai/web-llm" rel="noopener" target="_blank">WebLLM · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-12 · Meta · Open-source music generation</div>
+<div class="item-title">New AudioCraft version lowers the open-source barrier for text-to-music generation</div>
+<div class="body">
 <p><strong>Meta's AudioCraft update improves the coherence of text-to-music and sound effects, enabling creators to generate usable soundtracks from single text prompts rather than random noise.</strong>Audio generation has historically lagged behind image generation; this update marks a step forward in producing cohesive, natural-sounding tracks.
 Following vision, audio is becoming the next frontier rapidly leveled by open-source tools.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -452,15 +446,16 @@ Following vision, audio is becoming the next frontier rapidly leveled by open-so
 <div style="padding: 10px 14px; font-size: 13px; color: var(--text-muted, #6B7280); font-family: var(--font-mono, monospace); line-height: 1.6; border-top: 1px solid var(--border, #E8E8EC);">Primary intelligence visual archive</div>
 </div>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/facebookresearch/audiocraft" rel="noopener" target="_blank">AudioCraft · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · Stability · Image generation quality scheduler</div>
-<h2 class="chapter-title">New Stable Diffusion scheduler improves consistency for identical prompts</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/facebookresearch/audiocraft" rel="noopener" target="_blank">AudioCraft · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-13 · Stability · Image generation quality scheduler</div>
+<div class="item-title">New Stable Diffusion scheduler improves consistency for identical prompts</div>
+<div class="body">
 <p><strong>Stability AI has introduced a new sampling scheduler that significantly boosts output stability and detail under identical prompts, reducing randomness across generations.</strong>For creators, stable reproducibility means finely tuned styles can be reliably retained.
 Great tools aren't just about feature bloat; they ensure that the output you loved last time can be reliably recreated.</p>
 <ul>
@@ -469,12 +464,12 @@ Great tools aren't just about feature bloat; they ensure that the output you lov
 <li>Style reproducibility</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: Stable Diffusion · GitHub</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · GGML · Running large models on mobile devices</div>
-<h2 class="chapter-title">llama.cpp enables phones to run larger models than before</h2>
-<div class="prose">
+<div class="src-line">Sources: Stable Diffusion · GitHub</div>
+</div>
+<div class="item">
+<div class="dateline">07-13 · GGML · Running large models on mobile devices</div>
+<div class="item-title">llama.cpp enables phones to run larger models than before</div>
+<div class="body">
 <p><strong>llama.cpp continues to optimize on-device inference, running models on mainstream mobile chips that are larger than the previous generation by <span class="num">nearly double</span> while maintaining usable response times.</strong>On-device progress is quiet: no press conferences, just "your pocket device can do a little more."
 As phones run stronger models locally, the boundary between cloud and edge is gradually being pushed back to the user.</p>
 <ul>
@@ -483,58 +478,64 @@ As phones run stronger models locally, the boundary between cloud and edge is gr
 <li>Cloud-edge boundary pushed back to user side</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/ggml-org/llama.cpp" rel="noopener" target="_blank">llama.cpp · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-13 · Synthesis · AI Coding Tool Financing</div>
-<h2 class="chapter-title">Another large funding round in the AI coding tool sector; capital flows toward "doing the work for you"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/ggml-org/llama.cpp" rel="noopener" target="_blank">llama.cpp · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment</div>
+<div class="sec-title">Investment</div>
+<div class="item">
+<div class="dateline">07-13 · Synthesis · AI Coding Tool Financing</div>
+<div class="item-title">Another large funding round in the AI coding tool sector; capital flows toward "doing the work for you"</div>
+<div class="body">
 <p><strong>The AI coding tool sector secured another <span class="num">hundreds of millions of dollars</span> in large-scale financing this week, with capital clearly favoring directions that "can take over entire engineering tasks rather than just auto-completing a single line of code."</strong>Market judgment is converging: single-point efficiency tools have a visible ceiling, and only agents capable of completing entire workflows hold imaginative potential.
 Where money flows often previews six months in advance which product categories will surge first.</p>
 </div>
-<div class="sources-bar">Sources: Agno · GitHub · Synthesis</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"The primary question on Monday isn't 'how strong is the model,' but which system it entered and who is accountable when it fails."</div>
-<div class="voice-meta">
-<span>— Daniel K. · Enterprise AI Implementation Consultant · 7/13</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Sovereign AI is not a slogan; it's whether compute, data, and compliance can be independently controlled."</div>
-<div class="voice-meta">
-<span>Sofia M. · European Center for Digital Policy · 7/13</span>
-<a href="https://www.reuters.com/ai-briefing" rel="noopener" target="_blank">Reuters</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose">
+<div class="src-line">Sources: Agno · GitHub · Synthesis</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"The primary question on Monday isn't 'how strong is the model,' but which system it entered and who is accountable when it fails."</p>
+<p class="voice-who">— Daniel K. · Enterprise AI Implementation Consultant · 7/13</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Sovereign AI is not a slogan; it's whether compute, data, and compliance can be independently controlled."</p>
+<p class="voice-who">Sofia M. · European Center for Digital Policy · 7/13 <a href="https://www.reuters.com/ai-briefing" rel="noopener" target="_blank">Reuters</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body">
 At the start of the week, enterprises pushed agents into real workflows (frontier labs computer use, Microsoft multi-agent collaboration), Europe treated "sovereignty" as a hard threshold (Mistral), and regulators wrote "third-party auditing" into rules. However, research threw cold water: long-horizon planning remains a weakness, with models frequently derailing mid-task.Implementation and boundaries are laid out simultaneously—where it can be used, where it gets stuck, and who is accountable for failures. These three questions determine whether it can enter critical workflows far more than "how much stronger is it."
-</div></article>
-</section>
-<section class="month-block" id="section-10">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+</div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Alaska's volcanic cluster, where glaciers and magma coexist." loading="lazy" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/154000/154461/iliamnavolcano_oli_20250610_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Alaska's volcanic cluster, where glaciers and magma coexist.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Iliamna Volcano, Alaska, USA · NASA · <span class="num">60.03°N, 153.09°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After looking at AI news all day, are there still places on Earth that don't need GPU cooling?</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let's stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-12.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-14.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

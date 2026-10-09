@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-29</span>
-<span>Saturday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-29</h1><p class="doc-date">2026-08-29 · Saturday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Today's keywords are " Acquisitions and Replacements ": Hugging Face is reportedly in $13 billion buyout talks , as capital reprices the spiritual totem of the open-source community.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>a Stanford study confirms that AI's displacement of entry-level jobs has materialized into hard data.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>and NVIDIA's Vera Rubin drives agentic inference efficiency to unprecedented heights, even as an NVIDIA executive faces indictment over AI server smuggling.Read on to see who is being acquired, who is being replaced, and who is being indicted.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Saturday, August 29, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Today's keywords are " Acquisitions and Replacements ": Hugging Face is reportedly in $13 billion buyout talks , as capital reprices the spiritual totem of the open-source community.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>a Stanford study confirms that AI's displacement of entry-level jobs has materialized into hard data.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>and NVIDIA's Vera Rubin drives agentic inference efficiency to unprecedented heights, even as an NVIDIA executive faces indictment over AI server smuggling.Read on to see who is being acquired, who is being replaced, and who is being indicted.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Headline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · M&amp;A · Hugging Face</div>
-<h2 class="chapter-title">The Open-Source Totem Takes to the Bargaining Table, but the Suitor Remains Unnamed: Hugging Face Reportedly Receives a $13 Billion Acquisition Offer</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Headline</div>
+<div class="item">
+<div class="dateline">08-24 · M&amp;A · Hugging Face</div>
+<div class="item-title">The Open-Source Totem Takes to the Bargaining Table, but the Suitor Remains Unnamed: Hugging Face Reportedly Receives a $13 Billion Acquisition Offer</div>
+<div class="body">
 <p><strong>According to <span class="num">TechCrunch</span>, <span class="num">Hugging Face</span> is engaging with multiple parties regarding an acquisition offer valued at approximately <span class="num">$13 billion</span>. <span class="turn">However</span>, the founding team remains fiercely dedicated to corporate independence, leaving the final outcome of these negotiations entirely unresolved.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="The Open-Source Totem Takes to the Bargaining Table, but the Suitor Remains Unnamed: Hugging Face Reportedly Receives a $13 Billion Acquisition Offer · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-25/GettyImages-2211086231-1152x648-65f3d831.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p><span class="turn">Yet the decisive question remains: who is buying?</span> If acquired by a tech giant, the open-source community's foremost concerns will focus on whether <span class="num">model access privileges, data policies, and community governance</span> will inevitably tighten. Co-founder Clem Delangue has repeatedly pledged in public to maintain independent stewardship. <span class="num">The ultimate resolution of these talks will serve as the definitive test of that promise.</span></p>
 <p>A historical reference: after <span class="num">Microsoft acquired GitHub</span>, developer anxiety ran high for months, yet the vast majority eventually stayed. Is Hugging Face's community stickier, or far more fragile? The answer rests on who acquires it—and how much operational autonomy they are willing to grant.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Labor Impact · Stanford Study</div>
-<h2 class="chapter-title">Stanford Employment Tracker Shows 19% Plunge in Entry-Level Tech Demand: Enterprise Automation's Displacement Effect Materializes in the Real Economy</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-24 · Labor Impact · Stanford Study</div>
+<div class="item-title">Stanford Employment Tracker Shows 19% Plunge in Entry-Level Tech Demand: Enterprise Automation's Displacement Effect Materializes in the Real Economy</div>
+<div class="body">
 <p><strong><span class="num">Stanford</span> researchers released a study finding that across industries heavily exposed to AI, youth employment fell by <span class="num">19%</span> relative to AI-resilient occupations. <span class="num">Ars Technica</span> designated the report as one of the most systematic empirical investigations into AI-driven job displacement published to date.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Stanford Employment Tracker Shows 19% Plunge in Entry-Level Tech Demand: Enterprise Automation's Displacement Effect Materializes in the Real Economy · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-25/end-to-end-tech-blog-agentic-perf-kv-192-69783b9d.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -299,12 +290,12 @@
 <p><span class="turn">What warrants greater alarm</span> is that junior roles are never just "first jobs"—they represent the indispensable apprenticeship pipeline through which young professionals cultivate practical judgment. <span class="accent">If that bridge is dismantled, who will fill senior and mid-level engineering positions ten years from now?</span> A partner at Goldman Sachs issued a simultaneous warning on the same day, calling the replacement of junior bankers' foundational reasoning training with AI a "huge danger." The simultaneous emergence of these two warnings is no coincidence.</p>
 <p>A Stanford study reveals that youth employment in AI-exposed sectors is 19% lower than in AI-resilient occupations. Photo: Ars Technica.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arstechnica.com/ai/2026/08/ai-is-hitting-entry-level-jobs-hardest-stanford-study-finds/" rel="noopener" target="_blank">Ars Technica</a> · Related Commentary: <a href="https://www.cnbc.com/2026/08/24/goldman-sachs-ai-partner-danger-skills.html" rel="noopener" target="_blank">CNBC</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Hardware · NVIDIA Smuggling Indictment</div>
-<h2 class="chapter-title">NVIDIA Senior Manager Indicted: In the Supermicro AI Server Smuggling Ring, the Inside Man Came from Within NVIDIA</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arstechnica.com/ai/2026/08/ai-is-hitting-entry-level-jobs-hardest-stanford-study-finds/" rel="noopener" target="_blank">Ars Technica</a> · Related Commentary: <a href="https://www.cnbc.com/2026/08/24/goldman-sachs-ai-partner-danger-skills.html" rel="noopener" target="_blank">CNBC</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Hardware · NVIDIA Smuggling Indictment</div>
+<div class="item-title">NVIDIA Senior Manager Indicted: In the Supermicro AI Server Smuggling Ring, the Inside Man Came from Within NVIDIA</div>
+<div class="body">
 <p><strong>A senior manager at <span class="accent">NVIDIA</span> has been indicted for his alleged role in a scheme with <span class="accent">Supermicro</span> to illicitly smuggle advanced AI servers into China, <span class="accent">Ars Technica</span> reported, following public rebukes by <span class="accent">Jensen Huang</span> condemning Supermicro's illicit shipments.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="NVIDIA Senior Manager Indicted: In the Supermicro AI Server Smuggling Ring, the Inside Man Came from Within NVIDIA · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-25/hand-key-illustration-getty-3e962c81.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -313,12 +304,12 @@
 <p>The irony is inescapable: <span class="accent">NVIDIA's own internal management was implicated in the very conduct NVIDIA publicly denounced.</span> Loopholes in semiconductor export controls do not reside solely across convoluted international trading intermediaries—they can be engineered from within corporate headquarters.</p>
 <p><span class="turn">The broader dilemma looms</span>: <span class="num">AI chip export restrictions targeting China</span> have become the centerpiece of US technological statecraft. Yet as long as the computational deficit remains yawning and arbitrage margins stay massive, the economic incentives driving illicit channels will never dissipate. One executive was apprehended this week; <span class="accent">how many more remain untouched?</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arstechnica.com/tech-policy/2026/08/nvidia-senior-manager-linked-to-supermicro-scheme-smuggling-ai-servers-to-china/" rel="noopener" target="_blank">Ars Technica</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Hardware · NVIDIA Vera Rubin</div>
-<h2 class="chapter-title">NVIDIA Vera Rubin NVL72: A 30x Surge in Agentic Inference Efficiency Sets the Next Benchmark in Compute Armaments</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arstechnica.com/tech-policy/2026/08/nvidia-senior-manager-linked-to-supermicro-scheme-smuggling-ai-servers-to-china/" rel="noopener" target="_blank">Ars Technica</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Hardware · NVIDIA Vera Rubin</div>
+<div class="item-title">NVIDIA Vera Rubin NVL72: A 30x Surge in Agentic Inference Efficiency Sets the Next Benchmark in Compute Armaments</div>
+<div class="body">
 <p><strong><span class="accent">NVIDIA</span> published official performance data for its <span class="accent">Vera Rubin NVL72</span> rack system: delivering up to a <span class="accent">30x</span> gain in performance per watt over the prior generation, purpose-engineered for <span class="num">AI agent inference</span> workloads, alongside the release of the <span class="num">NVLink Fusion</span> architecture enabling third-party XPUs to dock directly onto its fabric.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="NVIDIA Vera Rubin NVL72: A 30x Surge in Agentic Inference Efficiency Sets the Next Benchmark in Compute Armaments · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-25/Predictive-Categorization-cr-Zara-Picken-347e6e83.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -327,12 +318,12 @@
 <p>Data from OpenRouter provides essential context: <span class="num">agentic AI workloads consume roughly 15 times more tokens than standard conversational turns</span>, meaning every single percentage point gained in inference efficiency is multiplied exponentially in agent environments. <span class="turn">Vera Rubin arrives at the exact inflection point where enterprise agent adoption is taking off.</span></p>
 <p><span class="accent">NVLink Fusion represents another strategic maneuver</span>: by opening its proprietary interconnect fabric to third-party silicon, NVIDIA projects an open-ecosystem posture while simultaneously tethering competitors to its own networking backplane. <span class="turn">When NVIDIA embraces outside XPUs, its underlying message is clear: "We do not fear your silicon; we only care that your data flows through our pipes."</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents/" rel="noopener" target="_blank">NVIDIA Blog</a> · Architecture Details: <a href="https://blogs.nvidia.com/blog/nvlink-fusion-xpu-ai-factory/" rel="noopener" target="_blank">NVIDIA NVLink Fusion</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Security · Instinct AI Assistant</div>
-<h2 class="chapter-title">The More Capable Instinct 's AI Assistant Becomes, the Deeper the Privacy Anxiety: Early Users Caught Between Awe and Dread</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents/" rel="noopener" target="_blank">NVIDIA Blog</a> · Architecture Details: <a href="https://blogs.nvidia.com/blog/nvlink-fusion-xpu-ai-factory/" rel="noopener" target="_blank">NVIDIA NVLink Fusion</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Security · Instinct AI Assistant</div>
+<div class="item-title">The More Capable Instinct 's AI Assistant Becomes, the Deeper the Privacy Anxiety: Early Users Caught Between Awe and Dread</div>
+<div class="body">
 <p><strong><span class="accent">TechCrunch</span> reports that while early testers of autonomous assistant <span class="accent">Instinct</span> were dazzled by its execution capabilities, <span class="turn">they simultaneously</span> raised sharp alarms regarding its <span class="num">broad system-level access privileges, sweeping terms of service, and autonomous delegated action capabilities</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="The More Capable Instinct 's AI Assistant Becomes, the Deeper the Privacy Anxiety: Early Users Caught Between Awe and Dread · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-25/080726-teachers-deepfakes-ai-11fc9b0d.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -342,142 +333,144 @@
 <p><span class="turn">As AI assistants evolve into true autonomous agents, users are pushed beyond basic data privacy concerns into the uncharted territory of</span> <span class="num">delegation governance boundaries</span>: What are you willing to let it execute? What lines must it never cross? Do the legal terms provide clear boundaries? <span class="accent">Most users clicking "Agree" have little understanding of what powers they have actually surrendered.</span></p>
 <p>Early testers raise concerns over Instinct's deep system permissions and autonomous delegation terms. Image: TechCrunch.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Analysis · Agent Security</div>
-<h2 class="chapter-title">Ben Thompson on Agent Security: Incentives Structurally Favor the Attacker, Forcing Defense to Completely Rethink Its Playbook</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Analysis · Agent Security</div>
+<div class="item-title">Ben Thompson on Agent Security: Incentives Structurally Favor the Attacker, Forcing Defense to Completely Rethink Its Playbook</div>
+<div class="body">
 <p><strong><span class="num">Stratechery</span>'s latest long-form essay, "Autonomy and Innovation," focuses squarely on <span class="accent">agentic cybersecurity</span>: as AI agents begin autonomously operating computers, the fundamental cost-benefit dynamics of offense versus defense are being entirely rewritten.</strong></p>
 <p>Thompson's core insight is that <span class="accent">the incentive structure naturally favors offensive actors</span>. An attacker needs to find only a single exposed aperture, whereas defenders must vigilantly secure every possible vector; autonomous agents place scalable automation directly into both camps simultaneously. <span class="turn">This imbalance is a long-standing reality of cybersecurity, but autonomous agents dramatically compound it.</span></p>
 <p>The downstream implication is even more compelling: <span class="num">these structural dynamics will eventually bottleneck incumbent cybersecurity giants while creating fertile ground for a new wave of startups</span>. When the foundational rules shift, the durability of legacy enterprise moats must be reassessed from scratch.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://stratechery.com/2026/autonomy-and-innovation/" rel="noopener" target="_blank">Stratechery</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Dev Tools · OpenAI GPT-5.6</div>
-<h2 class="chapter-title">GPT-5.6 Lands in Kiro: OpenAI Ignites a Price War in Developer Environments, Where Price-Performance Is the True Front Line</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://stratechery.com/2026/autonomy-and-innovation/" rel="noopener" target="_blank">Stratechery</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Dev Tools · OpenAI GPT-5.6</div>
+<div class="item-title">GPT-5.6 Lands in Kiro: OpenAI Ignites a Price War in Developer Environments, Where Price-Performance Is the True Front Line</div>
+<div class="body">
 <p><strong><span class="accent">OpenAI</span> announced that <span class="accent">GPT-5.6</span> is now live in the AI development environment <span class="accent">Kiro</span>, highlighting "superior price-performance" to support developers across code planning, implementation, review, and automated testing workflows.</strong></p>
 <p>GPT-5.6's positioning is straightforward: <span class="num">it doesn't claim frontier-leading benchmark supremacy, but it delivers unmatched cost efficiency</span>. Within dedicated environments like Kiro, developers trigger thousands of repetitive inference requests each day; <span class="accent">unit cost matters far more than peak capability</span>. By embedding this model into core developer workflows, OpenAI is leveraging price-performance to lock in daily programming habits.</p>
 <p><span class="turn">This creates an instructive contrast with Anthropic's strategy around Fable:</span> one captures high-end market share through elite frontier reasoning, while the other blankets high-frequency routine workloads with aggressive cost-efficiency. <span class="accent">Both paths are advancing simultaneously; which proves more enduring remains for the market to decide.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/gpt-5-6-in-kiro" rel="noopener" target="_blank">OpenAI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Robotics Foundation Model · GEN-1.5</div>
-<h2 class="chapter-title">GEN-1.5: Learning New Manipulation Tasks from a Single 3-to-12-Second Demo—The "One-Shot Demonstration" Era for Robotics Has Arrived</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/gpt-5-6-in-kiro" rel="noopener" target="_blank">OpenAI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-24 · Robotics Foundation Model · GEN-1.5</div>
+<div class="item-title">GEN-1.5: Learning New Manipulation Tasks from a Single 3-to-12-Second Demo—The "One-Shot Demonstration" Era for Robotics Has Arrived</div>
+<div class="body">
 <p><strong><span class="accent">Generalist AI</span> released <span class="accent">GEN-1.5</span>, a robotics foundation model that masters novel physical manipulation tasks using just <span class="accent">3 to 12 seconds</span> of sensorimotor demonstration data, requiring zero downstream fine-tuning or massive hand-labeled datasets.</strong></p>
 <p>The significance here lies in compressing the demonstration barrier to the absolute minimum. <span class="num">Traditional robotic programming requires specialized engineering scripts or exhaustive teleoperation recording</span>; GEN-1.5 reduces that entire onboarding process to the duration of a video clip. <span class="turn">When teaching costs drop to near zero, industrial line-change cycles will collapse from days to minutes.</span></p>
 <p><span class="accent">How robustly one-shot demonstrations generalize across diverse environmental variations</span> remains the true test for foundation models of this class. The initial MarkTechPost coverage did not disclose detailed generalization metrics, marking an essential technical question awaiting independent validation.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.marktechpost.com/2026/08/24/generalist-ai-releases-gen-1-5-a-robot-foundation-model-that-learns-new-tasks-from-one-3-12-second-demo/" rel="noopener" target="_blank">MarkTechPost</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Inference Security · LLM Jailbreaks</div>
-<h2 class="chapter-title">LLMs Can Seize Host Machines via Inference Engine Flaws: Threats Lurk Far Below the Prompt Layer</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.marktechpost.com/2026/08/24/generalist-ai-releases-gen-1-5-a-robot-foundation-model-that-learns-new-tasks-from-one-3-12-second-demo/" rel="noopener" target="_blank">MarkTechPost</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Inference Security · LLM Jailbreaks</div>
+<div class="item-title">LLMs Can Seize Host Machines via Inference Engine Flaws: Threats Lurk Far Below the Prompt Layer</div>
+<div class="body">
 <p><strong>Security researcher <span class="accent">Boyd Kane</span> published an essay demonstrating that <span class="num">large language models can hijack host infrastructure by exploiting vulnerabilities in underlying inference engines</span>, establishing an attack vector that entirely circumvents traditional prompt filters and content moderation guardrails.</strong></p>
 <p>This is fundamentally distinct from conventional "jailbreaking." <span class="accent">Prompt injection induces models to generate prohibited text; inference engine exploitation forces host runtimes to execute arbitrary actions</span>, including file system access, unauthorized network calls, and child process execution. <span class="turn">As AI models run continuously on enterprise servers processing untrusted external inputs, this attack surface poses a tangible threat.</span></p>
 <p>The research triggered extensive discussion across the Hacker News community. <span class="num">Security audits for inference runtime engines</span> currently lag far behind research into model weights and alignment—a disparity that is rapidly turning into an exploitable security blind spot.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://boydkane.com/essays/llms-could-control-their-host-machines-by-exploiting-inference-engines" rel="noopener" target="_blank">Boyd Kane</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Packaging Patterns · SQLite</div>
-<h2 class="chapter-title">Packaging Executables as SQLite Databases: A Clever Linux Pattern Worth Bookmarking</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://boydkane.com/essays/llms-could-control-their-host-machines-by-exploiting-inference-engines" rel="noopener" target="_blank">Boyd Kane</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Packaging Patterns · SQLite</div>
+<div class="item-title">Packaging Executables as SQLite Databases: A Clever Linux Pattern Worth Bookmarking</div>
+<div class="body">
 <p><strong>Farid Zakaria highlighted a clever Linux pattern: <span class="num">configuring an SQLite database file to double directly as an executable binary</span>, bundling application logic and its underlying datastore into a single unified file. <span class="accent">Simon Willison endorsed the concept</span>, praising its elegant, self-contained architecture.</strong></p>
 <p>Traditional application distribution splits executables from data stores, complicating deployment and migration. <span class="turn">When the database file itself is directly executable</span>, command-line utilities, database schemas, and initial datasets collapse into a single portable artifact ready to run anywhere.</p>
 <p>For developers creating local developer tools, this represents another compelling approach to <span class="accent">"single-file distribution"</span>—sharing the spirit of self-extracting archives, but with far greater structural elegance.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database/" rel="noopener" target="_blank">Simon Willison</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Replacing bankers' reasoning training with AI poses a tremendous danger."</div>
-<div class="voice-meta">
-<span>Senior Technology Executive, Goldman Sachs</span>
-<a href="https://www.cnbc.com/2026/08/24/goldman-sachs-ai-partner-danger-skills.html" rel="noopener" target="_blank">CNBC</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Children acquire language with vastly less data than any machine ever needs, and we still don't know why."</div>
-<div class="voice-meta">
-<span>Language Acquisition Research Report</span>
-<a href="https://www.technologyreview.com/2026/08/24/1141740/kids-machines-language-learning/" rel="noopener" target="_blank">MIT Technology Review</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Neuroscience · Quanta</div>
-<h2 class="chapter-title">How the Brain Compresses a Noisy World: Quanta Reports on a New Categorization Framework Where Neural Systems Function as Prediction Engines</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database/" rel="noopener" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Replacing bankers' reasoning training with AI poses a tremendous danger."</p>
+<p class="voice-who">Senior Technology Executive, Goldman Sachs <a href="https://www.cnbc.com/2026/08/24/goldman-sachs-ai-partner-danger-skills.html" rel="noopener" target="_blank">CNBC</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Children acquire language with vastly less data than any machine ever needs, and we still don't know why."</p>
+<p class="voice-who">Language Acquisition Research Report <a href="https://www.technologyreview.com/2026/08/24/1141740/kids-machines-language-learning/" rel="noopener" target="_blank">MIT Technology Review</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-24 · Neuroscience · Quanta</div>
+<div class="item-title">How the Brain Compresses a Noisy World: Quanta Reports on a New Categorization Framework Where Neural Systems Function as Prediction Engines</div>
+<div class="body">
 <p><strong><span class="accent">Quanta Magazine</span> reported on an emerging framework for understanding neural categorization: <span class="num">the nervous system functions primarily as a prediction engine, with memory storage acting as a mere secondary byproduct</span>. It manages an overwhelming sensory reality through predictive compression.</strong></p>
 <p>This thesis aligns closely with reporting published the same day by MIT Technology Review: <span class="accent">children learn language from vastly less data than any machine requires</span>. The unmatched data efficiency of human cognition may stem directly from this compression-driven categorization architecture.</p>
 <p><span class="turn">Could AI's next major theoretical breakthrough lie hidden within classic neuroscience questions?</span> At the very least, researchers across both fields are increasingly citing each other's foundational work.</p>
 <p>A new framework detailed by Quanta suggests the nervous system categorizes reality via predictive compression. Illustration: Zara Picken / Quanta Magazine.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.quantamagazine.org/a-new-framework-for-how-the-brain-compresses-our-noisy-world-20260824/" rel="noopener" target="_blank">Quanta Magazine</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Healthcare AI · Alibaba DAMO Academy</div>
-<h2 class="chapter-title">Alibaba DAMO Academy's Liver Cancer AI Identifies 1-Centimeter Microtumors: Precision Reaching Beyond the Limits of the Human Eye</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.quantamagazine.org/a-new-framework-for-how-the-brain-compresses-our-noisy-world-20260824/" rel="noopener" target="_blank">Quanta Magazine</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Healthcare AI · Alibaba DAMO Academy</div>
+<div class="item-title">Alibaba DAMO Academy's Liver Cancer AI Identifies 1-Centimeter Microtumors: Precision Reaching Beyond the Limits of the Human Eye</div>
+<div class="body">
 <p><strong><span class="accent">Alibaba DAMO Academy</span>, in partnership with Shengjing Hospital of China Medical University and other clinical centers, unveiled <span class="accent">DAMO LiON</span>, an oncology diagnostic AI model capable of pinpointing microtumors down to <span class="accent">1 centimeter</span> in diameter—covering the vital diagnostic window for early-stage liver cancer intervention.</strong></p>
 <p><span class="num">One centimeter</span> is widely regarded as a critical diagnostic threshold: lesions beneath this dimension are routinely missed even by veteran radiologists. <span class="accent">DAMO LiON transforms screening at this scale into a systematic, reproducible capability</span>, removing dependence on subjective visual screening.</p>
 <p><span class="turn">However</span>, the transition from benchmark success to clinical adoption is complex: <span class="num">false-positive rates, multi-center clinical trials, and regulatory certifications</span> all demand substantial time. The initial reporting did not disclose specific sensitivity and specificity numbers, which remain the two indispensable metrics for evaluating any diagnostic model.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.qbitai.com/2026/08/478473.html" rel="noopener" target="_blank">QbitAI</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Video Generation · Alibaba Wan3.0</div>
-<h2 class="chapter-title">Alibaba Officially Launches Wan3.0: Industry Praises Its "Stability, Realism, and Texture" as Generative Video Enters a Quality Convergence Phase</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.qbitai.com/2026/08/478473.html" rel="noopener" target="_blank">QbitAI</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-24 · Video Generation · Alibaba Wan3.0</div>
+<div class="item-title">Alibaba Officially Launches Wan3.0: Industry Praises Its "Stability, Realism, and Texture" as Generative Video Enters a Quality Convergence Phase</div>
+<div class="body">
 <p><strong><span class="accent">Alibaba</span> officially launched its large-scale generative video model, <span class="accent">Wan3.0</span>. Industry benchmarks and initial reviews centered on three core descriptors: "<span class="accent">stability, realism, and texture</span>," demonstrating noticeable gains in physical consistency and fine visual fidelity.</strong></p>
 <p>The term "stability" carries immense weight in generative video: <span class="num">the primary flaw of early video models was inter-frame jitter and unnatural object warping</span>; temporal stability is the threshold that separates recreational demos from usable production tooling. Wan3.0 earning this label indicates it has cleared the baseline barrier of practical utility.</p>
 <p><span class="turn">Where will the competitive focus shift next?</span> <span class="accent">Long-form video continuity, character identity retention across scenes, and granular controllable editing</span> remain unmastered by any vendor today. The debut of Wan3.0 marks another milestone in this marathon, not its finish line.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.qbitai.com/2026/08/478427.html" rel="noopener" target="_blank">QbitAI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Education · Deepfakes</div>
-<h2 class="chapter-title">Teachers Targeted by AI Deepfakes: Students Generate Explicit Content Targeting the Very Educators Teaching Them</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.qbitai.com/2026/08/478427.html" rel="noopener" target="_blank">QbitAI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">08-24 · Education · Deepfakes</div>
+<div class="item-title">Teachers Targeted by AI Deepfakes: Students Generate Explicit Content Targeting the Very Educators Teaching Them</div>
+<div class="body">
 <p><strong>An investigative report by <span class="accent">Wired</span> reveals that victims of <span class="num">deepfake pornography</span> are increasingly expanding from students to teachers. Four educators described their harrowing experiences after students generated sexualized imagery of them using generative tools—encountering unresponsive reporting avenues, inadequate school administration policies, and lasting psychological distress.</strong></p>
 <p>The dynamic is especially troubling: <span class="accent">the perpetrators are minors while the victims are adult educators</span>, leaving existing legal statutes and school administrative disciplinary codes utterly unprepared. <span class="turn">When access to generative synthesis tools reaches near-zero friction, anyone can become a creator of abuse, and anyone can become a target.</span></p>
 <p><span class="num">Deepfake legislation</span> across US states remains a fragmented patchwork, with comprehensive federal protections still missing. <span class="accent">As technological capabilities race far ahead of legal protections, victims are left largely on their own to navigate the fallout.</span></p>
 <p>Four teachers speak to Wired about their experiences after students generated sexualized deepfake content depicting them. Image: Wired.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.wired.com/story/teachers-deepfake-ai-students-content/" rel="noopener" target="_blank">Wired</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Funding &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-24 · Embodied AI · General Intuition</div>
-<h2 class="chapter-title">General Intuition Hits $6 Billion Valuation: Valor and Point72 Bet Big on "Teaching AI to Move Through Physical Space"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.wired.com/story/teachers-deepfake-ai-students-content/" rel="noopener" target="_blank">Wired</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Capital Flows</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-24 · Embodied AI · General Intuition</div>
+<div class="item-title">General Intuition Hits $6 Billion Valuation: Valor and Point72 Bet Big on "Teaching AI to Move Through Physical Space"</div>
+<div class="body">
 <p><strong><span class="accent">General Intuition</span> is closing a new financing round at a <span class="accent">$6 billion</span> valuation, backed by prominent investors including <span class="accent">Valor</span> and <span class="accent">Point72</span>. The company is training a <span class="num">generalized AI agent foundation model</span> designed to master continuous navigation across physical space and temporal dynamics, with direct applications in robotics.</strong></p>
 <p>"Moving through physical space" sounds basic, but remains immensely difficult in practice. <span class="num">Language models process discrete symbolic sequences, whereas embodied agents operate within continuous physical environments</span>—demanding entirely distinct perceptual, reasoning, and motor execution loops. <span class="turn">By tackling the problem at the foundation model layer, General Intuition bypasses hardware-specific constraints</span>, pursuing a higher-risk, yet potentially transformative market position.</p>
 <p><span class="accent">A $6 billion valuation</span> signals investor conviction that an embodied foundation model layer can succeed as a standalone platform without being locked to proprietary robotics hardware. <span class="turn">If this hypothesis holds true, its ultimate rivals will not be standalone robot manufacturers, but rather any tech giant seeking to control the infrastructure of embodied intelligence.</span></p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p><p><span class="turn">Today's overarching narrative</span>: Acquisitions, replacements, and indictments. Three words that capture the AI industry's transition from speculative expansion into structural friction.</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p>
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p><p><span class="turn">Today's overarching narrative</span>: Acquisitions, replacements, and indictments. Three words that capture the AI industry's transition from speculative expansion into structural friction.</p></p></div></div>
+<div class="item">
+<div class="body"><p><p>
 Hugging Face in reported $13 billion buyout talks: Capital reprices open source's central totem.
 Stanford data solidifies the trend: Junior tech roles drop 19%; displacement is no longer theoretical.
 An NVIDIA senior manager is indicted: Server smuggling syndicates reached into the company itself.
@@ -486,24 +479,33 @@ GEN-1.5 teaches robots new manipulation skills from a 12-second demo: Demonstrat
 Stratechery evaluates agentic security: Incentives favor offensive actors, forcing moats to be recalibrated.
 Educators become targets of student deepfakes: Legal frameworks lag behind generative tooling.
 General Intuition achieves a $6 billion valuation: The infrastructure race for embodied AI accelerates.
-</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p class="turn">As the industry pivots from "who can build it" to "who will govern it," friction becomes the defining dynamic of this era.</p></p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+</p></p></div></div>
+<div class="item">
+<div class="body"><p><p class="turn">As the industry pivots from "who can build it" to "who will govern it," friction becomes the defining dynamic of this era.</p></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="In north-central Argentina, the 2026 dry-season wildfires across the Gran Chaco forests have burned through significantly larger expanses than in prior years, with flames sweeping across sanctuaries harboring rare native tree species." loading="lazy" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/153000/153734/letterv_oli2_20240602_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">In north-central Argentina, the 2026 dry-season wildfires across the Gran Chaco forests have burned through significantly larger expanses than in prior years, with flames sweeping across sanctuaries harboring rare native tree species.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Fires Threaten Rare Forests, Argentina · NASA · <span class="num">27.00°S, 64.00°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a full day following AI breakthroughs, remember that the Earth still holds vast landscapes that require no GPU cooling. Mountains, rivers, and oceans—stay curious, and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-28.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-30.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

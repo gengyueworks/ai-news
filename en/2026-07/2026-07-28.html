@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-28</span>
-<span>Tuesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-28</h1><p class="doc-date">2026-07-28 · Tuesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Compute is aligning with "next-generation pre-training."NVIDIA invested 50 billion USD in Ilya's SSI, pushing its valuation to 320 billion.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>on the same day, MCP advanced the stateless specification to release candidate, allowing developers to write "stateless" agent calls for the first time.Capital is concentrating in cutting-edge models while protocols break capabilities into universally callable components—both trends pushing AI toward easier integration and bolder adoption.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Tuesday, July 28, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Compute is aligning with "next-generation pre-training."NVIDIA invested 50 billion USD in Ilya's SSI, pushing its valuation to 320 billion.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>on the same day, MCP advanced the stateless specification to release candidate, allowing developers to write "stateless" agent calls for the first time.Capital is concentrating in cutting-edge models while protocols break capabilities into universally callable components—both trends pushing AI toward easier integration and bolder adoption.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-28 · NVIDIA / SSI · Compute Investment</div>
-<h2 class="chapter-title">NVIDIA Invests $5B in SSI to Feed Vera Rubin Compute to Ilya, But the Real Hard Battle Has Just Begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-28 · NVIDIA / SSI · Compute Investment</div>
+<div class="item-title">NVIDIA Invests $5B in SSI to Feed Vera Rubin Compute to Ilya, But the Real Hard Battle Has Just Begun</div>
+<div class="body">
 <p>NVIDIA invests $5B in SSI.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="NVIDIA Invests $5B in SSI to Feed Vera Rubin Compute to Ilya, But the Real Hard Battle Has Just Begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-28/nvidia-rubin.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -280,15 +270,16 @@
 <p><strong>NVIDIA invests <span class="num">50</span> billion USD in Ilya Sutskever's Safe Superintelligence (SSI), raising its valuation to <span class="num">320</span> billion; in exchange, SSI secures Vera Rubin platform compute, approximately <span class="num">10</span> times the scale of the previous generation, dedicated to next-gen pre-training.</strong>This is a rare instance of NVIDIA betting capital directly on a lab with "no product yet."</p>
 <p><span class="turn">Compute is no longer just selling shovels; it is picking which team is most likely to strike the next gold mine and handing them the shovel.</span></p>
 </div>
-<div class="sources-bar">Sources: NVIDIA · Reuters</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontlines</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-28 · Anthropic-Led · Protocol</div>
-<h2 class="chapter-title">MCP Releases Stateless Candidate, Enabling "Stateless" Agent Calls for the First Time</h2>
-<div class="prose">
+<div class="src-line">Sources: NVIDIA · Reuters</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontlines</div>
+<div class="sec-title">Frontlines</div>
+<div class="item">
+<div class="dateline">07-28 · Anthropic-Led · Protocol</div>
+<div class="item-title">MCP Releases Stateless Candidate, Enabling "Stateless" Agent Calls for the First Time</div>
+<div class="body">
 <p><strong>On July 28, MCP released the stateless specification candidate, officially graduating Tasks and MCP Apps. Calls no longer require persistent connections or session state, carrying all context in a single request.</strong>For governance, the specification is handed over to the AAIF and Linux Foundation for co-management, preventing any single company from controlling the steering wheel.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='MCP Releases Stateless Candidate, Enabling "Stateless" Agent Calls for the First Time · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-28/github-copilot-workspace.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -297,12 +288,12 @@
 <p><span class="turn">The protocol decomposes "thinking steps" into universally callable parts, sparing developers from session-state headaches and making agents easier to assemble and swap.</span></p>
 <p>MCP stateless specification.</p>
 </div>
-<div class="sources-bar">Sources: MCP Blog · <a href="https://semianalysis.com/2026/huawei-atlas-950-superpod-architecture/" rel="noopener" target="_blank">ITHome</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-28 · Ecosystem · Developers</div>
-<h2 class="chapter-title">MCP Apps Graduate, Third Parties Can Now Issue "Verifiable" Remote Tools</h2>
-<div class="prose">
+<div class="src-line">Sources: MCP Blog · <a href="https://semianalysis.com/2026/huawei-atlas-950-superpod-architecture/" rel="noopener" target="_blank">ITHome</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-28 · Ecosystem · Developers</div>
+<div class="item-title">MCP Apps Graduate, Third Parties Can Now Issue "Verifiable" Remote Tools</div>
+<div class="body">
 <p><strong>Landing alongside the specification is the MCP Apps remote tool standard, enabling developers to publish signed, verifiable-source remote capabilities. Models verify identity before invocation, eliminating blind trust in unfamiliar code.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='MCP Apps Graduate, Third Parties Can Now Issue "Verifiable" Remote Tools · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-28/open-weights-letter.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -310,12 +301,12 @@
 </div>
 <p><span class="turn">Trust in the tool ecosystem shifts from "knowing the person" to "verifiable provenance of capabilities."</span></p>
 </div>
-<div class="sources-bar">Sources: MCP Blog</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-28 · NVIDIA · Security Ecosystem</div>
-<h2 class="chapter-title">NVIDIA Spearheads Open Secure AI Alliance, "Attackers Already Have Strong AI; Defenders Must Have an Open Ecosystem"</h2>
-<div class="prose">
+<div class="src-line">Sources: MCP Blog</div>
+</div>
+<div class="item">
+<div class="dateline">07-28 · NVIDIA · Security Ecosystem</div>
+<div class="item-title">NVIDIA Spearheads Open Secure AI Alliance, "Attackers Already Have Strong AI; Defenders Must Have an Open Ecosystem"</div>
+<div class="body">
 <p><strong><span class="accent">NVIDIA</span>With the official formation of the Open Secure AI Alliance, Jensen Huang's core argument is: attackers already wield powerful AI, so defenders must possess a complete ecosystem spanning open-source and closed-source frontier models.</strong>Members include Hugging Face, LangChain, Nous Research, Unsloth, Microsoft, IBM, Cloudflare, Cisco, Red Hat, Salesforce, SAP, and others.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='NVIDIA Spearheads Open Secure AI Alliance, "Attackers Already Have Strong AI; Defenders Must Have an Open Ecosystem" · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-28/kimi-k3.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -325,12 +316,12 @@
 <p>On the same day, Anthropic also issued a statement tightening its stance: not opposing open-source weights, but supporting chip controls against China.<span class="turn">When chipmakers, the open-source community, and the most cautious labs make a rare joint appearance on "defense requires open source," the pendulum of the security narrative shifts from "will models be too strong" to "can defenders promptly access equal strength."</span></p>
 <p>Open Secure AI Alliance.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-much-ado-about-open-weights" rel="noopener" target="_blank">AINews</a> · NVIDIA</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-28 · Moonshot AI · Open Weights</div>
-<h2 class="chapter-title">K3 Weights Released, Gap Between Open and Closed Narrows to 4 Points, the Smallest Since February</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-much-ado-about-open-weights" rel="noopener" target="_blank">AINews</a> · NVIDIA</div>
+</div>
+<div class="item">
+<div class="dateline">07-28 · Moonshot AI · Open Weights</div>
+<div class="item-title">K3 Weights Released, Gap Between Open and Closed Narrows to 4 Points, the Smallest Since February</div>
+<div class="body">
 <p><strong>July <span class="num">27</span> 28,<span class="accent">Moonshot AI</span>fulfilled its promise by releasing Kimi K3 weights, technical report, and supporting infrastructure all at once:<span class="num">2.8</span> trillion MoE, activated per token <span class="num">1040</span> 100 million, <span class="num">896</span> experts, <span class="num">100</span> 100k context; alongside open-sourced FlashKDA (attention kernel), MoonEP (MoE communication library), and AgentENV.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="K3 Weights Released, Gap Between Open and Closed Narrows to 4 Points, the Smallest Since February · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-28/agility-digit.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -341,15 +332,16 @@
 <p><span class="turn">When the definition of "open source" is squeezed down to "downloadable with commercial revenue share retained," the default form of frontier openness is set.</span></p>
 <p>Kimi K3 weights open-sourced.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-much-ado-about-open-weights" rel="noopener" target="_blank">AINews</a> · <a href="https://huggingface.co/moonshotai/Kimi-K3" rel="noopener" target="_blank">Hugging Face</a> · Artificial Analysis</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Front</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-28 · MCP · Open Specification</div>
-<h2 class="chapter-title">stateless specification directly published, some want "calls that can run anywhere"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-much-ado-about-open-weights" rel="noopener" target="_blank">AINews</a> · <a href="https://huggingface.co/moonshotai/Kimi-K3" rel="noopener" target="_blank">Hugging Face</a> · Artificial Analysis</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Front</div>
+<div class="sec-title">Open Source Front</div>
+<div class="item">
+<div class="dateline">07-28 · MCP · Open Specification</div>
+<div class="item-title">stateless specification directly published, some want "calls that can run anywhere"</div>
+<div class="body">
 <p><strong>The core of this update is that long-lived connection sessions became a bottleneck for deploying agents to the cloud, so calls were redesigned to be stateless, carrying full context in a single request, making reconnection and horizontal scaling effortless.</strong>The specification document is fully public, and the community released a replica implementation the very same day.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='stateless specification directly published, some want "calls that can run anywhere" · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-28/australiafires.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -357,12 +349,12 @@
 </div>
 <p><span class="turn">The most interesting moments in open source are when someone finds something awkward and simply remakes it so that "everyone can easily connect to it."</span></p>
 </div>
-<div class="sources-bar">Sources: MCP Blog · <a href="https://semianalysis.com/2026/huawei-atlas-950-superpod-architecture/" rel="noopener" target="_blank">ITHome</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-28 · Governance · Foundation</div>
-<h2 class="chapter-title">MCP Governance Handover Dual-Foundation Co-Management</h2>
-<div class="prose">
+<div class="src-line">Sources: MCP Blog · <a href="https://semianalysis.com/2026/huawei-atlas-950-superpod-architecture/" rel="noopener" target="_blank">ITHome</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-28 · Governance · Foundation</div>
+<div class="item-title">MCP Governance Handover Dual-Foundation Co-Management</div>
+<div class="body">
 <p><strong>The specification is no longer solely managed by the initiator, but jointly maintained by AAIF and the Linux Foundation. Proposals, reviews, and releases all follow public processes, and no single company's roadmap can unilaterally rewrite the protocol anymore.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="MCP Governance Handover Dual-Foundation Co-Management · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-28/agility-funding.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -370,30 +362,26 @@
 </div>
 <p><span class="turn">If a protocol wants to outlive the hype of its initiator, sooner or later it must hand the steering wheel back to the community.</span></p>
 </div>
-<div class="sources-bar">Sources: MCP Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Together with SSI, we are feeding Vera Rubin's compute directly into the next generation of pre-training."</div>
-<div class="voice-meta">
-<span>, Official NVIDIA Statement · NVIDIA Newsroom</span>
-<a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">WIRED</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"This deal is about the ownership of compute, not just the ownership of models."</div>
-<div class="voice-meta">
-<span>, quoted by Bloomberg · Bloomberg</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Agility / Amazon · Physical AI</div>
-<h2 class="chapter-title">Agility tens-of-thousands order, 10,000 Digits entering Amazon warehouses</h2>
-<div class="prose">
+<div class="src-line">Sources: MCP Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Together with SSI, we are feeding Vera Rubin's compute directly into the next generation of pre-training."</p>
+<p class="voice-who">, Official NVIDIA Statement · NVIDIA Newsroom <a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">WIRED</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"This deal is about the ownership of compute, not just the ownership of models."</p>
+<p class="voice-who">, quoted by Bloomberg · Bloomberg</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-11 · Agility / Amazon · Physical AI</div>
+<div class="item-title">Agility tens-of-thousands order, 10,000 Digits entering Amazon warehouses</div>
+<div class="body">
 <p><strong>Agility Robotics has signed a multi-year agreement with Amazon to deploy <span class="num">10000</span> Digit humanoid robots across Amazon's US fulfillment network by Q2 2027, marking the largest single humanoid purchase in history, with the first <span class="num">500</span> units landing in the Spokane BFL2 warehouse this October.</strong>Digit handles tote transport, with a single-arm payload of <span class="num">35</span> lbs.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Agility tens-of-thousands order, 10,000 Digits entering Amazon warehouses · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-28/locus-robot.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -402,70 +390,82 @@
 <p><span class="turn">Humanoid robots have secured a "10,000-unit" order for the first time. This isn't a showroom exhibit; it's a workforce in the warehouse billed by throughput.</span></p>
 <p>Digit humanoid robots enter the warehouse.</p>
 </div>
-<div class="sources-bar">Sources: Agility Robotics · 36Kr</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-28 · Developer · Experience Changes</div>
-<h2 class="chapter-title">Breaking multi-step tasks down into stateless calls results in</h2>
-<div class="prose">
+<div class="src-line">Sources: Agility Robotics · 36Kr</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-28 · Developer · Experience Changes</div>
+<div class="item-title">Breaking multi-step tasks down into stateless calls results in</div>
+<div class="body">
 <p>stateless multi-step task calls.</p>
 <p><strong>A developer migrated a "check weather → write report → send email" pipeline to the new MCP. The biggest change: every step carries its own context, retries don't need to start from scratch, and scaling out just means adding machines without moving sessions.</strong>He described it as "straightening a tangled ball of yarn into a single thread."</p>
 <p><span class="turn">The protocol lifts "state" off developers' shoulders, allowing agent builders to focus on "what they want to do" rather than "how not to drop the connection" for the first time.</span></p>
 </div>
-<div class="sources-bar">Sources: MCP Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Jul · Agility Robotics · Robotics</div>
-<h2 class="chapter-title">Agility Secures 4 $100M+ Series C, Ammo Before the 10,000-Store Order</h2>
-<div class="prose">
+<div class="src-line">Sources: MCP Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Capital Flows</div>
+<div class="sec-title">Investment &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">Jul · Agility Robotics · Robotics</div>
+<div class="item-title">Agility Secures 4 $100M+ Series C, Ammo Before the 10,000-Store Order</div>
+<div class="body">
 <p><strong>Around securing its massive Amazon order, Agility closed <span class="num">4</span> Series C to scale Digit production from hundreds to tens of thousands annually, <span class="num">20</span> x expansion, bottlenecked by motors, batteries, and compute modules.</strong></p>
 <p><span class="turn">Capital favors robotics companies with secured orders; execution beats pitch decks.</span></p>
 <p>Agility Robotics Secures $400M Series C.</p>
 </div>
-<div class="sources-bar">Sources: Agility Robotics · 36Kr</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Jul · Locus Robotics · Warehouse AMR</div>
-<h2 class="chapter-title">Locus Secures 1.2 $120M Series E, Autonomous Mobile Robots Go Global</h2>
-<div class="prose">
+<div class="src-line">Sources: Agility Robotics · 36Kr</div>
+</div>
+<div class="item">
+<div class="dateline">Jul · Locus Robotics · Warehouse AMR</div>
+<div class="item-title">Locus Secures 1.2 $120M Series E, Autonomous Mobile Robots Go Global</div>
+<div class="body">
 <p><strong>Warehouse AMR provider Locus Robotics completed <span class="num">1.2</span> Series E to expand international deployment; rival Geek+ has crossed <span class="num">10</span> 10,000 global deployments, dominating intralogistics beyond the last mile.</strong></p>
 <p><span class="turn">Humanoids grab headlines, but AMRs quietly generate cash flow; pragmatic form factors win warehouses first.</span></p>
 <p>Locus Robotics Secures $120M.</p>
 </div>
-<div class="sources-bar">Sources: Locus Robotics · <a href="https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>NVIDIA invests $5B in SSI, aligning compute alliances.</p>
+<div class="src-line">Sources: Locus Robotics · <a href="https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>NVIDIA invests $5B in SSI, aligning compute alliances.</p>
 <p>MCP releases stateless candidate, enabling stateless agent calls for the first time.</p>
 <p>MCP Apps graduate, bringing verifiable identity to remote tools so models stop blindly trusting unknown code.</p>
 <p>Agility wins massive Amazon Digit order, marking the first throughput-based humanoid deployment.</p>
 <p>Agility ($400M) and Locus ($120M) prove capital bets on proven commercial traction.</p>
-<p class="turn">Funding concentrates in frontier models while protocols modularize capabilities, driving toward easier integration and bolder deployment.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">Funding concentrates in frontier models while protocols modularize capabilities, driving toward easier integration and bolder deployment.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The Black Sea blooms milky blue with phytoplankton in Spring/Summer 2026." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-turquoise-tint-for-the-black-sea/blackseabloom_pace_20260622_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The Black Sea blooms milky blue with phytoplankton in Spring/Summer 2026.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Black Sea phytoplankton bloom · NASA · <span class="num">43.00°N, 35.00°E</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, a reminder that parts of Earth still need no GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Across mountains and oceans, stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-27.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-29.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

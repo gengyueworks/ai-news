@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,36 +250,33 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-20</span>
-<span>Monday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-20</h1><p class="doc-date">2026-07-20 · Monday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Policies lead, capital follows.The MIIT sets "AI + Manufacturing" as the primary focus for H2.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>the same week, Kling, Meshy, and DeepSeek unveil their capital figures.AI's main arena is shifting from chat windows to real production lines.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Monday, July 20, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Policies lead, capital follows.The MIIT sets "AI + Manufacturing" as the primary focus for H2.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>the same week, Kling, Meshy, and DeepSeek unveil their capital figures.AI's main arena is shifting from chat windows to real production lines.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-20 · MIIT · Policy</div>
-<h2 class="chapter-title">"AI + Manufacturing" defined, but the real battlefield is the real economy The real economy is the primary battlefield for artificial intelligence, but the real tough battle is just beginning</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-20 · MIIT · Policy</div>
+<div class="item-title">"AI + Manufacturing" defined, but the real battlefield is the real economy The real economy is the primary battlefield for artificial intelligence, but the real tough battle is just beginning</div>
+<div class="body">
 <p><strong>On July 20, a national symposium of industry and information technology authorities clarified: manufacturing is the "primary battlefield" for AI applications. The meeting called for the in-depth implementation of the<span class="accent">"AI + Manufacturing"</span>action plan, introducing lightweight, low-cost, and easily deployable industry solutions to lower the adoption barrier for small and medium-sized enterprises; meanwhile, promoting the popularization of next-generation smart devices such as humanoid robots and brain-computer interfaces, and strengthening national-level AI open-source communities.</strong>In H1, the value added of China's above-scale equipment manufacturing increased by <span class="num">9.3</span>% year-on-year, and high-tech manufacturing by <span class="num">13.3</span>%, both significantly outpacing overall industrial growth.</p>
 
 <p><span class="turn">When policies start targeting specific equipment and open-source communities, it signals that the competitive arena of AI is moving from model leaderboards to factory workshops.</span></p>
 <p>Illustration · Humanoid robot, not from the MIIT meeting site.</p>
 </div>
-<div class="sources-bar">Sources: MIIT · <a href="https://jnzstatic.cs.com.cn/zzb/htmlInfo/128135.html" rel="noopener" target="_blank">China Securities Journal</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-02 · Kuaishou · Video Generation</div>
-<h2 class="chapter-title">Kling AI secures nearly $3B in Series A, largest single round for global video foundation model</h2>
-<div class="prose">
+<div class="src-line">Sources: MIIT · <a href="https://jnzstatic.cs.com.cn/zzb/htmlInfo/128135.html" rel="noopener" target="_blank">China Securities Journal</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-02 · Kuaishou · Video Generation</div>
+<div class="item-title">Kling AI secures nearly $3B in Series A, largest single round for global video foundation model</div>
+<div class="body">
 <p><strong>On July 2, Kuaishou's Kling AI closed nearly <span class="num">30</span> billion USD in Series A financing, with a post-money valuation of approximately <span class="num">180</span> billion USD, setting a record for the largest financing round by a global video AI company.</strong>Current ARR approaches <span class="num">5</span> billion USD, with global users exceeding <span class="num">1</span> hundred million. This round was co-led by CPE, Tencent, and CITIC Securities, with Middle Eastern capital BlueFive participating for the first time.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Kling AI secures nearly $3B in Series A, largest single round for global video foundation model · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-20/ontario-wildfire.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -293,124 +284,133 @@
 </div>
 <p><span class="turn">In video generation, Chinese companies are the first to successfully validate both "capital" and "users" at scale.</span></p>
 </div>
-<div class="sources-bar">Sources: Securities Times</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-20 · MIIT · Open Source</div>
-<h2 class="chapter-title">Strengthen national open-source communities, move models and data beyond big tech walled gardens</h2>
-<div class="prose">
+<div class="src-line">Sources: Securities Times</div>
+</div>
+<div class="item">
+<div class="dateline">07-20 · MIIT · Open Source</div>
+<div class="item-title">Strengthen national open-source communities, move models and data beyond big tech walled gardens</div>
+<div class="body">
 <p><strong>The symposium also called for pooling and sharing high-quality open-source resources such as models and data, and stepping up the development of key standards.</strong>This echoes the industry's discussions on<span class="accent">"open weights"</span>echoing discussions—as closed-source giants prepare for IPOs, national-level open-source communities have emerged as an alternative fallback path.</p>
 <p><span class="turn">Open source is more than a gesture; it provides SMEs with a viable path without renting computing power from big tech.</span></p>
 </div>
-<div class="sources-bar">Sources: MIIT</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · ModelBest / OpenBMB · Embodied Open Source</div>
-<h2 class="chapter-title">MiniCPM-Robot open-sourced, China's first open-source embodied AI series</h2>
-<div class="prose">
+<div class="src-line">Sources: MIIT</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontline</div>
+<div class="sec-title">Open Source Frontline</div>
+<div class="item">
+<div class="dateline">07-21 · ModelBest / OpenBMB · Embodied Open Source</div>
+<div class="item-title">MiniCPM-Robot open-sourced, China's first open-source embodied AI series</div>
+<div class="body">
 <p><strong>At WAIC 2026, ModelBest and OpenBMB open-sourced the MiniCPM-Robot series:<span class="num">1.5</span>B parameter general VLA control model, plus <span class="num">0.9</span>B mobile tracking model.</strong>This means robotic arms and mobile platforms can be deployed locally on edge devices without relying on cloud-based foundation models.</p>
 <p><span class="turn">Small models running inside robots define the true practical form of embodied AI.</span></p>
 </div>
-<div class="sources-bar">Sources: ModelBest</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Jul · DeepSeek · Capital</div>
-<h2 class="chapter-title">DeepSeek initiates IPO preparations, with a pre-money valuation of about $71 billion</h2>
-<div class="prose">
+<div class="src-line">Sources: ModelBest</div>
+</div>
+<div class="item">
+<div class="dateline">Jul · DeepSeek · Capital</div>
+<div class="item-title">DeepSeek initiates IPO preparations, with a pre-money valuation of about $71 billion</div>
+<div class="body">
 <p><strong>Chinese LLM unicorn advances STAR Market listing, with second-round pre-money valuation reaching about <span class="num">710</span> $100M, surging roughly <span class="num">7</span> x compared to three months ago.</strong><span class="accent">Its open-source models remain a default choice for developers.</span></p>
 <p><span class="turn">Moving from "no funding" to a rapid IPO push, computing hunger is the real driving force behind it.</span></p>
 </div>
-<div class="sources-bar">Sources: China Business Journal</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Quotes</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"The real economy, especially manufacturing, is the 'main battlefield' for AI applications."</div>
-<div class="voice-meta">
-<span>— MIIT National Symposium (via Cailian Press)</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Intelligence will either belong to a few tech giants for everyone to rent, or be built by every company itself. We bet on the latter."</div>
-<div class="voice-meta">
-<span>Lin Qiao, Founder &amp; CEO of Fireworks AI</span>
-<a href="https://letsdatascience.com/blog/fireworks-ai-raises-1-5-billion-betting-against-big-ai-labs" rel="noopener" target="_blank">LetsDataScience</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creations</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Jul 21 · Tencent · AI for Science</div>
-<h2 class="chapter-title">Hyra-1.0, A recursively self-improving scientific discovery agent</h2>
-<div class="prose">
+<div class="src-line">Sources: China Business Journal</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Quotes</div>
+<div class="sec-title">Quotes</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"The real economy, especially manufacturing, is the 'main battlefield' for AI applications."</p>
+<p class="voice-who">— MIIT National Symposium (via Cailian Press)</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Intelligence will either belong to a few tech giants for everyone to rent, or be built by every company itself. We bet on the latter."</p>
+<p class="voice-who">Lin Qiao, Founder &amp; CEO of Fireworks AI <a href="https://letsdatascience.com/blog/fireworks-ai-raises-1-5-billion-betting-against-big-ai-labs" rel="noopener" target="_blank">LetsDataScience</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creations</div>
+<div class="sec-title">Creations</div>
+<div class="item">
+<div class="dateline">Jul 21 · Tencent · AI for Science</div>
+<div class="item-title">Hyra-1.0, A recursively self-improving scientific discovery agent</div>
+<div class="body">
 <p><strong>Tencent Hunyuan launches Hyra-1.0 for research and engineering tasks, setting new state-of-the-art results in <span class="num">55</span> out of open math problems <span class="num">29</span>, with open-source code released on GitHub.</strong>Instead of pursuing "larger models," it lets agents iteratively improve themselves.</p>
 <p><span class="turn">The slow phase of scientific discovery is being quietly accelerated by self-iterating agents.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.tencent.com/zh-cn/" rel="noopener" target="_blank">Tencent</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Visuals</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Jul · Indie Developer · Experience Update</div>
-<h2 class="chapter-title">Turning NASA wildfire smoke imagery into a draggable timeline</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.tencent.com/zh-cn/" rel="noopener" target="_blank">Tencent</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Visuals</div>
+<div class="sec-title">Visuals</div>
+<div class="item">
+<div class="dateline">Jul · Indie Developer · Experience Update</div>
+<div class="item-title">Turning NASA wildfire smoke imagery into a draggable timeline</div>
+<div class="body">
 <p><strong>A developer integrated NASA's Ontario wildfire satellite imagery into a video model to generate clips with a draggable timeline tracking smoke dispersion.</strong></p>
 <p><span class="turn">For the first time, creators don't need to wait for stock library updates—wildfires in the sky can become usable footage in their hands on the same day.</span></p>
 </div>
-<div class="sources-bar">Sources: NASA · Indie Developer</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investments &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Jul 20 · Meshy · 3D Generation</div>
-<h2 class="chapter-title">Meshy closes nearly 4 $100M Series B, the largest single-round financing in AI 3D</h2>
-<div class="prose">
+<div class="src-line">Sources: NASA · Indie Developer</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investments &amp; Capital Flows</div>
+<div class="sec-title">Investments &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">Jul 20 · Meshy · 3D Generation</div>
+<div class="item-title">Meshy closes nearly 4 $100M Series B, the largest single-round financing in AI 3D</div>
+<div class="body">
 <p><strong>AI 3D foundational model Meshy completes nearly <span class="num">4</span> $100M Series B, with post-money valuation exceeding <span class="num">100</span> RMB 1B, setting a new single-round record in the sector.</strong>Users input a text prompt or image to generate production-ready 3D models in one minute for one dollar.</p>
 <p><span class="turn">3D is considered one of the hardest multimodal challenges, now compressed to the price of a cup of coffee.</span></p>
 </div>
-<div class="sources-bar">Sources: Meshy</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Jul · DeepSeek · Capital</div>
-<h2 class="chapter-title">Valuation 7 surges 7x in months, as DeepSeek rushes toward STAR Market</h2>
-<div class="prose">
+<div class="src-line">Sources: Meshy</div>
+</div>
+<div class="item">
+<div class="dateline">Jul · DeepSeek · Capital</div>
+<div class="item-title">Valuation 7 surges 7x in months, as DeepSeek rushes toward STAR Market</div>
+<div class="body">
 <p><strong>From the first round's <span class="num">520</span> $X to second round's pre-money <span class="num">710</span> $X, DeepSeek's sharp turn reflects inference-driven compute hunger—leveraging capital to lock in GPUs ahead of time.</strong></p>
 <p><span class="turn">The speed of incoming capital chases the consumption rate of compute by models.</span></p>
 </div>
-<div class="sources-bar">Sources: China Business Journal</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>MIIT sets the tone for "AI + Manufacturing," bringing humanoid robots, brain-computer interfaces, and open-source communities into the mainstream.</p>
+<div class="src-line">Sources: China Business Journal</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>MIIT sets the tone for "AI + Manufacturing," bringing humanoid robots, brain-computer interfaces, and open-source communities into the mainstream.</p>
 <p>Kling secured nearly $3B in its first round, Meshy closed nearly $400M in Series B, and DeepSeek sprints toward the STAR Market.</p>
 <p>ModelBest open-sources MiniCPM-Robot, China's first open-source embodied AI series.</p>
 <p>Tencent's Hyra-1.0 sets 29 new records out of 55 open math problems.</p>
 <p>National open-source communities highlighted—models and data must move beyond Big Tech walled gardens.</p>
-<p class="turn">Policy, capital, and open source converge in a single week, shifting AI from chat interfaces to real-world production lines.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">Policy, capital, and open source converge in a single week, shifting AI from chat interfaces to real-world production lines.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The geological history in the canyon predates any model training." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/snow-in-patagonia/patagoniasnow_tmo_20260403_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The geological history in the canyon predates any model training.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Tyndall Glacier, Patagonia · NASA · <span class="num">36.06°N, 112.14°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, wondering if anywhere on Earth escapes the need for GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-19.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-21.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

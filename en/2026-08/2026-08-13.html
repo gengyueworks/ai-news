@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-13</span>
-<span>Thursday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-13</h1><p class="doc-date">2026-08-13 · Thursday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today's keyword is "fast": Ilya's engine, a 14-fold speedup, and a $5B raise.Below, who is running faster.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Thursday, August 13, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today's keyword is "fast": Ilya's engine, a 14-fold speedup, and a $5B raise.Below, who is running faster.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Top Story</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Ilya · SSI</div>
-<h2 class="chapter-title">Ilya shows his sword at last: an engine that "learns while reasoning" may surface as soon as August</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Top Story</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">Ilya · SSI</div>
+<div class="item-title">Ilya shows his sword at last: an engine that "learns while reasoning" may surface as soon as August</div>
+<div class="body">
 <p>Ilya Sutskever · an impressionistic sketch of brain and thought · MIT Technology Review</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Ilya shows his sword at last: an engine that "learns while reasoning" may surface as soon as August · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/ilya-sutskever-brain.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p>Per the leak, the model learns "how to learn" from specially curated data, then updates parts of its weights in real time during inference. Even at small scale it can trade blows with much larger models. SSI has shipped no model and no product for over two years; this is the first sword it has kept hidden so long.</p>
 <p><span class="turn">While everyone else stacks parameters, Ilya is betting that "a model can keep learning after deployment". That may be the first signal of the pre-training era approaching its end.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://x.com/i/trending/2087551605553901958" rel="noopener" target="_blank">X leak</a> · <a href="https://www.youtube.com/watch?v=aR20FWCCjAs" rel="noopener" target="_blank">Ilya interview</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-11 · xAI · Grok Bot</div>
-<h2 class="chapter-title">Grok Bot goes live: an AI teammate logs into your tools and does the work; 22.9M people watched</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://x.com/i/trending/2087551605553901958" rel="noopener" target="_blank">X leak</a> · <a href="https://www.youtube.com/watch?v=aR20FWCCjAs" rel="noopener" target="_blank">Ilya interview</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-11 · xAI · Grok Bot</div>
+<div class="item-title">Grok Bot goes live: an AI teammate logs into your tools and does the work; 22.9M people watched</div>
+<div class="body">
 <p><strong>xAI released <span class="accent">Grok Bot</span> (early beta): an AI teammate that "logs into your tools, uses them like you would, and comes back with the work done". A single tweet drew <span class="num">22.9M</span> views. The new <span class="accent">Grok 4.6</span> model shipped alongside.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Grok Bot goes live: an AI teammate logs into your tools and does the work; 22.9M people watched · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/grok-4-6.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -299,12 +290,12 @@
 <p><span class="turn">When a "tying" model sells at a "discounted" price and ships with a bot that works for you, the next battlefield of AI competition is: who becomes your teammate first.</span></p>
 <p>Grok Bot goes live.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://x.ai/news/grok-4-6" rel="noopener" target="_blank">xAI</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" rel="noopener" target="_blank">AINews</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Acquisition · Decart</div>
-<h2 class="chapter-title">A $6B acquisition of Decart: top labs start "buying teams to fill gaps"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://x.ai/news/grok-4-6" rel="noopener" target="_blank">xAI</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" rel="noopener" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">Acquisition · Decart</div>
+<div class="item-title">A $6B acquisition of Decart: top labs start "buying teams to fill gaps"</div>
+<div class="body">
 <p><strong>A top lab is in talks to acquire Israeli AI startup <span class="accent">Decart AI</span> for about <span class="num">$6B</span>; if closed, it would be the lab's largest acquisition ever. Decart specializes in world models and inference optimization.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='A $6B acquisition of Decart: top labs start "buying teams to fill gaps" · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/decart.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -313,12 +304,12 @@
 <p>As "building it yourself" grows more expensive, top labs have started filling gaps through acquisition. <span class="turn">AI competition is moving from "who trains better" to "who buys better".</span></p>
 <p>$6B acquisition of Decart.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.bloomberg.com/news/articles/2026-08-13/anthropic-said-in-talks-to-buy-ai-startup-decart-for-6-billion" rel="noopener" target="_blank">Bloomberg</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Japan · Survey</div>
-<h2 class="chapter-title">Reuters survey: most Japanese companies still have not embraced AI: technology diffuses more slowly than assumed</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.bloomberg.com/news/articles/2026-08-13/anthropic-said-in-talks-to-buy-ai-startup-decart-for-6-billion" rel="noopener" target="_blank">Bloomberg</a></div>
+</div>
+<div class="item">
+<div class="dateline">Japan · Survey</div>
+<div class="item-title">Reuters survey: most Japanese companies still have not embraced AI: technology diffuses more slowly than assumed</div>
+<div class="body">
 <p><strong>A latest Reuters corporate survey finds a "strong majority" of Japanese companies have yet to fully adopt AI, underscoring the social and organizational inertia in technology diffusion.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Reuters survey: most Japanese companies still have not embraced AI: technology diffuses more slowly than assumed · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/qwen.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -326,12 +317,12 @@
 </div>
 <p>While America races for models and China races for open source, Japanese companies' AI adoption remains in "wait and see". <span class="turn">Not everyone is running; most companies are still standing at the door.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/technology/artificial-intelligence/" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-11 · Alibaba · Open Source</div>
-<h2 class="chapter-title">Qwen3.8-Max weights released: 2.4T total / 95B active, Alibaba pushes "largest open source" another notch</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/technology/artificial-intelligence/" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-11 · Alibaba · Open Source</div>
+<div class="item-title">Qwen3.8-Max weights released: 2.4T total / 95B active, Alibaba pushes "largest open source" another notch</div>
+<div class="body">
 <p><strong>Alibaba released <span class="accent">Qwen3.8-Max</span> open weights: <span class="num">2.4T</span> total / <span class="num">95B</span> active MoE, priced at <span class="num">$2/$6</span> per million tokens via API. Community verdict: "one of the largest open-weight releases ever".</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Qwen3.8-Max weights released: 2.4T total / 95B active, Alibaba pushes "largest open source" another notch · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/updates.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -341,12 +332,12 @@
 <p><span class="turn">When a 2.4T open model scores near closed flagships at a fraction of the price, the "scale gap" between open and closed becomes a "deployment gap".</span></p>
 <p>Qwen3.8-Max weights released.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://huggingface.co/Qwen" rel="noopener" target="_blank">HuggingFace</a> · <a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" rel="noopener" target="_blank">AINews</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-12 · DeepSeek · Pricing</div>
-<h2 class="chapter-title">DeepSeek V4 Pro goes GA: $0.435/M input, 57 times cheaper than Fable 5</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://huggingface.co/Qwen" rel="noopener" target="_blank">HuggingFace</a> · <a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" rel="noopener" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-12 · DeepSeek · Pricing</div>
+<div class="item-title">DeepSeek V4 Pro goes GA: $0.435/M input, 57 times cheaper than Fable 5</div>
+<div class="body">
 <p><strong><span class="accent">DeepSeek V4 Pro</span> formally reached general availability: <span class="num">$0.435</span>/M input and <span class="num">$0.87</span>/M output, roughly <span class="num">57</span> times cheaper than Fable 5 by Cline's math, with Terminal Bench up <span class="num">15.8%</span> versus the preview.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="DeepSeek V4 Pro goes GA: $0.435/M input, 57 times cheaper than Fable 5 · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/www-theverge-com.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -356,12 +347,12 @@
 <p><span class="turn">DeepSeek's next deciding factor may not be scale but RL environments and agent engineering, plus the price that makes everyone look twice.</span></p>
 <p>DeepSeek V4 Pro GA.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" rel="noopener" target="_blank">DeepSeek</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" rel="noopener" target="_blank">AINews</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-12 · Microsoft · Reasoning Model</div>
-<h2 class="chapter-title">Microsoft ships its first in-house reasoning model MAI-Thinking-1: "built from scratch", asking for your feedback first</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" rel="noopener" target="_blank">DeepSeek</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" rel="noopener" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-12 · Microsoft · Reasoning Model</div>
+<div class="item-title">Microsoft ships its first in-house reasoning model MAI-Thinking-1: "built from scratch", asking for your feedback first</div>
+<div class="body">
 <p><strong><span class="accent">Mustafa Suleyman</span> announced <span class="accent">MAI-Thinking-1</span>, Microsoft's first reasoning model "built from scratch", now live on Foundry.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Microsoft ships its first in-house reasoning model MAI-Thinking-1: "built from scratch", asking for your feedback first · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/zed-delta.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -370,15 +361,16 @@
 <p>The team's posture is interesting: Finbarr Timbers publicly asked developers for feedback on tool use, signaling Microsoft positions it as an "applied reasoning model", not a leaderboard chaser. <span class="turn">Now that Microsoft finally has an in-house reasoning model, the OpenAI-Microsoft relationship formally moves from "exclusive supplier" to "frenemies".</span></p>
 <p>Microsoft ships its first in-house reasoning model.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.theverge.com" rel="noopener" target="_blank">The Verge</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" rel="noopener" target="_blank">AINews</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Zed · Collaboration</div>
-<h2 class="chapter-title">Zed releases Delta: a multiplayer coding environment built for AI agents</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.theverge.com" rel="noopener" target="_blank">The Verge</a> · <a href="https://www.latent.space/p/ainews-spacexai-grok-46-and-grok" rel="noopener" target="_blank">AINews</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">Zed · Collaboration</div>
+<div class="item-title">Zed releases Delta: a multiplayer coding environment built for AI agents</div>
+<div class="body">
 <p><strong>Zed released <span class="accent">Delta</span>, a multiplayer coding environment for AI agents, letting multiple agents and humans work in parallel on the same codebase.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Zed releases Delta: a multiplayer coding environment built for AI agents · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/claude-cowork.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -387,12 +379,12 @@
 <p>When "one person plus one agent" is no longer enough, collaboration environments start being designed for "a swarm of agents plus people". <span class="turn">The next battlefield for coding tools is collaboration between agents.</span></p>
 <p>Zed Delta: a multiplayer coding environment for AI agents.Image: Zed official.</p>
 </div>
-<div class="sources-bar">Sources: Zed</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Claude · Sidebar</div>
-<h2 class="chapter-title">Claude Cowork moves into the Chrome sidebar: the AI assistant grows into the browser</h2>
-<div class="prose">
+<div class="src-line">Sources: Zed</div>
+</div>
+<div class="item">
+<div class="dateline">Claude · Sidebar</div>
+<div class="item-title">Claude Cowork moves into the Chrome sidebar: the AI assistant grows into the browser</div>
+<div class="body">
 <p><strong>The Claude in Chrome sidebar upgraded into <span class="accent">Claude Cowork</span> sessions: you work in the page while it collaborates alongside.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Claude Cowork moves into the Chrome sidebar: the AI assistant grows into the browser · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/autogpt.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -401,15 +393,16 @@
 <p>With an AI assistant resident in the browser sidebar, no separate app to open, the barrier to use drops another notch. <span class="turn">AI's entrance is turning from "an app" into "part of the browser".</span></p>
 <p>Claude Cowork.</p>
 </div>
-<div class="sources-bar">Sources: Claude</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">AutoGPT · Engineering</div>
-<h2 class="chapter-title">AutoGPT manages AI pull requests with AGENTS.md: skill gating, so AI cannot change code recklessly</h2>
-<div class="prose">
+<div class="src-line">Sources: Claude</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">AutoGPT · Engineering</div>
+<div class="item-title">AutoGPT manages AI pull requests with AGENTS.md: skill gating, so AI cannot change code recklessly</div>
+<div class="body">
 <p><strong>AutoGPT demonstrated how to manage AI-generated pull requests with <span class="accent">AGENTS.md</span> and skill gating, making AI pass a "should this change happen" check before touching code.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="AutoGPT manages AI pull requests with AGENTS.md: skill gating, so AI cannot change code recklessly · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-13/anthropic-compute.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -418,81 +411,88 @@
 <p>Once AI files its own PRs, engineering management needs new gates. <span class="turn">AGENTS.md has turned from documentation into AI's code of conduct.</span></p>
 <p>AutoGPT with AGENTS.md.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/Significant-Gravitas/AutoGPT" rel="noopener" target="_blank">GitHub / AutoGPT</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">DeepSeek · Controversy</div>
-<h2 class="chapter-title">DeepSeek-V4-Pro-0813 early-stops on long tasks, drawing doubt: how do you balance "saving tokens" with "finishing the job"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/Significant-Gravitas/AutoGPT" rel="noopener" target="_blank">GitHub / AutoGPT</a></div>
+</div>
+<div class="item">
+<div class="dateline">DeepSeek · Controversy</div>
+<div class="item-title">DeepSeek-V4-Pro-0813 early-stops on long tasks, drawing doubt: how do you balance "saving tokens" with "finishing the job"</div>
+<div class="body">
 <p><strong>Community discussion surrounds <span class="accent">DeepSeek-V4-Pro-0813</span> stopping early on long-horizon tasks: is it wrapping up early to save tokens, or genuinely done?</strong></p>
 <p>When a model learns to "save power", it may also learn to "loaf". <span class="turn">Long-horizon agent reliability is becoming a more important metric than "smartness".</span></p>
 <p>DeepSeek-V4-Pro-0813 long-horizon behavior.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" rel="noopener" target="_blank">DeepSeek</a> · <a href="https://www.semianalysis.com/p/early-stopping-and-agent-reliability" rel="noopener" target="_blank">SemiAnalysis</a> · <a href="https://stratechery.com/2026/nvidias-risky-business/" rel="noopener" target="_blank">Stratechery</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Amazon · Data</div>
-<h2 class="chapter-title">Twitch content defaults into Amazon's AI training: streamers' data becomes someone else's training material</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" rel="noopener" target="_blank">DeepSeek</a> · <a href="https://www.semianalysis.com/p/early-stopping-and-agent-reliability" rel="noopener" target="_blank">SemiAnalysis</a> · <a href="https://stratechery.com/2026/nvidias-risky-business/" rel="noopener" target="_blank">Stratechery</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Amazon · Data</div>
+<div class="item-title">Twitch content defaults into Amazon's AI training: streamers' data becomes someone else's training material</div>
+<div class="body">
 <p><strong>Amazon will use Twitch streamers' content to train generative AI by default unless users opt out; Ars Technica reported on the default-on "data collection".</strong></p>
 <p>Streams, clips and voice become part of the training set automatically; opting out requires clicking it yourself. <span class="turn">When platforms take your content to feed AI by default, the word "default" is the biggest trap of all.</span></p>
 </div>
-<div class="sources-bar">Sources: Ars Technica</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Funding &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-12 · Anthropic · Compute</div>
-<h2 class="chapter-title">Anthropic locks in 20 years of compute: $9.1B buys up Texas power</h2>
-<div class="prose">
+<div class="src-line">Sources: Ars Technica</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Capital Flows</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-12 · Anthropic · Compute</div>
+<div class="item-title">Anthropic locks in 20 years of compute: $9.1B buys up Texas power</div>
+<div class="body">
 <p><strong><span class="accent">Anthropic</span> signed a <span class="num">20</span>-year, <span class="num">$9.1B</span> compute agreement with <span class="accent">Riot Platforms</span>, locking <span class="num">191</span> MW of Texas facility capacity to power Claude.</strong></p>
 <p>$6B of acquisitions to fill model gaps on one side, $9.1B of locked compute on the other: competition among top labs has become capital lock-up measured in decades. <span class="turn">The AI arms race has shifted from "who is stronger" to "who locks up resources first".</span></p>
 <p>Anthropic locks in 20 years of compute.</p>
 </div>
-<div class="sources-bar">Sources: CNBC</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Unless you understand probability, you will not understand why large models occasionally answer wrong."</div>
-<div class="voice-meta">
-<span>Lord Tarassenko · Machine learning researcher</span>
-<a href="https://www.ft.com/content/numeracy-ai" rel="noopener" target="_blank">Financial Times</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Wrap up early to save tokens, or genuinely finish the job? Long-horizon agent reliability is becoming a metric that matters more than smartness."</div>
-<div class="voice-meta">
-<span>Community discussion · DeepSeek-V4-Pro long-horizon tasks</span>
-<a href="https://www.semianalysis.com/p/early-stopping-and-agent-reliability" rel="noopener" target="_blank">SemiAnalysis</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p>Anthropic paid $6B for Decart to fill its world-model gap and locked $9.1B for twenty years of compute.</p>
+<div class="src-line">Sources: CNBC</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Unless you understand probability, you will not understand why large models occasionally answer wrong."</p>
+<p class="voice-who">Lord Tarassenko · Machine learning researcher <a href="https://www.ft.com/content/numeracy-ai" rel="noopener" target="_blank">Financial Times</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Wrap up early to save tokens, or genuinely finish the job? Long-horizon agent reliability is becoming a metric that matters more than smartness."</p>
+<p class="voice-who">Community discussion · DeepSeek-V4-Pro long-horizon tasks <a href="https://www.semianalysis.com/p/early-stopping-and-agent-reliability" rel="noopener" target="_blank">SemiAnalysis</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p>Anthropic paid $6B for Decart to fill its world-model gap and locked $9.1B for twenty years of compute.</p>
 <p>Grok 4.6 tied GPT-5.6 Sol; long-horizon agents became the new battlefield.</p>
 <p>Most Japanese companies have yet to embrace AI; AutoGPT manages AI's code with AGENTS.md.</p>
-<p class="turn">The leaders grab resources, the edges watch and wait, safety gets weaponized: in AI's 2026, every player is looking for its position.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">The leaders grab resources, the edges watch and wait, safety gets weaponized: in AI's 2026, every player is looking for its position.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The Cascade volcanoes, Pacific Northwest, USA — NASA's satellite captured a range of volcanoes shrouded in smoke, a line of snowcapped peaks standing on the horizon." loading="lazy" src="https://apod.nasa.gov/apod/image/2606/hamster_1024.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The Cascade volcanoes, Pacific Northwest, USA — NASA's satellite captured a range of volcanoes shrouded in smoke, a line of snowcapped peaks standing on the horizon.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Cascade Volcanoes · Pacific Northwest · photographed by NASA · <span class="num">44.0</span>°N, <span class="num">122.0</span>°W</div>
 <p style="margin-bottom:8px; line-height:1.8;">From Rainier to Shasta, a line of volcanoes stands along the ridge, some snowcapped, some smoking. They live at geology's pace and care nothing for leaderboards. While we argue on screens about whose model is stronger and who is locking up compute, these volcanoes decide on a million-year scale when they will wake. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-12.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-14.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

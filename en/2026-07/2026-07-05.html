@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-05</span>
-<span>Sunday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-07-05 · Sunday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today, the lens is intentionally shifted away from the major tech giants. The front page features an independent researcher finding a Linux kernel vulnerability missed by Mythos. The frontlines cover Chinese open-source models, startup robotic data factories, and Tesla hitting the brakes on AI spending. Big tech updates are condensed into signal bars.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Sunday, July 5, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today, the lens is intentionally shifted away from the major tech giants. The front page features an independent researcher finding a Linux kernel vulnerability missed by Mythos. The frontlines cover Chinese open-source models, startup robotic data factories, and Tesla hitting the brakes on AI spending. Big tech updates are condensed into signal bars.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page Today</div>
-<article class="chapter">
-<div class="chapter-eyebrow">The Hacker News / kernelCTF · Disclosed on July 3</div>
-<h2 class="chapter-title">A Lone Researcher Discovers a Linux Privilege Escalation Vulnerability Missed by Top AI</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page Today</div>
+<div class="sec-title">Front Page Today</div>
+<div class="item">
+<div class="dateline">The Hacker News / kernelCTF · Disclosed on July 3</div>
+<div class="item-title">A Lone Researcher Discovers a Linux Privilege Escalation Vulnerability Missed by Top AI</div>
+<div class="body">
 <p>Bad Epoll (CVE-2026-46242): A use-after-free race condition hidden in the epoll system call. Credit: The Hacker News.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="A Lone Researcher Discovers a Linux Privilege Escalation Vulnerability Missed by Top AI · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/bad-epoll-hn-b57ed5c9.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -283,15 +273,16 @@
 <p>The vulnerability affects Linux <span class="num">6.4</span> and later versions, covering mainstream desktop distributions, servers, and newer Android devices. Chung's PoC achieves a reliability of <span class="num">99</span>%. The patch was completed by the kernel community within months, but the initial fix was incomplete, and the final correct patch took nearly two months to land. This incident once again exposes a reality: even the most advanced AI code review systems cannot replace human intuition for complex race conditions.</p>
 <p>When the whole world claims that "AI will automatically discover vulnerabilities," this story provides the sharpest counterexample. In the same code, the AI looked and missed it, while a human patched it. Human judgment remains scarce.</p>
 </div>
-<div class="sources-bar">Sources: The Hacker News · <a href="https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html" rel="noopener" target="_blank">thehackernews.com</a> / Author's Post-mortem · <a href="https://github.com/J-jaeyoung/bad-epoll" rel="noopener" target="_blank">github.com</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontlines</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Simon Willison / Z.ai · June 13–16</div>
-<h2 class="chapter-title">GLM-5.2: Currently the strongest text-only open-weight model, from China</h2>
-<div class="prose">
+<div class="src-line">Sources: The Hacker News · <a href="https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html" rel="noopener" target="_blank">thehackernews.com</a> / Author's Post-mortem · <a href="https://github.com/J-jaeyoung/bad-epoll" rel="noopener" target="_blank">github.com</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontlines</div>
+<div class="sec-title">Frontlines</div>
+<div class="item">
+<div class="dateline">Simon Willison / Z.ai · June 13–16</div>
+<div class="item-title">GLM-5.2: Currently the strongest text-only open-weight model, from China</div>
+<div class="body">
 <p>GLM-5.2: 753B MoE, 1M token context, MIT license. Credit: Z.ai.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="GLM-5.2: Currently the strongest text-only open-weight model, from China · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/glm-52-cc00e2ce.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -301,12 +292,12 @@
 <p><span class="accent">Simon Willison</span> Evaluations call it "arguably the strongest text-only open-weight LLM." Across multiple Chinese and English benchmarks, GLM-5.2 outperforms peers of the same scale in dimensions such as code generation, mathematical reasoning, and long-document comprehension.<span class="accent">Zhipu AI</span> is a long-standing driver of the GLM series, iterating from <span class="accent">ChatGLM</span> Iterating all the way to today's 5.2 while steadfastly maintaining an open-source roadmap.</p>
 <p>Open weights are gradually chipping away at the assumption that "only big tech can build frontier models." The MIT license means anyone can build products based on it, an impact on the global AI ecosystem that may run deeper than the release of any single closed-source model.</p>
 </div>
-<div class="sources-bar">Sources: Simon Willison · <a href="https://simonwillison.net/2026/jun/17/glm-52/" rel="noopener" target="_blank">simonwillison.net</a> / Z.ai · <a href="https://z.ai/blog/glm-5.2" rel="noopener" target="_blank">z.ai</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Z.ai / LangChain · July 3</div>
-<h2 class="chapter-title">ZCode is Here: Zhipu Equips GLM-5.2 with an Official IDE, Making "Working with Open-Source Models" the Default</h2>
-<div class="prose">
+<div class="src-line">Sources: Simon Willison · <a href="https://simonwillison.net/2026/jun/17/glm-52/" rel="noopener" target="_blank">simonwillison.net</a> / Z.ai · <a href="https://z.ai/blog/glm-5.2" rel="noopener" target="_blank">z.ai</a></div>
+</div>
+<div class="item">
+<div class="dateline">Z.ai / LangChain · July 3</div>
+<div class="item-title">ZCode is Here: Zhipu Equips GLM-5.2 with an Official IDE, Making "Working with Open-Source Models" the Default</div>
+<div class="body">
 <p>Zhipu didn't just release a single checkpoint; it also conveniently built out a product ecosystem around <span class="accent">GLM-5.2</span>:<span class="accent">ZCode</span> is the official development environment, supporting Bring Your Own Key (BYOK), cross-platform compatibility, and quota bonuses for coding-plan subscribers,<span class="accent">optimized for GLM workflows and long-running autonomous tasks.</span>AI-native coding IDE.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='ZCode is Here: Zhipu Equips GLM-5.2 with an Official IDE, Making "Working with Open-Source Models" the Default · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/tesla-ai-cap-a4b6037f.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -316,12 +307,12 @@
 <p><span class="accent">Mercor</span> benchmark ranks GLM-5.2 as the first open-source model to lead a category on APEX-SWE (Integration category <span class="num">55.3</span>% Pass@1), closely followed by Kimi K2.7.<span class="turn">"The strongest open-source weights" is transitioning from a mere compliment into a practical, everyday workflow.</span></p>
 <p>vLLM has also completed its ecosystem support: natively supporting DeepSeek's DSpark speculative decoding, achieving approximately <span class="num">250</span> tok/s; the GLM-5.2 DSpark preview claims to boost decoding speed by another approximately <span class="num">1.5</span> x.<span class="num">The capabilities of open-source models are being elevated piece by piece through engineering integration.</span></p>
 </div>
-<div class="sources-bar">Sources: Z.ai · <a href="https://x.com/Zai_org" rel="noopener" target="_blank">x.com/@Zai_org</a> / Mercor / vLLM · <a href="https://x.com/vllm_project" rel="noopener" target="_blank">x.com/@vllm_project</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Google / Gemma · July 4</div>
-<h2 class="chapter-title">Running Gemma 4 in the browser: reaching 255 tok/s on an M4, with the kernel written by Fable 5</h2>
-<div class="prose">
+<div class="src-line">Sources: Z.ai · <a href="https://x.com/Zai_org" rel="noopener" target="_blank">x.com/@Zai_org</a> / Mercor / vLLM · <a href="https://x.com/vllm_project" rel="noopener" target="_blank">x.com/@vllm_project</a></div>
+</div>
+<div class="item">
+<div class="dateline">Google / Gemma · July 4</div>
+<div class="item-title">Running Gemma 4 in the browser: reaching 255 tok/s on an M4, with the kernel written by Fable 5</div>
+<div class="body">
 <p><span class="num">Google</span> Showcasing Gemma 4 on WebGPU: achieving <span class="num">255</span> tok/s on Apple M4. The key to the speedup is<span class="num">a WebGPU kernel written by Claude Fable 5</span>, where the code generated by the model itself optimizes the inference path it will run on.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Running Gemma 4 in the browser: reaching 255 tok/s on an M4, with the kernel written by Fable 5 · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/apollo-robot-c902475c.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -330,12 +321,12 @@
 <p>Along the same vein, the open-source community has also pieced together<span class="num">a fully open-source real-time voice stack</span>: Gemma 4 31B + Cerebras inference, aiming to serve as an open-source alternative to OpenAI's Realtime API; the Hugging Face kernel library has also begun incorporating MiniMax's MSA kernel.</p>
 <p>Edge inference is transitioning from "just runnable" to "running fast".<span class="turn">As browsers and phones become capable of running decent models locally, another piece of the cloud monopoly narrative is chipped away.</span>.</p>
 </div>
-<div class="sources-bar">Sources: Google · <a href="https://x.com/googlegemma" rel="noopener" target="_blank">x.com/@googlegemma</a> / Realtime Voice Stack · <a href="https://x.com/andimarafioti" rel="noopener" target="_blank">x.com/@andimarafioti</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Electrek / The Information · July 2</div>
-<h2 class="chapter-title">Tesla caps AI spending for every engineer at 200 USD/week</h2>
-<div class="prose">
+<div class="src-line">Sources: Google · <a href="https://x.com/googlegemma" rel="noopener" target="_blank">x.com/@googlegemma</a> / Realtime Voice Stack · <a href="https://x.com/andimarafioti" rel="noopener" target="_blank">x.com/@andimarafioti</a></div>
+</div>
+<div class="item">
+<div class="dateline">Electrek / The Information · July 2</div>
+<div class="item-title">Tesla caps AI spending for every engineer at 200 USD/week</div>
+<div class="body">
 <p>Tesla is implementing a weekly AI spending cap of $200 for all employees starting July 6. Source: Electrek.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Tesla caps AI spending for every engineer at 200 USD/week · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/violets-912d2882.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -345,12 +336,12 @@
 <p>This news has resonated widely across the industry, as the advancement speed of AI capabilities far outpaces the catch-up rate of corporate governance systems. The most frequently cited negative example is <span class="num">Uber</span>: The company once provided about <span class="num">5000</span> engineers with unconstrained access to Claude Code, resulting in burning through <span class="num">34</span> billion USD in AI budget within four months. Ultimately, Uber had to urgently halt and redesign its budget control workflow.</p>
 <p>The real problem: AI return on investment has become a muddled mess. Every engineer can consume thousands of dollars in a matter of minutes with a lack of cost visibility—that is the root cause. This is not a technical problem; it is a management problem.</p>
 </div>
-<div class="sources-bar">Sources: Electrek · <a href="https://electrek.co/2026/07/02/tesla-caps-employee-ai-spending-200-week/" rel="noopener" target="_blank">electrek.co</a> / The Information</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Reuters / Apptronik · June 30</div>
-<h2 class="chapter-title">Apptronik Opens 'Robot Park': Feeding Humanoid Robots with Real-World Data Factories</h2>
-<div class="prose">
+<div class="src-line">Sources: Electrek · <a href="https://electrek.co/2026/07/02/tesla-caps-employee-ai-spending-200-week/" rel="noopener" target="_blank">electrek.co</a> / The Information</div>
+</div>
+<div class="item">
+<div class="dateline">Reuters / Apptronik · June 30</div>
+<div class="item-title">Apptronik Opens 'Robot Park': Feeding Humanoid Robots with Real-World Data Factories</div>
+<div class="body">
 <p>Apptronik's Apollo 2 humanoid robot. Pictured is the bipedal version, alongside a wheeled variant. Image: Apptronik.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Apptronik Opens 'Robot Park': Feeding Humanoid Robots with Real-World Data Factories · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/patronus-ai---5000-----series--4cc72d75.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -361,30 +352,26 @@
 <p>The biggest bottleneck for humanoid robots has always been data, with a huge Sim-to-Real gap between lab simulation data and real-machine operation data. Robot Park's bet is that scaled collection of real-world operational data is the only path to bridge this gap.</p>
 <p>The next battleground for large models is physical-world data. Whoever can collect real-world operational data at scale holds the fuel for embodied AI.</p>
 </div>
-<div class="sources-bar">Sources: Reuters · <a href="https://www.reuters.com/technology/apptronik-launches-robot-training-hub-unveils-apollo-2-humanoid-robot-2026-06-30/" rel="noopener" target="_blank">reuters.com</a> / Apptronik · <a href="https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work" rel="noopener" target="_blank">apptronik.com</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Voice</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"You have to understand the code deeply enough to continue contributing."</div>
-<div class="voice-meta">
-<span>Geoffrey Litt · As relayed by Simon Willison</span>
-<a href="https://simonwillison.net/2026/jul/2/understand-to-participate/" rel="noopener" target="_blank">simonwillison.net</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">“The race window is tiny, only about six instructions……”</div>
-<div class="voice-meta">
-<span>Jaeyoung Chung · Researcher who reported the Bad Epoll vulnerability</span>
-<a href="https://github.com/J-jaeyoung/bad-epoll" rel="noopener" target="_blank">github.com</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Variety / Deadline · Premiering June 10 · Hot This Week</div>
-<h2 class="chapter-title">First fully AI-generated feature film hits Tribeca Film Festival, also sparking boycotts</h2>
-<div class="prose">
+<div class="src-line">Sources: Reuters · <a href="https://www.reuters.com/technology/apptronik-launches-robot-training-hub-unveils-apollo-2-humanoid-robot-2026-06-30/" rel="noopener" target="_blank">reuters.com</a> / Apptronik · <a href="https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work" rel="noopener" target="_blank">apptronik.com</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voice</div>
+<div class="sec-title">Voice</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"You have to understand the code deeply enough to continue contributing."</p>
+<p class="voice-who">Geoffrey Litt · As relayed by Simon Willison <a href="https://simonwillison.net/2026/jul/2/understand-to-participate/" rel="noopener" target="_blank">simonwillison.net</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“The race window is tiny, only about six instructions……”</p>
+<p class="voice-who">Jaeyoung Chung · Researcher who reported the Bad Epoll vulnerability <a href="https://github.com/J-jaeyoung/bad-epoll" rel="noopener" target="_blank">github.com</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">Variety / Deadline · Premiering June 10 · Hot This Week</div>
+<div class="item-title">First fully AI-generated feature film hits Tribeca Film Festival, also sparking boycotts</div>
+<div class="body">
 <p>Still from "Dreams of Violets": The film uses AI video tools to reconstruct the 2026 Iran protests based on news reports and eyewitness testimony. Photo: Variety.</p>
 <p>A feature-length docudrama with every single frame generated by AI, running <span class="num">75</span> minutes, titled "<span class="num">Dreams of Violets</span>", becoming New York's <span class="num">Tribeca Film Festival</span>first all-AI feature film in history.</p>
 <p>Directed by tech entrepreneur brothers <span class="num">Ash and Pooya Koosha</span>, the film draws on the January 2026 nationwide protests in Iran and the security forces' crackdown, with international organizations estimating the death toll exceeding <span class="num">7000</span>. All visuals were generated by AI video tools based on news reports, photographs, and eyewitness testimonies.</p>
@@ -392,62 +379,73 @@
 <p>The Koosha brothers defended their work, stating they aimed to use AI to bring attention to tragedies overlooked by mainstream media, while critics argued this precisely deprives victims and journalists of the right to tell their own stories.</p>
 <p>As production barriers collapse, what becomes scarce is who has the right to speak, what is told, and who bears the cost.</p>
 </div>
-<div class="sources-bar">Sources: Variety · <a href="https://variety.com/2026/film/festivals/tribeca-festival-ai-film-dreams-of-violets-fountain-0-1236759724/" rel="noopener" target="_blank">variety.com</a> / Deadline · <a href="https://deadline.com/2026/05/ai-film-dreams-of-violets-tribeca-festival-premiere-1236921663/" rel="noopener" target="_blank">deadline.com</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Investment &amp; Funding Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">TechCrunch / Menlo Ventures · July 4</div>
-<h2 class="chapter-title">Patronus AI's 5000 M Series B: Stress-Testing AI Agents with Digital Twin Worlds</h2>
-<div class="prose">
+<div class="src-line">Sources: Variety · <a href="https://variety.com/2026/film/festivals/tribeca-festival-ai-film-dreams-of-violets-fountain-0-1236759724/" rel="noopener" target="_blank">variety.com</a> / Deadline · <a href="https://deadline.com/2026/05/ai-film-dreams-of-violets-tribeca-festival-premiere-1236921663/" rel="noopener" target="_blank">deadline.com</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Funding Flows</div>
+<div class="sec-title">Investment &amp; Funding Flows</div>
+<div class="item">
+<div class="dateline">TechCrunch / Menlo Ventures · July 4</div>
+<div class="item-title">Patronus AI's 5000 M Series B: Stress-Testing AI Agents with Digital Twin Worlds</div>
+<div class="body">
 <p><span class="num">Patronus AI</span> Completed <span class="num">5000</span> M Series B, valuation undisclosed. Its approach is unique: <span class="accent">digital world models</span>, using high-fidelity digital twins of real-world systems to stress-test AI agents.</p>
 <p>Traditional AI safety testing relies on static benchmarks; Patronus has AI agents run autonomously in a simulated, complete business environment to observe whether they exhibit dangerous behaviors in complex scenarios.</p>
 <p>The value of this technology is especially pronounced as agents see large-scale deployment—you cannot afford to let a fallible agent trial-and-error on live customer data. Patronus's investors include Lightspeed and NEA. The company states its clients span finance, healthcare, and e-commerce, with some having integrated digital world model testing into their CI/CD pipelines.</p>
 <p>As agents move from demo to production, the value of the verification layer grows exponentially; whoever controls safety verification holds pricing power.</p>
 <p>Patronus AI's $50M Series B: Stress-Testing AI Agents with Digital Twin Worlds.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Signal Ticker</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Multi-Source Aggregation · July 3–5</div>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Signal Ticker</div>
+<div class="sec-title">Signal Ticker</div>
+<div class="item">
+<div class="dateline">Multi-Source Aggregation · July 3–5</div>
+<div class="body">
 <p><span class="num">Five Eyes Joint Warning</span>: Frontier AI brings the timeline for launching major cyberattacks down to months rather than years; CISA mandates federal agencies <span class="num">3</span> day patch window. June nonfarm payrolls added only +<span class="num">5.7</span> K (expected <span class="num">18.5</span> K), with AI cited as a structural factor.</p>
 <p><span class="num">Menlo Ventures</span> Raised <span class="num">30</span> B in new funds, with its equity stakes in model companies valued near <span class="num">140</span> B.<span class="num">LiteLLM</span> exposed security vulnerabilities, leaking API keys for multiple vendors. GPT-5.6 Sol remains locked behind a government-limited preview available to roughly <span class="num">20</span> institutions. Mythos Fable <span class="num">5</span> billing cliff expires on July <span class="num">7</span>, and subscription <span class="num">50</span>% credit benefits conclude.</p>
 </div>
-<div class="sources-bar">Sources: Multi-Source Aggregation</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Daily Summary</div>
-<article class="chapter">
-<div class="prose">
+<div class="src-line">Sources: Multi-Source Aggregation</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Daily Summary</div>
+<div class="sec-title">Daily Summary</div>
+<div class="item">
+<div class="body">
 <p>Deliberately eclectic today, covering independent researchers, Chinese open-source labs, robotics startups, Hollywood, and the VC battlefield:</p>
 <p><span class="num">I</span>: <span class="num">The narrative of "AI finding vulnerabilities" needs calibration</span>, as Bad Epoll proves that the exact same code was reviewed and missed by Mythos, then patched by a human.</p>
 <p><span class="num">II</span>: <span class="num">Open-source weights are dismantling the assumption that only big tech can build frontiers</span>, with GLM-5.2 releasing 753B parameters under an MIT license with unlimited commercial use.</p>
 <p><span class="num">III</span>: <span class="num">AI cost governance is becoming an established discipline</span>, with Tesla capping out and Uber burning $3.4B, making entry and verification layers the new prey for capital.</p>
 </div>
-<div class="sources-bar">Sources: Stratechery</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Stay Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: Stratechery</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Cape Verde · 15.0°N, 23.5°W" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-05/cape-verde-nasa.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Cape Verde · <span class="num">15.0</span>°N, <span class="num">23.5</span>°W</div>
 <p style="margin-bottom:8px; line-height:1.8;">With a population of 520,000 and an area smaller than Chongming Island, Cape Verde was nevertheless the most respected team in this World Cup, remaining undefeated in regular time against three former champions: Spain, Uruguay, and Argentina. Off the pitch, they're even bolder: Huawei built their data center and e-government platform, they are hosting the Web Summit in December (its African debut), and their goal is to become the "Estonia of West Africa," reversing brain drain through AI and the digital economy.</p>
 <p style="margin-bottom:8px; line-height:1.8;">After a whole day of AI news, a much bigger world awaits exploration.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-04.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-06.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

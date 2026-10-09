@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-09-23</span>
-<span>Wednesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-09-23 · Wednesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 16px; font-weight: 600; color: var(--text-dark, #0E0E10); margin-bottom: 14px; line-height: 1.6;">Today's most critical signal: The model price war has officially hit the frontier tier, while the rapid pace of open-source catching up is making proprietary giants uneasy.</p><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>OpenAI rolled out two new models at once, GPT-6 Sol and Luna , centered on "frontier capabilities at a low-cost entry point".</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Anthropic simultaneously unveiled Opus 5.5 , cutting prices while claiming benchmark leadership, in a timing move that felt coordinated down to the hour.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Xiaomi claimed top rank on open-source benchmarks with a training cost of just $3 million , yet Meta admitted that Muse 's design "borrowed heavily" from OpenClaw , down to keeping identical file names.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Snorkel AI tripled its valuation to $3.5 billion , signaling that the commercial value of AI training data is being fundamentally repriced.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Wednesday, September 23, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 16px; font-weight: 600; color: var(--text-dark, #0E0E10); margin-bottom: 14px; line-height: 1.6;">Today's most critical signal: The model price war has officially hit the frontier tier, while the rapid pace of open-source catching up is making proprietary giants uneasy.</p><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>OpenAI rolled out two new models at once, GPT-6 Sol and Luna , centered on "frontier capabilities at a low-cost entry point".</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Anthropic simultaneously unveiled Opus 5.5 , cutting prices while claiming benchmark leadership, in a timing move that felt coordinated down to the hour.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Xiaomi claimed top rank on open-source benchmarks with a training cost of just $3 million , yet Meta admitted that Muse 's design "borrowed heavily" from OpenClaw , down to keeping identical file names.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Snorkel AI tripled its valuation to $3.5 billion , signaling that the commercial value of AI training data is being fundamentally repriced.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Model Releases · Price Competition</div>
-<h2 class="chapter-title">OpenAI and Anthropic launch new models with price cuts on the same day: Frontier discounts are no longer about clearing inventory</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">Model Releases · Price Competition</div>
+<div class="item-title">OpenAI and Anthropic launch new models with price cuts on the same day: Frontier discounts are no longer about clearing inventory</div>
+<div class="body">
 <p><strong>On September 22, <span class="accent">OpenAI</span> launched two new models, <span class="num">GPT-6 Sol</span> and <span class="num">GPT-6 Luna</span>, positioned as "frontier intelligence with different performance-cost trade-offs," both distilled from the <span class="accent">GPT-6 Astra</span> generation architecture.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="OpenAI and Anthropic launch new models with price cuts on the same day: Frontier discounts are no longer about clearing inventory · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-09-23/meta-muse-app-GettyImages-2293792137-25e345f1.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,12 +271,12 @@
 <p><span class="turn">The significance of this moment lies in the shift</span>: previously, price reductions on frontier models occurred only after a next-generation model arrived—an inventory clearance logic. This time, both <span class="accent">OpenAI</span> and <span class="accent">Anthropic</span> are proactively slashing prices within their primary flagship generation, proving that competitive market pressure has moved directly to current top-tier models.</p>
 <p>The developer impact is immediate: <span class="num">GPT-6 Sol</span> and <span class="num">Luna</span> launched simultaneously on <span class="accent">Vercel AI Gateway</span>, and <span class="num">Opus 5.5</span> is likewise available on Vercel today, allowing developers to run side-by-side API comparisons immediately. The referee of this contest is the invoice, not the benchmark leaderboard.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna" rel="noopener" target="_blank">OpenAI Official Announcement</a> · <a href="https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/" rel="noopener" target="_blank">TechCrunch</a> · <a href="https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/" rel="noopener" target="_blank">TechCrunch (Opus 5.5)</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">AI Hype · In-Depth Commentary</div>
-<h2 class="chapter-title">MIT Tech Review warns: Don't be fooled by this summer's AI hype—capability gains are real, but narrative inflation is too</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna" rel="noopener" target="_blank">OpenAI Official Announcement</a> · <a href="https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/" rel="noopener" target="_blank">TechCrunch</a> · <a href="https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/" rel="noopener" target="_blank">TechCrunch (Opus 5.5)</a></div>
+</div>
+<div class="item">
+<div class="dateline">AI Hype · In-Depth Commentary</div>
+<div class="item-title">MIT Tech Review warns: Don't be fooled by this summer's AI hype—capability gains are real, but narrative inflation is too</div>
+<div class="body">
 <p><strong><span class="accent">MIT Technology Review</span> published a commentary dissecting the over-amplified narratives surrounding AI capabilities in summer 2026. The core argument: model advancements are real, <span class="turn">yet the "inflection point" narratives constructed around them often far outstrip what laboratory results actually support.</span></strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="MIT Tech Review warns: Don't be fooled by this summer's AI hype—capability gains are real, but narrative inflation is too · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-09-23/Rabbit-is-Back-Gear-OS3_r1-8a999f8f.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -295,24 +285,25 @@
 <p>The essay singled out familiar narrative playbook tactics: equating benchmark high-scores with genuine capability breakthroughs; extrapolating stellar performance on single tasks into "imminent general intelligence"; and treating lab demonstrations as equivalent to production-grade reliability. While these are not new tropes, <span class="turn">under this year's relentless barrage of releases, they have been repeatedly deployed with almost zero friction.</span></p>
 <p>Appearing right as <span class="accent">OpenAI</span> and <span class="accent">Anthropic</span> dropped major model releases on the same day, the timing shows that <span class="accent">MIT TR</span> intentionally aimed to provide a counterweight. Discerning readers should consume both perspectives: release announcements show what is newly possible, while critical analysis reveals what should be taken with a grain of salt.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.technologyreview.com/2026/09/22/1144867/dont-be-fooled-summer-ai-hype/" rel="noopener" target="_blank">MIT Technology Review</a></div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">The other side of Opus 5.5's price cut is a thicker system card: Vulnerabilities laid out item by item</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.technologyreview.com/2026/09/22/1144867/dont-be-fooled-summer-ai-hype/" rel="noopener" target="_blank">MIT Technology Review</a></div>
+</div>
+<div class="item">
+<div class="item-title">The other side of Opus 5.5's price cut is a thicker system card: Vulnerabilities laid out item by item</div>
+<div class="body">
 <p><strong>Zvi Mowshowitz dove into the Claude Opus 5.5 system card. Anthropic claims this version matches or beats the prior flagship while coming in cheaper than Opus 5. Disclosures have grown proportionally thicker, covering classifiers, RSP trigger assessments, biological and AI R&amp;D capabilities, cyber attack and defense, and prompt injection risks.</strong></p>
 
 <p>Rarely seen disclosures include internal inconsistency cases, automated behavioral audits, and model self-portraits, with a dedicated section reserved for blind spots. <span class="turn">In Zvi's assessment, laying out vulnerabilities for all to see is where the system card's true value lies,</span> noting that capability evaluations and model welfare assessments will follow in separate write-ups.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://thezvi.substack.com/p/claude-opus-55-the-system-card" rel="noopener" target="_blank">The Zvi</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Hardware · On-Device AI</div>
-<h2 class="chapter-title">Qualcomm's new flagship chips run 30B local models, pushing smartphone AI inference boundaries forward</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://thezvi.substack.com/p/claude-opus-55-the-system-card" rel="noopener" target="_blank">The Zvi</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">Hardware · On-Device AI</div>
+<div class="item-title">Qualcomm's new flagship chips run 30B local models, pushing smartphone AI inference boundaries forward</div>
+<div class="body">
 <p><strong><span class="accent">Qualcomm</span> launched two new smartphone chips, with its top-tier <span class="num">Snapdragon 8 Elite</span> series spotlighting on-device AI power. Official specs confirm it can directly run <span class="num">30B</span> parameter <span class="num">mixture-of-experts (MoE)</span> models locally.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Qualcomm's new flagship chips run 30B local models, pushing smartphone AI inference boundaries forward · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-09-22/082926-CengizYar-MITTechReview-68-6476d7c9.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -321,186 +312,190 @@
 <p><span class="num">30B</span> marks a meaningful threshold. Previously, edge models were typically compressed to <span class="num">7B</span> or <span class="num">13B</span> to maintain acceptable inference speed. A <span class="num">30B</span> MoE model, however, approaches mainstream cloud model performance across multiple capability vectors.</p>
 <p><span class="turn">The bigger implications are privacy and latency.</span> On-device execution keeps data on the phone, immune to network instability. For enterprise scenarios, those factors are often far more valuable than marginal capability gains. While <span class="accent">Qualcomm</span>'s chips won't hit consumers until next year's flagship phone cycle, <span class="turn">this spec will compel competitors to accelerate their roadmap.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Products · AI Assistants</div>
-<h2 class="chapter-title">Meta admits Muse borrowed from OpenClaw down to the file names: A confession arriving a bit late</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">Products · AI Assistants</div>
+<div class="item-title">Meta admits Muse borrowed from OpenClaw down to the file names: A confession arriving a bit late</div>
+<div class="body">
 <p><strong>Facing scrutiny, <span class="accent">Meta</span> publicly admitted that <span class="num">Muse</span>'s design "borrowed heavily" from <span class="num">OpenClaw</span>'s architecture and interaction patterns, with some internal workspace filenames showing striking similarities to <span class="accent">OpenClaw</span>'s repository. <span class="accent">Meta</span> maintained that Muse was nevertheless built from scratch.</strong></p>
 <p>For "built from scratch" and "borrowed so deeply that file names match" to coexist technically suggests a familiar scenario: team members previously worked on <span class="accent">OpenClaw</span>-related projects and carried over coding habits and naming conventions. <span class="turn">Yet this explanation hardly eliminates the issue;</span> it merely shifts responsibility from corporate strategy to personnel migration.</p>
 <p>Muse's downloads have already outpaced <span class="accent">ChatGPT</span> over the same initial launch timeframe, showing that commercial momentum remains unhurt by controversy. <span class="turn">This demonstrates</span> that at the consumer level, debates over "who copied whom" pale in comparison to whether the product works well. The parties who will keep pressing this issue are legal teams and investors, not end users.</p>
 <p>Meta Muse · Getty Images / TechCrunch · 2026-09-23</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Agents · Product Pivot</div>
-<h2 class="chapter-title">Rabbit returns with OS3: Dropping hardware to run AI agents across all your screens</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">Agents · Product Pivot</div>
+<div class="item-title">Rabbit returns with OS3: Dropping hardware to run AI agents across all your screens</div>
+<div class="body">
 <p><strong>Two years after attempting to bypass smartphone apps with its <span class="num">R1</span> handheld, <span class="accent">Rabbit</span> has unveiled <span class="num">OS3</span>, pivoting into cross-platform AI agent software designed to execute tasks across users' existing screens without dedicated hardware.</strong></p>
 <p>The failure mode of the <span class="accent">R1</span> was straightforward: high procurement friction for dedicated hardware, poor app ecosystem coverage, and an overall user experience inferior to the smartphone already in one's pocket. The shift in <span class="num">OS3</span> acknowledges this reality, aligning with the multi-platform agent approach pursued by <span class="accent">Muse</span> and <span class="accent">Claude</span>.</p>
 <p><span class="turn">The dilemma, however</span>, is that this field is already fiercely crowded, with <span class="accent">Meta</span>, <span class="accent">OpenAI</span>, and <span class="accent">Anthropic</span> advancing their own agent ecosystems. <span class="accent">Rabbit</span>'s differentiated value proposition remains fuzzy. Transitioning from dedicated hardware to pure software amounts to starting a whole new startup in capital storytelling, not just an incremental product update.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.wired.com/story/rabbit-r1-os3-jesse-lyu/" rel="noopener" target="_blank">Wired</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Apple · Legal · Consumers</div>
-<h2 class="chapter-title">Apple settles Siri misleading claims for $250M: Up to $95 per iPhone, deadline December 21</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.wired.com/story/rabbit-r1-os3-jesse-lyu/" rel="noopener" target="_blank">Wired</a></div>
+</div>
+<div class="item">
+<div class="dateline">Apple · Legal · Consumers</div>
+<div class="item-title">Apple settles Siri misleading claims for $250M: Up to $95 per iPhone, deadline December 21</div>
+<div class="body">
 <p><strong><span class="accent">Apple</span> has agreed to pay <span class="num">$250 million</span> to settle a class-action lawsuit alleging misleading advertising around <span class="num">Siri</span> capabilities, allowing eligible device owners to claim up to <span class="num">$95</span> per iPhone before the deadline on <span class="num">December 21, 2026</span>.</strong></p>
 <p>The core allegation focused on a conspicuous gap between the advertised capabilities showcased in <span class="num">Siri</span> promotional material and what consumers actually experienced after purchasing devices. Accusations of "demo vs. delivery disparity" are poised to become increasingly commonplace in the AI product era.</p>
 <p><span class="turn">The more consequential ripple effect</span> is the precedent this settlement establishes: consumers can seek legal recourse when AI features fail to deliver on marketing promises. For other tech giants aggressively touting ambitious AI features, this case serves as an unignorable benchmark.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.wired.com/story/how-to-claim-your-cut-of-apple-250-million-siri-settlement/" rel="noopener" target="_blank">Wired</a></div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">The argument that MCP is obsolete misses half the picture: Simon Willison draws the boundary at permissions</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.wired.com/story/how-to-claim-your-cut-of-apple-250-million-siri-settlement/" rel="noopener" target="_blank">Wired</a></div>
+</div>
+<div class="item">
+<div class="item-title">The argument that MCP is obsolete misses half the picture: Simon Willison draws the boundary at permissions</div>
+<div class="body">
 <p><strong>Responding to a viral post arguing "MCP was a bad idea from day one," Simon Willison contended that while full-permission terminal agents indeed barely need MCP—calling APIs directly is simpler—the moment permissions must be restricted, the entire case for MCP returns.</strong></p>
 <p>He cited a concrete list: defining which external services can be accessed, authentication schemes that keep API keys out of the agent's direct reach, interfaces for users to connect third-party services, and auditable action logs. <span class="turn">Using the experience of unconstrained coding agents to dismiss structured, controlled integration</span> conflates two fundamentally different product paradigms into one.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Sep/20/hn-49779718/" rel="noopener" target="_blank">Simon Willison</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontier</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Open Models · Training Efficiency</div>
-<h2 class="chapter-title">Xiaomi trains #1 open-source model for $3M, livestreams 6-day run; Hugging Face CEO praises achievement</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Sep/20/hn-49779718/" rel="noopener" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontier</div>
+<div class="sec-title">Open Source Frontier</div>
+<div class="item">
+<div class="dateline">Open Models · Training Efficiency</div>
+<div class="item-title">Xiaomi trains #1 open-source model for $3M, livestreams 6-day run; Hugging Face CEO praises achievement</div>
+<div class="body">
 <p><strong><span class="accent">Xiaomi</span> unveiled <span class="num">MiMo-V2.6-Pro 1T-A42B</span>, completed in just <span class="num">6</span> days at a total training cost of approximately <span class="num">$3 million</span>, with the entire training process publicly livestreamed. The model immediately topped the open-weight leaderboards, drawing public commendation from the CEO of <span class="accent">Hugging Face</span>.</strong></p>
 <p>Combining a <span class="num">1T</span> total parameter, <span class="num">42B</span> activated parameter <span class="num">mixture-of-experts architecture</span> with a <span class="num">$3 million</span> training budget yields an efficiency ratio rarely seen among modern open models. Compared to closed models of comparable capability, the cost disparity easily reaches an order of magnitude.</p>
 <p>Livestreaming the training run was itself a strategic statement: transparency deployed as a competitive asset. The community could observe loss curves, hardware configurations, and checkpoint progressions in real time—an unprecedented degree of openness for a commercial corporation. <span class="turn">While undeniably a marketing showcase,</span> that does not diminish its tangible value to the machine learning research community.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.qbitai.com/2026/09/494179.html" rel="noopener" target="_blank">QbitAI</a> · <a href="https://www.latent.space/p/ainews-xiaomi-mimo-v26-pro-1t-a42b" rel="noopener" target="_blank">AINews (Latent Space)</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Open Source · GPT Prompt Caching</div>
-<h2 class="chapter-title">OpenAI overhauls GPT-6 prompt caching with higher hit rates and granular breakpoints, directly lowering developer bills</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.qbitai.com/2026/09/494179.html" rel="noopener" target="_blank">QbitAI</a> · <a href="https://www.latent.space/p/ainews-xiaomi-mimo-v26-pro-1t-a42b" rel="noopener" target="_blank">AINews (Latent Space)</a></div>
+</div>
+<div class="item">
+<div class="dateline">Open Source · GPT Prompt Caching</div>
+<div class="item-title">OpenAI overhauls GPT-6 prompt caching with higher hit rates and granular breakpoints, directly lowering developer bills</div>
+<div class="body">
 <p><strong><span class="accent">OpenAI</span> rolled out substantial upgrades to <span class="num">prompt caching</span> for <span class="num">GPT-6</span>, highlighting higher cache hit rates, new diagnostic tooling, support for explicit cache breakpoints, and more granular cost-control configurations.</strong></p>
 <p><span class="num">Prompt caching</span> yields immediate savings in high-frequency invocation workflows: repetitive system prompts and context prefixes avoid redundant compute, with cached tokens billed at steep discounts. <span class="turn">The persistent hurdle previously</span> was erratic cache hit rates, making it difficult for engineering teams to reliably forecast cost savings.</p>
 <p>The introduction of explicit breakpoint controls allows developers to specify exactly which prompt segments should be cached, resolving the pain point of unpredictable cache invalidation. While not a core capability upgrade, <span class="turn">for teams running <span class="accent">GPT-6</span> in high-volume production environments, the billing impact takes effect today.</span></p>
 <p>OpenAI API usage and monitoring dashboard screenshot · OpenAI Official Interface</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/better-prompt-caching-for-gpt-6" rel="noopener" target="_blank">OpenAI Official Announcement</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Open Source · Third-Party Evaluations</div>
-<h2 class="chapter-title">OpenAI outlines principles and priorities for third-party evaluations: The most easily overlooked line on the transparency ledger</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/better-prompt-caching-for-gpt-6" rel="noopener" target="_blank">OpenAI Official Announcement</a></div>
+</div>
+<div class="item">
+<div class="dateline">Open Source · Third-Party Evaluations</div>
+<div class="item-title">OpenAI outlines principles and priorities for third-party evaluations: The most easily overlooked line on the transparency ledger</div>
+<div class="body">
 <p><strong><span class="accent">OpenAI</span> published a policy paper defining its stance on <span class="num">independent third-party safety assessments</span>, articulating three core pillars—"rigor, safety, and independence"—alongside a prioritized framework for collaborating with external evaluators.</strong></p>
 <p>The paper arrives against a backdrop of persistent skepticism regarding the credibility of <span class="accent">OpenAI</span>'s internal evaluations, particularly following multiple departures from its safety teams. Proactively codifying third-party evaluation principles serves to construct procedural trust amid external pressure.</p>
 <p><span class="turn">The critical crux lies in</span> how "independence" is defined. If funding sources, testing scope, or publication rights remain bounded by <span class="accent">OpenAI</span>, the authenticity of independence remains open to question. While the paper leaves those procedural questions largely open, <span class="turn">the stated principles</span> can now be used as a public yardstick to audit future actions.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/priorities-principles-third-party-assessments" rel="noopener" target="_blank">OpenAI Official Announcement</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">“Don't be fooled by this summer's AI hype. The capability gains are real, but extrapolating single-task wins into imminent general intelligence is a narrative running far ahead of evidence...”</div>
-<div class="voice-meta">
-<span>Editorial Commentary · MIT Technology Review · On the summer 2026 AI release wave</span>
-<a href="https://www.technologyreview.com/2026/09/22/1144867/dont-be-fooled-summer-ai-hype/" rel="noopener" target="_blank">technologyreview.com</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">“Muse was built from scratch, but we acknowledge that its design borrowed heavily from OpenClaw, including some workspace file naming conventions.”</div>
-<div class="voice-meta">
-<span>Official Statement · Meta · Public response regarding Muse and OpenClaw similarities</span>
-<a href="https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/" rel="noopener" target="_blank">techcrunch.com</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">“Xiaomi did it: $3M, six days, #1 open source. Incredible.”</div>
-<div class="voice-meta">
-<span>Clem Delangue · CEO, Hugging Face · Public commentary on the MiMo-V2.6-Pro release</span>
-<a href="https://www.latent.space/p/ainews-xiaomi-mimo-v26-pro-1t-a42b" rel="noopener" target="_blank">latent.space</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creations</div>
-<article class="chapter">
-<div class="chapter-eyebrow">AI Tools · Enterprise Memory</div>
-<h2 class="chapter-title">V7 feeds scattered enterprise files into agents, enabling them to truly retain how the company operates</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/priorities-principles-third-party-assessments" rel="noopener" target="_blank">OpenAI Official Announcement</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">“Don't be fooled by this summer's AI hype. The capability gains are real, but extrapolating single-task wins into imminent general intelligence is a narrative running far ahead of evidence...”</p>
+<p class="voice-who">Editorial Commentary · MIT Technology Review · On the summer 2026 AI release wave <a href="https://www.technologyreview.com/2026/09/22/1144867/dont-be-fooled-summer-ai-hype/" rel="noopener" target="_blank">technologyreview.com</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“Muse was built from scratch, but we acknowledge that its design borrowed heavily from OpenClaw, including some workspace file naming conventions.”</p>
+<p class="voice-who">Official Statement · Meta · Public response regarding Muse and OpenClaw similarities <a href="https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/" rel="noopener" target="_blank">techcrunch.com</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“Xiaomi did it: $3M, six days, #1 open source. Incredible.”</p>
+<p class="voice-who">Clem Delangue · CEO, Hugging Face · Public commentary on the MiMo-V2.6-Pro release <a href="https://www.latent.space/p/ainews-xiaomi-mimo-v26-pro-1t-a42b" rel="noopener" target="_blank">latent.space</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creations</div>
+<div class="sec-title">Creations</div>
+<div class="item">
+<div class="dateline">AI Tools · Enterprise Memory</div>
+<div class="item-title">V7 feeds scattered enterprise files into agents, enabling them to truly retain how the company operates</div>
+<div class="body">
 <p><strong><span class="accent">V7</span>, in collaboration with <span class="accent">OpenAI</span>, demonstrated an enterprise solution: leveraging <span class="num">GPT-5.6</span> to transform unstructured internal documents, SOPs, and historical records into an <span class="num">agent-callable institutional memory layer</span>, with verifiable source citations attached to every generated task output.</strong></p>
 <p>The problem addressed is tangible: enterprise agents often produce generic, unhelpful outputs because they lack contextual awareness of internal decision logic, corporate precedent, or domain terminology. <span class="num">Institutional memory</span> equips agents with company-specific context rather than merely generic world knowledge.</p>
 <p>Source attribution is essential for enterprise deployments. <span class="turn">By explicitly referencing the specific internal document behind every output,</span> agents make their results auditable and accountable, directly addressing one of the most prominent compliance barriers to enterprise AI adoption.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/v7" rel="noopener" target="_blank">OpenAI Official Website</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">AI Research · Space Autonomy</div>
-<h2 class="chapter-title">AstroForge embeds AI into spacecraft command systems: Deep space probes no longer fly solely on ground commands</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/v7" rel="noopener" target="_blank">OpenAI Official Website</a></div>
+</div>
+<div class="item">
+<div class="dateline">AI Research · Space Autonomy</div>
+<div class="item-title">AstroForge embeds AI into spacecraft command systems: Deep space probes no longer fly solely on ground commands</div>
+<div class="body">
 <p><strong>Space mining startup <span class="accent">AstroForge</span> announced that its next spacecraft will integrate a compact AI model based on <span class="num">Transformer architecture</span> as its core command layer. Named <span class="num">Autonomy-1</span>, the system is designed to make real-time operational decisions rather than waiting for ground control telemetry.</strong></p>
 <p>Communication latency represents an unavoidable constraint in deep-space exploration, where round-trip signal delays range from minutes to tens of minutes—far too sluggish to respond to unexpected telemetry anomalies. <span class="num">Autonomy-1</span> is engineered to autonomously manage sensor discrepancies, orbital corrections, and subsystem failures outside direct contact windows.</p>
 <p>Focusing on asteroid prospecting, <span class="accent">AstroForge</span> operates a model inherently reliant on deep autonomy. <span class="turn">Integrating AI directly into the command chain</span> is an objective engineering necessity for handling rapid, complex situational analysis. The stakes are far higher than terrestrial robotics, as there is zero opportunity for human intervention if failure occurs.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/09/22/astroforge-is-putting-ai-in-command-of-its-next-spacecraft/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Visual</div>
-<article class="chapter">
-<div class="chapter-eyebrow">AI Ethics · Border Surveillance</div>
-<h2 class="chapter-title">Roundtable dissects the deadly failures of the 'virtual wall': MIT TR's 15-month investigation continues</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/09/22/astroforge-is-putting-ai-in-command-of-its-next-spacecraft/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Visual</div>
+<div class="item">
+<div class="dateline">AI Ethics · Border Surveillance</div>
+<div class="item-title">Roundtable dissects the deadly failures of the 'virtual wall': MIT TR's 15-month investigation continues</div>
+<div class="body">
 <p><strong>Building on its investigative exposé published yesterday, <span class="accent">MIT Technology Review</span> hosted a policy roundtable on the systemic, fatal breakdowns within the <span class="num">AI-powered surveillance tower network</span> along the US southern border, convening researchers, policymakers, and human rights advocates.</strong></p>
 <p>The preceding investigation established a comprehensive fatality map showing that in the vast majority of cases, deaths occurring within direct sensor coverage failed to trigger emergency rescue interventions. The roundtable shifted focus to a tougher institutional question: who holds accountability for bridging the gap between signal detection and rescue dispatch?</p>
 <p><span class="turn">There are no straightforward answers.</span> The technical surveillance apparatus is operated by federal contractors, while the operational rescue chain is fractured across Border Patrol, local law enforcement, and non-profit networks with virtually non-existent coordination mechanisms. <span class="accent">MIT TR</span> successfully surfaced the evidentiary data, <span class="turn">but</span> allocating policy responsibility remains the true unresolved battle.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.technologyreview.com/2026/09/22/1144890/roundtables-the-deadly-failures-of-the-virtual-border-wall/" rel="noopener" target="_blank">MIT Technology Review</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Biocomputing · Cross-Discipline Convergence</div>
-<h2 class="chapter-title">Rat neurons connected to AWS: Biocomputing startup brings 'organic AI' from the lab fringe to the cloud</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.technologyreview.com/2026/09/22/1144890/roundtables-the-deadly-failures-of-the-virtual-border-wall/" rel="noopener" target="_blank">MIT Technology Review</a></div>
+</div>
+<div class="item">
+<div class="dateline">Biocomputing · Cross-Discipline Convergence</div>
+<div class="item-title">Rat neurons connected to AWS: Biocomputing startup brings 'organic AI' from the lab fringe to the cloud</div>
+<div class="body">
 <p><strong><span class="accent">Biological Computing Company</span> announced the integration of its <span class="num">neuronal AI tools</span> with <span class="accent">Amazon Web Services</span>, allowing researchers to access <span class="num">bio-hybrid computing</span> architectures built from living rat brain cells directly via the cloud.</strong></p>
 <p>The foundational premise of biocomputing is that biological neurons are inherently more efficient than silicon architectures for specific computational classes, particularly regarding power consumption and temporal signal processing. Linking these systems to mainstream cloud infrastructure significantly lowers the access barrier for researchers and enterprise experimenters.</p>
 <p><span class="turn">Yet commercial viability remains a distant horizon.</span> Neuronal stability, operational lifespan, and physical scalability present formidable engineering bottlenecks. Current demonstrations highlight connectivity rather than practical outperformance over GPUs. Nevertheless, the <span class="accent">AWS</span> deployment confirms that organic computing has advanced beyond purely speculative academic curiosity.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.wired.com/story/ai-models-built-from-rat-brains-are-about-to-become-a-reality/" rel="noopener" target="_blank">Wired</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Funding · Training Data</div>
-<h2 class="chapter-title">Snorkel AI triples valuation to $3.5B as pricing power over AI training data is fiercely contested</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.wired.com/story/ai-models-built-from-rat-brains-are-about-to-become-a-reality/" rel="noopener" target="_blank">Wired</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Capital Flows</div>
+<div class="sec-title">Investment &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">Funding · Training Data</div>
+<div class="item-title">Snorkel AI triples valuation to $3.5B as pricing power over AI training data is fiercely contested</div>
+<div class="body">
 <p><strong><span class="accent">Snorkel AI</span> closed a <span class="num">$350 million</span> Series E round, lifting its valuation from approximately <span class="num">$1 billion</span> to <span class="num">$3.5 billion</span>—a threefold surge achieved in less than two years. The company's flagship offering is a "<span class="num">data-as-a-service</span>" platform that enables enterprises to curate high-quality annotated data for model training.</strong></p>
 <p>This round reflects an evolving market reality: as foundational models converge in raw capability, the primary bottleneck in machine learning is transitioning from compute capacity to training data quality. Entities capable of providing domain-specific, ultra-clean data hold the essential raw materials for the next cycle of model improvements.</p>
 <p><span class="turn">Snorkel's core business model</span> empowers enterprises to generate training data programmatically rather than through manual human annotation, radically slashing data production costs. Seven years of foundational engineering have cemented sticky workflow integrations across major enterprise accounts. The <span class="num">$3.5 billion</span> valuation affirms that venture capital now views the data supply chain as an indispensable, standalone pillar of AI infrastructure, not an afterthought.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Capital Markets · AI Sentiment</div>
-<h2 class="chapter-title">Nasdaq 100 hits record high as 'AI FOMO' returns; Summer selloff proves to be merely a consolidation</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">Capital Markets · AI Sentiment</div>
+<div class="item-title">Nasdaq 100 hits record high as 'AI FOMO' returns; Summer selloff proves to be merely a consolidation</div>
+<div class="body">
 <p><strong>The <span class="accent">Nasdaq 100</span> reached a new all-time high, with the <span class="accent">Financial Times</span> attributing the momentum to a resurgence of "<span class="num">AI FOMO</span>" as investors poured back into tech equities following the summer retreat.</strong></p>
 <p>The summer pullback had been driven by overlapping anxieties: skepticism over enterprise monetization timelines, shifting interest rate expectations, and earnings misses from select megacap leaders. As these headwinds softened and an intensive wave of flagship model launches rekindled capability excitement, sentiment swiftly rebounded into risk-on territory.</p>
 <p><span class="turn">Yet this rally rests on several demanding assumptions:</span> that AI monetization will accelerate tangibly over coming quarters; that ongoing model breakthroughs will consistently translate into commercial software renewals; and that macroeconomic monetary conditions will avoid unexpected tightening. Should cracks appear in any of these pillars, "<span class="num">FOMO</span>" could reverse back into panic even faster than before.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.ft.com/content/2c60812b-77b4-4de5-a276-5e3eb2ceb5c3" rel="noopener" target="_blank">Financial Times</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary · Today's Perspective</div>
-<article class="chapter">
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.ft.com/content/2c60812b-77b4-4de5-a276-5e3eb2ceb5c3" rel="noopener" target="_blank">Financial Times</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary · Today's Perspective</div>
+<div class="sec-title">Summary · Today's Perspective</div>
+<div class="item">
+<div class="body">
 <p>A single clear thread connects today's headlines: <span class="num">prices are plummeting, competition is intensifying, and every major player is deploying distinct arsenals to capture the same developer base.</span> <span class="accent">OpenAI</span> and <span class="accent">Anthropic</span> triggered a direct price war at the frontier tier by dropping discounted flagship models on the exact same day; <span class="accent">Xiaomi</span> spent just <span class="num">$3 million</span> to seize top rank on the open-source leaderboard, showing that training costs can be compressed dramatically; <span class="accent">Qualcomm</span> packed <span class="num">30B</span> models onto mobile chips, expanding the horizons of edge inference; and <span class="accent">Snorkel AI</span> tripled its valuation as control over the data supply chain becomes the next strategic front. <span class="turn">Concurrently</span>, <span class="accent">Meta</span> conceded that Muse took heavy inspiration from OpenClaw, Apple agreed to pay <span class="num">$250 million</span> over unfulfilled Siri promises, and MIT TR probed why border surveillance networks failed to trigger life-saving rescues. Technology is accelerating, controversies are accelerating alongside it, and neither shows any sign of slowing down.</p>
 </div>
-</article>
-</section>
+</div>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-09-22.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-09-24.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

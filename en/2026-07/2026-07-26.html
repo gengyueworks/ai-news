@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-26</span>
-<span>Sunday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-26</h1><p class="doc-date">2026-07-26 · Sunday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>The price war has reached the high end.Anthropic priced Opus 5 at half of Fable 5.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>in the open-source camp, Kimi K3 will release its 2.8 trillion-parameter weights the day after tomorrow.With cheaper flagships on one side and auditable open models on the other, the capability moat is shifting from "parameters" to "affordability.".</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Sunday, July 26, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>The price war has reached the high end.Anthropic priced Opus 5 at half of Fable 5.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>in the open-source camp, Kimi K3 will release its 2.8 trillion-parameter weights the day after tomorrow.With cheaper flagships on one side and auditable open models on the other, the capability moat is shifting from "parameters" to "affordability.".</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-25 · Anthropic · Model Release</div>
-<h2 class="chapter-title">Claude Opus 5 Released: Performance Nears Fable 5 at Half the Price, But the Real Hard Battle Has Just Begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-25 · Anthropic · Model Release</div>
+<div class="item-title">Claude Opus 5 Released: Performance Nears Fable 5 at Half the Price, But the Real Hard Battle Has Just Begun</div>
+<div class="body">
 <p>Claude Opus 5 is released.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Claude Opus 5 Released: Performance Nears Fable 5 at Half the Price, But the Real Hard Battle Has Just Begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-26/claude-opus-5.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -280,15 +270,16 @@
 <p><strong>On July 25, Anthropic released Claude Opus 5. The company stated that its intelligence level approaches its own Fable 5, but its API pricing is only half of the latter: per million input tokens <span class="num">5</span> USD, output <span class="num">25</span> USD, on par with Opus 4.8.</strong>It instantly became the default model for Claude Max and topped programming and knowledge work benchmarks such as Frontier-Bench and GDPval-AA.</p>
 <p>On the same day, AWS announced the integration of Opus 5 into Bedrock, and TrendAI also incorporated it into vulnerability prioritization assessment.<span class="turn">When even the most expensive flagship starts chasing "cost-effectiveness," the main axis of competition for frontier models has shifted from "who is stronger" to "who is cheaper yet usable."</span></p>
 </div>
-<div class="sources-bar">Sources: Anthropic · <a href="https://finance.yahoo.com/technology/ai/articles/anthropic-rolls-opus-5-ai-170126108.html" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-25 · NVIDIA / Microsoft / Meta · Policy</div>
-<h2 class="chapter-title">Joint Petition by Three Giants: Do Not Embargo Open-Source Weights, But the Real Hard Battle Has Just Begun</h2>
-<div class="prose">
+<div class="src-line">Sources: Anthropic · <a href="https://finance.yahoo.com/technology/ai/articles/anthropic-rolls-opus-5-ai-170126108.html" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-25 · NVIDIA / Microsoft / Meta · Policy</div>
+<div class="item-title">Joint Petition by Three Giants: Do Not Embargo Open-Source Weights, But the Real Hard Battle Has Just Begun</div>
+<div class="body">
 <p><strong>The open-source weight debate sparked by Kimi K3 continues to heat up. Led by NVIDIA, Microsoft, and Meta, a coalition of <span class="num">20</span> companies issued a joint letter warning policymakers against imposing embargoes or restrictions on open-source weights, including Chinese models.</strong>The letter states that open models that can be downloaded, modified, and self-deployed are key to maintaining U.S. technological leadership.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Joint Petition by Three Giants: Do Not Embargo Open-Source Weights, But the Real Hard Battle Has Just Begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-26/kimi-k3.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -296,12 +287,12 @@
 </div>
 <p>Notably, neither OpenAI nor Anthropic signed the letter, as both primarily advocate for closed-source models.<span class="turn">With closed-source giants preparing for IPOs on one side and hardware makers and the open-source camp defending their ground on the other, the first public game of AI governance has been laid on the table.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://malpass.co/top-ai-stories-2026-07-25" rel="noopener" target="_blank">Malpass / Politico</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-27 (Countdown 1 Day) · Moonshot AI · Weight Open-Sourcing</div>
-<h2 class="chapter-title">Kimi K3 Weights to Be Open-Sourced the Day After Tomorrow: Open Models Touch the 3T Scale for the First Time</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://malpass.co/top-ai-stories-2026-07-25" rel="noopener" target="_blank">Malpass / Politico</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-27 (Countdown 1 Day) · Moonshot AI · Weight Open-Sourcing</div>
+<div class="item-title">Kimi K3 Weights to Be Open-Sourced the Day After Tomorrow: Open Models Touch the 3T Scale for the First Time</div>
+<div class="body">
 <p><strong>Moonshot AI confirmed that the full K3 weights will be open-sourced on July 27 under the Modified MIT license,<span class="num">2.8</span> trillion parameters,<span class="num">896</span> experts activated per token, <span class="num">16</span> million-token context.</strong>API is now live. In comprehensive benchmarks, K3 closely trails Claude Fable 5 and GPT-5.6 Sol, significantly outperforming Opus 4.8.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Kimi K3 Weights to Be Open-Sourced the Day After Tomorrow: Open Models Touch the 3T Scale for the First Time · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-26/github-copilot-workspace.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -310,15 +301,16 @@
 <p><span class="turn">For the first time, open models are standing at the threshold of the 3T scale, loosening the leverage that closed-source labs held with 'only we can run the frontier.'</span></p>
 <p>Kimi K3 weights will be released the day after tomorrow.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.kimi.com/zh-cn/blog/kimi-k3" rel="noopener" target="_blank">Moonshot AI</a> · <a href="https://aiweekly.co/alerts/moonshot-releases-kimi-k3-largest-open-weight-model-to-date" rel="noopener" target="_blank">AI Weekly</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontier</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-27 · Community · Auditable</div>
-<h2 class="chapter-title">What makes K3 most valuable isn't its parameters, but that you can run it and inspect it yourself</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.kimi.com/zh-cn/blog/kimi-k3" rel="noopener" target="_blank">Moonshot AI</a> · <a href="https://aiweekly.co/alerts/moonshot-releases-kimi-k3-largest-open-weight-model-to-date" rel="noopener" target="_blank">AI Weekly</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontier</div>
+<div class="sec-title">Open Source Frontier</div>
+<div class="item">
+<div class="dateline">07-27 · Community · Auditable</div>
+<div class="item-title">What makes K3 most valuable isn't its parameters, but that you can run it and inspect it yourself</div>
+<div class="body">
 <p><strong>What truly excites researchers about K3 is that independent auditing becomes possible once the weights are released. Moonshot claims that Kimi Delta Attention (KDA) can boost million-token decoding speeds by <span class="num">6.3</span> x. Such claims of 'efficient attention' have often been debunked in the past, but this time anyone can download it and verify it themselves.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="What makes K3 most valuable isn't its parameters, but that you can run it and inspect it yourself · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-26/deepseek-v4.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -327,12 +319,12 @@
 <p><span class="turn">The significance of open weights has never been just about being free; it's about giving people the ability to instantly verify claims like 'I am highly efficient.'</span></p>
 <p>K3 Community Audit.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-open-wei" rel="noopener" target="_blank">Hugging Face</a> · <a href="https://theaidude.net/blog/kimi-k3-moonshots-28t-open-model-launches" rel="noopener" target="_blank">The AI Dude</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">July · DeepSeek · Pricing</div>
-<h2 class="chapter-title">DeepSeek cuts V4-Pro price making it permanent</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-open-wei" rel="noopener" target="_blank">Hugging Face</a> · <a href="https://theaidude.net/blog/kimi-k3-moonshots-28t-open-model-launches" rel="noopener" target="_blank">The AI Dude</a></div>
+</div>
+<div class="item">
+<div class="dateline">July · DeepSeek · Pricing</div>
+<div class="item-title">DeepSeek cuts V4-Pro price making it permanent</div>
+<div class="body">
 <p><strong>Even before K3, China's open model price war had already begun. DeepSeek made its V4-Pro price cuts permanent, continuing to establish 'affordable and capable' as the default posture for open models; meanwhile, GLM-5.2 climbed to the top of multiple coding leaderboards the same month.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="DeepSeek cuts V4-Pro price making it permanent · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-26/figure-bmw.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -341,30 +333,26 @@
 <p><span class="turn">In the second half of the competition among open models, the game is no longer about who launches first, but how large a model you can run for the same budget.</span></p>
 <p>DeepSeek price cuts made permanent.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://theaidude.net/blog/kimi-k3-moonshots-28t-open-model-launches" rel="noopener" target="_blank">The AI Dude</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Opus 5 is our most thoroughly aligned model, with the lowest incidence of reckless and deceptive behavior."</div>
-<div class="voice-meta">
-<span>, Anthropic Official Statement</span>
-<a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">WIRED</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"The 11-month deployment of Figure 02 proves that humanoid robots are no longer museum pieces—they have become labor assets capable of sustaining production lines."</div>
-<div class="voice-meta">
-<span>, Brett Adcock · Founder &amp; CEO of Figure AI</span>
-<a href="https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/" rel="noopener" target="_blank">BMW Blog</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">July · Figure / BMW · Physical AI</div>
-<h2 class="chapter-title">Figure 03 Enters BMW Production Line: Robots Move from Showroom to Logistics Line</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://theaidude.net/blog/kimi-k3-moonshots-28t-open-model-launches" rel="noopener" target="_blank">The AI Dude</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Opus 5 is our most thoroughly aligned model, with the lowest incidence of reckless and deceptive behavior."</p>
+<p class="voice-who">, Anthropic Official Statement <a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">WIRED</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"The 11-month deployment of Figure 02 proves that humanoid robots are no longer museum pieces—they have become labor assets capable of sustaining production lines."</p>
+<p class="voice-who">, Brett Adcock · Founder &amp; CEO of Figure AI <a href="https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/" rel="noopener" target="_blank">BMW Blog</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">July · Figure / BMW · Physical AI</div>
+<div class="item-title">Figure 03 Enters BMW Production Line: Robots Move from Showroom to Logistics Line</div>
+<div class="body">
 <p><strong>The next-generation Figure 03 has been deployed to Plant 52 at BMW's Spartanburg facility in the US, taking on logistics sorting: picking out out-of-order parts and sequencing them for the production line. The initial batch of <span class="num">40</span> units is planned by BMW to expand to <span class="num">200</span> units; based on RaaS (Robot-as-a-Service) leasing <span class="num">25</span> per hour, lower than local workers' hourly wages.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Figure 03 Enters BMW Production Line: Robots Move from Showroom to Logistics Line · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-26/venezuela-earthquake.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -373,15 +361,16 @@
 <p><span class="turn">The previous-generation Figure 02 worked in the body shop for 11 months and participated in the manufacturing of 30,000 X3s; this new generation has been moved to more tedious logistics operations. What robots take on first are the jobs humans least want to do.</span></p>
 <p>Figure 03 Enters BMW Production Line.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.figure.ai/news/f-03-at-bmw" rel="noopener" target="_blank">Figure AI</a> · <a href="https://bmwblog.com/2026/06/26/bmw-figure-03-humanoid-robot-spartanburg-plant" rel="noopener" target="_blank">BMW Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-25 · Developer · Experience Updates</div>
-<h2 class="chapter-title">Opus 5 Writes Its Own CV Pipeline: Reconstructing 3D Models from Raw Pixels</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.figure.ai/news/f-03-at-bmw" rel="noopener" target="_blank">Figure AI</a> · <a href="https://bmwblog.com/2026/06/26/bmw-figure-03-humanoid-robot-spartanburg-plant" rel="noopener" target="_blank">BMW Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-25 · Developer · Experience Updates</div>
+<div class="item-title">Opus 5 Writes Its Own CV Pipeline: Reconstructing 3D Models from Raw Pixels</div>
+<div class="body">
 <p>Opus 5 Writes Its Own CV Pipeline.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Opus 5 Writes Its Own CV Pipeline: Reconstructing 3D Models from Raw Pixels · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-26/nvidia-rubin.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -390,56 +379,67 @@
 <p><strong>In a test, a developer gave Opus 5 an image of a mechanical part without letting it view the image directly. It wrote its own computer vision pipeline, extracted geometry from raw pixels, and ultimately reconstructed a 3D model using FreeCAD. Another user asked it to make a presentation, and it simply wrote a slide rendering engine from scratch.</strong></p>
 <p><span class="turn">Models are beginning to build their own tools rather than just using them. The wall between creators and engineers is quietly being leveled by such "just casually build one yourself" moments.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://malpass.co/top-ai-stories-2026-07-25" rel="noopener" target="_blank">Malpass</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment and Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">June · NVIDIA · Computing Power</div>
-<h2 class="chapter-title">Vera Rubin Enters Full Production: The Computing Infrastructure Remade for "Agents"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://malpass.co/top-ai-stories-2026-07-25" rel="noopener" target="_blank">Malpass</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment and Capital Flows</div>
+<div class="sec-title">Investment and Capital Flows</div>
+<div class="item">
+<div class="dateline">June · NVIDIA · Computing Power</div>
+<div class="item-title">Vera Rubin Enters Full Production: The Computing Infrastructure Remade for "Agents"</div>
+<div class="body">
 <p><strong>NVIDIA has confirmed that Vera Rubin NVL72 has entered full production: a single GPU integrates <span class="num">288</span> GB HBM4 with an aggregate bandwidth of 22 TB/s. Tailored for the agent era, it can pack <span class="num">40%</span> more GPUs under the same power consumption, with inference energy efficiency roughly <span class="num">10</span> times that of Blackwell.</strong></p>
 <p><span class="turn">In the second half of the computing power competition, it is no longer about "who has more GPUs," but "how many useful tokens you can output per unit of electricity."</span></p>
 <p>Vera Rubin Enters Full Production.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" rel="noopener" target="_blank">NVIDIA</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">July · Big Five · Financials</div>
-<h2 class="chapter-title">Hidden 1.65 Trillions in Off-Balance-Sheet Debt</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" rel="noopener" target="_blank">NVIDIA</a></div>
+</div>
+<div class="item">
+<div class="dateline">July · Big Five · Financials</div>
+<div class="item-title">Hidden 1.65 Trillions in Off-Balance-Sheet Debt</div>
+<div class="body">
 <p><strong>According to a Nikkei investigation, five tech giants—Alphabet, Microsoft, Amazon, Meta, and Oracle—have tucked away approximately <span class="num">1.65</span> trillion dollars in off-balance-sheet debt, mostly tied to data centers and compute leases, exceeding what is disclosed in their quarterly reports by <span class="num">3000</span> hundred million.</strong></p>
 <p><span class="turn">AI's appetite for compute is turning "borrowing to build data centers" into an increasingly sophisticated financial engineering feat; if these debts seep into pension and life insurance portfolios, it spells systemic risk.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://malpass.co/top-ai-stories-2026-07-25" rel="noopener" target="_blank">Malpass / Nikkei</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>Opus 5 is here, priced at half of Fable 5.</p>
+<div class="src-line">Sources: <a href="https://malpass.co/top-ai-stories-2026-07-25" rel="noopener" target="_blank">Malpass / Nikkei</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>Opus 5 is here, priced at half of Fable 5.</p>
 <p>Kimi K3 weights dropping the day after tomorrow, open models touching the 3T tier for the first time.</p>
 <p>Nvidia, Microsoft, and Meta join forces against open-weight bans; closed-source giants prepare for IPOs while the open-source camp holds its ground.</p>
 <p>Figure 03 enters BMW's logistics line, scaling from 40 units to 200 within the year.</p>
 <p>Vera Rubin enters full production, squeezing 40% more compute out of the same power.</p>
-<p class="turn">Affordable flagships, auditable open models, and AI that builds its own tools—three forces pushing in the same direction: ensuring capabilities are no longer locked in a few people's data centers.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">Affordable flagships, auditable open models, and AI that builds its own tools—three forces pushing in the same direction: ensuring capabilities are no longer locked in a few people's data centers.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Utah Cottonwood Fire · Beaver County area, NASA satellite captures a charred forest at N38.3°, W112.4°." loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-26/utcottonwoodfire.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Utah Cottonwood Fire · Beaver County area, NASA satellite captures a charred forest at N38.3°, W112.4°.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Utah Cottonwood Fire · Beaver County area · Captured by NASA satellite <span class="num">38.3</span>°N, <span class="num">112.4</span>°W</div>
 <p style="margin-bottom:8px; line-height:1.8;">Fire once swept across 150 square miles here, fought by 1,289 firefighters for nearly a month. While we argue on screens over whose model is stronger and whose weights are more open, the mountain forests burn, leave scars, and await the next generation of green at their own pace. After a day of reading AI news, it's nice to remember there are still places on Earth that don't need GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let us stay curious and keep exploring. ·</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-25.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-27.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

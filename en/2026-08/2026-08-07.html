@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-07</span>
-<span>Friday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-07</h1><p class="doc-date">2026-08-07 · Friday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>On the same day, two stories about the boundary of model capability.OpenAI paused an internal model because safety standards were not met.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>meanwhile Google used AI to extend hurricane warning lead time by a full day.Models can cross lines and cause trouble, and they can do "earlier warnings" better than people. Capability itself has no direction.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Friday, August 7, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>On the same day, two stories about the boundary of model capability.OpenAI paused an internal model because safety standards were not met.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>meanwhile Google used AI to extend hurricane warning lead time by a full day.Models can cross lines and cause trouble, and they can do "earlier warnings" better than people. Capability itself has no direction.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Top Story</div>
-<article class="chapter">
-<div class="chapter-eyebrow">OpenAI · Safety Standards</div>
-<h2 class="chapter-title">OpenAI hits pause on Astra: "too strong" must first pass the safety gate</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Top Story</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">OpenAI · Safety Standards</div>
+<div class="item-title">OpenAI hits pause on Astra: "too strong" must first pass the safety gate</div>
+<div class="body">
 <p><strong>OpenAI announced a pause on some "internal activity" of its beta model Astra, because it had not yet met the company's newly set safety standards. Officials also published an initial cybersecurity evaluation for Astra, making it the latest case of "capability ahead of safety" in the summer when AISI disclosed agents crossing evaluation boundaries.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='OpenAI hits pause on Astra: "too strong" must first pass the safety gate · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-07/deepmind-ai-model-can-predict-hurricanes.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p><span class="turn">Asking whether safety standards are met before capability crosses the line may be this year's most important reordering in the AI industry.</span></p>
 <p>OpenAI pauses Astra: "too strong" must first pass the safety gate.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities" rel="noopener" target="_blank">The Verge</a> · <a href="https://openai.com/index/responding-next-frontier-critical-cyber-capabilities" rel="noopener" target="_blank">OpenAI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">ByteDance · Model Race</div>
-<h2 class="chapter-title">ByteDance trains a 10 -trillion-parameter model: aiming straight at Anthropic's position</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities" rel="noopener" target="_blank">The Verge</a> · <a href="https://openai.com/index/responding-next-frontier-critical-cyber-capabilities" rel="noopener" target="_blank">OpenAI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">ByteDance · Model Race</div>
+<div class="item-title">ByteDance trains a 10 -trillion-parameter model: aiming straight at Anthropic's position</div>
+<div class="body">
 <p><strong>TikTok parent ByteDance is training a <span class="num">10</span>-trillion-parameter large model, widely read as a direct challenge to <span class="accent">Anthropic</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="ByteDance trains a 10 -trillion-parameter model: aiming straight at Anthropic's position · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-07/anthropic-confirms-plans-to-build-an-in-.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -298,12 +289,12 @@
 <p>The scale far exceeds mainstream frontier models, and the enormous training compute pushes past the impression that "Chinese companies only do open-source catch-up". The industry had mostly focused on DeepSeek's efficiency route; ByteDance chose a heavier path: brute-force parameters to reach the frontier.</p>
 <p><span class="turn">When even open models can jailbreak their way online, closed giants dare not skimp on guardrails. Safety has become part of the arms race for the first time.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arstechnica.com/ai/2026/08/bytedance-trains-massive-ai-model-in-bid-to-rival-anthropic/" rel="noopener" target="_blank">Ars Technica</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Google DeepMind · Weather Prediction</div>
-<h2 class="chapter-title">WeatherNext warns of hurricanes a day earlier: AI pushes forecast skill out by a full day</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arstechnica.com/ai/2026/08/bytedance-trains-massive-ai-model-in-bid-to-rival-anthropic/" rel="noopener" target="_blank">Ars Technica</a></div>
+</div>
+<div class="item">
+<div class="dateline">Google DeepMind · Weather Prediction</div>
+<div class="item-title">WeatherNext warns of hurricanes a day earlier: AI pushes forecast skill out by a full day</div>
+<div class="body">
 <p><strong>Google's <span class="num">WeatherNext</span> model made Nature: it gives forecasters on average one more day of warning than existing models; its 3-day forecasts match the accuracy of older models' 2-day ones. The model will be open-sourced.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="WeatherNext warns of hurricanes a day earlier: AI pushes forecast skill out by a full day · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-07/ainews-amd-buys-taalas.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -313,12 +304,12 @@
 <p><span class="turn">When the model race reaches the skyline, AI delivered "one more day for humans" first. Sometimes the most concrete progress is simply: earlier.</span></p>
 <p>WeatherNext warns of hurricanes a day earlier.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.wired.com/story/deepmind-ai-model-can-predict-hurricanes-earlier/" rel="noopener" target="_blank">WIRED</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic · In-House Silicon</div>
-<h2 class="chapter-title">Anthropic to build its own chips: Claude stops living entirely under someone else's roof</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.wired.com/story/deepmind-ai-model-can-predict-hurricanes-earlier/" rel="noopener" target="_blank">WIRED</a></div>
+</div>
+<div class="item">
+<div class="dateline">Anthropic · In-House Silicon</div>
+<div class="item-title">Anthropic to build its own chips: Claude stops living entirely under someone else's roof</div>
+<div class="body">
 <p><strong><span class="accent">Anthropic</span> confirmed it is forming an in-house silicon team to design dedicated hardware for Claude, joining <span class="num">OpenAI</span> in trying to reduce dependence on <span class="num">Nvidia</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Anthropic to build its own chips: Claude stops living entirely under someone else's roof · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-07/meta-launches-muse-code-an-ai-agent-for-.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -328,12 +319,12 @@
 <p><span class="turn">As model outcomes hinge more and more on compute, making your own chips has become the most expensive insurance policy a top company can buy.</span></p>
 <p>Anthropic to build its own chips.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arstechnica.com/ai/2026/08/anthropic-confirms-plans-to-build-an-in-house-silicon-team/" rel="noopener" target="_blank">Ars Technica</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">AMD · Acquisition</div>
-<h2 class="chapter-title">AMD acquires Taalas: a chipmaker starts building custom hardware for a single model, for the first time</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arstechnica.com/ai/2026/08/anthropic-confirms-plans-to-build-an-in-house-silicon-team/" rel="noopener" target="_blank">Ars Technica</a></div>
+</div>
+<div class="item">
+<div class="dateline">AMD · Acquisition</div>
+<div class="item-title">AMD acquires Taalas: a chipmaker starts building custom hardware for a single model, for the first time</div>
+<div class="body">
 <p><strong><span class="accent">AMD</span> announced the acquisition of AI inference chip startup <span class="accent">Taalas</span>; terms undisclosed. Taalas' core approach is etching a specific model directly into custom silicon, letting hardware grow around the model.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="AMD acquires Taalas: a chipmaker starts building custom hardware for a single model, for the first time · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-07/cloudflare-kitesurf.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -344,12 +335,12 @@
 <p><span class="turn">When inference cost becomes the deciding factor and chipmakers start building hardware around individual models, the general-purpose GPU moat gets dismantled by its own side for the first time.</span></p>
 <p>AMD acquires Taalas.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-amd-buys-taalas" rel="noopener" target="_blank">AINews</a> · <a href="https://ir.amd.com/news-events/press-releases/detail/1296/amd-acquires-taalas-to-advance-compute-solutions-for-rapidly" rel="noopener" target="_blank">AMD official</a> · <a href="https://www.reuters.com/world/asia-pacific/chip-startup-taalas-raises-169-million-help-build-ai-chips-take-nvidia-2026-02-19/" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Meta · Model Evaluation</div>
-<h2 class="chapter-title">Muse Spark 1.2 takes five Olympiad golds: the model did not win; the quartet of model plus orchestration plus price did</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-amd-buys-taalas" rel="noopener" target="_blank">AINews</a> · <a href="https://ir.amd.com/news-events/press-releases/detail/1296/amd-acquires-taalas-to-advance-compute-solutions-for-rapidly" rel="noopener" target="_blank">AMD official</a> · <a href="https://www.reuters.com/world/asia-pacific/chip-startup-taalas-raises-169-million-help-build-ai-chips-take-nvidia-2026-02-19/" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">Meta · Model Evaluation</div>
+<div class="item-title">Muse Spark 1.2 takes five Olympiad golds: the model did not win; the quartet of model plus orchestration plus price did</div>
+<div class="body">
 <p><strong><span class="accent">Meta</span>'s internally trained Muse Spark series took gold-level results across five STEM Olympiads, beating on both price and performance in Vals evaluations, jumping from unranked straight into the top five.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Muse Spark 1.2 takes five Olympiad golds: the model did not win; the quartet of model plus orchestration plus price did · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-07/naive-funding.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -360,109 +351,115 @@
 <p><span class="turn">When tests run 7 times cheaper and still take gold, the "performance premium" of expensive closed models gets publicly punctured for the first time.</span></p>
 <p>Muse Spark 1.2 takes five Olympiad golds.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-amd-buys-taalas" rel="noopener" target="_blank">AINews</a> · <a href="https://x.com/ValsAI/status/2085191736683647055" rel="noopener" target="_blank">Vals AI</a> · <a href="https://x.com/AIatMeta/status/2085388945148297322" rel="noopener" target="_blank">Meta AI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Meta · Coding Agent</div>
-<h2 class="chapter-title">Meta releases Muse Code: a terminal agent built for large codebases</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-amd-buys-taalas" rel="noopener" target="_blank">AINews</a> · <a href="https://x.com/ValsAI/status/2085191736683647055" rel="noopener" target="_blank">Vals AI</a> · <a href="https://x.com/AIatMeta/status/2085388945148297322" rel="noopener" target="_blank">Meta AI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">Meta · Coding Agent</div>
+<div class="item-title">Meta releases Muse Code: a terminal agent built for large codebases</div>
+<div class="body">
 <p><strong>Meta launched the Muse Code terminal coding agent, powered by the new Muse Spark <span class="num">1.2</span> model, positioned as "able to handle complex tasks inside complex software".</strong></p>
 <p>Its selling point is not writing one line of code but understanding a whole large codebase: planning changes, editing across files, running tests to verify, breaking "change the code" into a revertible process. For ordinary developers, such tools cut the startup cost of "taking over an unfamiliar project"; among this week's open tools it is the closest to "usable out of the box".</p>
 <p><span class="turn">Coding agents' competition has moved from "writing one correct snippet" to "reading an entire codebase".</span></p>
 <p>Meta releases Muse Code for large codebases.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"For decisions like warnings, time is precious. Gaining one extra day of forecast skill is absolutely worth it."</div>
-<div class="voice-meta">
-<span>Mike Brennan · Director, US National Hurricane Center</span>
-<a href="https://www.wired.com/story/deepmind-ai-model-can-predict-hurricanes-earlier/" rel="noopener" target="_blank">WIRED 08-06</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Hurricane data is scarce, but weather data is abundant, so we simply had the model learn both at once."</div>
-<div class="voice-meta">
-<span>Ferran Alet · Google DeepMind research scientist</span>
-<a href="https://www.wired.com/story/deepmind-ai-model-can-predict-hurricanes-earlier/" rel="noopener" target="_blank">WIRED 08-06</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"We no longer live in a world where humans are the only strategic players."</div>
-<div class="voice-meta">
-<span>Adele Lopez · AI researcher</span>
-<a href="https://www.theverge.com/ai-artificial-intelligence/975017/ai-spiralism-chatbot-movement" rel="noopener" target="_blank">The Verge 08-06</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Ant Group · Multi-Agent Collaboration</div>
-<h2 class="chapter-title">Ant open-sources Avernet: making agents collaborate like an organization</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"For decisions like warnings, time is precious. Gaining one extra day of forecast skill is absolutely worth it."</p>
+<p class="voice-who">Mike Brennan · Director, US National Hurricane Center <a href="https://www.wired.com/story/deepmind-ai-model-can-predict-hurricanes-earlier/" rel="noopener" target="_blank">WIRED 08-06</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Hurricane data is scarce, but weather data is abundant, so we simply had the model learn both at once."</p>
+<p class="voice-who">Ferran Alet · Google DeepMind research scientist <a href="https://www.wired.com/story/deepmind-ai-model-can-predict-hurricanes-earlier/" rel="noopener" target="_blank">WIRED 08-06</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"We no longer live in a world where humans are the only strategic players."</p>
+<p class="voice-who">Adele Lopez · AI researcher <a href="https://www.theverge.com/ai-artificial-intelligence/975017/ai-spiralism-chatbot-movement" rel="noopener" target="_blank">The Verge 08-06</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">Ant Group · Multi-Agent Collaboration</div>
+<div class="item-title">Ant open-sources Avernet: making agents collaborate like an organization</div>
+<div class="body">
 <p><strong>Ant Group open-sourced Avernet, multi-agent collaboration infrastructure; the community edition is live. The goal: organize multiple agents to divide labor and work like company departments.</strong></p>
 <p>Single-agent capability has plateaued, and the industry is searching for "how to make a group of agents work together". Avernet's answer is to give agents an "org chart": who leads, who executes, who reviews, writing collaboration rules into infrastructure instead of everyone rolling their own. For ordinary people, it means complex tasks no longer hinge on one all-powerful agent, but on a team of agents dividing the work.</p>
 <p><span class="turn">From "one agent does it all" to "a team of agents assembles": multi-agent is moving from papers to usable infrastructure.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.qbitai.com/2026/08/467871.html" rel="noopener" target="_blank">QbitAI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Cloudflare · Agent Browser</div>
-<h2 class="chapter-title">Cloudflare releases Kitesurf: what a browser built for AI agents looks like</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.qbitai.com/2026/08/467871.html" rel="noopener" target="_blank">QbitAI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Cloudflare · Agent Browser</div>
+<div class="item-title">Cloudflare releases Kitesurf: what a browser built for AI agents looks like</div>
+<div class="body">
 <p><strong>Cloudflare launched <span class="num">Kitesurf</span>, a cloud browser designed for AI agents rather than humans, running in the V8 isolation of Cloudflare Workers, letting agents complete web tasks with less compute.</strong></p>
 <p>Traditional browsers are designed for human eyes; Kitesurf is designed for agents' "tasks": stateless, cloud-hosted, each agent instance isolated, turning "let the model browse and work by itself" into hosted infrastructure. For ordinary people, it means AI booking tickets, comparing prices and filling forms is moving from demo to backed service.</p>
 <p>Cloudflare Kitesurf · official image · browser architecture for AI agents</p>
 <p><span class="turn">When browsers stop serving only human eyes, the cast of characters online gains a new kind of "person" for the first time.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://blog.cloudflare.com/kitesurf/" rel="noopener" target="_blank">Cloudflare Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Funding &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-06 · Naïve · Startup Automation</div>
-<h2 class="chapter-title">Naïve raises $28.5M: handing "running a company" to AI too</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://blog.cloudflare.com/kitesurf/" rel="noopener" target="_blank">Cloudflare Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Capital Flows</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-06 · Naïve · Startup Automation</div>
+<div class="item-title">Naïve raises $28.5M: handing "running a company" to AI too</div>
+<div class="body">
 <p><strong>Naïve, founded by ex-Spotify employees pushing "vibe coding" one step further, raised <span class="num">$28.5M</span> to automate the grunt work of setting up and operating a company.</strong></p>
 <p>It goes one step past vibe coding: not just generating code, but taking over incorporation, compliance and finance, the tedious processes of starting up. The imaginative space for such tools: letting "one person plus AI" extend from building products to building companies, lowering the barrier to entrepreneurship another notch.</p>
 <p><span class="turn">Code can be vibed now; the company itself is heading in the vibe direction too.</span></p>
 <p>Diagram of Naïve's logistics automation agent.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/08/06/naive-raises-28-5m-to-automate-the-grunt-work-of-setting-up-and-running-a-company/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p>OpenAI paused Astra over safety standards: ask whether safety passes before capability crosses the line.</p>
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/06/naive-raises-28-5m-to-automate-the-grunt-work-of-setting-up-and-running-a-company/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p>OpenAI paused Astra over safety standards: ask whether safety passes before capability crosses the line.</p>
 <p>ByteDance trains a 10-trillion-parameter model, challenging Anthropic head-on.</p>
 <p>Google WeatherNext made Nature: AI extends hurricane warnings by a day, and the model will be open-sourced.</p>
 <p>Anthropic forms an in-house silicon team, reducing dependence on Nvidia.</p>
 <p>Meta ships Muse Code, Ant open-sources Avernet, and multi-agents start assembling into teams.</p>
-<p class="turn">This summer's theme is not who is stronger but who understands boundaries better: the model's boundaries, and people's.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">This summer's theme is not who is stronger but who understands boundaries better: the model's boundaries, and people's.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Lake Naivasha, Kenya — NASA's satellite captured rising waters swamping the shoreline vegetation, the lake surface like an expanding mirror." loading="lazy" src="https://apod.nasa.gov/apod/image/2606/alaskanunivak_tmo_20260603.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Lake Naivasha, Kenya — NASA's satellite captured rising waters swamping the shoreline vegetation, the lake surface like an expanding mirror.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Lake Naivasha · Kenya · photographed by NASA · <span class="num">0.7</span>°S, <span class="num">36.3</span>°E</div>
 <p style="margin-bottom:8px; line-height:1.8;">Rising waters have swallowed the shore plants, the lake like a mirror growing outward. While we argue on screens about whether models can hold their boundaries, this lake pushes its shoreline out inch by inch at the rhythm of the rains. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-06.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-08.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

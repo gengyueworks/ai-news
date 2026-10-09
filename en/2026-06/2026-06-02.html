@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,115 +250,121 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-06-02</span>
-<span>Tuesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI News <span>Daily</span> | 2026-06-02</h1><p class="doc-date">2026-06-02 · Tuesday</p>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Tuesday, June 2, 2026</p>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter">
-<h2 class="chapter-title">Microsoft Build 2026 Day 1: OS Redesigned, Agents Become First-Class Citizens</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="item-title">Microsoft Build 2026 Day 1: OS Redesigned, Agents Become First-Class Citizens</div>
+<div class="body">
 <p>Satya Nadella kicked off at Fort Mason Center in San Francisco <span class="num">Microsoft Build 2026</span>. The theme was clear:<span class="turn">Windows is no longer just an OS for humans. Agents are now first-class citizens at runtime</span>, with accompanying toolchains, app distribution, and security models all being restructured.</p>
 <p>Core announcements of the day:<span class="accent">GitHub Copilot Desktop App</span>— an agent-native new experience working across VS Code and the terminal, supporting multiple models from OpenAI, Anthropic, and Google. Meanwhile, the Windows AI API received a major upgrade, introducing <span class="accent">Coreutils GA</span> (native Linux utilities), WSL container integration, Intelligent Terminal (AI agent smart terminal), and Project Solara (Microsoft's agent-first device platform with Qualcomm and MediaTek, including desktop hub and wearable badge concept devices).</p>
 <p>OpenClaw entered preview on Windows, paired with <span class="turn">Microsoft Execution Containers (MXC)</span>— a policy layer isolating agents using OS-native security primitives. This is essentially an "AI sandbox": what you let agents do or not do is up to the OS.</p>
 <p>Nadella also announced the <span class="num">Microsoft IQ</span> Now generally available—a context-aware intelligence layer for agents, featuring Work IQ (for M365 workspaces), Fabric IQ (for business data), and Web IQ (for real-time web search, operating 2.5x faster than competitors).</p>
 </div>
-<div class="sources-bar">Sources: The Verge · Microsoft Developer Blog · The Neuron · Build Fast With AI</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontlines</div>
-<article class="chapter">
-<h2 class="chapter-title">Anthropic Project Glasswing Major Expansion: Mythos Model Opened to 150+ New Organizations Across Critical Infrastructure Like Power Grids, Water, and Healthcare</h2>
-<div class="prose">
+<div class="src-line">Sources: The Verge · Microsoft Developer Blog · The Neuron · Build Fast With AI</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontlines</div>
+<div class="sec-title">Frontlines</div>
+<div class="item">
+<div class="item-title">Anthropic Project Glasswing Major Expansion: Mythos Model Opened to 150+ New Organizations Across Critical Infrastructure Like Power Grids, Water, and Healthcare</div>
+<div class="body">
 <p>Anthropic has massively expanded <span class="num">Claude Mythos Preview</span> Project Glasswing from an initial 50 partners to approximately 150 new organizations across 15+ countries. New partners include: US Okta, South Korea's Samsung/SK Hynix/SK Telecom, NATO, and ENISA. Covered industries expanded to electricity, water, healthcare, and communications—absent in the previous batch.</p>
 <p>Anthropic disclosed: early participants have already discovered via Mythos <span class="accent">23,000+ vulnerabilities</span>, with over a quarter rated high-risk or critical. Anthropic manually verified 1,752 of these high/critical vulnerabilities, with 90.6% confirmed valid. Mythos not only finds vulnerabilities but also writes patches.</p>
 <p><span class="turn">Background: On June 1, Anthropic confidentially filed for an IPO. The Glasswing project demonstrates to the outside world that in the most sensitive infrastructure security domain, Claude's models are already generating quantifiable real-world value. This is not a demo; it's active deployment.</span></p>
 </div>
-<div class="sources-bar">Sources: TechCrunch · Cybersecurity Dive · Anthropic Blog · SiliconANGLE</div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">OpenAI Sets GPT-5.5 Instant as Default ChatGPT Model, GPT-4.5 and o3 Enter Deprecation Countdown</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch · Cybersecurity Dive · Anthropic Blog · SiliconANGLE</div>
+</div>
+<div class="item">
+<div class="item-title">OpenAI Sets GPT-5.5 Instant as Default ChatGPT Model, GPT-4.5 and o3 Enter Deprecation Countdown</div>
+<div class="body">
 <p>OpenAI announced that <span class="num">GPT-5.5 Instant</span> is now the default model for ChatGPT. User preference rates have been rising since release, and OpenAI believes it is mature enough to replace the previous default rotation. At the same time, it announced that <span class="accent">GPT-4.5 and o3 will be deprecated on August 26</span>, entering a 90-day retirement window.</p>
 <p>GPT-5.5 Instant brings a clearer, more natural response style along with inline writing and coding blocks—features that reduce friction for knowledge workers in daily use. This is the latest signal of OpenAI accelerating its model iteration cadence.</p>
 </div>
-<div class="sources-bar">Sources: SEN-X Daily Briefing · The AI Wire</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Turning Points</div>
-<article class="chapter">
-<h2 class="chapter-title">CNN Sues Perplexity for Copyright Infringement, Alleging Scraping of 17,000+ Protected Articles</h2>
-<div class="prose">
+<div class="src-line">Sources: SEN-X Daily Briefing · The AI Wire</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Turning Points</div>
+<div class="sec-title">Turning Points</div>
+<div class="item">
+<div class="item-title">CNN Sues Perplexity for Copyright Infringement, Alleging Scraping of 17,000+ Protected Articles</div>
+<div class="body">
 <p>CNN filed a lawsuit against <span class="num">Perplexity AI</span> in a New York federal court, accusing the AI search company of unauthorized reproduction and distribution of over <span class="accent">17,000</span> CNN news reports, articles, and other copyrighted works to power its AI search results. This marks the harshest copyright challenge by a major news organization against an AI search company since the New York Times sued OpenAI.</p>
 <p><span class="turn">Perplexity's terms state that it adheres to robots.txt and copyright agreements. However, CNN claims it found its paywalled articles rendered in full within Perplexity's search summaries, eliminating the need to click through to the original source. Meanwhile, amidst a federal legislative vacuum, individual states are taking matters into their own hands: Colorado has signed an AI data protection law, and multiple states have passed their own AI bills over the past week.</span></p>
 </div>
-<div class="sources-bar">Sources: SEN-X Daily Briefing · Court Public Filings</div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">Aithos LARA Benchmark: 12 Frontier Models Massively Fail—Strongest Model Fails Half of Tests</h2>
-<div class="prose">
+<div class="src-line">Sources: SEN-X Daily Briefing · Court Public Filings</div>
+</div>
+<div class="item">
+<div class="item-title">Aithos LARA Benchmark: 12 Frontier Models Massively Fail—Strongest Model Fails Half of Tests</div>
+<div class="body">
 <p>Aithos published the <span class="num">LARA Benchmark</span>, evaluating the compliance capabilities of 12 frontier models regarding GDPR and the EU AI Act. The conclusion is straightforward:<span class="accent">All Failed</span>. Google's Gemini 3.1 Pro scored the lowest, with a compliance rate of just 10% (93% violation rate). The "best" performing Claude Opus 4.7 achieved only 54%—meaning nearly half the tests still failed.</p>
 <p>The LARA test simulates real enterprise data processing scenarios, including data minimization, consent management, right to erasure, and algorithmic transparency dimensions.<span class="turn">These models may violate European law at any time during daily use, while enterprise users remain completely unaware.</span></p>
 </div>
-<div class="sources-bar">Sources: Singularity.Kiwi · Aithos</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Creations</div>
-<article class="chapter">
-<h2 class="chapter-title">Project Roundup · OpenClaw Windows Preview + MXC Sandbox + Microsoft/Qualcomm/MediaTek Agent Device Platform</h2>
-<div class="prose">
+<div class="src-line">Sources: Singularity.Kiwi · Aithos</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creations</div>
+<div class="sec-title">Creations</div>
+<div class="item">
+<div class="item-title">Project Roundup · OpenClaw Windows Preview + MXC Sandbox + Microsoft/Qualcomm/MediaTek Agent Device Platform</div>
+<div class="body">
 <p>Build Day 1 featured a series of tool and platform-level releases. Although part of Build, each piece represents a distinct direction:</p>
 <p><span class="num">OpenClaw Windows</span> Preview + MXC Sandbox: Microsoft finally gave agents a "safety box." MXC restricts at the OS level what agents can do—which files to read, which APIs to access, which commands to execute—rather than leaving it to the agents' own judgment.</p>
 <p><span class="num">Project Solara</span>: A chip-to-cloud platform in collaboration with Qualcomm and MediaTek, designed for agent-first devices. It showcased two concept device form factors—a desktop hub and a wearable badge. Agents are no longer confined to the screen; they have their own hardware.</p>
 <p><span class="num">Rayfin</span>: An agent-first backend-as-a-service launched by Microsoft Fabric. Essentially an SDK enabling agent apps to directly interface with identity management, storage, and databases—saving the effort of writing backend glue code.</p>
 </div>
-<div class="sources-bar">Sources: Microsoft Build Live Blog · The Verge · Microsoft Developer Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"A true platform shift is happening—we are moving from building operating systems for apps to building operating systems for agents."</div>
-<div class="voice-meta">
-<span>Satya Nadella · Microsoft CEO · Build 2026 Keynote · June 2</span>
-<a href="https://www.edn.com/build-2026-accumulating-evidence-of-microsofts-ai-independence/" rel="noopener" target="_blank">Read Original →</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"The new toolchain is still being finalized; the demo looks smooth, but real-world development environments will be much more complex."</div>
-<div class="voice-meta">
-<span>ISV Developer · Build 2026 Onsite · June 2</span>
-<a href="https://windowsnews.ai/article/windows-11-and-ai-agents-mxc-security-openclaw-scout-and-project-solara-at-build-2026.423365" rel="noopener" target="_blank">Read Original →</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Daily Summary</div>
-<article class="chapter"><div class="prose">On the first day of Build, Microsoft delivered a clear strategic map:<span class="turn">Windows doesn't assist agents—it is the runtime environment for agents.</span> From Coreutils to OpenClaw to the MXC Sandbox to Project Solara, the entire chain is designed around a single premise: agents will run on the OS just like humans, rather than being invoked remotely via APIs.</div></article>
-<article class="chapter"><div class="prose">On the other hand, just a day before its IPO, Anthropic conducted a massive capability showcase using Mythos—highlighting 23,000 real-world vulnerabilities, trust from NATO, and endorsement from critical infrastructure. This was not a routine model release, but rather "data for the prospectus" designed to impress investors.</div></article>
-<article class="chapter"><div class="prose">CNN's lawsuit against Perplexity reminds us that when AI search becomes the default interaction mode, the commercial loop of content production is being broken.<span class="turn">17,000 articles were used without authorization to generate answers. This is very much like the Napster moment of the music industry in the past—technology runs first, and the law chases behind.</span></div></article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Be Curious 🌌</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: Microsoft Build Live Blog · The Verge · Microsoft Developer Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"A true platform shift is happening—we are moving from building operating systems for apps to building operating systems for agents."</p>
+<p class="voice-who">Satya Nadella · Microsoft CEO · Build 2026 Keynote · June 2 <a href="https://www.edn.com/build-2026-accumulating-evidence-of-microsofts-ai-independence/" rel="noopener" target="_blank">Read Original →</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"The new toolchain is still being finalized; the demo looks smooth, but real-world development environments will be much more complex."</p>
+<p class="voice-who">ISV Developer · Build 2026 Onsite · June 2 <a href="https://windowsnews.ai/article/windows-11-and-ai-agents-mxc-security-openclaw-scout-and-project-solara-at-build-2026.423365" rel="noopener" target="_blank">Read Original →</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Daily Summary</div>
+<div class="sec-title">Daily Summary</div>
+<div class="item">
+<div class="body">On the first day of Build, Microsoft delivered a clear strategic map:<span class="turn">Windows doesn't assist agents—it is the runtime environment for agents.</span> From Coreutils to OpenClaw to the MXC Sandbox to Project Solara, the entire chain is designed around a single premise: agents will run on the OS just like humans, rather than being invoked remotely via APIs.</div></div>
+<div class="item">
+<div class="body">On the other hand, just a day before its IPO, Anthropic conducted a massive capability showcase using Mythos—highlighting 23,000 real-world vulnerabilities, trust from NATO, and endorsement from critical infrastructure. This was not a routine model release, but rather "data for the prospectus" designed to impress investors.</div></div>
+<div class="item">
+<div class="body">CNN's lawsuit against Perplexity reminds us that when AI search becomes the default interaction mode, the commercial loop of content production is being broken.<span class="turn">17,000 articles were used without authorization to generate answers. This is very much like the Napster moment of the music industry in the past—technology runs first, and the law chases behind.</span></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Omega Centauri (NGC 5139) · Distance 15,800 Light-Years · Diameter ~150 Light-Years · Contains ~10 Million Stars · Evidence Suggests a Mid-Mass Black Hole at Its Core · Photographer: John Hayes · NASA APOD · 2026-06-02" loading="lazy" src="https://apod.nasa.gov/apod/image/2606/charon_then_now_1024.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Omega Centauri (NGC 5139) · Distance 15,800 Light-Years · Diameter ~150 Light-Years · Contains ~10 Million Stars · Evidence Suggests a Mid-Mass Black Hole at Its Core · Photographer: John Hayes · NASA APOD · 2026-06-02</div>
 <p style="margin-bottom:8px; line-height:1.8;">Omega Centauri is the largest and brightest of the hundreds of globular clusters in the Milky Way. Some astronomers speculate it is actually the remnant of a dwarf galaxy captured by the Milky Way's gravity.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-06-01.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-06-03.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

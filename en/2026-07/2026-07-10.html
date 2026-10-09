@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-10</span>
-<span>Friday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-10</h1><p class="doc-date">2026-07-10 · Friday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Stepping back for a panoramic view today: capital is surging in the application layer (Lovable's valuation doubled in seven months), but the technological battle still unfolds at the foundation—ZML breaks hardware lock-in, Meta develops custom inference chips, and AI for Science now demands "understanding structure" rather than "guessing patterns."Frontier labs launching GPT-5.6 and ChatGPT Work simultaneously use productization to signal: the first phase of the model race is over, and the second phase of the interface war is just beginning.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Friday, July 10, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Stepping back for a panoramic view today: capital is surging in the application layer (Lovable's valuation doubled in seven months), but the technological battle still unfolds at the foundation—ZML breaks hardware lock-in, Meta develops custom inference chips, and AI for Science now demands "understanding structure" rather than "guessing patterns."Frontier labs launching GPT-5.6 and ChatGPT Work simultaneously use productization to signal: the first phase of the model race is over, and the second phase of the interface war is just beginning.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · OpenAI · GPT-5.6 Officially GA</div>
-<h2 class="chapter-title">GPT-5.6 Generally Available: OpenAI rolls out frontier intelligence in three tiers, but the real battle has just begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-09 · OpenAI · GPT-5.6 Officially GA</div>
+<div class="item-title">GPT-5.6 Generally Available: OpenAI rolls out frontier intelligence in three tiers, but the real battle has just begun</div>
+<div class="body">
 <p><strong>OpenAI announced the official GA of the GPT-5.6 family on July 9—simultaneously unveiling model, pricing, and use-case tiering in much more than a routine model update.</strong>Flagship Model <span class="num">Sol</span> Scoring on the coding intelligence index <span class="num">80</span> SOTA, outperforming Claude Fable 5 while using half the tokens, one-third of the time, and two-thirds of the cost.
 The balanced model Terra and cost-effective model Luna each cover different workloads.
 Rollout covers ChatGPT, Codex, and OpenAI API, gradually completing globally within 24 hours.</p>
@@ -286,15 +276,16 @@ Rollout covers ChatGPT, Codex, and OpenAI API, gradually completing globally wit
 </ul>
 <p>GPT-5.6 GA: Frontier lab rolls out frontier intelligence in three tiers.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">Frontier Lab Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · Frontier Lab · ChatGPT Work Released</div>
-<h2 class="chapter-title">ChatGPT Work: Frontier lab directly targets the "office agent" gateway, but the real battle has just begun</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">Frontier Lab Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-09 · Frontier Lab · ChatGPT Work Released</div>
+<div class="item-title">ChatGPT Work: Frontier lab directly targets the "office agent" gateway, but the real battle has just begun</div>
+<div class="body">
 <p><strong>Frontier lab simultaneously launched ChatGPT Work—an agent capable of executing tasks across apps and files, generating documents, spreadsheets, presentations, and web apps, and handling complex projects continuously for hours.</strong>It integrates Codex technology, coordinating 4 parallel agents in ultra mode.
 Web and mobile roll out first to Pro, Enterprise, and Edu, followed by Plus and Business.
 Frontier lab transforms ChatGPT from a Q&amp;A tool into an agent that "gets the work done for you."</p>
@@ -308,12 +299,12 @@ Frontier lab transforms ChatGPT from a Q&amp;A tool into an agent that "gets the
 <li>Multi-agent parallelism (ultra mode)</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/path-to-astra-frontier-safeguards/chatgpt-for-your-most-ambitious-work/" rel="noopener" target="_blank">Frontier Lab Blog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-10 · Reuters · Tencent to Acquire Stake in Manus</div>
-<h2 class="chapter-title">Tencent in talks to acquire stake in Manus; Chinese AI capital shifts from the model layer to the agent layer</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/path-to-astra-frontier-safeguards/chatgpt-for-your-most-ambitious-work/" rel="noopener" target="_blank">Frontier Lab Blog</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-10 · Reuters · Tencent to Acquire Stake in Manus</div>
+<div class="item-title">Tencent in talks to acquire stake in Manus; Chinese AI capital shifts from the model layer to the agent layer</div>
+<div class="body">
 <p><strong>Reuters reports that Tencent is in talks to become the largest shareholder of AI startup Manus.</strong>This comes against the backdrop of Beijing meeting with Alibaba, ByteDance, Z.ai, and others over the past month to discuss restricting overseas access to the most advanced Chinese AI models.
 Chinese AI capital is shifting from foundational models to agent and product-layer companies with higher feasibility and lower regulatory risk.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -327,12 +318,12 @@ Chinese AI capital is shifting from foundational models to agent and product-lay
 </ul>
 <p>Tencent in talks to acquire Manus; Chinese AI capital shifts from the model layer to the agent layer.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/technology/tencent-talks-become-ai-start-up-manus-largest-shareholder-ft-reports-2026-07-10/" rel="noopener" target="_blank">Reuters (Tencent/Manus)</a> · <a href="https://www.reuters.com/world/beijing-is-looking-curbing-overseas-access-chinas-top-ai-models-sources-say-2026-07-07/" rel="noopener" target="_blank">Reuters (Beijing restrictions on overseas exports)</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-08 · Sifted · Lovable Valuation Doubles</div>
-<h2 class="chapter-title">Lovable hits $13.2B valuation in under three years—doubling in seven months, powered by someone else's engine</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/technology/tencent-talks-become-ai-start-up-manus-largest-shareholder-ft-reports-2026-07-10/" rel="noopener" target="_blank">Reuters (Tencent/Manus)</a> · <a href="https://www.reuters.com/world/beijing-is-looking-curbing-overseas-access-chinas-top-ai-models-sources-say-2026-07-07/" rel="noopener" target="_blank">Reuters (Beijing restrictions on overseas exports)</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-08 · Sifted · Lovable Valuation Doubles</div>
+<div class="item-title">Lovable hits $13.2B valuation in under three years—doubling in seven months, powered by someone else's engine</div>
+<div class="body">
 <p><strong>Swedish vibe-coding company Lovable is raising $300 million at a $13.2 billion valuation, exactly double its $6.6 billion valuation from last December.</strong>Growth is indeed fierce: June ARR has reached <span class="num">$500 million</span>, with over a million new projects added every week.
 However, its product is built on Anthropic's Claude and Google's Gemini—both of which compete in the coding tool space themselves.
 This is a bet on "using someone else's engine while gambling on one's own distribution, brand, and speed."</p>
@@ -347,12 +338,12 @@ This is a bet on "using someone else's engine while gambling on one's own distri
 </ul>
 <p>Lovable hits $13.2B valuation in under three years—doubling in seven months, powered by someone else's engine.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://sifted.eu/articles/lovable-300m-13-2bn-valuation" rel="noopener" target="_blank">Sifted</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-10 · Frontier Lab · GPT-5.6 Launch Day · Internal Signals</div>
-<h2 class="chapter-title">Frontier Lab says "Sol autonomously post-trained Luna"—this isn't marketing, it's a shift in R&amp;D paradigms.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://sifted.eu/articles/lovable-300m-13-2bn-valuation" rel="noopener" target="_blank">Sifted</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-10 · Frontier Lab · GPT-5.6 Launch Day · Internal Signals</div>
+<div class="item-title">Frontier Lab says "Sol autonomously post-trained Luna"—this isn't marketing, it's a shift in R&amp;D paradigms.</div>
+<div class="body">
 <p><strong>The most impactful detail on GPT-5.6 launch day isn't the benchmarks: Frontier Lab stated that its flagship Sol autonomously post-trained the contemporary Luna.
 The community quickly and calmly broke it down—the more likely truth is that Sol can modify configs, write reward logic, and initiate training on Frontier Lab's mature RL infrastructure, rather than conducting end-to-end independent research.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -366,15 +357,16 @@ The timeline for automated research has been pulled forward once again by this e
 <p><span class="turn">As "modifying models" itself becomes a task models can handle, the frontier bottleneck is shifting from model capability to orchestration and workflows.</span></p>
 <p>Frontier Lab says "Sol autonomously post-trained Luna"—this isn't marketing, it's a shift in R&amp;D paradigms.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-openai-launches-gpt-56-solterraluna" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">Frontier Lab Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontier</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-10 · ZML · Breaking Hardware Lock-in</div>
-<h2 class="chapter-title">ZML lets open-source models run on "any chip"—inference heads toward unbundling.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-openai-launches-gpt-56-solterraluna" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">Frontier Lab Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontier</div>
+<div class="sec-title">Open Source Frontier</div>
+<div class="item">
+<div class="dateline">07-10 · ZML · Breaking Hardware Lock-in</div>
+<div class="item-title">ZML lets open-source models run on "any chip"—inference heads toward unbundling.</div>
+<div class="body">
 <p><strong>French startup ZML (backed by Yann LeCun) released inference performance software LLMD, allowing various open-source large models to run across Nvidia, AMD, Google TPU, Apple Metal, Intel Arc, and other chips without rewriting for each hardware.</strong>Built with the Zig / MLIR / Bazel tech stack, focusing on extreme performance "from model to metal," GitHub has already reached <span class="num">3.5K</span> stars.
 A new direction in the inference battle is unbundling AI workloads from being "tied to a single hardware vendor."</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -387,12 +379,12 @@ A new direction in the inference battle is unbundling AI workloads from being "t
 <li>Echoing Meta's self-developed chip news, both software and silicon are finding workarounds.</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/zml" rel="noopener" target="_blank">ZML · GitHub (3.5K stars)</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · arXiv/HF · SciReasoner</div>
-<h2 class="chapter-title">SciReasoner: Scientific AI cannot just "guess patterns," it must "natively understand structure."</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/zml" rel="noopener" target="_blank">ZML · GitHub (3.5K stars)</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-09 · arXiv/HF · SciReasoner</div>
+<div class="item-title">SciReasoner: Scientific AI cannot just "guess patterns," it must "natively understand structure."</div>
+<div class="body">
 <p><strong>Shanghai AI Laboratory's paper topped the Hugging Face Daily leaderboard on the day of release.</strong>Core argument: Scientific AI should not stop at statistical pattern matching; instead, it must directly encode domain "native structures" into models to derive trustworthy, interpretable conclusions transferable across disciplines like materials science and chemistry.
 As AI enters the lab, getting the "right answer" is no longer enough—being able to "explain why" is the new threshold.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -405,15 +397,16 @@ As AI enters the lab, getting the "right answer" is no longer enough—being abl
 <li>Cross-disciplinary Transfer in Materials Science and Chemistry</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2607.07708" rel="noopener" target="_blank">arXiv 2607.07708</a> · <a href="https://huggingface.co/papers" rel="noopener" target="_blank">Hugging Face Daily</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Signals</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · Reuters · Meta Self-Developed Chips to Enter Production in September</div>
-<h2 class="chapter-title">Meta's self-developed AI chip to enter production in September—even the biggest chip buyer is building its own.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arxiv.org/abs/2607.07708" rel="noopener" target="_blank">arXiv 2607.07708</a> · <a href="https://huggingface.co/papers" rel="noopener" target="_blank">Hugging Face Daily</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Signals</div>
+<div class="sec-title">Signals</div>
+<div class="item">
+<div class="dateline">07-09 · Reuters · Meta Self-Developed Chips to Enter Production in September</div>
+<div class="item-title">Meta's self-developed AI chip to enter production in September—even the biggest chip buyer is building its own.</div>
+<div class="body">
 <p><strong>According to an internal memo seen by Reuters, Meta plans to mass-produce its self-developed AI chip in September, aiming to significantly boost available compute capacity by 2026 with a planned compute scale reaching <span class="num">7GW</span>.</strong>The motivation is straightforward: reduce reliance on Nvidia procurement.
 Echoing ZML's "hardware unbundling"—from software to silicon, the entire industry is finding workarounds to the "Nvidia-only solution."</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -421,12 +414,12 @@ Echoing ZML's "hardware unbundling"—from software to silicon, the entire indus
 <div style="padding: 10px 14px; font-size: 13px; color: var(--text-muted, #6B7280); font-family: var(--font-mono, monospace); line-height: 1.6; border-top: 1px solid var(--border, #E8E8EC);">Primary intelligence field evidence and architecture visual</div>
 </div>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/technology/meta-build-c13-billion-alberta-data-center-its-first-canada-2026-07-08/" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · The Verge · reflect Feature</div>
-<h2 class="chapter-title">Claude reflect: Anthropic built an "AI Year in Review."</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/technology/meta-build-c13-billion-alberta-data-center-its-first-canada-2026-07-08/" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-09 · The Verge · reflect Feature</div>
+<div class="item-title">Claude reflect: Anthropic built an "AI Year in Review."</div>
+<div class="body">
 <p>Anthropic launched the <strong>reflect</strong> feature, allowing analysis of user-Claude conversation data over 1/3/6/12 months.
 Currently in beta, open to Free, Pro, and Max users.
 Chat products are turning "usage recaps" into a new retention mechanism: relying on model capabilities is no longer enough; keeping users requires a sense of long-term relationship.</p>
@@ -435,12 +428,12 @@ Chat products are turning "usage recaps" into a new retention mechanism: relying
 <div style="padding: 10px 14px; font-size: 13px; color: var(--text-muted, #6B7280); font-family: var(--font-mono, monospace); line-height: 1.6; border-top: 1px solid var(--border, #E8E8EC);">Primary intelligence field evidence and architecture visual</div>
 </div>
 </div>
-<div class="sources-bar">Sources: The Verge</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · Notion · Notion Update</div>
-<h2 class="chapter-title">Notion AI Meeting Notes can finally distinguish who said what.</h2>
-<div class="prose">
+<div class="src-line">Sources: The Verge</div>
+</div>
+<div class="item">
+<div class="dateline">07-09 · Notion · Notion Update</div>
+<div class="item-title">Notion AI Meeting Notes can finally distinguish who said what.</div>
+<div class="body">
 <p>Notion's latest update: AI Meeting Notes adds <strong>speaker labels</strong>; Agents can read/write Excel and PowerPoint; building on version 3.6's External Agents and Outlook integration.
 Meeting notes that can't even tell who spoke are forever just demos—Notion is fixing this critical short board that truly impacts credibility.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -449,12 +442,12 @@ Meeting notes that can't even tell who spoke are forever just demos—Notion is 
 </div>
 <p>Notion AI Meeting Notes can finally distinguish who said what.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.notion.com/releases" rel="noopener" target="_blank">Notion Releases</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · Reuters · Asian Capital Becomes More Selective</div>
-<h2 class="chapter-title">Asian investors are no longer chasing high valuations—they are beginning to bet on companies that can "survive the AI shock."</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.notion.com/releases" rel="noopener" target="_blank">Notion Releases</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-09 · Reuters · Asian Capital Becomes More Selective</div>
+<div class="item-title">Asian investors are no longer chasing high valuations—they are beginning to bet on companies that can "survive the AI shock."</div>
+<div class="body">
 <p>Reuters reports that Asian investors remain interested in AI, but tend to bet on businesses that can both benefit from AI and withstand the AI shock.
 The market is entering a second-stage screening: shifting from "buying AI" to<strong>"buying companies that can survive AI."</strong>— Bubble anxiety persists as the picks-and-shovels strategy returns.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -463,15 +456,16 @@ The market is entering a second-stage screening: shifting from "buying AI" to<st
 </div>
 <p>Asian investors stop chasing high valuations—backing companies built to survive the AI shock.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/world/china/asian-investors-eye-firms-benefiting-resilient-ai-2026-07-09/" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · Frontier Lab · ChatGPT Work tools</div>
-<h2 class="chapter-title">Generate slides, spreadsheets, and web apps with natural language via a single agent</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/world/china/asian-investors-eye-firms-benefiting-resilient-ai-2026-07-09/" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">07-09 · Frontier Lab · ChatGPT Work tools</div>
+<div class="item-title">Generate slides, spreadsheets, and web apps with natural language via a single agent</div>
+<div class="body">
 <p><strong>ChatGPT Work unifies document writing, data analysis, presentations, and app development into a single agent interface.</strong>Powered by built-in Codex, running 4 parallel agents in ultra mode to pull context across Slack, Notion, Microsoft 365, and Google Drive.
 Once these agentic products stabilize, the boundaries of lightweight office software will be redrawn.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -484,12 +478,12 @@ Once these agentic products stabilize, the boundaries of lightweight office soft
 <li>Powered by GPT-5.6 Sol</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/path-to-astra-frontier-safeguards/chatgpt-for-your-most-ambitious-work/" rel="noopener" target="_blank">Frontier Lab Blog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · Notion · Notion Update</div>
-<h2 class="chapter-title">Notion Agents adds Excel, PowerPoint, and External Agents support</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/path-to-astra-frontier-safeguards/chatgpt-for-your-most-ambitious-work/" rel="noopener" target="_blank">Frontier Lab Blog</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-09 · Notion · Notion Update</div>
+<div class="item-title">Notion Agents adds Excel, PowerPoint, and External Agents support</div>
+<div class="body">
 <p><strong>Notion's latest update allows agents to read and write Excel and PowerPoint files.</strong>Building on the External Agents and Outlook Mail/Calendar integrations introduced in version 3.6.
 Refining and engineering agent capabilities in collaboration software—whoever weaves meetings, files, emails, and audits most smoothly wins this layer.</p>
 <ul>
@@ -498,99 +492,106 @@ Refining and engineering agent capabilities in collaboration software—whoever 
 <li>External Agents + Outlook Mail and Calendar integration</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.notion.com/releases" rel="noopener" target="_blank">Notion Releases</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-07/10 · Meta · Muse Image rolls into social</div>
-<h2 class="chapter-title">Muse Image powers 30+ AI effects on Instagram—bringing image generation into the social editing layer</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.notion.com/releases" rel="noopener" target="_blank">Notion Releases</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-07/10 · Meta · Muse Image rolls into social</div>
+<div class="item-title">Muse Image powers 30+ AI effects on Instagram—bringing image generation into the social editing layer</div>
+<div class="body">
 <p><strong>Meta Muse Image is powering over 30 AI effects for Instagram Stories and enabling image generation in WhatsApp chats.</strong>It embeds visual generation directly into the everyday editing layers of social products—making it stronger and more crucial than any standalone model.
 This will change users' visual expression habits faster than standalone image generation websites.</p>
 <p>Muse Image powers 30+ AI effects on Instagram—image generation embedded in the social editing layer.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/technology/meta-expands-generative-ai-tools-with-muse-image-rollout-2026-07-07/" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-08 · Google · Video Remix</div>
-<h2 class="chapter-title">Google Photos Video Remix turns video post-production into a one-tap feature</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/technology/meta-expands-generative-ai-tools-with-muse-image-rollout-2026-07-07/" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-08 · Google · Video Remix</div>
+<div class="item-title">Google Photos Video Remix turns video post-production into a one-tap feature</div>
+<div class="body">
 <p><strong>Powered by Gemini Omni, Google Photos Video Remix adds cinematic relighting, custom backgrounds, and artistic styles like watercolor and sketchbook to videos.</strong>AI video editing is sinking into standard gallery apps—mainstream visual expression is shaped by default entry points rather than professional tools.</p>
 </div>
-<div class="sources-bar">Sources: The Verge</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Invest</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-08 · Reuters · Meta Alberta Data Center</div>
-<h2 class="chapter-title">Meta Alberta Data Center 130 Billion CAD—AI compute continues pouring into North America</h2>
-<div class="prose">
+<div class="src-line">Sources: The Verge</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Invest</div>
+<div class="sec-title">Invest</div>
+<div class="item">
+<div class="dateline">07-08 · Reuters · Meta Alberta Data Center</div>
+<div class="item-title">Meta Alberta Data Center 130 Billion CAD—AI compute continues pouring into North America</div>
+<div class="body">
 <p><strong>Meta to build its first Canadian data center in Alberta, Canada, with an investment of <span class="num">C$13 billion</span>, an initial scale of <span class="num">1 GW</span>, expandable to <span class="num">1.8 GW</span>.</strong>The most authentic AI bets are often massive power, land, and compute infrastructure, rather than new models.
 This is Meta's global <span class="num">33</span> th data center.</p>
 <p>Meta Alberta Data Center at 13.1 billion CAD—AI compute continues pouring into North America.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/world/americas/meta-build-c13-billion-alberta-data-center-its-first-canada-2026-07-08/" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-08/09 · Comprehensive · Gradium seed round</div>
-<h2 class="chapter-title">Gradium seed round extension 3000 Ten thousand—Nvidia enters, European talent war escalates</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/world/americas/meta-build-c13-billion-alberta-data-center-its-first-canada-2026-07-08/" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-08/09 · Comprehensive · Gradium seed round</div>
+<div class="item-title">Gradium seed round extension 3000 Ten thousand—Nvidia enters, European talent war escalates</div>
+<div class="body">
 <p>Gradium, incubated by Paris AI lab Kyutai, extends its seed round by approximately <span class="num">$30M</span>, total surpassing <span class="num">$100M</span>, <strong>with Nvidia participating</strong>and opens a Bay Area office to poach talent.
 European AI startups are setting up Silicon Valley outposts.</p>
 </div>
-<div class="sources-bar">Sources: Sifted / TechCrunch · 7/8–7/9</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-10 · Reuters · Italian Post enters</div>
-<h2 class="chapter-title">Italian Post enters AI infrastructure—digital sovereignty seeks a 'local proxy'</h2>
-<div class="prose">
+<div class="src-line">Sources: Sifted / TechCrunch · 7/8–7/9</div>
+</div>
+<div class="item">
+<div class="dateline">07-10 · Reuters · Italian Post enters</div>
+<div class="item-title">Italian Post enters AI infrastructure—digital sovereignty seeks a 'local proxy'</div>
+<div class="body">
 <p><strong>Reuters reports Italy is involving its national postal system in domestic AI infrastructure to protect digital sovereignty.</strong>AI is not just about who builds models, but who controls the foundation—the latest case of national AI infrastructure seeking locally controllable bearers.
 Europe's preference for sovereign compute and data foundations continues to strengthen.</p>
 <p>Italian Post enters AI infrastructure—digital sovereignty seeks a 'local proxy'.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.reuters.com/business/media-telecom/special-delivery-italys-postman-joins-ai-infrastructure-race-2026-07-10/" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Voice</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">'Speed is here, the moat is unproven.'</div>
-<div class="voice-meta">
-<span>European Business Magazine · On Lovable's 13.2 billion valuation · 7/9</span>
-<a href="https://sifted.eu/articles/lovable-300m-13-2bn-valuation" rel="noopener" target="_blank">Sifted</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"AI for Science must encode domain-native structures, not just learn statistical patterns—only then will its outputs be reliable and interpretable."</div>
-<div class="voice-meta">
-<span>Crunch AI Research · On SciReasoner Paper · 7/9</span>
-<a href="https://arxiv.org/abs/2607.07708" rel="noopener" target="_blank">arXiv 2607.07708</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose">
+<div class="src-line">Sources: <a href="https://www.reuters.com/business/media-telecom/special-delivery-italys-postman-joins-ai-infrastructure-race-2026-07-10/" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voice</div>
+<div class="sec-title">Voice</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">'Speed is here, the moat is unproven.'</p>
+<p class="voice-who">European Business Magazine · On Lovable's 13.2 billion valuation · 7/9 <a href="https://sifted.eu/articles/lovable-300m-13-2bn-valuation" rel="noopener" target="_blank">Sifted</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI for Science must encode domain-native structures, not just learn statistical patterns—only then will its outputs be reliable and interpretable."</p>
+<p class="voice-who">Crunch AI Research · On SciReasoner Paper · 7/9 <a href="https://arxiv.org/abs/2607.07708" rel="noopener" target="_blank">arXiv 2607.07708</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body">
 Stepping back for a panoramic view today: capital is surging in the application layer (Lovable's valuation doubled in seven months), but the technological battle still unfolds at the foundation—ZML breaks hardware lock-in, Meta develops custom inference chips, and AI for Science now demands "understanding structure" rather than "guessing patterns."Frontier labs launching GPT-5.6 and ChatGPT Work simultaneously use productization to signal: the first phase of the model race is over, and the second phase of the interface war is just beginning.
-</div></article>
-</section>
-<section class="month-block" id="section-10">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+</div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The Andes in Patagonia are outlined by a fresh layer of snow in the early Southern Hemisphere autumn of 2026." loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tyndall%E2%80%99s-trail-of-bergs/ISS074-E-582898_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The Andes in Patagonia are outlined by a fresh layer of snow in the early Southern Hemisphere autumn of 2026.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Tyndall Glacier, Patagonia · NASA · <span class="num">45.00°S, 72.00°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of reading AI news, is there anywhere on Earth that doesn't need GPU cooling?</p>
 <p style="margin-bottom:8px; line-height:1.8;">Across mountains, rivers, lakes, and seas, let's stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-09.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-11.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

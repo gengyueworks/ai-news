@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-03</span>
-<span>Friday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-07-03 · Friday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today is the day before the US July 4th long holiday, and frontier news is naturally sparse—but we haven't included old material just to pad the count. Today's four main threads are: Compute wants to break free from NVIDIA (Anthropic approaches Samsung for chip manufacturing), Value shifts from models to deployment (Microsoft's $2.5B new venture), Small models surpass large models (Fine-tuning beats the frontier), Agents begin self-evolution (Kuaishou AgentX produces 10 publishable results in three weeks). Plus two increasingly costly environmental bills.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Friday, July 3, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today is the day before the US July 4th long holiday, and frontier news is naturally sparse—but we haven't included old material just to pad the count. Today's four main threads are: Compute wants to break free from NVIDIA (Anthropic approaches Samsung for chip manufacturing), Value shifts from models to deployment (Microsoft's $2.5B new venture), Small models surpass large models (Fine-tuning beats the frontier), Agents begin self-evolution (Kuaishou AgentX produces 10 publishable results in three weeks). Plus two increasingly costly environmental bills.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">The Information / TechCrunch · July 2</div>
-<h2 class="chapter-title">Anthropic turns to Samsung to build its own AI chip</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="dateline">The Information / TechCrunch · July 2</div>
+<div class="item-title">Anthropic turns to Samsung to build its own AI chip</div>
+<div class="body">
 <p><span class="accent">Anthropic</span> is in talks with<span class="accent">Samsung</span>to explore collaborating on a custom AI chip. The Information exclusively reported on July 2 that this early-stage project has yet to finalize chip use cases, performance specs, or even whether it will ultimately proceed. However, the direction is clear: every frontier AI company is reducing its<span class="accent">NVIDIA</span>dependence.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Anthropic turns to Samsung to build its own AI chip · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/anthropic-samsung-chip-0ce2f223.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p>The situation of heavy compute dependence on a single supplier is breaking down. From OpenAI's Jalapeño to Anthropic's custom chips, every company is building a backup plan.</p>
 <p>Anthropic is reportedly in talks with Samsung to manufacture its proprietary AI chips, joining companies like OpenAI in reducing its sole reliance on NVIDIA. Image: The Decoder.</p>
 </div>
-<div class="sources-bar">Sources: The Information · <a href="https://www.theinformation.com/articles/anthropic-talks-samsung-manufacture-custom-ai-chip" rel="noopener" target="_blank">theinformation.com</a> / TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">TechCrunch / GeekWire · July 2</div>
-<h2 class="chapter-title">Microsoft forks out 25 billion and 6000 engineers to help large enterprises truly operationalize AI</h2>
-<div class="prose">
+<div class="src-line">Sources: The Information · <a href="https://www.theinformation.com/articles/anthropic-talks-samsung-manufacture-custom-ai-chip" rel="noopener" target="_blank">theinformation.com</a> / TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">TechCrunch / GeekWire · July 2</div>
+<div class="item-title">Microsoft forks out 25 billion and 6000 engineers to help large enterprises truly operationalize AI</div>
+<div class="body">
 <p><span class="accent">Microsoft Frontier Company</span>, announcing on July 2 the deployment of $2.5 billion and<span class="num">6000</span> industry and engineering experts dedicated to one mission: dispatching engineers on-site to get AI running seamlessly in enterprises.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Microsoft forks out 25 billion and 6000 engineers to help large enterprises truly operationalize AI · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/microsoft-frontier-f713810a.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -299,12 +290,12 @@
 <p>AI's current true bottleneck is whether someone can help you clear the "deployment step." Tech giants are beginning to invest in "sending people on-site to do AI" as an independent business.</p>
 <p>Microsoft's Frontier Company: $2.5 billion + 6,000 engineers dedicated to on-site deployment of AI solutions for clients. Image: Getty Images via TechCrunch.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch / GeekWire · <a href="https://www.geekwire.com/2026/microsoft-announces-2-5b-frontier-company-to-embed-ai-engineers-inside-customers/" rel="noopener" target="_blank">geekwire.com</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic / Cursor / Perplexity · July 2</div>
-<h2 class="chapter-title">Claude Fable 5 returns with a new "safe fallback" rule</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch / GeekWire · <a href="https://www.geekwire.com/2026/microsoft-announces-2-5b-frontier-company-to-embed-ai-engineers-inside-customers/" rel="noopener" target="_blank">geekwire.com</a></div>
+</div>
+<div class="item">
+<div class="dateline">Anthropic / Cursor / Perplexity · July 2</div>
+<div class="item-title">Claude Fable 5 returns with a new "safe fallback" rule</div>
+<div class="body">
 <p>After a one-day interval,<span class="accent">Claude Fable 5</span> supply has recovered, but this time Anthropic has simultaneously drawn its bottom line: upgraded cybersecurity defenses may route some requests<span class="accent">to Opus 4.8</span>, and biological and chemical classifiers remain conservative. Prices haven't changed, but the rules have.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Claude Fable 5 returns with a new "safe fallback" rule · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/chart-1-87c6b6f2.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -315,12 +306,12 @@
 <p>Fable 5 scored <span class="num">16.10%</span>, Sonnet 5 ranked second in AA-Briefcase but with higher turns and poorer cost-performance at lower tiers,<span class="accent">Looking at the rankings alone no longer reveals "who should do which segment."</span>.</p>
 <p>Frontier model supply restoration isn't the end. The real new normal is:<span class="turn">No single model can handle everything anymore; assigning the right task to the right model is becoming a core engineering skill.</span>.</p>
 </div>
-<div class="sources-bar">Sources: Anthropic · <a href="https://x.com/anthropicai" rel="noopener" target="_blank">x.com/@anthropicai</a> / Cursor · cursor.com/blog / Artificial Analysis · artificialanalysis.ai/news</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">NVIDIA · July 2</div>
-<h2 class="chapter-title">NVIDIA's TwoTower: Generation speeds up by 2.42 x, maintaining quality 98.7 %</h2>
-<div class="prose">
+<div class="src-line">Sources: Anthropic · <a href="https://x.com/anthropicai" rel="noopener" target="_blank">x.com/@anthropicai</a> / Cursor · cursor.com/blog / Artificial Analysis · artificialanalysis.ai/news</div>
+</div>
+<div class="item">
+<div class="dateline">NVIDIA · July 2</div>
+<div class="item-title">NVIDIA's TwoTower: Generation speeds up by 2.42 x, maintaining quality 98.7 %</div>
+<div class="body">
 <p><span class="accent">NVIDIA</span> Open-source Nemotron-Labs-TwoTower: Turning a <span class="num">30B</span> model into a diffusion language model with dual-replica parallel token writing—a frozen context model plus a trained writing model—<span class="accent">without retraining from scratch.</span>.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="NVIDIA's TwoTower: Generation speeds up by 2.42 x, maintaining quality 98.7 % · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/agentx-8255dfa2.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -329,15 +320,16 @@
 <p>Official figures show generation is <span class="num">2.42</span> x faster, retaining <span class="num">98.7</span>% of the original model's quality. The underlying principle is simple: splitting context understanding and output generation into two roles (the former fixed, the latter specially trained), eliminating redundant forward passes during generation.</p>
 <p>The implications for the application layer are direct:<span class="accent">Speed and quality are no longer mutually exclusive.</span>When architectural engineering achieves both speed and quality simultaneously, inference costs have further room to drop.<span class="turn">Model competition is shifting from 'who can train it' to 'who can run it cheaper'.</span>.</p>
 </div>
-<div class="sources-bar">Sources: NVIDIA · <a href="https://x.com/NVIDIAAI" rel="noopener" target="_blank">x.com/@NVIDIAAI</a> / Tech Breakdown · <a href="https://x.com/LiorOnAI" rel="noopener" target="_blank">x.com/@LiorOnAI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Insights · New Approaches and Real Costs in This AI Wave</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Thinking Machines Lab / Bridgewater · Original June 30 · Trending This Week</div>
-<h2 class="chapter-title">A fine-tuned small model beats all frontier LLMs in financial judgment—and is nearly 14 x cheaper</h2>
-<div class="prose">
+<div class="src-line">Sources: NVIDIA · <a href="https://x.com/NVIDIAAI" rel="noopener" target="_blank">x.com/@NVIDIAAI</a> / Tech Breakdown · <a href="https://x.com/LiorOnAI" rel="noopener" target="_blank">x.com/@LiorOnAI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Insights · New Approaches and Real Costs in This AI Wave</div>
+<div class="sec-title">Insights · New Approaches and Real Costs in This AI Wave</div>
+<div class="item">
+<div class="dateline">Thinking Machines Lab / Bridgewater · Original June 30 · Trending This Week</div>
+<div class="item-title">A fine-tuned small model beats all frontier LLMs in financial judgment—and is nearly 14 x cheaper</div>
+<div class="body">
 <p>Mira Murati's <span class="accent">Thinking Machines Lab</span> research in collaboration with Bridgewater Associates delivers a counterintuitive result: a specialized small model fine-tuned on high-quality expert-annotated data outperforms all tested frontier LLMs on real-world investment judgment tasks.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="A fine-tuned small model beats all frontier LLMs in financial judgment—and is nearly 14 x cheaper · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/chart-2-12f18e02.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -347,12 +339,12 @@
 <p>The intuition that "bigger is better and chasing the latest frontier is always right" is being challenged. For many specific tasks, a fine-tuned small model can be both more accurate and much cheaper.</p>
 <p>Fine-tuned specialized small model: 84.7% vs. Top frontier model: 78.2%, at just 1/13.8 of the cost. Data: Thinking Machines Lab / Bridgewater AIA Labs.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://thinkingmachines.ai/news/learning-to-replicate-expert-judgment-in-financial-tasks/" rel="noopener" target="_blank">Thinking Machines Lab Official</a> · Original June 30, 2026 (Widely Discussed This Week)</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">MacTalk via WeChat · July 2</div>
-<h2 class="chapter-title">Kuaishou releases AgentX: Recommendation systems begin self-iteration</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://thinkingmachines.ai/news/learning-to-replicate-expert-judgment-in-financial-tasks/" rel="noopener" target="_blank">Thinking Machines Lab Official</a> · Original June 30, 2026 (Widely Discussed This Week)</div>
+</div>
+<div class="item">
+<div class="dateline">MacTalk via WeChat · July 2</div>
+<div class="item-title">Kuaishou releases AgentX: Recommendation systems begin self-iteration</div>
+<div class="body">
 <p>Kuaishou <span class="num">AgentX</span>, targeting industrial recommendation systems with <span class="num">Agent-driven R&amp;D.</span>It breaks down recommendation iteration into four agent modules:<span class="num">Brainstorm Agent</span> Translating ambiguous business goals into actionable plans;<span class="num">Developing Agent</span> Writing plans into production code, deploying only after feature validation, DSL checking, and dry-run verification;</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Kuaishou releases AgentX: Recommendation systems begin self-iteration · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/cursor-ios-21b782ea.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -366,12 +358,12 @@
 <p>An even more valuable signal is self-acceleration, with weekly concurrency surging from <span class="num">15</span> to <span class="num">60</span>, idea pass rate at <span class="num">15%</span>→<span class="num">45%</span>, and weekly releasable results at <span class="num">2</span>→<span class="num">5</span>. Two rounds of PCV experiments demonstrated the real operation of 'self-iteration': the first round of PCV boosting showed weak positive results lacking significance, while the second round added quality gating and adaptive weights to achieve a +0.071% increase in watch time. Every experiment becomes a better hypothesis for the next.</p>
 <p>Kuaishou launches AgentX: Recommendation systems begin self-iteration.</p>
 </div>
-<div class="sources-bar">Sources: Chi Jianqiang / MacTalk · WeChat Official Account</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">TechCrunch · July 2</div>
-<h2 class="chapter-title">Google and Amazon's latest earnings reports reveal the true environmental bill for this AI wave</h2>
-<div class="prose">
+<div class="src-line">Sources: Chi Jianqiang / MacTalk · WeChat Official Account</div>
+</div>
+<div class="item">
+<div class="dateline">TechCrunch · July 2</div>
+<div class="item-title">Google and Amazon's latest earnings reports reveal the true environmental bill for this AI wave</div>
+<div class="body">
 <p><span class="num">Google</span> Total carbon emissions up year-over-year <span class="num">25%</span>, <span class="num">Amazon</span> Up <span class="num">16%</span>. Green power procurement is solid, and direct electricity emissions are well-controlled; the real growth is in Scope 3 (supply chain indirect emissions), where Google added <span class="num">2.1 million tons</span> last year, now double the 2019 level, driven primarily by data centers. In Q4 alone, Amazon added over <span class="num">1.2 GW</span> of data center capacity.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Google and Amazon's latest earnings reports reveal the true environmental bill for this AI wave · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/meta-655491b3.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -380,56 +372,54 @@
 <p>Every time you call an AI, there is a power-hungry data center under construction behind it. For the first time, this bill has been broken down so clearly.</p>
 <p>Google total carbon emissions +25% YoY, Amazon +16%; Google Scope 3 is now double 2019 levels. Data: Google / Amazon Sustainability Reports, curated by TechCrunch.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Quotes</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"I do most of my coding on my phone now."</div>
-<div class="voice-meta">
-<span>Boris Cherny · Head of Claude Code, Anthropic</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"AgentX: Transforming the most time-consuming, experience-dependent processes of recommendation systems into a continuous operation—making the right things happen consistently."</div>
-<div class="voice-meta">
-<span>Chi Jianqiang · MacTalk reviewing Kuaishou AgentX</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Cursor Official / The Verge · June 29</div>
-<h2 class="chapter-title">Cursor releases iPhone app: Launch AI coding agents on your phone and code on the go</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Quotes</div>
+<div class="sec-title">Quotes</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"I do most of my coding on my phone now."</p>
+<p class="voice-who">Boris Cherny · Head of Claude Code, Anthropic</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AgentX: Transforming the most time-consuming, experience-dependent processes of recommendation systems into a continuous operation—making the right things happen consistently."</p>
+<p class="voice-who">Chi Jianqiang · MacTalk reviewing Kuaishou AgentX</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">Cursor Official / The Verge · June 29</div>
+<div class="item-title">Cursor releases iPhone app: Launch AI coding agents on your phone and code on the go</div>
+<div class="body">
 <p><span class="num">Cursor</span>(The AI coding platform recently acquired by SpaceX) has released its first native iOS app, launching in public beta on the App Store. You can launch cloud agents on your phone, or run an agent on your computer and remotely command it via mobile to check diffs, approve PRs, and describe requirements using voice.</p>
 <p>Boris Cherny, Head of Claude Code at Anthropic, recently stated publicly, "I do most of my coding on my phone now," something he would have found unimaginable six months ago. Cursor's mobile app makes this scenario a reality for more developers.</p>
 <p>AI programming has shifted from "coding at a desk" to "launching agents and approving PRs anywhere." The location-based developer workflow is disappearing.</p>
 <p>Cursor's first native iOS app: Launch AI coding agents on your phone to review and merge PRs anytime, anywhere. Image: Cursor Official.</p>
 </div>
-<div class="sources-bar">Sources: Cursor Official · <a href="https://cursor.com/blog/ios-mobile-app" rel="noopener" target="_blank">cursor.com</a> / The Verge</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Investment &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Bloomberg / TechCrunch · July 1–July 2</div>
-<h2 class="chapter-title">Too much compute: Meta plans to launch cloud services to sell to others</h2>
-<div class="prose">
+<div class="src-line">Sources: Cursor Official · <a href="https://cursor.com/blog/ios-mobile-app" rel="noopener" target="_blank">cursor.com</a> / The Verge</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Capital Flows</div>
+<div class="sec-title">Investment &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">Bloomberg / TechCrunch · July 1–July 2</div>
+<div class="item-title">Too much compute: Meta plans to launch cloud services to sell to others</div>
+<div class="body">
 <p>According to Bloomberg on July 1,<span class="num">Meta</span> is planning a business named <span class="num">Meta Compute</span> to sell excess AI compute to external customers. Two routes are under consideration: a managed model API service similar to AWS Bedrock (including its own Muse Spark model), and selling "raw GPU compute."</p>
 <p>Zuckerberg said at the May shareholder meeting:<span class="turn">"Almost every week, external companies come to us asking if we can sell them compute."</span>Meta has committed to investing <span class="num">$182.9 billion</span> in AI infrastructure over the next few years, with its Ohio project "the size of Manhattan." Selling compute provides a monetization outlet for this massive investment.</p>
 <p>Excess capacity in AI infrastructure is turning into a new business. Following SpaceX, Meta is taking this path. Who will be the landlord of future AI is worth watching even more than who builds the strongest model.</p>
 <p>Too much compute: Meta plans to launch cloud services to sell to others.</p>
 </div>
-<div class="sources-bar">Sources: Bloomberg · <a href="https://www.bloomberg.com/news/articles/2026-07-01/meta-is-building-a-cloud-business-to-sell-excess-ai-compute" rel="noopener" target="_blank">bloomberg.com</a> / TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Daily Summary</div>
-<article class="chapter">
-<div class="prose">
+<div class="src-line">Sources: Bloomberg · <a href="https://www.bloomberg.com/news/articles/2026-07-01/meta-is-building-a-cloud-business-to-sell-excess-ai-compute" rel="noopener" target="_blank">bloomberg.com</a> / TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Daily Summary</div>
+<div class="sec-title">Daily Summary</div>
+<div class="item">
+<div class="body">
 <p>Today's main theme focuses on three structural developments:</p>
 <p><span class="num">First</span>: <span class="num">Compute wants to break free from NVIDIA</span>, Anthropic is partnering with Samsung to build custom chips, joining the self-developed chip camp alongside OpenAI (Jalapeño), Google (TPU), and Amazon (Trainium). The industry chain is decentralizing.</p>
 <p><span class="num">Second</span>: <span class="num"> value is shifting from "how strong the model is" to "practical deployment capability"</span>, Microsoft's new $2.5 billion company sends teams to drive on-site AI deployment, and AWS invested another $1 billion two days ago. Helping customers run models is more valuable than just selling them.</p>
@@ -437,25 +427,33 @@
 <p><span class="num">Fourth</span>: <span class="num">, Agents are evolving into self-improving R&amp;D systems</span>, Kuaishou's AgentX uses four agent modules to run the entire recommendation experiment workflow, while SGPO uses "semantic gradients" to let agents self-modify their prompts. In 3 weeks, 374 ideas yielded 10 deployable releases, increasing weekly output from 2 to 5.</p>
 <p>Finally, an increasingly expensive environmental bill: Google carbon emissions +<span class="num">25%</span>, Amazon +<span class="num">16%</span>. As AI capabilities rise, the bill rises with it.</p>
 </div>
-<div class="sources-bar">Sources: Stratechery</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Stay Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: Stratechery</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Greenland · 71.71°N, 42.28°W" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-03/1430-jpg-321add2d.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Greenland · <span class="num">71.71</span>°N, <span class="num">42.28</span>°W</div>
 <p style="margin-bottom:8px; line-height:1.8;">The polar tundra reveals the intertwined textures of ice and rock under the summer sun.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Reading AI news all day, it feels like there's nowhere left on Earth that doesn't need GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-02.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-04.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

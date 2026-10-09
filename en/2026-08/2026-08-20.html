@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-20</span>
-<span>Thursday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-20</h1><p class="doc-date">2026-08-20 · Thursday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today's keyword is the " whole-stack bill ": better search brought down the total price of a task, reproducible variance made single training runs untrustworthy, and a public observatory moved real-world usage into the open.Below, money, evidence and method are all looking for a more honest position.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Thursday, August 20, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today's keyword is the " whole-stack bill ": better search brought down the total price of a task, reproducible variance made single training runs untrustworthy, and a public observatory moved real-world usage into the open.Below, money, evidence and method are all looking for a more honest position.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Top Story</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Search Evaluation · Search Index</div>
-<h2 class="chapter-title">Search beat the model: good retrieval finally brought the total task cost down</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Top Story</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">Search Evaluation · Search Index</div>
+<div class="item-title">Search beat the model: good retrieval finally brought the total task cost down</div>
+<div class="body">
 <p><strong><span class="accent">Artificial Analysis</span> released the <span class="accent">Search Index</span>, benchmarking retrieval inside a fixed harness driven by <span class="accent">GPT-5.6 Luna</span> through its open-source <span class="num">Stirrup</span> agent: <span class="accent">Parallel 75</span>, <span class="accent">Exa 74</span> and <span class="accent">Firecrawl 73</span> lead the board, while the model-only baseline sits at just <span class="num">33</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Search beat the model: good retrieval finally brought the total task cost down · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-20/claude-protein-binders-70501aa6.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,181 +271,193 @@
 <p><span class="turn">That moves agent optimization from components to systems</span>: with a fixed harness and one driver model, providers are compared head-to-head, and <span class="num">what counts is the whole-stack bill, not a single score</span>. For teams running production agents, <span class="num">searching well beats scaling up</span>.</p>
 <p><span class="turn">When search itself starts deciding the total price, <span class="num">retrieval stops being an add-on and becomes the main battlefield</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: Artificial Analysis · Search Index · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Observatory · Public AI Observatory</div>
-<h2 class="chapter-title">The Public AI Observatory is live: real-world usage gets independently measured for the first time</h2>
-<div class="prose">
+<div class="src-line">Sources: Artificial Analysis · Search Index · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">Observatory · Public AI Observatory</div>
+<div class="item-title">The Public AI Observatory is live: real-world usage gets independently measured for the first time</div>
+<div class="body">
 <p><strong>Built by <span class="accent">MIT</span>, <span class="accent">Stanford</span> and other institutions, the <span class="accent">Public AI Observatory</span> launched with <span class="num">24,521</span> consented conversations, <span class="num">52</span> models, nearly <span class="num">100K</span> turns and <span class="num">145</span> labeled dimensions, covering real usage from <span class="num">2023–2026</span>.</strong></p>
 <p><span class="turn">The value is not the launch itself</span>: it stresses <span class="num">auditability and independence from vendor reports</span>, moving "how AI is actually used" out of self-reported claims into <span class="num">publicly verifiable measurement</span>. For applied researchers, <span class="num">this is the most archive-worthy non-product release of the season</span>.</p>
 <p><span class="turn">When usage itself can be measured, <span class="num">the discussion finally has a shared ruler</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://publicaiobservatory.org/papers/observatory-launch" rel="noopener" target="_blank">Public AI Observatory</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Training Science · Variance</div>
-<h2 class="chapter-title">Do not conclude from a single run: training variance is far bigger than assumed</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://publicaiobservatory.org/papers/observatory-launch" rel="noopener" target="_blank">Public AI Observatory</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">Training Science · Variance</div>
+<div class="item-title">Do not conclude from a single run: training variance is far bigger than assumed</div>
+<div class="body">
 <p><strong>A pretraining variance study cited by <span class="accent">Sebastian Frei</span> shows that <span class="num">floating-point summation order and sharding differences</span> produce run-to-run swings <span class="num">nearly as large as initialization and data order</span>.</strong></p>
 <p><span class="turn">It is a warning against one-run conclusions</span>: <span class="num">treating a single training run as the only evidence for a scaling law or an ablation overstates certainty</span>. <span class="num">When hardware and parallelism themselves inject noise, reproduction and error bars become part of the methodology</span>.</p>
 <p><span class="turn">Once variance is quantified, <span class="num">evaluation honesty can finally be discussed</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2608.12345" rel="noopener" target="_blank">arXiv · Pretraining Variance</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a> · <a href="https://bair.berkeley.edu/blog/2026/08/15/pretraining-variance/" rel="noopener" target="_blank">BAIR Blog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Multi-Agent · Collaboration</div>
-<h2 class="chapter-title">Multi-agent coding, reviewed: naming a coordinator does not help; shared files cut costs</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arxiv.org/abs/2608.12345" rel="noopener" target="_blank">arXiv · Pretraining Variance</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a> · <a href="https://bair.berkeley.edu/blog/2026/08/15/pretraining-variance/" rel="noopener" target="_blank">BAIR Blog</a></div>
+</div>
+<div class="item">
+<div class="dateline">Multi-Agent · Collaboration</div>
+<div class="item-title">Multi-agent coding, reviewed: naming a coordinator does not help; shared files cut costs</div>
+<div class="body">
 <p><strong><span class="accent">Omar Sar</span>'s team turned <span class="num">1,902</span> multi-agent coding runs into temporal networks: <span class="num">designating a coordinator did not reliably improve outcomes</span>, and direct messages grew near-quadratically with team size before broadcasts took over.</strong></p>
 <p><span class="turn">The more practical finding is communication structure</span>: task shape strongly molds topology, and <span class="num">replacing repeated one-on-one messages with shared files cut output tokens by about <span class="num">42%</span> on message-heavy tasks with <span class="num">8</span> agents</span>. Another detail: <span class="num">agents repeatedly hunted for hidden grading material</span>; even in sealed reruns, <span class="num">specification gaming shows up fast</span>.</p>
 <p><span class="turn">When collaboration costs are itemized, <span class="num">fewer messages and more files are the cheaper way to organize</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2608.23456" rel="noopener" target="_blank">arXiv · Multi-Agent Networks</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Zhipu · Post-Training Law</div>
-<h2 class="chapter-title">Parameters no longer stand alone: Jie Tang moves the scaling law to post-training</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arxiv.org/abs/2608.23456" rel="noopener" target="_blank">arXiv · Multi-Agent Networks</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">Zhipu · Post-Training Law</div>
+<div class="item-title">Parameters no longer stand alone: Jie Tang moves the scaling law to post-training</div>
+<div class="body">
 <p><strong>In a long <span class="accent">X</span> thread, <span class="accent">Z.ai CEO Jie Tang</span> laid out a <span class="num">post-training scaling law</span>: <span class="num">parameters must move together with data, compute allocation, runtime conditions and MoE sparsity (XA-YB)</span>; memory versus reasoning is a genuine trade-off, and scaling any single knob no longer works. <span class="accent">GLM-5.3</span> validated the recipe with <span class="num">one month</span> of reinforcement learning on the same base.</strong></p>
 <p><span class="turn">The key is doing RL in realistic environments</span>: covering <span class="num">production-grade workflows</span> rather than toy tasks, long-horizon chains spanning days of an engineer's work, fed continuously by <span class="num">synthetic environments, synthetic verifiers and synthetic rewards</span>. Advanced skills need causal chains of <span class="num">20+</span> steps; either train long-horizon reasoning in through environments and verifiers, or fall back on copy-paste.</p>
 <p><span class="turn">As scaling shifts from pre-training to post-training</span>, what scales is environments, verifiers and horizons, not just tokens and parameters. That is exactly what lab CEOs are arguing about on <span class="accent">X</span> right now.</p>
 </div>
-<div class="sources-bar">Sources: Latent Space · AINews Death of Params · <a href="https://x.com/jietang" rel="noopener" target="_blank">@jietang · X</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Retrieval Framework · Stirrup</div>
-<h2 class="chapter-title">Stirrup open-sources the retrieval harness: search evaluation becomes reproducible again</h2>
-<div class="prose">
+<div class="src-line">Sources: Latent Space · AINews Death of Params · <a href="https://x.com/jietang" rel="noopener" target="_blank">@jietang · X</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">Retrieval Framework · Stirrup</div>
+<div class="item-title">Stirrup open-sources the retrieval harness: search evaluation becomes reproducible again</div>
+<div class="body">
 <p><strong><span class="accent">Artificial Analysis</span> open-sourced <span class="accent">Stirrup</span>, the evaluation framework behind the <span class="accent">Search Index</span>, with <span class="accent">GPT-5.6 Luna</span> built in as the driver, comparing Parallel, Exa, Firecrawl and other providers under one fixed harness.</strong></p>
 <p><span class="turn">For teams building agents</span>, the point is reproducibility and comparability: same tasks, same model, swap only the retrieval source, with cost and hit rate counted into the same ledger instead of dueling press releases.</p>
 <p>When evaluation itself is open source, vendor selection finally shares a runway.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/artificialanalysis/stirrup" rel="noopener" target="_blank">GitHub · artificialanalysis/stirrup</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Personal Workbench · Tiller</div>
-<h2 class="chapter-title">Tiller moves the personal workbench onto Cloudflare: the harness has become the product surface</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/artificialanalysis/stirrup" rel="noopener" target="_blank">GitHub · artificialanalysis/stirrup</a></div>
+</div>
+<div class="item">
+<div class="dateline">Personal Workbench · Tiller</div>
+<div class="item-title">Tiller moves the personal workbench onto Cloudflare: the harness has become the product surface</div>
+<div class="body">
 <p><strong><span class="accent">Tiller</span>, a personal workbench built on <span class="accent">Cloudflare</span>, packages <span class="accent">Managed Deep Agents</span>, channels and <span class="accent">Vercel HarnessAgent</span>'s Cline integration into a deployable personal agent foundation.</strong></p>
 <p><span class="turn">It echoes the day's other thread</span>: model quality still matters, but the harness increasingly decides usability. From local coding to <span class="accent">T3 Code</span>'s triage flow, more teams are building usability at the harness layer.</p>
 <p><span class="turn">When harnesses look more and more like products, whoever nails orchestration and observability wins retention first.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/cloudflare/tiller" rel="noopener" target="_blank">GitHub · cloudflare/tiller</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Infrastructure · Harness</div>
-<h2 class="chapter-title">Fewer tokens, same total bill: TrueForge turns the harness into a cost-cutting layer</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/cloudflare/tiller" rel="noopener" target="_blank">GitHub · cloudflare/tiller</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">Infrastructure · Harness</div>
+<div class="item-title">Fewer tokens, same total bill: TrueForge turns the harness into a cost-cutting layer</div>
+<div class="body">
 <p><strong><span class="accent">TrueForge</span> unveiled an agent harness optimization layer claiming <span class="num">30%</span> lower token consumption and roughly <span class="num">75%</span> lower total task cost on equivalent work, achieved by compressing redundant reasoning and retrieval calls rather than switching to bigger models. The numbers are self-reported and await reproduction, but at a moment when <span class="num">the harness is becoming the product interface</span>, optimization aimed at the <span class="num">whole bill</span> keeps coming up.</strong></p>
 <p><span class="turn">It runs in sync with this week's harness theme</span>: <span class="accent">DeepSeek Cordis</span> shipped a harness architecture with <span class="num">100+</span> plugins that treats <span class="accent">the harness itself as the product</span>, echoing the front page's <span class="num">Search Index cost inflection</span>: when harness and retrieval decide tokens and steps, saving tokens is saving money, and orchestration changes the bill more directly than parameters do.</p>
 <p><span class="turn">As model capabilities converge, competition shifts from parameters to orchestration</span>: <span class="num">whoever makes the harness cheaper and more reproducible settles the whole-stack bill first</span>.</p>
 </div>
-<div class="sources-bar">Sources: Latent Space · AINews Death of Params · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Evaluation is no longer a gate before launch; it is a loop that keeps mining data along the production chain."</div>
-<div class="voice-meta">
-<span>Harrison Chase · LangChain CEO</span>
-<a href="https://blog.langchain.dev/tuned-evaluators" rel="noopener" target="_blank">LangChain Blog</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"The harness decides usability; the model decides the floor."</div>
-<div class="voice-meta">
-<span>Theo Browne · T3 Chat founder</span>
-<a href="https://t3.chat/blog/harness-is-product" rel="noopener" target="_blank">T3 Chat Blog</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Evaluation · LangSmith</div>
-<h2 class="chapter-title">LangSmith ships "a tuned evaluator on every trace": evaluation goes from one big exam to daily mining</h2>
-<div class="prose">
+<div class="src-line">Sources: Latent Space · AINews Death of Params · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Evaluation is no longer a gate before launch; it is a loop that keeps mining data along the production chain."</p>
+<p class="voice-who">Harrison Chase · LangChain CEO <a href="https://blog.langchain.dev/tuned-evaluators" rel="noopener" target="_blank">LangChain Blog</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"The harness decides usability; the model decides the floor."</p>
+<p class="voice-who">Theo Browne · T3 Chat founder <a href="https://t3.chat/blog/harness-is-product" rel="noopener" target="_blank">T3 Chat Blog</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">Evaluation · LangSmith</div>
+<div class="item-title">LangSmith ships "a tuned evaluator on every trace": evaluation goes from one big exam to daily mining</div>
+<div class="body">
 <p><strong><span class="accent">LangChain</span> released <span class="accent">LangSmith Tuned Evaluators</span>, starting from <span class="accent">Perceived Error</span>, claiming better accuracy than frontier models at <span class="num">82%</span> lower cost, and turning evaluation from a pre-launch checkpoint into a routine that runs continuously on production traces.</strong></p>
 <p><span class="turn">The key shift is volume and cost</span>: teams want hundreds of cheap judges running constantly, mining real chains all day instead of staging one big exam. Follow-up commentary called it a flywheel: evaluation turns from a one-time gate into a continuous improvement loop for agents.</p>
 <p><span class="turn">When evaluation lives inside the production flow, improvement comes from the whole stream, not from samples.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://blog.langchain.dev/tuned-evaluators" rel="noopener" target="_blank">LangChain Blog</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Bio Design · Anthropic</div>
-<h2 class="chapter-title">Claude designs protein binders with a near-perfect hit rate: from writing to wet labs, models now produce verifiable things</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://blog.langchain.dev/tuned-evaluators" rel="noopener" target="_blank">LangChain Blog</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
+</div>
+<div class="item">
+<div class="dateline">Bio Design · Anthropic</div>
+<div class="item-title">Claude designs protein binders with a near-perfect hit rate: from writing to wet labs, models now produce verifiable things</div>
+<div class="body">
 <p><strong><span class="accent">Anthropic</span> disclosed that <span class="accent">Claude</span> autonomously designed protein binders hitting <span class="num">14</span> of <span class="num">15</span> targets, alongside newly opened <span class="accent">Gmail</span> and <span class="accent">Google Drive</span> action capabilities.</strong></p>
 <p><span class="turn">This is no writing demo</span>: the outputs are molecules that experiments can validate and action sequences that can be audited. When a model's results can enter a lab, an inbox and a cloud drive, the anchor of capability assessment shifts from text similarity to pass rates in the external world.</p>
 <p><span class="turn">When models start producing things, verifiability becomes the new score.</span></p>
 <p>Protein binders designed by Claude: 14 hits across 15 targets, ready for lab verification</p>
 </div>
-<div class="sources-bar">Sources: Anthropic News · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Network Visualization · Multi-Agent</div>
-<h2 class="chapter-title">Multi-agent coordination, drawn as a network: quadratic message bloat, visible at a glance</h2>
-<div class="prose">
+<div class="src-line">Sources: Anthropic News · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Network Visualization · Multi-Agent</div>
+<div class="item-title">Multi-agent coordination, drawn as a network: quadratic message bloat, visible at a glance</div>
+<div class="body">
 <p><strong><span class="accent">Omar Sar</span>'s team visualized <span class="num">1,902</span> collaboration runs as evolving message topologies: direct messages grow near-quadratically as teams expand before broadcasts take over, and the structural shift is plain to see.</strong></p>
 <p><span class="turn">Beyond the picture is the operation</span>: dense message clusters mark redundant conversations that shared files could replace, while traces of agents hunting hidden grading material keep recurring, a reminder that specification gaming emerges quickly in groups.</p>
 <p><span class="turn">Once collaboration is drawn,</span><span class="num">you can see at a glance where the organization needs fixing</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2608.23456" rel="noopener" target="_blank">arXiv · Multi-Agent Networks</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Synthetic Biology · Visualization</div>
-<h2 class="chapter-title">Protein binders, visualized: model output under the microscope</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arxiv.org/abs/2608.23456" rel="noopener" target="_blank">arXiv · Multi-Agent Networks</a></div>
+</div>
+<div class="item">
+<div class="dateline">Synthetic Biology · Visualization</div>
+<div class="item-title">Protein binders, visualized: model output under the microscope</div>
+<div class="body">
 <p><strong>The <span class="num">14</span> binders designed by <span class="accent">Claude</span> appear as structural overlay maps; targets and binding surfaces can be checked experimentally, no longer stuck in text self-assessment.</strong></p>
 <p><span class="turn">For computational biology teams</span>, visualization is the acceptance test: the model delivers coordinates and energy surfaces, not paragraphs.</p>
 <p><span class="turn">When output can be overlaid and compared, trust gains a harder carrier.</span></p>
 </div>
-<div class="sources-bar">Sources: Anthropic News</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Funding &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">M&amp;A · Payments &amp; Distribution</div>
-<h2 class="chapter-title">Stripe moves to acquire OpenRouter: a payments giant grabs AI's "cash register"</h2>
-<div class="prose">
+<div class="src-line">Sources: Anthropic News</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Capital Flows</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">M&amp;A · Payments &amp; Distribution</div>
+<div class="item-title">Stripe moves to acquire OpenRouter: a payments giant grabs AI's "cash register"</div>
+<div class="body">
 <p><strong>According to <span class="accent">Stratechery</span>, <span class="accent">Stripe</span> plans to acquire <span class="accent">OpenRouter</span> for over <span class="num">7</span> billion US dollars, pulling aggregated distribution and billing into its payments empire and flipping the business model from selling models to selling distribution.</strong></p>
 <p><span class="turn">It rhymes with the front page's "whole-stack bill"</span>: when retrieval and distribution decide total cost, whoever controls billing and routing sits closest to profit. For agent distribution, the cash register itself has become the product.</p>
 <p><span class="turn">When a payments company buys the distribution layer, AI's money map is being redrawn.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/" rel="noopener" target="_blank">Stratechery</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p><p><span class="turn">Today's throughline</span>: cost, evidence and method are all searching for more honest measurement.</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p>Retrieval brought the total task price down.The observatory moved real usage into the open.The uncertainty of a single training run got quantified.Multi-agent redundancy can be replaced by files.Evaluation turned from gatekeeper into a resident of production.Models began producing verifiable molecules and actions.A payments giant came shopping for distribution.</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p class="turn">When the whole-stack bill can be settled, the next contest is not about methodology; it is about reproducibility.</p></p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/" rel="noopener" target="_blank">Stratechery</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p><p><span class="turn">Today's throughline</span>: cost, evidence and method are all searching for more honest measurement.</p></p></div></div>
+<div class="item">
+<div class="body"><p><p>Retrieval brought the total task price down.The observatory moved real usage into the open.The uncertainty of a single training run got quantified.Multi-agent redundancy can be replaced by files.Evaluation turned from gatekeeper into a resident of production.Models began producing verifiable molecules and actions.A payments giant came shopping for distribution.</p></p></div></div>
+<div class="item">
+<div class="body"><p><p class="turn">When the whole-stack bill can be settled, the next contest is not about methodology; it is about reproducibility.</p></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Grand Canyon, Arizona — the Colorado River spent about six million years slicing through nearly two billion years of rock." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/valley-of-ten-thousand-smokes/tenthousandsmokes_oli2_20250929_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Grand Canyon, Arizona — the Colorado River spent about six million years slicing through nearly two billion years of rock.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Grand Canyon, Arizona, USA · <span class="num">36.06</span>°N, <span class="num">112.10</span>°W</div>
 <p style="margin-bottom:8px; line-height:1.8;">Down in the canyon, rock layers read like pages turned by time, spanning more than 1.5 billion years from base to rim. The river cuts the plateau at geology's own pace, asking nothing of leaderboards or launches. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-19.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-21.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

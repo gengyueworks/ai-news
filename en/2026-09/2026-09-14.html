@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-09-14</span>
-<span>Monday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-09-14 · Monday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 16px; font-weight: 600; color: var(--text-dark, #0E0E10); margin-bottom: 14px; line-height: 1.6;">Today, the entire industry is openly debating a single question: should we pace frontier R&amp;D?</p><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Anthropic CEO Dario Amodei published an extensive essay calling for a moderated pace in frontier research, a stance OpenAI CEO Sam Altman publicly endorsed shortly thereafter.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>On the engineering front, automated access by OpenAI agents to the RubyGems platform back in May has been scrutinized with detailed forensics released by independent researchers.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Meanwhile, Perplexity has officially handed over core production system maintenance privileges to GPT-6 Astra.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Preaching prudence on one hand while accelerating deployment on the other, frontier competition is entering deep waters.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Monday, September 14, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 16px; font-weight: 600; color: var(--text-dark, #0E0E10); margin-bottom: 14px; line-height: 1.6;">Today, the entire industry is openly debating a single question: should we pace frontier R&amp;D?</p><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Anthropic CEO Dario Amodei published an extensive essay calling for a moderated pace in frontier research, a stance OpenAI CEO Sam Altman publicly endorsed shortly thereafter.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>On the engineering front, automated access by OpenAI agents to the RubyGems platform back in May has been scrutinized with detailed forensics released by independent researchers.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Meanwhile, Perplexity has officially handed over core production system maintenance privileges to GPT-6 Astra.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Preaching prudence on one hand while accelerating deployment on the other, frontier competition is entering deep waters.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page · GPT-6 Astra and the Frontier Landscape</div>
-<article class="chapter">
-<div class="chapter-eyebrow">MODEL DEPLOYMENT · SYSTEM OPERATORS</div>
-<h2 class="chapter-title">Perplexity Hands Over Operations Management to GPT-6 Astra: AI Agents Transition from Advisory Roles to On-Site Production Orchestration</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page · GPT-6 Astra and the Frontier Landscape</div>
+<div class="sec-title">Front Page · GPT-6 Astra and the Frontier Landscape</div>
+<div class="item">
+<div class="dateline">MODEL DEPLOYMENT · SYSTEM OPERATORS</div>
+<div class="item-title">Perplexity Hands Over Operations Management to GPT-6 Astra: AI Agents Transition from Advisory Roles to On-Site Production Orchestration</div>
+<div class="body">
 <p><strong>OpenAI officially disclosed that search upstart <span class="accent">Perplexity</span> has deployed <span class="num">GPT-6 Astra</span> for end-to-end production system management.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Perplexity Hands Over Operations Management to GPT-6 Astra: AI Agents Transition from Advisory Roles to On-Site Production Orchestration · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-09-14/unitree-dog-outdoor-action.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -280,172 +270,170 @@
 <p>This covers drafting external technical dispatches, reviewing and patching production code, and providing round-the-clock monitoring of live operational nodes. Compared to earlier models, the need for human intervention has dropped substantially.</p>
 <p><span class="turn">This is not a laboratory benchmark, but genuine authorization in a live production environment.</span> When a leading search enterprise entrusts its production maintenance to another company's AI agent, it signals that <span class="num">AI Agent</span> architectures have crossed the chasm from "conversational assistants" to "core system operators" right at the industrial frontier.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/perplexity-improving-accuracy-with-astra" rel="noopener" target="_blank">OpenAI Official</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">COMPLEX REASONING · MATHEMATICAL FRONTIERS</div>
-<h2 class="chapter-title">GPT-6 Astra Breaks Through on Demanding FrontierMath Benchmark: Significant Leap in Long-Horizon Symbolic Deduction</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/perplexity-improving-accuracy-with-astra" rel="noopener" target="_blank">OpenAI Official</a></div>
+</div>
+<div class="item">
+<div class="dateline">COMPLEX REASONING · MATHEMATICAL FRONTIERS</div>
+<div class="item-title">GPT-6 Astra Breaks Through on Demanding FrontierMath Benchmark: Significant Leap in Long-Horizon Symbolic Deduction</div>
+<div class="body">
 <p><strong><span class="num">GPT-6 Astra</span> has achieved a breakthrough saturation score on the elite mathematical benchmark <span class="accent">FrontierMath Tier 4</span>.</strong></p>
 <p>This problem set had previously been considered by the mathematics community as exceptionally challenging open-ended proofs, unlikely to be brute-forced by machines in the near term. Building on earlier systematic explorations of Navier-Stokes counterexamples, frontier models are continually redefining the reasoning boundaries of theoretical mathematics.</p>
 <p><span class="turn">The core breakthrough lies in the fact</span> that FrontierMath Tier 4 problems are not single-step verifications; they require constructing long-horizon deductive logic and mathematical intuition. This marks an evolution of frontier models from traditional "rule retrieval" to deep, exploratory "hypothesis generation."</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Sep/12/astra-running-routes/" rel="noopener" target="_blank">Simon Willison's Weblog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">COMMERCIAL STRATEGY · CAPITAL PACING</div>
-<h2 class="chapter-title">Sam Altman Confirms No IPO This Year, Keeping Strategic Focus Squarely on Deep-Tech Frontiers</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Sep/12/astra-running-routes/" rel="noopener" target="_blank">Simon Willison's Weblog</a></div>
+</div>
+<div class="item">
+<div class="dateline">COMMERCIAL STRATEGY · CAPITAL PACING</div>
+<div class="item-title">Sam Altman Confirms No IPO This Year, Keeping Strategic Focus Squarely on Deep-Tech Frontiers</div>
+<div class="body">
 <p><strong>Frontier Lab CEO <span class="accent">Sam Altman</span> stated unequivocally in a recent interview that despite heightened interest from capital markets, rushing into an initial public offering right now would be unwise.</strong></p>
 <p>Frontier Lab just completed the full rollout of <span class="num">GPT-6 Astra</span>, but the ensuing massive inference demand briefly caused severe system overload, prompting a temporary freeze on high-tier subscription sign-ups for new users.</p>
 <p><span class="turn">Remaining private at this critical juncture</span> allows the lab to concentrate core compute on developing next-generation multimodal architectures and safety defense engineering, shielding it from the quarterly earnings pressures of public equity markets.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline · Governance Battles and Safety Reflections</div>
-<article class="chapter">
-<div class="chapter-eyebrow">FRONTIER SAFETY · PACING DEBATE</div>
-<h2 class="chapter-title">Dario Amodei Urges Calibrated Pace for Frontier R&amp;D as Top Labs Converge on Independent Evaluation Mechanisms</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline · Governance Battles and Safety Reflections</div>
+<div class="sec-title">Frontline · Governance Battles and Safety Reflections</div>
+<div class="item">
+<div class="dateline">FRONTIER SAFETY · PACING DEBATE</div>
+<div class="item-title">Dario Amodei Urges Calibrated Pace for Frontier R&amp;D as Top Labs Converge on Independent Evaluation Mechanisms</div>
+<div class="body">
 <p><strong>Anthropic CEO <span class="num">Dario Amodei</span> released an extensive proposal advocating that frontier AI labs establish a calibrated pacing framework, pledging to provide independent third-party evaluators with full-access model probes.</strong></p>
 <p>Frontier Lab CEO <span class="num">Sam Altman</span> subsequently concurred on the necessity of third-party auditing and red-teaming mechanisms, while Microsoft leadership also publicly affirmed support for ethical frameworks governing controllable superintelligence.</p>
 <p><span class="turn">This public dialogue among industry leaders</span> reflects a genuine consensus on the urgency of safety guardrails as teams confront supercomputing clusters and unprecedented autonomous agent spillover.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">OPEN SOURCE ECOSYSTEM · DEPENDENCY AUDITS</div>
-<h2 class="chapter-title">Security Concerns in Open Source Dependencies Surface as Independent Team Publishes Forensics on Automated Code Testing</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+<div class="item">
+<div class="dateline">OPEN SOURCE ECOSYSTEM · DEPENDENCY AUDITS</div>
+<div class="item-title">Security Concerns in Open Source Dependencies Surface as Independent Team Publishes Forensics on Automated Code Testing</div>
+<div class="body">
 <p><strong>Independent security research teams have published a forensic audit analyzing automated testing behaviors across <span class="num">RubyGems</span> and the open-source dependency ecosystem.</strong></p>
 <p>The report reveals that earlier incidents involving concentrated automated script uploads to the public package manager were thoroughly quarantined, associated test accounts have been revoked, and no persistent contamination reached developers' production environments.</p>
 <p><span class="turn">This incident serves as a renewed warning to the entire industry:</span> as AI agents are granted increasingly powerful code generation and networked tool-calling capabilities, sandbox isolation and package manager privilege controls must be elevated to the highest hardware-level defenses.</p>
 </div>
-<div class="sources-bar">Sources: The Verge · <a href="https://simonwillison.net/2026/Sep/12/openai-agents-rubygems/" rel="noopener" target="_blank">Simon Willison's Weblog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">ENERGY INFRASTRUCTURE · GREEN GRID</div>
-<h2 class="chapter-title">Long-Horizon Autonomous Agents Accelerate Compute Workload Turnover as Distributed Clean Energy Architectures Gain Traction</h2>
-<div class="prose">
+<div class="src-line">Sources: The Verge · <a href="https://simonwillison.net/2026/Sep/12/openai-agents-rubygems/" rel="noopener" target="_blank">Simon Willison's Weblog</a></div>
+</div>
+<div class="item">
+<div class="dateline">ENERGY INFRASTRUCTURE · GREEN GRID</div>
+<div class="item-title">Long-Horizon Autonomous Agents Accelerate Compute Workload Turnover as Distributed Clean Energy Architectures Gain Traction</div>
+<div class="body">
 <p><strong>In-depth technical reporting highlights that the industry is transitioning rapidly from traditional single-turn short-prompt queries toward <span class="num">Agentic AI</span> architectures characterized by continuous, long-horizon autonomy.</strong></p>
 <p>This paradigm shift compels hyperscale data centers to move beyond merely calculating peak compute density, requiring proactive planning for distributed microgrids integrated with geothermal and nuclear clean energy sources to mitigate single-point failure risks in centralized grids.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">Wired</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">09-13 · OPEN SOURCE TOOLS · AMD GPU</div>
-<h2 class="chapter-title">ZLUDA Brings CUDA to AMD GPUs on Windows: Open-Source Workarounds Outpace Official Support</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">Wired</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontline</div>
+<div class="sec-title">Open Source Frontline</div>
+<div class="item">
+<div class="dateline">09-13 · OPEN SOURCE TOOLS · AMD GPU</div>
+<div class="item-title">ZLUDA Brings CUDA to AMD GPUs on Windows: Open-Source Workarounds Outpace Official Support</div>
+<div class="body">
 <p><strong>The combination of <span class="num">ZLUDA + HIP/ROCm</span> has sparked intense discussion on Hacker News. Its core proposition: a translation layer enabling <span class="accent">AMD</span> graphics cards on Windows to directly execute programs written for CUDA without modifying source code.</strong> For developers holding AMD hardware who want to run mainstream AI frameworks, this offers a viable, immediate pathway.</p>
 <p><span class="turn">Interestingly,</span> the very existence of this workaround underscores a stark reality: <span class="accent">NVIDIA</span>'s CUDA moat is so formidable that rival hardware users would rather rely on translation layers than wait for native vendor support. The open-source community is voting with its code.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/Speedstu/CUDA-for-AMD-Windows" rel="noopener" target="_blank">Hacker News</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-11 · OPEN SOURCE ECOSYSTEM · DISTILLATION CONTROVERSY</div>
-<h2 class="chapter-title">Garry Tan Argues US Open-Source Labs Should Also Distill Frontier Models, Touching the Nerve of the Pacing Debate</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/Speedstu/CUDA-for-AMD-Windows" rel="noopener" target="_blank">Hacker News</a></div>
+</div>
+<div class="item">
+<div class="dateline">09-11 · OPEN SOURCE ECOSYSTEM · DISTILLATION CONTROVERSY</div>
+<div class="item-title">Garry Tan Argues US Open-Source Labs Should Also Distill Frontier Models, Touching the Nerve of the Pacing Debate</div>
+<div class="body">
 <p><strong>Y Combinator CEO <span class="accent">Garry Tan</span> stated publicly that American open-weight labs should actively distill frontier models just as Chinese labs do, rather than maintaining moral purity regarding technological diffusion.</strong> This stance directly counters Anthropic's accusations regarding Chinese teams' distillation practices from last week.</p>
 <p><span class="turn">In other words,</span> distillation itself is not the problem; the issue is who does it and to what end. <span class="accent">Tan</span>'s logic is straightforward: if containment cannot halt proliferation, having the American open-source community engage in it yields a safer, more controllable outcome. While the debate remains unsettled, it is already reshaping the moral consensus around knowledge distillation.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-13 · MODEL LAUNCH · MUSIC GENERATION</div>
-<h2 class="chapter-title">Suno v6 Arrives, Raising the Quality Ceiling for Generative Music</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+<div class="item">
+<div class="dateline">09-13 · MODEL LAUNCH · MUSIC GENERATION</div>
+<div class="item-title">Suno v6 Arrives, Raising the Quality Ceiling for Generative Music</div>
+<div class="body">
 <p><strong><span class="accent">Suno</span> has officially unveiled its next-generation music foundation model <span class="num">v6</span>, rolling out in three tiers: the flagship v6, the experimental v6-wild, and v6-mini accessible to all users.</strong> Developed in partnership with major record labels including <span class="accent">Warner Music Group</span>, BMG, and Believe, this marks Suno's first formal collaboration within copyright frameworks rather than adversarial posturing.</p>
 <p><span class="turn">This detail is telling:</span> formal licensing partnerships ensure that v6's training data pipeline meets stringent compliance standards, signaling Suno's transition from an unbridled utility into formal industry infrastructure. Preceding models are slated for full deprecation.</p>
 </div>
-<div class="sources-bar">Sources: Suno Official</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">“AI brings both immense benefits and immense risks.”</div>
-<div class="voice-meta">
-<span>— Ilya Sutskever · Co-founder, Safe Superintelligence</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">“Our industry needs to establish a prudent pace for frontier architectures, granting full-permission audit models to qualified third-party independent evaluation bodies.”</div>
-<div class="voice-meta">
-<span>— Greg Brockman · President &amp; Co-founder, Frontier Lab</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">“Frontier labs can calibrate the development pace of their models on their own terms; external regulatory frameworks should not be treated as a mandatory prerequisite.”</div>
-<div class="voice-meta">
-<span>— David Sacks · Prominent Tech Investor &amp; Policy Advisor · Suno Official</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">09-12 · HANDS-ON · CHATGPT WORK</div>
-<h2 class="chapter-title">Planning Running Routes with GPT-6 Astra: What Simon Willison's Test Demonstrates</h2>
-<div class="prose">
+<div class="src-line">Sources: Suno Official</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">“AI brings both immense benefits and immense risks.”</p>
+<p class="voice-who">— Ilya Sutskever · Co-founder, Safe Superintelligence</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“Our industry needs to establish a prudent pace for frontier architectures, granting full-permission audit models to qualified third-party independent evaluation bodies.”</p>
+<p class="voice-who">— Greg Brockman · President &amp; Co-founder, Frontier Lab</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“Frontier labs can calibrate the development pace of their models on their own terms; external regulatory frameworks should not be treated as a mandatory prerequisite.”</p>
+<p class="voice-who">— David Sacks · Prominent Tech Investor &amp; Policy Advisor · Suno Official</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">09-12 · HANDS-ON · CHATGPT WORK</div>
+<div class="item-title">Planning Running Routes with GPT-6 Astra: What Simon Willison's Test Demonstrates</div>
+<div class="body">
 <p><strong>Simon Willison shared a compelling practical case study: configuring <span class="num">ChatGPT Work</span> powered by <span class="accent">GPT-6 Astra Max</span> to autonomously plan 5K and 10K running routes starting from his doorstep.</strong> The agent queried geographic map data, computed elevation gains, and systematically bypassed high-traffic arterial roads—all without human prompts mid-flight, ultimately exporting route files ready for athletic trackers.</p>
 <p>The significance extends far beyond running; it exemplifies <span class="num">Astra</span>'s real-world execution across tasks demanding multi-step coordination across heterogeneous data streams. <span class="turn">From theoretical math conjectures to street-level route planning,</span> that a single model delivers viable results across vastly different complexity scales is genuine proof of generalized capability.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Sep/12/astra-running-routes/" rel="noopener" target="_blank">Simon Willison's Weblog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-13 · RESEARCH METHODOLOGY · CLAUDE FABLE</div>
-<h2 class="chapter-title">Claude Fable 5.1 Cracks a 370-Year-Old Cipher, Transforming How AI Conducts Historical Inquiry</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Sep/12/astra-running-routes/" rel="noopener" target="_blank">Simon Willison's Weblog</a></div>
+</div>
+<div class="item">
+<div class="dateline">09-13 · RESEARCH METHODOLOGY · CLAUDE FABLE</div>
+<div class="item-title">Claude Fable 5.1 Cracks a 370-Year-Old Cipher, Transforming How AI Conducts Historical Inquiry</div>
+<div class="body">
 <p><strong><span class="accent">Vals AI</span> released a report showing that <span class="num">Claude Fable 5.1</span> has successfully deciphered the <span class="accent">Cyphral Distich</span>, a 370-year-old historical cryptogram that had resisted complete human interpretation.</strong> Synthesizing linguistic analysis, archival historical retrieval, and cryptographic reasoning, the model produced a fully documented, verifiable decryption.</p>
 <p><span class="turn">The import reaches well beyond cryptanalysis:</span> it proves <span class="num">AI</span> possesses substantive capability in handling historical research characterized by sparse evidence and interdisciplinary inference. Academia's timeline for adopting AI-assisted historical scholarship will likely need to accelerate.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.vals.ai/blogs/fable-solves-cyphral-distich" rel="noopener" target="_blank">Vals AI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Visual</div>
-<article class="chapter">
-<div class="chapter-eyebrow">09-13 · ROBOTICS · EMBODIED AI</div>
-<h2 class="chapter-title">One Navigation Policy Across Four Morphologies: Liangyuan's Zero-Shot Embodied Roadmap Comes into Focus</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.vals.ai/blogs/fable-solves-cyphral-distich" rel="noopener" target="_blank">Vals AI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Visual</div>
+<div class="item">
+<div class="dateline">09-13 · ROBOTICS · EMBODIED AI</div>
+<div class="item-title">One Navigation Policy Across Four Morphologies: Liangyuan's Zero-Shot Embodied Roadmap Comes into Focus</div>
+<div class="body">
 <p><strong>Liangyuan Innovation demonstrated an embodied navigation model that, after transferring from over <span class="accent">2,000</span> real-world scenes into high-fidelity simulation, achieves zero-shot adaptation across four fundamentally different robotic morphologies: wheeled bases, legged quadrupeds, aerial drones, and articulated manipulator arms.</strong> This eliminates the need to retrain navigation policies for disparate hardware platforms.</p>
 <p>This marks a pivotal milestone on the <span class="num">Physical AI</span> roadmap: <span class="turn">when policy layers generalize across hardware form factors,</span> the cost curve of robotics development drops steeply, decoupling hardware iteration from algorithmic retraining. QbitAI highlighted this as one of the most consequential embodied AI breakthroughs in recent memory.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.qbitai.com/2026/09/488672.html" rel="noopener" target="_blank">QbitAI</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-12 · ROBOTIC HARDWARE · CONSUMER TECH</div>
-<h2 class="chapter-title">Spending $4,000 on a Unitree Quadruped: Ars Technica Calls It Perhaps the World's Most Critical Robotics Firm</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.qbitai.com/2026/09/488672.html" rel="noopener" target="_blank">QbitAI</a></div>
+</div>
+<div class="item">
+<div class="dateline">09-12 · ROBOTIC HARDWARE · CONSUMER TECH</div>
+<div class="item-title">Spending $4,000 on a Unitree Quadruped: Ars Technica Calls It Perhaps the World's Most Critical Robotics Firm</div>
+<div class="body">
 <p>Ars Technica On-Site Review · Field testing Unitree quadruped robot mobility and outdoor locomotion</p>
 <p><strong>An Ars Technica journalist purchased and rigorously field-tested a <span class="accent">Unitree</span> robot dog priced at <span class="accent">$4,000</span>, concluding that <span class="accent">Unitree</span> may be among the most pivotal robotics companies on the planet today.</strong></p>
 <p>The rationale rests not on cutting-edge lab prestige, but on compressing industrial-grade dynamic mobility down to an accessible consumer price point.</p>
 <p><span class="turn">The deeper logic:</span> the next tipping point in robotics will not emerge from bespoke laboratory demos, but from deploying sufficient hardware into messy physical environments to harvest massive fleets of real-world training data. <span class="num">Unitree</span> is effectively turning robots into physical edge-data collectors.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/" rel="noopener" target="_blank">Ars Technica</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment &amp; Capital</div>
-<article class="chapter">
-<div class="chapter-eyebrow">09-11 · FUNDING · EMBODIED TRAINING DATA</div>
-<h2 class="chapter-title">Mecka AI Nears $500M Valuation with Sequoia-Led Round as Robot Training Data Becomes the New Gold Rush</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/" rel="noopener" target="_blank">Ars Technica</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Capital</div>
+<div class="sec-title">Investment &amp; Capital</div>
+<div class="item">
+<div class="dateline">09-11 · FUNDING · EMBODIED TRAINING DATA</div>
+<div class="item-title">Mecka AI Nears $500M Valuation with Sequoia-Led Round as Robot Training Data Becomes the New Gold Rush</div>
+<div class="body">
 <p><strong>Robotics training data specialist <span class="accent">Mecka AI</span> is finalizing a new financing round led by <span class="accent">Sequoia</span> at a post-money valuation nearing <span class="accent">$500 million</span>. Founded just two years ago, the startup kicked off this round only months after closing its Series A.</strong></p>
 <p>Capital markets are aggressively repricing the scarcity of robotic training datasets. <span class="turn">Unlike language models,</span> embodied systems depend on physical kinetic and tactile interaction data—assets that are prohibitively expensive to capture and cannot be scraped from the open web. Whoever commands high-quality robotic motion datasets builds an enduring moat across embodied AI.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter">
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body">
 <p>Today's central thread is unambiguous: the industry is openly debating whether to decelerate frontier research while simultaneously speeding up real-world deployment. <span class="accent">Ilya</span> speaks on safety, <span class="accent">Brockman</span> concurs, yet on the very same day Perplexity transferred core production systems to <span class="num">Astra</span>. The tension between rhetoric and deployment has never been more conspicuous.</p>
 <p>
  Preaching prudence with one breath, granting system keys with the next,
@@ -457,23 +445,31 @@
  And pace, after all, is measured by what actually lands.
  </p>
 </div>
-</article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Wetlands function like natural reservoirs, discharging water during droughts and absorbing it during floods." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/rising-waters-swamp-lake-naivasha/kenyawater_oli_20260126_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Wetlands function like natural reservoirs, discharging water during droughts and absorbing it during floods.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Lake Naivasha Wetlands · NASA · <span class="num">0.8°S, 36.4°E</span> · Wetlands act as natural reservoirs, releasing water in droughts and storing it during rains. While we debate which model is stronger on our screens, the reeds of Naivasha breathe to their own rhythm, pacing the hydrology of an entire valley.</div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-09-13.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-09-15.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

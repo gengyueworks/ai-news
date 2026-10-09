@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,165 +250,170 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-10-03</span>
-<span>Saturday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-10-03 · Saturday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 16px; font-weight: 600; color: var(--text-dark, #0E0E10); margin-bottom: 14px; line-height: 1.6;">Runaway autonomous agent costs enforce hard constraints, while open-source workflows advance into desktop system kernels.</p><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Independent researcher Simon Willison advocates for protocol-level Hard Budget Caps for autonomous agents.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>The open-source community upgrades the local DeepSeek tool Harness v0.2 , unlocking direct semantic desktop control.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Meta discloses R&amp;D findings on proactive agents, where context bloat and interaction noise emerge as critical engineering bottlenecks.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Hugging Face open-sources a distributed long-sequence alignment framework, achieving zero out-of-memory errors across 128K context windows.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Saturday, October 3, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 16px; font-weight: 600; color: var(--text-dark, #0E0E10); margin-bottom: 14px; line-height: 1.6;">Runaway autonomous agent costs enforce hard constraints, while open-source workflows advance into desktop system kernels.</p><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Independent researcher Simon Willison advocates for protocol-level Hard Budget Caps for autonomous agents.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>The open-source community upgrades the local DeepSeek tool Harness v0.2 , unlocking direct semantic desktop control.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Meta discloses R&amp;D findings on proactive agents, where context bloat and interaction noise emerge as critical engineering bottlenecks.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Hugging Face open-sources a distributed long-sequence alignment framework, achieving zero out-of-memory errors across 128K context windows.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Architecture Standards · Agent Costs</div>
-<h2 class="chapter-title">Simon Willison Advocates for Global Hard Budget Caps: Injecting Deterministic Circuit Breakers into Long-Horizon Autonomous Agents</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">Architecture Standards · Agent Costs</div>
+<div class="item-title">Simon Willison Advocates for Global Hard Budget Caps: Injecting Deterministic Circuit Breakers into Long-Horizon Autonomous Agents</div>
+<div class="body">
 <p>Brutalist storm beacon on sheer sea-cliff · Piercing beacon against tempestuous seas · Deterministic circuit breakers for autonomous agentic loops</p>
 
 <p>Independent computing researcher <span class="accent">Simon Willison</span> released a system design proposal addressing multi-tiered autonomous agents. The analysis emphasizes that as agents acquire the capability to recursively delegate subtasks and execute multi-tool loops, naive timeout heuristics can no longer prevent catastrophic billing escalations on single tasks.</p>
 <p>His experimental records revealed that a code-patching loop trapped in recursive repairs burned through over <span class="num">$310</span> in API token credits in just <span class="num">42</span> minutes, <span class="turn">exposing</span> the inherent fragility of relying on model self-reflection alone to determine halting conditions.</p>
 <p>The proposal advocates forcibly injecting an unoverridable global hard budget cap into the underlying runtime engine. <span class="turn">Regardless</span> of how the reasoning chain branches or recurses, once an execution reaches preset token or financial thresholds, the runtime immediately freezes state and returns operational control to human supervisors.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Oct/02/hard-budget-caps-for-agents/" rel="noopener" target="_blank">Simon Willison's Weblog</a> · <a href="https://interconnects.ai/p/cost-control-in-agentic-loops" rel="noopener" target="_blank">Interconnects Deep Dive</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Meta · Interaction Experiments</div>
-<h2 class="chapter-title">Meta Discloses Muse Proactive Agent Trials: When Unchecked Proactivity Degrades into Desktop Noise</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Oct/02/hard-budget-caps-for-agents/" rel="noopener" target="_blank">Simon Willison's Weblog</a> · <a href="https://interconnects.ai/p/cost-control-in-agentic-loops" rel="noopener" target="_blank">Interconnects Deep Dive</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">Meta · Interaction Experiments</div>
+<div class="item-title">Meta Discloses Muse Proactive Agent Trials: When Unchecked Proactivity Degrades into Desktop Noise</div>
+<div class="body">
 <p><span class="accent">Meta</span> AI Research published an empirical findings report on its cutting-edge proactive agent, <span class="num">Muse</span>. The experimental system continuously analyzes on-screen context during user work sessions to autonomously initiate knowledge retrieval and task preprocessing.</p>
 
 <p>Internal trial metrics showed that a staggering <span class="num">68%</span> of proactive suggestions were promptly muted or dismissed by participating staff. Frequent popup notifications and unsolicited background tasks disrupted deep human focus, <span class="turn">revealing</span> critical product blind spots when driving proactivity purely through algorithmic capability.</p>
 <p>The research team concluded that subsequent architectural milestones will shift from speculative autonomous triggers toward minimalist silent state capture, strictly preventing invasive interference with standard workflows.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://ai.meta.com/research/publications/muse-proactive-agent-dilemmas/" rel="noopener" target="_blank">Meta Research Publication</a> · <a href="https://thezvi.substack.com/p/the-limits-of-proactive-assistants" rel="noopener" target="_blank">The Zvi Analysis</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic · Model Safety</div>
-<h2 class="chapter-title">Anthropic Hardens Prompt Sandbox to Intercept Stealth Poisoning Injections via Third-Party Interfaces</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://ai.meta.com/research/publications/muse-proactive-agent-dilemmas/" rel="noopener" target="_blank">Meta Research Publication</a> · <a href="https://thezvi.substack.com/p/the-limits-of-proactive-assistants" rel="noopener" target="_blank">The Zvi Analysis</a></div>
+</div>
+<div class="item">
+<div class="dateline">Anthropic · Model Safety</div>
+<div class="item-title">Anthropic Hardens Prompt Sandbox to Intercept Stealth Poisoning Injections via Third-Party Interfaces</div>
+<div class="body">
 <p>Safety lab <span class="accent">Anthropic</span> introduced a reinforced defense framework tailored for multimodal and toolchain integrations. Internal evaluations demonstrated that adversarial payloads could evade standard tokenizer filters by embedding invisible Unicode characters and camouflaged metadata.</p>
 <p>The hardened sandbox reconstructs instruction semantics multi-dimensionally at the ingestion boundary, <span class="turn">thereby</span> suppressing hidden jailbreak injection success rates to below <span class="num">0.02%</span> while preserving original prompt interpretation fidelity.</p>
 <p>With hybrid multi-format inputs rapidly proliferating, rigorous input perimeter sanitization is solidifying as a non-negotiable prerequisite for enterprise model deployment.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.anthropic.com/research/adversarial-prompt-sanitization" rel="noopener" target="_blank">Anthropic Research</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">DeepSeek · Terminal Tools</div>
-<h2 class="chapter-title">DeepSeek Harness v0.2 Released: Bringing Native Desktop Invocations to Local Endpoints</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.anthropic.com/research/adversarial-prompt-sanitization" rel="noopener" target="_blank">Anthropic Research</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">DeepSeek · Terminal Tools</div>
+<div class="item-title">DeepSeek Harness v0.2 Released: Bringing Native Desktop Invocations to Local Endpoints</div>
+<div class="body">
 <p>The open-source community rolled out <span class="num">Harness v0.2</span>, a major automation suite built for <span class="accent">DeepSeek</span>. This release completely refactors the low-level event loop, eliminating prior dependencies on browser automation wrappers.</p>
 <p>The tool communicates directly with native headless rendering engines and OS-level keyboard/mouse APIs, achieving response latencies as low as <span class="num">120ms</span> across multi-window switching workflows, <span class="turn">while</span> incorporating an automated security audit perimeter around sensitive file directories.</p>
 <p>This direct on-device design significantly lowers technical barriers for running localized model automation, clearing the path toward personal autonomous computer workflows.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/v0.2" rel="noopener" target="_blank">GitHub Repository</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Hugging Face · Training Tooling</div>
-<h2 class="chapter-title">Hugging Face Releases Distributed Alignment Suite: Long-Context RL Shatters VRAM Bottlenecks</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/v0.2" rel="noopener" target="_blank">GitHub Repository</a></div>
+</div>
+<div class="item">
+<div class="dateline">Hugging Face · Training Tooling</div>
+<div class="item-title">Hugging Face Releases Distributed Alignment Suite: Long-Context RL Shatters VRAM Bottlenecks</div>
+<div class="body">
 <p><span class="accent">Hugging Face</span> officially open-sourced a distributed fine-tuning framework engineered for ultra-long context windows. Incorporating novel sequence parallelism and gradient checkpointing algorithms, the package supports reinforcement learning alignment across full <span class="num">128K</span> token horizons.</p>
 <p>In standard GPU cluster benchmarks, peak VRAM requirements dropped by <span class="num">41%</span> compared to baseline frameworks, with inter-node communication latency effectively masked through overlapping forward compute windows, <span class="turn">eliminating</span> prohibitive hardware barriers previously required for long-horizon rollouts.</p>
 <p>The engineering overhead and cost of aligning complex, multi-step long-context reasoning are now settling into reach for mainstream development teams.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://huggingface.co/blog/distributed-long-context-alignment" rel="noopener" target="_blank">Hugging Face Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">“Rather than stacking layers of abstract autonomous planning loops, it is far better to give the model a single-step execution environment that captures terminal errors in real time.”</div>
-<div class="voice-meta">
-<span>Andrej Karpathy · Founder, Eureka Labs</span>
-<a href="https://karpathy.ai/notes/agent-environments.html" rel="noopener" target="_blank">Karpathy's Notes</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">“There is a very thin line between being proactively helpful and generating visual clutter; we consistently overestimate users’ tolerance for interruption.”</div>
-<div class="voice-meta">
-<span>Yann LeCun · Chief AI Scientist, Meta</span>
-<a href="https://x.com/ylecun/status/2105891823902384912" rel="noopener" target="_blank">Post on X</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Cursor · Collaborative Engineering</div>
-<h2 class="chapter-title">Cursor Introduces Multi-Branch Concurrent Compilation: Background Automated Runs for Code Reviews</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://huggingface.co/blog/distributed-long-context-alignment" rel="noopener" target="_blank">Hugging Face Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">“Rather than stacking layers of abstract autonomous planning loops, it is far better to give the model a single-step execution environment that captures terminal errors in real time.”</p>
+<p class="voice-who">Andrej Karpathy · Founder, Eureka Labs <a href="https://karpathy.ai/notes/agent-environments.html" rel="noopener" target="_blank">Karpathy's Notes</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“There is a very thin line between being proactively helpful and generating visual clutter; we consistently overestimate users’ tolerance for interruption.”</p>
+<p class="voice-who">Yann LeCun · Chief AI Scientist, Meta <a href="https://x.com/ylecun/status/2105891823902384912" rel="noopener" target="_blank">Post on X</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">Cursor · Collaborative Engineering</div>
+<div class="item-title">Cursor Introduces Multi-Branch Concurrent Compilation: Background Automated Runs for Code Reviews</div>
+<div class="body">
 <p>Coding environment <span class="accent">Cursor</span> rolled out a background orchestration engine supporting concurrent multi-branch verification. Whenever a developer submits a pull request, the system provisions isolated environments to check out candidate branches, install dependencies, and execute test matrices.</p>
 <p>When build failures arise, the agent automatically cross-references historical repository fixes and generates three candidate patches accompanied by structural diff explanations, <span class="turn">saving</span> engineers from tedious dependency troubleshooting cycles.</p>
 <p>Developer bandwidth is consequently liberated from repetitive CI pipeline maintenance, focusing attention back on system architecture and business logic boundaries.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://cursor.com/blog/parallel-branch-verification" rel="noopener" target="_blank">Cursor Changelog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Perplexity · Knowledge Engines</div>
-<h2 class="chapter-title">Perplexity Upgrades Academic Backtracking Network: Citation Verification Enters the Millisecond Era</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://cursor.com/blog/parallel-branch-verification" rel="noopener" target="_blank">Cursor Changelog</a></div>
+</div>
+<div class="item">
+<div class="dateline">Perplexity · Knowledge Engines</div>
+<div class="item-title">Perplexity Upgrades Academic Backtracking Network: Citation Verification Enters the Millisecond Era</div>
+<div class="body">
 <p>Search platform <span class="accent">Perplexity</span> rolled out an enhanced academic backtracking index. Aggregating multi-source open scholarship, the engine delivers exhaustive coverage across paper body copy, supplementary disclosures, and peer-review trails.</p>
 <p>Upon receiving technical prompts, the platform swiftly matches authoritative exhibits and core derivation steps, <span class="turn">pinpointing</span> exact original passages and formula derivations to drastically suppress hallucination risks in scientific inquiries.</p>
 <p>High-fidelity factual retrieval is quietly overhauling how research communities track and verify frontier breakthroughs.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.perplexity.ai/hub/blog/academic-citation-verification" rel="noopener" target="_blank">Perplexity Official Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Stability AI · Generative Architectures</div>
-<h2 class="chapter-title">Stable Diffusion 3.5 Technical Preview Unveiled: Co-Advancing Typography Precision and Compositional Stability</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.perplexity.ai/hub/blog/academic-citation-verification" rel="noopener" target="_blank">Perplexity Official Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Stability AI · Generative Architectures</div>
+<div class="item-title">Stable Diffusion 3.5 Technical Preview Unveiled: Co-Advancing Typography Precision and Compositional Stability</div>
+<div class="body">
 <p><span class="accent">Stability AI</span> unveiled the technical preview release of its open visual foundation model, <span class="num">Stable Diffusion 3.5</span>. The architectural overhaul emphasizes robust text rendering across cluttered street scenes, commercial signage, and complex poster typography.</p>
 <p>Benchmark evaluations show a <span class="num">37%</span> gain in multi-phrase typographic accuracy alongside smooth limb boundary transitions under extreme high-contrast lighting, <span class="turn">avoiding</span> structural anatomical aberrations seen in earlier model revisions.</p>
 <p>The open-source visual generative ecosystem has once again tightened the fidelity gap against proprietary hosted platforms.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://stability.ai/news/stable-diffusion-3-5-preview" rel="noopener" target="_blank">Stability AI Announcement</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Capital</div>
-<article class="chapter">
-<div class="chapter-eyebrow">IDC · Market Projections</div>
-<h2 class="chapter-title">Global Enterprise Inference Spend Eclipses Training Budgets for the First Time as Hardware Procurement Pivots to the Edge</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://stability.ai/news/stable-diffusion-3-5-preview" rel="noopener" target="_blank">Stability AI Announcement</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Capital</div>
+<div class="sec-title">Capital</div>
+<div class="item">
+<div class="dateline">IDC · Market Projections</div>
+<div class="item-title">Global Enterprise Inference Spend Eclipses Training Budgets for the First Time as Hardware Procurement Pivots to the Edge</div>
+<div class="body">
 <p>A third-quarter industry analysis published by <span class="accent">IDC</span> revealed that enterprise expenditures on model inference and production deployments accounted for <span class="num">62%</span> of total AI budgets, historically overtaking allocations for centralized foundation training.</p>
 <p>This structural inflection point is compelling cloud providers to redirect capital expenditures toward power-efficient edge inference silicon, <span class="turn">rather than</span> maintaining unchecked acquisitions of massive dense training clusters.</p>
 <p>The computational arms race has decisively migrated from chasing sheer parameter counts toward maximizing reliable, token-per-second operational returns on investment.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.idc.com/getdoc.jsp?containerId=prUS52189426" rel="noopener" target="_blank">IDC Market Report</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter">
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.idc.com/getdoc.jsp?containerId=prUS52189426" rel="noopener" target="_blank">IDC Market Report</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body">
 <p>As autonomous agents transition from conceptual exploration into production reality, rigid cost ceilings and disciplined interaction boundaries prove far more vital protective moats than raw intelligence.</p>
 </div>
-</article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Patagonia's Tyndall Glacier, where calved icebergs drift across the waters of Lago Geikie — a massive body of ice retreating at a pace of kilometers per year." loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tyndall%E2%80%99s-trail-of-bergs/ISS074-E-582898_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Patagonia's Tyndall Glacier, where calved icebergs drift across the waters of Lago Geikie — a massive body of ice retreating at a pace of kilometers per year.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Tyndall Glacier, Patagonia · NASA Earth Observatory · <span class="num">51.25°S, 73.30°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-10-02.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-10-04.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

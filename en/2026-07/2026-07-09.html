@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-09</span>
-<span>Thursday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-09</h1><p class="doc-date">2026-07-09 · Thursday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>If you only remember one sentence from today's issue: AI has fully entered the "gateway competition"—GPT-Live makes voice the default interface, AI tools are migrating en masse to mobile devices, and image generation has become a native feature of social platforms. On the engineering R&amp;D front, capital's logic is also diverging: on one hand, investing in the "bodies and infrastructure" of Physical AI.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>on the other, investing in the "reach and usage frequency" of AI infiltrating screens. The excitement is at the application layer, but the winning edge lies at the gateway.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Thursday, July 9, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>If you only remember one sentence from today's issue: AI has fully entered the "gateway competition"—GPT-Live makes voice the default interface, AI tools are migrating en masse to mobile devices, and image generation has become a native feature of social platforms. On the engineering R&amp;D front, capital's logic is also diverging: on one hand, investing in the "bodies and infrastructure" of Physical AI.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>on the other, investing in the "reach and usage frequency" of AI infiltrating screens. The excitement is at the application layer, but the winning edge lies at the gateway.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-08 · OpenAI · GPT-Live Officially Launched</div>
-<h2 class="chapter-title">OpenAI Upgrades Voice to ChatGPT's Default Entry Point, But the Real Hard Battle Has Just Begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="dateline">07-08 · OpenAI · GPT-Live Officially Launched</div>
+<div class="item-title">OpenAI Upgrades Voice to ChatGPT's Default Entry Point, But the Real Hard Battle Has Just Begun</div>
+<div class="body">
 <p><strong>GPT-Live is not just a stronger model release—it changes what you face when you open ChatGPT.</strong>On July 8, OpenAI officially launched its next-generation voice model, GPT-Live, upgrading the underlying model of ChatGPT Voice from an ancillary feature to the default interaction mode.
 GPT-Live-1 becomes the default voice model for Plus/Pro users, while GPT-Live-1 mini becomes the default option for free users.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -290,15 +280,16 @@ Now I feel that's about to change."</p>
 </ul>
 <p>Upgrades Voice to ChatGPT's default entry point.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/path-to-astra-frontier-safeguards/introducing-gpt-live/" rel="noopener" target="_blank">Frontier Labs Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-08 · Mistral AI · First Robot Navigation Model</div>
-<h2 class="chapter-title">Mistral Releases Robostral Navigate: Single Camera = No LiDAR, But the Real Hard Battle Has Just Begun</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/path-to-astra-frontier-safeguards/introducing-gpt-live/" rel="noopener" target="_blank">Frontier Labs Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-08 · Mistral AI · First Robot Navigation Model</div>
+<div class="item-title">Mistral Releases Robostral Navigate: Single Camera = No LiDAR, But the Real Hard Battle Has Just Begun</div>
+<div class="body">
 <p><strong>Mistral officially enters embodied AI today: it trained a specialized robot navigation model from scratch, rather than cramming a general LLM into a machine body.</strong>Robostral Navigate is a <span class="num">8B</span> parameter model that guides robots through complex environments using only a single RGB camera—no LiDAR, depth sensors, or multi-camera arrays required.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Mistral Releases Robostral Navigate: Single Camera = No LiDAR, But the Real Hard Battle Has Just Begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-09/robostral-navigate-2002c268.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -316,12 +307,12 @@ This means the automation barrier for warehouses, factories, and logistics scena
 </ul>
 <p>Mistral Releases Robostral Navigate: Single Camera = No LiDAR.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://mistral.ai/news/robostral-navigate/" rel="noopener" target="_blank">Mistral AI</a> · <a href="https://the-decoder.com/mistral-enters-robotics-with-robostral-navigate-an-8b-model-that-steers-robots-using-just-one-camera/" rel="noopener" target="_blank">The Decoder</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-07 · Meta · Image Generation Rolls Out to Billion-User Entry Points</div>
-<h2 class="chapter-title">Meta Muse Image Enters Instagram Stories and WhatsApp</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://mistral.ai/news/robostral-navigate/" rel="noopener" target="_blank">Mistral AI</a> · <a href="https://the-decoder.com/mistral-enters-robotics-with-robostral-navigate-an-8b-model-that-steers-robots-using-just-one-camera/" rel="noopener" target="_blank">The Decoder</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-07 · Meta · Image Generation Rolls Out to Billion-User Entry Points</div>
+<div class="item-title">Meta Muse Image Enters Instagram Stories and WhatsApp</div>
+<div class="body">
 <p><strong>Muse Image is the first image generation model from Meta Superintelligence Labs</strong>, officially launched on July 7.
 Instead of a standalone web app, it is embedded directly into Instagram Stories and WhatsApp—the daily interfaces for a billion-scale user base.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -339,12 +330,12 @@ It also supports @mentioning Instagram accounts to generate personalized visuals
 </ul>
 <p>Meta Muse Image comes to Instagram Stories and WhatsApp.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://about.fb.com/news/2026/09/muse-spark-1-3-voice/2026/07/introducing-muse-image-meta-ai/" rel="noopener" target="_blank">Meta Newsroom</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · xAI (SpaceXAI)× Cursor · Grok 4.5 Released</div>
-<h2 class="chapter-title">Grok 4.5 Released: 1.5T-Parameter "Opus-Grade" Model at a Fraction of the Cost</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://about.fb.com/news/2026/09/muse-spark-1-3-voice/2026/07/introducing-muse-image-meta-ai/" rel="noopener" target="_blank">Meta Newsroom</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-09 · xAI (SpaceXAI)× Cursor · Grok 4.5 Released</div>
+<div class="item-title">Grok 4.5 Released: 1.5T-Parameter "Opus-Grade" Model at a Fraction of the Cost</div>
+<div class="body">
 <p><strong>xAI (branded as SpaceXAI) launches Grok 4.5, officially positioned as the "first model built specifically for coding and agent training," co-trained with Cursor.
 Musk describes it as "Opus-grade, but faster, more token-efficient, and cheaper."
 Parameter scale <span class="num">1.5T</span>, 3x larger than Grok 4.3—marking xAI's entry into true flagship coding agent territory.</strong></p>
@@ -361,15 +352,16 @@ Ranks 4th on the Artificial Analysis Intelligence Index (54 points), up +16 from
 <p>Grok 4.5 Released: 1.5T-Parameter "Opus-Grade".
 Model at a Fraction of the Cost.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-spacexai-launches-grok-45" rel="noopener" target="_blank">Latent Space / AINews</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Front</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · HF Trending · lingbot-vision · GitHub 485 stars</div>
-<h2 class="chapter-title">Someone felt machines needed depth perception, so they built it</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-spacexai-launches-grok-45" rel="noopener" target="_blank">Latent Space / AINews</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Front</div>
+<div class="sec-title">Open Source Front</div>
+<div class="item">
+<div class="dateline">07-09 · HF Trending · lingbot-vision · GitHub 485 stars</div>
+<div class="item-title">Someone felt machines needed depth perception, so they built it</div>
+<div class="body">
 <p><strong>A Hugging Face trending project called lingbot-vision (485 GitHub stars) does something simple: instead of relying on massive manual labeling, it uses "boundary modeling" to learn sub-pixel spatial representations.</strong>In plain English—it makes models more sensitive to object edges and distances, improving depth estimation for embodied AI agents.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Someone felt machines needed depth perception, so they built it · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-09/notion-agents-ios-release-2b9a3b11.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -379,30 +371,26 @@ Model at a Fraction of the Cost.</p>
 When robots need to reach, avoid obstacles, or navigate, this depth perception is often more critical than object recognition.
 What it means for you: Add more stable depth perception to your robots or vision apps, reducing clumsy "hit-the-wall-to-know-it's-there" moments.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://huggingface.co/papers" rel="noopener" target="_blank">Hugging Face Daily/Trending</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">“GPT-live launches today. it feels magical and real..”</div>
-<div class="voice-meta">
-<span>Greg Brockman · Frontier Lab CEO · 7/8</span>
-<a href="https://openai.com/index/path-to-astra-frontier-safeguards/introducing-gpt-live/" rel="noopener" target="_blank">Frontier Labs Blog</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Those '10x AI-assisted engineers' are mostly a mirage right now."</div>
-<div class="voice-meta">
-<span>US Military Publication · Summer 2026</span>
-<a href="https://www.armyupress.army.mil/Journals/Line-of-Departure/" rel="noopener" target="_blank">Line of Departure</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-07/08 · Multiple · Three tools launch mobile apps in the same week</div>
-<h2 class="chapter-title">AI entry points are moving from desktop to mobile: GPT-Live / Cursor / Notion Agents</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://huggingface.co/papers" rel="noopener" target="_blank">Hugging Face Daily/Trending</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">“GPT-live launches today. it feels magical and real..”</p>
+<p class="voice-who">Greg Brockman · Frontier Lab CEO · 7/8 <a href="https://openai.com/index/path-to-astra-frontier-safeguards/introducing-gpt-live/" rel="noopener" target="_blank">Frontier Labs Blog</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Those '10x AI-assisted engineers' are mostly a mirage right now."</p>
+<p class="voice-who">US Military Publication · Summer 2026 <a href="https://www.armyupress.army.mil/Journals/Line-of-Departure/" rel="noopener" target="_blank">Line of Departure</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-07/08 · Multiple · Three tools launch mobile apps in the same week</div>
+<div class="item-title">AI entry points are moving from desktop to mobile: GPT-Live / Cursor / Notion Agents</div>
+<div class="body">
 <p><strong>This week's most overlooked trend lies at the intersection of three releases.</strong>Frontier Labs made GPT-Live the default entry point on the ChatGPT mobile app;<strong>Cursor</strong> launched the iOS version in late June (launch agents, monitor real-time progress, and merge PRs on mobile);<strong>Notion</strong> released the dedicated Agents iOS app on July 8—independent of the main Notion app, serving as a dedicated AI agent chat hub.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="AI entry points are moving from desktop to mobile: GPT-Live / Cursor / Notion Agents · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-09/google-photos-video-remix-91ab5260.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -417,12 +405,12 @@ The impact of this shift on development paradigms may be more profound than the 
 </ul>
 <p>AI entry points are moving from desktop to mobile: GPT-Live / Cursor / Notion Agents.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.notion.com/releases/2026-07-08" rel="noopener" target="_blank">Notion Releases</a> · <a href="https://cursor.com/docs/cloud-agent/mobile" rel="noopener" target="_blank">Cursor Docs</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-08 · Google · Video Remix One-Click Remix</div>
-<h2 class="chapter-title">Google Photos Video Remix: Turning post-production into a one-click feature</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.notion.com/releases/2026-07-08" rel="noopener" target="_blank">Notion Releases</a> · <a href="https://cursor.com/docs/cloud-agent/mobile" rel="noopener" target="_blank">Cursor Docs</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-08 · Google · Video Remix One-Click Remix</div>
+<div class="item-title">Google Photos Video Remix: Turning post-production into a one-click feature</div>
+<div class="body">
 <p><strong>Google has extracted video post-production from editing software and turned it into a single button.</strong>Video Remix uses AI to instantly remix ordinary video clips into shareable short videos in seconds—no editing skills required for anyone to produce engaging final cuts.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Google Photos Video Remix: Turning post-production into a one-click feature · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-09/wan-streamer-2fddedb3.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -432,15 +420,16 @@ The impact of this shift on development paradigms may be more profound than the 
 When "remixing a video" is as easy as applying a filter, more people will start creating, not just consuming.</p>
 <p>Google Photos Video Remix: One-click video post-production.</p>
 </div>
-<div class="sources-bar">Sources: Google Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Visuals</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-09 · Alibaba Wan Team · Wan-Streamer v0.2</div>
-<h2 class="chapter-title">Streaming Video Generation: Generating and playing simultaneously so creators no longer wait for rendering</h2>
-<div class="prose">
+<div class="src-line">Sources: Google Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Visuals</div>
+<div class="sec-title">Visuals</div>
+<div class="item">
+<div class="dateline">07-09 · Alibaba Wan Team · Wan-Streamer v0.2</div>
+<div class="item-title">Streaming Video Generation: Generating and playing simultaneously so creators no longer wait for rendering</div>
+<div class="body">
 <p><strong>Wan-Streamer v0.2, released by the Alibaba Wan Team, transforms video generation from "submit a task and wait for the result" to "watch as you create."</strong>Achieving higher-resolution streaming output at the same latency—the model no longer outputs the entire video all at once. Frames are generated and played simultaneously, allowing creators to watch the visuals emerge in real time.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Streaming Video Generation: Generating and playing simultaneously so creators no longer wait for rendering · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-09/sambanova-funding-banner-a09c3264.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -450,15 +439,16 @@ When "remixing a video" is as easy as applying a filter, more people will start 
 For the first time, video generation has a "live broadcast" feel.</p>
 <p>Streaming Video Generation: Generating and playing simultaneously, creators no longer wait for rendering.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/Wan-Video/Wan2.1" rel="noopener" target="_blank">GitHub (Wan-Video/Wan2.1)</a> · <a href="https://huggingface.co/papers" rel="noopener" target="_blank">Hugging Face Daily</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-08/09 · Synthesis · Capital is Diverging</div>
-<h2 class="chapter-title">Physical AI and "AI Screenification"—Capital flows in two directions</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/Wan-Video/Wan2.1" rel="noopener" target="_blank">GitHub (Wan-Video/Wan2.1)</a> · <a href="https://huggingface.co/papers" rel="noopener" target="_blank">Hugging Face Daily</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment</div>
+<div class="sec-title">Investment</div>
+<div class="item">
+<div class="dateline">07-08/09 · Synthesis · Capital is Diverging</div>
+<div class="item-title">Physical AI and "AI Screenification"—Capital flows in two directions</div>
+<div class="body">
 <p><strong>Today's seemingly unrelated news stories piece together a map of capital divergence.</strong></p>
 <p>On one side is <strong>Physical AI</strong>: Mistral releases a robot navigation model (technical foothold) + SambaNova raises $1 billion for inference chips (infrastructure) + AGIBOT's <span class="num">15000</span> th unit rolls off the production line (mass production realization)—capital is converging toward "giving AI a physical body."</p>
 <p>On the other side is <strong>"AI Screenification"</strong>: Meta rolls out Muse Image across Instagram and WhatsApp (social reach) + Google Photos enables one-click video remixing for users (consumer tools) + Notion and Cursor migrate to mobile (workflow entry points).
@@ -467,18 +457,21 @@ AI is creeping into every screen, becoming the most intuitive interface for user
 The difference is that one requires infrastructure and hardware manufacturing, while the other demands product design and user reach.</p>
 <p>Physical AI and "AI Screenification"—Capital flows in two directions.</p>
 </div>
-<div class="sources-bar">Sources: Synthesis July 7/8/9 Multiple Sources (SambaNova Image Source: sambanova.ai)</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose">
+<div class="src-line">Sources: Synthesis July 7/8/9 Multiple Sources (SambaNova Image Source: sambanova.ai)</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body">
 If you only remember one sentence from today's issue: AI has fully entered the "gateway competition"—GPT-Live makes voice the default interface, AI tools are migrating en masse to mobile devices, and image generation has become a native feature of social platforms. On the engineering R&amp;D front, capital's logic is also diverging: on one hand, investing in the "bodies and infrastructure" of Physical AI; on the other, investing in the "reach and usage frequency" of AI infiltrating screens. The excitement is at the application layer, but the winning edge lies at the gateway.
-</div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+</div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Maine's V-shaped lake is quieter than any large model parameter." loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-09/scopan-lake.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Maine's V-shaped lake is quieter than any large model parameter.</div>
@@ -488,13 +481,20 @@ If you only remember one sentence from today's issue: AI has fully entered the "
 <p style="margin-bottom:8px; line-height:1.8;">It is part of the NASA Landsat letter scavenger hunt—you can spell your own name on natural satellite imagery.</p>
 <p style="margin-bottom:8px; line-height:1.8;">After looking at AI news all day, there are still places on Earth that don't need GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let us stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-08.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-10.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

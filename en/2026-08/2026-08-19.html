@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-19</span>
-<span>Wednesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-19</h1><p class="doc-date">2026-08-19 · Wednesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span><strong style="color: var(--text-dark, #0E0E10);">Today's keyword is " RAMageddon "</strong>: memory prices rose 500% in a year, rolling Moore's Law back to 2007.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>and frontier training just got paused by "safety" for the first time.Below, money, memory and pace are all being repriced.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Wednesday, August 19, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span><strong style="color: var(--text-dark, #0E0E10);">Today's keyword is " RAMageddon "</strong>: memory prices rose 500% in a year, rolling Moore's Law back to 2007.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>and frontier training just got paused by "safety" for the first time.Below, money, memory and pace are all being repriced.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Top Story</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Memory Crisis · RAMageddon</div>
-<h2 class="chapter-title">Prices surged but the battlefield moved: DRAM is now a strategic material, and the game is locking in supply</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Top Story</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">Memory Crisis · RAMageddon</div>
+<div class="item-title">Prices surged but the battlefield moved: DRAM is now a strategic material, and the game is locking in supply</div>
+<div class="body">
 <p><strong><span class="accent">128GB DDR5</span> kits cost nearly <span class="num">10</span> times their historical low, average <span class="accent">DRAM</span> prices rose <span class="num">500%</span> within the year, and <span class="num">per-unit memory pricing has fallen back to <span class="num">2007</span> levels</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Prices surged but the battlefield moved: DRAM is now a strategic material, and the game is locking in supply · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-19/mojo-apache-oss-04756b4a.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,164 +271,176 @@
 <p><span class="turn">This is not an ordinary price cycle</span>: <span class="num">now that AI makes "HBM plus big memory" a shipping prerequisite, memory has turned from a cost line into a strategic material</span>. Chips can catch up on process nodes; <span class="num">capacity and lead times cannot</span>. Even if Nvidia rolls out Vera Rubin on schedule, <span class="num">utilization will be throttled by memory</span>.</p>
 <p><span class="turn">When price itself becomes the bottleneck, <span class="num">the contest is no longer whose model is smarter; it is who locked in next year's memory first</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a> · <a href="https://www.tomshardware.com/pc-components/dram/memory-prices-hit-record-highs-2026" rel="noopener" target="_blank">Tom's Hardware</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">OpenAI · Frontier Pace</div>
-<h2 class="chapter-title">OpenAI pauses part of frontier RL for two weeks: safety readiness now sets the training schedule</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a> · <a href="https://www.tomshardware.com/pc-components/dram/memory-prices-hit-record-highs-2026" rel="noopener" target="_blank">Tom's Hardware</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">OpenAI · Frontier Pace</div>
+<div class="item-title">OpenAI pauses part of frontier RL for two weeks: safety readiness now sets the training schedule</div>
+<div class="body">
 <p><strong><span class="accent">OpenAI</span> announced a two-week pause on part of its <span class="accent">frontier reinforcement learning</span> training while holding back its largest planned RL run, using the time to harden <span class="num">workload isolation, network isolation and red-teaming</span>.</strong></p>
 <p><span class="turn">The official framing is blunt</span>: capability progress has outrun safety and alignment readiness. Greg Brockman went further: <span class="num">confidence in safety will increasingly set the pace of frontier scaling</span>. The pause <span class="num">mainly affects more distant releases</span>, not models close to shipping.</p>
 <p><span class="turn">The engineering details matter more than the messaging</span>: sampled-token monitoring can page the safety team within about <span class="num">30</span> minutes, high-risk tool-using inference will ship with <span class="num">live monitors attached</span>, and monitoring adds roughly <span class="num">20%</span> overhead. <span class="num">Training and eval infrastructure, plus inference-time monitoring, are now publicly acknowledged bottlenecks on frontier progress</span>, not just compute.</p>
 <p><span class="turn">When safety turns from an after-the-fact check into the progress bar itself, <span class="num">"faster" stops being the default answer</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory crunch</a> · <a href="https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/" rel="noopener" target="_blank">Stratechery</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Qwen · Local Models</div>
-<h2 class="chapter-title">Qwen3.8-27B becomes "frontier you can run locally": loud benchmarks, split real-world verdicts</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory crunch</a> · <a href="https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/" rel="noopener" target="_blank">Stratechery</a></div>
+</div>
+<div class="item">
+<div class="dateline">Qwen · Local Models</div>
+<div class="item-title">Qwen3.8-27B becomes "frontier you can run locally": loud benchmarks, split real-world verdicts</div>
+<div class="body">
 <p><strong><span class="accent">Qwen3.8-27B</span> ranked <span class="num">7th</span> in its class on Artificial Analysis' agentic index, <span class="num">6th</span> among open weights on Vals Index v2, and hit number one on Cline's local-model board within <span class="num">4</span> days.</strong></p>
 <p><span class="turn">Small parameters, wide coverage</span>: first among open weights on <span class="accent">Harvey</span>'s legal benchmark, with claimed retention of <span class="num">vision, reasoning and tool use</span> plus <span class="num">262K</span> context, and a <span class="accent">refusal-removed MLX</span> build already running on <span class="num">Apple Silicon</span> at 2/4/6/8-bit.</p>
 <p><span class="turn">But the gap between leaderboards and lived experience is widening</span>: some developers report that benchmark wins have not translated into a generational leap over <span class="accent">Opus 4.5</span> on long real tasks. <span class="num">When "runs locally" and "runs long tasks reliably" are no longer the same thing, the triangle of cost, availability and controllability becomes the harder exam</span>.</p>
 <p><span class="turn">Locally deployable, partially uncensored, genuinely capable models are no longer hypothetical. <span class="num">That is the most substantive shift in local models this year</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: Qwen Blog · <a href="https://artificialanalysis.ai/models/qwen3-8-27b" rel="noopener" target="_blank">Artificial Analysis</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Zhipu · Post-Training</div>
-<h2 class="chapter-title">GLM-5.3 ships at the same price: this time the credit goes to post-training engineering</h2>
-<div class="prose">
+<div class="src-line">Sources: Qwen Blog · <a href="https://artificialanalysis.ai/models/qwen3-8-27b" rel="noopener" target="_blank">Artificial Analysis</a></div>
+</div>
+<div class="item">
+<div class="dateline">Zhipu · Post-Training</div>
+<div class="item-title">GLM-5.3 ships at the same price: this time the credit goes to post-training engineering</div>
+<div class="body">
 <p><strong><span class="accent">Z.ai</span> launched the <span class="accent">GLM-5.3</span> API at <span class="accent">GLM-5.2</span> prices; Artificial Analysis scores it <span class="num">60</span> on its Intelligence Index (tied with Kimi K3), after a <span class="num">246</span>-point jump to <span class="num">1770</span> Elo on GDPval-AA v2.</strong></p>
 <p><span class="turn">The parameter sheet did not move</span>: same <span class="num">753B</span>-total / <span class="num">40B</span>-active <span class="num">MoE</span>, <span class="num">1M</span> context, <span class="accent">MIT</span> license once weights land. <span class="num">The change is in training engineering, not size</span>.</p>
 <p><span class="num">The gains come from post-training, not the base model</span>: per a widely cited Zhihu analysis, the core is <span class="accent">asynchronous RL (SAO)</span>, <span class="accent">executable sandbox</span> training and <span class="accent">on-policy distillation</span> to prevent catastrophic forgetting. <span class="num">When long-horizon agent capability is decided by RL systems and environment quality, parameter count stops being the only lever</span>.</p>
 <p><span class="turn">In other words, <span class="num">GLM-5.3 is a win for environment and training engineering</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.z.ai/blog/glm-5.3-release" rel="noopener" target="_blank">Z.ai Blog</a> · <a href="https://artificialanalysis.ai/models/glm-5-3" rel="noopener" target="_blank">Artificial Analysis</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Mojo · Language &amp; Toolchain</div>
-<h2 class="chapter-title">Mojo goes open source under Apache 2.0: what it really ships is a portability layer across accelerators</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.z.ai/blog/glm-5.3-release" rel="noopener" target="_blank">Z.ai Blog</a> · <a href="https://artificialanalysis.ai/models/glm-5-3" rel="noopener" target="_blank">Artificial Analysis</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">Mojo · Language &amp; Toolchain</div>
+<div class="item-title">Mojo goes open source under Apache 2.0: what it really ships is a portability layer across accelerators</div>
+<div class="body">
 <p><strong><span class="accent">Modular</span> announced that <span class="accent">Mojo</span> is now open source under <span class="accent">Apache 2.0</span>, positioning the broader platform as a portability layer across accelerators, including Qualcomm's datacenter AI accelerators.</strong></p>
 <p><span class="turn">For infra engineers</span>, the significance is not "yet another language": <span class="num">toolchain openness and hardware abstraction arrived together</span>, which is what makes it possible to <span class="num">move performance code between accelerators without rewriting it</span>.</p>
 <p><span class="num">When open source means the whole toolchain rather than just weights</span>, <span class="turn">the pull shifts from models toward the layer that decides where you write and how things run</span>. <span class="num">Mojo's next milestone is how many teams actually migrate their hot paths</span>.</p>
 <p>Mojo under Apache 2.0 · toolchain openness and hardware portability shipped together</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.modular.com/blog/mojo-open-source" rel="noopener" target="_blank">Modular Blog</a> · <a href="https://github.com/modularml/mojo" rel="noopener" target="_blank">GitHub · modularml/mojo</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">RL Stack · Open Source</div>
-<h2 class="chapter-title">Miles v0.1 open-source RL framework: RL turns from an algorithm contest into an engineering one</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.modular.com/blog/mojo-open-source" rel="noopener" target="_blank">Modular Blog</a> · <a href="https://github.com/modularml/mojo" rel="noopener" target="_blank">GitHub · modularml/mojo</a></div>
+</div>
+<div class="item">
+<div class="dateline">RL Stack · Open Source</div>
+<div class="item-title">Miles v0.1 open-source RL framework: RL turns from an algorithm contest into an engineering one</div>
+<div class="body">
 <p><strong><span class="accent">RadixArk</span> released <span class="accent">Miles v0.1</span>: nine months of work, <span class="num">72</span> contributors, <span class="num">1,326</span> commits and <span class="num">85</span> GPU end-to-end CI tests, battle-tested on Kimi K3, DeepSeek V4, Qwen 3.8, GLM 5.2 and more.</strong></p>
 <p><span class="turn">The positioning is pragmatic</span>: <span class="num">getting RL running is easy; debugging correctness, utilization and scale is the real bottleneck</span>. So the effort went into <span class="accent">rollouts</span>, <span class="accent">CI</span>, <span class="accent">observability</span> and <span class="accent">environment plumbing</span>.</p>
 <p>This echoes the day's other main line: <span class="num">frontier competition is shifting from "who has PPO/GRPO" to "who has a reproducible engineering stack"</span>. <span class="turn">When open RL stacks start competing on engineering, training your own model turns from a specialist trick into a routine team capability.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/radixark/miles" rel="noopener" target="_blank">GitHub · radixark/miles</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"We just erased about twenty years of progress; memory now costs what it did in 2007."</div>
-<div class="voice-meta">
-<span>Daniel Lemire · Computer scientist</span>
-<a href="https://www.tomshardware.com/pc-components/dram/memory-prices-hit-record-highs-2026" rel="noopener" target="_blank">Tom's Hardware</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Understanding token economics matters more than understanding model architecture."</div>
-<div class="voice-meta">
-<span>Nathan Lambert</span>
-<a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">NVIDIA · Inference Deployment</div>
-<h2 class="chapter-title">TensorRT Model Connect preview: from Hugging Face to TensorRT in two commands</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/radixark/miles" rel="noopener" target="_blank">GitHub · radixark/miles</a> · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"We just erased about twenty years of progress; memory now costs what it did in 2007."</p>
+<p class="voice-who">Daniel Lemire · Computer scientist <a href="https://www.tomshardware.com/pc-components/dram/memory-prices-hit-record-highs-2026" rel="noopener" target="_blank">Tom's Hardware</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Understanding token economics matters more than understanding model architecture."</p>
+<p class="voice-who">Nathan Lambert <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">NVIDIA · Inference Deployment</div>
+<div class="item-title">TensorRT Model Connect preview: from Hugging Face to TensorRT in two commands</div>
+<div class="body">
 <p><strong><span class="accent">NVIDIA</span> released the <span class="accent">TensorRT Model Connect</span> public preview, promising direct conversion from supported Hugging Face models to end-to-end TensorRT inference in <span class="num">two commands</span>, no intermediate ONNX export, deployable through native C++ APIs.</strong></p>
 <p><span class="turn">The self-description deserves its own note</span>: the project itself was largely built by <span class="accent">Codex agents</span> under human review across <span class="accent">implementation</span>, <span class="accent">tuning</span>, <span class="accent">testing</span>, <span class="accent">integration</span> and <span class="accent">docs</span>. <span class="num">When an infra team openly admits agents touched the core pipeline, "trusted delivery" is being rewritten too</span>.</p>
 <p><span class="turn">When converting a model goes from a pipeline to two commands, <span class="num">deployment friction drops close to zero for the first time</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: NVIDIA Developer Blog</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Cursor · Engineering Notes</div>
-<h2 class="chapter-title">Cursor runs Git like a database: when agents multiply branches and sessions, Git hosting becomes AI infrastructure</h2>
-<div class="prose">
+<div class="src-line">Sources: NVIDIA Developer Blog</div>
+</div>
+<div class="item">
+<div class="dateline">Cursor · Engineering Notes</div>
+<div class="item-title">Cursor runs Git like a database: when agents multiply branches and sessions, Git hosting becomes AI infrastructure</div>
+<div class="body">
 <p><strong><span class="accent">Cursor</span> published an engineering retrospective on Git storage: <span class="num">designing Git hosting as if it were a database</span>, to absorb the repo churn and branch/session explosion that coding agents bring.</strong></p>
 <p><span class="turn">This is not a model release</span>, <span class="num">but it matters as much as one</span>: the more background automation runs, the more <span class="accent">Git hosting</span> shifts from a generic <span class="accent">DevOps primitive</span> into core infrastructure of the <span class="accent">AI coding backend</span>.</p>
 <p>For teams building coding-agent backends, <span class="num">this note is more useful than a model update</span>, because it answers "what breaks first when scale arrives". <span class="turn">When agents multiply commits, stability underneath is what keeps the experience stable on top.</span></p>
 </div>
-<div class="sources-bar">Sources: Cursor Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Inference Speed · On-Device</div>
-<h2 class="chapter-title">DFlash 2 pulls on-device decoding several times faster: long-context tasks start finishing locally in one go</h2>
-<div class="prose">
+<div class="src-line">Sources: Cursor Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Inference Speed · On-Device</div>
+<div class="item-title">DFlash 2 pulls on-device decoding several times faster: long-context tasks start finishing locally in one go</div>
+<div class="body">
 <p><strong><span class="accent">DFlash 2</span> claims <span class="num">70</span> tok/s running <span class="accent">Qwen3.8-27B</span> on an <span class="accent">M5 Max</span>, up to <span class="num">4.6</span>x faster than autoregressive decoding, with identical output.</strong></p>
 <p><span class="turn">If it survives independent reproduction</span>, <span class="num">the usability threshold for on-device inference gets rewritten</span>: long-context tasks that used to queue for the cloud could <span class="num">finish locally in one sitting</span>.</p>
 <p><span class="turn">When speed decides "usable or not", <span class="num">inference acceleration stops being a spec and becomes the product experience itself</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Inference acceleration</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Cerebras · Accelerators</div>
-<h2 class="chapter-title">Cerebras unveils CS-4: the inference speed race is now written into the price list</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Inference acceleration</a></div>
+</div>
+<div class="item">
+<div class="dateline">Cerebras · Accelerators</div>
+<div class="item-title">Cerebras unveils CS-4: the inference speed race is now written into the price list</div>
+<div class="body">
 <p><strong><span class="accent">Cerebras</span> announced the <span class="accent">CS-4</span> with a set of performance claims: roughly <span class="num">1000</span> tok/s on <span class="num">10T</span>-parameter models, about <span class="num">1300</span> tok/s for GPT-5.6 Sol, and up to <span class="num">10</span>x higher throughput per megawatt.</strong></p>
 <p><span class="turn">Even discounted for vendor framing</span>, <span class="num">the throughline is clear</span>: <span class="accent">inference speed</span> is becoming <span class="accent">product experience</span>, <span class="accent">economics</span> and <span class="accent">policy leverage</span> all at once. <span class="num">When "faster" converts directly into lower cost and higher concurrency, a hardware launch stops being just hardware news</span>.</p>
 <p><span class="turn">When 1000 tok/s becomes marketing language, <span class="num">the speed arms race has entered the pricing table</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: Cerebras Blog · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Funding &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Capital Flows · Storage</div>
-<h2 class="chapter-title">Hyperscalers prepay to lock in supply: memory turned from "buyable" into "bookable"</h2>
-<div class="prose">
+<div class="src-line">Sources: Cerebras Blog · <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Capital Flows</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">Capital Flows · Storage</div>
+<div class="item-title">Hyperscalers prepay to lock in supply: memory turned from "buyable" into "bookable"</div>
+<div class="body">
 <p><strong>Per multiple reports, <span class="accent">hyperscale buyers</span> have paid deposits to lock up nearly all global <span class="accent">DRAM</span> capacity for <span class="num">2027</span>, <span class="num">turning the spot market into a futures market</span>.</strong></p>
 <p><span class="turn">For everyone downstream</span>, <span class="accent">price</span> is only the surface; <span class="accent">lead time</span> is the real constraint: <span class="num">models can wait, deliveries cannot</span>. Teams that missed this year's booking may simply not get <span class="accent">volume</span> next year.</p>
 <p><span class="turn">When memory is booked by the year, <span class="num">AI's supply chain gains futures-market properties for the first time</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.tomshardware.com/pc-components/dram/dram-supply-locked-for-2027" rel="noopener" target="_blank">Tom's Hardware</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p><p><span class="turn">One story today</span>: <span class="num">AI's bottleneck moved from compute to memory</span>. A <span class="accent">500%</span> surge rolled Moore's Law back to <span class="num">2007</span>, <span class="turn">and hyperscale prepayments locked in next year's supply</span>.</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p><span class="num">Frontier training paused for safety</span>.<span class="num">Two commands now carry a Hugging Face model onto TensorRT</span>.<span class="num">Mojo open-sourced portability; Miles filled in RL's engineering</span>.Local <span class="accent">27B</span> models became usable, <span class="turn">though "runs locally" still does not mean "reliable on long tasks"</span>.<span class="num">Inference speed climbed at both the edge and the datacenter</span>.</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p class="turn">When the scarcest resource is no longer the GPU, <span class="num">whoever manages memory, pace and deployment friction together holds next year's certainty</span>.</p></p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://www.tomshardware.com/pc-components/dram/dram-supply-locked-for-2027" rel="noopener" target="_blank">Tom's Hardware</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p><p><span class="turn">One story today</span>: <span class="num">AI's bottleneck moved from compute to memory</span>. A <span class="accent">500%</span> surge rolled Moore's Law back to <span class="num">2007</span>, <span class="turn">and hyperscale prepayments locked in next year's supply</span>.</p></p></div></div>
+<div class="item">
+<div class="body"><p><p><span class="num">Frontier training paused for safety</span>.<span class="num">Two commands now carry a Hugging Face model onto TensorRT</span>.<span class="num">Mojo open-sourced portability; Miles filled in RL's engineering</span>.Local <span class="accent">27B</span> models became usable, <span class="turn">though "runs locally" still does not mean "reliable on long tasks"</span>.<span class="num">Inference speed climbed at both the edge and the datacenter</span>.</p></p></div></div>
+<div class="item">
+<div class="body"><p><p class="turn">When the scarcest resource is no longer the GPU, <span class="num">whoever manages memory, pace and deployment friction together holds next year's certainty</span>.</p></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Great Barrier Reef, Australia — from orbit, 340,000 square kilometers of coral reef look like cities on the sea." loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/snow-in-the-shadow-of-the-andes/patagoniasnow_tmo_20260403_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Great Barrier Reef, Australia — from orbit, 340,000 square kilometers of coral reef look like cities on the sea.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Great Barrier Reef, Australia · <span class="num">20.30</span>°S, <span class="num">148.90</span>°E</div>
 <p style="margin-bottom:8px; line-height:1.8;">The world's largest coral reef system covers 346,000 square kilometers, its reefs laid out like underwater cities. While we argue about whose model is faster, life on the reef grows at the pace of currents and seasons, indifferent to any leaderboard. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-18.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-20.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

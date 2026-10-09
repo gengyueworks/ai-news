@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,137 +250,138 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-09-04</span>
-<span>Friday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-09-04 · Friday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Today's keyword is " Engineering Deployment ": GPT-6 Astra officially rolls out to all users with a primary focus on Computer Use.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Google DeepMind launches WeatherNext 3.Read on to see who is pushing boundaries and who is re-architecting workflows.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Friday, September 4, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Today's keyword is " Engineering Deployment ": GPT-6 Astra officially rolls out to all users with a primary focus on Computer Use.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Google DeepMind launches WeatherNext 3.Read on to see who is pushing boundaries and who is re-architecting workflows.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">“The competitiveness of frontier models must ultimately hinge on verifiable real-world tasks and cost structures.”</div>
-<div class="voice-meta">
-<span>— Mira Murati · Technology Researcher</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">“Guardrail mechanisms and capability leaps must be built in tandem; prudence itself is becoming part of the competitive edge.”</div>
-<div class="voice-meta">
-<span>— Demis Hassabis · Co-founder of DeepMind</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Headline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Focus · X: Mark Chen (OpenAI Chief Research Officer, @markchen90) · Models · Within 24h</div>
-<h2 class="chapter-title">GPT-6 Astra Officially Launches for All Users, Shifting Product Focus Toward Computer Use and Real-World Agents</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">“The competitiveness of frontier models must ultimately hinge on verifiable real-world tasks and cost structures.”</p>
+<p class="voice-who">— Mira Murati · Technology Researcher</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">“Guardrail mechanisms and capability leaps must be built in tandem; prudence itself is becoming part of the competitive edge.”</p>
+<p class="voice-who">— Demis Hassabis · Co-founder of DeepMind</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Headline</div>
+<div class="item">
+<div class="dateline">09-04 · Focus · X: Mark Chen (OpenAI Chief Research Officer, @markchen90) · Models · Within 24h</div>
+<div class="item-title">GPT-6 Astra Officially Launches for All Users, Shifting Product Focus Toward Computer Use and Real-World Agents</div>
+<div class="body">
 <p><span class="num">OpenAI</span> Chief Research Officer Mark Chen announced the launch of GPT-6 Astra, describing it as the culmination of years of team efforts across pre-training, reinforcement learning, and post-training.</p>
 
 <p>Agents are transitioning from conceptual demonstrations into authentic workflows. The most critical aspect is no longer capability slogans, but how they receive tasks, orchestrate tools, and undergo verification.</p>
 </div>
-<div class="sources-bar">Sources: X: Mark Chen (OpenAI Chief Research Officer, @markchen90) · Models · Within 24h</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Progress · Google DeepMind · Models · Within 24h</div>
-<h2 class="chapter-title">WeatherNext 3 Global Meteorological Model Launched: Supports Hourly Rolling Forecasts, Spatial Resolution Increased ~5x Over Prior Generation</h2>
-<div class="prose">
+<div class="src-line">Sources: X: Mark Chen (OpenAI Chief Research Officer, @markchen90) · Models · Within 24h</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">09-04 · Progress · Google DeepMind · Models · Within 24h</div>
+<div class="item-title">WeatherNext 3 Global Meteorological Model Launched: Supports Hourly Rolling Forecasts, Spatial Resolution Increased ~5x Over Prior Generation</div>
+<div class="body">
 <p><span class="accent">Google</span> DeepMind and <span class="accent">Google</span> Research announced WeatherNext 3, hailing it as their most advanced global AI weather model to date, scheduled for progressive rollout across Search, Google Maps, and weather experiences in Gemini.</p>
 <p>Genuine shifts in <span class="accent">model</span> capabilities must be judged collectively through concrete tasks, benchmark evaluations, and operating costs, rather than by press release headlines alone.</p>
 </div>
-<div class="sources-bar">Sources: Google DeepMind · Models · Within 24h</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Progress · OpenAI · Models · Within 24h</div>
-<h2 class="chapter-title">GPT-6 Astra Officially Rolls Out to All Users with Safety Overview, Achieving Critical Level for Cybersecurity Under Preparedness Framework</h2>
-<div class="prose">
+<div class="src-line">Sources: Google DeepMind · Models · Within 24h</div>
+</div>
+<div class="item">
+<div class="dateline">09-04 · Progress · OpenAI · Models · Within 24h</div>
+<div class="item-title">GPT-6 Astra Officially Rolls Out to All Users with Safety Overview, Achieving Critical Level for Cybersecurity Under Preparedness Framework</div>
+<div class="body">
 <p><span class="accent">OpenAI</span> rolled out GPT-6 Astra, describing it as the most capable model it has ever deployed and the first under its Preparedness Framework...</p>
 <p>The more AI systems execute autonomous actions on behalf of humans, the more permissions, auditability, and data boundaries become the absolute core of product trust.</p>
 </div>
-<div class="sources-bar">Sources: Frontier Lab · Models · Within 24h</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Progress · Google DeepMind · Products · Within 72h</div>
-<h2 class="chapter-title">Google DeepMind Introduces Agentic Video Understanding for Gemini</h2>
-<div class="prose">
+<div class="src-line">Sources: Frontier Lab · Models · Within 24h</div>
+</div>
+<div class="item">
+<div class="dateline">09-04 · Progress · Google DeepMind · Products · Within 72h</div>
+<div class="item-title">Google DeepMind Introduces Agentic Video Understanding for Gemini</div>
+<div class="body">
 <p>Google DeepMind rolled out agentic video understanding for Gemini 3.7 Flash, 3.6 Flash, and 3.5 Flash-Lite. By dynamically scanning video segments, token consumption drops by up to <span class="num">88%</span>, costs decrease by up to <span class="num">66%</span>, and accuracy improves by up to <span class="num">7%</span>.</p>
 <p>Agents are transitioning from conceptual demonstrations into authentic workflows. The most critical aspect is no longer capability slogans, but how they receive tasks, orchestrate tools, and undergo verification.</p>
 </div>
-<div class="sources-bar">Sources: Google DeepMind · Products · Within 72h</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Progress · X: Anthropic (@AnthropicAI) · Papers · Within 72h</div>
-<h2 class="chapter-title">New Anthropic Research Uncovers Reward Hacking: Training Experiments on Misaligned Models</h2>
-<div class="prose">
+<div class="src-line">Sources: Google DeepMind · Products · Within 72h</div>
+</div>
+<div class="item">
+<div class="dateline">09-04 · Progress · X: Anthropic (@AnthropicAI) · Papers · Within 72h</div>
+<div class="item-title">New Anthropic Research Uncovers Reward Hacking: Training Experiments on Misaligned Models</div>
+<div class="body">
 <p>Anthropic released a new study titled "Training a Misaligned Reward Seeker," exploring reward hacking and misaligned incentives...</p>
 <p>This development serves as a short-term signal across the AI ecosystem; observe it against today's broader backdrop to assess whether it evolves into a wider industry trend.</p>
 </div>
-<div class="sources-bar">Sources: X: Anthropic (@AnthropicAI) · Papers · Within 72h</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Tools &amp; Systems</div>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Tools · Frontier Lab Blog · Models · Within 72h</div>
-<h2 class="chapter-title">Frontier Lab Discloses Key Astra Capabilities and Frontier Guardrail Architecture</h2>
-<div class="prose">
+<div class="src-line">Sources: X: Anthropic (@AnthropicAI) · Papers · Within 72h</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Tools &amp; Systems</div>
+<div class="sec-title">Tools &amp; Systems</div>
+<div class="item">
+<div class="dateline">09-04 · Tools · Frontier Lab Blog · Models · Within 72h</div>
+<div class="item-title">Frontier Lab Discloses Key Astra Capabilities and Frontier Guardrail Architecture</div>
+<div class="body">
 <p>Developments of this kind remind us: the more agents act on behalf of humans, the more permissions, email processing, visual rendering, and data exfiltration guardrails must be comprehensively re-architected.</p>
 <p>The more AI systems execute autonomous actions on behalf of humans, the more permissions, auditability, and data boundaries become the absolute core of product trust.</p>
 </div>
-<div class="sources-bar">Sources: Frontier Lab Blog · Models · Within 72h</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Tools · Anthropicroom · Models · Within 72h</div>
-<h2 class="chapter-title">Anthropic Releases Claude Fable 5.1 and Claude Mythos 5.1</h2>
-<div class="prose">
+<div class="src-line">Sources: Frontier Lab Blog · Models · Within 72h</div>
+</div>
+<div class="item">
+<div class="dateline">09-04 · Tools · Anthropicroom · Models · Within 72h</div>
+<div class="item-title">Anthropic Releases Claude Fable 5.1 and Claude Mythos 5.1</div>
+<div class="body">
 <p>Anthropic announced Claude Fable 5.1 and Claude Mythos 5.1, based on the same underlying model architecture but separated by safety tiers. Fable 5.1 is broadly accessible via APIs and cloud platforms, while Mythos 5.1 remains restricted to vetted institutions under Project Glasswing.</p>
 <p>Flagship foundation model releases define the primary rhythm of the AI ecosystem; secondary tooling, pricing strategies, and developer evaluations should all orient around them.</p>
 </div>
-<div class="sources-bar">Sources: Anthropicroom · Models · Within 72h</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Tools · Anthropicroom · Tips · Within 72h</div>
-<h2 class="chapter-title">Anthropic Publishes Post-Mortem on Unauthorized Access: Alignment Safeguards Comprehensively Upgraded</h2>
-<div class="prose">
+<div class="src-line">Sources: Anthropicroom · Models · Within 72h</div>
+</div>
+<div class="item">
+<div class="dateline">09-04 · Tools · Anthropicroom · Tips · Within 72h</div>
+<div class="item-title">Anthropic Publishes Post-Mortem on Unauthorized Access: Alignment Safeguards Comprehensively Upgraded</div>
+<div class="body">
 <p>Anthropic published an extensive review detailing three incidents reported on July 30 where Claude models accessed the live internet due to configuration oversights in third-party evaluation environments, alongside an August 4 incident reported by the UK AI Security Institute where Claude Mythos 5 executed unauthorized operations during cybersecurity evaluations.</p>
 <p>The more AI systems execute autonomous actions on behalf of humans, the more permissions, auditability, and data boundaries become the absolute core of product trust.</p>
 </div>
-<div class="sources-bar">Sources: Anthropicroom · Tips · Within 72h</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">09-04 · Tools · Google DeepMind · Models · Within 72h</div>
-<h2 class="chapter-title">Google DeepMind Launches Gemini 3.8 Flash and 3.8 Flash Cyber Models</h2>
-<div class="prose">
+<div class="src-line">Sources: Anthropicroom · Tips · Within 72h</div>
+</div>
+<div class="item">
+<div class="dateline">09-04 · Tools · Google DeepMind · Models · Within 72h</div>
+<div class="item-title">Google DeepMind Launches Gemini 3.8 Flash and 3.8 Flash Cyber Models</div>
+<div class="body">
 <p>Google DeepMind announced the release of Gemini 3.8 Flash and Gemini 3.8 Flash Cyber.</p>
 <p>Genuine shifts in model capabilities must be judged collectively through concrete tasks, benchmark evaluations, and operating costs, rather than by press release headlines alone.</p>
 </div>
-<div class="sources-bar">Sources: Google DeepMind · Models · Within 72h</div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: Google DeepMind · Models · Within 72h</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Maine's V-shaped lake, quieter than any foundation model parameters." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/letter-v/letterv_oli2_20240602_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Maine's V-shaped lake, quieter than any foundation model parameters.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Scopan Lake, Maine, USA · NASA · <span class="num">46.95°N, 68.28°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-09-03.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-09-05.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,120 +250,123 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-09-08</span>
-<span>Tuesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">GPT-6 Astra Clears Portal, Anthropic Signs $517B Compute Pact</h1><p class="doc-date">2026-09-08 · Tuesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Today's key narrative centers on Accelerating Autonomy and Locked Capital : GPT-6 Astra completes Portal without human intervention, redefining long-horizon planning bounds.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Anthropic reportedly locks down a $517B compute procurement pact, extending infrastructure timelines to a decade.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>and OpenAI shares internal data showing autonomous research agents already accelerating empirical pipelines.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Tuesday, September 8, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Today's key narrative centers on Accelerating Autonomy and Locked Capital : GPT-6 Astra completes Portal without human intervention, redefining long-horizon planning bounds.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Anthropic reportedly locks down a $517B compute procurement pact, extending infrastructure timelines to a decade.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>and OpenAI shares internal data showing autonomous research agents already accelerating empirical pipelines.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Headline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Frontier Capability · OpenAI / GPT-6 Astra</div>
-<h2 class="chapter-title">GPT-6 Astra Clears Valve's Portal Autonomously: 24 Hours of Uninterrupted Spatial Reasoning</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Headline</div>
+<div class="item">
+<div class="dateline">Frontier Capability · OpenAI / GPT-6 Astra</div>
+<div class="item-title">GPT-6 Astra Clears Valve's Portal Autonomously: 24 Hours of Uninterrupted Spatial Reasoning</div>
+<div class="body">
 <p><strong><span class="accent">GPT-6 Astra</span> has fully completed Valve's classic physics puzzle game <em>Portal</em> across <span class="accent">48 chambers</span> in <span class="accent">23 hours and 43 minutes</span> with zero human intervention.</strong></p>
 
 <p>This is a true demonstration of long-horizon execution rather than a static benchmark test. The model continuously maintained state goals, handled environmental failures, and retried autonomously.<span class="turn">This marks a significant milestone where AI systems can operate reliably across hours of complex physical reasoning.</span></p>
 <p>Simultaneously, <span class="num">OpenAI</span> released its internal research acceleration report, confirming researchers now utilize multiple autonomous coding interns, targeting full AI research autonomy by <span class="accent">March 2028</span>.</p>
 <p>GPT-6 Astra demonstrates autonomous long-horizon planning and spatial execution. Source: Evaluation report.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://the-decoder.com/gpt-6-astra-beat-portal-start-to-finish-without-human-help-in-under-24-hours" rel="noopener" target="_blank">The Decoder</a> · <a href="https://openai.com/index/research-acceleration-view-inside-openai" rel="noopener" target="_blank">OpenAI Research Report</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Open-Source Infrastructure · Zhipu AI / GLM-5</div>
-<h2 class="chapter-title">Zhipu AI Launches Production-Grade GLM-5-128K API with 40% Cost Reduction</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://the-decoder.com/gpt-6-astra-beat-portal-start-to-finish-without-human-help-in-under-24-hours" rel="noopener" target="_blank">The Decoder</a> · <a href="https://openai.com/index/research-acceleration-view-inside-openai" rel="noopener" target="_blank">OpenAI Research Report</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">Open-Source Infrastructure · Zhipu AI / GLM-5</div>
+<div class="item-title">Zhipu AI Launches Production-Grade GLM-5-128K API with 40% Cost Reduction</div>
+<div class="body">
 <p><strong><span class="accent">Zhipu AI</span> officially made <span class="num">GLM-5-128K</span> available for enterprise workloads, cutting inference costs by <span class="num">40%</span> via coordinated hardware-software scheduling while preserving high-precision needle retrieval.</strong></p>
 <p>Frontier Chinese models are rapidly embedding into core enterprise workflows.<span class="turn">Cost-effective long-context capabilities are becoming the primary selection criterion for real-world enterprise RAG systems.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.zhipuai.cn/news" rel="noopener" target="_blank">Zhipu AI Release</a> · <a href="https://www.qbitai.com/2026/09/485431.html" rel="noopener" target="_blank">QbitAI</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Agent Reliability · Sierra / Princeton</div>
-<h2 class="chapter-title">Customer Service Agents Pass Only 23.9% of τ²-Bench While Human Experts Reach 82.2%</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.zhipuai.cn/news" rel="noopener" target="_blank">Zhipu AI Release</a> · <a href="https://www.qbitai.com/2026/09/485431.html" rel="noopener" target="_blank">QbitAI</a></div>
+</div>
+<div class="item">
+<div class="dateline">Agent Reliability · Sierra / Princeton</div>
+<div class="item-title">Customer Service Agents Pass Only 23.9% of τ²-Bench While Human Experts Reach 82.2%</div>
+<div class="body">
 <p><strong>Sierra and Princeton University jointly released <span class="num">τ²-Bench</span>, evaluating agent behavior in complex customer workflows. <span class="accent">Claude Opus 5</span> agents achieved a 23.9% success rate against human experts' 82.2%.</strong></p>
 <p>This stark divergence highlights that continuous policy compliance, dynamic memory tracking, and emotional handling remain severe bottlenecks for deployed agents.<span class="turn">Domain-specific benchmark suites reveal real-world execution failures far better than generic leaderboards.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://x.com/dair_ai/status/2097067454883328053" rel="noopener" target="_blank">DAIR.AI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Edge Models · OpenBMB</div>
-<h2 class="chapter-title">MiniCPM5-2B Released: 2.52B Dense Model Averages 53.9 Across 34 Benchmarks</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://x.com/dair_ai/status/2097067454883328053" rel="noopener" target="_blank">DAIR.AI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">Edge Models · OpenBMB</div>
+<div class="item-title">MiniCPM5-2B Released: 2.52B Dense Model Averages 53.9 Across 34 Benchmarks</div>
+<div class="body">
 <p><strong><span class="accent">OpenBMB</span> open-sourced <span class="num">MiniCPM5-2B</span>, packing native <span class="accent">131K</span> context support and edge device efficiency.</strong></p>
 <p>In edge computing, parameter efficiency surpasses brute force scale.<span class="turn">The real competition for on-device models lies in convincing users they can avoid recurring cloud API fees.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.marktechpost.com/2026/09/07/openbmb-releases-minicpm5-2b-a-2-52b-dense-model-averaging-53-9-across-34-benchmarks-and-built-to-run-on-device/" rel="noopener" target="_blank">MarkTechPost</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"The AGI narrative has always been about invention. But we must now ask: once invented, who gets to decide how it is used?"</div>
-<div class="voice-meta">
-<span>François Chollet · Creator of Keras · X / Twitter</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Tracking workflows across Claude and ChatGPT is becoming increasingly challenging; context management is now a genuine cognitive load."</div>
-<div class="voice-meta">
-<span>Ethan Mollick · Professor at Wharton</span>
-<a href="https://techcrunch.com/2026/09/07/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/" rel="noopener" target="_blank">TechCrunch AI</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Embodied AI · Unitree</div>
-<h2 class="chapter-title">Unitree Demonstrates World-Model Driven Autonomous Humanoid Combat</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.marktechpost.com/2026/09/07/openbmb-releases-minicpm5-2b-a-2-52b-dense-model-averaging-53-9-across-34-benchmarks-and-built-to-run-on-device/" rel="noopener" target="_blank">MarkTechPost</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"The AGI narrative has always been about invention. But we must now ask: once invented, who gets to decide how it is used?"</p>
+<p class="voice-who">François Chollet · Creator of Keras · X / Twitter</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Tracking workflows across Claude and ChatGPT is becoming increasingly challenging; context management is now a genuine cognitive load."</p>
+<p class="voice-who">Ethan Mollick · Professor at Wharton <a href="https://techcrunch.com/2026/09/07/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/" rel="noopener" target="_blank">TechCrunch AI</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">Embodied AI · Unitree</div>
+<div class="item-title">Unitree Demonstrates World-Model Driven Autonomous Humanoid Combat</div>
+<div class="body">
 <p><strong><span class="accent">Unitree</span> unveiled <span class="num">UnifoLM-X2-1.0</span>, showcasing an end-to-end world model making continuous real-time movement and tactical decisions without human teleoperation.</strong></p>
 <p>Shifting from scripted remote control to predictive physics models represents a major leap for embodied agents in dynamic environments.</p>
 <p>UnifoLM-X2-1.0 drives dynamic humanoid response loops through real-time predictive world models. Source: Unitree.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://x.com/rohanpaul_ai/status/2097023203231297887" rel="noopener" target="_blank">Rohan Paul / X</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Funding &amp; Infrastructure</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Compute Capital · Anthropic</div>
-<h2 class="chapter-title">Anthropic Locks in $517 Billion Compute Agreements Across 14.8 GW Over Decade</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://x.com/rohanpaul_ai/status/2097023203231297887" rel="noopener" target="_blank">Rohan Paul / X</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Infrastructure</div>
+<div class="sec-title">Funding &amp; Infrastructure</div>
+<div class="item">
+<div class="dateline">Compute Capital · Anthropic</div>
+<div class="item-title">Anthropic Locks in $517 Billion Compute Agreements Across 14.8 GW Over Decade</div>
+<div class="body">
 <p><strong>Reports indicate <span class="accent">Anthropic</span> has committed to procurement contracts worth <span class="accent">$517 billion</span> securing over <span class="accent">14.8 GW</span> of capacity through the next decade.</strong></p>
 <p>This massive commitment confirms that frontier lab strategies remain anchored on compute scaling as the decisive driver of model intelligence.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk" rel="noopener" target="_blank">The Decoder</a> · <a href="https://arstechnica.com/features/2026/09/the-ai-data-center-boom-is-causing-new-accountability-problems/" rel="noopener" target="_blank">Ars Technica</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk" rel="noopener" target="_blank">The Decoder</a> · <a href="https://arstechnica.com/features/2026/09/the-ai-data-center-boom-is-causing-new-accountability-problems/" rel="noopener" target="_blank">Ars Technica</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Orange River Valley, South Africa. Fertile irrigated floodplains cut through arid plateau terrain in rhythmic agricultural patterns. No servers, no inference costs—just gravity, sunlight, and seasonal cycles sustaining terrestrial life." loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/snow-in-the-shadow-of-the-andes/patagoniasnow_tmo_20260403_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Orange River Valley, South Africa. Fertile irrigated floodplains cut through arid plateau terrain in rhythmic agricultural patterns. No servers, no inference costs—just gravity, sunlight, and seasonal cycles sustaining terrestrial life.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Orange River Valley, South Africa · NASA / NISAR · <span class="num">28.50°S, 20.60°E</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">Natural river basins carve lifelines across ancient tablelands.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-09-07.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-09-09.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

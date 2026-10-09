@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,141 +250,152 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-06-23</span>
-<span>Tuesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI News <span>Daily</span> | 2026-06-23</h1><p class="doc-date">2026-06-23 · Tuesday</p>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Tuesday, June 23, 2026</p>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Cover Story</div>
-<article class="chapter">
-<h2 class="chapter-title">Claude Tag has already written 65% of PRs internally—Anthropic calls it "multiplayer Claude Code," but security, memory, and cost remain major question marks</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Cover Story</div>
+<div class="sec-title">Cover Story</div>
+<div class="item">
+<div class="item-title">Claude Tag has already written 65% of PRs internally—Anthropic calls it "multiplayer Claude Code," but security, memory, and cost remain major question marks</div>
+<div class="body">
 <p><span class="accent">Anthropic</span> Stating that the Claude Tag team spent an entire year, now <span class="num">65%</span> product PRs are written by it, including<span class="num">"the vast majority of the code building Claude Tag itself"</span>. The product is in beta, available for Enterprise and Team tiers,<span class="num">Claude joins Slack as a team member</span>, <span class="num">Granted access to channels, tools, data, and codebases of your choice</span>.</p>
 <p>The real differentiation lies in<span class="num">"proactivity"</span>: tag can call out colleagues who understand the relevant code;<span class="num">git webhook can wait out blocking dependencies for days</span>, enabling "stacking prompts" instead of "stacking diffs"; it can summarize threads into documents with action items;<span class="num">In ambient mode, it scans channels without needing an @ mention to decide whether to respond</span>, syncing information across channels, and monitoring thresholds to automatically trigger fixes.</p>
 <p><span class="accent">Karpathy</span> Calling this the third major redesign of LLM UI/UX: Website → Desktop app → Resident asynchronous entity.<span class="num">Anthropic added an identity model</span>: Claude uses its own credentials, actions are auditable, and permissions are centrally revokable. Doubts abound: how cross-channel memory is partitioned, how granular permissions are, and whether token costs are visible.</p>
 <p><span class="turn">Claude Tag is not just another minor feature; it shifts the competition of agents from "how strong the model is" to "whether it can safely integrate into an organization's daily routine."</span></p>
 <p>Claude Tag: From Passive Q&amp;A to Resident Team Collaboration for Agents · Anthropic</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.anthropic.com/news/introducing-claude-tag" rel="noopener" target="_blank">Anthropic</a> · <a href="https://www.latent.space/p/ainews-claude-tag-multiplayer-proactive" rel="noopener" target="_blank">AINews</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<h2 class="chapter-title">OpenAI upgrades cybersecurity from "vulnerability discovery" to "closed-loop remediation": Scanning 30 million commits and producing 70,000 human-reviewed fixes—yet its strongest models cannot escape the same regulatory scrutiny</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.anthropic.com/news/introducing-claude-tag" rel="noopener" target="_blank">Anthropic</a> · <a href="https://www.latent.space/p/ainews-claude-tag-multiplayer-proactive" rel="noopener" target="_blank">AINews</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="item-title">OpenAI upgrades cybersecurity from "vulnerability discovery" to "closed-loop remediation": Scanning 30 million commits and producing 70,000 human-reviewed fixes—yet its strongest models cannot escape the same regulatory scrutiny</div>
+<div class="body">
 <p><span class="accent">OpenAI</span> This round advances cybersecurity from "discovering vulnerabilities" to<span class="num">a closed loop of "generating patches and submitting for human review"</span>. Scope data: Scanned <span class="num">30M+</span> commits, covering <span class="num">30K+</span> codebases,<span class="num">70K+</span> human-reviewed fixes, plus <span class="num">500K+</span> automatically detected fixes; cURL, Go, Python, Sigstore, pyca/cryptography <span class="num">are all on the protected list</span>.</p>
 <p>Product stack:<span class="num">Full GPT-5.5-Cyber model opened to trusted defenders</span>, <span class="num">Codex Security plugin, Cyber Partner Program, Patch the Planet</span>(protecting critical open-source software).<span class="accent">Altman</span> Directly claiming GPT-5.5-Cyber is SOTA on CyberGym.<span class="num">However, a contradiction is immediately raised</span>: Anthropic's Mythos/Fable are restricted due to government mandates, so why shouldn't OpenAI's most powerful cyber model face the same controls?</p>
 <p><span class="turn">The gap OpenAI is tearing open between "capability claims" and "governance standards" is widening—cyber offense and defense capabilities are beginning to require approval just like model parameters.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-spacex-is-already-a-28byr" rel="noopener" target="_blank">AINews</a> · OpenAI</div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">AI Enters the Loop Era: Agents Continuously Running Autonomously in the Background #FrontierSignal</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-spacex-is-already-a-28byr" rel="noopener" target="_blank">AINews</a> · OpenAI</div>
+</div>
+<div class="item">
+<div class="item-title">AI Enters the Loop Era: Agents Continuously Running Autonomously in the Background #FrontierSignal</div>
+<div class="body">
 <p><span class="num">Boris Cherny, creator of Claude Code,</span>stated at the Meta @Scale conference that "the Loop era is here"—agents are shifting from passive execution to continuous autonomous loops: one agent constantly seeks architecture improvement opportunities while another continuously merges duplicate abstractions; code is constantly changing, and they never stop.</p>
 <p>The cover story talks about agents residing in Slack, while this piece discusses agent loops—<span class="turn">Both signals point in the same direction: agents are transforming from tools into background productivity engines.</span>.<span class="accent">Loop Era</span>is here,<span class="accent">Karpathy</span>and mentioned that he spends<span class="accent">16 hours</span>a day directing agents—humans are changing, and AI is changing too.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/" rel="noopener" target="_blank">TechCrunch</a> · Meta @Scale</div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">SpaceX Secures Third GPU Lease: Reflection Spends $6.3B to Rent GB300—Neocloud's $28B Annualized Revenue Doubles CoreWeave</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/" rel="noopener" target="_blank">TechCrunch</a> · Meta @Scale</div>
+</div>
+<div class="item">
+<div class="item-title">SpaceX Secures Third GPU Lease: Reflection Spends $6.3B to Rent GB300—Neocloud's $28B Annualized Revenue Doubles CoreWeave</div>
+<div class="body">
 <p><strong>On June 22,<span class="accent">SpaceX/xAI</span> and open-source model company <span class="accent">Reflection AI</span> signed a compute agreement worth <span class="num">$6.3 billion</span>:<span class="num">Reflection secures priority access to GB300</span>, <span class="num">paying <span class="num">$150 million</span>monthly starting July 1, 2026, through 2029</span>. This is SpaceX's third major GPU lease—<span class="num">the first two came from Anthropic and Google respectively.</span>.</strong></p>
 <p><span class="accent">Jamin Ball</span> (Clouded Judgement)<span class="num">Summing up the three deals</span>: Anthropic's Colossus 1 and 2 agreements at approximately <span class="num">$1.25 billion</span>per month for about 325,000 chips, combined with Google and this new deal, total a monthly expenditure of <span class="num">$2.32 billion</span>, with Blackwell conversion pricing exceeding <span class="num">$10</span>——<span class="num">An annualized <span class="num">$28 billion</span>, roughly twice the revenue of CoreWeave, which went public a year ago and is currently valued at $60 billion.</span>.</p>
 <p><span class="num">Notable absentee: OpenAI is absent from this customer list</span>—where OpenAI gets its own compute has become an open suspense.</p>
 <p><span class="turn">GPU leasing and compute brokering are becoming an independent strategic layer sandwiched between model companies and hardware supply,<span class="num">and "who can turn GB300 into money"</span>is itself a $28-billion business.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-spacex-is-already-a-28byr" rel="noopener" target="_blank">AINews</a> · CNBC</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"I spend 16 hours a day expressing my will to my agents—not writing code, but directing."</div>
-<div class="voice-meta">
-<span>Andrej Karpathy · Co-founder of OpenAI</span>
-<a href="https://podscripts.co/podcasts/no-priors-artificial-intelligence-technology-startups/andrej-karpathy-on-code-agents-autoresearch-and-the-loopy-era-of-ai" rel="noopener" target="_blank">No Priors Podcast</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Code has transformed overnight from something cherished, reused, and meticulously maintained into something disposable and re-generable at any moment."</div>
-<div class="voice-meta">
-<span>Charity Majors · Co-founder of Honeycomb</span>
-<a href="https://www.honeycomb.io/blog" rel="noopener" target="_blank">honeycomb.io</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Visuals</div>
-<article class="chapter">
-<h2 class="chapter-title">Video tools begin competing on control: Pika 2.0 separates characters, objects, and scenes for independent control</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-spacex-is-already-a-28byr" rel="noopener" target="_blank">AINews</a> · CNBC</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"I spend 16 hours a day expressing my will to my agents—not writing code, but directing."</p>
+<p class="voice-who">Andrej Karpathy · Co-founder of OpenAI <a href="https://podscripts.co/podcasts/no-priors-artificial-intelligence-technology-startups/andrej-karpathy-on-code-agents-autoresearch-and-the-loopy-era-of-ai" rel="noopener" target="_blank">No Priors Podcast</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Code has transformed overnight from something cherished, reused, and meticulously maintained into something disposable and re-generable at any moment."</p>
+<p class="voice-who">Charity Majors · Co-founder of Honeycomb <a href="https://www.honeycomb.io/blog" rel="noopener" target="_blank">honeycomb.io</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Visuals</div>
+<div class="sec-title">Visuals</div>
+<div class="item">
+<div class="item-title">Video tools begin competing on control: Pika 2.0 separates characters, objects, and scenes for independent control</div>
+<div class="body">
 <p><span class="num">Pika 2.0</span>Focusing on characters, objects, and scenes as the core of creative control, shifting the selling point from "generating video" to<span class="accent">"putting your own elements into the video"</span>. It feels more like a progressively usable visual workflow tool rather than just a demo video model.</p>
 <p>The difference between tools is shifting from<span class="accent">"who builds it first"</span>to<span class="accent">"who is more compliant and controllable"</span>.<span class="turn">Truly useful tools allow users to gradually shape visuals into exactly what they envision.</span>.</p>
 <p>Pika 2.0: Scene Ingredients lets you independently control characters, objects, and scenes · VentureBeat</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://venturebeat.com/ai/pika-2-0-launches-in-wake-of-sora-integrating-your-own-characters-objects-scenes-in-new-ai-videos" rel="noopener" target="_blank">VentureBeat</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<h2 class="chapter-title">Adobe Survey of 16,000 Creators: 87% Say AI Helped Them Grow, 85% Insist the Final Stroke Must Be Human-Drawn</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://venturebeat.com/ai/pika-2-0-launches-in-wake-of-sora-integrating-your-own-characters-objects-scenes-in-new-ai-videos" rel="noopener" target="_blank">VentureBeat</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="item-title">Adobe Survey of 16,000 Creators: 87% Say AI Helped Them Grow, 85% Insist the Final Stroke Must Be Human-Drawn</div>
+<div class="body">
 <p>Adobe <span class="accent">2026</span>Creator tools report survey of<span class="accent">16,000</span>creators—<span class="accent">87%</span>say generative AI accelerated business growth,<span class="accent">75%</span>say AI is integrated or indispensable, but<span class="accent">85%</span>believe final creative decisions should always be made by humans.</p>
 <p>When everyone can produce more, the competitive advantage shifts from quantity to voice, taste, and perspective.<span class="turn">AI helps you go faster, but going faster doesn't mean doing better.</span>——<span class="accent">57%</span>Stating that AI outputs still require moderate to substantial editing before publication.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://news.adobe.com/news/2026/06/creators-toolkit-report-2026" rel="noopener" target="_blank">Adobe</a></div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">The "Creator Intelligence Era" is Here: Meta Chains Discovery, Licensing, and Delivery</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://news.adobe.com/news/2026/06/creators-toolkit-report-2026" rel="noopener" target="_blank">Adobe</a></div>
+</div>
+<div class="item">
+<div class="item-title">The "Creator Intelligence Era" is Here: Meta Chains Discovery, Licensing, and Delivery</div>
+<div class="body">
 <p>Creator marketing is already a<span class="accent">$37 billion</span>industry growing at<span class="accent">4x</span>the speed of other media. Meta announced at Cannes Lions 2026<span class="num">Creator Marketing Hub</span>, integrating<span class="num">Creator Marketplace</span>and<span class="num">Partnership Ads Hub</span>into a single entry point—brands can now discover creators, activate content, and run ads all in one place.</p>
 <p>The data speaks:<span class="accent">92%</span>of brands report creator content outperforms in-house content; Partnership Ads achieve a<span class="accent">19% lower CPA</span>, <span class="accent">71% higher brand lift</span>, <span class="accent">and 22% higher conversion rate</span>. Over<span class="accent">5 million</span>creators are discoverable on Instagram and Facebook, with Facebook creators included in Marketplace for the first time. Creators can pre-authorize content for partnership ads, and brands can discover creator content they haven't yet collaborated with.</p>
 <p>In Asia-Pacific, creator-driven e-commerce and social discovery are already deeply embedded in consumer behavior—<span class="accent">creator trust</span>+<span class="accent">and AI infrastructure</span>combined will form a flywheel, accelerating performance at every stage of the marketing funnel.<span class="turn">Meta calls this the "Creator Intelligence Era"—making creators, data, and delivery take off together.</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.linkedin.com/posts/benjaminjoe_cannes-lions-2026-new-creative-and-creator-activity-7475217091743207425-zk15" rel="noopener" target="_blank">Meta · Benjamin Joe</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Investment &amp; Funding Flows</div>
-<article class="chapter">
-<h2 class="chapter-title">Baseten Valued at $13.0 Billion: Capital Increasingly Flows Toward "Workflow-Integrated" Solutions</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.linkedin.com/posts/benjaminjoe_cannes-lions-2026-new-creative-and-creator-activity-7475217091743207425-zk15" rel="noopener" target="_blank">Meta · Benjamin Joe</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Funding Flows</div>
+<div class="sec-title">Investment &amp; Funding Flows</div>
+<div class="item">
+<div class="item-title">Baseten Valued at $13.0 Billion: Capital Increasingly Flows Toward "Workflow-Integrated" Solutions</div>
+<div class="body">
 <p><span class="num">Baseten</span>completing a new funding round and reaching a valuation of<span class="accent">$13 billion</span>, as the market continues pouring big money into<span class="num">inference infrastructure</span>.</p>
 <p>Capital is increasingly viewing "who is responsible for running it after the model" as the truly valuable layer.<span class="turn">Where the money goes is often more honest than what is said.</span>——<span class="accent">AI funding</span>has not only flowed to companies best at releasing models, but also to those best at integrating models into real calls and deliveries.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://money.usnews.com/investing/news/articles/2026-06-22/ai-startup-baseten-hits-13-billion-valuation-as-australias-blackbird-makes-record-bet" rel="noopener" target="_blank">US News</a> · TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Today's Summary</div>
-<article class="chapter"><div class="prose">Today's underlying thread:<span class="turn">AI's focus is shifting from "who released a stronger model" to "who can enter workflows"</span>.</div></article>
-<article class="chapter"><div class="prose"><span class="num">Anthropic</span>Enabling agents to reside in Slack—from passive Q&amp;A to digital colleagues.</div></article>
-<article class="chapter"><div class="prose"><span class="num">Boris Cherny</span>Announcing the Loop era—agents moving from single runs to continuous loops.</div></article>
-<article class="chapter"><div class="prose"><span class="num">OpenAI Daybreak</span>Building a secure collaboration layer—from single models to infrastructure.</div></article>
-<article class="chapter"><div class="prose"><span class="num">Meta</span>Announcing the "Creator Intelligence Era"—<span class="accent">$37 billion</span>creator marketing growing faster<span class="accent">4x</span>than other media.</div></article>
-<article class="chapter"><div class="prose"><span class="num">Adobe</span>survey<span class="accent">16,000</span>creators—<span class="accent">87%</span>saying AI helped them grow, while<span class="accent">85%</span>saying the final stroke must be drawn by themselves.</div></article>
-<article class="chapter"><div class="prose">No new models were released today.<span class="turn">However, a clearer direction emerges: whoever can integrate AI into team collaboration, continuous loops, security pipelines, creator workflows, and real delivery is tackling the truly valuable problems.</span></div></article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Be Curious 🌎</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://money.usnews.com/investing/news/articles/2026-06-22/ai-startup-baseten-hits-13-billion-valuation-as-australias-blackbird-makes-record-bet" rel="noopener" target="_blank">US News</a> · TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Today's Summary</div>
+<div class="sec-title">Today's Summary</div>
+<div class="item">
+<div class="body">Today's underlying thread:<span class="turn">AI's focus is shifting from "who released a stronger model" to "who can enter workflows"</span>.</div></div>
+<div class="item">
+<div class="body"><span class="num">Anthropic</span>Enabling agents to reside in Slack—from passive Q&amp;A to digital colleagues.</div></div>
+<div class="item">
+<div class="body"><span class="num">Boris Cherny</span>Announcing the Loop era—agents moving from single runs to continuous loops.</div></div>
+<div class="item">
+<div class="body"><span class="num">OpenAI Daybreak</span>Building a secure collaboration layer—from single models to infrastructure.</div></div>
+<div class="item">
+<div class="body"><span class="num">Meta</span>Announcing the "Creator Intelligence Era"—<span class="accent">$37 billion</span>creator marketing growing faster<span class="accent">4x</span>than other media.</div></div>
+<div class="item">
+<div class="body"><span class="num">Adobe</span>survey<span class="accent">16,000</span>creators—<span class="accent">87%</span>saying AI helped them grow, while<span class="accent">85%</span>saying the final stroke must be drawn by themselves.</div></div>
+<div class="item">
+<div class="body">No new models were released today.<span class="turn">However, a clearer direction emerges: whoever can integrate AI into team collaboration, continuous loops, security pipelines, creator workflows, and real delivery is tackling the truly valuable problems.</span></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Light Rain Outside the Space Station Window · Great Balls of Fire · ISS Cupola · NASA Earth Observatory" loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/great-balls-of-fire/ISS074-E-540214_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Light Rain Outside the Space Station Window · Great Balls of Fire · ISS Cupola · NASA Earth Observatory</div>
 <p style="margin-bottom:8px; line-height:1.8;">An astronaut unexpectedly captured streaks of light cutting through the darkness from the cupola—not lightning, not meteors, but the spectacular flash of an object breaking up in the atmosphere. Where no one designed it, physics painted a picture of its own. ·</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-06-22.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-06-24.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

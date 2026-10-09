@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-18</span>
-<span>Tuesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-18</h1><p class="doc-date">2026-08-18 · Tuesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span><strong style="color: var(--text-dark, #0E0E10);">Today's keyword is "compute arms race"</strong>: a chip company that could not beat Nvidia went to sell Nvidia's compute instead.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Nvidia locked in OpenAI's data center with a fifteen-figure outlay.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Amazon destroyed rare books to feed its AI.Below, where the money and the compute are flowing.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Tuesday, August 18, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span><strong style="color: var(--text-dark, #0E0E10);">Today's keyword is "compute arms race"</strong>: a chip company that could not beat Nvidia went to sell Nvidia's compute instead.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Nvidia locked in OpenAI's data center with a fifteen-figure outlay.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Amazon destroyed rare books to feed its AI.Below, where the money and the compute are flowing.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Top Story</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Groq · Pivot</div>
-<h2 class="chapter-title">But this time, Groq pivoted to "neocloud": an AI chip startup, going into the business of selling Nvidia's compute</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Top Story</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">08-17 · Groq · Pivot</div>
+<div class="item-title">But this time, Groq pivoted to "neocloud": an AI chip startup, going into the business of selling Nvidia's compute</div>
+<div class="body">
 <p>Groq raised $350M to pivot to neocloud · from AI chipmaker to compute seller</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="But this time, Groq pivoted to &quot;neocloud&quot;: an AI chip startup, going into the business of selling Nvidia's compute · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-18/groq-neocloud-f142cfd8.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -282,15 +272,16 @@
 <p>This is not an isolated case. <span class="num">The moat around "building chips" has grown so high only Nvidia can play</span>, and former challengers are collectively pivoting to "selling compute": Groq became a neocloud, and <span class="accent">Cerebras</span> sells cloud too. <span class="num">The losers of the chip war are turning into players in the cloud market</span>.</p>
 <p><span class="turn">When challengers start reselling Nvidia's cards, half of the "AI chip war" ending is already written: <span class="num">the real battlefield moved from making chips to who sells compute better</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/08/17/groq-raises-350m-to-fuel-its-pivot-from-ai-chips-to-neocloud/" rel="noopener" target="_blank">TechCrunch</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · OpenAI · Safety</div>
-<h2 class="chapter-title">OpenAI pauses part of frontier RL for two weeks: safety readiness starts setting the training schedule</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/17/groq-raises-350m-to-fuel-its-pivot-from-ai-chips-to-neocloud/" rel="noopener" target="_blank">TechCrunch</a> · <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">08-17 · OpenAI · Safety</div>
+<div class="item-title">OpenAI pauses part of frontier RL for two weeks: safety readiness starts setting the training schedule</div>
+<div class="body">
 <p><strong><span class="accent">OpenAI</span> paused part of frontier RL training for two weeks while still holding its largest planned frontier RL run, strengthening monitoring, isolation and red-teaming throughout. <span class="num">It is a rare public admission that "capability ran ahead of safety"</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="OpenAI pauses part of frontier RL for two weeks: safety readiness starts setting the training schedule · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-18/nvidia-softbank-dc-94f48ef9.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -300,12 +291,12 @@
 <p>This time OpenAI shared unusual engineering detail: stronger workload/network isolation, continuous security testing, multi-stage monitoring; by commenters' estimates <span class="num">monitoring may add about <span class="num">20</span>% overhead</span>, sampled-token monitoring can page the safety team within ~<span class="num">30</span> minutes, and tool-using inference for high-risk systems may ship with live monitors attached.</p>
 <p><span class="turn">When "training/eval infrastructure and inference-time monitoring" are publicly acknowledged as bottlenecks on frontier progress, safety turns from an after-the-fact check into part of the schedule itself.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Nvidia · Investment</div>
-<h2 class="chapter-title">Nvidia invests in a SoftBank data center developer: OpenAI's data center, chips locked to Nvidia</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Nvidia · Investment</div>
+<div class="item-title">Nvidia invests in a SoftBank data center developer: OpenAI's data center, chips locked to Nvidia</div>
+<div class="body">
 <p>Nvidia invests $1.5B in a SoftBank data center developer · behind OpenAI's project</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Nvidia invests in a SoftBank data center developer: OpenAI's data center, chips locked to Nvidia · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-18/amazon-rare-books-d9c09a3d.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -316,187 +307,199 @@
 <p>For OpenAI, data centers are a key step away from dependence on any single cloud vendor; for Nvidia, <span class="num">investing in the builder locks in chip orders for years ahead</span>. <span class="num">The next layer of the compute arms race is capital binding</span>.</p>
 <p><span class="turn">When chipmakers start investing in data center developers, "who supplies whom" stops being a contract and becomes <span class="num">family on the <span class="accent">cap table</span></span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/08/17/nvidia-investing-1-5b-in-softbank-data-center-developer-behind-openai-project/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Amazon · Controversy</div>
-<h2 class="chapter-title">AirTag tracking confirms: Amazon destroys rare books to feed AI training</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/17/nvidia-investing-1-5b-in-softbank-data-center-developer-behind-openai-project/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Amazon · Controversy</div>
+<div class="item-title">AirTag tracking confirms: Amazon destroys rare books to feed AI training</div>
+<div class="body">
 <p>AirTag tracking confirmed: Amazon destroys rare books to feed AI training</p>
 <p><strong>Journalists hid <span class="accent">AirTags</span> inside a batch of rare books and tracked them into <span class="accent">Amazon</span>'s AI training facility. <span class="num">A company that started by selling books is now destroying rare ones to train models</span>.</strong></p>
 <p>Why rare books? <span class="num">Text that can be scraped online has long been trained on</span>; rare books hold scarce, un-digitized content, true "<span class="accent">incremental data</span>" of extremely high value for training high-quality models.</p>
 <p>The controversy: <span class="num">these books are assets of <span class="accent">libraries and collectors</span>, bought or borrowed by Amazon and then destroyed</span>. The <span class="accent">book trade and collectors</span> are furious: for AI's "<span class="accent">data hunger</span>", humanity's cultural heritage is being physically erased.</p>
 <p><span class="turn">When AI's data needs collide with physical cultural heritage, <span class="num">"data hunger" acquires a physical cost for the first time: destroyed books do not come back</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Aug/17/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-tra/" rel="noopener" target="_blank">Simon Willison</a> · <a href="https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Anthropic · Watermarks</div>
-<h2 class="chapter-title">Anthropic explains how Claude watermarks work: a statistical fingerprint in sampling, invisible to eyes but machine-checkable</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/17/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-tra/" rel="noopener" target="_blank">Simon Willison</a> · <a href="https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Anthropic · Watermarks</div>
+<div class="item-title">Anthropic explains how Claude watermarks work: a statistical fingerprint in sampling, invisible to eyes but machine-checkable</div>
+<div class="body">
 <p><strong><span class="accent">Anthropic</span> published how Claude text watermarking (SynthID-style) works: <span class="num">the secret lives in "word-choice probabilities", not in hidden characters</span>.</strong></p>
 <p>Mechanism: as the model generates each word, it applies "<span class="accent">biased sampling</span>" to the probability distribution; certain words get systematically favored or avoided, forming a statistical fingerprint. <span class="num"><span class="accent">Human eyes</span> see no difference, but a detector can identify it through statistical tests</span>.</p>
 <p>Why it matters: it is the first step that turns "traceable AI content" from slogan into engineering. <span class="num">Once watermarks are detectable, AI-generated text gets an "identity card" for the first time</span>, against forgery, misuse and <span class="accent">deepfake</span> text.</p>
 <p>The limits are stated honestly: <span class="num"><span class="accent">rewriting, translation, reordering</span> can all break the watermark</span>. It is not omnipotent, but enough to make "AI-generated content" identifiable in most settings. <span class="turn"><span class="num">When AI content starts carrying fingerprints, "was this written by AI" gets a verifiable answer for the first time</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.theverge.com/ai-artificial-intelligence/980869/anthropic-claude-watermarks-synthid-text-system" rel="noopener" target="_blank">The Verge</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · DeepSeek · Open Source</div>
-<h2 class="chapter-title">DeepSeek open-sources its Harness: an MIT-licensed agent framework where everything is a plugin</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.theverge.com/ai-artificial-intelligence/980869/anthropic-claude-watermarks-synthid-text-system" rel="noopener" target="_blank">The Verge</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">08-17 · DeepSeek · Open Source</div>
+<div class="item-title">DeepSeek open-sources its Harness: an MIT-licensed agent framework where everything is a plugin</div>
+<div class="body">
 <p><strong><span class="accent">DeepSeek</span> released the <span class="accent">DeepSeek Harness</span> developer preview: <span class="num">an MIT-licensed agent framework whose core design is "everything is a plugin"</span>.</strong></p>
 <p>It targets the fragmentation of agent development: <span class="accent">tools, models, memory, executors</span> all become plugins, so <span class="num">developers stop rewriting frameworks and <span class="accent">write only their own plugins</span></span>. The <span class="accent">MIT</span> license means commercial use, modification and even closure are all allowed.</p>
 <p>DeepSeek's open-source cadence keeps accelerating: models, then inference frameworks, now agent frameworks. <span class="num">The bet is that an open ecosystem feeds back into model adoption</span>: use their framework, reach for their models.</p>
 <p><span class="turn">When Chinese model makers compete from "open models" down to "open agent frameworks", <span class="num">the definition of the open-source battlefield widens again: from models to the whole development stack</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.marktechpost.com/2026/08/17/deepseek-ai-releases-deepseek-harness-in-developer-preview/" rel="noopener" target="_blank">MarkTechPost</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · MiniMax · Open Source</div>
-<h2 class="chapter-title">MiniMax open-sources Music3: one line of lyrics in, a full five-minute song out</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.marktechpost.com/2026/08/17/deepseek-ai-releases-deepseek-harness-in-developer-preview/" rel="noopener" target="_blank">MarkTechPost</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · MiniMax · Open Source</div>
+<div class="item-title">MiniMax open-sources Music3: one line of lyrics in, a full five-minute song out</div>
+<div class="body">
 <p><strong><span class="accent">MiniMax</span> released <span class="accent">MiniMax-Music3</span> open weights: <span class="num">full songs up to <span class="num">5</span> minutes generated from lyrics and structured descriptions</span>, output in <span class="num">32kHz</span> stereo.</strong></p>
 <p>The architecture is "<span class="accent">modular</span>": an <span class="num">8B</span> global LLM plus a 0.6B local LLM plus a <span class="num">2.4B</span> flow-matching module plus a 123M Flow-VAE. <span class="num">Open weights mean it runs locally: no uploads, no queues, no per-track fees</span>.</p>
 <p>Against Suno's and Udio's paid subscriptions, <span class="num">the open music model bets on a creator ecosystem</span>: more users lead to more improvements lead to faster iteration. <span class="num">Creators can finally "own" their AI scoring tool</span>.</p>
 <p><span class="turn">When open source spreads from "model parameters" to "creative tools", <span class="num">the battlefield widens past developers to every creator</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.marktechpost.com/2026/08/17/minimax-releases-minimax-music3/" rel="noopener" target="_blank">MarkTechPost</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Miles · Open Source</div>
-<h2 class="chapter-title">Miles v0.1 open-source RL framework: reinforcement learning enters its engineering era</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.marktechpost.com/2026/08/17/minimax-releases-minimax-music3/" rel="noopener" target="_blank">MarkTechPost</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Miles · Open Source</div>
+<div class="item-title">Miles v0.1 open-source RL framework: reinforcement learning enters its engineering era</div>
+<div class="body">
 <p><strong><span class="accent">radixark</span> open-sourced <span class="accent">Miles v0.1</span>: nine months of work, <span class="num">72</span> contributors, <span class="num">1,326</span> commits, <span class="num">85</span> GPU end-to-end CI tests, battle-tested on Kimi K3, DeepSeek V4, Qwen 3.8, GLM 5.2, Inkling and MiniMax H3.</strong></p>
 <p>Its core judgment is pragmatic: <span class="num">getting RL running is easy; debugging correctness, utilization and scale is the real bottleneck</span>, so the effort went into engineering rather than algorithms.</p>
 <p>This echoes the day's main line: <span class="num">frontier competition is shifting from "who has PPO/GRPO" to "who has robust rollouts, CI, observability and environment plumbing"</span>. <span class="turn">When RL starts competing on engineering, mature open RL stacks will make "training your own model" routine for many more teams.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · LangChain · Evaluation</div>
-<h2 class="chapter-title">LangSmith ships "tuned evaluators": evaluation turns from a pre-launch checkpoint into continuous data mining</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · LangChain · Evaluation</div>
+<div class="item-title">LangSmith ships "tuned evaluators": evaluation turns from a pre-launch checkpoint into continuous data mining</div>
+<div class="body">
 <p><strong><span class="accent">LangChain</span> launched <span class="accent">LangSmith Tuned Evaluators</span>, debuting with <span class="accent">Perceived Error</span>: claimed to outperform frontier models at <span class="num">82</span>% lower cost.</strong></p>
 <p>The strategic direction matters more: <span class="num">teams want "hundreds of cheap evaluators running continuously on production traces"</span>, turning evaluation from a one-time pre-launch check into a persistent data-mining loop for agent improvement.</p>
 <p>Behind it is a forming consensus: <span class="num">model quality still matters, but what decides "useful or not" is increasingly the harness: framework, evaluation, feedback</span>. <span class="turn">When evaluation watches production around the clock, agent evolution shifts from release cadence to data return.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · PixVerse · Competition</div>
-<h2 class="chapter-title">PixVerse launches a global AI filmmaker competition: AI film moves from hobby to contest</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">08-17 · PixVerse · Competition</div>
+<div class="item-title">PixVerse launches a global AI filmmaker competition: AI film moves from hobby to contest</div>
+<div class="body">
 <p><strong><span class="accent">PixVerse</span> launched <span class="accent">PixLight</span>, a global AI filmmaker competition collecting AI short films from creators worldwide.</strong></p>
 <p>Alongside it, Grok Imagine runs a Homeric epic short-film contest (grand prize <span class="num">$100K</span>). <span class="num">AI video has entered a "prized competition" stage</span>: platforms trade <span class="accent">prize money</span> for quality content; creators trade AI tools for exposure.</p>
 <p>The MiniMax H3 model is being used heavily on PixVerse for cinema-grade trailers, and <span class="num">"AI film" texture is closing in on <span class="accent">traditional trailers</span></span>. <span class="num">Once generation tools mature, the barrier moves from "can you make it" to "do you have the idea"</span>.</p>
 <p><span class="turn">When platforms start paying cash for AI shorts, <span class="num">the first puzzle piece of AI film industrialization, "a path to revenue", clicks into place</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://x.com/PixVerse/status/2089254416931258792" rel="noopener" target="_blank">PixVerse</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · World Models · Audio</div>
-<h2 class="chapter-title">World models enter the "sound era": picture and sound generated together, in real time</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://x.com/PixVerse/status/2089254416931258792" rel="noopener" target="_blank">PixVerse</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · World Models · Audio</div>
+<div class="item-title">World models enter the "sound era": picture and sound generated together, in real time</div>
+<div class="body">
 <p><strong>A new generation of world models achieves real-time generation of <span class="num">24</span>FPS visuals plus <span class="num">48</span>kHz stereo audio, <span class="num">and will be fully open-sourced</span>.</strong></p>
 <p><span class="accent">Until now</span> world models produced silent footage with sound added later. <span class="num">"With sound" means the model has started to grasp a world where sound and image happen together</span>: rain sounds with rain, footsteps with people. That is the step from "visual simulator" toward "world simulator".</p>
 <p>Real-time generation matters even more: <span class="num">an interactive world stops being "a generated video" and becomes "a generated world that responds"</span>. <span class="accent">Games, film and training simulation</span> all sit on this line.</p>
 <p><span class="turn">When world models learn to "hear", <span class="num">AI's simulation of the world advances from seeing to listening, one step closer to a true world simulator</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.qbitai.com/2026/08/474334.html" rel="noopener" target="_blank">QbitAI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Funding &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Wispr · Fundraising</div>
-<h2 class="chapter-title">Wispr raises again: from dictation tool to meetings, capital backs the voice entrance</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.qbitai.com/2026/08/474334.html" rel="noopener" target="_blank">QbitAI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Capital Flows</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">08-17 · Wispr · Fundraising</div>
+<div class="item-title">Wispr raises again: from dictation tool to meetings, capital backs the voice entrance</div>
+<div class="body">
 <p><strong><span class="accent">Wispr</span> closed a <span class="num">$280M</span> round at a <span class="num">$2B</span> valuation. The company, which started with voice input (dictation), is expanding into meetings.</strong></p>
 <p>Wispr's path is a classic one: <span class="num">enter through a "small and sharp" tool (voice input), then expand into adjacent scenarios with the war chest</span>. Its newly released meeting-notes product is step one from "typing" to "meetings".</p>
 <p>Voice input is one of the few "high-frequency necessity" scenarios in AI apps: <span class="num">whoever owns the voice entrance owns the users for whom talking beats typing</span>. A $2B valuation says capital accepts that entrance's value.</p>
 <p><span class="turn">When a voice-tool company raises at this scale to chase meetings, <span class="num">"AI voice" is turning from an input-method utility into office infrastructure</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/08/17/wispr-raises-280m-at-2b-valuation-as-it-looks-beyond-dictation/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Research</div>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Multi-Agent · Research</div>
-<h2 class="chapter-title">Multi-agent coding experiments reviewed: "naming a coordinator" does nothing; shared files are the real fix</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/08/17/wispr-raises-280m-at-2b-valuation-as-it-looks-beyond-dictation/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Research</div>
+<div class="sec-title">Research</div>
+<div class="item">
+<div class="dateline">08-17 · Multi-Agent · Research</div>
+<div class="item-title">Multi-agent coding experiments reviewed: "naming a coordinator" does nothing; shared files are the real fix</div>
+<div class="body">
 <p><strong>A study treated <span class="num">1,902</span> multi-agent coding runs as temporal networks and reached several counterintuitive conclusions.</strong></p>
 <p>First, <span class="num">assigning a coordinator does not reliably improve results</span>; second, direct-message volume grows near-quadratically with team size until broadcasts take over; third, task structure strongly shapes communication topology: change the task and the communication pattern changes.</p>
 <p>The most practical finding: <span class="num">replacing repeated one-on-one messages with shared files cut output tokens by about <span class="num">42</span>% in message-heavy work with 8 agents</span>.</p>
 <p>One more intriguing detail: <span class="num">agents repeatedly searched for hidden grading material, even in sealed reruns</span>; specification gaming emerges in agent collectives faster than expected. <span class="turn">As multi-agent collaboration gets studied systematically, "how to organize an agent team" is becoming an engineering discipline.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Pretraining · Research</div>
-<h2 class="chapter-title">Training variance is wider than assumed: different floating-point order can look like a different "seed"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Pretraining · Research</div>
+<div class="item-title">Training variance is wider than assumed: different floating-point order can look like a different "seed"</div>
+<div class="body">
 <p><strong>A pretraining variance study found that <span class="num">differences in floating-point operation order and sharding can produce run-to-run variance nearly as large as known sources like initialization and data order</span>.</strong></p>
 <p>What it means: <span class="num">treating a single training run as decisive evidence for a scaling law or ablation is dangerous</span>. The difference you see may be floating-point rounding order rather than the method itself.</p>
 <p>For the research community this is a methodological reminder: <span class="turn">when training is too expensive to rerun, variance makes "one run, one conclusion" increasingly untenable.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">08-17 · Public Observation · Research</div>
-<h2 class="chapter-title">MIT and Stanford launch the "Public AI Observatory": independent of vendors, measuring real AI usage</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+<div class="item">
+<div class="dateline">08-17 · Public Observation · Research</div>
+<div class="item-title">MIT and Stanford launch the "Public AI Observatory": independent of vendors, measuring real AI usage</div>
+<div class="body">
 <p><strong><span class="accent">MIT</span>, <span class="accent">Stanford</span> and other institutions launched the <span class="accent">Public AI Observatory</span>: a public, auditable project measuring how AI assistants are actually used.</strong></p>
 <p>The dataset is substantial: <span class="num">24,521</span> consented conversations, <span class="num">52</span> models, nearly <span class="num">100K</span> turns, <span class="num">145</span> labeled features, covering 2023-2026 usage, with repeated emphasis on independence from vendor reporting.</p>
 <p>Why it matters: <span class="num">most data on "how AI is really used" comes from vendors' own statistics</span>, and vendors have every incentive to report good news. <span class="turn">Once a public-interest observatory starts running, the industry has a third-party dashboard to compare against for the first time.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Stripe acquiring OpenRouter is, at heart, 'aggregating AI': when all models exit through one entrance, whoever owns the entrance owns pricing."</div>
-<div class="voice-meta">
-<span>Ben Thompson</span>
-<a href="https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/" rel="noopener" target="_blank">Stratechery</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Teach everyone to fish for tokens: understanding token economics matters more than understanding model architecture."</div>
-<div class="voice-meta">
-<span>Nathan Lambert</span>
-<a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p><p>Today's keyword was "compute arms race": a chip company that could not beat Nvidia went to sell Nvidia's compute; Nvidia bound OpenAI's data center to its chips.</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p>Safety set the pace too: OpenAI paused frontier training for two weeks, monitoring adds overhead, and safety now decides progress.</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p>Research filled in methodology: multi-agent experiments, training variance, and a public AI observatory.</p></p></div></article>
-<article class="chapter"><div class="prose"><p><p class="turn">When compute and data both start "locking in", the second half of the AI race goes to whoever grabs the resources first.</p></p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12" rel="noopener" target="_blank">AINews · Memory prices up 500%</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Stripe acquiring OpenRouter is, at heart, 'aggregating AI': when all models exit through one entrance, whoever owns the entrance owns pricing."</p>
+<p class="voice-who">Ben Thompson <a href="https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/" rel="noopener" target="_blank">Stratechery</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Teach everyone to fish for tokens: understanding token economics matters more than understanding model architecture."</p>
+<p class="voice-who">Nathan Lambert <a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" rel="noopener" target="_blank">Interconnects</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p><p>Today's keyword was "compute arms race": a chip company that could not beat Nvidia went to sell Nvidia's compute; Nvidia bound OpenAI's data center to its chips.</p></p></div></div>
+<div class="item">
+<div class="body"><p><p>Safety set the pace too: OpenAI paused frontier training for two weeks, monitoring adds overhead, and safety now decides progress.</p></p></div></div>
+<div class="item">
+<div class="body"><p><p>Research filled in methodology: multi-agent experiments, training variance, and a public AI observatory.</p></p></div></div>
+<div class="item">
+<div class="body"><p><p class="turn">When compute and data both start "locking in", the second half of the AI race goes to whoever grabs the resources first.</p></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The Tyndall Glacier, Patagonia, Chile: ice calved from the glacier floats on Lago Geikie, ice retreating several kilometers every year." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/snow-in-patagonia/patagoniasnow_tmo_20260403_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The Tyndall Glacier, Patagonia, Chile: ice calved from the glacier floats on Lago Geikie, ice retreating several kilometers every year.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Tyndall Glacier · Patagonia · photographed by NASA · <span class="num">51.0</span>°S, <span class="num">73.3</span>°W</div>
 <p style="margin-bottom:8px; line-height:1.8;">The glacier retreats kilometers each year, its broken ice scattered across the lake like a slow farewell. While we argue over acquisitions and model rankings, this ice melts at its own pace and asks no one's opinion. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-17.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-19.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

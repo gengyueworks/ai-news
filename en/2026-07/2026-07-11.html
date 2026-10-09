@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-11</span>
-<span>Saturday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI News <span>Daily</span> | 2026-07-11</h1><p class="doc-date">2026-07-11 · Saturday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">This week, frontier models continued sinking into "default entrances," while the open-source side assembled the parts for "self-built, self-managed." In this weekend edition, we shift the lens away from big tech press conferences to quiet community and academic developments lowering the barrier.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Saturday, July 11, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">This week, frontier models continued sinking into "default entrances," while the open-source side assembled the parts for "self-built, self-managed." In this weekend edition, we shift the lens away from big tech press conferences to quiet community and academic developments lowering the barrier.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Open Source Community · Agent Tools Mature This Week</div>
-<h2 class="chapter-title">Agent components were assembled by open source this week, enabling everyday users to build an AI squad for the first time—though the real battle has just begun.</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-11 · Open Source Community · Agent Tools Mature This Week</div>
+<div class="item-title">Agent components were assembled by open source this week, enabling everyday users to build an AI squad for the first time—though the real battle has just begun.</div>
+<div class="body">
 <p><strong>Over the past <span class="num">1</span> week, multi-agent frameworks, locally hosted stacks, and lightweight reasoning engines have arrived—shifting from "waiting for big tech to make agents a black-box product" to "the community open-sourcing parts for you to assemble."</strong>The significance lies not in how strong a single tool is, but in how the barrier is composed: formerly "can you afford the API," now "can you sequence specialized agents."
 When assembly capability itself is open-sourced, the moat for the strongest models shifts from "you can't access it" to "you can't assemble it well."</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -284,15 +274,16 @@ When assembly capability itself is open-sourced, the moat for the strongest mode
 <li>Signal: Agent Capabilities Shift from "Corporate-Provided" to "Self-Built"</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: Hugging Face Blog · <a href="https://github.com/huggingface/agents" rel="noopener" target="_blank">HF Agents · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontlines</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Google · On-Device Gemini Real-Time Vision</div>
-<h2 class="chapter-title">Google integrates Gemini's real-time vision into mobile cameras for instant understanding upon sight.</h2>
-<div class="prose">
+<div class="src-line">Sources: Hugging Face Blog · <a href="https://github.com/huggingface/agents" rel="noopener" target="_blank">HF Agents · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontlines</div>
+<div class="sec-title">Frontlines</div>
+<div class="item">
+<div class="dateline">07-11 · Google · On-Device Gemini Real-Time Vision</div>
+<div class="item-title">Google integrates Gemini's real-time vision into mobile cameras for instant understanding upon sight.</div>
+<div class="body">
 <p><strong>Google integrates Gemini's real-time vision into the Android camera layer, enabling instant recognition, translation, and Q&amp;A when users point at objects. Inference runs on-device, reducing latency to <span class="num">200</span> ms.</strong>On-device processing means "no need to upload footage to the cloud"—improving both privacy and speed.
 When recognition happens the moment the shutter clicks, the AI camera transforms from a filter tool into an always-on pair of eyes.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -306,12 +297,12 @@ When recognition happens the moment the shutter clicks, the AI camera transforms
 </ul>
 <p>Google integrates Gemini's real-time vision into mobile cameras: see and understand instantly.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/" rel="noopener" target="_blank">Google DeepMind</a> · <a href="https://github.com/google-deepmind/gemma" rel="noopener" target="_blank">Gemma · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Anthropic · Long-Task Hosting Mode</div>
-<h2 class="chapter-title">Anthropic opens Claude's "long-task hosting" to enterprises: assign once, pick up hours later.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/" rel="noopener" target="_blank">Google DeepMind</a> · <a href="https://github.com/google-deepmind/gemma" rel="noopener" target="_blank">Gemma · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-11 · Anthropic · Long-Task Hosting Mode</div>
+<div class="item-title">Anthropic opens Claude's "long-task hosting" to enterprises: assign once, pick up hours later.</div>
+<div class="body">
 <p><strong>Anthropic introduces Claude's long-task hosting mode for enterprise customers—handing off multi-hour research or code organization tasks to the model, allowing disconnection during the process, and reviewing results upon completion.</strong>It rewrites the default answer to whether "agents should constantly occupy your attention": humans set goals and review, while models execute in the background.
 What is truly saved is removing "having to stay glued to the screen" from your schedule entirely.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -324,12 +315,12 @@ What is truly saved is removing "having to stay glued to the screen" from your s
 <li>Freeing Up "Screen-Guarding" Costs</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: Anthropic · <a href="https://github.com/anthropics/claude-cookbook" rel="noopener" target="_blank">Claude Cookbook · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · OpenAI / Community Benchmarking · Post-Release Operations</div>
-<h2 class="chapter-title">GPT-5.6 is notoriously hard to choose, with 36 variants confusing users and OpenAI resetting quotas twice in two days.</h2>
-<div class="prose">
+<div class="src-line">Sources: Anthropic · <a href="https://github.com/anthropics/claude-cookbook" rel="noopener" target="_blank">Claude Cookbook · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-11 · OpenAI / Community Benchmarking · Post-Release Operations</div>
+<div class="item-title">GPT-5.6 is notoriously hard to choose, with 36 variants confusing users and OpenAI resetting quotas twice in two days.</div>
+<div class="body">
 <p><strong>OpenAI multiplied Sol/Terra/Luna tiers across multiple effort levels, leaving API users facing <span class="num">36</span> configuration combinations.
 The community resorted to peer-to-peer tutorials: "Use luna high for daily coding, terra high for repo-wide changes, and don't touch Sol Extra."
 Sebastian Raschka's conclusion is straightforward:<span class="accent">Unless you truly need Terra Ultra's performance, always use Luna with higher effort; results are identical yet cheaper.</span>.</strong></p>
@@ -344,12 +335,12 @@ OpenAI's response was unusually direct: resetting quotas twice, admitting defaul
 <p><span class="turn">The stronger the model, the more essential "choosing the right tier" becomes—what's wasted isn't scores, but budget.</span></p>
 <p>GPT-5.6 is notoriously hard to choose: 36 variants confuse users, prompting OpenAI to reset quotas twice in two days.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-f5c" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">OpenAI Blog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · OpenAI · Health + Science</div>
-<h2 class="chapter-title">GPT-5.6's health narrative is concrete: Luna's lowest tier matches GPT-5.5's highest tier at 25x lower cost.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-f5c" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">OpenAI Blog</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-11 · OpenAI · Health + Science</div>
+<div class="item-title">GPT-5.6's health narrative is concrete: Luna's lowest tier matches GPT-5.5's highest tier at 25x lower cost.</div>
+<div class="body">
 <p><strong>OpenAI has laid out two new narratives for GPT-5.6.
 Health: Luna matches GPT-5.5's peak effort performance at its lowest effort setting, while cutting costs by <span class="num">25</span> x; in <span class="num">2</span> tens of thousands of doctor blind reviews, physicians found fewer errors in GPT-5.6's outputs than in answers written by doctors themselves.
 Science: GPT-5.6 Sol Ultra reportedly used <span class="num">64</span> sub-agents to generate a proof of the Cycle Double Cover conjecture within an hour (still awaiting independent verification).</strong></p>
@@ -362,15 +353,16 @@ The former is unverified, while the latter is backed by data.</p>
 <p>The security side is also tightening concurrently: bio-vulnerability bounties are doubled to <span class="num">$50K</span> and transitioned into a permanent program.</p>
 <p><span class="turn">Simultaneously packaged as a research primitive, a medical assistant, and a security focal point, GPT-5.6's battlefield extends far beyond coding.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-f5c" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">OpenAI Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Signals</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Research Institution · Model memory leaks across sessions</div>
-<h2 class="chapter-title">A study punctures "session isolation," showing frontier models leaking old context into new conversations.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-f5c" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">OpenAI Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Signals</div>
+<div class="sec-title">Signals</div>
+<div class="item">
+<div class="dateline">07-11 · Research Institution · Model memory leaks across sessions</div>
+<div class="item-title">A study punctures "session isolation," showing frontier models leaking old context into new conversations.</div>
+<div class="body">
 <p><strong>An independent research team has replicated and published a phenomenon where certain frontier models retain context traces that should not persist across sessions, linking up to <span class="num">3</span> rounds of previous private content.</strong>The default assumption that "every new conversation starts from zero" has been empirically overturned for the first time.
 For companies integrating models into sensitive systems, isolation failure is more alarming than a single error: the window you thought you closed may still be cracked open.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -378,15 +370,16 @@ For companies integrating models into sensitive systems, isolation failure is mo
 <div style="padding: 10px 14px; font-size: 13px; color: var(--text-muted, #6B7280); font-family: var(--font-mono, monospace); line-height: 1.6; border-top: 1px solid var(--border, #E8E8EC);">Primary intelligence field evidence and architecture visual</div>
 </div>
 </div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2608.00202" rel="noopener" target="_blank">arXiv</a> · <a href="https://github.com/huggingface/transformers" rel="noopener" target="_blank">Transformers · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Open Source Front</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · vLLM · New Inference Engine Version</div>
-<h2 class="chapter-title">vLLM's new version pushes VRAM utilization higher, feeding 30% more traffic on the same GPU.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arxiv.org/abs/2608.00202" rel="noopener" target="_blank">arXiv</a> · <a href="https://github.com/huggingface/transformers" rel="noopener" target="_blank">Transformers · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Front</div>
+<div class="sec-title">Open Source Front</div>
+<div class="item">
+<div class="dateline">07-11 · vLLM · New Inference Engine Version</div>
+<div class="item-title">vLLM's new version pushes VRAM utilization higher, feeding 30% more traffic on the same GPU.</div>
+<div class="body">
 <p><strong>vLLM has released a new inference engine version, boosting throughput by approximately <span class="num">30</span>%, bending the cost curve of running large models significantly downward.</strong>The open-source community's answer to "how to run models cheaper" is becoming increasingly hardcore.
 For startups, this means the same budget can serve more users—inference efficiency is competitiveness in itself.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -399,12 +392,12 @@ For startups, this means the same budget can serve more users—inference effici
 <li>Inference Cost Curve Shifted Down</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/vllm-project/vllm" rel="noopener" target="_blank">vLLM · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Ollama · Local Model Management</div>
-<h2 class="chapter-title">Ollama makes "running frontier models on a laptop" a one-command affair.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/vllm-project/vllm" rel="noopener" target="_blank">vLLM · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-11 · Ollama · Local Model Management</div>
+<div class="item-title">Ollama makes "running frontier models on a laptop" a one-command affair.</div>
+<div class="body">
 <p><strong>Ollama has updated its local model management capabilities, supporting one-click pulling, version switching, and quantization tier selection, allowing individuals without server rooms to run models with <span class="num">billions of</span> parameters on consumer-grade devices.</strong>The value of localization isn't running the fastest, but "belonging to you"—running offline, keeping data on-device, and swapping at will.
 For those who care about control and privacy, this is the rope that drags AI out of cloud services and back onto your desktop.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -418,12 +411,12 @@ For those who care about control and privacy, this is the rope that drags AI out
 </ul>
 <p>Ollama makes "running frontier models on a laptop" a one-command affair.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/ollama/ollama" rel="noopener" target="_blank">Ollama · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · LangChain · Agent Orchestration Framework</div>
-<h2 class="chapter-title">LangChain frees "multi-step task orchestration" from hand-written glue code.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/ollama/ollama" rel="noopener" target="_blank">Ollama · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-11 · LangChain · Agent Orchestration Framework</div>
+<div class="item-title">LangChain frees "multi-step task orchestration" from hand-written glue code.</div>
+<div class="body">
 <p><strong>LangChain has launched more mature multi-step agent orchestration primitives, abstracting "what to query first, which tool to call next, and when to wrap up" into composable graphs, eliminating the need for developers to write extensive glue code.</strong>It solves the most annoying part of agent deployment: the model itself knows how to work, but the hard part is sequencing the tasks smoothly to minimize human effort.
 When orchestration itself becomes building blocks, more people can directly build the workflows from their minds.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -437,15 +430,16 @@ When orchestration itself becomes building blocks, more people can directly buil
 </ul>
 <p>LangChain frees "multi-step task orchestration" from hand-written glue code.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/langchain-ai/langchain" rel="noopener" target="_blank">LangChain · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-10 · Open Source Community · Node-Based Image Generation</div>
-<h2 class="chapter-title">ComfyUI turns "building an image generation workflow" into savable, shareable blueprints.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/langchain-ai/langchain" rel="noopener" target="_blank">LangChain · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-10 · Open Source Community · Node-Based Image Generation</div>
+<div class="item-title">ComfyUI turns "building an image generation workflow" into savable, shareable blueprints.</div>
+<div class="body">
 <p><strong>ComfyUI's node-based image generation workflow is increasingly used by creators to crystallize their own "image generation recipes"—linking models, prompts, and post-processing into <span class="num">1</span> a graph that can be saved and reproduced instantly.</strong>Visual creation is shifting from "readjusting every time" to "saving tuned workflows as assets."
 The most practical progress is often what spares you from starting over—model power matters less than workflow persistence.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -454,15 +448,16 @@ The most practical progress is often what spares you from starting over—model 
 </div>
 <p>ComfyUI turns image-generation workflows into saveable, shareable blueprints.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/comfyanonymous/ComfyUI" rel="noopener" target="_blank">ComfyUI · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Gradio · AI Demo Tools</div>
-<h2 class="chapter-title">Gradio makes wrapping an AI model in a UI a matter of minutes.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/comfyanonymous/ComfyUI" rel="noopener" target="_blank">ComfyUI · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-11 · Gradio · AI Demo Tools</div>
+<div class="item-title">Gradio makes wrapping an AI model in a UI a matter of minutes.</div>
+<div class="body">
 <p><strong>Gradio continues to lower the UI barrier for AI prototypes, wrapping models into shareable web apps with file uploads, chatboxes, and batch inference in just a few lines of code.</strong>For researchers and small teams, it minimizes the gap between building a model and putting it in users' hands.
 Days of good ideas stalling due to a lack of interfaces are fading fast.</p>
 <ul>
@@ -471,12 +466,12 @@ Days of good ideas stalling due to a lack of interfaces are fading fast.</p>
 <li>Shortest path from prototype to trial</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/gradio-app/gradio" rel="noopener" target="_blank">Gradio · GitHub</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Open WebUI · Self-Hosted Chat</div>
-<h2 class="chapter-title">Open WebUI establishes self-hosting as the standard for deploying your own ChatGPT.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/gradio-app/gradio" rel="noopener" target="_blank">Gradio · GitHub</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-11 · Open WebUI · Self-Hosted Chat</div>
+<div class="item-title">Open WebUI establishes self-hosting as the standard for deploying your own ChatGPT.</div>
+<div class="body">
 <p><strong>Open WebUI packages multi-model switching, local knowledge bases, and user permissions into a self-hosted frontend, enabling organizations to run private conversational systems on their own servers.</strong>It addresses a pragmatic demand: wanting a decent interface without handing data over to third-party clouds.
 Self-hosting is transitioning from a geek toy to a viable option for SMBs and teams.</p>
 <ul>
@@ -485,53 +480,57 @@ Self-hosting is transitioning from a geek toy to a viable option for SMBs and te
 <li>Standard frontend for private deployments</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/open-webui/open-webui" rel="noopener" target="_blank">Open WebUI · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investing</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-11 · Synthesis · Compute &amp; Power Infrastructure</div>
-<h2 class="chapter-title">AI infrastructure capital flows increasingly into power and real estate, not just models.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/open-webui/open-webui" rel="noopener" target="_blank">Open WebUI · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investing</div>
+<div class="sec-title">Investing</div>
+<div class="item">
+<div class="dateline">07-11 · Synthesis · Compute &amp; Power Infrastructure</div>
+<div class="item-title">AI infrastructure capital flows increasingly into power and real estate, not just models.</div>
+<div class="body">
 <p><strong>This week's major primary market funding rounds targeted AI compute and power infrastructure—data centers, power generation, and grid transmission—rather than foundation models.</strong>Capital is voting with its feet: with model capabilities guaranteed to scale, the safest bet shifts to the hard assets that power them.
 True high-stakes bets are often land, power, and cooling, rather than another academic paper.</p>
 <p>AI infrastructure funds continue flowing into power and land, extending beyond model development.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/pytorch/pytorch" rel="noopener" target="_blank">PyTorch · GitHub</a> · Synthesis</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"With open-source capabilities, the barrier has shifted from 'can you afford it' to 'can you piece it together.'"</div>
-<div class="voice-meta">
-<span>— Victor N. · Open Source Infrastructure Researcher · 7/11</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"We have written countless terms of use for models, yet we still haven't figured out who is liable when an agent acts autonomously."</div>
-<div class="voice-meta">
-<span>— Lena Fischer · Lecturer in AI Governance, Humboldt University of Berlin · 7/11</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://github.com/pytorch/pytorch" rel="noopener" target="_blank">PyTorch · GitHub</a> · Synthesis</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"With open-source capabilities, the barrier has shifted from 'can you afford it' to 'can you piece it together.'"</p>
+<p class="voice-who">— Victor N. · Open Source Infrastructure Researcher · 7/11</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"We have written countless terms of use for models, yet we still haven't figured out who is liable when an agent acts autonomously."</p>
+<p class="voice-who">— Lena Fischer · Lecturer in AI Governance, Humboldt University of Berlin · 7/11</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The coral reefs of the Great Barrier Reef are older than any data center cooling tower." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/great-barrier-reef/greatbarrierreef_oli2_20230912_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The coral reefs of the Great Barrier Reef are older than any data center cooling tower.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Great Barrier Reef, Australia · NASA · <span class="num">20.30°S, 148.90°E</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, there are still places on Earth untouched by GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let us stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-10.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-12.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

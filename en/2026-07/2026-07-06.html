@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-06</span>
-<span>Monday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-07-06 · Monday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today we continue to shift the lens away from Big Tech. The front page features an on-site report by a journalist visiting a robotics factory. The frontline covers open-source clouds, open-source weights, and front-line developer costs. Big Tech and macro trends are condensed into signal bars.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Monday, July 6, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today we continue to shift the lens away from Big Tech. The front page features an on-site report by a journalist visiting a robotics factory. The frontline covers open-source clouds, open-source weights, and front-line developer costs. Big Tech and macro trends are condensed into signal bars.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">The New Yorker · July 6</div>
-<h2 class="chapter-title">Reporter Inside a Robotics Factory: Are Humanoid Robots Really Ready for Your Home?</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="dateline">The New Yorker · July 6</div>
+<div class="item-title">Reporter Inside a Robotics Factory: Are Humanoid Robots Really Ready for Your Home?</div>
+<div class="body">
 <p>Neo is priced at $20,000 to buy out or $499 per month to rent. But the real headline isn't the price—early home users must still allow human employees from 1X to remotely operate the robots in their homes. Image: The New Yorker.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Reporter Inside a Robotics Factory: Are Humanoid Robots Really Ready for Your Home? · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-06/r49064-jpg-47053fa7.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -282,15 +272,16 @@
 <p>However, Witt's report uncovers the industry's least publicized side:<span class="accent">so-called "autonomy" is currently more of a vision.</span>Early users in 2026 will still need to allow human 1X employees to remotely control the robots at home. One researcher describes the current capability boundary:<span class="turn">"A robot that can do a backflip may not necessarily be able to walk up a flight of stairs."</span></p>
 <p>As "robots entering the home" shifts from concept to order, the real threshold isn't mobility, but trust: whether you are willing to let a semi-autonomous, semi-teleoperated machine live in your living room.</p>
 </div>
-<div class="sources-bar">Sources: The New Yorker · <a href="https://www.newyorker.com/magazine/2026/07/06/are-humanoid-robots-ready-to-be-deployed" rel="noopener" target="_blank">newyorker.com</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Reuters / BusinessWire · July 1</div>
-<h2 class="chapter-title">8 Behind the Billion-Dollar Funding: The Cloud Powering "Open-Source AI" Doubles Its Valuation in a Year</h2>
-<div class="prose">
+<div class="src-line">Sources: The New Yorker · <a href="https://www.newyorker.com/magazine/2026/07/06/are-humanoid-robots-ready-to-be-deployed" rel="noopener" target="_blank">newyorker.com</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">Reuters / BusinessWire · July 1</div>
+<div class="item-title">8 Behind the Billion-Dollar Funding: The Cloud Powering "Open-Source AI" Doubles Its Valuation in a Year</div>
+<div class="body">
 <p>The AI cloud built for open-source models <span class="accent">Together AI</span> completed its <span class="num">8</span> Series C round on July 1, with a post-money valuation of <span class="num">83</span> billion, more than doubling from <span class="num">33</span> billion in February 2025. This round was led by Saudi Aramco's <span class="accent">Aramco Ventures</span>, with participation from NVIDIA, General Catalyst, Vista, and others.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='8 Behind the Billion-Dollar Funding: The Cloud Powering "Open-Source AI" Doubles Its Valuation in a Year · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-06/image-53f06bb8.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -299,12 +290,12 @@
 <p>The company stated that its annualized bookings last quarter exceeded <span class="num">11.5</span> billion. The lead investor from energy capital shows that Middle Eastern sovereign funds are accelerating inflows into the AI infrastructure "pick-and-shovel" race. Positioned as a cloud for running open-source weight models, it directly contrasts with the closed-source API-only route,<span class="turn">and it's not just labs betting on open source—it's also the cloud powering them.</span></p>
 <p>Capital is betting that "open-source models must also run at scale." The frontier no longer belongs solely to giants building their own supercomputers; those who can rent compute can also join the table.</p>
 </div>
-<div class="sources-bar">Sources: Reuters · <a href="https://www.reuters.com/legal/transactional/together-ai-raises-800-million-83-billion-valuation-2026-07-01/" rel="noopener" target="_blank">reuters.com</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Artificial Analysis / OpenRouter · June 27 – July 6</div>
-<h2 class="chapter-title">Open-Source Weights Chasing the Frontier: The Gap Narrows to Single Digits</h2>
-<div class="prose">
+<div class="src-line">Sources: Reuters · <a href="https://www.reuters.com/legal/transactional/together-ai-raises-800-million-83-billion-valuation-2026-07-01/" rel="noopener" target="_blank">reuters.com</a></div>
+</div>
+<div class="item">
+<div class="dateline">Artificial Analysis / OpenRouter · June 27 – July 6</div>
+<div class="item-title">Open-Source Weights Chasing the Frontier: The Gap Narrows to Single Digits</div>
+<div class="body">
 <p>According to <span class="accent">Artificial Analysis</span> 's intelligence index,<span class="accent">Kimi K2.6</span>(Moonshot) and <span class="accent">Xiaomi MiMo V2.5 Pro</span> are tied at the top of the open-source leaderboard,<span class="accent">DeepSeek V4</span> closely following. Their score gap with the strongest closed-source models has narrowed to single digits.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='8 Behind the Billion-Dollar Funding: The Cloud Powering "Open-Source AI" Doubles Its Valuation in a Year · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-06/sonnet-5-pelican-png-dcfbe0e0.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -314,12 +305,12 @@
 <p>If the capability gap between open-source and closed-source remains in the single digits long-term, "using the most expensive closed-source model" will no longer be the default answer, shifting cost and controllability back to the core of selection criteria.</p>
 <p>Open-source weights chasing the frontier: The gap narrows to single digits.</p>
 </div>
-<div class="sources-bar">Sources: Artificial Analysis · <a href="https://artificialanalysis.ai/articles/recent-open-weights-model-launches" rel="noopener" target="_blank">artificialanalysis.ai</a> / OpenRouter · <a href="https://openrouter.ai/blog/insights/the-open-weight-models-that-matter-june-2026/" rel="noopener" target="_blank">openrouter.ai</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Simon Willison / Anthropic · Jun 30</div>
-<h2 class="chapter-title">Same Pricing, Quietly More Expensive: The Invisible Price Hike of a Tokenizer</h2>
-<div class="prose">
+<div class="src-line">Sources: Artificial Analysis · <a href="https://artificialanalysis.ai/articles/recent-open-weights-model-launches" rel="noopener" target="_blank">artificialanalysis.ai</a> / OpenRouter · <a href="https://openrouter.ai/blog/insights/the-open-weight-models-that-matter-june-2026/" rel="noopener" target="_blank">openrouter.ai</a></div>
+</div>
+<div class="item">
+<div class="dateline">Simon Willison / Anthropic · Jun 30</div>
+<div class="item-title">Same Pricing, Quietly More Expensive: The Invisible Price Hike of a Tokenizer</div>
+<div class="body">
 <p>"What's new in Claude Sonnet 5"—Simon Willison's tests reveal the new tokenizer generates about 30% more tokens for the same text. Image: simonwillison.net.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Same Pricing, Quietly More Expensive: The Invisible Price Hike of a Tokenizer · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-06/gettyimages-1387623215-jpg-973232cd.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -329,15 +320,16 @@
 <p>Not a single digit changed on the price list, but the bills quietly went up. The new model context <span class="num">100</span> 10k tokens, max output <span class="num">12.8</span> 10k, with adaptive thinking enabled by default. But the increased token consumption for equivalent text equals an unannounced price hike.</p>
 <p>The true cost of models isn't on the price list; it's hidden in "how many tokens a sentence costs." The invisible tokenizer is the real price switch.</p>
 </div>
-<div class="sources-bar">Sources: Simon Willison · <a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/" rel="noopener" target="_blank">simonwillison.net</a> / Anthropic</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Governance</div>
-<article class="chapter">
-<div class="chapter-eyebrow">FLARE-AI / Hugging Face · Jul 4</div>
-<h2 class="chapter-title">FLARE-AI Launches: A Unified "Incident Reporting" Channel for AI Failures</h2>
-<div class="prose">
+<div class="src-line">Sources: Simon Willison · <a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/" rel="noopener" target="_blank">simonwillison.net</a> / Anthropic</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Governance</div>
+<div class="sec-title">Governance</div>
+<div class="item">
+<div class="dateline">FLARE-AI / Hugging Face · Jul 4</div>
+<div class="item-title">FLARE-AI Launches: A Unified "Incident Reporting" Channel for AI Failures</div>
+<div class="body">
 <p><span class="accent">FLARE-AI</span> Initiated by a coalition of cybersecurity and AI safety researchers, with a specific goal: standardize the reporting of AI system incidents and flaws, routing issues to corresponding developers and vulnerability databases,<span class="accent">rather than vanishing into isolated feedback forms</span>. Co-backed by the Hugging Face CEO and multiple safety researchers.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='FLARE-AI Launches: A Unified "Incident Reporting" Channel for AI Failures · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-06/cursor---iphone-claude-science-3002579f.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -346,54 +338,51 @@
 <p>Behind this is a maturing consensus:<span class="accent">The more ubiquitous models become, the less failures should be discovered by luck</span>. Today's AI incidents are scattered across customer support tickets, GitHub issues, and news comment sections, making it impossible to see the full picture. Without a uniform format there are no statistics, and without statistics there is no fixing priority.</p>
 <p><span class="turn">When "reporting" becomes a standardized pipeline, AI reliability finally gains the potential to be systematically measured and tracked for the first time.</span></p>
 </div>
-<div class="sources-bar">Sources: FLARE-AI · <a href="https://x.com/ClementDelangue" rel="noopener" target="_blank">x.com/@ClementDelangue</a> / Safety Researcher · <a href="https://x.com/ShayneRedford" rel="noopener" target="_blank">x.com/@ShayneRedford</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">TechCrunch / Variety · Jul 4</div>
-<h2 class="chapter-title">Midjourney Strikes Back: Demanding Hollywood Hand Over Its Own AI Usage</h2>
-<div class="prose">
+<div class="src-line">Sources: FLARE-AI · <a href="https://x.com/ClementDelangue" rel="noopener" target="_blank">x.com/@ClementDelangue</a> / Safety Researcher · <a href="https://x.com/ShayneRedford" rel="noopener" target="_blank">x.com/@ShayneRedford</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">TechCrunch / Variety · Jul 4</div>
+<div class="item-title">Midjourney Strikes Back: Demanding Hollywood Hand Over Its Own AI Usage</div>
+<div class="body">
 <p>Disney, Universal, and Warner Bros. copyright lawsuit against Midjourney escalates. Midjourney asks the court to compel studios to hand over AI business plans, training datasets, and board presentation materials. Image: TechCrunch / Getty.</p>
 <p>Sued by Disney, Universal, and Warner Bros. <span class="num">Midjourney</span>, Midjourney filed a motion this week to strike back. It asks the court to overturn the previous ruling that "studios only need to hand down consumer-facing AI usage logs" and instead demand the opposing side's <span class="accent">AI business plans, research reports, training datasets, and board presentation materials</span>.</p>
 <p>Midjourney's lawyers argue:<span class="accent">If the plaintiffs are secretly doing what they are suing others for, this is the core of the "unclean hands" defense.</span>The studios responded that this is a "red herring," insisting their demand is to make Midjourney stop copying their characters. Plaintiffs seek statutory damages of up to <span class="num">15</span> ten-thousand USD per infringed work, a scale capable of determining Midjourney's survival.</p>
 <p>The focus of this lawsuit has escalated from "can AI learn from copyrighted works?" to "do the people suing AI use AI themselves?" The verdict could instantly expose the double standards across the creative industry.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch / Variety · <a href="https://variety.com/2026/film/news/midjourney-studios-ai-copyright-discovery-1236800902/" rel="noopener" target="_blank">variety.com</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Multi-Source · Jul 4–6</div>
-<h2 class="chapter-title">Cursor Lands on iPhone, Claude Science Launches—Tools Are Moving Toward Ubiquity</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch / Variety · <a href="https://variety.com/2026/film/news/midjourney-studios-ai-copyright-discovery-1236800902/" rel="noopener" target="_blank">variety.com</a></div>
+</div>
+<div class="item">
+<div class="dateline">Multi-Source · Jul 4–6</div>
+<div class="item-title">Cursor Lands on iPhone, Claude Science Launches—Tools Are Moving Toward Ubiquity</div>
+<div class="body">
 <p><span class="num">Cursor</span> launched an iPhone mobile entry, allowing developers to browse, review, and continue coding on mobile;<span class="num">OpenClaw</span> also launched its mobile entry on the same day.</p>
 <p><span class="num">Claude Science</span> officially launched as Anthropic's research workbench, providing researchers with an AI-assisted end-to-end workflow from literature search to code execution and paper writing. Anthropic stated that over <span class="num">50</span> academic institutions have tried it.</p>
 <p>The iron law of AI development tools is slowly emerging: whoever first captures the scenario of "continuing to work from your phone" gets ahead in this wave of toolization.</p>
 <p>Cursor lands on iPhone, Claude Science launches, and tools are moving toward ubiquity.</p>
 </div>
-<div class="sources-bar">Sources: Cursor · <a href="https://cursor.com/blog/ios-mobile-app" rel="noopener" target="_blank">cursor.com/blog/ios-mobile-app</a> / Anthropic</div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"A robot that can do a backflip may not necessarily be able to walk up a flight of stairs."</div>
-<div class="voice-meta">
-<span>A robotics researcher · Relayed via The New Yorker / Stephen Witt</span>
-<a href="https://www.newyorker.com/magazine/2026/07/06/are-humanoid-robots-ready-to-be-deployed" rel="noopener" target="_blank">newyorker.com</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"For the same input, the token count is about 30% higher than Sonnet 4.6."</div>
-<div class="voice-meta">
-<span>A front-line developer · Tested the new Claude Sonnet 5 tokenizer</span>
-<a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/" rel="noopener" target="_blank">simonwillison.net</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Signals</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Multi-Source Aggregation · Jun 30–Jul 6</div>
-<div class="prose">
+<div class="src-line">Sources: Cursor · <a href="https://cursor.com/blog/ios-mobile-app" rel="noopener" target="_blank">cursor.com/blog/ios-mobile-app</a> / Anthropic</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"A robot that can do a backflip may not necessarily be able to walk up a flight of stairs."</p>
+<p class="voice-who">A robotics researcher · Relayed via The New Yorker / Stephen Witt <a href="https://www.newyorker.com/magazine/2026/07/06/are-humanoid-robots-ready-to-be-deployed" rel="noopener" target="_blank">newyorker.com</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"For the same input, the token count is about 30% higher than Sonnet 4.6."</p>
+<p class="voice-who">A front-line developer · Tested the new Claude Sonnet 5 tokenizer <a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/" rel="noopener" target="_blank">simonwillison.net</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Signals</div>
+<div class="sec-title">Signals</div>
+<div class="item">
+<div class="dateline">Multi-Source Aggregation · Jun 30–Jul 6</div>
+<div class="body">
 <p>
 <span class="num">Meta Cloud is Coming</span>: Meta plans to launch a cloud business to sell its excess AI compute externally, directly cutting into the turf of AWS, Azure, and Google Cloud.<a href="https://www.bloomberg.com/news/articles/2026-07-01/meta-is-building-a-cloud-business-to-sell-excess-ai-compute" rel="noopener" target="_blank">Bloomberg</a> |
  <span class="num">Kling AI</span> At approximately <span class="num">150</span> USD 100M valuation to complete a new round of financing, repicing AI video.<a href="https://www.bloomberg.com/ai-briefing" rel="noopener" target="_blank">Bloomberg</a>
@@ -413,36 +402,45 @@
  FIRST predicts 2026 CVEs will approach <span class="num">6.6</span> 10,000, driven by AI tools automating vulnerability discovery, echoing the July 5 Bad Epoll incident. Help Net Security
 </p>
 </div>
-<div class="sources-bar">Sources: Multi-Source Aggregation</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Daily Summary</div>
-<article class="chapter">
-<div class="prose">
+<div class="src-line">Sources: Multi-Source Aggregation</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Daily Summary</div>
+<div class="sec-title">Daily Summary</div>
+<div class="item">
+<div class="body">
 <p><span class="num">I</span>: <span class="num">The "robots in the home" narrative needs calibration</span>, as a New Yorker reporter visited factories to see mass-production lines and found that early users still rely on remote teleoperation.</p>
 <p><span class="num">II</span>: <span class="num">The stakes in the open-source economy are rising</span>, with Together AI valued at $8.3B and open-source weights nipping at the heels of closed-source models; capital is betting not just on models, but on the entire "rentable compute" landscape.</p>
 <p><span class="num">III</span>: <span class="num">Hidden costs begin to emerge</span>, from Sonnet 5's stealth tokenizer price hike to Midjourney countersuing Hollywood's double standards—bills and trust are being silently reprized.</p>
 </div>
-<div class="sources-bar">Sources: Stratechery</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Stay Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: Stratechery</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Jabal al Fāyah, Sharjah, UAE · 24.96°N, 55.76°E" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-06/fayapaleo_oli_20251023_th-jpg-1f9a63b5.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Jabal al Fāyah, Sharjah, UAE · <span class="num">24.96</span>°N, <span class="num">55.76</span>°E</div>
 <p style="margin-bottom:8px; line-height:1.8;">Fossil-bearing limestone ridges rise from the Rub' al Khali desert—humans survived here using stone axes 210,000 years ago. 2025 UNESCO World Heritage.</p>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, there are still places on Earth that don't require GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Let's stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-05.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-07.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

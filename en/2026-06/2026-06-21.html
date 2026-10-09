@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,115 +250,129 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-06-21</span>
-<span>Sunday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-06-21</h1><p class="doc-date">2026-06-21 · Sunday</p>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Sunday, June 21, 2026</p>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter"><div class="prose">TechCrunch has launched a tool called<span class="num">In the Weights</span>——You enter your name, and it uses<span class="accent">over 40</span>AI models to test one by one how well your name has been "remembered".</div></article>
-<article class="chapter"><div class="prose">This is not an ordinary search engine. It is doing one thing: measuring<span class="turn">how deep a person's name is in the AI model's "subconscious"</span>. For instance—Taylor Swift's In the Weights score<span class="accent">0.93</span>(close to perfect memory), whereas a random name might only have<span class="accent">0.12</span>.</div></article>
-<article class="chapter"><div class="prose">The underlying principle: After receiving your name, the model generates a continuation text. If your name frequently appears in the training data, the model not only remembers you but also "knows everything about you"—occupation, background, controversies. TechCrunch used<span class="num">Llama 3.3 70B</span>, <span class="num">GPT-4o-mini</span>models to run tests, comparing the generated text with Wikipedia/news corpora to calculate a<span class="num">"weight score"</span>—the higher it is, the deeper you have been ingested by the model.</div></article>
-<article class="chapter"><div class="prose">The findings hit hard: celebrities are "perfectly remembered" by models, while ordinary people are nearly transparent. This means—<span class="turn">AI's understanding of the world is shaped by the most frequent names in its training data.</span> If your name is not in there, AI cannot see you.</div></article>
-<article class="chapter"><div class="prose">On a deeper level: If a model can infer your profession and controversies from your name, it can also infer your<span class="accent">political leaning, consumption habits, and social relationships</span>—except these do not appear on the scoring page.</div></article>
-<article class="chapter"><div class="prose">TechCrunch editors say this is the AI version of<span class="num">Vanity Search</span>—vanity search. But what is truly unsettling is<span class="turn">what a score of zero means</span>: in AI's understanding, you do not exist. But for each of us, the time we pour into<span class="num">conversing, training, debugging, and building</span> with AI forms a relationship and connection with you that is entirely unique in the universe,<span class="turn">one of a kind</span>.</div></article>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/06/20/in-the-weights-is-your-new-ai-centric-vanity-search/" rel="noopener" target="_blank">TechCrunch</a></div>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<h2 class="chapter-title">The Atlantic Exposes: 21 Million Songs Consumed by AI—Now You Can Check Your Songs</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="body">TechCrunch has launched a tool called<span class="num">In the Weights</span>——You enter your name, and it uses<span class="accent">over 40</span>AI models to test one by one how well your name has been "remembered".</div></div>
+<div class="item">
+<div class="body">This is not an ordinary search engine. It is doing one thing: measuring<span class="turn">how deep a person's name is in the AI model's "subconscious"</span>. For instance—Taylor Swift's In the Weights score<span class="accent">0.93</span>(close to perfect memory), whereas a random name might only have<span class="accent">0.12</span>.</div></div>
+<div class="item">
+<div class="body">The underlying principle: After receiving your name, the model generates a continuation text. If your name frequently appears in the training data, the model not only remembers you but also "knows everything about you"—occupation, background, controversies. TechCrunch used<span class="num">Llama 3.3 70B</span>, <span class="num">GPT-4o-mini</span>models to run tests, comparing the generated text with Wikipedia/news corpora to calculate a<span class="num">"weight score"</span>—the higher it is, the deeper you have been ingested by the model.</div></div>
+<div class="item">
+<div class="body">The findings hit hard: celebrities are "perfectly remembered" by models, while ordinary people are nearly transparent. This means—<span class="turn">AI's understanding of the world is shaped by the most frequent names in its training data.</span> If your name is not in there, AI cannot see you.</div></div>
+<div class="item">
+<div class="body">On a deeper level: If a model can infer your profession and controversies from your name, it can also infer your<span class="accent">political leaning, consumption habits, and social relationships</span>—except these do not appear on the scoring page.</div></div>
+<div class="item">
+<div class="body">TechCrunch editors say this is the AI version of<span class="num">Vanity Search</span>—vanity search. But what is truly unsettling is<span class="turn">what a score of zero means</span>: in AI's understanding, you do not exist. But for each of us, the time we pour into<span class="num">conversing, training, debugging, and building</span> with AI forms a relationship and connection with you that is entirely unique in the universe,<span class="turn">one of a kind</span>.</div></div>
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/06/20/in-the-weights-is-your-new-ai-centric-vanity-search/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="item-title">The Atlantic Exposes: 21 Million Songs Consumed by AI—Now You Can Check Your Songs</div>
+<div class="body">
 <p>The Atlantic has released a<span class="num">searchable database</span>, covering<span class="accent">four major training datasets</span>within<span class="accent">21 million</span>music recordings. Journalist Alex Reisner spent half a year tracking and discovered these datasets were used to train music generation AIs like Suno and Udio—<span class="turn">your songs might already be in there.</span>.</p>
 <p>The four datasets: Suno's<span class="num">"MHS"</span>(scraped from YouTube), Udio's<span class="num">"Lakh"</span>(expanded from academic datasets), along with two general training corpora,<span class="num">"Common Corpus"</span>and<span class="num">"Proof"</span>. Reisner found that almost every well-known musician you can think of is in there—<span class="accent">from Beyoncé to Bach</span>.</p>
 <p>Musicians can enter their name or song title, and the system will tell you: which datasets your work appears in, which AI companies used it, and how many times it was trained on. Reisner said:<span class="turn">"Previously, only AI companies knew your songs had been eaten; now you know too."</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.theatlantic.com/technology/archive/2026/06/searchable-database-music-ai-training-data/680828/" rel="noopener" target="_blank">The Atlantic</a> · <a href="https://www.theverge.com/ai-artificial-intelligence/953183/the-atlantic-searchable-database-music-ai-training-data" rel="noopener" target="_blank">The Verge</a></div>
-</article>
-<article class="chapter"><div class="prose"><p>Music Scene: The Questioning Begins After Voices Are Swallowed by AI · Unsplash</p></div></article>
-<article class="chapter">
-<h2 class="chapter-title">Anthropic Pauses Token Billing for Claude Agent SDK—Developers Say "Finally"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.theatlantic.com/technology/archive/2026/06/searchable-database-music-ai-training-data/680828/" rel="noopener" target="_blank">The Atlantic</a> · <a href="https://www.theverge.com/ai-artificial-intelligence/953183/the-atlantic-searchable-database-music-ai-training-data" rel="noopener" target="_blank">The Verge</a></div>
+</div>
+<div class="item">
+<div class="body"><p>Music Scene: The Questioning Begins After Voices Are Swallowed by AI · Unsplash</p></div></div>
+<div class="item">
+<div class="item-title">Anthropic Pauses Token Billing for Claude Agent SDK—Developers Say "Finally"</div>
+<div class="body">
 <p>Anthropic announced the suspension of<span class="num">Claude Agent SDK</span>its token-based billing model. The previous issue was: Agents would<span class="accent">call themselves</span>—breaking a task into ten steps, each being an API call, with developers paying per call. After a simple task completed, the token count on the bill surged<span class="accent">10 to 50 times</span>. After two months of complaints from the developer community, Anthropic finally paused this billing model.</p>
 <p><span class="turn">Agents use themselves, and bills inflate themselves</span>—this is the new economics of the AI Agent era: call counts follow the Agent's "decomposition granularity"—the finer the breakdown, the higher the revenue. The API provider profits, while the developer pays.</p>
 </div>
-<div class="sources-bar">Sources: Anthropic · Reddit r/ClaudeAI</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Turning Point</div>
-<article class="chapter">
-<h2 class="chapter-title">Readers Begin to Favor Books Published Before 2022—AI Makes People Nostalgic for Manual Labor</h2>
-<div class="prose">
+<div class="src-line">Sources: Anthropic · Reddit r/ClaudeAI</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Turning Point</div>
+<div class="sec-title">Turning Point</div>
+<div class="item">
+<div class="item-title">Readers Begin to Favor Books Published Before 2022—AI Makes People Nostalgic for Manual Labor</div>
+<div class="body">
 <p>A post on Hacker News sparked heated discussion:<span class="num">An increasing number of readers are actively seeking out books published before 2022.</span> The key lies in<span class="turn">the way they are written</span>. After the popularization of AI-assisted writing, the language of a vast number of new books has become uniform, smooth, and predictable—reading as if made from a single material.</p>
 <p>Someone described this feeling: "In books before 2022, you can feel<span class="accent">the author struggling</span>—writing a certain paragraph with great pain, putting enormous effort into coming up with a metaphor, or deciding to write down an argument they weren't entirely sure of. The traces left by these struggles are the most human elements in reading."</p>
 <p><span class="turn">When the traces of labor disappear, the meaning of the product changes as well.</span> The value of handmade furniture lies in seeing the maker's choices, hesitations, and even mistakes. Reading is no different—<span class="num">human traces themselves are the value</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://news.ycombinator.com/item?id=43201867" rel="noopener" target="_blank">Hacker News</a> · <a href="https://aitoolly.com/ai-news/2026-06-21" rel="noopener" target="_blank">aitoolly</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<h2 class="chapter-title">Headroom Open-Sourced: LLM Input Tokens Reduced by 60-95%</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://news.ycombinator.com/item?id=43201867" rel="noopener" target="_blank">Hacker News</a> · <a href="https://aitoolly.com/ai-news/2026-06-21" rel="noopener" target="_blank">aitoolly</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="item-title">Headroom Open-Sourced: LLM Input Tokens Reduced by 60-95%</div>
+<div class="body">
 <p><span class="num">Headroom</span> is an open-source tool that can compress LLM input tokens by<span class="accent">60% to 95%</span>. It<span class="turn">performs a round of intelligent trimming before inputs reach the model</span>—cutting away redundant context, duplicate instructions, and useless chat history, leaving only the information the model truly needs.</p>
 <p>Three integration modes:<span class="num">Headroom Lite</span>(lightweight mode, dropping explicit redundancies),<span class="num">Headroom</span>(standard mode, semantic-level compression),<span class="num">Headroom Pro</span>(with chunking and summarization added). Practical testing shows: accuracy loss on RAG tasks is<span class="accent">less than 2%</span>, while token costs are cut by<span class="accent">70%+</span>.</p>
 <p>Open-source repository:<a href="https://github.com/ChopRateJas/headroom" rel="noopener" target="_blank">github.com/ChopRateJas/headroom</a></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/ChopRateJas/headroom" rel="noopener" target="_blank">GitHub</a> · <a href="https://aitoolly.com/ai-news/2026-06-21" rel="noopener" target="_blank">aitoolly</a></div>
-</article>
-<article class="chapter"><div class="prose"><p>Inputs Compressed, Outputs Unchanged—New Rules of Code Economics · Unsplash</p></div></article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Yet I can't help feeling that effort is meaningful."</div>
-<div class="voice-meta">
-<span>Lorenzo Gravina · Product Manager/Blogger · notes.lorenzogravina.com</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"AI novels have a signature sentence structure: 'Not X, not Y, but Z'—it's everywhere, combined with the trope of 'hums'. And yet this exact style won a literary award."</div>
-<div class="voice-meta">
-<span>Nabeel S. Qureshi · AI Researcher · X/Twitter</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Everything around me being someone's life's work is an assumption that may no longer hold true."</div>
-<div class="voice-meta">
-<span>Ethan Mollick · Wharton Professor · X/Twitter</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Today's Summary</div>
-<article class="chapter"><div class="prose">There is a recurring thread today:<span class="turn">seeing and being seen</span>. In the Weights lets you see how deep you are in AI's memory—a score of zero means AI can't see you, but your relationship with AI is one of a kind in the universe. The Atlantic's database lets you see whose AI consumed your songs—finally turning a black box transparent. Anthropic pausing its billing lets you see the loop of agents using themselves and bills inflating themselves.</div></article>
-<article class="chapter"><div class="prose">Another thread:<span class="turn">that effort is meaningful</span>.</div></article>
-<article class="chapter"><div class="prose">Readers prefer books before 2022—you can feel the authors struggling, and Gravina captured what everyone feels deep down:<span class="accent">that effort is meaningful</span>.</div></article>
-<article class="chapter"><div class="prose">Mollick goes further—the underlying assumptions by which we assign value to things<span class="turn">are loosening</span>.</div></article>
-<article class="chapter"><div class="prose">Qureshi's finding hits even harder—AI's most obvious flaws happen to be what literary award judges<span class="accent">love to write</span>.</div></article>
-<article class="chapter"><div class="prose">Summer Solstice—the longest day of the year. Keogram compresses 365 days of the sky into a single image, the shape of time. Today's news is the same—<span class="num">AI is reshaping who is seen, who is forgotten, and what counts as value.</span>.</div></article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Be Curious 🌌</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://github.com/ChopRateJas/headroom" rel="noopener" target="_blank">GitHub</a> · <a href="https://aitoolly.com/ai-news/2026-06-21" rel="noopener" target="_blank">aitoolly</a></div>
+</div>
+<div class="item">
+<div class="body"><p>Inputs Compressed, Outputs Unchanged—New Rules of Code Economics · Unsplash</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Yet I can't help feeling that effort is meaningful."</p>
+<p class="voice-who">Lorenzo Gravina · Product Manager/Blogger · notes.lorenzogravina.com</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI novels have a signature sentence structure: 'Not X, not Y, but Z'—it's everywhere, combined with the trope of 'hums'. And yet this exact style won a literary award."</p>
+<p class="voice-who">Nabeel S. Qureshi · AI Researcher · X/Twitter</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Everything around me being someone's life's work is an assumption that may no longer hold true."</p>
+<p class="voice-who">Ethan Mollick · Wharton Professor · X/Twitter</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Today's Summary</div>
+<div class="sec-title">Today's Summary</div>
+<div class="item">
+<div class="body">There is a recurring thread today:<span class="turn">seeing and being seen</span>. In the Weights lets you see how deep you are in AI's memory—a score of zero means AI can't see you, but your relationship with AI is one of a kind in the universe. The Atlantic's database lets you see whose AI consumed your songs—finally turning a black box transparent. Anthropic pausing its billing lets you see the loop of agents using themselves and bills inflating themselves.</div></div>
+<div class="item">
+<div class="body">Another thread:<span class="turn">that effort is meaningful</span>.</div></div>
+<div class="item">
+<div class="body">Readers prefer books before 2022—you can feel the authors struggling, and Gravina captured what everyone feels deep down:<span class="accent">that effort is meaningful</span>.</div></div>
+<div class="item">
+<div class="body">Mollick goes further—the underlying assumptions by which we assign value to things<span class="turn">are loosening</span>.</div></div>
+<div class="item">
+<div class="body">Qureshi's finding hits even harder—AI's most obvious flaws happen to be what literary award judges<span class="accent">love to write</span>.</div></div>
+<div class="item">
+<div class="body">Summer Solstice—the longest day of the year. Keogram compresses 365 days of the sky into a single image, the shape of time. Today's news is the same—<span class="num">AI is reshaping who is seen, who is forgotten, and what counts as value.</span>.</div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Keogram 2025 · A whole year's sky compressed into one image—365 days unfolding from left to right, dawn and dusk forming two golden arcs, auroras suddenly lighting up in winter · Photographer Bassa · NASA APOD · June 21, 2026 (Summer Solstice Special)" loading="lazy" src="https://apod.nasa.gov/apod/image/2606/Keogram2025_Bassa_960.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Keogram 2025 · A whole year's sky compressed into one image—365 days unfolding from left to right, dawn and dusk forming two golden arcs, auroras suddenly lighting up in winter · Photographer Bassa · NASA APOD · June 21, 2026 (Summer Solstice Special)</div>
 <p style="margin-bottom:8px; line-height:1.8;">Summer Solstice—the longest day of the year. Keogram compresses 365 days of the sky into a single image, the shape of time.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-06-20.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-06-22.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

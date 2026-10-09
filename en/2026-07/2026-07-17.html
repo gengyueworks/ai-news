@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-17</span>
-<span>Friday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-17</h1><p class="doc-date">2026-07-17 · Friday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Robots take center stage today as NVIDIA packages Jetson Thor compute into pluggable modules, built directly into robot dogs and factory equipment.Another key trend focuses on on-device model deployment: Apple, Huawei, OPPO, and vivo file batch registrations, while StepFun unveils its native AI agent smartphone on the eve of WAIC.Venture capital remains active with SambaNova securing $1 billion, though more notably, Google and Tencent have advanced their runnable open-source tools.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Friday, July 17, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Robots take center stage today as NVIDIA packages Jetson Thor compute into pluggable modules, built directly into robot dogs and factory equipment.Another key trend focuses on on-device model deployment: Apple, Huawei, OPPO, and vivo file batch registrations, while StepFun unveils its native AI agent smartphone on the eve of WAIC.Venture capital remains active with SambaNova securing $1 billion, though more notably, Google and Tencent have advanced their runnable open-source tools.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · NVIDIA · Robot Modules</div>
-<h2 class="chapter-title">NVIDIA turns Jetson Thor into modular chips for edge LLM inference without cloud dependency, but the real battle is just beginning</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-17 · NVIDIA · Robot Modules</div>
+<div class="item-title">NVIDIA turns Jetson Thor into modular chips for edge LLM inference without cloud dependency, but the real battle is just beginning</div>
+<div class="body">
 <p><strong>NVIDIA releases the Jetson Thor module series (T2000 and T3000), transforming Thor compute originally intended for robotics into pluggable modules.</strong>Single-module compute reaches approximately <span class="num">2000</span> TOPS, enabling local execution of multimodal large models directly on robot dogs, robotic arms, and factory inspection gear without data center offloading.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="NVIDIA turns Jetson Thor into modular chips for edge LLM inference without cloud dependency, but the real battle is just beginning · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/robotics-jetson-thor.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -284,15 +274,16 @@
 <li>Targeting Robot Dogs, Robotic Arms, and Factory Inspection</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: NVIDIA Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · Edge AI · Batch Registration</div>
-<h2 class="chapter-title">Apple, Huawei, OPPO, and vivo file batch registrations for on-device LLMs, clearing regulatory hurdles as the real battle begins</h2>
-<div class="prose">
+<div class="src-line">Sources: NVIDIA Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-17 · Edge AI · Batch Registration</div>
+<div class="item-title">Apple, Huawei, OPPO, and vivo file batch registrations for on-device LLMs, clearing regulatory hurdles as the real battle begins</div>
+<div class="body">
 <p><strong>Multiple smartphone makers completed regulatory filings for their on-device large models this week, covering intelligent edge features from Apple, Huawei, OPPO, and vivo.</strong>Registration ensures these models can be legally invoked on domestic devices, transitioning edge assistants from laboratory features to default capabilities.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Apple, Huawei, OPPO, and vivo file batch registrations for on-device LLMs, clearing regulatory hurdles as the real battle begins · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/my2cents-07-17.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -301,12 +292,12 @@
 <p>Meanwhile, JD.com's agent integrates with Tencent Yuanbao, allowing users to directly invoke Yuanbao within JD to handle orders and customer service.<span class="turn">Edge competition is shifting from 'whose model is fastest' to 'whose model can legally reside on the user's phone.'</span></p>
 <p>Multiple smartphone vendors complete batch filings for edge LLMs.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-17" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · StepFun · Native Agent Smartphone</div>
-<h2 class="chapter-title">StepFun launches STEPX Neo, a smartphone designed for agents rather than apps</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-17" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-17 · StepFun · Native Agent Smartphone</div>
+<div class="item-title">StepFun launches STEPX Neo, a smartphone designed for agents rather than apps</div>
+<div class="body">
 <p><strong>StepFun debuted STEPX Neo on the eve of WAIC, positioning it as an 'LLM-native agent smartphone' driven directly at the system layer by AI agents, allowing users to execute tasks like tapping apps, filling forms, and chaining cross-app workflows using natural language.</strong>This goes beyond reskinning a voice assistant, placing the agent directly at the foundational layer of the operating system.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="StepFun launches STEPX Neo, a smartphone designed for agents rather than apps · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/stepx-neo-booth.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -315,12 +306,12 @@
 <p>The showcase also highlighted multi-agent collaboration: one managing planning, one execution, and one verification.<span class="turn">As phones ship with a built-in 'active workforce,' the battle for user touchpoints moves from chat boxes to the entire OS.</span></p>
 <p>StepFun STEPX Neo LLM-native agent smartphone.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.stepfun.com/news/stepx-neo" rel="noopener" target="_blank">StepFun Official</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · Xiaomi · Robots Enter the Factory</div>
-<h2 class="chapter-title">Xiaomi robot internship progress report: screw-driving success rate rises from 90.2% to 98%</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.stepfun.com/news/stepx-neo" rel="noopener" target="_blank">StepFun Official</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-17 · Xiaomi · Robots Enter the Factory</div>
+<div class="item-title">Xiaomi robot internship progress report: screw-driving success rate rises from 90.2% to 98%</div>
+<div class="body">
 <p><strong>After roughly a quarter of factory internship, Xiaomi's robots have improved their bilateral operation success rate at the self-tapping nut assembly station from <span class="num">90.2%</span> at the start of the year to <span class="num">98%</span>, coming just one percentage point shy of the 99% accuracy achieved by human workers.</strong>They also unlocked two new stations: center console side-cover sorting and bin folding/recycling, both achieving over 90% success rates.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Xiaomi robot internship progress report: screw-driving success rate rises from 90.2% to 98% · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/xiaomi-robot.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -329,12 +320,12 @@
 <p>More importantly, multi-machine collaboration allows several robots to synchronize pacing via factory systems and operate stably.<span class="turn">Being fully 'hired' is just 1% away, driven not by flashy demos, but by thousands of flawless repetitions.</span></p>
 <p>Xiaomi robots performing multi-machine collaborative tasks.</p>
 </div>
-<div class="sources-bar">Sources: Tencent News · <a href="https://post.m.smzdm.com/p/awwx380k" rel="noopener" target="_blank">SMZDM</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · Moonshot AI · Open Weights</div>
-<h2 class="chapter-title">Kimi K3 Released, 2.8T Parameters: History's Largest Open Model Tops Frontend Coding, Beating Claude Fable 5</h2>
-<div class="prose">
+<div class="src-line">Sources: Tencent News · <a href="https://post.m.smzdm.com/p/awwx380k" rel="noopener" target="_blank">SMZDM</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-17 · Moonshot AI · Open Weights</div>
+<div class="item-title">Kimi K3 Released, 2.8T Parameters: History's Largest Open Model Tops Frontend Coding, Beating Claude Fable 5</div>
+<div class="body">
 <p><strong><span class="accent">Moonshot AI</span>Released Kimi K3, a Mixture-of-Experts (MoE) model with <span class="num">2.8</span> trillion total parameters and <span class="num">1040</span> billion active parameters per token,, <span class="num">896</span> active experts routed per token out of <span class="num">16</span>, featuring a <span class="num">100</span> million-token context window, native multimodal input, and a commitment to open-source <span class="num">7</span> all weights on <span class="num">27</span>.</strong>In terms of parameter scale alone, it is the largest open-weight candidate in history.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Kimi K3 Released, 2.8T Parameters: History's Largest Open Model Tops Frontend Coding, Beating Claude Fable 5 · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/kimi-k3-key.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -345,15 +336,16 @@
 <p>Architecturally, its attention mechanism functions as "memory":<span class="accent">Kimi Delta Attention (KDA)</span>the team claims decoding is <span class="num">6.3</span> x faster in million-token contexts, and Attention Residuals reportedly improve training efficiency by about <span class="num">25%</span>. Several engineers immediately compared this release to the "DeepSeek moment for the open-source world."<span class="turn">With 2.8 trillion weights promised in ten days and a win over top closed models in frontend engineering, the time gap between open and closed sources has compressed from months to weeks.</span></p>
 <p>Moonshot AI releases Kimi K3 MoE model.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-kimi-k3-28t-a50b-the-largest" rel="noopener" target="_blank">AINews</a> · <a href="https://www.kimi.com/blog/kimi-k3" rel="noopener" target="_blank">Moonshot AI Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Front</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · Google · Terminal Agent</div>
-<h2 class="chapter-title">Google Open-Sources Agents CLI, Run Multi-Step Agents Directly in the Terminal</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-kimi-k3-28t-a50b-the-largest" rel="noopener" target="_blank">AINews</a> · <a href="https://www.kimi.com/blog/kimi-k3" rel="noopener" target="_blank">Moonshot AI Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Front</div>
+<div class="sec-title">Open Source Front</div>
+<div class="item">
+<div class="dateline">07-17 · Google · Terminal Agent</div>
+<div class="item-title">Google Open-Sources Agents CLI, Run Multi-Step Agents Directly in the Terminal</div>
+<div class="body">
 <p><strong>Google has open-sourced Agents CLI, a tool for orchestrating multi-step agents in the command line: give it a goal, and it breaks down tasks, calls tools, checks results, and determines the next steps, all within the terminal.</strong>The project has gained over <span class="num">5100</span>+ stars in days, targeting developers looking to script agents into pipelines and CI workflows.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Google Open-Sources Agents CLI, Run Multi-Step Agents Directly in the Terminal · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/google-agents-cli.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -362,12 +354,12 @@
 <p>It brings agents out of chat windows and into developers' most familiar environment.<span class="turn">When agents can be written into a single command like grep, automation truly enters the workflow.</span></p>
 <p>Google Open-Sources Agents CLI Terminal Agent.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/google/agents-cli" rel="noopener" target="_blank">GitHub · google/agents-cli</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · Tencent · Edge Quantization</div>
-<h2 class="chapter-title">Tencent Releases Hy3 Quantized Version, 295B Model Compressed to 85GB, Runs on a Single GPU</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/google/agents-cli" rel="noopener" target="_blank">GitHub · google/agents-cli</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-17 · Tencent · Edge Quantization</div>
+<div class="item-title">Tencent Releases Hy3 Quantized Version, 295B Model Compressed to 85GB, Runs on a Single GPU</div>
+<div class="body">
 <p><strong>Tencent has open-sourced a quantized version of Hunyuan Hy3, compressing a <span class="num">2950</span> -billion-parameter model down to about <span class="num">85GB</span>, enabling inference on a single high-VRAM GPU with weights and quantization schemes released together.</strong>For small teams looking to deploy large models locally, this offers another path to bring flagship models out of the cloud.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Tencent Releases Hy3 Quantized Version, 295B Model Compressed to 85GB, Runs on a Single GPU · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/seedream-antarctic.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -375,85 +367,93 @@
 </div>
 <p>Edge-deployable and single-GPU compatibility are shifting from selling points to baselines.<span class="turn">Whoever can compress large models to be small and stable holds the ticket to private deployment.</span></p>
 </div>
-<div class="sources-bar">Sources: GitHub · Tencent</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Quotes</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"The real difficulty of robotics isn't whether it can move, but whether it can keep making the right decisions."</div>
-<div class="voice-meta">
-<span>, Pieter Abbeel · UC Berkeley Robotics Professor</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Most production AI will shift to open-source or private, leaving frontier models for high-value tasks."</div>
-<div class="voice-meta">
-<span>, Clem Delangue · Hugging Face</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · WPS Office · Office Agent</div>
-<h2 class="chapter-title">WPS Office Launches Lingxi Pro, Enabling WPS to Write Formulas and Process Long Documents autonomously</h2>
-<div class="prose">
+<div class="src-line">Sources: GitHub · Tencent</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Quotes</div>
+<div class="sec-title">Quotes</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"The real difficulty of robotics isn't whether it can move, but whether it can keep making the right decisions."</p>
+<p class="voice-who">, Pieter Abbeel · UC Berkeley Robotics Professor</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Most production AI will shift to open-source or private, leaving frontier models for high-value tasks."</p>
+<p class="voice-who">, Clem Delangue · Hugging Face</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-17 · WPS Office · Office Agent</div>
+<div class="item-title">WPS Office Launches Lingxi Pro, Enabling WPS to Write Formulas and Process Long Documents autonomously</div>
+<div class="body">
 <p><strong>WPS Office has released WPS Lingxi Pro and WPS Comate, embedding AI from "dialogue boxes" directly into document, spreadsheet, and presentation editing workflows: highlight a dataset to write formulas, create pivot tables, and generate reports, or automatically parse structures and summarize long documents.</strong>The selling point isn't "chat capability," but "taking action right next to the line you want to edit."</p>
 <p>The moat of office software is shifting from formatting capabilities to "getting the job done for you."<span class="turn">When tools begin to understand your documents rather than waiting for your commands, spreadsheets and slides become conversational objects.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.kingsoft.com/news/wps-lingxi-pro" rel="noopener" target="_blank">WPS Office Official</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · ByteDance · Image Generation</div>
-<h2 class="chapter-title">ByteDance Seedream 5.0 Pro, Depicting a Research Station as a Real Place in a Single Image</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.kingsoft.com/news/wps-lingxi-pro" rel="noopener" target="_blank">WPS Office Official</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-17 · ByteDance · Image Generation</div>
+<div class="item-title">ByteDance Seedream 5.0 Pro, Depicting a Research Station as a Real Place in a Single Image</div>
+<div class="body">
 <p><strong>ByteDance has released Seedream 5.0 Pro, focusing not on "beauty" but on "accuracy": significant improvements in complex composition, multi-object handling in long text, and geometric consistency in scientific scenarios (such as Antarctic research station cross-sections).</strong>Given a description with dimensions and structure, it places buildings, equipment, and pipelines where they belong rather than randomly collaging them.</p>
 <p>For visual creators, the value lies in "controllability."<span class="turn">The more specific your instructions, the more it builds according to the blueprint rather than doodling from impression.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://seed.bytedance.com/zh/seedream" rel="noopener" target="_blank">ByteDance Seed Official</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · SambaNova · Compute Financing</div>
-<h2 class="chapter-title">SambaNova Secures $1B Series F, Valued at $11B</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://seed.bytedance.com/zh/seedream" rel="noopener" target="_blank">ByteDance Seed Official</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Capital Flows</div>
+<div class="sec-title">Investment &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">07-17 · SambaNova · Compute Financing</div>
+<div class="item-title">SambaNova Secures $1B Series F, Valued at $11B</div>
+<div class="body">
 <p><strong>AI compute chip and systems company SambaNova has completed <span class="num">10</span> billion-dollar Series F financing, reaching a valuation of approximately <span class="num">110</span> billion dollars, with funds primarily directed toward proprietary inference chips and enterprise deployment stacks.</strong>Amid persistent GPU supply tightness, capital is voting with its wallet for "non-NVIDIA" inference routes.</p>
 <p>The landscape for training chips is largely settled, while the market for inference chips remains wide open.<span class="turn">Whoever drives down the cost of each inference will capture the next biggest contract.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-17" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>Today's keyword is "Deployment."</p>
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-17" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>Today's keyword is "Deployment."</p>
 <p>On one hand, NVIDIA packages robotic compute into modules, Xiaomi robots achieve a 98% screw-driving success rate, and embodied AI transitions from videos to production lines.</p>
 <p>On the other hand, edge large models pass regulatory filings en masse, StepFun integrates agents into mobile OS layers, and Google and Tencent deliver autonomous open-source tools to developers' fingertips.</p>
 <p>Capital is betting on the exact same thesis: SambaNova's $1 billion buys the path on the inference side not yet dominated by NVIDIA.</p>
 <p>Brute-force model strength is no longer the sole narrative.</p>
-<p>Legitimately residing in devices, consistently operating accurately, and running cost-effectively are the three themes laid out today.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p>Legitimately residing in devices, consistently operating accurately, and running cost-effectively are the three themes laid out today.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The Patagonian Andes are outlined by a fresh layer of snow in the early Southern Hemisphere autumn of 2026." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/snow-in-patagonia/patagoniasnow_tmo_20260403_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The Patagonian Andes are outlined by a fresh layer of snow in the early Southern Hemisphere autumn of 2026.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Snow in the Shadow of the Andes · NASA · <span class="num">45.00°S, 72.00°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of reading AI news, there are still places on Earth that don't require GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let's stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-16.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-18.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

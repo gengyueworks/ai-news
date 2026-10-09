@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,136 +250,141 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-06-05</span>
-<span>Friday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-06-05</h1><p class="doc-date">2026-06-05 · Friday</p>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Friday, June 5, 2026</p>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter">
-<h2 class="chapter-title">269-Page Federal AI Framework Draft Dropped—3-Year Preemption, Superseding All 50 State Laws</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="item-title">269-Page Federal AI Framework Draft Dropped—3-Year Preemption, Superseding All 50 State Laws</div>
+<div class="body">
 <p>The U.S. federal level has seen the most comprehensive AI regulatory framework draft in history.<span class="num">"Great American AI Act"</span>(Great American AI Act) discussion draft—co-drafted by a bipartisan team, 269 pages spanning 12 chapters.</p>
 <p>The core mechanism is straightforward:<span class="accent">Federal preemption for the first 3 years</span>. The bill requires large AI developers with over $500 million in annual revenue to publish "frontier AI frameworks" disclosing whether their models pose "catastrophic risks"—defined as foreseeable material risks resulting in over 50 deaths/injuries or over $1 billion in property damage. Frameworks and updates must be published annually.</p>
 <p>Who investigates? The bill establishes under NIST the <span class="num">CAISI</span>(Center for AI Standards and Innovation) into law, authorizing a 3-year, $300 million budget to hire "critical technical experts" above government salary caps. CAISI certifies Independent Validation Organizations (IVOs), funded by major developers, to audit every six months. Audit results are reported to CAISI and can be referred to the Department of Justice for civil litigation.<span class="turn">Failed audit? The Attorney General can sue you. State attorneys general can also join.</span></p>
 <p>Safety incidents must be reported within 15 days, and imminent risks within 24 hours. The bill also protects whistleblowers. CAISI's own authorization is also for 3 years, terminating upon expiration.</p>
 <p><span class="turn">Why it matters to you: This directly overrides Colorado's state AI law taking effect on June 30. If passed at the federal level, AI development regulations across all 50 states will be unified within 3 years—provided it successfully completes the legislative process.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://rollcall.com/2026/06/04/bipartisan-ai-draft-proposes-three-year-preemption-of-state-laws/" rel="noopener" target="_blank">Roll Call</a> · DLA Piper · Cybersecurity Dive · Nextgov/FCW</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<h2 class="chapter-title">Anthropic Discloses Internal Data: Claude Writes Over 80% of Code—Internal Staff Are Already Asking "What Do I Do Anymore"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://rollcall.com/2026/06/04/bipartisan-ai-draft-proposes-three-year-preemption-of-state-laws/" rel="noopener" target="_blank">Roll Call</a> · DLA Piper · Cybersecurity Dive · Nextgov/FCW</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="item-title">Anthropic Discloses Internal Data: Claude Writes Over 80% of Code—Internal Staff Are Already Asking "What Do I Do Anymore"</div>
+<div class="body">
 <p>The Anthropic Institute published a report titled <span class="num">"When AI Builds Itself"</span>, releasing internal data at scale for the first time. The most striking data point:<span class="accent">80%+</span> Code merged into Anthropic's production codebase is written by Claude. Before the release of Claude Code in February 2025, this figure was in the single digits.</p>
 <p>In Q2 2026, the volume of code merged per Anthropic engineer per day was <span class="accent">8x</span>that of 2024. The report quoted an engineer: "I started fully 'Claudify'-ing my workflow about a year ago. It's been crazy over the past six months—<span class="turn">I haven't written a single line of code myself in about 5 months</span>."</p>
 <p>". But it's not just excitement. Another quote captured the same person's feelings when work goes smoothly:<span class="accent">"When things are going well, I feel like nothing I do matters"</span>—and when the system crashes, they realize they have no idea where the problem is.</p>
 <p>The other half of the report:<span class="num">Anthropic Publicly Calls for Verifiable Global Pause Mechanism</span>. The company stated that if other frontier labs agree to a verifiable pause, it is willing to stop or slow down as well. The report stated: "If other companies continue and you pause, you lose your lead." Comparing it to the INF nuclear treaty—those verification mechanisms took decades to build, whereas Anthropic says "we don't have that kind of time."</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.anthropic.com/institute/recursive-self-improvement" rel="noopener" target="_blank">Anthropic</a> · Business Insider · The Decoder · CNN</div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">European Data Protection Board Rules: ChatGPT's Persistent Memory Constitutes "Profiling"—GDPR Obligations Take Effect Immediately</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.anthropic.com/institute/recursive-self-improvement" rel="noopener" target="_blank">Anthropic</a> · Business Insider · The Decoder · CNN</div>
+</div>
+<div class="item">
+<div class="item-title">European Data Protection Board Rules: ChatGPT's Persistent Memory Constitutes "Profiling"—GDPR Obligations Take Effect Immediately</div>
+<div class="body">
 <p>The day after OpenAI launched Dreaming V3,<span class="num">the European Data Protection Board (EDPB)</span> released a preliminary opinion: the persistent memory of AI systems constitutes <span class="accent">profiling under the GDPR</span>. This is not a future obligation—requirements like user consent, right to deletion, and data minimization apply right now, waiting for no one.</p>
 <p>The EDPB's stance is clear: a system that automatically reads a user's multi-year chat history, continuously synthesizes and updates personal profiles, and retains the memory layer even after users delete conversations is no longer a "convenience feature," but is engaging in <span class="turn">behavioral profiling</span>. GDPR regulations on profiling apply from day one: Is there a legal basis? Is it transparent? Can users truly delete their data?</p>
 <p>Before releasing Dreaming V3, OpenAI invited the EFF and Berkman Klein Center for a privacy review. The EFF's preliminary assessment was that "the level of privacy engineering is significantly higher than typical consumer AI"—but that's relative, not a free pass.<span class="turn">The GDPR standard is not "better than peers," but "compliant."</span></p>
 <p>Yet OpenAI itself admits: the memory summary page does not necessarily contain everything the system remembers. Deleting a single chat does not remove the memories extracted from it. The audit trail actually narrows. This creates a fundamental contradiction with the EDPB's requirement that users must be able to "truly delete" their data.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://awesomeagents.ai/news/openai-dreaming-v3-memory-wars/" rel="noopener" target="_blank">Awesome Agents</a> · TechTimes · Moselwal · OpenAI</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Pivot</div>
-<article class="chapter">
-<h2 class="chapter-title">Microsoft AI Head: Contract with OpenAI Renegotiated Six Months Ago—We Were "Unleashed" to Pursue AGI</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://awesomeagents.ai/news/openai-dreaming-v3-memory-wars/" rel="noopener" target="_blank">Awesome Agents</a> · TechTimes · Moselwal · OpenAI</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Pivot</div>
+<div class="sec-title">Pivot</div>
+<div class="item">
+<div class="item-title">Microsoft AI Head: Contract with OpenAI Renegotiated Six Months Ago—We Were "Unleashed" to Pursue AGI</div>
+<div class="body">
 <p>VentureBeat interviewed at Build 2026 <span class="num">Mustafa Suleyman</span>, CEO of Microsoft AI. In the interview, he disclosed a key piece of information:<span class="accent">About six months ago, Microsoft renegotiated its contract with OpenAI</span>, lifting several clauses that previously restricted Microsoft from independently developing AI.</p>
 <p>Specific restrictions included: Microsoft was explicitly barred from training large models on its own, with the contract even setting scale caps calculated in FLOPS. After modifying the contract, these restrictions were removed, and Suleyman immediately formed the MAI Superintelligence Team, releasing 7 proprietary models at Build spanning reasoning, code, images, speech, and other modalities.</p>
 <p><span class="turn">Suleyman's exact words: "We were essentially 'unleashed' from our contract with OpenAI about six months ago, officially allowing us to pursue superintelligence. So it's still early days."</span>—Yet launching seven models simultaneously indicates preparation began long ago. OpenAI remains Microsoft's partner and model provider, but Microsoft is no longer just a "model buyer."</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://venturebeat.com/technology/microsoft-ai-chief-says-company-was-set-free-from-openai-to-pursue-superintelligence" rel="noopener" target="_blank">VentureBeat</a> · The Verge</div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">OpenAI Codex Breaks Out of Coding—Builds Dedicated Plugins for Analysts, Sales, and Designers</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://venturebeat.com/technology/microsoft-ai-chief-says-company-was-set-free-from-openai-to-pursue-superintelligence" rel="noopener" target="_blank">VentureBeat</a> · The Verge</div>
+</div>
+<div class="item">
+<div class="item-title">OpenAI Codex Breaks Out of Coding—Builds Dedicated Plugins for Analysts, Sales, and Designers</div>
+<div class="body">
 <p>OpenAI announced that Codex is no longer just an "AI editor for programmers." It released <span class="num">6 role-specific plugins</span>: Data Analysis, Creative Production, Sales, Product Design, Stock Investing, and Investment Banking—each plugin packages application integrations and skills for its corresponding workflow. In total, it supports 62 popular apps and 110 skills.</p>
 <p>Key metrics:<span class="accent">5 million+</span> people use Codex weekly, with non-developers accounting for <span class="accent">20%</span>—and their growth rate is <span class="accent">3x</span>that of developers. OpenAI also introduced <span class="num">Sites</span>(turning analysis results into shareable internal web pages with one click) and the expanded <span class="num">Annotaions</span>(now supporting partial edits for documents, spreadsheets, and presentations).</p>
 <p><span class="turn">What it means for you: Codex doesn't want to just "help programmers write code"; it wants to "help everyone build things with AI without writing code."</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://pulse2.com/openai-codex-introduces-role-specific-plugins-sites-and-annotations-to-expand-beyond-software-development/" rel="noopener" target="_blank">OpenAI · Pulse2</a> · MarketingProfs</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<h2 class="chapter-title">Google Launches Colab CLI—Direct GPU Access from the Terminal, Agent-Ready</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://pulse2.com/openai-codex-introduces-role-specific-plugins-sites-and-annotations-to-expand-beyond-software-development/" rel="noopener" target="_blank">OpenAI · Pulse2</a> · MarketingProfs</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="item-title">Google Launches Colab CLI—Direct GPU Access from the Terminal, Agent-Ready</div>
+<div class="body">
 <p>Google has released the <span class="num">Colab CLI</span>, bridging local terminals and remote Colab runtimes. You can now use <span class="num">colab --gpu A100</span> to instantly provision a high-performance GPU environment, run Python scripts locally, and pull results back using colab download.</p>
 <p>Colab CLI is open-source under Apache 2.0. It includes a built-in <span class="num">agent skill file</span>(COLAB_SKILL.md), allowing any terminal-capable AI agent (Claude Code, Codex, AutoGPT, etc.) to directly read the file and learn how to use Colab CLI. Google's example: having an agent fine-tune Gemma 3 1B on Colab using QLoRA—fully automated.</p>
 <p><span class="turn">Developers' immediate reaction was straightforward: Fedir Martynov said, "Calling T4 GPUs from the terminal is the right direction, but let's hope authentication and quotas don't turn into a browser verification loop—that will kill Agents."</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://developers.googleblog.com/en/introducing-the-google-colab-cli/" rel="noopener" target="_blank">Google Developers Blog</a> · InfoQ · Help Net Security · MarkTechPost</div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">Perplexity Builds "Hybrid Inference Scheduler"—Sensitive Data Computed Locally, Other Tasks Sent to Cloud</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://developers.googleblog.com/en/introducing-the-google-colab-cli/" rel="noopener" target="_blank">Google Developers Blog</a> · InfoQ · Help Net Security · MarkTechPost</div>
+</div>
+<div class="item">
+<div class="item-title">Perplexity Builds "Hybrid Inference Scheduler"—Sensitive Data Computed Locally, Other Tasks Sent to Cloud</div>
+<div class="body">
 <p>Perplexity announced at Computex 2026 its <span class="num">hybrid local-server inference scheduler</span>, reportedly the industry's first. The system automatically determines where a task should be executed: tasks involving sensitive information like financial records and health data remain on local devices for computation; tasks requiring massive reasoning capabilities are automatically routed to the cloud.</p>
 <p>This system is model-agnostic and chip-agnostic—confirmed to run on Intel Core Ultra Series 3 and NVIDIA RTX Spark. It launches on Perplexity Computer in July. Perplexity Personal Computer (local version) is already running on Mac, with the Windows version open for waitlist.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.marktechpost.com/2026/06/05/perplexity-ai-introduces-hybrid-local-server-inference-orchestrator-for-personal-computer-automatic-on-device-and-cloud-task-routing/" rel="noopener" target="_blank">MarkTechPost</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"I started fully 'Claudify'-ing my work about a year ago. It's been pretty crazy over the past six months—I haven't written a line of code myself in about 5 months."</div>
-<div class="voice-meta">
-<span>Anthropic Engineer · Anthropic Institute "When AI Builds Itself" Report · June 5</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"When things go smoothly I feel like nothing matters, and when the system crashes I realize I have no idea what I'm doing."</div>
-<div class="voice-meta">
-<span>Same Anthropic Engineer · Business Insider Report · June 5</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Colab's new terminal-based T4 GPU access is the right direction. Hope auth and quotas aren't another browser verification loop— that will kill Agents."."</div>
-<div class="voice-meta">
-<span>Fedir Martynov · Developer · X/Twitter · June 5</span>
-<a href="https://developers.googleblog.com/en/introducing-the-google-colab-cli/" rel="noopener" target="_blank">Read Original →</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Daily Summary</div>
-<article class="chapter"><div class="prose">Today's clear thread:<span class="turn">Who has the authority to decide how AI develops and when to pause</span>.</div></article>
-<article class="chapter"><div class="prose">The largest federal AI framework draft in history has been dropped—269 pages, 50-state uniformity, 3-year term, independent audits, and whistleblower protection. Simultaneously, Anthropic released its own data—80% of code written by AI, with engineers experiencing existential crises in the office—and then said, "We need a brake."</div></article>
-<article class="chapter"><div class="prose">On the same day, European regulators ruled that ChatGPT's rewritable memory profiling falls under GDPR jurisdiction. Microsoft stated it was unleashed six months ago to pursue superintelligence.</div></article>
-<article class="chapter"><div class="prose">In a single day, three directions moved forward simultaneously: lawmakers are writing rules, frontier labs are calling for brakes while accelerating the fastest themselves, and regulators say existing laws already apply.<span class="turn">These three forces are not in sync—but they are competing for the same thing: defining where AI goes next.</span></div></article>
-<article class="chapter"><div class="prose">On the other hand, Colab CLI and Perplexity's hybrid inference are quietly lowering the barrier—allowing everyday developers and agents to directly call GPUs from the terminal. Big rules are still being debated, but the tools are already in use.</div></article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Be Curious 🌌</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://www.marktechpost.com/2026/06/05/perplexity-ai-introduces-hybrid-local-server-inference-orchestrator-for-personal-computer-automatic-on-device-and-cloud-task-routing/" rel="noopener" target="_blank">MarkTechPost</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"I started fully 'Claudify'-ing my work about a year ago. It's been pretty crazy over the past six months—I haven't written a line of code myself in about 5 months."</p>
+<p class="voice-who">Anthropic Engineer · Anthropic Institute "When AI Builds Itself" Report · June 5</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"When things go smoothly I feel like nothing matters, and when the system crashes I realize I have no idea what I'm doing."</p>
+<p class="voice-who">Same Anthropic Engineer · Business Insider Report · June 5</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Colab's new terminal-based T4 GPU access is the right direction. Hope auth and quotas aren't another browser verification loop— that will kill Agents."."</p>
+<p class="voice-who">Fedir Martynov · Developer · X/Twitter · June 5 <a href="https://developers.googleblog.com/en/introducing-the-google-colab-cli/" rel="noopener" target="_blank">Read Original →</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Daily Summary</div>
+<div class="sec-title">Daily Summary</div>
+<div class="item">
+<div class="body">Today's clear thread:<span class="turn">Who has the authority to decide how AI develops and when to pause</span>.</div></div>
+<div class="item">
+<div class="body">The largest federal AI framework draft in history has been dropped—269 pages, 50-state uniformity, 3-year term, independent audits, and whistleblower protection. Simultaneously, Anthropic released its own data—80% of code written by AI, with engineers experiencing existential crises in the office—and then said, "We need a brake."</div></div>
+<div class="item">
+<div class="body">On the same day, European regulators ruled that ChatGPT's rewritable memory profiling falls under GDPR jurisdiction. Microsoft stated it was unleashed six months ago to pursue superintelligence.</div></div>
+<div class="item">
+<div class="body">In a single day, three directions moved forward simultaneously: lawmakers are writing rules, frontier labs are calling for brakes while accelerating the fastest themselves, and regulators say existing laws already apply.<span class="turn">These three forces are not in sync—but they are competing for the same thing: defining where AI goes next.</span></div></div>
+<div class="item">
+<div class="body">On the other hand, Colab CLI and Perplexity's hybrid inference are quietly lowering the barrier—allowing everyday developers and agents to directly call GPUs from the terminal. Big rules are still being debated, but the tools are already in use.</div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Hydra Cluster (Abell 1060) · Over 100 million light-years from Earth · Three main galaxies with diameters of ~150,000 light-years (two yellow elliptical galaxies NGC 3311 and NGC 3309, one blue spiral galaxy NGC 3312) · Photographer Rafael Sampaio · NASA APOD · 2026-06-05" loading="lazy" src="https://apod.nasa.gov/apod/image/2606/HydraClusterSampaio1024.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Hydra Cluster (Abell 1060) · Over 100 million light-years from Earth · Three main galaxies with diameters of ~150,000 light-years (two yellow elliptical galaxies NGC 3311 and NGC 3309, one blue spiral galaxy NGC 3312) · Photographer Rafael Sampaio · NASA APOD · 2026-06-05</div>
 <p style="margin-bottom:8px; line-height:1.8;">Galaxy clusters are bound together by gravity, and clusters loosely form superclusters—arranged in a web-like structure on a macro scale. This is the structural hierarchy of our observable universe.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-06-04.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-06-06.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

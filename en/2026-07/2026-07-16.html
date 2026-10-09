@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-16</span>
-<span>Thursday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI News <span>Daily</span> | 2026-07-16</h1><p class="doc-date">2026-07-16 · Thursday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today's biggest bombshell is Mira Murati's Thinking Machines releasing the fully open weights of the 975-billion-parameter Inkling, adding yet another heavyweight player to the open-source camp.Another underlying theme today is about "ownership": Nadella reminded enterprises they pay twice for proprietary models, Apple Intelligence landed in China powered by Alibaba's Qwen, and Meta was sued for using AI to compile layoff lists.Stronger models are no longer the only story. Who holds the weights, who holds the data, and who is accountable for algorithmic decisions are the three things laid bare today.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Thursday, July 16, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today's biggest bombshell is Mira Murati's Thinking Machines releasing the fully open weights of the 975-billion-parameter Inkling, adding yet another heavyweight player to the open-source camp.Another underlying theme today is about "ownership": Nadella reminded enterprises they pay twice for proprietary models, Apple Intelligence landed in China powered by Alibaba's Qwen, and Meta was sued for using AI to compile layoff lists.Stronger models are no longer the only story. Who holds the weights, who holds the data, and who is accountable for algorithmic decisions are the three things laid bare today.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · Thinking Machines · Open Weights</div>
-<h2 class="chapter-title">Inkling becomes the new U.S. open-source benchmark with an AI Index of 41, though not yet the world's strongest</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-16 · Thinking Machines · Open Weights</div>
+<div class="item-title">Inkling becomes the new U.S. open-source benchmark with an AI Index of 41, though not yet the world's strongest</div>
+<div class="body">
 <p><strong>Mira Murati's <span class="accent">Thinking Machines</span> releases its first fully open-source model Inkling:<span class="num">9750</span> B parameters, active per token <span class="num">410</span> B<span class="accent">Mixture-of-Experts architecture</span>, <span class="accent">Apache 2.0 license</span>, <span class="num">45</span> trillion-token multimodal pre-training, longest context for weighted version <span class="num">100</span> M tokens.</strong>Third-party evaluation agency <span class="accent">Artificial Analysis</span> added it to their intelligence index, scoring <span class="num">41</span>, becoming<span class="accent">the top rank in the U.S. open-source weight camp</span>, outperforming <span class="accent">NVIDIA Nemotron 3 Ultra</span> 's <span class="num">38</span>, <span class="accent">Gemma 4 31B</span> 's <span class="num">29</span>, and gpt-oss-120b's <span class="num">24</span>.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Inkling becomes the new U.S. open-source benchmark with an AI Index of 41, though not yet the world's strongest · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-16/6a585956400f2_6a5859563cd1b_6a5859563cce.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p>Two data points are worth noting. First, efficiency: Artificial Analysis measured that Inkling outputs an average of only <span class="num">2.5</span> M output tokens per intelligence index task, while GLM-5.2 max requires <span class="num">4.3</span> M, and Kimi K2.6 requires <span class="num">3.8</span> M. Second, pricing: on Tinker, 64K context input costs per million tokens <span class="num">1.87</span> USD, and output costs <span class="num">4.68</span> USD. The same event also previewed Inkling-Small,<span class="num">2760</span> B total parameters,<span class="num">120</span> B active.</p>
 <p>The ecosystem expanded on launch day: vLLM reported reaching up to <span class="num">380</span> tokens/sec/user on 4×GB200, and NVIDIA confirmed it was trained using GB300 NVL72.<span class="turn">When cutting-edge labs start handing over weights and admitting "I am not the strongest," another layer of the barrier between proprietary and open source is pierced.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-thinkys-inkling-975b-a41b" rel="noopener" target="_blank">AINews</a> · <a href="https://artificialanalysis.ai/models/inkling" rel="noopener" target="_blank">Artificial Analysis</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontlines</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · Apple · Chinese Regulation</div>
-<h2 class="chapter-title">Apple Intelligence gains regulatory approval in China, running on Alibaba's Qwen rather than Apple's own cloud, but the real tough battle is just beginning</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-thinkys-inkling-975b-a41b" rel="noopener" target="_blank">AINews</a> · <a href="https://artificialanalysis.ai/models/inkling" rel="noopener" target="_blank">Artificial Analysis</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontlines</div>
+<div class="sec-title">Frontlines</div>
+<div class="item">
+<div class="dateline">07-16 · Apple · Chinese Regulation</div>
+<div class="item-title">Apple Intelligence gains regulatory approval in China, running on Alibaba's Qwen rather than Apple's own cloud, but the real tough battle is just beginning</div>
+<div class="body">
 <p><strong>Chinese regulators have approved the domestic launch of Apple Intelligence, but features run on Alibaba's Qwen model rather than Apple's proprietary cloud model—a tradeoff made to meet local compliance requirements.</strong>Previously, Apple was delayed in launching AI features in China due to model and data compliance issues.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Apple Intelligence gains regulatory approval in China, running on Alibaba's Qwen rather than Apple's own cloud, but the real tough battle is just beginning · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-16/og-default.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -298,12 +289,12 @@
 <p>This unlocks a key market for Apple,<span class="turn">while bringing Western device makers' reliance on Chinese model providers to the forefront</span>: to enter China, local brains must be borrowed.</p>
 <p>Apple Intelligence gains China approval: runs on Alibaba's Qwen, not Apple's own cloud.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · Meta · Algorithmic Accountability</div>
-<h2 class="chapter-title">26 employees sue Meta, over an AI-compiled layoff list targeting those on leave</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-16 · Meta · Algorithmic Accountability</div>
+<div class="item-title">26 employees sue Meta, over an AI-compiled layoff list targeting those on leave</div>
+<div class="body">
 <p><strong><span class="num">26</span> current and former employees sued Meta in California federal court, claiming the company used an internal AI system, keyboard and activity monitoring, and token consumption dashboards to score, rank, and target employees for layoffs, systematically selecting those on medical, maternity, or parental leave, or with reduced productivity due to disabilities, because they failed to accumulate valid performance data.</strong>Meta denied the claims, stating decisions "were made by humans, not AI."</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="26 employees sue Meta, over an AI-compiled layoff list targeting those on leave · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-16/GettyImages-2285403793-e1784119712510.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -312,12 +303,12 @@
 <p>This isn't the first case, but it may be the most concrete one.<span class="turn">When algorithms make high-stakes decisions for humans, auditing them becomes an unavoidable question.</span>.</p>
 <p>26 employees sue Meta: AI-generated layoff lists targeted those on leave.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://fortune.com/2026/07/15/meta-workers-sue-over-ai-layoff-math" rel="noopener" target="_blank">Fortune</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · Suno · Copyright</div>
-<h2 class="chapter-title">Suno's leaked code shows that scraping YouTube audio to train music models</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://fortune.com/2026/07/15/meta-workers-sue-over-ai-layoff-math" rel="noopener" target="_blank">Fortune</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-16 · Suno · Copyright</div>
+<div class="item-title">Suno's leaked code shows that scraping YouTube audio to train music models</div>
+<div class="body">
 <p><strong>A security vulnerability exposed Suno's source code, seemingly showing that the AI music generation company scraped massive amounts of audio from YouTube for training.</strong>Suno is already facing lawsuits from music copyright holders, and this adds fuel to the fire regarding whether generated audio is built on unauthorized data.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Suno's leaked code shows that scraping YouTube audio to train music models · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-16/4f426efe2bc4b44ff3b3f2a56c5200ffe6214c57.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -325,115 +316,124 @@
 </div>
 <p>The ownership of training data is an unavoidable old debt for generative models.<span class="turn">The audio battlefront has now reached Suno.</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · OpenAI · Original Research</div>
-<h2 class="chapter-title">GPT-5.6 Sol helps professor disprove a 30-year-old statistical conjecture</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-16 · OpenAI · Original Research</div>
+<div class="item-title">GPT-5.6 Sol helps professor disprove a 30-year-old statistical conjecture</div>
+<div class="body">
 <p><strong>A University of Pennsylvania professor reported using GPT-5.6 Sol Pro in about <span class="num">90</span> minutes to disprove a decades-old conjecture on the Benjamini-Hochberg multiple testing procedure, which humans had failed to solve for years.</strong>The results are pending peer review; if confirmed, this marks another instance of frontier models producing original mathematical results.</p>
 <p>As models shift from "reproducing the known" to "delivering new conclusions,"<span class="turn">once this boundary holds, the role of researchers will need to be rewritten.</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · Poolside · Open Source Coding Models</div>
-<h2 class="chapter-title">Poolside Open-Sources Laguna, 33B for Local Execution, 225B for Long-Range Tasks</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontline</div>
+<div class="sec-title">Open Source Frontline</div>
+<div class="item">
+<div class="dateline">07-16 · Poolside · Open Source Coding Models</div>
+<div class="item-title">Poolside Open-Sources Laguna, 33B for Local Execution, 225B for Long-Range Tasks</div>
+<div class="body">
 <p><strong>Poolside has released two open-weight agentic coding models, Laguna XS 2.1 and M.1: XS 2.1 is <span class="num">33B</span> an MoE (activating <span class="num">3B</span>tokens per token) small enough to run locally on a single desktop GPU, while M.1 is <span class="num">225B</span>(activating <span class="num">23B</span>) flagship designed for long-range software engineering.</strong>The weights are released under Apache/OpenMDW licenses and integrate into local inference stacks like Ollama and vLLM.</p>
 <p>It clearly divides "coding models" into two tiers:<span class="turn">lightweight for the edge, heavy for the cloud, allowing enterprises to choose as needed.</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.poolside.ai/blog/introducing-laguna-xs-2-1" rel="noopener" target="_blank">Poolside Blog</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · PrismML · On-Device Inference</div>
-<h2 class="chapter-title">Bonsai 27B Compressed to Under 4GB, Running Inference Locally on iPhone</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.poolside.ai/blog/introducing-laguna-xs-2-1" rel="noopener" target="_blank">Poolside Blog</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-16 · PrismML · On-Device Inference</div>
+<div class="item-title">Bonsai 27B Compressed to Under 4GB, Running Inference Locally on iPhone</div>
+<div class="body">
 <p><strong>Startup PrismML has compressed a <span class="num">27-billion</span> -parameter reasoning model to under <span class="num">4GB</span>, reportedly retaining about <span class="num">90</span>% of its performance, making it small enough to run locally on an iPhone. The team states that Apple is currently testing this compression technology.</strong>This is yet another milestone in a string of efficient on-device models.</p>
 <p>For the first time, reasoning models can fit into smartphones,<span class="turn">This signifies that powerful models are no longer necessarily tied to the cloud and internet connectivity.</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"You pay twice for intelligence: once with money, and once by handing over the proprietary knowledge that makes the model useful."</div>
-<div class="voice-meta">
-<span>, Satya Nadella · Microsoft CEO</span>
-<a href="https://www.techradar.com/pro/you-essentially-pay-for-intelligence-twice-once-with-money-and-again-with-something-even-more-valuable-microsoft-ceo-satya-nadella-warns-ai-users-not-to-give-away-too-much" rel="noopener" target="_blank">TechRadar</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Frontier models will be reserved for experiments and high-value tasks, while most production AI will shift to open-source or private models."</div>
-<div class="voice-meta">
-<span>, Clem Delangue · Hugging Face CEO</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · Whatnot · Product Acquisition</div>
-<h2 class="chapter-title">Live shopping platform Whatnot acquires Shaped, bringing real-time recommendations into the livestreaming room</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"You pay twice for intelligence: once with money, and once by handing over the proprietary knowledge that makes the model useful."</p>
+<p class="voice-who">, Satya Nadella · Microsoft CEO <a href="https://www.techradar.com/pro/you-essentially-pay-for-intelligence-twice-once-with-money-and-again-with-something-even-more-valuable-microsoft-ceo-satya-nadella-warns-ai-users-not-to-give-away-too-much" rel="noopener" target="_blank">TechRadar</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Frontier models will be reserved for experiments and high-value tasks, while most production AI will shift to open-source or private models."</p>
+<p class="voice-who">, Clem Delangue · Hugging Face CEO</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-16 · Whatnot · Product Acquisition</div>
+<div class="item-title">Live shopping platform Whatnot acquires Shaped, bringing real-time recommendations into the livestreaming room</div>
+<div class="body">
 <p><strong>Live shopping platform Whatnot has acquired machine learning company Shaped, integrating the latter's real-time personalized recommendation infrastructure directly into its marketplace to recommend more relevant products to viewers during live broadcasts.</strong>This signals a "buy over build" trend for specialized recommendation ML among consumer platforms.</p>
 <p>Recommendation systems<span class="turn">are shifting from proprietary moats built by tech giants into off-the-shelf components.</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · SenseTime · Unified Vision</div>
-<h2 class="chapter-title">SenseTime Open-Sources SenseNova-Vision, One Model for Detection, Segmentation, Depth, and 3D</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-16 · SenseTime · Unified Vision</div>
+<div class="item-title">SenseTime Open-Sources SenseNova-Vision, One Model for Detection, Segmentation, Depth, and 3D</div>
+<div class="body">
 <p><strong>SenseTime has released and fully open-sourced its SenseNova-Vision unified vision foundation model for understanding and generation, covering structured visual understanding, dense geometric prediction, image segmentation, and multi-view 3D geometry with a single model<span class="num">Four</span>tasks, topping the Hugging Face Any-to-Any open-source leaderboard.</strong>Previously, these tasks were handled by independent expert models, resulting in fragmented systems.</p>
 <p>For visual creators, this means<span class="turn">no longer needing to maintain a stack of models for different tasks, handling open scenarios with a single foundation</span>, lifting the tool burden of the 'Frankensystem' era into a single model.</p>
 </div>
-<div class="sources-bar">Sources: Unified Vision</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment &amp; Funding Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-16 · Emergent · Financing</div>
-<h2 class="chapter-title">AI coding startup Emergent secures $130 million in Series C funding to become a unicorn</h2>
-<div class="prose">
+<div class="src-line">Sources: Unified Vision</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Funding Flows</div>
+<div class="sec-title">Investment &amp; Funding Flows</div>
+<div class="item">
+<div class="dateline">07-16 · Emergent · Financing</div>
+<div class="item-title">AI coding startup Emergent secures $130 million in Series C funding to become a unicorn</div>
+<div class="body">
 <p><strong>AI coding startup Emergent has completed <span class="num">130 million</span> dollar Series C round, entering the unicorn club just over a year after its founding, driven by approximately <span class="num">120 million</span> dollars in annual recurring revenue and <span class="num">200,000</span>+ customers.</strong>In the crowded agentic coding sector, it has proven with its revenue velocity that such tools can monetize quickly.</p>
 <p>Capital is using revenue instead of demo videos<span class="turn">to reprice "AIs that can write code".</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>Today's keyword is "ownership".</p>
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-16" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>Today's keyword is "ownership".</p>
 <p>On one side, Mira Murati has fully open-sourced the weights of the 975.0B-parameter Inkling, adding another mainstream player to the open camp.</p>
 <p>On the other, Nadella reminded enterprises that using proprietary models means paying twice, and Apple Intelligence relied on Alibaba's Qwen to launch in China.</p>
 <p>Meta is facing a lawsuit for using AI to generate layoff lists, and Suno has been exposed for training on scraped YouTube audio.</p>
 <p>Stronger models are no longer the only story.</p>
-<p>Who holds the weights, who holds the data, and who is accountable for algorithmic decisions are the three things laid bare today.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p>Who holds the weights, who holds the data, and who is accountable for algorithmic decisions are the three things laid bare today.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The V-shaped lakes of Maine are quieter than any large model's parameters." loading="lazy" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/153000/153734/letterv_oli2_20240602_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The V-shaped lakes of Maine are quieter than any large model's parameters.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Scopan Lake, Maine, USA · NASA · <span class="num">46.95°N, 68.28°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After looking at AI news all day, there are still places on Earth that don't need GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Across mountains, rivers, lakes, and seas, let's stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-15.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-17.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

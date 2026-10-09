@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-02</span>
-<span>Thursday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-07-02 · Thursday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>No major model releases today.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span><strong style="color: var(--text-dark, #0E0E10);">the main theme is "money and territory"</strong>: an AI platform that insists on not storing your chat logs became a unicorn and is profitable.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Google resitent agent crawled onto the Mac desktop.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>dedicated inference chips sold for a billion dollars.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>some even want to move AI compute to space.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Thursday, July 2, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>No major model releases today.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span><strong style="color: var(--text-dark, #0E0E10);">the main theme is "money and territory"</strong>: an AI platform that insists on not storing your chat logs became a unicorn and is profitable.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Google resitent agent crawled onto the Mac desktop.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>dedicated inference chips sold for a billion dollars.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>some even want to move AI compute to space.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">TechCrunch / GeekWire · July 1</div>
-<h2 class="chapter-title">An AI platform that "does not record what you say" becomes a profitable unicorn</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="dateline">TechCrunch / GeekWire · July 1</div>
+<div class="item-title">An AI platform that "does not record what you say" becomes a profitable unicorn</div>
+<div class="body">
 <p><span class="accent">Venice AI</span> Completed yesterday <span class="num">$65 million</span>Series A financing,<span class="accent">Dragonfly</span> led by, with participation from Coinbase Ventures, pushing the valuation to <span class="num">$1 billion</span>. Even more surprising data follows: it is already profitable, turning positive in Q1, with annualized revenue exceeding <span class="num">$70 million</span>, <span class="num">3 million</span>users, taking external money for the first time in two years since inception.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='An AI platform that "does not record what you say" becomes a profitable unicorn · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/ai-53b3829f.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p><span class="turn">While others are figuring out how to use your data, someone made "not touching your data" the product itself, and actually made the business model work.</span>For privacy-conscious individuals and teams, this is an alternative option to vote with your wallet.</p>
 <p>An AI platform that "does not record what you say" became a profitable unicorn.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch / GeekWire · <a href="https://www.geekwire.com/2026/private-ai-venice-ai-led-by-crypto-vet-erik-voorhees-and-seattles-jesse-proudman-raises-65m/" rel="noopener" target="_blank">geekwire.com</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Google / Engadget · July 1</div>
-<h2 class="chapter-title">Google That 24 hour-working agent crawled onto the Mac desktop</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch / GeekWire · <a href="https://www.geekwire.com/2026/private-ai-venice-ai-led-by-crypto-vet-erik-voorhees-and-seattles-jesse-proudman-raises-65m/" rel="noopener" target="_blank">geekwire.com</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">Google / Engadget · July 1</div>
+<div class="item-title">Google That 24 hour-working agent crawled onto the Mac desktop</div>
+<div class="body">
 <p><span class="accent">Gemini Spark</span>, the resident agent released in May is beginning to enter the Mac app.<span class="turn">For the first time, it can run tasks locally on your computer, no longer living only in browser dialog boxes.</span></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Google That 24 hour-working agent crawled onto the Mac desktop · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/google----24---------agent-----47661f65.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -298,12 +289,12 @@
 <p>Spark is an agent that runs persistently in the background: summarizing important emails, generating prioritized to-do lists, blocking focus time on the calendar, organizing Drive files, and distilling repetitive actions into reusable skills across Gmail, Docs, Sheets, Calendar, etc. This is the first of its two major updates this summer.</p>
 <p><span class="turn">Moving the agent from a "web dialog box" to "your daily computer desktop" is a step closer to everyday life than having just another chat window.</span>Whether it is worth turning on depends on how many chores you are willing to actually hand over to it for automation.</p>
 </div>
-<div class="sources-bar">Sources: Official Google · <a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/" rel="noopener" target="_blank">blog.google</a> / Engadget · <a href="https://www.engadget.com/2176556/googles-gemini-spark-is-an-agentic-ai-assistant/" rel="noopener" target="_blank">engadget.com</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">TechCrunch · June 30</div>
-<h2 class="chapter-title">Stuffing AI agents directly into mobile keyboards for instant use while typing</h2>
-<div class="prose">
+<div class="src-line">Sources: Official Google · <a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/" rel="noopener" target="_blank">blog.google</a> / Engadget · <a href="https://www.engadget.com/2176556/googles-gemini-spark-is-an-agentic-ai-assistant/" rel="noopener" target="_blank">engadget.com</a></div>
+</div>
+<div class="item">
+<div class="dateline">TechCrunch · June 30</div>
+<div class="item-title">Stuffing AI agents directly into mobile keyboards for instant use while typing</div>
+<div class="body">
 <p>An application named <span class="accent">Acti</span> packed an AI agent directly into the mobile keyboard itself. It's not just another app; it takes over your input method.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Stuffing AI agents directly into mobile keyboards for instant use while typing · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/acti-tc-cba91b3c.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -313,12 +304,12 @@
 <p><span class="turn">Whether AI gets used often hinges on "whether I need to open a dedicated app." Putting it into the keyboard reduces friction to near zero.</span>Such approaches of "hiding within existing habits" are often more effective than reinventing an entrance.</p>
 <p>Acti stuffs an AI agent into the mobile keyboard for instant use while typing. Image: TechCrunch.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic · June 30 – July 1</div>
-<h2 class="chapter-title">Four rivals sit down to establish a unified ruler for "jailbreaks"</h2>
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+<div class="item">
+<div class="dateline">Anthropic · June 30 – July 1</div>
+<div class="item-title">Four rivals sit down to establish a unified ruler for "jailbreaks"</div>
+<div class="body">
 <p>A jailbreak is using tricks to induce a model to say or do things it shouldn't. In the past, companies argued over "how severe this jailbreak is" without any recognized standard.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Four rivals sit down to establish a unified ruler for "jailbreaks" · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/image-b2b80586.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -328,12 +319,12 @@
 <p><span class="turn">Several fiercest competitors have rarely wanted to unify their stance on safety evaluation.</span>With a common ruler, whether models are truly safe becomes comparable, and you and I as users have a basis to rely on.</p>
 <p>Four rivals sit down to establish a unified ruler for "jailbreaks."</p>
 </div>
-<div class="sources-bar">Sources: Official Anthropic</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic / Cursor / Perplexity · 07-02 · Embargo Lift Day</div>
-<h2 class="chapter-title">Fable 5 returns, but not quite the same—equipped with "safe routing".</h2>
-<div class="prose">
+<div class="src-line">Sources: Official Anthropic</div>
+</div>
+<div class="item">
+<div class="dateline">Anthropic / Cursor / Perplexity · 07-02 · Embargo Lift Day</div>
+<div class="item-title">Fable 5 returns, but not quite the same—equipped with "safe routing".</div>
+<div class="body">
 <p><span class="accent">Anthropic</span> Official announcement: Fable 5 is back. But the details matter more than the headline:<span class="accent">Updated cybersecurity guards route certain requests directly to Opus 4.8</span>, and biological/chemical classifiers "remain too broad", meaning regulatory gates aren't fully open yet. This isn't a clean comeback—it's a return with safety gates.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Fable 5 returns, but not quite the same—equipped with "safe routing". · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/fable-5-9c27af9f.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -343,12 +334,12 @@
 <p>More telling is the community's reaction: blind faith in single models is gone. Theo's approach uses Fable solely for high-value reasoning and planning, delegating implementation, verification, and computer use to other models, significantly boosting end-to-end PR output. On the Remote Labor Index, Fable 5 scored <span class="num">16.10%</span>.<span class="turn">The question of "which model is the strongest" is shifting to "how to combine them for the best performance."</span></p>
 <p>Fable 5 returns, but not as it was—it comes with "safe routing".</p>
 </div>
-<div class="sources-bar">Sources: Latent Space / AINews · <a href="https://www.latent.space/p/ainews-not-much-happened-today-900" rel="noopener" target="_blank">latent.space</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Together AI · 07-02 · Series C · $8.3B Valuation</div>
-<h2 class="chapter-title">Together AI Raises $800M: Capital Thickens the "Inference Pipeline" for Open Source Models</h2>
-<div class="prose">
+<div class="src-line">Sources: Latent Space / AINews · <a href="https://www.latent.space/p/ainews-not-much-happened-today-900" rel="noopener" target="_blank">latent.space</a></div>
+</div>
+<div class="item">
+<div class="dateline">Together AI · 07-02 · Series C · $8.3B Valuation</div>
+<div class="item-title">Together AI Raises $800M: Capital Thickens the "Inference Pipeline" for Open Source Models</div>
+<div class="body">
 <p><span class="accent">Together AI</span> Completed <span class="num">8</span> hundred million Series C financing, valuation <span class="num">83</span> billion. The company doesn't build models; it focuses on open-source model inference platforms. For open weights like GLM, Llama, and Qwen, running on Together is many people's first instinct.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Together AI Raises $800M: Capital Thickens the "Inference Pipeline" for Open Source Models · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/together-ai-8-db009107.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -359,15 +350,16 @@
 <p>While closed-source models wage price wars, the open-source camp is choosing to widen the "roads for running models".</p>
 <p>Together AI Raises $800M: Capital Thickens the "Inference Pipeline" for Open-Source Models.</p>
 </div>
-<div class="sources-bar">Sources: Latent Space / AINews · <a href="https://www.latent.space/p/ainews-not-much-happened-today-900" rel="noopener" target="_blank">latent.space</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">xAI · July 1</div>
-<h2 class="chapter-title">xAI Launched "Voice Agent Builder", letting you assemble your own talking assistant</h2>
-<div class="prose">
+<div class="src-line">Sources: Latent Space / AINews · <a href="https://www.latent.space/p/ainews-not-much-happened-today-900" rel="noopener" target="_blank">latent.space</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">xAI · July 1</div>
+<div class="item-title">xAI Launched "Voice Agent Builder", letting you assemble your own talking assistant</div>
+<div class="body">
 <p><span class="num">Voice Agent Builder</span>, configure and assemble a listening and speaking voice agent based on Grok models without writing voice pipelines from scratch.<span class="turn">It aligns with xAI's recent streak of developer tools: lowering the barrier to building agents.</span></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='xAI Launched "Voice Agent Builder", letting you assemble your own talking assistant · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/xai-------agent----------------63748ae5.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -376,15 +368,16 @@
 <p>Voice is shifting from "script-reading bots" to action-oriented interfaces. For creators of customer service, hardware, and utilities, the cost of DIY voice agents just dropped further.</p>
 <p>xAI Launches "Voice Agent Builder" to DIY Your Own Talking Assistant.</p>
 </div>
-<div class="sources-bar">Sources: xAI Official</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Visual</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Euronews / Astronomy Community · July 1</div>
-<h2 class="chapter-title">Some Want to Move AI Compute to Space—At the Cost of Our Night Sky</h2>
-<div class="prose">
+<div class="src-line">Sources: xAI Official</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Visual</div>
+<div class="sec-title">Visual</div>
+<div class="item">
+<div class="dateline">Euronews / Astronomy Community · July 1</div>
+<div class="item-title">Some Want to Move AI Compute to Space—At the Cost of Our Night Sky</div>
+<div class="body">
 <p>Astronomers issue a warning:<span class="num">SpaceX</span> Plans to launch over a million satellites by <span class="num">2028</span> Over a million satellites are launched annually, with some serving as in-orbit data centers to provide computing power for AI.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Some Want to Move AI Compute to Space—At the Cost of Our Night Sky · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/chart02_sat-e8da3646.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -394,15 +387,16 @@
 <p><span class="turn">AI's appetite is extending from terrestrial data centers to the skies.</span>This isn't just an abstract energy consumption figure; it could alter the night sky above us—a cost perceptible to the naked eye.</p>
 <p>Comparison illustration: a clean night sky on one side, dense satellite tracks on the other. The cost of sending AI compute to space may be paid by everyone's night sky.</p>
 </div>
-<div class="sources-bar">Sources: Euronews · <a href="https://www.euronews.com/2026/07/01/planned-17-million-satellites-devastating-for-astronomy-by-making-night-sky-brighter" rel="noopener" target="_blank">euronews.com</a></div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Investment &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">TechCrunch · June 30</div>
-<h2 class="chapter-title">Chips built for a single model architecture sell billion dollars</h2>
-<div class="prose">
+<div class="src-line">Sources: Euronews · <a href="https://www.euronews.com/2026/07/01/planned-17-million-satellites-devastating-for-astronomy-by-making-night-sky-brighter" rel="noopener" target="_blank">euronews.com</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Capital Flows</div>
+<div class="sec-title">Investment &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">TechCrunch · June 30</div>
+<div class="item-title">Chips built for a single model architecture sell billion dollars</div>
+<div class="body">
 <p><span class="num">NVIDIA</span>'s Challenger <span class="num">Etched</span> reaches a valuation of <span class="num">$5.0B</span>, with chip sales surpassing <span class="num">$1 billion</span>.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Chips built for a single model architecture sell billion dollars · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/chart01_chip-5ba38c42.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -411,28 +405,24 @@
 <p><span class="num">Etched</span> takes a narrow and deep path: circuits are hardcoded strictly for <span class="num">Transformer</span> this single model architecture, trading generality for speed and efficiency when running such models compared to general-purpose GPUs.</p>
 <p><span class="turn">This is a direct challenge to the notion of "general-purpose chips conquering all".</span>If specialized chips consistently deliver cost-performance, inference cost reductions won't depend solely on NVIDIA, which will ultimately reflect in your API bills.</p>
 </div>
-<div class="sources-bar">Sources: TechCrunch</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Voice</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"We are optimizing for freedom and truly treating users like adults—which I feel is rare these days."</div>
-<div class="voice-meta">
-<span>Erik Voorhees · Founder &amp; CEO, Venice AI</span>
-<a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">techcrunch.com</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"From a security standpoint, pushing the world into the next stage where everyone is constantly monitored is actually extremely dangerous."</div>
-<div class="voice-meta">
-<span>Erik Voorhees · Founder &amp; CEO, Venice AI</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Daily Summary</div>
-<article class="chapter">
-<div class="prose">
+<div class="src-line">Sources: TechCrunch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voice</div>
+<div class="sec-title">Voice</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"We are optimizing for freedom and truly treating users like adults—which I feel is rare these days."</p>
+<p class="voice-who">Erik Voorhees · Founder &amp; CEO, Venice AI <a href="https://www.wired.com/story/ai-agents-are-thirsty-for-power/" rel="noopener" target="_blank">techcrunch.com</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"From a security standpoint, pushing the world into the next stage where everyone is constantly monitored is actually extremely dangerous."</p>
+<p class="voice-who">Erik Voorhees · Founder &amp; CEO, Venice AI</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Daily Summary</div>
+<div class="sec-title">Daily Summary</div>
+<div class="item">
+<div class="body">
 <p>Today's main theme isn't new models, it's shifting boundaries.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Chips built for a single model architecture sell billion dollars · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-02/chart03_double-d65a2f55.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -445,24 +435,32 @@
 <p><span class="num">5</span>: <span class="accent">Capabilities are accelerating</span>, as a report by an international panel of scientists indicates that the task complexity AI can handle roughly doubles every <span class="num">4–7 months</span>. Tasks you think it "can't handle" today might change by next quarter.</p>
 <p>AI Task Complexity Doubling Curve: Doubles every 4–7 months. Tasks deemed "unsolvable" today may change next quarter. Source: AI Early Warning Report by an independent panel of scientists.</p>
 </div>
-<div class="sources-bar">Sources: Stratechery</div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Stay Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: Stratechery</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Great Barrier Reef, Australia · 20.30°S, 148.90°E" loading="lazy" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/149000/149724/gbrzm_oli_2020222_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Great Barrier Reef, Australia · <span class="num">20.30</span>°S, <span class="num">148.90</span>°E</div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, there are still places on Earth that don't need GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Across mountains, rivers, lakes, and seas, let's stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-01.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-03.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

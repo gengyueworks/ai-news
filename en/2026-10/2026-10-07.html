@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,96 +250,90 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-10-07</span>
-<span>Wednesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">2026-10-07 · Wednesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 16px; font-weight: 600; color: var(--text-dark, #0E0E10); margin-bottom: 14px; line-height: 1.6;">Automated AI reports overwhelm Google's open-source bug defenses as human gatekeepers buckle; OpenAI tests visual sponsored ads amid mounting inference overhead.</p><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Google freezes its open-source Bug Bounty program after automated agent submissions clog verification queues.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>OpenAI tests visual sponsored cards beneath image generation outputs in ChatGPT, expanding monetization beyond subscriptions.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Micron Technology warns that the true supply-chain bottleneck will peak in 2027 with an acute structural shortage of high-bandwidth memory.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Reflection AI open-sources full Beam weights, bringing frontier-tier code reasoning down to consumer single-GPU setups.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Wednesday, October 7, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 16px; font-weight: 600; color: var(--text-dark, #0E0E10); margin-bottom: 14px; line-height: 1.6;">Automated AI reports overwhelm Google's open-source bug defenses as human gatekeepers buckle; OpenAI tests visual sponsored ads amid mounting inference overhead.</p><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Google freezes its open-source Bug Bounty program after automated agent submissions clog verification queues.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>OpenAI tests visual sponsored cards beneath image generation outputs in ChatGPT, expanding monetization beyond subscriptions.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Micron Technology warns that the true supply-chain bottleneck will peak in 2027 with an acute structural shortage of high-bandwidth memory.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Reflection AI open-sources full Beam weights, bringing frontier-tier code reasoning down to consumer single-GPU setups.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Headline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Google · Security Systems</div>
-<h2 class="chapter-title">Google Freezes Open-Source Bug Bounties: Automated AI Reports Paralyze Triage, Exposing a Structural Defense Deficit</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Headline</div>
+<div class="sec-title">Headline</div>
+<div class="item">
+<div class="dateline">Google · Security Systems</div>
+<div class="item-title">Google Freezes Open-Source Bug Bounties: Automated AI Reports Paralyze Triage, Exposing a Structural Defense Deficit</div>
+<div class="body">
 <p>Following a massive surge of automated vulnerability reports generated by large models, <span class="accent">Google</span> officially suspended its Bug Bounty program dedicated to the open-source community.</p>
 <p>The security team disclosed an exponential explosion in submissions originating from coding agents and LLMs. While these reports feature articulate prose, rigorous formatting, and syntactically clean reproduction steps, <span class="turn">hands-on verification</span> revealed a deluge of harmless edge cases and outright hallucinations, severely exhausting engineer triage bandwidth required to catch critical zero-days.</p>
 <p>As the marginal cost of producing vulnerability claims drops to zero, traditional gatekeeping reliant on human expert review breaks down. <span class="turn">Google's security engineers</span> are restructuring intake policies, planning to deploy automated verification moats anchored on deterministic sandboxes before reopening queues.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Oct/04/google-bug-bounty-ai/" rel="noopener" target="_blank">Simon Willison In-Depth Analysis</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">OpenAI · Monetization Models</div>
-<h2 class="chapter-title">OpenAI Tests Sponsored Visual Cards in Image Outputs: Under Massive Compute Pressure, ChatGPT Takes Its First Step into Advertising</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Oct/04/google-bug-bounty-ai/" rel="noopener" target="_blank">Simon Willison In-Depth Analysis</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">OpenAI · Monetization Models</div>
+<div class="item-title">OpenAI Tests Sponsored Visual Cards in Image Outputs: Under Massive Compute Pressure, ChatGPT Takes Its First Step into Advertising</div>
+<div class="body">
 <p>In select web test cohorts, <span class="accent">OpenAI</span> has begun rendering brand partner cards bearing clear "Sponsored" disclaimers directly beneath generated image outputs.</p>
 <p>This marks the first time commercial third-party sponsorship placements have entered ChatGPT's core interaction canvas. <span class="turn">Industry analysts note</span> that with reasoning compute budgets expanding rapidly alongside trillion-dollar valuation targets, a flat <span class="accent">$20 monthly</span> subscription fee struggles to cover marginal token costs, making high-intent visual ad real estate a logical frontier.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Micron Technology · Hardware Supply Chain</div>
-<h2 class="chapter-title">Micron CEO Warns of Compute Chain Chokepoint: GPU Scarcity Is Merely Phase One; the Real Crisis in 2027 Is Memory Starvation</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">Micron Technology · Hardware Supply Chain</div>
+<div class="item-title">Micron CEO Warns of Compute Chain Chokepoint: GPU Scarcity Is Merely Phase One; the Real Crisis in 2027 Is Memory Starvation</div>
+<div class="body">
 <p><span class="accent">Micron Technology</span> CEO Sanjay Mehrotra stated publicly that today's supply-demand imbalances in AI compute are only a precursor, with far more acute structural deficits looming between <span class="accent">2027 and 2028</span>.</p>
 <p>Next-generation frontier reasoning architectures require exponential leaps in High-Bandwidth Memory (<span class="num">HBM</span>) throughput and density, yet wafer stacking and advanced packaging packaging build-out cycles take years to scale. <span class="turn">Mehrotra emphasized</span> that the defining bottleneck of the AI race is shifting definitively from raw accelerator silicon to memory bandwidth conduits.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.bloomberg.com/news/articles/2026-10-04/micron-ceo-warns-on-ai-memory-shortage-2027-2028" rel="noopener" target="_blank">Bloomberg</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Reflection · Open Reasoning</div>
-<h2 class="chapter-title">Reflection Open-Sources Beam Weights: Deep Distillation Lowers the Hardware Barrier, Running Long-Chain Code Proofs on Consumer GPUs</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.bloomberg.com/news/articles/2026-10-04/micron-ceo-warns-on-ai-memory-shortage-2027-2028" rel="noopener" target="_blank">Bloomberg</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">Reflection · Open Reasoning</div>
+<div class="item-title">Reflection Open-Sources Beam Weights: Deep Distillation Lowers the Hardware Barrier, Running Long-Chain Code Proofs on Consumer GPUs</div>
+<div class="body">
 <p>The <span class="accent">Reflection AI</span> team has officially released the complete weights for <span class="num">Beam</span>, an open reasoning model designed around deep test-time compute distillation.</p>
 <p>Beam compresses multi-turn tree-of-thought verification paths into dense parameter representations, achieving over <span class="num">82%</span> of closed flagship performance on complex code refactoring benchmarks while operating smoothly on consumer-grade single 24GB GPUs. <span class="turn">Community evaluations</span> highlight that this release provides independent developers with a local, fully sovereign execution environment free from closed cloud dependencies.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.interconnects.ai/p/open-weights-distillation-economics" rel="noopener" target="_blank">Interconnects Analysis</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Embodied AI · Action Priors</div>
-<h2 class="chapter-title">Native Action-Prior Open-Sources World Dynamics Model: Learning Physical Motion from Daily Human Video Without Sensor Calibration</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.interconnects.ai/p/open-weights-distillation-economics" rel="noopener" target="_blank">Interconnects Analysis</a></div>
+</div>
+<div class="item">
+<div class="dateline">Embodied AI · Action Priors</div>
+<div class="item-title">Native Action-Prior Open-Sources World Dynamics Model: Learning Physical Motion from Daily Human Video Without Sensor Calibration</div>
+<div class="body">
 <p>Researchers have open-sourced <span class="accent">Native Action-Prior</span>, a physical interaction foundation model that tackles robotics' longstanding dependence on costly teleoperated sensor datasets.</p>
 <p>The architecture ingests raw first-person video of human day-to-day manipulation, leveraging self-supervised spatio-temporal contrastive learning to infer contact mechanics and causality. <span class="turn">Empirical benchmarks show</span> that robotic arms can zero-shot generalize across household and warehouse pick-and-place tasks without environment-specific fine-tuning.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2610.03391" rel="noopener" target="_blank">arXiv Preprint</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
+<div class="src-line">Sources: <a href="https://arxiv.org/abs/2610.03391" rel="noopener" target="_blank">arXiv Preprint</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
 <div class="voices-deck">
-<div class="voice-card">
-<div class="voice-body">"For the world to get all the upside of artificial intelligence, people have to accept that some bad things are going to happen."</div>
-<div class="voice-meta">
-<span>Sam Altman · OpenAI CEO</span>
-<a href="https://www.politico.com/news/2026/10/04/sam-altman-decoded-interview-ai-01106217" rel="noopener" target="_blank">Politico Interview →</a>
-</div>
-</div>
-<div class="voice-card">
-<div class="voice-body">"If frontier intelligence can only exist in Big Tech's cloud, every developer is just a tenant, and compute prosperity is merely an invoice."</div>
-<div class="voice-meta">
-<span>Matt Shumer · Founder, Reflection AI</span>
-<a href="https://x.com/mattshumer_" rel="noopener" target="_blank">Public Statement on X →</a>
+<div class="voice">
+<p class="voice-text">"For the world to get all the upside of artificial intelligence, people have to accept that some bad things are going to happen."</p>
+<p class="voice-who">Sam Altman · OpenAI CEO <a href="https://www.politico.com/news/2026/10/04/sam-altman-decoded-interview-ai-01106217" rel="noopener" target="_blank">Politico Interview →</a></p>
+</div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"If frontier intelligence can only exist in Big Tech's cloud, every developer is just a tenant, and compute prosperity is merely an invoice."</p>
+<p class="voice-who">Matt Shumer · Founder, Reflection AI <a href="https://x.com/mattshumer_" rel="noopener" target="_blank">Public Statement on X →</a></p>
 </div>
 </div>
 </div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Adaptive Embodiment · Dynamics Inference</div>
-<h2 class="chapter-title">JEPA-TTT Achieves Self-Supervised Test-Time Adaptation: Robots Counter Sudden Perturbations with 200ms Torque Recalibration</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">Adaptive Embodiment · Dynamics Inference</div>
+<div class="item-title">JEPA-TTT Achieves Self-Supervised Test-Time Adaptation: Robots Counter Sudden Perturbations with 200ms Torque Recalibration</div>
+<div class="body">
 <p>An open robotics coalition introduced <span class="num">JEPA-TTT</span>, a real-time decision-making architecture anchored on Test-Time Training.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="JEPA-TTT self-supervised test-time training corrects predictive trajectories to match ground truth" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-07/jepa-ttt-cem-ranking-comparison.png" style="width: 100%; height: auto; display: block;"/>
@@ -353,15 +341,16 @@
 </div>
 <p>Standard robotic controllers often fail catastrophically when encountering icy patches or sudden payload drops. JEPA-TTT computes dynamic environmental reaction discrepancies on the fly, updating latent variable representations within <span class="accent">200 milliseconds</span>. <span class="turn">Field trials</span> demonstrated rapid dynamic equilibrium recovery for quadruped units subjected to abrupt physical lateral impacts.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2610.00722" rel="noopener" target="_blank">arXiv Research Paper</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Interactive World Models · Real-Time Simulation</div>
-<h2 class="chapter-title">HelixWorld Demos Real-Time Multimodal Interaction: Keypad Inputs Drive Live Physical Trajectories as Generative Video Turns Playable</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arxiv.org/abs/2610.00722" rel="noopener" target="_blank">arXiv Research Paper</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Interactive World Models · Real-Time Simulation</div>
+<div class="item-title">HelixWorld Demos Real-Time Multimodal Interaction: Keypad Inputs Drive Live Physical Trajectories as Generative Video Turns Playable</div>
+<div class="body">
 <p>A multimodal research team unveiled live interactive demonstrations for <span class="accent">HelixWorld</span>, an end-to-end real-time audiovisual world model.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="HelixWorld official visual: Sound and vision, born together" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-07/helixworld-official-banner.jpg" style="width: 100%; height: auto; display: block;"/>
@@ -369,25 +358,27 @@
 </div>
 <p>Diverging from static unidirectional text-to-video pipelines, HelixWorld accepts gamepad and keyboard steering inputs, synthesizing continuous frames at <span class="accent">30fps</span> with realistic collision physics and spatial acoustics. <span class="turn">The release highlights</span> how the boundary separating generative neural video from interactive physics simulation engines continues to dissolve.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arxiv.org/abs/2609.38123" rel="noopener" target="_blank">Hugging Face Paper Release</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Capital</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Security Infrastructure · Venture Dynamics</div>
-<h2 class="chapter-title">Automated Isolation and Sandboxing Attract Fresh Capital: Shielding Workflows from AI Machine Noise Becomes Core Enterprise Budget</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arxiv.org/abs/2609.38123" rel="noopener" target="_blank">Hugging Face Paper Release</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Capital</div>
+<div class="sec-title">Capital</div>
+<div class="item">
+<div class="dateline">Security Infrastructure · Venture Dynamics</div>
+<div class="item-title">Automated Isolation and Sandboxing Attract Fresh Capital: Shielding Workflows from AI Machine Noise Becomes Core Enterprise Budget</div>
+<div class="body">
 <p>Against the backdrop of stalled vulnerability programs and open-source repos flooded by automated synthetic code, startups specializing in micro-VM sandboxing and formal code verification are capturing major venture commitments.</p>
 <p>Multiple early-stage teams building deterministic execution barriers and automated exploit verifiers announced funding rounds topping tens of millions of dollars this past week. <span class="turn">Investors emphasize</span> that while foundation models dramatically lower development friction, they also lower the threshold for noise and synthetic exploitation, making automated verification infrastructure an indispensable enterprise defense line.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://venturebeat.com/ai/ai-security-sandboxing-infrastructure-funding-surge/" rel="noopener" target="_blank">VentureBeat Market Watch</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter">
-<div class="prose">
+<div class="src-line">Sources: <a href="https://venturebeat.com/ai/ai-security-sandboxing-infrastructure-funding-surge/" rel="noopener" target="_blank">VentureBeat Market Watch</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body">
 <p>From frozen bug bounty queues to the first visual ads inside conversational flows, AI's accelerating deployment is forcing legacy operational models to adapt. Whether migrating multi-step reasoning onto local consumer silicon or leveraging test-time adaptation against unpredictable physical forces, the most compelling frontier moments occur when technology steps down from cloud mythology to solve messy, real-world friction.</p>
 <div class="highlight-insight">
 Compute surges through yesterday's gate,<br/>
@@ -396,11 +387,12 @@ Machines glean motion from human trails,<br/>
 True craft endures when noise recedes.
 </div>
 </div>
-</article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious 🌌</div>
-<div class="callout-box">
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity">
 <div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="NASA Satellite Imagery: Iliamna Volcano, Alaska, USA" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-07/iliamnavolcano_oli_20250610_th-8f2731a4.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
@@ -409,13 +401,20 @@ True craft endures when noise recedes.
 <p style="margin-bottom:8px; line-height:1.8;">After a day of tracking AI breakthroughs, Earth still holds places that require zero GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Across mountains, rivers, lakes, and seas—let us stay curious and keep exploring.</p>
 </div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="ai-weekly-2026-10-w1.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-10-08.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

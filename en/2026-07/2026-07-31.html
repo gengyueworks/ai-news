@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-31</span>
-<span>Friday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-31</h1><p class="doc-date">2026-07-31 · Friday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Domestic Chinese foundational models played two cards simultaneously on this day.DeepSeek V4-Flash official API enters public beta, with Agent capabilities surpassing its own Pro preview.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>MiniMax H3 released as the first open-source multimodal model for video 0.8 CNY/sec.On the same day, Thinking Machines released the full weights of Inkling-Small.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Friday, July 31, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Domestic Chinese foundational models played two cards simultaneously on this day.DeepSeek V4-Flash official API enters public beta, with Agent capabilities surpassing its own Pro preview.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>MiniMax H3 released as the first open-source multimodal model for video 0.8 CNY/sec.On the same day, Thinking Machines released the full weights of Inkling-Small.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-31 · DeepSeek · Model</div>
-<h2 class="chapter-title">DeepSeek V4-Flash official public beta launched: Flash's Agent capabilities surpass the Pro preview, but the real hard battle has just begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-31 · DeepSeek · Model</div>
+<div class="item-title">DeepSeek V4-Flash official public beta launched: Flash's Agent capabilities surpass the Pro preview, but the real hard battle has just begun</div>
+<div class="body">
 <p>DeepSeek V4-Flash public beta launched.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="DeepSeek V4-Flash official public beta launched: Flash's Agent capabilities surpass the Pro preview, but the real hard battle has just begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-31/deepseek-v4.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p>The fact that a model can leap a tier with the exact same skeleton simply by changing its training strategy is most interesting not for its benchmark scores, but because it further compresses the old narrative of "stacking parameters to the max." V4-Flash is now deployed within DeepSeek's own Agent pipelines, allowing scripts that previously took an internal team a whole day to write to be handled and executed autonomously by agents.</p>
 <p><span class="turn">The second half of the model race is about post-training, not parameter stacking. DeepSeek used Flash to answer this question for itself.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" rel="noopener" target="_blank">DeepSeek API Changelog</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" rel="noopener" target="_blank">Hugging Face</a> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" rel="noopener" target="_blank">Simon Willison Hands-On Review</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-31 · MiniMax · Multimodal</div>
-<h2 class="chapter-title">MiniMax H3 released: the first open-source multimodal model at 0.8 CNY/sec, but the real hard battle has just begun</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://api-docs.deepseek.com/zh-cn/updates/" rel="noopener" target="_blank">DeepSeek API Changelog</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" rel="noopener" target="_blank">Hugging Face</a> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/" rel="noopener" target="_blank">Simon Willison Hands-On Review</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-31 · MiniMax · Multimodal</div>
+<div class="item-title">MiniMax H3 released: the first open-source multimodal model at 0.8 CNY/sec, but the real hard battle has just begun</div>
+<div class="body">
 <p><strong>On July 31, MiniMax released H3, a multimodal model supporting simultaneous text, image, audio, and video input. It can directly output 2K video clips up to <span class="num">15</span> seconds of synchronized audio and video; video generation is priced at <span class="num">0.8</span> CNY/sec (2K), approximately one-third of comparable flagships. MiniMax also confirmed that H3 will be open-sourced in the coming days, marking the company's<span class="accent">first open-source multimodal model</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="MiniMax H3 released: the first open-source multimodal model at 0.8 CNY/sec, but the real hard battle has just begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-31/minimax-h3.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -299,15 +290,16 @@
 <p><span class="turn">As the price war spreads from text to video, H3 bundles "open source + low price," lowering the barrier to creation once again.</span></p>
 <p>MiniMax H3 released.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" rel="noopener" target="_blank">MiniMax Official Announcement</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-31 · smevals · Evaluation Tool</div>
-<h2 class="chapter-title">smevals launched, turning "how to evaluate models" into a set of YAML files</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" rel="noopener" target="_blank">MiniMax Official Announcement</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontline</div>
+<div class="sec-title">Open Source Frontline</div>
+<div class="item">
+<div class="dateline">07-31 · smevals · Evaluation Tool</div>
+<div class="item-title">smevals launched, turning "how to evaluate models" into a set of YAML files</div>
+<div class="body">
 <p><strong>Simon Willison and Jesse Vincent's Prime Radiant Labs released <span class="accent">smevals</span>, a lightweight eval framework for comparing models, prompts, and harnesses. Run once, evaluate once, and generate a static report entirely via the command line.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='smevals launched, turning "how to evaluate models" into a set of YAML files · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-31/github-copilot-workspace.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -316,73 +308,80 @@
 <p>Usage is simple enough to fit into a single paragraph:<code>uvx smevals run path-to-eval/ -m gpt-5.5 -m claude-opus-4.6</code> allowing different models to run the same set of tasks; after running, <code>grade</code> and finally <code>build</code> generating a hostable static report. Useful for content teams as well, you can use it to test "which model is better suited for writing headlines/summaries/scripts" rather than picking models based on intuition.</p>
 <p><span class="turn">Model evaluation has shifted from metaphysics to "a set of YAML files," marking the first time the toolchain has turned evaluation into accessible infrastructure for everyone.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://primeradiant.com/blog/2026/smevals.html" rel="noopener" target="_blank">Prime Radiant</a> · <a href="https://github.com/prime-radiant-inc/smevals" rel="noopener" target="_blank">GitHub</a> · <a href="https://simonwillison.net/2026/Jul/31/smevals/" rel="noopener" target="_blank">Simon Willison</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Compared to giving an agent a shell, MCP is easier to audit and control."</div>
-<div class="voice-meta">
-<span>, Simon Willison · AI Researcher</span>
-<a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" rel="noopener" target="_blank">simonwillison.net</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Model evaluation has shifted from metaphysics to a set of YAML files, marking the first time the toolchain has turned evaluation into accessible infrastructure for everyone."</div>
-<div class="voice-meta">
-<span>, Jesse Vincent · Labs</span>
-<a href="https://primeradiant.com/blog/2026/smevals.html" rel="noopener" target="_blank">Prime Radiant</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-31 · MCP · Protocol Upgrade</div>
-<h2 class="chapter-title">MCP shifts to a single HTTP request, Lowering the barrier for agent tool integration</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://primeradiant.com/blog/2026/smevals.html" rel="noopener" target="_blank">Prime Radiant</a> · <a href="https://github.com/prime-radiant-inc/smevals" rel="noopener" target="_blank">GitHub</a> · <a href="https://simonwillison.net/2026/Jul/31/smevals/" rel="noopener" target="_blank">Simon Willison</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Compared to giving an agent a shell, MCP is easier to audit and control."</p>
+<p class="voice-who">, Simon Willison · AI Researcher <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" rel="noopener" target="_blank">simonwillison.net</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Model evaluation has shifted from metaphysics to a set of YAML files, marking the first time the toolchain has turned evaluation into accessible infrastructure for everyone."</p>
+<p class="voice-who">, Jesse Vincent · Labs <a href="https://primeradiant.com/blog/2026/smevals.html" rel="noopener" target="_blank">Prime Radiant</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-31 · MCP · Protocol Upgrade</div>
+<div class="item-title">MCP shifts to a single HTTP request, Lowering the barrier for agent tool integration</div>
+<div class="body">
 <p><strong>Simon Willison summarizes MCP 2.0 (2026-07-28 spec), noting that "stateless MCP" simplifies both client and server development. While older versions required session initialization before tool calls, the new spec completes everything in one request.</strong></p>
 <p>Willison built <span class="accent">mcp-explorer</span>, <span class="accent">datasette-mcp</span>, <span class="num">llm-mcp-client</span> three projects on the new spec the same day. His verdict is clear: compared to giving agents a shell, MCP offers better auditability and control, leaving a clear trace of what agents can do and what they invoke.</p>
 <p><span class="turn">With a single protocol upgrade triggering a toolchain overhaul, the connection model between agents and tools is shifting from "sessions" to "single requests."</span></p>
 <p>MCP becomes a single HTTP request.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" rel="noopener" target="_blank">Simon Willison</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" rel="noopener" target="_blank">MCP Specification</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Visuals</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-31 · Creators · Experience Shifts</div>
-<h2 class="chapter-title">Running product storyboards with H3, Ten minutes for a usable motion ad</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/" rel="noopener" target="_blank">Simon Willison</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" rel="noopener" target="_blank">MCP Specification</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Visuals</div>
+<div class="sec-title">Visuals</div>
+<div class="item">
+<div class="dateline">07-31 · Creators · Experience Shifts</div>
+<div class="item-title">Running product storyboards with H3, Ten minutes for a usable motion ad</div>
+<div class="body">
 <p><strong>A video creator used H3 to generate transitions and dynamic effects based on a storyboard script and reference images. She noted that the text and UI details rendered more stably than expected, turning what used to take a post-production team two days into a<span class="num">first draft completed in ten minutes</span>.</strong></p>
 <p>She produced a 30-second splash screen ad for a beauty app: she wrote the script, drew the storyboards herself, and picked transition reference images from a stock library. H3 generated 6 shots based on the storyboards, maintaining consistent subjects and natural transitions between cuts. Notably, the text layer names written directly in her PSD file were read accurately without retranslation, which she found particularly seamless. The first draft passed client review without modifications, leaving 90% of her time spent on selecting the BGM.</p>
 <p><span class="turn">When generative models can handle professional terminology like "storyboards," the relationship between creators and tools evolves from contract manufacturing to true partnership.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" rel="noopener" target="_blank">MiniMax Official Announcement</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>DeepSeek V4-Flash-0731 official public beta launched, delivering better-than-expected Agent performance at 304B scale; MiniMax H3 released as the first open-source multimodal model capable of direct 2K video output.</p>
+<div class="src-line">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" rel="noopener" target="_blank">MiniMax Official Announcement</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>DeepSeek V4-Flash-0731 official public beta launched, delivering better-than-expected Agent performance at 304B scale; MiniMax H3 released as the first open-source multimodal model capable of direct 2K video output.</p>
 <p>MCP 2.0 transforms into a single HTTP request, lowering the barrier for agent tool integration; smevals turns "how to evaluate models" into a set of YAML files.</p>
-<p class="turn">As domestic Chinese large models make their moves, the developer toolchain is also undergoing a complete overhaul, with open-source, low-cost, and auditable features converging all at once.</p></div></article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">As domestic Chinese large models make their moves, the developer toolchain is also undergoing a complete overhaul, with open-source, low-cost, and auditable features converging all at once.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The coral reefs of the Great Barrier Reef are older than any data center cooling tower." loading="lazy" src="https://apod.nasa.gov/apod/image/2606/CosmicKissTheCoveAveburyDury1024.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The coral reefs of the Great Barrier Reef are older than any data center cooling tower.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Great Barrier Reef, Australia · NASA · <span class="num">20.30°S, 148.90°E</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a whole day of reading AI news, there are still places on Earth that don't need GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let us stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-30.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="../2026-08/2026-08-01.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

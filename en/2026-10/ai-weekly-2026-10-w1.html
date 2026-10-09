@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,20 +250,16 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">ai-weekly-2026-10-w1</span>
-<span></span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence Weekly | October Week 1</h1><p class="doc-date">ai-weekly-2026-10-w1</p>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Weekly Intelligence Digest</div><h1 class="doc-title">AI Intelligence Weekly | October Week 1</h1><p class="doc-date">September 28, 2026 — October 2, 2026</p>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">1. Strategic Pivots &amp; Ecosystem Breakouts</div>
-<article class="chapter">
-<h2 class="chapter-title">OpenAI Halts Blind Trillion-Parameter Expansion as Industry Awaits Strategic Deceleration</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">1. Strategic Pivots &amp; Ecosystem Breakouts</div>
+<div class="sec-title">1. Strategic Pivots &amp; Ecosystem Breakouts</div>
+<div class="item">
+<div class="item-title">OpenAI Halts Blind Trillion-Parameter Expansion as Industry Awaits Strategic Deceleration</div>
+<div class="body">
 <p>Confronted with skyrocketing compute consumption and diminishing returns, OpenAI announced an R&amp;D pivot this week, reallocating resources away from raw-scale mega pre-training toward <span class="num">post-training reinforcement learning</span> and systems engineering.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="OpenAI Halts Blind Trillion-Parameter Expansion as Industry Awaits Strategic Deceleration · Primary Evidence Visual" loading="lazy" src="../../assets/ai-frontline-images/by-date/2026-10-02/napoleon-1809-cipher-facsimile.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -277,90 +267,95 @@
 </div>
 <p>Departing from the blind pursuit of universal benchmarks, this shift marks the industry's transition from brute-force compute scaling to viable unit economics and practical utility boundaries.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/building-standards-next-phase-ai/" rel="noopener" target="_blank">OpenAI Official Announcement</a> · 
+<div class="src-line">Sources: <a href="https://openai.com/index/building-standards-next-phase-ai/" rel="noopener" target="_blank">OpenAI Official Announcement</a> ·
  <a href="https://stratechery.com/2026/an-interview-with-openai-president-greg-brockman-about-astra-and-alignment/" rel="noopener" target="_blank">Stratechery In-Depth</a></div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">Claude Code Opens Mods Extensions, Ceding Control to a Programmable Plugin Ecosystem</h2>
-<div class="prose">
+</div>
+<div class="item">
+<div class="item-title">Claude Code Opens Mods Extensions, Ceding Control to a Programmable Plugin Ecosystem</div>
+<div class="body">
 <p>Anthropic announced a plugin hook architecture for its terminal coding agent, Claude Code. Developers can now write custom logic to take full control over code retrieval, context assembly, and toolchain orchestration.</p>
 
 <p>Hemmed in by IDE integrations, this open initiative <span class="accent">hands control back to developers</span>, instantly activating a rich community of tooling and extensions.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/anthropics/claude-code" rel="noopener" target="_blank">Anthropic Official Repository</a> · 
+<div class="src-line">Sources: <a href="https://github.com/anthropics/claude-code" rel="noopener" target="_blank">Anthropic Official Repository</a> ·
  <a href="https://simonwillison.net/2026/Sep/17/how-to-write-with-an-llm/" rel="noopener" target="_blank">Simon Willison In-Depth Analysis</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">2. Price Collapse &amp; Agent Infrastructure</div>
-<article class="chapter">
-<h2 class="chapter-title">Google Launches Gemini 4 Argon: Parameter Consolidation Drives Inference Costs Down 80%</h2>
-<div class="prose">
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">2. Price Collapse &amp; Agent Infrastructure</div>
+<div class="sec-title">2. Price Collapse &amp; Agent Infrastructure</div>
+<div class="item">
+<div class="item-title">Google Launches Gemini 4 Argon: Parameter Consolidation Drives Inference Costs Down 80%</div>
+<div class="body">
 <p>Google's newly unveiled Argon architecture zeroes in directly on unit economics, compressing inference costs per million tokens to an all-time low.</p>
 <p>Meanwhile, OpenAI followed in close pursuit with GPT-6.1 Sol, priced at just <span class="num">20%</span> of its predecessor Astra. The quiet war between foundation model titans has decisively shifted from capabilities to a brutal <span class="accent">marginal cost war</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://blog.google/technology/ai/" rel="noopener" target="_blank">Google Official Blog</a> · 
+<div class="src-line">Sources: <a href="https://blog.google/technology/ai/" rel="noopener" target="_blank">Google Official Blog</a> ·
  <a href="https://openai.com/index/introducing-gpt-6-1-sol" rel="noopener" target="_blank">OpenAI Official Release</a></div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">Modal Debuts VM Sandboxes: Agent Runtimes Shift from Lightweight Containers to Isolated Virtual Machines</h2>
-<div class="prose">
+</div>
+<div class="item">
+<div class="item-title">Modal Debuts VM Sandboxes: Agent Runtimes Shift from Lightweight Containers to Isolated Virtual Machines</div>
+<div class="body">
 <p>As autonomous agents gain the ability to install drivers and execute arbitrary system calls, traditional lightweight containers increasingly pose privilege escalation risks.</p>
 <p>Modal's sub-second VM Sandboxes launched this week, delivering millisecond-grade cold starts alongside hardware-level kernel isolation—laying critical engineering foundations for complex <span class="num">autonomous proxy pipelines</span>.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://modal.com/blog/sandboxes" rel="noopener" target="_blank">Modal Official Engineering Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">3. Multi-Billion Dollar Capital Reallocation &amp; Open-Source Frontiers</div>
-<article class="chapter">
-<h2 class="chapter-title">AMD Acquires Spatial Intelligence Firm for $8.2B to Shore Up Software Deficits</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://modal.com/blog/sandboxes" rel="noopener" target="_blank">Modal Official Engineering Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">3. Multi-Billion Dollar Capital Reallocation &amp; Open-Source Frontiers</div>
+<div class="sec-title">3. Multi-Billion Dollar Capital Reallocation &amp; Open-Source Frontiers</div>
+<div class="item">
+<div class="item-title">AMD Acquires Spatial Intelligence Firm for $8.2B to Shore Up Software Deficits</div>
+<div class="body">
 <p>Facing Nvidia's formidable moat built on CUDA, AMD completed a blockbuster strategic acquisition this week, bringing frontier vision and physical spatial modeling under its roof.</p>
 <p>The deal signals chipmakers building their own proprietary model software stacks, with 3D physical spatial reasoning emerging as the <span class="accent">primary battleground</span> for next-generation AI.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://ir.amd.com/news-events/press-releases" rel="noopener" target="_blank">AMD Official Press Release</a> · 
+<div class="src-line">Sources: <a href="https://ir.amd.com/news-events/press-releases" rel="noopener" target="_blank">AMD Official Press Release</a> ·
  <a href="https://stratechery.com/2026/nvidias-risky-business/" rel="noopener" target="_blank">Stratechery In-Depth</a></div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">On-Device Agent Benchmark Refreshed: Xiaomi MiMo-V2.6 Gains 3.17% to Join Open-Source Top Tier</h2>
-<div class="prose">
+</div>
+<div class="item">
+<div class="item-title">On-Device Agent Benchmark Refreshed: Xiaomi MiMo-V2.6 Gains 3.17% to Join Open-Source Top Tier</div>
+<div class="body">
 <p>Across open-source on-device benchmarks, Xiaomi's latest lightweight release posted breakthrough results in instruction following and complex long-context reasoning.</p>
 <p>Coupled with open-source context-pruning utilities like Headroom, running complex multi-step reasoning locally on edge devices is no longer a distant luxury.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/vllm-project/vllm" rel="noopener" target="_blank">vLLM Official Integration</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"When large language models cease to be as expensive as oracles, real software engineering can finally begin."</div>
-<div class="voice-meta">
-<span>Chris Painter · Independent Systems Architect</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"What constrains autonomous agents isn't their parameter ceiling—it's their potential to knock over the sandbox inside a real operating system."</div>
-<div class="voice-meta">
-<span>Ethan Mollick · Professor at the Wharton School</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://github.com/vllm-project/vllm" rel="noopener" target="_blank">vLLM Official Integration</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"When large language models cease to be as expensive as oracles, real software engineering can finally begin."</p>
+<p class="voice-who">Chris Painter · Independent Systems Architect</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"What constrains autonomous agents isn't their parameter ceiling—it's their potential to knock over the sandbox inside a real operating system."</p>
+<p class="voice-who">Ethan Mollick · Professor at the Wharton School</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="After torrential rains, the Gandaki River basin cuts intricate sediment trails across the plains." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/torrential-rains-swamp-the-gandaki-river/floodingindianepal_amo_20260929_th.jpg?w=1024" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">After torrential rains, the Gandaki River basin cuts intricate sediment trails across the plains.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Gandaki River, Bihar, India · NASA · <span class="num">26.85°N, 84.45°E</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a full day of AI news, remember there are still places on Earth that don't need GPU cooling. Across mountains, rivers, and oceans, stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-10-06.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-10-07.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

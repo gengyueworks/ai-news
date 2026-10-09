@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-21</span>
-<span>Tuesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-21</h1><p class="doc-date">2026-07-21 · Tuesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Computing power is the flip side of the protagonist this week.Nvidia Vera Rubin enters full production, boosting agent inference energy efficiency to 10 x that of Blackwell.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Google drops a triple release overnight, focusing on "cheaper" rather than "bigger."When both hardware and models learn to save money, AI factories finally operate like real factories.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Tuesday, July 21, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Computing power is the flip side of the protagonist this week.Nvidia Vera Rubin enters full production, boosting agent inference energy efficiency to 10 x that of Blackwell.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>Google drops a triple release overnight, focusing on "cheaper" rather than "bigger."When both hardware and models learn to save money, AI factories finally operate like real factories.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Grid / AI Dispatch · Energy</div>
-<h2 class="chapter-title">AI Starts Managing Power, but Humans Still Backstop the Fluctuations Turning fluctuating solar power into dispatchable compute, but the real uphill battle has just begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-21 · Grid / AI Dispatch · Energy</div>
+<div class="item-title">AI Starts Managing Power, but Humans Still Backstop the Fluctuations Turning fluctuating solar power into dispatchable compute, but the real uphill battle has just begun</div>
+<div class="body">
 <p><strong>Data centers in California and Texas are using AI to manage campus power, storing midday solar surplus in energy storage and discharging it during the evening peak, reducing electricity costs per unit of compute by about <span class="num">30</span>%.</strong>Systems no longer buy power based on peak demand; they now follow the sun and electricity prices.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="AI Starts Managing Power, but Humans Still Backstop the Fluctuations Turning fluctuating solar power into dispatchable compute, but the real uphill battle has just begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-21/solarutah.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -279,15 +269,16 @@
 </div>
 <p><span class="turn">When AI factories learn to save power on their own, the first step to "compute freedom" isn't more chips—it's smarter power consumption.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener" target="_blank">NVIDIA / Industry Report</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontlines</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Nvidia · Compute Foundation</div>
-<h2 class="chapter-title">Vera Rubin is in full production, delivering 10x the agentic inference energy efficiency of Blackwell, but the real hard battle has only just begun</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener" target="_blank">NVIDIA / Industry Report</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontlines</div>
+<div class="sec-title">Frontlines</div>
+<div class="item">
+<div class="dateline">07-21 · Nvidia · Compute Foundation</div>
+<div class="item-title">Vera Rubin is in full production, delivering 10x the agentic inference energy efficiency of Blackwell, but the real hard battle has only just begun</div>
+<div class="body">
 <p><strong>Nvidia Vera Rubin NVL72 enters full production, featuring per-GPU <span class="num">288</span> GB HBM4, bandwidth of <span class="num">22</span> TB/s, and NVLink 6 single-GPU interconnect of <span class="num">3.6</span> TB/s, targeting agentic inference.</strong>Official figures put the cost per million tokens at roughly one-tenth of the previous generation.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Vera Rubin is in full production, delivering 10x the agentic inference energy efficiency of Blackwell, but the real hard battle has only just begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-21/nvidia-rubin.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -296,23 +287,23 @@
 <p><span class="turn">Rubin isn't designed for benchmarks; it's built for continuous operation—handling repetitive agent reasoning and tool invocation, where energy efficiency is king.</span></p>
 <p>Nvidia Vera Rubin inference architecture enters full production.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" rel="noopener" target="_blank">NVIDIA</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Google · Model Release</div>
-<h2 class="chapter-title">Google Drops Gemini Triple Release, 3.6 Flash is Cheaper, 3.5 Cyber Fixes Vulnerabilities</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" rel="noopener" target="_blank">NVIDIA</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · Google · Model Release</div>
+<div class="item-title">Google Drops Gemini Triple Release, 3.6 Flash is Cheaper, 3.5 Cyber Fixes Vulnerabilities</div>
+<div class="body">
 <p><strong>Google DeepMind released Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber simultaneously: 3.6 Flash uses <span class="num">17%</span>fewer output tokens, cuts DeepSWE coding benchmark costs by up to <span class="num">65%</span>, and is priced at <span class="num">1.5</span>/<span class="num">7.5</span> per million tokens.</strong>3.5 Flash Cyber is a security-focused model dedicated to vulnerability patching, available exclusively to governments and trusted partners.</p>
 
 <p><span class="turn">Google isn't playing the "biggest" game this time; it's playing the "cheaper" one—for agents in production, saving money upfront is the real deal.</span></p>
 <p>Google releases the next-generation Gemini 3.6 Flash model.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Anthropic · Coding Agent</div>
-<h2 class="chapter-title">Claude Sonnet 4.6 Released, Spin Up 8 Sub-Agents with a Single Command</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · Anthropic · Coding Agent</div>
+<div class="item-title">Claude Sonnet 4.6 Released, Spin Up 8 Sub-Agents with a Single Command</div>
+<div class="body">
 <p><strong>Anthropic's Claude Sonnet 4.6 enhances filesystem tools and sub-agent orchestration APIs, allowing parent agents to spin up to <span class="num">8</span> different types of sub-agents in parallel, increasing the single-dialogue budget from <span class="num">128</span> to <span class="num">256</span> turns.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Claude Sonnet 4.6 Released, Spin Up 8 Sub-Agents with a Single Command · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-21/alphafold-3.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -320,12 +311,12 @@
 </div>
 <p><span class="turn">Completing a cross-module refactoring in a single dialogue means humans no longer need to split context into four parts and feed them into separate sessions.</span></p>
 </div>
-<div class="sources-bar">Sources: Headline / Anthropic</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Alibaba · Open Weights</div>
-<h2 class="chapter-title">Alibaba Confirms Qwen 3.8 Max Will Open Source, 2.4 Trillion Official Version Weights Also to Be Released, Not Just a Preview</h2>
-<div class="prose">
+<div class="src-line">Sources: Headline / Anthropic</div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · Alibaba · Open Weights</div>
+<div class="item-title">Alibaba Confirms Qwen 3.8 Max Will Open Source, 2.4 Trillion Official Version Weights Also to Be Released, Not Just a Preview</div>
+<div class="body">
 <p><strong>Alibaba explicitly stated in a post that the "more complete official version" of Qwen3.8-Max will have its weights open-sourced to everyone, not just the current Preview version.</strong>The community interprets this as: the final Qwen 3.8 Max will follow the open-source route like Kimi K3, with a model scale of approximately <span class="num">2.4</span> trillion parameters.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Alibaba Confirms Qwen 3.8 Max Will Open Source, 2.4 Trillion Official Version Weights Also to Be Released, Not Just a Preview · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-21/australiafires.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -334,127 +325,136 @@
 <p>This is a strategic bottleneck, not followership. K3 released on <span class="num">7</span> <span class="num">16</span> <span class="num">27</span> and handed over weights on the, and Alibaba immediately followed up with "getting better every day, the official version will also be open source" —<span class="accent">The Chinese open-source camp has made "open source upon release" the default action.</span>.</p>
 <p>Looking at the timeline flatly: GLM, Kimi, and Qwen maintain an almost weekly update pace in Chinese open source.<span class="turn">Open source has become a permanent product line that every player must deliver on time, no longer just a "free alternative to the previous generation" — whoever is a week slower drops a tier in developers' minds.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-173" rel="noopener" target="_blank">AINews</a> · <a href="https://huggingface.co/Qwen" rel="noopener" target="_blank">Qwen / Hugging Face</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Policy · Geopolitics</div>
-<h2 class="chapter-title">The US takes action against Chinese open-source models, more than just a ban, it's a comprehensive set of "tightening nets".</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-173" rel="noopener" target="_blank">AINews</a> · <a href="https://huggingface.co/Qwen" rel="noopener" target="_blank">Qwen / Hugging Face</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · Policy · Geopolitics</div>
+<div class="item-title">The US takes action against Chinese open-source models, more than just a ban, it's a comprehensive set of "tightening nets".</div>
+<div class="body">
 <p><strong>Axios reports that the US government is considering de facto restrictions on advanced Chinese open-source models (specifically naming Kimi), using tools including procurement limits, entity lists, security advisories, platform liability clauses, and public pressure.</strong></p>
 <p>The tech circle's reaction is one-sided:<span class="accent">Hugging Face</span> Clement Delangue, Palmer Luckey, Margaret Mitchell, and Bill Gurley all opposed, arguing that "restricting open source harms competition, harms sovereignty, and hurts defense even more."</p>
 <p>The most concrete evidence comes from Hugging Face's self-disclosure — during a security incident, blocked by closed-source API guardrails from conducting forensic analysis, they had to switch to a locally deployed GLM-5.2 to get the job done.</p>
 <p>This gives the notion that "open source is a security necessity" its first firsthand case:<span class="accent">defenders need models that can be modified, run locally, and never refuse to answer.</span>.<span class="turn">When authorities lock open source with "national security," defenders are locked out first — the direction of the ban is fighting its claimed objective.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-173" rel="noopener" target="_blank">AINews</a> · Axios</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Math · Frontier Capabilities</div>
-<h2 class="chapter-title">AI finds counterexample to 3D Jacobian conjecture, another solid proof of "clearly superhuman" math tasks.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-173" rel="noopener" target="_blank">AINews</a> · Axios</div>
+</div>
+<div class="item">
+<div class="dateline">07-21 · Math · Frontier Capabilities</div>
+<div class="item-title">AI finds counterexample to 3D Jacobian conjecture, another solid proof of "clearly superhuman" math tasks.</div>
+<div class="body">
 <p><strong>Multiple mathematicians and researchers reported that frontier models helped find a counterexample to the 3D Jacobian conjecture (a decades-long algebraic geometry problem).</strong>Alexei, a mathematician under Tian Gang who has long studied the problem, said frontier models are "already clearly superhuman on some mathematical tasks"; OpenAI internally also acknowledged that an internal Codex variant independently found almost the exact same counterexample and wrote a complete proof.</p>
 <p>This is not the first time this trend has appeared this year —<span class="num">7</span> <span class="num">16</span> GPT-5.6 Sol just helped a UPenn professor use <span class="num">90</span> minutes to overturn a pending <span class="num">30</span> -year statistical conjecture. Two cases within a month,<span class="accent">models are steadily moving from "reproducing the known" to "yielding new conclusions."</span>.</p>
 <p>The real shock lies in the pace:<span class="turn">When what mathematicians need is no longer just "computing fast," but "providing suspicious directions worth exploring," researchers' work shifts from solving problems to judging which solution to trust.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-173" rel="noopener" target="_blank">AINews</a> · MathOverflow Discussion</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontier</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Google · Secure Open Source</div>
-<h2 class="chapter-title">Gemini 3.5 Flash Cyber open-source philosophy, vulnerability models given to defenders first.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-173" rel="noopener" target="_blank">AINews</a> · MathOverflow Discussion</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontier</div>
+<div class="sec-title">Open Source Frontier</div>
+<div class="item">
+<div class="dateline">07-21 · Google · Secure Open Source</div>
+<div class="item-title">Gemini 3.5 Flash Cyber open-source philosophy, vulnerability models given to defenders first.</div>
+<div class="body">
 <p><strong>Positioned as "special forces for fixing vulnerabilities," Google placed 3.5 Flash Cyber into a restricted pilot, giving it to governments and security researchers first rather than a full public release.</strong>The idea is to let defenders acquire capabilities ahead of attackers.</p>
 <p><span class="turn">The open-source pace of security models pays more attention to "who gets it" than general models — the stronger the capability, the less it can be scattered blindly.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://deepmind.google/models/gemini/flash/" rel="noopener" target="_blank">Google DeepMind</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-17 · Open Source Community · Inference Frameworks</div>
-<h2 class="chapter-title">vLLM / SGLang follow up on K3, Open-source inference stacks adapt to 2.8 trillion overnight.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://deepmind.google/models/gemini/flash/" rel="noopener" target="_blank">Google DeepMind</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-17 · Open Source Community · Inference Frameworks</div>
+<div class="item-title">vLLM / SGLang follow up on K3, Open-source inference stacks adapt to 2.8 trillion overnight.</div>
+<div class="body">
 <p><strong>The same week Kimi K3 was released, the vLLM and SGLang communities submitted support patches for Stable LatentMoE, enabling <span class="num">896</span> experts, active <span class="num">16</span> architecture to run on consumer-grade clusters.</strong></p>
 <p><span class="turn">Half the value of open-source models lies in the weights, and the other half in the folks modifying inference frameworks overnight.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/vllm-project/vllm" rel="noopener" target="_blank">GitHub / Community</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Energy efficiency is the real bottleneck in the agent era, not total compute, but how many tokens can be produced per kilowatt-hour."</div>
-<div class="voice-meta">
-<span>Jensen Huang</span>
-<a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener" target="_blank">NVIDIA</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Only when models become cheaper can agents enter the back offices of small and medium-sized enterprises, rather than remaining toys for tech giants."</div>
-<div class="voice-meta">
-<span>Logan Kilpatrick · Google DeepMind</span>
-<a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" rel="noopener" target="_blank">TechCrunch</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · DeepMind · AI for Science</div>
-<h2 class="chapter-title">AlphaFold 3 enters drug discovery, compressing protein structure prediction to minutes.</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/vllm-project/vllm" rel="noopener" target="_blank">GitHub / Community</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Energy efficiency is the real bottleneck in the agent era, not total compute, but how many tokens can be produced per kilowatt-hour."</p>
+<p class="voice-who">Jensen Huang <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener" target="_blank">NVIDIA</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Only when models become cheaper can agents enter the back offices of small and medium-sized enterprises, rather than remaining toys for tech giants."</p>
+<p class="voice-who">Logan Kilpatrick · Google DeepMind <a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" rel="noopener" target="_blank">TechCrunch</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-21 · DeepMind · AI for Science</div>
+<div class="item-title">AlphaFold 3 enters drug discovery, compressing protein structure prediction to minutes.</div>
+<div class="body">
 <p><strong>DeepMind integrates AlphaFold 3 into drug discovery pipelines: researchers upload sequences and get protein-molecule interaction hypotheses in minutes instead of weeks of wet lab work.</strong></p>
 <p><span class="turn">When structure prediction outpaces grant writing, biological iteration matches software speed for the first time.</span></p>
 <p>AlphaFold 3 dramatically accelerates structure prediction.</p>
 </div>
-<div class="sources-bar">Sources: Google DeepMind</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Documentary Director · Evolving Experience</div>
-<h2 class="chapter-title">Restoring with AI 1960 years of wildfire footage, bringing smoke flow to black-and-white film</h2>
-<div class="prose">
+<div class="src-line">Sources: Google DeepMind</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-21 · Documentary Director · Evolving Experience</div>
+<div class="item-title">Restoring with AI 1960 years of wildfire footage, bringing smoke flow to black-and-white film</div>
+<div class="body">
 <p><strong>A documentary director fed NASA wildfire satellite imagery and historical forest fire footage into an AI restoration model, adding <span class="num">1960</span> -era black-and-white footage with visible smoke vectors and city contours.</strong></p>
 <p><span class="turn">For the first time, creators can compare past and present wildfires in a single frame—bringing archives to life.</span></p>
 </div>
-<div class="sources-bar">Sources: NASA / Creators</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-21 · Semiconductor · Supply Chain</div>
-<h2 class="chapter-title">Rubin mass production boosts supply chain, HBM4 and silicon photonics emerge as new trends</h2>
-<div class="prose">
+<div class="src-line">Sources: NASA / Creators</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment &amp; Capital Flows</div>
+<div class="sec-title">Investment &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">07-21 · Semiconductor · Supply Chain</div>
+<div class="item-title">Rubin mass production boosts supply chain, HBM4 and silicon photonics emerge as new trends</div>
+<div class="body">
 <p><strong>With Vera Rubin in full production, HBM4 memory, NVLink 6 switch chips, and silicon photonics become supply chain priorities as Taiwanese and global foundries expand capacity.</strong>Analysts project higher quarter-over-quarter AI server shipments.</p>
 <p><span class="turn">Behind every GPU lies a completely repriced materials supply chain.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener" target="_blank">NVIDIA / Report</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>Today's keyword: cost efficiency.</p>
+<div class="src-line">Sources: <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener" target="_blank">NVIDIA / Report</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>Today's keyword: cost efficiency.</p>
 <p>Vera Rubin achieves 10x the agent inference efficiency of Blackwell at roughly one-tenth the cost per million tokens; Google's triple release highlights cheaper Flash models.</p>
 <p>AI now manages data center power, storing midday solar energy and releasing it during peak hours, cutting unit compute electricity costs by ~30%.</p>
 <p>AlphaFold 3 accelerates drug discovery to minutes per structure; coding sub-agents spin up 8 instances with a single command.</p>
-<p>When hardware, models, and power all optimize for cost, AI factories truly operate like industrial facilities.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p>When hardware, models, and power all optimize for cost, AI factories truly operate like industrial facilities.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Alaska's volcanic range: where glaciers and magma coexist." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/volcanoes-and-ice/iliamnavolcano_oli_20250610_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Alaska's volcanic range: where glaciers and magma coexist.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Iliamna Volcano, Alaska, USA · NASA · <span class="num">60.03°N, 153.09°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, reminders remain of places on Earth that need no GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-20.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-22.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

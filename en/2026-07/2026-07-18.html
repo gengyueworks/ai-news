@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-18</span>
-<span>Saturday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-18</h1><p class="doc-date">2026-07-18 · Saturday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">WAIC kicked off in Shanghai today, with the spotlight shifting to "AI agents"—the kind that can tap apps and complete cross-app tasks autonomously.On the same day, the State Council's AI action guidelines set a 70% adoption rate target for 2027, while Xiaomi Robotics synchronized multiple robots to the same pace on the factory floor.From mobile OS to national policy, agents are moving from "chatting" to "getting things done"—this is the most solid thread of the week.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Saturday, July 18, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">WAIC kicked off in Shanghai today, with the spotlight shifting to "AI agents"—the kind that can tap apps and complete cross-app tasks autonomously.On the same day, the State Council's AI action guidelines set a 70% adoption rate target for 2027, while Xiaomi Robotics synchronized multiple robots to the same pace on the factory floor.From mobile OS to national policy, agents are moving from "chatting" to "getting things done"—this is the most solid thread of the week.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · StepFun · WAIC Debut</div>
-<h2 class="chapter-title">StepFun STEPX Neo LLM-Native Agent Phone, but the Real Battle Lies at the OS Level System Layer Driven Directly by Agents, but the real hard battle has just begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-18 · StepFun · WAIC Debut</div>
+<div class="item-title">StepFun STEPX Neo LLM-Native Agent Phone, but the Real Battle Lies at the OS Level System Layer Driven Directly by Agents, but the real hard battle has just begun</div>
+<div class="body">
 <p><strong>StepFun officially debuted STEPX Neo at WAIC, an "LLM-native agent smartphone": the agent sits at the first layer of the operating system, allowing users to use natural language to make the phone tap apps, fill out forms, and chain tasks across applications.</strong>Live demonstration of multi-agent collaboration—<span class="num">3</span> agents managing planning, execution, and verification respectively.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="StepFun STEPX Neo LLM-Native Agent Phone, but the Real Battle Lies at the OS Level System Layer Driven Directly by Agents, but the real hard battle has just begun · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-18/stepx-neo-booth.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -284,15 +274,16 @@
 <li>WAIC Debut, targeting the consumer market</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.stepfun.com/news/stepx-neo" rel="noopener" target="_blank">StepFun Official</a> · <a href="https://www.stepfun.com/news/stepx-neo" rel="noopener" target="_blank">NetEase Tech</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · WAIC 2026 · Opening</div>
-<h2 class="chapter-title">WAIC 2026 Kicks Off: Hundreds of Vendors Feature "Agents" in Main Slogans, But the Real Hard Battle Has Just Begun</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.stepfun.com/news/stepx-neo" rel="noopener" target="_blank">StepFun Official</a> · <a href="https://www.stepfun.com/news/stepx-neo" rel="noopener" target="_blank">NetEase Tech</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-18 · WAIC 2026 · Opening</div>
+<div class="item-title">WAIC 2026 Kicks Off: Hundreds of Vendors Feature "Agents" in Main Slogans, But the Real Hard Battle Has Just Begun</div>
+<div class="body">
 <p><strong>The World Artificial Intelligence Conference opened in Shanghai. This year's main theme shifted from "large models" to "agents": exhibiting manufacturers exceeded <span class="num">100</span> companies, universally placing agents, multi-agent collaboration, and industry implementation in the most prominent positions.</strong>From government service windows to factory scheduling, demos no longer stop at "answering questions" but directly "complete the entire workflow for you."</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='WAIC 2026 Kicks Off: Hundreds of Vendors Feature "Agents" in Main Slogans, But the Real Hard Battle Has Just Begun · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/xiaomi-robot.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -300,12 +291,12 @@
 </div>
 <p>The wind direction has changed—last year everyone competed on model parameter size, while this year they compete on whose agent can truly integrate into a business workflow.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-18" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · State Council · Action Guidelines</div>
-<h2 class="chapter-title">AI Action Guidelines Released, 2027 Core Industry Adoption Rate Target at 70%</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-18" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-18 · State Council · Action Guidelines</div>
+<div class="item-title">AI Action Guidelines Released, 2027 Core Industry Adoption Rate Target at 70%</div>
+<div class="body">
 <p><strong>An action guideline aimed at AI application deployment proposes that by <span class="num">2027</span>, the application adoption rate of large models in key industries should reach <span class="num">70%</span>, along with supporting construction targets for three types of foundational infrastructure: computing power, data, and talent.</strong>The document places "utilization" before "creation," shifting the focus noticeably toward large-scale deployment.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="AI Action Guidelines Released, 2027 Core Industry Adoption Rate Target at 70% · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-17/kimi-k3-key.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -313,12 +304,12 @@
 </div>
 <p>For the industry, this is a clear demand checklist.<span class="turn">When policies turn adoption rates into hard metrics, buyers expand from early adopters to every department that must calculate ROI.</span></p>
 </div>
-<div class="sources-bar">Sources: Action Guidelines</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · Xiaomi · Multi-Machine Collaboration</div>
-<h2 class="chapter-title">Xiaomi Robotics Multi-Machine Collaboration, Multiple Robots Synchronize Pace at Tote Box Folding Station</h2>
-<div class="prose">
+<div class="src-line">Sources: Action Guidelines</div>
+</div>
+<div class="item">
+<div class="dateline">07-18 · Xiaomi · Multi-Machine Collaboration</div>
+<div class="item-title">Xiaomi Robotics Multi-Machine Collaboration, Multiple Robots Synchronize Pace at Tote Box Folding Station</div>
+<div class="body">
 <p><strong>Xiaomi has disclosed new progress on its robots entering the factory floor: at the bin folding and recycling workstation in the logistics area of the general assembly workshop, multiple robots synchronize their operational status and match processing paces through the factory system, achieving stable multi-machine collaboration.</strong>Previously, it achieved a dual-sided success rate of <span class="num">98%</span>.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Xiaomi Robotics Multi-Machine Collaboration, Multiple Robots Synchronize Pace at Tote Box Folding Station · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-18/xiaomi-robot-factory.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -327,127 +318,136 @@
 <p>Moving from "one working robot" to "a coordinated team working in sync" is the final hurdle before mass production. The real difficulty of entering factories lies not in a more flexible individual unit, but in a team that can align with one another.</p>
 <p>Xiaomi robots performing multi-machine collaborative work.</p>
 </div>
-<div class="sources-bar">Sources: Xiaomi Official</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · Databricks · Financing</div>
-<h2 class="chapter-title">Databricks Secures 1880 Billion in Funding, Largest single round ever: data is the most expensive AI infrastructure</h2>
-<div class="prose">
+<div class="src-line">Sources: Xiaomi Official</div>
+</div>
+<div class="item">
+<div class="dateline">07-18 · Databricks · Financing</div>
+<div class="item-title">Databricks Secures 1880 Billion in Funding, Largest single round ever: data is the most expensive AI infrastructure</div>
+<div class="body">
 <p><strong><span class="accent">Databricks</span>Completed<span class="accent">M financing round</span>, with a single-round scale reaching <span class="num">1880</span> billion USD, setting a historical record.</strong>This<span class="accent">data lakehouse</span>-origin company is packaging "data + large model" into a platform narrative.</p>
 <p>This funding shows capital shifting its AI bets—<span class="accent">buying "a foundation that ingests data long-term", not "a smarter model"</span>. Databricks competes with Snowflake and cloud vendors' data stacks, not OpenAI or Anthropic.</p>
 <p>On the same day, a subtle subtext emerged:<span class="accent">OpenRouter</span> rumored to be a potential acquisition target.<span class="turn">When models become replaceable parts, the real value lies in "who controls all your invocation gateways and logs".</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-830" rel="noopener" target="_blank">AINews</a> · <a href="https://www.databricks.com/company/newsroom" rel="noopener" target="_blank">Databricks</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · Evaluation · Open Source Update</div>
-<h2 class="chapter-title">K3 pushes China to first place in frontend coding, expanding the Artificial Analysis frontier from 2 to 6 labs</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-830" rel="noopener" target="_blank">AINews</a> · <a href="https://www.databricks.com/company/newsroom" rel="noopener" target="_blank">Databricks</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-18 · Evaluation · Open Source Update</div>
+<div class="item-title">K3 pushes China to first place in frontend coding, expanding the Artificial Analysis frontier from 2 to 6 labs</div>
+<div class="body">
 <p><strong>The fallout from K3's release is rewriting leaderboards. Artificial Analysis states that labs with an intelligence index over <span class="num">51</span> points expanded from <span class="num">2</span> to <span class="num">6</span>, with K3 ranking <span class="num">57</span> points below Fable 5 (<span class="num">60</span>) and above Opus 4.8 (<span class="num">56</span>).</strong>Arena offers a more historical conclusion:<span class="num">In the frontend coding arena, China has surpassed the US for the first time</span>.</p>
 <p>In the coding agent dimension, AA's <span class="num">Coding Agent Index</span> scores K3 at <span class="num">57</span> points, tying with GPT-5.6 Terra and GPT-5.5, outperforming Opus 4.8,<span class="num">Terminal-Bench v2</span> to <span class="num">84%</span>, and DeepSWE to <span class="num">64%</span>. Benchmark firm <span class="num">DataCurve</span> calls K3 the first open-weight model to achieve "frontier-tier" results on DeepSWE.</p>
 <p>Another niche yet crucial metric:<span class="accent">Thinking Machines</span> 's Inkling, after ARC Prize re-evaluation, became the highest-scoring open-source model on ARC-AGI-1 (<span class="num">79.5%</span>) and ARC-AGI-2 (<span class="num">36.5%</span>).<span class="turn">Within a week, the "best open source" crown shifted back and forth between the US and China—frontier accessibility felt like a two-player relay for the first time.</span></p>
 <p>Kimi K3 tops the frontend coding arena.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-830" rel="noopener" target="_blank">AINews</a> · Artificial Analysis</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontier</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · Alibaba · Edge Open Source</div>
-<h2 class="chapter-title">Alibaba open-sources new edge model, compact enough to reside locally on phones and vehicle systems</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-830" rel="noopener" target="_blank">AINews</a> · Artificial Analysis</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontier</div>
+<div class="sec-title">Open Source Frontier</div>
+<div class="item">
+<div class="dateline">07-18 · Alibaba · Edge Open Source</div>
+<div class="item-title">Alibaba open-sources new edge model, compact enough to reside locally on phones and vehicle systems</div>
+<div class="body">
 <p><strong>Alibaba open-sources a next-gen edge model focused on "small size, low latency, always-on residency"—compressing model size to <span class="num">several GBs</span>, enabling local residency on mobile phones and car infotainment systems without relying on round-trip cloud responses.</strong>Weights and inference examples are released together, targeting offline assistants, in-vehicle voice, and embedded devices.</p>
 <p>The edge computing race is shifting from peak scores to "working offline". When models are small enough to be embedded into devices, AI truly transforms from a service into a component.</p>
 </div>
-<div class="sources-bar">Sources: GitHub · QwenLM</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · Hugging Face · Benchmark</div>
-<h2 class="chapter-title">Hugging Face launches agent benchmark, providing a unified metric for "can it actually do the work"</h2>
-<div class="prose">
+<div class="src-line">Sources: GitHub · QwenLM</div>
+</div>
+<div class="item">
+<div class="dateline">07-18 · Hugging Face · Benchmark</div>
+<div class="item-title">Hugging Face launches agent benchmark, providing a unified metric for "can it actually do the work"</div>
+<div class="body">
 <p><strong>Hugging Face releases an agent evaluation benchmark that measures task completion rather than just accuracy: given real web pages and tools, it tests whether the agent can independently complete <span class="num">3</span> multi-step operations like booking tickets, filling forms, and querying data.</strong>It elevates "capability" from the linguistic level to the action level.</p>
 <p>Without a benchmark, agents rely solely on demos. Once evaluations can count completed tasks, industry hype space shrinks.</p>
 </div>
-<div class="sources-bar">Sources: Hugging Face Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"The race for AI agents has shifted from 'can they work' to 'dare we trust them with the work.'"</div>
-<div class="voice-meta">
-<span>Kai-Fu Lee · Sinovation Ventures</span>
-<a href="https://www.reuters.com/technology/agent-race-2026/" rel="noopener" target="_blank">Reuters</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"Robots doing dirty and heavy work in factories is ten thousand times cooler than doing backflips on stage."</div>
-<div class="voice-meta">
-<span>— Tianmiao Wang · Beihang University Robotics Institute</span>
-<span></span>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · StepFun · Personal Agent</div>
-<h2 class="chapter-title">Stepfun Launches Amoo, A Personal Agent That Manages Schedules and Runs Errands for You</h2>
-<div class="prose">
+<div class="src-line">Sources: Hugging Face Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"The race for AI agents has shifted from 'can they work' to 'dare we trust them with the work.'"</p>
+<p class="voice-who">Kai-Fu Lee · Sinovation Ventures <a href="https://www.reuters.com/technology/agent-race-2026/" rel="noopener" target="_blank">Reuters</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"Robots doing dirty and heavy work in factories is ten thousand times cooler than doing backflips on stage."</p>
+<p class="voice-who">— Tianmiao Wang · Beihang University Robotics Institute</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-18 · StepFun · Personal Agent</div>
+<div class="item-title">Stepfun Launches Amoo, A Personal Agent That Manages Schedules and Runs Errands for You</div>
+<div class="body">
 <p><strong>Stepfun has concurrently released its personal agent Amoo, positioned as "the one who runs errands for you": connected to <span class="num">3</span> system gateways (calendar, email, local files), it can proactively flag conflicts, draft replies, and handle cross-application chores without waiting for step-by-step instructions.</strong>It shares the same agent foundation as the front-page STEPX Neo.</p>
 <p>The ultimate destination of personal assistants is not better chatting, but fewer interruptions. When an agent starts doing the tedious chores you are too lazy to do, it truly becomes "another you."</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.stepfun.com/news/amoo" rel="noopener" target="_blank">StepFun Official</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · Xiaomi · Robots Enter the Factory</div>
-<h2 class="chapter-title">Xiaomi Robot Internship Station, Self-Tapping Nut Feeding, 98% Dual-Side Success Rate</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.stepfun.com/news/amoo" rel="noopener" target="_blank">StepFun Official</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-18 · Xiaomi · Robots Enter the Factory</div>
+<div class="item-title">Xiaomi Robot Internship Station, Self-Tapping Nut Feeding, 98% Dual-Side Success Rate</div>
+<div class="body">
 <p><strong>Xiaomi released on-site footage of its robots "interning" in an automobile factory: at the self-tapping nut feeding station, the robots operated continuously and autonomously, achieving a dual-side simultaneous installation success rate of <span class="num">98%</span>matching the fastest <span class="num">76</span> second production line rhythm.</strong>It relies on cameras on its head and wrists to judge positioning, and finger sensors to feel for proper fit and jams.</p>
 <p>For visual creators, the beauty of this footage lies in "no showing off"—no backflips, just a quiet robot repeating the exact same motion without error, which is precisely the hardest part.</p>
 </div>
-<div class="sources-bar">Sources: Xiaomi Official</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment and Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-18 · Embodied AI · Track Heating Up</div>
-<h2 class="chapter-title">Embodied AI Funding Heats Up on Eve of WAIC, Single Rounds Commonly in the Hundreds of Millions of RMB</h2>
-<div class="prose">
+<div class="src-line">Sources: Xiaomi Official</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment and Capital Flows</div>
+<div class="sec-title">Investment and Capital Flows</div>
+<div class="item">
+<div class="dateline">07-18 · Embodied AI · Track Heating Up</div>
+<div class="item-title">Embodied AI Funding Heats Up on Eve of WAIC, Single Rounds Commonly in the Hundreds of Millions of RMB</div>
+<div class="body">
 <p><strong>During WAIC, multiple funding rounds were disclosed in the embodied AI and robotics sector, with single-ticket sizes generally in the <span class="num">hundreds of millions</span> RMB range, with capital clearly concentrating on hardware and system companies capable of entering production lines.</strong>The logic of capital is straightforward: demos that do backflips are no longer valuable; machines that can match production line rhythms are.</p>
 <p>Echoing SambaNova's $1 billion last week, money is being wagered on both ends simultaneously—computing power to run models cheaply, and physical bodies to turn models into capable workers.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.my2cents.ai/news/2026-07-18" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose"><p>Today's keyword is "assigned to work."</p>
+<div class="src-line">Sources: <a href="https://www.my2cents.ai/news/2026-07-18" rel="noopener" target="_blank">my2cents.ai · AI News</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body"><p>Today's keyword is "assigned to work."</p>
 <p>On one hand, Stepfun brought native agent phones to WAIC, and the State Council set a 2027 penetration rate target of 70%—moving agents from concepts into products and national agendas.</p>
 <p>On the other hand, Xiaomi synced multiple robots to the same rhythm, and hundreds of vendors at WAIC featured "AI Agents" as their primary slogan.</p>
 <p>Capital is following the exact same momentum: SambaNova's computing power and hundreds of millions in embodied AI funding are paving the way for "AI that can work."</p>
 <p>Brighter models are no longer the only story.</p>
-<p>Who can legitimately reside within devices, consistently get things right, and be integrated into real workflows are the three things laid out today.</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p>Who can legitimately reside within devices, consistently get things right, and be integrated into real workflows are the three things laid out today.</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="In the spring and summer of 2026, the Black Sea was stained a milky blue by phytoplankton." loading="lazy" src="https://apod.nasa.gov/apod/image/2606/alaskanunivak_tmo_20260603.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">In the spring and summer of 2026, the Black Sea was stained a milky blue by phytoplankton.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Black Sea phytoplankton bloom · NASA · <span class="num">43.00°N, 35.00°E</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After looking at AI news all day, there are still places on Earth that don't require GPU cooling.</p>
 <p style="margin-bottom:8px; line-height:1.8;">Mountains, rivers, lakes, and seas—let's stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-17.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-19.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

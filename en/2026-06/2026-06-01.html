@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,109 +250,117 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-06-01</span>
-<span>Monday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI News <span>Daily</span> | 2026-06-01</h1><p class="doc-date">2026-06-01 · Monday</p>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Monday, June 1, 2026</p>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter">
-<h2 class="chapter-title">Anthropic Files Confidentially for IPO—Valuation Nears $1 Trillion</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="item-title">Anthropic Files Confidentially for IPO—Valuation Nears $1 Trillion</div>
+<div class="body">
 <p>On June 1, Anthropic confidentially submitted its <span class="num">S-1 registration statement</span>, officially initiating its IPO process. Following its recent $65 billion funding round, the company's valuation has reached <span class="accent">$965 billion</span>. This puts Anthropic on track to go public this autumn, setting up a direct showdown with OpenAI over who hits the public markets first and commands a higher valuation.</p>
 <p><span class="turn">Background</span>: Over the past year, Anthropic's valuation skyrocketed from $380 billion (February) to $965 billion (May), trailing only OpenAI. Alongside SpaceX's $2 trillion target, this year's IPO market is absorbing the public debuts of two AI giants simultaneously.</p>
 <p>Anthropic's S-1 filing will reveal the company's financial data for the first time—giving the outside world a clear look at whether AI lab business models are actually profitable.</p>
 <p>On the same day, Anthropic announced that Project Glasswing would expand into critical infrastructure—though that expansion was officially unveiled on June 2.<span class="turn">IPO ahead, safety capability showcase following. This is no coincidence.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/" rel="noopener" target="_blank">TechCrunch</a> · <a href="https://www.bloomberg.com/news/articles/2026-06-01/anthropic-files-confidentially-for-ipo-as-claude-demand-surges" rel="noopener" target="_blank">Bloomberg</a> · <a href="https://www.anthropic.com/news/confidential-draft-s1-sec" rel="noopener" target="_blank">Anthropic Blog</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontier</div>
-<article class="chapter">
-<h2 class="chapter-title">NVIDIA Cosmos 3 Released: The First Fully Open Physical AI World Model—Reasoning, Generating, Acting</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/" rel="noopener" target="_blank">TechCrunch</a> · <a href="https://www.bloomberg.com/news/articles/2026-06-01/anthropic-files-confidentially-for-ipo-as-claude-demand-surges" rel="noopener" target="_blank">Bloomberg</a> · <a href="https://www.anthropic.com/news/confidential-draft-s1-sec" rel="noopener" target="_blank">Anthropic Blog</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontier</div>
+<div class="sec-title">Frontier</div>
+<div class="item">
+<div class="item-title">NVIDIA Cosmos 3 Released: The First Fully Open Physical AI World Model—Reasoning, Generating, Acting</div>
+<div class="body">
 <p>Jensen Huang unveiled at GTC / Computex Taipei <span class="num">NVIDIA Cosmos 3</span>, hailed as the world's first fully open omnimodel. It simultaneously understands text, images, video, ambient sound, and physical actions—taking first place across all physical AI benchmarks.</p>
 <p>Two versions:<span class="accent">Cosmos 3 Nano</span> (16B parameters, for workstations, real-time inference) and <span class="accent">Cosmos 3 Super</span> (64B parameters, for data centers). Fully open source: model weights, training scripts, datasets, and deployment tools are all public. NVIDIA also launched the Cosmos Coalition—a cross-company collaborative organization whose members include <span class="turn">Agile Robots, Black Forest Labs, Runway, Skild AI</span>, among others.</p>
 <p>Cosmos 3 does more than chat—it perceives the physical world. Robotics, autonomous driving, and warehouse management, previously stitched together from disparate tech stacks, can now be handled by a single model.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://build.nvidia.com/nvidia/cosmos" rel="noopener" target="_blank">NVIDIA</a> · <a href="https://gamesbeat.com/nvidia-cosmos-3-open-world-foundation-model-for-physical-ai/" rel="noopener" target="_blank">GamesBeat</a> · Tech Startups</div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">NVIDIA DGX Station for Windows—An AI Supercomputer Running 1-Trillion-Parameter Models on Your Desk</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://build.nvidia.com/nvidia/cosmos" rel="noopener" target="_blank">NVIDIA</a> · <a href="https://gamesbeat.com/nvidia-cosmos-3-open-world-foundation-model-for-physical-ai/" rel="noopener" target="_blank">GamesBeat</a> · Tech Startups</div>
+</div>
+<div class="item">
+<div class="item-title">NVIDIA DGX Station for Windows—An AI Supercomputer Running 1-Trillion-Parameter Models on Your Desk</div>
+<div class="body">
 <p>Also announced at GTC Taipei was <span class="num">DGX Station for Windows</span>, the world's first desktop-grade AI supercomputer. Featuring 20 petaflops of FP4 performance, 748GB of memory, and local execution of up to <span class="accent">1-trillion-parameter models</span>, or running hundreds of parallel AI agents simultaneously.</p>
 <p>Jointly developed by NVIDIA and Microsoft, this machine runs OpenShell (NVIDIA's open-source agent runtime), integrates Microsoft's MXC secure container technology, and is slated for a Q4 release. Jensen Huang called it "the first complete redesign of the PC in 40 years," while Microsoft partners stated it "unlocks an entirely new tier of AI performance on Windows."</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://siliconangle.com/2026/06/01/nvidia-squeezes-powerful-1-trillion-parameter-ai-supercomputer-deskside-form-factor/" rel="noopener" target="_blank">SiliconANGLE</a> · Nvidia Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Pivot</div>
-<article class="chapter">
-<h2 class="chapter-title">Alphabet's $80 billion Equity Offering—AI Arms Race Enters "Infinite Ammo" Mode</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://siliconangle.com/2026/06/01/nvidia-squeezes-powerful-1-trillion-parameter-ai-supercomputer-deskside-form-factor/" rel="noopener" target="_blank">SiliconANGLE</a> · Nvidia Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Pivot</div>
+<div class="sec-title">Pivot</div>
+<div class="item">
+<div class="item-title">Alphabet's $80 billion Equity Offering—AI Arms Race Enters "Infinite Ammo" Mode</div>
+<div class="body">
 <p>Alphabet announced it is raising <span class="accent">$80 billion</span>, with <span class="num">Berkshire Hathaway subscribing to $10 billion on its own</span>. This is the largest capital raise in Alphabet's history, earmarked explicitly for expanding AI infrastructure and compute capacity. After raising its capital expenditure forecast to $180–$190 billion just this April, the company is now directly financing further acceleration.</p>
 <p>Alphabet stated in its announcement:<span class="turn">"The company is experiencing robust demand from enterprises and consumers for AI solutions and services, at levels that exceed our current supply capabilities."</span> When asked what keeps Google executives up at night, CEO Sundar Pichai gave a one-word answer:<span class="accent">Compute</span>.</p>
 <p>Berkshire's participation is notable: when Buffett invested in Apple, he defined it as a "consumer brand," not a tech stock. This $10 billion investment in Alphabet—bringing its total stake to $20 billion—is Berkshire's most definitive endorsement of AI infrastructure yet. Greg Abel (Berkshire's new CEO) is signaling his investment thesis: a willingness to deploy massive capital into AI compute.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.cnbc.com/2026/06/01/alphabet-to-raise-80-billion-from-stock-sales-to-fund-ai-buildout.html" rel="noopener" target="_blank">CNBC</a> · Business Times</div>
-</article>
-<article class="chapter"><div class="prose"><p>NVIDIA Cosmos 3 · The world's first fully open physical AI omnimodel · Source: NVIDIA Newsroom</p></div></article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<h2 class="chapter-title">DGX Station for Windows—Desktop AI Supercomputer, Running Trillion-Parameter Models Locally</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.cnbc.com/2026/06/01/alphabet-to-raise-80-billion-from-stock-sales-to-fund-ai-buildout.html" rel="noopener" target="_blank">CNBC</a> · Business Times</div>
+</div>
+<div class="item">
+<div class="body"><p>NVIDIA Cosmos 3 · The world's first fully open physical AI omnimodel · Source: NVIDIA Newsroom</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="item-title">DGX Station for Windows—Desktop AI Supercomputer, Running Trillion-Parameter Models Locally</div>
+<div class="body">
 <p>Today's biggest "You can do that?" moment comes from the NVIDIA-Microsoft collaboration: <span class="num">DGX Station for Windows</span>. With 20 petaflops of FP4 and 748GB of memory, it means you can run a <span class="accent">1-trillion-parameter models</span> right at your desk, or run hundreds of AI agents simultaneously.</p>
 <p>This is not a concept machine; it is slated for <span class="num">a Q4 release</span>. NVIDIA runs its OpenShell open-source agent runtime on it, with Microsoft handling MXC secure container integration. In Jensen Huang's own words: "The first complete redesign of the PC in 40 years."</p>
 <p><span class="turn">Previously, developing with frontier models meant either waiting in cloud GPU queues or accepting that local execution was impossible. Now, a desktop-ready machine puts the power of choice back into the hands of developers.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://siliconangle.com/2026/06/01/nvidia-squeezes-powerful-1-trillion-parameter-ai-supercomputer-deskside-form-factor/" rel="noopener" target="_blank">SiliconANGLE</a> · Nvidia Blog</div>
-</article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"The big bang of physical AI is right before us—thanks to breakthroughs in multimodal reasoning, language, vision, and world models."</div>
-<div class="voice-meta">
-<span>Jensen Huang · NVIDIA CEO · GTC Taipei Keynote · June 1</span>
-<a href="https://gamesbeat.com/nvidia-cosmos-3-open-world-foundation-model-for-physical-ai/" rel="noopener" target="_blank">Read Original →</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"What keeps you up at night? Compute."</div>
-<div class="voice-meta">
-<span>Sundar Pichai · Alphabet/Google CEO · Alphabet $80B Financing Press Conference · June 1</span>
-<a href="https://www.cnbc.com/2026/06/01/alphabet-to-raise-80-billion-from-stock-sales-to-fund-ai-buildout.html" rel="noopener" target="_blank">Read Original →</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Daily Summary</div>
-<article class="chapter"><div class="prose">The most valuable quote today came from Sundar Pichai. When reporters asked what was keeping Google execs up at night, he said:<span class="turn">Compute</span>. On the same day, Alphabet raised $80 billion to buy more compute—translating to: "One of the world's largest companies has more money than it knows what to do with, yet still doesn't have enough compute."</div></article>
-<article class="chapter"><div class="prose">Anthropic's confidential IPO filing also landed on this day. For a $965 billion company, the books are opening to the public for the first time. Did Dario dare debut in a bull market because his narrative holds up—or because if they don't go public now, the window might close? Everyone will find out when the S-1 goes public in a few months.</div></article>
-<article class="chapter"><div class="prose">NVIDIA served up two dishes on the same day: Cosmos 3—a fully open model that can see, hear, and reason about the physical world; and the DGX Station—a machine capable of running trillion-parameter models right from a desk. Jensen Huang declared that "the big bang of physical AI is here." He says something similar every year, but this year he actually holds the hardware.</div></article>
-<article class="chapter"><div class="prose">On the same day: IPOs, compute hunger, physical world models, and desktop supercomputers.<span class="turn">June is not going to be a quiet month.</span></div></article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Be Curious 🌌</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://siliconangle.com/2026/06/01/nvidia-squeezes-powerful-1-trillion-parameter-ai-supercomputer-deskside-form-factor/" rel="noopener" target="_blank">SiliconANGLE</a> · Nvidia Blog</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"The big bang of physical AI is right before us—thanks to breakthroughs in multimodal reasoning, language, vision, and world models."</p>
+<p class="voice-who">Jensen Huang · NVIDIA CEO · GTC Taipei Keynote · June 1 <a href="https://gamesbeat.com/nvidia-cosmos-3-open-world-foundation-model-for-physical-ai/" rel="noopener" target="_blank">Read Original →</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"What keeps you up at night? Compute."</p>
+<p class="voice-who">Sundar Pichai · Alphabet/Google CEO · Alphabet $80B Financing Press Conference · June 1 <a href="https://www.cnbc.com/2026/06/01/alphabet-to-raise-80-billion-from-stock-sales-to-fund-ai-buildout.html" rel="noopener" target="_blank">Read Original →</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Daily Summary</div>
+<div class="sec-title">Daily Summary</div>
+<div class="item">
+<div class="body">The most valuable quote today came from Sundar Pichai. When reporters asked what was keeping Google execs up at night, he said:<span class="turn">Compute</span>. On the same day, Alphabet raised $80 billion to buy more compute—translating to: "One of the world's largest companies has more money than it knows what to do with, yet still doesn't have enough compute."</div></div>
+<div class="item">
+<div class="body">Anthropic's confidential IPO filing also landed on this day. For a $965 billion company, the books are opening to the public for the first time. Did Dario dare debut in a bull market because his narrative holds up—or because if they don't go public now, the window might close? Everyone will find out when the S-1 goes public in a few months.</div></div>
+<div class="item">
+<div class="body">NVIDIA served up two dishes on the same day: Cosmos 3—a fully open model that can see, hear, and reason about the physical world; and the DGX Station—a machine capable of running trillion-parameter models right from a desk. Jensen Huang declared that "the big bang of physical AI is here." He says something similar every year, but this year he actually holds the hardware.</div></div>
+<div class="item">
+<div class="body">On the same day: IPOs, compute hunger, physical world models, and desktop supercomputers.<span class="turn">June is not going to be a quiet month.</span></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Night on Saturn · Captured by Cassini Orbiter · Wide-Angle Camera Multi-Frame Mosaic · Two Days Before Plunging into Saturn's Atmosphere · NASA / JPL-Caltech / Space Science Institute · Post-Processing: Mindaugas Macijauskas · NASA APOD · 2026-06-01" loading="lazy" src="https://apod.nasa.gov/apod/image/2606/HydraClusterSampaio1024.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Night on Saturn · Captured by Cassini Orbiter · Wide-Angle Camera Multi-Frame Mosaic · Two Days Before Plunging into Saturn's Atmosphere · NASA / JPL-Caltech / Space Science Institute · Post-Processing: Mindaugas Macijauskas · NASA APOD · 2026-06-01</div>
 <p style="margin-bottom:8px; line-height:1.8;">Cassini orbited Saturn for 13 years (2004–2017). This is one of its final images. Saturn's night side will not be seen again until the next spacecraft from Earth arrives.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <span class="prev-post disabled">← This is the first post</span>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-06-02.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

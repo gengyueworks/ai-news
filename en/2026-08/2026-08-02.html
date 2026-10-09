@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-02</span>
-<span>Sunday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-02</h1><p class="doc-date">2026-08-02 · Sunday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>ByteDance merged Feishu and Doubao into one team.The biggest ToB reorganization in twenty-one months.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>the same day, Alibaba opened Qwen3.8-Max as an API.China's tech giants' AI race has moved from "comparing models" to "comparing entrances".</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Sunday, August 2, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>ByteDance merged Feishu and Doubao into one team.The biggest ToB reorganization in twenty-one months.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>the same day, Alibaba opened Qwen3.8-Max as an API.China's tech giants' AI race has moved from "comparing models" to "comparing entrances".</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Top Story</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Alibaba · Qwen</div>
-<h2 class="chapter-title">Qwen3.8-Max goes live: Alibaba turns its 2.4T flagship into a usable product first</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Top Story</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">Alibaba · Qwen</div>
+<div class="item-title">Qwen3.8-Max goes live: Alibaba turns its 2.4T flagship into a usable product first</div>
+<div class="body">
 <p><strong>Alibaba released <span class="num">Qwen3.8-Max</span>, officially its strongest Qwen model yet, with APIs live via QwenCloud / Model Studio. <span class="num">2.4T</span> total parameters, <span class="num">95B</span> active, <span class="num">1M</span> context; priced at <span class="num">$2</span> per million input tokens and <span class="num">$6</span> output. Alibaba says this is the first time it plans to open Max-tier model weights.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Qwen3.8-Max goes live: Alibaba turns its 2.4T flagship into a usable product first · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/qwen3_8_max.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p><span class="turn">This race is not just about building top AI but building AI that pays for itself, and Alibaba is betting on both with Qwen at once.</span></p>
 <p>Alibaba Qwen3.8-Max · official image · the 2.4T flagship turned into a usable product</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" rel="noopener" target="_blank">Alibaba Cloud</a> · FT</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">ByteDance · ToB Reorg</div>
-<h2 class="chapter-title">Feishu merged into Doubao: ByteDance's biggest ToB reorganization in twenty-one months</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" rel="noopener" target="_blank">Alibaba Cloud</a> · FT</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">ByteDance · ToB Reorg</div>
+<div class="item-title">Feishu merged into Doubao: ByteDance's biggest ToB reorganization in twenty-one months</div>
+<div class="body">
 <p><strong>ByteDance folded the Feishu product team into Doubao, forming a new Doubao product team under Doubao lead Zhao Qi; Feishu's GTM team merged with Volcano Engine into a new ToB organization. It is ByteDance's largest ToB restructuring in twenty-one months.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Feishu merged into Doubao: ByteDance's biggest ToB reorganization in twenty-one months · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/feishu-doubao.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -299,15 +290,16 @@
 <p><span class="turn">When the assistant grows into collaboration software, AI stops being a tool you invoke and becomes the shape of office work itself.</span></p>
 <p>Feishu merged into Doubao: ByteDance's biggest ToB reorganization in twenty-one months.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://news.qq.com/rain/a/20260730A05U8Q00" rel="noopener" target="_blank">Star Market Daily</a> · <a href="https://finance.sina.com.cn/stock/aigcy/2026-08-06/doc-inimkfvm3888183.shtml" rel="noopener" target="_blank">Sina Finance</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Open Weights · Funding</div>
-<h2 class="chapter-title">US companies building an "American open model" meet a cold reception: top VCs decline collectively</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://news.qq.com/rain/a/20260730A05U8Q00" rel="noopener" target="_blank">Star Market Daily</a> · <a href="https://finance.sina.com.cn/stock/aigcy/2026-08-06/doc-inimkfvm3888183.shtml" rel="noopener" target="_blank">Sina Finance</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">Open Weights · Funding</div>
+<div class="item-title">US companies building an "American open model" meet a cold reception: top VCs decline collectively</div>
+<div class="body">
 <p><strong>Per the Wall Street Journal citing Phoenix News, facing the shock of low-cost open-weight models like Kimi, Qwen and DeepSeek, US startups such as Arcee AI tried to build an "American version" alternative, only to be rejected by nearly every top VC. Of the <span class="num">$255.5B</span> in Q1 AI funding, nearly two-thirds concentrated in OpenAI, Anthropic and xAI; the open-weights route remains stuck for funding and channels.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='US companies building an "American open model" meet a cold reception: top VCs decline collectively · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/microsoft-open-weight.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -317,30 +309,26 @@
 <p><span class="turn">Money floods toward closed giants while open weights become the road shortest on ammunition: the market has voted with its feet.</span></p>
 <p>US companies building an "American open model" meet a cold reception.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://simonwillison.net/2026/Aug/2/open-letters/" rel="noopener" target="_blank">Simon Willison</a> · <a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/" rel="noopener" target="_blank">Open Weights letter</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Depending solely on closed models concentrates risk in a few single points of failure."</div>
-<div class="voice-meta">
-<span>Open weights letter · led by Microsoft</span>
-<a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/" rel="noopener" target="_blank">Open Weights and American AI Leadership</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"This race is not just about building top AI, but building AI that pays for itself."</div>
-<div class="voice-meta">
-<span>FT commentary</span>
-<a href="https://www.ft.com/" rel="noopener" target="_blank">Financial Times</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">MiniMax · Frontier Signal</div>
-<h2 class="chapter-title">MiniMax H3 said it would open-source, but by August 2 it had not finished shipping: release, API and weights are three different things</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://simonwillison.net/2026/Aug/2/open-letters/" rel="noopener" target="_blank">Simon Willison</a> · <a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/" rel="noopener" target="_blank">Open Weights letter</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Depending solely on closed models concentrates risk in a few single points of failure."</p>
+<p class="voice-who">Open weights letter · led by Microsoft <a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/" rel="noopener" target="_blank">Open Weights and American AI Leadership</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"This race is not just about building top AI, but building AI that pays for itself."</p>
+<p class="voice-who">FT commentary <a href="https://www.ft.com/" rel="noopener" target="_blank">Financial Times</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">MiniMax · Frontier Signal</div>
+<div class="item-title">MiniMax H3 said it would open-source, but by August 2 it had not finished shipping: release, API and weights are three different things</div>
+<div class="body">
 <p><strong>MiniMax announced on July 31 that H3 would be open-sourced, but by August 2 the community was still waiting for full weights and license details. The official page describes H3 as a general video model supporting 2K, <span class="num">15</span> seconds and native stereo, yet Hugging Face still has no complete model card.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="MiniMax H3 said it would open-source, but by August 2 it had not finished shipping: release, API and weights are three different things · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-02/minimax-h3-open-source.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -350,45 +338,56 @@
 <p><span class="turn">Between "saying you will open source" and "really open sourcing" lies the most direct test of a company's sincerity that the community can run.</span></p>
 <p>MiniMax H3 said it would open-source, but by August 2.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" rel="noopener" target="_blank">MiniMax announcement</a> · <a href="https://huggingface.co/blog/ResterChed/minimax-h3-hailuo-3-0" rel="noopener" target="_blank">Hugging Face community</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Feishu Customers · Experience Change</div>
-<h2 class="chapter-title">Doubao enterprise beta: inside Feishu, just tell the assistant to do the work</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" rel="noopener" target="_blank">MiniMax announcement</a> · <a href="https://huggingface.co/blog/ResterChed/minimax-h3-hailuo-3-0" rel="noopener" target="_blank">Hugging Face community</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Feishu Customers · Experience Change</div>
+<div class="item-title">Doubao enterprise beta: inside Feishu, just tell the assistant to do the work</div>
+<div class="body">
 <p><strong>Some Feishu customers are beta-testing Doubao Enterprise: inside documents, meetings and approval flows they invoke Doubao directly to summarize, draft and schedule. Tasks that used to require switching between three systems now land in one chat box.</strong></p>
 <p>A mid-sized SaaS company posted their usage in the beta group: during meetings Doubao generates minutes automatically; to-dos @mentioned in the minutes get pushed straight into approvals; once approved, tasks sync back to the Feishu calendar. Their account manager said "meeting, minutes, assigning, chasing" used to span three tools; now Doubao catches the middle two steps, and even the chasing step disappears because everyone sees status when they open Feishu.</p>
 <p><span class="turn">When the assistant lives inside collaboration software, AI stops being an app you open deliberately and becomes the default row in the workflow.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" rel="noopener" target="_blank">MiniMax</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p>ByteDance merged Feishu into Doubao, its biggest ToB reorganization in twenty-one months.</p>
+<div class="src-line">Sources: <a href="https://www.minimax.io/news/minimax-h3-open-source" rel="noopener" target="_blank">MiniMax</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p>ByteDance merged Feishu into Doubao, its biggest ToB reorganization in twenty-one months.</p>
 <p>Alibaba released Qwen3.8-Max, turning its 2.4T flagship into a usable product first; the FT says the race is building AI that pays for itself.</p>
 <p>American "open model" startups met cold VC receptions; Microsoft led an open-weights letter, Anthropic declined to sign.</p>
 <p>MiniMax H3 promised open source but had not finished shipping: release, API and weights are three things.</p>
-<p class="turn">Models, capital and open source converged on one day. AI competition has moved from "who can build the strongest model" to "who can turn it into a business".</p></div></article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">Models, capital and open source converged on one day. AI competition has moved from "who can build the strongest model" to "who can turn it into a business".</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The canyons of the Colorado Plateau, North America — NASA's satellite captured, around N36.1 W112.1, a deep-cut cliff face, rock layers like pages turned by time." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/valley-of-ten-thousand-smokes/tenthousandsmokes_oli2_20250929_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The canyons of the Colorado Plateau, North America — NASA's satellite captured, around N36.1 W112.1, a deep-cut cliff face, rock layers like pages turned by time.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Canyons of the Colorado Plateau · North America · photographed by NASA · <span class="num">36.1</span>°N, <span class="num">112.1</span>°W</div>
 <p style="margin-bottom:8px; line-height:1.8;">A deep-cut cliff face, rock layers like pages turned by time. While we argue on screens about who owns which model and where parameters go, this canyon stacks eons into layers at its own age's pace. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-01.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-03.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

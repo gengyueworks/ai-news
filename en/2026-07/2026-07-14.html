@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-07-14</span>
-<span>Tuesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-07-14</h1><p class="doc-date">2026-07-14 · Tuesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>The two main threads at the start of the week are clear: one is cost reduction—open-source models slashing inference prices to a fraction of closed-source equivalents.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>the other is capability expansion—from robot navigation to multi-model swarms, agents are evolving from isolated intelligence into cooperative teams. Capital continues to flow into foundational silicon. We are tracking how much cheaper and more controllable the same tasks have become.</li></ul></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Tuesday, July 14, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;"><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>The two main threads at the start of the week are clear: one is cost reduction—open-source models slashing inference prices to a fraction of closed-source equivalents.</li><li style="position: relative; padding-left: 18px; line-height: 1.6;"><span style="position: absolute; left: 0; top: 0; color: var(--klein, #002FA7); font-weight: 700;">•</span>the other is capability expansion—from robot navigation to multi-model swarms, agents are evolving from isolated intelligence into cooperative teams. Capital continues to flow into foundational silicon. We are tracking how much cheaper and more controllable the same tasks have become.</li></ul></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Front Page</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · NVIDIA · Open-Source Flagship · Costs Plummet</div>
-<h2 class="chapter-title">NVIDIA Open-Sources Nemotron 3 Ultra, Slashing Inference Costs to One-Tenth of Closed-Source, But the Real Battle Has Just Begun</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Front Page</div>
+<div class="sec-title">Front Page</div>
+<div class="item">
+<div class="dateline">07-14 · NVIDIA · Open-Source Flagship · Costs Plummet</div>
+<div class="item-title">NVIDIA Open-Sources Nemotron 3 Ultra, Slashing Inference Costs to One-Tenth of Closed-Source, But the Real Battle Has Just Begun</div>
+<div class="body">
 <p><strong>NVIDIA released the open-source large language model Nemotron 3 Ultra, with a total parameter count of <span class="num">5500</span> billion, 55 billion active parameters per token, combining Mamba-2 and Mixture-of-Experts architecture, supporting <span class="num">100</span> million token context.</strong>It achieved the highest accuracy in the open-source category on the LangChain deep agent benchmark, while its single-inference cost is only about one-tenth of leading closed-source models.
 NVIDIA does not intend to compete for API business with it; instead, it leverages deployable open-source weights to lock customers into the CUDA and hardware ecosystem.
 For enterprises and governments concerned about cross-border data transfer, this precisely addresses their pain points.</p>
@@ -286,12 +276,12 @@ For enterprises and governments concerned about cross-border data transfer, this
 </ul>
 <p>NVIDIA Open-Sources Nemotron 3 Ultra: Inference costs slashed to one-tenth of closed-source.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/NVIDIA/NeMo" rel="noopener" target="_blank">NVIDIA NeMo · GitHub</a> · <a href="https://build.nvidia.com/ai-briefing" rel="noopener" target="_blank">NVIDIA Build</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · OpenAI · Three Tiers Released · Cerebras Accelerated</div>
-<h2 class="chapter-title">OpenAI Deploys GPT-5.6 Across Three Tiers—Sol, Terra, and Luna—But the Real Battle Has Just Begun</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/NVIDIA/NeMo" rel="noopener" target="_blank">NVIDIA NeMo · GitHub</a> · <a href="https://build.nvidia.com/ai-briefing" rel="noopener" target="_blank">NVIDIA Build</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · OpenAI · Three Tiers Released · Cerebras Accelerated</div>
+<div class="item-title">OpenAI Deploys GPT-5.6 Across Three Tiers—Sol, Terra, and Luna—But the Real Battle Has Just Begun</div>
+<div class="body">
 <p><strong>OpenAI unveiled GPT-5.6 in three tiers: Sol, Terra, and Luna. The lightest tier, Sol, runs on Cerebras acceleration hardware, achieving a throughput of <span class="num">750</span> token.</strong>Prior to release, it underwent an unusual customer-by-customer review by the Department of Commerce, with previews limited to about 20 approved institutions.
 With tiered pricing starting at $5 per million tokens for Sol, it brings the concept of 'same family, different scales' directly to the table.
 For buyers, this means selecting cheaper tiers based on the task, eliminating the need to continuously maintain the most expensive tier for occasional complex problems.</p>
@@ -306,15 +296,16 @@ For buyers, this means selecting cheaper tiers based on the task, eliminating th
 </ul>
 <p>Releases GPT-5.6 in three tiers: Sol, Terra, and Luna rolled out simultaneously.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">Frontier Labs Blog</a> · <a href="https://github.com/openai/codex" rel="noopener" target="_blank">Frontier Labs Codex · GitHub</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Frontline</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · Cognition · Coding Agent · RL Fine-Tuning</div>
-<h2 class="chapter-title">Cognition Launches SWE-1.7, Coding Agent Reaches 1,000 Tokens/s</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/index/gpt-5-6/" rel="noopener" target="_blank">Frontier Labs Blog</a> · <a href="https://github.com/openai/codex" rel="noopener" target="_blank">Frontier Labs Codex · GitHub</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Frontline</div>
+<div class="sec-title">Frontline</div>
+<div class="item">
+<div class="dateline">07-14 · Cognition · Coding Agent · RL Fine-Tuning</div>
+<div class="item-title">Cognition Launches SWE-1.7, Coding Agent Reaches 1,000 Tokens/s</div>
+<div class="body">
 <p><strong>Cognition released SWE-1.7, fine-tuned via reinforcement learning on Moonshot's open-source Kimi K2.7 base model, achieving a serving speed of <span class="num">1000</span> tokens/s and boosting FrontierCode performance from 30.1% to 42.3%.</strong>Interestingly, it disclosed the base model origin—while the previous generation concealed its GLM base, this generation explicitly states it.
 Training open-source base models into functional products is becoming a standard path for coding agents: the model itself may not be the absolute strongest, but equipped with the right tools, it can execute engineering tasks on behalf of humans.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -328,12 +319,12 @@ Training open-source base models into functional products is becoming a standard
 </ul>
 <p>Cognition Launches SWE-1.7: Coding agent reaches 1,000 tokens/s.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/All-Hands-AI/OpenHands" rel="noopener" target="_blank">OpenHands · GitHub</a> · <a href="https://x.com/cognition" rel="noopener" target="_blank">Cognition</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · xAI · 1.5 Trillion · Cursor Data</div>
-<h2 class="chapter-title">xAI Launches Grok 4.5, Trained on Real-World Cursor Operation Data</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/All-Hands-AI/OpenHands" rel="noopener" target="_blank">OpenHands · GitHub</a> · <a href="https://x.com/cognition" rel="noopener" target="_blank">Cognition</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · xAI · 1.5 Trillion · Cursor Data</div>
+<div class="item-title">xAI Launches Grok 4.5, Trained on Real-World Cursor Operation Data</div>
+<div class="body">
 <p><strong>xAI released Grok 4.5,<span class="num">1.5 trillion</span> parameter Mixture-of-Experts model, based on the next-generation V9 base, trained on massive real-world coding interaction data from Cursor.</strong>This is the first flagship since xAI was integrated into the SpaceXAI brand, positioned towards coding and agents.
 By feeding 'how users use tools' directly into training, the model learns more than just Q&amp;A templates, aligning closely with real operational habits—understanding better where you actually get stuck in the editor.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -346,12 +337,12 @@ By feeding 'how users use tools' directly into training, the model learns more t
 <li>First flagship under the SpaceXAI brand</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/xai-org/grok-1" rel="noopener" target="_blank">Grok · GitHub</a> · xAI</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · Anthropic · Protocol standardization</div>
-<h2 class="chapter-title">MCP v2 goes stateless, Agent protocols make way for scaling</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/xai-org/grok-1" rel="noopener" target="_blank">Grok · GitHub</a> · xAI</div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · Anthropic · Protocol standardization</div>
+<div class="item-title">MCP v2 goes stateless, Agent protocols make way for scaling</div>
+<div class="body">
 <p><strong>MCP protocol undergoes major changes; v2 shifts toward a stateless design to adapt to serverless architecture and horizontal scaling.</strong>For teams building agent systems, this means requests no longer depend on previous session states, resulting in lighter deployments and smoother scaling.
 Protocol-layer convergence often dictates developer adoption more than individual model releases—when everyone integrates the same interface, switching models requires no rewiring.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -365,12 +356,12 @@ Protocol-layer convergence often dictates developer adoption more than individua
 </ul>
 <p>MCP v2 goes stateless: agent protocols make way for scaling.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/modelcontextprotocol/python-sdk" rel="noopener" target="_blank">MCP · GitHub</a> · modelcontextprotocol.io</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · Tencent · MoE · Dual-process thinking fusion</div>
-<h2 class="chapter-title">Tencent Hunyuan Hy3 released, Small size rivals major flagship for the first time</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/modelcontextprotocol/python-sdk" rel="noopener" target="_blank">MCP · GitHub</a> · modelcontextprotocol.io</div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · Tencent · MoE · Dual-process thinking fusion</div>
+<div class="item-title">Tencent Hunyuan Hy3 released, Small size rivals major flagship for the first time</div>
+<div class="body">
 <p><strong>Tencent releases Hunyuan Hy3, featuring a Mixture-of-Experts architecture with a total of <span class="num">2950</span> billion parameters, 21 billion active, supporting 256K token context and dual-process thinking fusion.</strong>In internal blind tests by 270 experts based on real-world tasks, it scored an average of 2.67 (out of 4), outperforming GLM 5.1 at 2.51.
 The model has been integrated into services like Yuanbao and ima, focusing on a cost-effective strategy of lower spend and real delivery.
 Small models rivaling major flagships indicate that post-training data and compute allocation are becoming the new primary battleground.</p>
@@ -384,12 +375,12 @@ Small models rivaling major flagships indicate that post-training data and compu
 <li>Blind test score of 2.67 outperforms GLM 5.1</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: Tencent Hunyuan · GitHub</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · Frontier Labs / Latent Space · Codex user volume</div>
-<h2 class="chapter-title">Codex users up 10x in 6 months, +1M daily—has the distribution battle for coding agents been decided?</h2>
-<div class="prose">
+<div class="src-line">Sources: Tencent Hunyuan · GitHub</div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · Frontier Labs / Latent Space · Codex user volume</div>
+<div class="item-title">Codex users up 10x in 6 months, +1M daily—has the distribution battle for coding agents been decided?</div>
+<div class="body">
 <p><strong>A set of figures deserves its own spotlight: Frontier Labs' Codex + ChatGPT Work active users reached <span class="num">6M</span>, arriving in 24.5 hours <span class="num">7M</span>—a net daily increase of <span class="num">100</span> ten thousand.
 Compared to around 550k–700k at the start of the year, a 6-month growth of about <span class="num">10</span> x.
 Meanwhile, Claude Code's last public metric in February was about <span class="num">200</span> users,<span class="num">$2.5B</span> ARR, with no updates since.</strong></p>
@@ -401,12 +392,12 @@ Meanwhile, Claude Code's last public metric in February was about <span class="n
 <p>Another repeatedly cited efficiency signal: in 81% of Devin's Fable 5 runs, the primary model never actually modified a single line of code—<span class="turn">The path to making expensive models cheaper is doing less redundant work.</span></p>
 <p>Codex users up 10x in 6 months, +1M daily—has the distribution battle for coding agents been decided?.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-codex-usage-up-10x-in-6-months" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://x.com/thsottiaux" rel="noopener" target="_blank">thsottiaux (Frontier Labs Head of Product)</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · IntCyberDigest / xAI · Trust incident</div>
-<h2 class="chapter-title">Grok Build accused of uploading entire private code repositories to the cloud—agent tools face scrutiny over what they are transmitting</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-codex-usage-up-10x-in-6-months" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://x.com/thsottiaux" rel="noopener" target="_blank">thsottiaux (Frontier Labs Head of Product)</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · IntCyberDigest / xAI · Trust incident</div>
+<div class="item-title">Grok Build accused of uploading entire private code repositories to the cloud—agent tools face scrutiny over what they are transmitting</div>
+<div class="body">
 <p><strong>xAI's Grok Build CLI has been criticized for uploading entire repositories—including private code and keys—to its Google Cloud bucket, far exceeding what is needed for coding tasks.
 Accusers also criticized its silent server-side mitigations and vague retention/deletion guarantees.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -418,12 +409,12 @@ Accusers also criticized its silent server-side mitigations and vague retention/
 Arav Srinivas stated that the availability of ZDR was one of the reasons Perplexity quickly integrated Grok 4.5.</p>
 <p><span class="turn">When agents start uploading your code to the cloud on your behalf, 'what it uploaded' will matter just as much as 'whether its answer was correct.'</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-codex-usage-up-10x-in-6-months" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://x.com/IntCyberDigest" rel="noopener" target="_blank">IntCyberDigest</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · PrismML · Compressed inference</div>
-<h2 class="chapter-title">27B model compressed to 3.9GB to fit on phones; local agentic workflows are no longer toys</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-codex-usage-up-10x-in-6-months" rel="noopener" target="_blank">Latent Space / AINews</a> · <a href="https://x.com/IntCyberDigest" rel="noopener" target="_blank">IntCyberDigest</a></div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · PrismML · Compressed inference</div>
+<div class="item-title">27B model compressed to 3.9GB to fit on phones; local agentic workflows are no longer toys</div>
+<div class="body">
 <p><strong>PrismML releases Bonsai 27B, based on Qwen 3.6 27B: ternary version <span class="num">5.9GB</span>(approx. <span class="num">1.71</span> effective bits), 1-bit version <span class="num">3.9GB</span>(approx. <span class="num">1.125</span> effective bits), Apache 2.0.
 The selling point is that compression retains multimodal capabilities, tool calling, and long-context agentic workflows. Demos show Hermes running on an RTX 5090 and deployed on mobile devices.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -436,15 +427,16 @@ Compression is pushing models close to the frontier onto consumer devices.</p>
 <p><span class="turn">The ceiling of model capabilities hasn't moved much, but the line of "which device tier can run these capabilities" is being pushed all the way down by quantization.</span></p>
 <p>A 27B model compressed to 3.9GB fits in a phone: local agentic workflows are no longer toys.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-c72" rel="noopener" target="_blank">Latent Space / AINews</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source Frontier</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · Mistral · Embodied Navigation · Open Weights</div>
-<h2 class="chapter-title">Mistral open-sources Robostral Navigate, An 8B model teaches robots to walk using natural language</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-not-much-happened-today-c72" rel="noopener" target="_blank">Latent Space / AINews</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source Frontier</div>
+<div class="sec-title">Open Source Frontier</div>
+<div class="item">
+<div class="dateline">07-14 · Mistral · Embodied Navigation · Open Weights</div>
+<div class="item-title">Mistral open-sources Robostral Navigate, An 8B model teaches robots to walk using natural language</div>
+<div class="body">
 <p><strong>Mistral releases Robostral Navigate, the first open-weight model for embodied navigation, with <span class="num">80</span> billion parameters. Requiring only a single RGB camera, it guides robots across rooms via natural language instructions and achieves state-of-the-art performance on the R2R-CE benchmark.</strong>This marks Mistral's first step into embodied AI and is one of the most discussed open-source releases in the community this week.
 By compressing "understanding instructions and walking autonomously" into a small model, the barrier to robot deployment has been lowered once again.</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -457,12 +449,12 @@ By compressing "understanding instructions and walking autonomously" into a smal
 <li>Mistral's first entry into embodied AI</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/mistralai/mistral-inference" rel="noopener" target="_blank">Mistral · GitHub</a> · Mistral AI</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · OpenSquilla · Multi-model collaboration harness</div>
-<h2 class="chapter-title">OpenSquilla 0.5.0, Organizing four domestic models into a team to get things done</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/mistralai/mistral-inference" rel="noopener" target="_blank">Mistral · GitHub</a> · Mistral AI</div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · OpenSquilla · Multi-model collaboration harness</div>
+<div class="item-title">OpenSquilla 0.5.0, Organizing four domestic models into a team to get things done</div>
+<div class="body">
 <p><strong>Open-source agent project OpenSquilla has released v0.5.0, whose core feature is orchestrating four domestic models—DeepSeek-v4, GLM-5.2, Kimi K2.7, and Qwen3.7—into a collaborative team at the harness layer. <span class="num">4</span> Each model independently performs search and reasoning before aggregating into the final result, with no overseas flagship models in the lineup.</strong>The accompanying technical report details how this routing system turns daily traffic into a self-evolving data flywheel.
 On the DRACO deep research leaderboard, both ensemble configurations ranked first.
 Changing the organizational approach is sometimes more effective than upgrading to a stronger single model.</p>
@@ -476,30 +468,26 @@ Changing the organizational approach is sometimes more effective than upgrading 
 <li>Traffic transformed into data flywheel</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/huggingface/smolagents" rel="noopener" target="_blank">smolagents · GitHub</a> · OpenSquilla Project</div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Audio</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"Clients like banks care most about data staying in-house—even JPMorgan Chase is moving inference compute back to its own data centers."</div>
-<div class="voice-meta">
-<span>— Rodrigo Liang · SambaNova CEO · 7/14</span>
-<span></span>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"We've taken down that 'quota exhausted' notice—now, happy building."</div>
-<div class="voice-meta">
-<span>Greg Brockman · CEO · 7/14</span>
-<a href="https://openai.com/ai-briefing" rel="noopener" target="_blank">Frontier Lab</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · Research · Agent Engineering Overview</div>
-<h2 class="chapter-title">Lilian Weng breaks down harness engineering, Tuning the periphery is more critical than an extra training run</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/huggingface/smolagents" rel="noopener" target="_blank">smolagents · GitHub</a> · OpenSquilla Project</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Audio</div>
+<div class="sec-title">Audio</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"Clients like banks care most about data staying in-house—even JPMorgan Chase is moving inference compute back to its own data centers."</p>
+<p class="voice-who">— Rodrigo Liang · SambaNova CEO · 7/14</p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"We've taken down that 'quota exhausted' notice—now, happy building."</p>
+<p class="voice-who">Greg Brockman · CEO · 7/14 <a href="https://openai.com/ai-briefing" rel="noopener" target="_blank">Frontier Lab</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="dateline">07-14 · Research · Agent Engineering Overview</div>
+<div class="item-title">Lilian Weng breaks down harness engineering, Tuning the periphery is more critical than an extra training run</div>
+<div class="body">
 <p><strong>Lilian Weng publishes a review on harness engineering, systematically synthesizing <span class="num">35</span> papers to establish 'how to equip agents with tools, write system prompts, and manage context' as an engineering discipline.</strong>Several releases this week confirm the same verdict: Nemotron's benchmark gains stem from engineering tweaks like system prompts and tool descriptions, not model fine-tuning.
 As model capabilities approach the ceiling, the gap is shifting from 'who trains the biggest' to 'who builds the most stable scaffolding.'</p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
@@ -512,27 +500,29 @@ As model capabilities approach the ceiling, the gap is shifting from 'who trains
 <li>Agent periphery becomes the new main battleground</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: <a href="https://github.com/meta-llama/llama-agentic-system" rel="noopener" target="_blank">Llama Agentic System · GitHub</a> · Lilian Weng</div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · ByteDance · Image → Design Tool</div>
-<h2 class="chapter-title">ByteDance Seedream 5.0 Pro, From image generator to layer-editable design workstation</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://github.com/meta-llama/llama-agentic-system" rel="noopener" target="_blank">Llama Agentic System · GitHub</a> · Lilian Weng</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">07-14 · ByteDance · Image → Design Tool</div>
+<div class="item-title">ByteDance Seedream 5.0 Pro, From image generator to layer-editable design workstation</div>
+<div class="body">
 <p><strong>ByteDance releases Seedream 5.0 Pro, pushing image generation toward design tools: supporting precise editing via click, lasso, and freehand, intelligently splitting an image into independently modifiable layers, natively rendering infographics, and generating clean text in over 10 languages.</strong>It no longer just answers 'give me an image'; it starts taking on tasks like 'change this line of text and recolor this section in the image.'
 The line between creators and designers is being gradually blurred by tools of this kind.</p>
 </div>
-<div class="sources-bar">Sources: Forge · GitHub · ByteDance Seedream</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Investment</div>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · Chips · Series F · Valuation up 4.5x</div>
-<h2 class="chapter-title">SambaNova closes $1B Series F, valuation hits $11B</h2>
-<div class="prose">
+<div class="src-line">Sources: Forge · GitHub · ByteDance Seedream</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Investment</div>
+<div class="sec-title">Investment</div>
+<div class="item">
+<div class="dateline">07-14 · Chips · Series F · Valuation up 4.5x</div>
+<div class="item-title">SambaNova closes $1B Series F, valuation hits $11B</div>
+<div class="body">
 <p><strong>AI chip unicorn SambaNova completes <span class="num">10</span> -billion Series F financing, valuation rising to <span class="num">110</span> -billion, up 4.5x from early year, led by General Atlantic.</strong>JPMorgan Chase selects its SN40L and SN50 chips for on-premises private inference infrastructure.
 Capital flowing into chips and full-stack infrastructure shows that while growth dividends concentrate in top labs, the revenue runway for underlying compute remains wide.
 Data-sensitive clients like banks are bringing compute back to their own data centers.</p>
@@ -542,12 +532,12 @@ Data-sensitive clients like banks are bringing compute back to their own data ce
 <li>Capital surges to foundational compute</li>
 </ul>
 </div>
-<div class="sources-bar">Sources: SambaNova · GitHub · SambaNova AI</div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">07-14 · Chips · Sohu dedicated ASIC</div>
-<h2 class="chapter-title">Etched secures $800M in funding, specializing in Transformer inference chips</h2>
-<div class="prose">
+<div class="src-line">Sources: SambaNova · GitHub · SambaNova AI</div>
+</div>
+<div class="item">
+<div class="dateline">07-14 · Chips · Sohu dedicated ASIC</div>
+<div class="item-title">Etched secures $800M in funding, specializing in Transformer inference chips</div>
+<div class="body">
 <p><strong>After four years of stealth development, Etched officially debuts, closing <span class="num">8</span> -billion in funding at a $5B post-money valuation, alongside over $1B in customer commitments.</strong>At its core is Sohu, a custom ASIC built from scratch for Transformer inference workloads, running at half standard voltage. First racks ship this summer.
 It bets on an aggressive path: using architectural specialization to challenge the GPU-dominated inference mainstream.</p>
 <ul>
@@ -557,31 +547,41 @@ It bets on an aggressive path: using architectural specialization to challenge t
 </ul>
 <p>Concept art of the Etched Sohu Transformer inference chip.</p>
 </div>
-<div class="sources-bar">Sources: Etched · GitHub · <a href="https://etched.com/ai-briefing" rel="noopener" target="_blank">Etched</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Summary</div>
-<article class="chapter"><div class="prose">
+<div class="src-line">Sources: Etched · GitHub · <a href="https://etched.com/ai-briefing" rel="noopener" target="_blank">Etched</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Summary</div>
+<div class="sec-title">Summary</div>
+<div class="item">
+<div class="body">
 This week's keywords are "cost" and "boundaries". On one hand, NVIDIA Nemotron cuts open-source model inference costs to one-tenth of closed-source models, while frontier labs deploy GPT-5.6 across three tiers within the same family;On the other hand, Mistral releases an 8-billion parameter open-weight model for robot navigation, and OpenSquilla proves via a fleet of four domestic models that "orchestration" can offset single-model shortcomings. In deployment, MCP v2 converges toward statelessness, and Tencent Hunyuan matches flagship performance in smaller footprints.Capital continues flooding into chips: large rounds for SambaNova and Etched both bet on foundational compute. Stronger models are no longer the sole focus—affordability, controllability, and privacy take center stage this week.
-</div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+</div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="The geological history in the canyon outlasts any model training." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/valley-of-ten-thousand-smokes/tenthousandsmokes_oli2_20250929_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">The geological history in the canyon outlasts any model training.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Grand Canyon, Arizona, USA · NASA · <span class="num">36.06°N, 112.14°W</span></div>
 <p style="margin-bottom:8px; line-height:1.8;">After a day of AI news, is there anywhere on Earth that doesn't need GPU cooling?</p>
 <p style="margin-bottom:8px; line-height:1.8;">Across mountains, rivers, lakes, and seas—stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-07-13.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-07-15.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

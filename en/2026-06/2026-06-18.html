@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,20 +250,16 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-06-18</span>
-<span>Thursday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-06-18</h1><p class="doc-date">2026-06-18 · Thursday</p>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Thursday, June 18, 2026</p>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Today's Front Page</div>
-<article class="chapter">
-<h2 class="chapter-title">WAIC 2026 30-Day Countdown: Over 300 AI Products to Make Global Debut in Shanghai This July</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Today's Front Page</div>
+<div class="sec-title">Today's Front Page</div>
+<div class="item">
+<div class="item-title">WAIC 2026 30-Day Countdown: Over 300 AI Products to Make Global Debut in Shanghai This July</div>
+<div class="body">
 <p>On June 17, the 30-day countdown press conference for the 2026 World Artificial Intelligence Conference (WAIC) was held in Shanghai. Scheduled from July 17 to 20 across the Expo, Zhangjiang, and Xuhui riverside zones, the event is co-hosted by the Shanghai Municipal Government alongside 10 national ministries, including the Ministry of Science and Technology and the Ministry of Industry and Information Technology.</p>
 <p>The conference will feature over 140 thematic forums, gathering 1,400+ international guests and 1,100+ global enterprises. It will showcase 3,000+ exhibits, including over 300 global debuts of AI products. The conference also released its first AI open ecosystem platform app, "Hi WAIC," opening registration and ticketing.</p>
 <p><li>Academic Lineup: Turing Award winner Andrew Yao serves as Conference Chairman, and Father of Reinforcement Learning Richard Sutton serves as International Co-Chairman.</li></p>
@@ -277,125 +267,139 @@
 <p><li>City Integration: WAIC City Walk connects all 16 districts of Shanghai, extending the AI experience from exhibition halls to city streets.</li></p>
 <p><a href="https://www.36kr.com/p/3857123403551747" rel="noopener" target="_blank">36Kr</a> · <a href="https://www.eeo.com.cn/2026/0617/919286.shtml" rel="noopener" target="_blank">Economic Observer</a></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.36kr.com/p/3857123403551747" rel="noopener" target="_blank">36Kr</a> · <a href="https://www.eeo.com.cn/2026/0617/919286.shtml" rel="noopener" target="_blank">Economic Observer</a></div>
-</article>
-<article class="chapter"><div class="prose"><p>Image: Unsplash · Christopher Burns · Not original news image</p></div></article>
-<article class="chapter">
-<h2 class="chapter-title">GLM-5.2 Becomes the First Open-Source Model to Cross the 80% Terminal-Bench Threshold—Yet Closed-Source Leaders Still Lead by 4 Points</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.36kr.com/p/3857123403551747" rel="noopener" target="_blank">36Kr</a> · <a href="https://www.eeo.com.cn/2026/0617/919286.shtml" rel="noopener" target="_blank">Economic Observer</a></div>
+</div>
+<div class="item">
+<div class="body"><p>Image: Unsplash · Christopher Burns · Not original news image</p></div></div>
+<div class="item">
+<div class="item-title">GLM-5.2 Becomes the First Open-Source Model to Cross the 80% Terminal-Bench Threshold—Yet Closed-Source Leaders Still Lead by 4 Points</div>
+<div class="body">
 <p><strong>The r/LocalLlama discussion board put <span class="accent">GLM-5.2</span> 's open-source weights on the Terminal-Bench 2.1 leaderboard:<span class="num">81.0</span> points, making it the first open-source model in the chart to cross the <span class="num">80%</span> dashed line, outperforming all other open-source contenders and even surpassing Gemini 3.1 Pro.<span class="num">Closed-source models still lead: Claude Opus 4.8 scored <span class="num">85.0</span>, and GPT-5.5 scored <span class="num">84.0</span>— narrowing the gap from "whether they can compete" to "just a few points behind" for the first time.</span></strong></p>
 <p>The community reminds users to check versions first: Terminal-Bench 2.1 is a<span class="num">"lenient version"</span>with relaxed timeout and problem rules, making cross-version scores artificially inflated. Conclusive judgments must wait for Terminal-Bench 3. Another debate centers on whether "downloadable" equals "runnable locally": the weights carry an MIT license, but <span class="num">753B</span> total parameters in the MoE require <span class="num">176~890GB</span> of memory, making it unrealistic for 99% of users.</p>
 <p><span class="turn">While the score itself isn't explosive, it marks the first time open-source weights stand on the same coding benchmark chart as closed-source models—serving as the starting point for all subsequent GLM-5.2 breakthroughs this week.</span></p>
 <p><a href="https://www.latent.space/p/ainews-midjourney-medical-scan-your" rel="noopener" target="_blank">AINews</a> · Z.ai Official</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-midjourney-medical-scan-your" rel="noopener" target="_blank">AINews</a> · Z.ai Official</div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Tools</div>
-<article class="chapter">
-<h2 class="chapter-title">Gemini CLI Shuts Down Today: 100K-Star Open-Source Project Shifts to Closed-Source Alternative</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-midjourney-medical-scan-your" rel="noopener" target="_blank">AINews</a> · Z.ai Official</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Tools</div>
+<div class="sec-title">Tools</div>
+<div class="item">
+<div class="item-title">Gemini CLI Shuts Down Today: 100K-Star Open-Source Project Shifts to Closed-Source Alternative</div>
+<div class="body">
 <p>Google announced that Gemini CLI will discontinue service on June 18, affecting free users as well as Pro and Ultra subscribers. Its replacement, Antigravity CLI, is a closed-source rewrite in Go and lacks complete functional parity at launch. Enterprise customers retain dual-access rights. During its run, Gemini CLI accumulated over 6,000 community-merged PRs and over 100,000 GitHub stars.</p>
 <p><li>Affected: Free, Pro, and Ultra subscribers, alongside Gemini Code Assist subscribers</li></p>
 <p><li>Alternative: Antigravity CLI (Closed-source Go rewrite, temporarily incomplete functionality, original version restricted to enterprise customers)</li></p>
 <p><li>Community Cost: A code repository with 6,000+ merged PRs and 100,000+ stars; community contributors are excluded from the new product.</li></p>
 <p><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/" rel="noopener" target="_blank">Google Developers Blog</a></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/" rel="noopener" target="_blank">Google Developers Blog</a></div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">Google Adds Streaming Voice to Gemini: AI Can Speak While Thinking Without Waiting for Full Sentences</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/" rel="noopener" target="_blank">Google Developers Blog</a></div>
+</div>
+<div class="item">
+<div class="item-title">Google Adds Streaming Voice to Gemini: AI Can Speak While Thinking Without Waiting for Full Sentences</div>
+<div class="body">
 <p>On June 17, Google added streaming voice generation capabilities to the gemini-3.1-flash-tts-preview model. Developers can invoke it via the streamGenerateContent method, allowing the AI to stream audio data as it generates without waiting for the entire audio clip to assemble. In voice assistant, real-time translation, and intelligent customer service scenarios, the AI responds immediately after the user finishes speaking.</p>
 <p><li>Invocation Method: streamGenerateContent or the stream:true parameter in the Interactions API</li></p>
 <p><li>Applicable Scenarios: Voice assistants, real-time translation, intelligent customer service—any product requiring instant voice feedback</li></p>
 <p><li>Latency Improvement: 1–2 second wait for full audio generation → 200–300 milliseconds for first streaming audio output</li></p>
 <p><a href="https://ai.google.dev/gemini-api/docs/changelog" rel="noopener" target="_blank">Google AI</a></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://ai.google.dev/gemini-api/docs/changelog" rel="noopener" target="_blank">Google AI</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Trends</div>
-<article class="chapter">
-<h2 class="chapter-title">OpenAI Revenue Multiplies 3.5x Yet Remains Unprofitable: Half of R&amp;D Expenses Paid to Microsoft</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://ai.google.dev/gemini-api/docs/changelog" rel="noopener" target="_blank">Google AI</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Trends</div>
+<div class="sec-title">Trends</div>
+<div class="item">
+<div class="item-title">OpenAI Revenue Multiplies 3.5x Yet Remains Unprofitable: Half of R&amp;D Expenses Paid to Microsoft</div>
+<div class="body">
 <p>Ars Technica reports that SEC filings prepared by OpenAI for its upcoming IPO have leaked. In 2025, revenue reached $13.07 billion (up from $3.7 billion in 2024), with an operating loss of $20.92 billion. R&amp;D expenditure stood at $19.18 billion, of which $10.59 billion was paid to Microsoft for computing power and licensing. The Sora video generation model was shut down in March 2026, just 15 months after its launch.</p>
 <p><li>Growth Comparison: 3.5x revenue growth vs. 1.4x wider losses—revenue growth cannot outpace cash burn</li></p>
 <p><li>Largest Single Expense: Half of R&amp;D budget paid to Microsoft (compute + licensing)</li></p>
 <p><li>Sora Shut Down: Video model discontinued 15 months after launch</li></p>
 <p><a href="https://arstechnica.com/ai/2026/06/leaked-financial-docs-show-openai-is-losing-billions-of-dollars-a-year/" rel="noopener" target="_blank">Ars Technica</a></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://arstechnica.com/ai/2026/06/leaked-financial-docs-show-openai-is-losing-billions-of-dollars-a-year/" rel="noopener" target="_blank">Ars Technica</a></div>
-</article>
-<article class="chapter">
-<h2 class="chapter-title">63% of Americans Think AI is Developing Too Fast, Yet ChatGPT Users Double</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://arstechnica.com/ai/2026/06/leaked-financial-docs-show-openai-is-losing-billions-of-dollars-a-year/" rel="noopener" target="_blank">Ars Technica</a></div>
+</div>
+<div class="item">
+<div class="item-title">63% of Americans Think AI is Developing Too Fast, Yet ChatGPT Users Double</div>
+<div class="body">
 <p>Pew Research released two surveys showing that 63% of Americans believe AI is developing too fast, while only 16% think AI has a positive impact on society. Meanwhile, chatbot usage rose from 33% in 2024 to 49%, and ChatGPT users have doubled since 2023 to reach 44%. The gap between Wall Street enthusiasm and public skepticism continues to widen.</p>
 <p><li>Usage Increase: Chatbot usage 33% → 49%, ChatGPT users doubled</li></p>
 <p><li>Enterprise Dilemma: Uber exhausts annual AI budget in months, and some companies cut back on Claude licenses</li></p>
 <p><a href="https://aitoolly.com/en/ai-news/article/2026-06-18-pew-research-reveals-two-thirds-of-americans-believe-ai-is-advancing-too-quickly-despite-surging-cha" rel="noopener" target="_blank">The Verge</a> · <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-nea-partner-tiffany-luck-highlights-enterprise-challenges-in-determining-artificial-intelligence-ret" rel="noopener" target="_blank">TechCrunch</a></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-pew-research-reveals-two-thirds-of-americans-believe-ai-is-advancing-too-quickly-despite-surging-cha" rel="noopener" target="_blank">The Verge</a> · <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-nea-partner-tiffany-luck-highlights-enterprise-challenges-in-determining-artificial-intelligence-ret" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"I've seen too many teams spend millions on AI only to find that the ROI cannot be calculated—the problem isn't the technology, it's that you haven't clearly figured out which step you are actually replacing with AI."</div>
-<div class="voice-meta">
-<span>— Tiffany Luck, Partner at NEA</span>
-<span></span>
-</div></div></div>
-<article class="chapter"><div class="prose">The Voices section is actively searching for quotes. Due to a limited number of qualifying public quotes from real people today, this section placeholder is retained.</div></article>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Creation</div>
-<article class="chapter"><div class="prose"><p>MiniMax entry removed—same product series as MiniMax M3 in the June 17 Creation section</p></div></article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Ongoing Observation</div>
-<article class="chapter">
-<h2 class="chapter-title">WeChat AI Agent: I say 'Cantonese restaurant for 3 people tomorrow noon,' and it finds and books a restaurant for me</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-pew-research-reveals-two-thirds-of-americans-believe-ai-is-advancing-too-quickly-despite-surging-cha" rel="noopener" target="_blank">The Verge</a> · <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-nea-partner-tiffany-luck-highlights-enterprise-challenges-in-determining-artificial-intelligence-ret" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"I've seen too many teams spend millions on AI only to find that the ROI cannot be calculated—the problem isn't the technology, it's that you haven't clearly figured out which step you are actually replacing with AI."</p>
+<p class="voice-who">— Tiffany Luck, Partner at NEA</p></div></div>
+<div class="item">
+<div class="body">The Voices section is actively searching for quotes. Due to a limited number of qualifying public quotes from real people today, this section placeholder is retained.</div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Creation</div>
+<div class="sec-title">Creation</div>
+<div class="item">
+<div class="body"><p>MiniMax entry removed—same product series as MiniMax M3 in the June 17 Creation section</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Ongoing Observation</div>
+<div class="sec-title">Ongoing Observation</div>
+<div class="item">
+<div class="item-title">WeChat AI Agent: I say 'Cantonese restaurant for 3 people tomorrow noon,' and it finds and books a restaurant for me</div>
+<div class="body">
 <p>According to The Information, Tencent is testing an AI Agent within WeChat. When a user says, 'Cantonese restaurant for 3 people tomorrow noon with a budget of 500 yuan,' the Agent automatically searches for restaurants, compares prices, places orders, and sends confirmations across multiple mini-programs. The project entered grayscale testing in June, covering millions of mini-programs in the WeChat ecosystem. This will be the first case of deep AI Agent integration in a Chinese social platform.</p>
 <p><li>Usage: User speaks a single sentence; Agent searches restaurants, compares prices, places orders, and sends confirmation across mini-programs</li></p>
 <p><li>Coverage: Millions of mini-programs in the WeChat ecosystem can be invoked</li></p>
 <p><li>Timeline: Grayscale testing starting in June</li></p>
 <p><a href="https://www.theinformation.com/articles/tencent-builds-ai-agent-for-wechat" rel="noopener" target="_blank">The Information</a> [Paywall]</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.theinformation.com/articles/tencent-builds-ai-agent-for-wechat" rel="noopener" target="_blank">The Information</a> [Paywall]</div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Venture Capital</div>
-<article class="chapter">
-<h2 class="chapter-title">Odyssey World Model Valued at $1.45 Billion, Backed by Strategic Investment from Amazon</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.theinformation.com/articles/tencent-builds-ai-agent-for-wechat" rel="noopener" target="_blank">The Information</a> [Paywall]</div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Venture Capital</div>
+<div class="sec-title">Venture Capital</div>
+<div class="item">
+<div class="item-title">Odyssey World Model Valued at $1.45 Billion, Backed by Strategic Investment from Amazon</div>
+<div class="body">
 <p>According to TechCrunch, AI world model company Odyssey has completed a new funding round at a valuation of $1.45 billion, with Amazon participating as a strategic investor. World models enable AI to comprehend physical space and dynamic changes, and are regarded as the next technical direction following LLMs.</p>
 <p><li>Valuation: $1.45 billion, with strategic investment from Amazon</li></p>
 <p><li>Technical Direction: World models—enabling AI to understand physical space and dynamic changes</li></p>
 <p><li>Track Positioning: Regarded as the next piece of infrastructure following LLMs</li></p>
 <p><a href="https://aitoolly.com/en/ai-news/article/2026-06-18-world-model-maker-odyssey-reaches-145-billion-valuation-with-strategic-backing-from-amazon-and-major" rel="noopener" target="_blank">TechCrunch</a></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-world-model-maker-odyssey-reaches-145-billion-valuation-with-strategic-backing-from-amazon-and-major" rel="noopener" target="_blank">TechCrunch</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Be Curious 🌌</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<div class="src-line">Sources: <a href="https://aitoolly.com/en/ai-news/article/2026-06-18-world-model-maker-odyssey-reaches-145-billion-valuation-with-strategic-backing-from-amazon-and-major" rel="noopener" target="_blank">TechCrunch</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Possible Supernova Remnant in Galactic Center · NASA APOD · 2026-06-18" loading="lazy" src="https://apod.nasa.gov/apod/image/2606/sgrc.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Possible Supernova Remnant in Galactic Center · NASA APOD · 2026-06-18</div>
 <p style="margin-bottom:8px; line-height:1.8;">Every day, as we look back from the depths of the universe, we stay curious and keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-06-17.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-06-19.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>

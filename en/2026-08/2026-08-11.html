@@ -90,9 +90,7 @@
         }
         .nav-links a:hover { color: #002FA7; }
 
-        /* 统一兼容 hero-masthead 与 masthead */
-        .hero-masthead, .masthead { margin-bottom: 36px; border: none; padding: 0; }
-        .hero-meta-bar { display: none; }
+        .masthead { margin-bottom: 36px; }
         .mast-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -102,7 +100,7 @@
             font-weight: 600;
             margin-bottom: 14px;
         }
-        .hero-title, .doc-title {
+        .doc-title {
             font-size: 42px;
             font-weight: 900;
             letter-spacing: -1.2px;
@@ -110,14 +108,14 @@
             color: var(--text-dark);
             margin-bottom: 14px;
         }
-        .hero-title span, .doc-title span { color: var(--klein); }
+        .doc-title span { color: var(--klein); }
         .doc-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        .hero-subtitle, .mast-lede {
+        .mast-lede {
             font-size: 15.5px !important;
             line-height: 1.85 !important;
             color: var(--text-mid) !important;
@@ -128,7 +126,7 @@
             margin-top: 16px !important;
             margin-bottom: 40px !important;
         }
-        .month-block, .section-block { margin-bottom: 48px; }
+        .section-block { margin-bottom: 48px; }
         .sec-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -137,7 +135,7 @@
             color: var(--text-light);
             margin-bottom: 6px;
         }
-        .month-title, .sec-title {
+        .sec-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--klein);
@@ -147,9 +145,9 @@
             border: none;
             padding: 0;
         }
-        .month-title::before, .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
-        .chapter, .item { margin-bottom: 36px; border: none; padding: 0; }
-        .chapter-eyebrow, .dateline {
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; border: none; padding: 0; }
+        .dateline {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             color: var(--text-light);
@@ -157,15 +155,15 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .chapter-title, .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
-        .prose, .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
-        .prose p, .body p { margin-bottom: 14px; text-align: left; }
-        .prose strong, .body strong { color: var(--text-dark); font-weight: 600; }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; color: var(--text-dark); }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; text-align: left; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
         .accent { color: var(--accent); font-weight: 600; }
         .hl { color: var(--klein); font-weight: 600; }
         .turn { color: var(--klein); font-weight: 700; }
-        .num { color: var(--klein); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-        .sources-bar, .src-line {
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .src-line {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-light);
@@ -174,33 +172,31 @@
             border: none;
             padding: 0;
         }
-        .sources-bar a, .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
-        .sources-bar a:hover, .src-line a:hover { text-decoration: underline; }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
         .voices-deck { display: block; margin-top: 12px; }
-        .voice-card, .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
-        .voice-card::before, .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
-        .voice-body, .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
-        .voice-meta, .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
-        .voice-meta a, .voice-who a { color: var(--klein); text-decoration: none; }
-        .callout-box, .curiosity {
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; background: none; border: none; box-shadow: none; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); display: flex; gap: 10px; align-items: center; }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .curiosity {
             padding: 24px;
             background: #F0F4FF;
             border-radius: 8px;
-            border: none;
-            border-left: 4px solid var(--klein);
             margin-top: 16px;
         }
         .image-block { margin: 20px 0; }
         .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
         .image-caption {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-mid);
-            margin-top: 8px;
-            line-height: 1.6;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+            line-height: 1.9;
+            letter-spacing: 0.01em;
         }
-        .highlight-insight, .summary-poem {
+        .summary-poem {
             font-family: 'JetBrains Mono', monospace;
             font-size: 13.5px;
             line-height: 1.9;
@@ -228,18 +224,16 @@
         .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
         .post-pagination a:hover { text-decoration: underline; }
         .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
-        .site-footer, .footer {
+        .footer {
             font-size: 12px;
             color: var(--text-light);
             text-align: center;
             margin-top: 32px;
             font-family: 'JetBrains Mono', monospace;
-            border: none;
-            background: none;
         }
         @media (max-width: 640px) {
             .container { padding: 24px 16px 48px; }
-            .hero-title, .doc-title { font-size: 32px; }
+            .doc-title { font-size: 32px; }
             .site-header-inner { flex-wrap: wrap; row-gap: 6px; }
             .nav-links { flex-wrap: wrap; gap: 6px 14px; }
         }
@@ -256,22 +250,18 @@
 </ul>
 </div>
 </header>
-<main class="container">
-<header class="hero-masthead">
-<div class="hero-meta-bar">
-<span class="badge-tag">Daily Briefing</span>
-<span class="badge-tag blue">2026-08-11</span>
-<span>Tuesday</span>
-</div>
-<div class="mast-eyebrow">Daily Intelligence</div><h1 class="hero-title">AI Intelligence <span>Daily</span> | 2026-08-11</h1><p class="doc-date">2026-08-11 · Tuesday</p>
-<div class="hero-subtitle" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today has a single throughline: compute is starting to be priced as an asset.Below, how that line pulls on models, security and money.</p></div>
+<div class="container">
+<header class="masthead">
+<div class="mast-eyebrow">Daily Intelligence</div><h1 class="doc-title">AI Intelligence <span>Daily</span></h1><p class="doc-date">Tuesday, August 11, 2026</p>
+<div class="mast-lede" style="font-size: 15px; line-height: 1.8; color: var(--text-mid, #3A3A3E); margin-top: 18px;"><p style="font-size: 15.5px; color: var(--text-mid, #3A3A3E); line-height: 1.75; margin: 0;">Today has a single throughline: compute is starting to be priced as an asset.Below, how that line pulls on models, security and money.</p></div>
 </header>
-<section class="month-block" id="section-1">
-<div class="month-title">Top Story</div>
-<article class="chapter">
-<div class="chapter-eyebrow">NVIDIA · Compute Finance</div>
-<h2 class="chapter-title">Jensen Huang wants compute to become an "asset": $500B, as AI factories start being financed like infrastructure</h2>
-<div class="prose">
+<div class="section-block">
+<div class="sec-eyebrow">Top Story</div>
+<div class="sec-title">Top Story</div>
+<div class="item">
+<div class="dateline">NVIDIA · Compute Finance</div>
+<div class="item-title">Jensen Huang wants compute to become an "asset": $500B, as AI factories start being financed like infrastructure</div>
+<div class="body">
 <p><strong>In a long post, Jensen Huang announced that NVIDIA is partnering with six major financial institutions, <span class="accent">Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR</span>, to build independent compute-financing platforms, aiming to mobilize over <span class="num">$500B</span> of third-party capital for global AI infrastructure.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Jensen Huang wants compute to become an "asset": $500B, as AI factories start being financed like infrastructure · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/nvidia-datacenters.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -281,15 +271,16 @@
 <p><span class="turn"><span class="num">When compute turns from "corporate procurement" into "an investable asset"</span>, Wall Street can buy AI's future the way it buys a power plant, for the first time.</span></p>
 <p>NVIDIA AI data centers · official image · compute starts being financed like a power plant</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx" rel="noopener" target="_blank">NVIDIA press release</a> · <a href="https://www.the-decoder.com/" rel="noopener" target="_blank">The Decoder</a> · <a href="https://www.reuters.com/" rel="noopener" target="_blank">Reuters</a></div>
-</article>
-</section>
-<section class="month-block" id="section-2">
-<div class="month-title">Front Line</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic · Mathematics</div>
-<h2 class="chapter-title">A research Claude pushes the Riemann hypothesis bound: a number untouched for decades moves one notch, by AI</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx" rel="noopener" target="_blank">NVIDIA press release</a> · <a href="https://www.the-decoder.com/" rel="noopener" target="_blank">The Decoder</a> · <a href="https://www.reuters.com/" rel="noopener" target="_blank">Reuters</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Front Line</div>
+<div class="sec-title">Front Line</div>
+<div class="item">
+<div class="dateline">Anthropic · Mathematics</div>
+<div class="item-title">A research Claude pushes the Riemann hypothesis bound: a number untouched for decades moves one notch, by AI</div>
+<div class="body">
 <p><strong>Anthropic disclosed an unreleased research version of Claude: inside Claude Code it orchestrated about <span class="num">60</span> sub-agents, executed <span class="num">2,400</span> shell commands and burned <span class="num">31M</span> output tokens to push the known lower bound on Riemann zeta zeros from <span class="num">41.6%</span> to <span class="num">67.2%</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="A research Claude pushes the Riemann hypothesis bound: a number untouched for decades moves one notch, by AI · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/research.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -298,12 +289,12 @@
 <p>This is not "AI solves the Riemann hypothesis"; it is AI using exhaustive search plus coordination to nudge a mathematical bound untouched for decades. <span class="num">The research accelerator has genuinely started spinning for the first time</span>. <span class="turn">When AI begins "improving the technical details of proofs", the accelerator of research truly turns for the first time.</span></p>
 <p>Research Claude advances the long-static Riemann bound.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.anthropic.com/research" rel="noopener" target="_blank">Anthropic Research</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">OpenAI · Security</div>
-<h2 class="chapter-title">GPT-5.6-Cyber finds Chrome zero-days: AI's security capability crosses the "High" threshold for the first time</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.anthropic.com/research" rel="noopener" target="_blank">Anthropic Research</a></div>
+</div>
+<div class="item">
+<div class="dateline">OpenAI · Security</div>
+<div class="item-title">GPT-5.6-Cyber finds Chrome zero-days: AI's security capability crosses the "High" threshold for the first time</div>
+<div class="body">
 <p><strong>OpenAI's <span class="accent">GPT-5.6-Cyber</span> discovered two chainable Chrome vulnerabilities bypassing the V8 heap sandbox (<span class="num">CVE-2026-15903</span>, already fixed by Google), the first OpenAI model to reach the "High" cyber-capability threshold.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="GPT-5.6-Cyber finds Chrome zero-days: AI's security capability crosses the &quot;High&quot; threshold for the first time · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/the-decoder-com.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -312,12 +303,12 @@
 <p>It came out of the Daybreak program. <span class="num">The research accelerator has genuinely started spinning</span>. <span class="turn">When AI starts "actively hunting vulnerabilities", <span class="num">the balance of offensive and defense tips toward AI for the first time in visible measure</span>.</span></p>
 <p>GPT-5.6-Cyber uncovers Chrome zero-days.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://the-decoder.com/" rel="noopener" target="_blank">The Decoder</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">OpenAI · Enterprise Product</div>
-<h2 class="chapter-title">ChatGPT Business adds a $125 premium seat: pricing for "token-hungry agents"</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://the-decoder.com/" rel="noopener" target="_blank">The Decoder</a></div>
+</div>
+<div class="item">
+<div class="dateline">OpenAI · Enterprise Product</div>
+<div class="item-title">ChatGPT Business adds a $125 premium seat: pricing for "token-hungry agents"</div>
+<div class="body">
 <p><strong>OpenAI introduced <span class="num">$125</span> Premium Seats for ChatGPT Business, sized for the high token consumption of agentic AI.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='ChatGPT Business adds a $125 premium seat: pricing for "token-hungry agents" · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/chatgpt-business.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -326,12 +317,12 @@
 <p>When an AI agent burns far more tokens in a day than any human conversation, enterprise pricing starts tiering by "compute consumed". <span class="turn">The office-AI bill is turning from "per head" into "per compute".</span></p>
 <p>ChatGPT Business launches compute-tiered premium seats.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://openai.com/" rel="noopener" target="_blank">OpenAI</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Security · Meeting Tools</div>
-<h2 class="chapter-title">AI meeting tool tl;dv leaks 181K meetings: a vulnerability left unfixed for six months</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://openai.com/" rel="noopener" target="_blank">OpenAI</a></div>
+</div>
+<div class="item">
+<div class="dateline">Security · Meeting Tools</div>
+<div class="item-title">AI meeting tool tl;dv leaks 181K meetings: a vulnerability left unfixed for six months</div>
+<div class="body">
 <p><strong>Researchers disclosed that the meeting-notes tool <span class="accent">tl;dv</span> lacked Firestore tenant-isolation rules, letting any logged-in user query meeting records from <span class="num">84K</span> users, including in-progress meetings of government agencies, universities, HubSpot and Confluent. The flaw went unfixed for <span class="num">6</span> months.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="AI meeting tool tl;dv leaks 181K meetings: a vulnerability left unfixed for six months · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/bobdahacker-com.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -340,12 +331,12 @@
 <p>When AI tools take over meeting minutes, <span class="num">"your meeting" becomes a row in someone's database</span>. <span class="turn">On the back of AI convenience, the data boundary has never been this blurry.</span></p>
 <p>AI meeting tool tl;dv leaks 181,000 meetings.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://bobdahacker.com/" rel="noopener" target="_blank">bobdahacker disclosure</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic · Pricing</div>
-<h2 class="chapter-title">Claude Sonnet 5 pricing made permanent: $2/$10 is not a promo; it is Anthropic's answer to the open-source squeeze</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://bobdahacker.com/" rel="noopener" target="_blank">bobdahacker disclosure</a></div>
+</div>
+<div class="item">
+<div class="dateline">Anthropic · Pricing</div>
+<div class="item-title">Claude Sonnet 5 pricing made permanent: $2/$10 is not a promo; it is Anthropic's answer to the open-source squeeze</div>
+<div class="body">
 <p><strong><span class="accent">Anthropic</span> announced that <span class="accent">Claude Sonnet 5</span>'s launch price becomes permanent: <span class="num">$2</span> per million input tokens and <span class="num">$10</span> output.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Claude Sonnet 5 pricing made permanent: $2/$10 is not a promo; it is Anthropic's answer to the open-source squeeze · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/claude-sonnet5-pricing.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -355,15 +346,16 @@
 <p>The open camp pushed per-token prices to a third or even a tenth of closed ones; DeepSeek V4 Flash was calculated on Vals to be <span class="num">35</span>x cheaper than the next model in its score band. <span class="num">Sonnet 5 making its "launch price" permanent amounts to admitting the performance premium cannot hold against the open-source squeeze</span>. The price war's fire has spread from open source to closed flagships, and <span class="num">for the first time a closed vendor's own flagship has knocked down the mid-tier price anchor</span>.</p>
 <p><span class="turn">When closed flagships start normalizing promo prices, the winner of the price war no longer sits in the model layer.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.latent.space/p/ainews-muse-glimmer-and-spark-open" rel="noopener" target="_blank">AINews</a> · <a href="https://x.com/claudeai" rel="noopener" target="_blank">Claude AI official</a></div>
-</article>
-</section>
-<section class="month-block" id="section-3">
-<div class="month-title">Open Source</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Meta · Open Source</div>
-<h2 class="chapter-title">Muse Glimmer 30B open-sourced: an agent that runs on laptops, with a $1B community fund attached</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.latent.space/p/ainews-muse-glimmer-and-spark-open" rel="noopener" target="_blank">AINews</a> · <a href="https://x.com/claudeai" rel="noopener" target="_blank">Claude AI official</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Open Source</div>
+<div class="sec-title">Open Source</div>
+<div class="item">
+<div class="dateline">Meta · Open Source</div>
+<div class="item-title">Muse Glimmer 30B open-sourced: an agent that runs on laptops, with a $1B community fund attached</div>
+<div class="body">
 <p><strong>Meta open-sourced <span class="accent">Muse Glimmer</span>: a <span class="num">30B</span> agent model with <span class="num">131K</span> context and <span class="num">100+</span> languages, runnable on a laptop at 4-bit quantization. Zuckerberg promised Muse Spark 1.2 weights within weeks and set up a <span class="num">$1B</span> data-center community fund.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Muse Glimmer 30B open-sourced: an agent that runs on laptops, with a $1B community fund attached · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/meta-muse-glimmer.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -372,12 +364,12 @@
 <p>Open weights plus local capability plus funding: Meta turned "open agent" from slogan into reality. <span class="turn">When the strongest open model runs on ordinary people's computers, cloud vendors' moat gets shallower again.</span></p>
 <p>Meta open-sources the 30B agent model Muse Glimmer.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://research.meta.ai/" rel="noopener" target="_blank">Meta Research</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Zhipu · Coding Model</div>
-<h2 class="chapter-title">Zhipu ZCODE put to the test: refactoring a Steam-style app in 11 minutes</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://research.meta.ai/" rel="noopener" target="_blank">Meta Research</a></div>
+</div>
+<div class="item">
+<div class="dateline">Zhipu · Coding Model</div>
+<div class="item-title">Zhipu ZCODE put to the test: refactoring a Steam-style app in 11 minutes</div>
+<div class="body">
 <p><strong>A developer tested Zhipu's open coding model <span class="accent">ZCODE</span>, completing a Steam-style application refactor in <span class="num">11</span> minutes.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Zhipu ZCODE put to the test: refactoring a Steam-style app in 11 minutes · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/antgroup-ling-tiny.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -385,12 +377,12 @@
 </div>
 <p>When a Chinese open coding model can independently handle the full loop of "read the project, change the code, make it run", developers have one more option on the shelf. <span class="turn">The Chinese coding-model camp is moving from "can write code" to "can take on projects".</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://open.bigmodel.cn/" rel="noopener" target="_blank">Zhipu official</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Ant Group · Open Source</div>
-<h2 class="chapter-title">Ant open-sources Ling-3.0-tiny: 1.3B active parameters, running into a Mac mini</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://open.bigmodel.cn/" rel="noopener" target="_blank">Zhipu official</a></div>
+</div>
+<div class="item">
+<div class="dateline">Ant Group · Open Source</div>
+<div class="item-title">Ant open-sources Ling-3.0-tiny: 1.3B active parameters, running into a Mac mini</div>
+<div class="body">
 <p><strong>Ant's Bailian team open-sourced <span class="accent">Ling-3.0-tiny</span>: <span class="num">1.3B</span> active parameters, supporting deployment on NVIDIA DGX Spark and Apple Mac mini.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="Ant open-sources Ling-3.0-tiny: 1.3B active parameters, running into a Mac mini · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/papers.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -399,30 +391,26 @@
 <p>Another small-but-strong Chinese model, <span class="num">light enough for personal devices</span>, aimed at "real tasks" rather than leaderboard chasing. <span class="turn">The Chinese open-model race has moved from "bigger" to "lighter and leaner".</span></p>
 <p>Ant Group open-sources Ling-3.0-tiny.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.antgroup.com/" rel="noopener" target="_blank">Ant Group</a></div>
-</article>
-</section>
-<section class="month-block" id="section-4">
-<div class="month-title">Voices</div>
-<div class="voices-deck"><div class="voice-card">
-<div class="voice-body">"In the AI era, compute is revenue."</div>
-<div class="voice-meta">
-<span>Jensen Huang · NVIDIA CEO</span>
-<a href="https://x.com/nvidia" rel="noopener" target="_blank">NVIDIA / X</a>
-</div></div>
-<div class="voice-card">
-<div class="voice-body">"AI is an exciting opportunity to move humanity forward, but if poorly governed it poses real risks to how society works and the future of jobs."</div>
-<div class="voice-meta">
-<span>Peter Malinauskas · Premier of South Australia</span>
-<a href="https://www.abc.net.au/news/2026-08-11/why-is-south-australia-holding-royal-commission-into-ai/107018396" rel="noopener" target="_blank">ABC News</a>
-</div></div></div>
-</section>
-<section class="month-block" id="section-5">
-<div class="month-title">Create</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Models · Cost</div>
-<h2 class="chapter-title">A 150M-parameter small model sets an ARC record: $0.07 cents per task, the small models strike back</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.antgroup.com/" rel="noopener" target="_blank">Ant Group</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Voices</div>
+<div class="sec-title">Voices</div>
+<div class="voices-deck"><div class="voice">
+<p class="voice-text">"In the AI era, compute is revenue."</p>
+<p class="voice-who">Jensen Huang · NVIDIA CEO <a href="https://x.com/nvidia" rel="noopener" target="_blank">NVIDIA / X</a></p></div><div class="voice-sep"></div>
+<div class="voice">
+<p class="voice-text">"AI is an exciting opportunity to move humanity forward, but if poorly governed it poses real risks to how society works and the future of jobs."</p>
+<p class="voice-who">Peter Malinauskas · Premier of South Australia <a href="https://www.abc.net.au/news/2026-08-11/why-is-south-australia-holding-royal-commission-into-ai/107018396" rel="noopener" target="_blank">ABC News</a></p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Create</div>
+<div class="sec-title">Create</div>
+<div class="item">
+<div class="dateline">Models · Cost</div>
+<div class="item-title">A 150M-parameter small model sets an ARC record: $0.07 cents per task, the small models strike back</div>
+<div class="body">
 <p><strong><span class="accent">BDH-CQ</span> used recursive latent-space reasoning (emitting no textual steps) to reach <span class="num">29.5%</span> pass@2 on ARC-AGI-1 at <span class="num">$0.0007</span> per task, breaking the cost/accuracy Pareto frontier.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="A 150M-parameter small model sets an ARC record: $0.07 cents per task, the small models strike back · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/www-wired-com.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -431,15 +419,16 @@
 <p>While everyone stacks parameters, a small model substitutes "thinking" for "speaking": <span class="num">no visible reasoning steps; inference happens directly in latent space</span>. <span class="turn">Inside the big-model arms race, a "small and cheap" route is quietly running ahead.</span></p>
 <p>A 150M-parameter model sets an ARC record at $0.0007 per task.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://huggingface.co/papers" rel="noopener" target="_blank">HuggingFace Daily Papers</a></div>
-</article>
-</section>
-<section class="month-block" id="section-6">
-<div class="month-title">Vision</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Platforms · Pushback</div>
-<h2 class="chapter-title">Platforms start fighting AI slop: "verifiably human creation" becomes a premium good</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://huggingface.co/papers" rel="noopener" target="_blank">HuggingFace Daily Papers</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Vision</div>
+<div class="sec-title">Vision</div>
+<div class="item">
+<div class="dateline">Platforms · Pushback</div>
+<div class="item-title">Platforms start fighting AI slop: "verifiably human creation" becomes a premium good</div>
+<div class="body">
 <p><strong>Wired reports: LinkedIn and Snap rolled out labels, throttling and bans; iHeartMedia turned a "certified human" tag into a selling point; YouTube's CEO made slop governance the top priority for <span class="num">2026</span>.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt='Platforms start fighting AI slop: "verifiably human creation" becomes a premium good · Primary Evidence Visual' loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/india-it-services-ai.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -448,12 +437,12 @@
 <p>As AI content floods feeds, <span class="num">platforms are treating "this was written by a person" as a feature for the first time</span>, and <span class="num">the scarce commodity of the AI era is shifting from "content" to "humans"</span>.</p>
 <p>Platforms push back on AI slop: "verifiably human creation".</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.wired.com/" rel="noopener" target="_blank">WIRED</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">Jobs · Global</div>
-<h2 class="chapter-title">AI starts hollowing out India's IT services empire: the first cut into a 6-million-person industry</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.wired.com/" rel="noopener" target="_blank">WIRED</a></div>
+</div>
+<div class="item">
+<div class="dateline">Jobs · Global</div>
+<div class="item-title">AI starts hollowing out India's IT services empire: the first cut into a 6-million-person industry</div>
+<div class="body">
 <p><strong>Per the FT, generative AI is automating the routine coding, testing and back-office work that outsourcing runs on. India's <span class="num">$300B</span> IT services industry has begun layoffs; TCS alone announced over <span class="num">12K</span> job cuts this year.</strong></p>
 <div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
 <img alt="AI starts hollowing out India's IT services empire: the first cut into a 6-million-person industry · Primary Evidence Visual" loading="lazy" src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-08-11/anthropic-riot-compute.jpg" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
@@ -462,53 +451,64 @@
 <p>An industry employing <span class="num">6M</span> people and contributing about <span class="num">7%</span> of GDP is the first boulder of employment pried loose directly by AI. <span class="turn">When "outsourced coding" gets replaced by AI, the first crack in the global employment map opens over India.</span></p>
 <p>AI starts eroding India's vast IT services industry.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.ft.com/" rel="noopener" target="_blank">Financial Times</a></div>
-</article>
-</section>
-<section class="month-block" id="section-7">
-<div class="month-title">Funding &amp; Capital Flows</div>
-<article class="chapter">
-<div class="chapter-eyebrow">Anthropic · Compute</div>
-<h2 class="chapter-title">Anthropic locks in 20 years of compute: $9.1B, 191MW, potentially worth $16.1B</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.ft.com/" rel="noopener" target="_blank">Financial Times</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Funding &amp; Capital Flows</div>
+<div class="sec-title">Funding &amp; Capital Flows</div>
+<div class="item">
+<div class="dateline">Anthropic · Compute</div>
+<div class="item-title">Anthropic locks in 20 years of compute: $9.1B, 191MW, potentially worth $16.1B</div>
+<div class="body">
 <p><strong><span class="accent">Anthropic</span> signed a <span class="num">20</span>-year, <span class="num">191MW</span>, <span class="num">$9.1B</span> compute agreement with <span class="accent">Riot Platforms</span>, full delivery by June 2028, with potential value up to <span class="num">$16.1B</span>.</strong></p>
 <p>An AI company pre-locking twenty years of compute: <span class="num">when compute becomes an asset, contracts become ammunition in the arms race</span>. <span class="turn">On AI companies' balance sheets, "compute contracts" are becoming the heaviest line item.</span></p>
 <p>Anthropic locks in compute assets for as long as 20 years.</p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.theblock.co/" rel="noopener" target="_blank">The Block</a></div>
-</article>
-<article class="chapter">
-<div class="chapter-eyebrow">xAI · Fundraising</div>
-<h2 class="chapter-title">An xAI co-founder's new company River AI: $5B valuation, to fight monolithic frontier models</h2>
-<div class="prose">
+<div class="src-line">Sources: <a href="https://www.theblock.co/" rel="noopener" target="_blank">The Block</a></div>
+</div>
+<div class="item">
+<div class="dateline">xAI · Fundraising</div>
+<div class="item-title">An xAI co-founder's new company River AI: $5B valuation, to fight monolithic frontier models</div>
+<div class="body">
 <p><strong>The NYT reports that xAI co-founder <span class="accent">Babuschkin</span>'s new company <span class="accent">River AI</span> raised <span class="num">$1.1B</span> at a <span class="num">$5B</span> valuation with no product and no revenue, advocating "personal, ownable, trainable" AI; General Catalyst and Amp PBC led, with Nvidia and AMD participating.</strong></p>
 <p>No product, no revenue, $1.1B raised on an idea alone: <span class="num">capital is betting on "personal AI" against the big labs</span>. <span class="turn">While everyone builds bigger models, <span class="num">someone has started building "a model that belongs to you"</span>.</span></p>
 </div>
-<div class="sources-bar">Sources: <a href="https://www.nytimes.com/" rel="noopener" target="_blank">NYT</a></div>
-</article>
-</section>
-<section class="month-block" id="section-8">
-<div class="month-title">Takeaway</div>
-<article class="chapter"><div class="prose"><p>Jensen Huang mobilized $500B to make compute an asset; Anthropic locked in $9.1B of it.</p>
+<div class="src-line">Sources: <a href="https://www.nytimes.com/" rel="noopener" target="_blank">NYT</a></div>
+</div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Takeaway</div>
+<div class="sec-title">Takeaway</div>
+<div class="item">
+<div class="body"><p>Jensen Huang mobilized $500B to make compute an asset; Anthropic locked in $9.1B of it.</p>
 <p>Claude pushed the Riemann bound, GPT-5.6-Cyber dug Chrome zero-days, Meta open-sourced Muse Glimmer.</p>
 <p>tl;dv leaked 180K meetings, AI started hollowing out Indian IT outsourcing; Zhipu refactored Steam in 11 minutes and Ant open-sourced Ling-tiny.</p>
-<p class="turn">Capability is sprinting, security is bleeding, employment is being pried loose: AI's 2026 never asks only "who is stronger".</p></div></article>
-</section>
-<section class="month-block" id="section-9">
-<div class="month-title">Be Curious</div>
-<div class="callout-box"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
+<p class="turn">Capability is sprinting, security is bleeding, employment is being pried loose: AI's 2026 never asks only "who is stronger".</p></div></div>
+</div>
+<div class="section-block">
+<div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">Be Curious</div>
+<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
 <img alt="Roebuck Bay, Western Australia — NASA's satellite captured a crescent-shaped bay where retreating tides leave winding patterns, like a natural abstract painting." loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/bountiful-roebuck-bay/broomewater_oli_20260318_th.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
 </div>
 <div class="box-title" style="font-size:16px; margin-bottom:10px;">Roebuck Bay, Western Australia — NASA's satellite captured a crescent-shaped bay where retreating tides leave winding patterns, like a natural abstract painting.</div>
 <div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Roebuck Bay · Western Australia · photographed by NASA · <span class="num">18.0</span>°S, <span class="num">122.3</span>°E</div>
 <p style="margin-bottom:8px; line-height:1.8;">Tides and seasons layer their traces across this crescent bay: water floods in, retreats, floods again. While we argue on screens about whose model is stronger and whose compute costs more, this bay repaints itself daily at the rhythm of the tide. After a day of AI news, Earth still has places that need no GPU cooling. Mountains and seas — stay curious, keep exploring.</p></div>
-</section>
+</div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-08-10.html">← Previous</a>
 <a class="all-posts" href="../index.html#archive">Archive</a>
 <a class="next-post" href="2026-08-12.html">Next →</a>
 </nav>
-</main>
-<footer class="site-footer"><p><span class="brand-mark">AI News</span> · Frontier Signal Stream</p><p>Primary sources · Practitioner quotes · Incident post-mortems.</p></footer>
+
+    <footer class="footer">
+        <p>AI Intelligence Daily · Frontier Signal Stream</p>
+    </footer>
+</div>
+
+    <link rel="stylesheet" href="../../glossary/glossary.css">
+    <script src="../../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../../glossary/glossary.js" data-dict="../../glossary/ai-dictionary-lite.json"></script>
 </body>
 </html>
