@@ -194,6 +194,38 @@
             text-decoration: none;
         }
 
+        .sec-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '\25AE '; color: var(--klein); margin-right: 6px; font-size: 13px; }
+
+        .curiosity {
+            padding: 24px;
+            background: #F4F7FF;
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+        .curiosity .image-caption {
+            font-size: 14px;
+            color: var(--text-mid);
+            line-height: 1.9;
+        }
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
         .footer-block {
             font-size: 13px;
             color: var(--text-mid);
@@ -471,20 +503,22 @@
     <div class="divider"></div>
 
     <div class="section-block">
-        <h2 class="section-header">Be Curious 🌌</h2>
-        <div class="image-block">
+        <div class="sec-eyebrow">BE CURIOUS</div>
+        <div class="sec-title">Be Curious</div>
+        <div class="curiosity">
+            <div class="image-block">
             <img src="https://apod.nasa.gov/apod/image/2606/Keogram2025_Bassa_960.jpg"
                  alt="Keogram：2025年全年天空压缩成一张图——夏至日今天，白天最长的那条最细的光带"
                  loading="lazy">
             <p class="image-caption">Keogram: The Sky in 2025 · 全年天空压缩成一张图 · 摄影师 Cees Bassa · NASA APOD · 2026年6月21日（夏至日）<br>每15秒拍一次天空，365天的所有柱状切片对齐成一张。白天最长的一天是今天——沙漏形最细的那条光带。十二道月光穿越夜空，春秋分在沙漏的转折处。<a href="https://apod.nasa.gov/apod/ap260621.html">查看原文 →</a></p>
-        </div>
+            </div>
         <p class="card-tag">好奇·夏至日·全年天空</p>
+        </div>
     </div>
 
-    <div class="footer-block">
-        <p>AI 情报周报 · 本周必读</p>
-        <p>信息源：CNBC / The Verge / NVIDIA / The Atlantic / Squeez Labs / TechCrunch / Hacker News / SignalFire / Gartner / Similarweb</p>
-    </div>
+    <footer class="footer">
+        <p>AI 情报周报 · 记录技术变轨与时代斜率</p>
+    </footer>
 
 </div>
     <link rel="stylesheet" href="../glossary/glossary.css">

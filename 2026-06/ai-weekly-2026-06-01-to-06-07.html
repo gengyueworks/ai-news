@@ -201,6 +201,38 @@
             text-decoration: none;
         }
 
+        .sec-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '\25AE '; color: var(--klein); margin-right: 6px; font-size: 13px; }
+
+        .curiosity {
+            padding: 24px;
+            background: #F4F7FF;
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+        .curiosity .image-caption {
+            font-size: 14px;
+            color: var(--text-mid);
+            line-height: 1.9;
+        }
+
+        .footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
         .footer-block {
             font-size: 13px;
             color: var(--text-mid);
@@ -475,19 +507,21 @@
 
     <!-- Be Curious -->
     <div class="section-block">
-        <h2 class="section-header">Be Curious 🌌</h2>
-        <div class="image-block">
+        <div class="sec-eyebrow">BE CURIOUS</div>
+        <div class="sec-title">Be Curious</div>
+        <div class="curiosity">
+            <div class="image-block">
             <img src="https://apod.nasa.gov/apod/image/2606/HydraClusterSampaio.jpg"
                  alt="长蛇座星系团——数百个星系像网络节点一样散布在宇宙中"
                  loading="lazy">
             <p class="image-caption">长蛇座星系团 · Rayleigh Sampaio · NASA APOD · 2026年6月5日<br>每个亮点是一个星系，每个星系里有千亿颗恒星。我们做的事在宇宙尺度上很渺小，但我们在做。保持好奇，持续探索。<a href="https://apod.nasa.gov/apod/ap260605.html">查看原文 →</a></p>
+            </div>
         </div>
     </div>
 
-    <div class="footer-block">
-        <p>AI 情报周报 · 本周必读</p>
-        <p>信息源：Fortune / Ars Technica / NVIDIA / Google / Anthropic / Simon Willison / TechCrunch</p>
-    </div>
+    <footer class="footer">
+        <p>AI 情报周报 · 记录技术变轨与时代斜率</p>
+    </footer>
 
 </div>
     <link rel="stylesheet" href="../glossary/glossary.css">
