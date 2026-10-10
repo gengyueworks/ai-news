@@ -248,6 +248,10 @@ def _is_banned_image(src: str, img_tag: str) -> str:
     for w in words:
         if w in BANNED_STEM_WORDS:
             return '命中禁用图源主干词 %s' % w
+    # 2026-10-11 补漏：chart02 / chart1 / diagram3 这类「词根+数字」主干此前逃过切词比对
+    for w in words:
+        if re.fullmatch(r'(?:chart|charts|diagram|diagrams|infographic|infographics|benchmark|benchmarks|flowchart|schematic|pricing)\d+', w):
+            return '命中禁用图源主干词(带编号) %s' % w
     low_tag = img_tag.lower()
     for token in BANNED_IMAGE_META_TOKENS:
         if token.lower() in low_tag:
