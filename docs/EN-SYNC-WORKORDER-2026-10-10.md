@@ -48,3 +48,37 @@
 - 每波：改哪几页（绝对路径）、对应中文提交号、`quality_gate` 结果、`git diff --check`。
 - 图片类一律先报清单待批，不擅自换。
 - 收尾三句：做到哪 / 还剩什么 / 哪里卡住。
+
+
+---
+
+## 5. 配图线已执行（2026-10-11 落盘实况·英文站直接照抄，不必再找图）
+
+> 以下 URL 全部为腾讯云 COS 绝对链接，与中文版逐字节同源。英文站只需替换 `alt` 与图说为英文，位置照下表。
+
+### 5.1 `en/2026-10/2026-10-09.html`（已完成·线上可见）
+| 序 | 绑定条目（中文锚点） | 图片文件名 | 版式 |
+|---|---|---|---|
+| 1 | 「唯一游戏」证明（头条） | `2026-10-09/quanta-unique-games-official.jpg` | 正文第 1~2 段后 |
+| 2 | 安妮·卡森获诺贝尔文学奖 | `2026-10-09/nobel-anne-carson-official.jpg` | 中段 |
+| 3 | Google Playground 上线 | `2026-10-09/google-playground-official.jpg` | 尾段 |
+| 底 | Be Curious | `/assets/apod/fadai/fadai-00069.jpg`（站点根路径资产，勿改 COS） | 文末 |
+
+### 5.2 英文 10-10 建页配图模板（英文站建页时直接嵌入·禁止先纯文字再二次补图）
+前缀同为 `https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/`。
+
+| 序 | 绑定条目 | 图片路径（相对前缀） | 英文图说（可直接用） | 英文 alt（可直接用） |
+|---|---|---|---|---|
+| 1 | Google Cloud Gemini agent（头条） | `2026-10-10/google-cloud-gemini-agent-official.png` | Google Cloud "Gemini at Work 2026" official launch key visual · Source: Google Cloud Blog | Google Cloud Gemini at Work 2026 official key visual |
+| 2 | EmbeddingGemma 2 开源 | `2026-10-10/embeddinggemma2-official.jpg` | Google DeepMind EmbeddingGemma 2 official visual · 740M-parameter multimodal embedding model · Source: Google DeepMind Blog | Google DeepMind EmbeddingGemma 2 official visual |
+| 3 | Waddington 景观（尾段） | `2026-10-10/quanta-waddington-official.jpg` | Scientific visualization of Waddington's epigenetic landscape · a ball rolling down a folded surface mirrors cell differentiation · Source: Quanta Magazine | Abstract scientific visualization of Waddington's landscape |
+| 底 | Be Curious | `/assets/apod/fadai/fadai-01454.jpg`（站点根路径资产，勿改 COS） | South America · Peru · Colca Canyon · Satellite View · 13.31°S, 71.96°W | Colca Canyon satellite view over Peru |
+
+**英文 10-10 建页硬要求**：条目集合与中文 `2026-10/2026-10-10.html` 完全同源（该页共 10 条）。中文页图片落在第 1、6、9 条（Google Cloud Gemini agent / EmbeddingGemma 2 / Waddington 景观），其余 7 条无合格一手图，保持纯文字，不得硬塞。
+
+## 6. 配图线自查结论（对应本单第 3 节 E9「只查不改」清单）
+
+- 全站 HTML 的 `<img>` 中 **0 处** aihot.news 图源，AI Hot 事故源（`fetch_aihot_sources.py` / `build_image_manifest.py` / `fetch_official_image` 抓 og:image）在当前 `scripts/` 已不存在，工具链已断；aihot 仅作为文字来源链接出现在 `2026-09-14/15/18` 与 `docs/ai-source-pool-overview.html`。
+- 全站 382 个唯一 COS 图路径，跨页复用仅 3 处：`2026-09-10/apple-iphone-duo-foldable-hands.jpg` 与 `2026-09-14/unitree-dog-outdoor-action.jpg` 各被日刊 + 两份 9 月周报引用；`2026-10-02/napoleon-1809-cipher-facsimile.jpg` 被日刊 + `ai-weekly-2026-10-w1.html` 引用。周报复用当期原图属可接受互证，**不构成错配**，无需改动。
+- 10 月每一期（10-01 至 10-10）均已 ≥2 张正文图 + 1 张底栏图；逐条与新闻标题核对，未发现「图不对文」的条目级错配。
+- 10-09 / 10-10 的 6 张正文图，alt 与图说中声明的出处与条目 `Sources` 行的官方链接一一对应（Quanta / NobelPrize.org / blog.google / cloud.google.com / deepmind.google）。
