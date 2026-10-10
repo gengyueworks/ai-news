@@ -180,15 +180,20 @@ def _semantic_mismatch(src: str, ctx: str, is_bc: bool):
 
 
 def _is_be_curious(content: str, pos: int) -> bool:
-    """判断图片位置是否落在 Be Curious 栏目区块内。"""
-    # 找 pos 之前最近的 curiosity / Be Curious 区块起点
+    """判断图片位置是否落在 Be Curious 栏目区块内。
+
+    2026-10-11 修正：旧实现用 max() 取「最近的锚点」，当页面同时存在
+    `<div class="curiosity">` 容器与容器内部的小标题 `Be Curious` 时，
+    max() 会选中容器「内部」的小标题，导致 tail 内 div 收支平衡，
+    误判为不在 Be Curious 区块（fadai 底栏卫星图被误报 I1.FAIL）。
+    这里改为优先取最外层容器起点 cur；无容器时才回退到最早的文案锚点。
+    """
     before = content[:pos]
     cur = before.rfind('<div class="curiosity"')
-    bc = before.rfind('BE CURIOUS')
-    bc2 = before.rfind('Be Curious')
-    section_start = max(cur, bc, bc2)
-    if section_start < 0:
+    anchors = [a for a in (cur, before.rfind('BE CURIOUS'), before.rfind('Be Curious')) if a >= 0]
+    if not anchors:
         return False
+    section_start = cur if cur >= 0 else min(anchors)
     # 该区块是否尚未闭合（在 pos 之前没有对应闭合到 container 层）
     tail = content[section_start:pos]
     return tail.count('<div') > tail.count('</div>')
