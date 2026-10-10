@@ -255,6 +255,10 @@ SOURCE_BLACKLIST_DOMAINS = [
     "toutiao.com", "163.com", "qq.com", "new.qq.com", "view.inews.qq.com",
     "10jqka.com.cn", "hvoy.ai", "sina.com.cn", "sohu.com", "zhihu.com",
     "c.m.163.com", "stock.10jqka.com.cn", "36kr.com", "ithome.com",
+    # 2026-10-11 增补：竞品聚合站（AI Hot 及其镜像域）。9-14/15/18 曾把
+    # aihot.virxact.com/items/... 挂在「Suno 官方 / OpenAI Developers / Rohan Paul」
+    # 标签下当源链接上线，实测 403 且经 aihot.news/moved 跳转，属同行品牌资产外溢。
+    "aihot.news", "aihot.virxact.com", "virxact.com",
 ]
 
 # F11 深度源白名单——国际深度分析/独立研究者博客（每天至少 2 条）
@@ -2366,10 +2370,17 @@ class GateChecker:
                          f"{fname}: 未解析到任何声音栏引语")
 
         # 只从正文来源行取链接，避免把声音、导航和脚本链接混入素材质量统计。
-        source_lines = re.findall(r'<(?:p|div) class="source-line">([\s\S]*?)</(?:p|div)>', html)
+        # 2026-10-11 修正 scope bug：F10 的提取正则只认 class="source-line"，
+        # 而全站 2259 处来源行用的是 class="src-line"（source-line 仅 186 处），
+        # 于是黑名单对 92% 的来源行从未生效——这正是 4 条竞品源链接能一路溜到线上的第二道缝。
+        source_lines = re.findall(
+            r'<(?:p|div)[^>]*class="[^"]*(?:src-line|source-line)[^"]*"[^>]*>([\s\S]*?)</(?:p|div)>',
+            html)
         source_urls = []
         for source_line in source_lines:
-            source_urls.extend(re.findall(r'href="(https?://[^"]+)"', source_line))
+            for u in re.findall(r'href="(https?://[^"]+)"', source_line):
+                if u not in source_urls:
+                    source_urls.append(u)
 
         # F10: 素材源黑名单检查——正文所有来源URL不能指向国产聚合/二手转载平台
         blacklist_hits = []

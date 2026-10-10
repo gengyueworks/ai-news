@@ -22,6 +22,8 @@
                                防"张冠李戴"占位图；2026-06 Dreambeans 条目误配 nvidia-gpu-cluster 事故）
     I9. 空图块              — image-block 里只有图注没有 <img> = WARN（配图管线丢图后的悬空说明行）
     I10. 低质/侵权图源       — chart_* 自造图表、AI Hot 卡片、第三方 Logo/水印/评分宣传卡 = FAIL
+    I12. 来源行竞品链接      — src-line 的 <a href> 指向 AI Hot / 国产聚合站域名 = FAIL
+                               （2026-10-11 事故：09-14/15/18 源标签挂 aihot.virxact.com 深链）
                                （2026-10-06 事故：自动抓取把 ai hot og:image 当成新闻图）
 
 背景（2026-08-14）：8-13 日报 zed-delta.webp 为 3600x1890 原图直接入库，页面图巨大/打不开；
@@ -262,6 +264,35 @@ def _is_banned_image(src: str, img_tag: str) -> str:
     return ''
 
 
+# --- I12 来源行竞品域名（2026-10-11 加：图拦住了，链接还在给别人做嫁衣）---
+# 09-14/15/18 三条日报正文图已清干净，但 src-line 里仍挂着 aihot.virxact.com/items/...
+# 并贴上「Suno 官方 / Artificial Analysis / OpenAI Developers / Rohan Paul」的标签，
+# 实测 403 且经 aihot.news/moved 跳转——读者一点就跑到同行聚合站，属同源事故。
+# I10 只扫 <img src>，来源行 <a href> 全站点无人拦，这里补上。
+BANNED_SRC_LINK_DOMAINS = [
+    "aihot.news", "aihot.virxact.com", "virxact.com",
+    "hvoy.ai", "toutiao.com", "163.com", "qq.com", "36kr.com", "ithome.com",
+]
+SRC_LINE_RE = re.compile(
+    r'<(p|div)[^>]*class="[^"]*(?:src-line|source-line)[^"]*"[^>]*>([\s\S]*?)</\1>', re.I)
+
+
+def _banned_source_links(content: str):
+    """I12：来源行 <a href> 指向竞品/聚合站域名 → 返回 [(行号, 域名, url)]。"""
+    hits = []
+    for sm in SRC_LINE_RE.finditer(content):
+        block = sm.group(2)
+        ln = content[:sm.start()].count('\n') + 1
+        for url in re.findall(r'href=["\'](https?://[^"\']+)', block):
+            dm = re.search(r'https?://(?:www\.)?([^/]+)', url)
+            if not dm:
+                continue
+            domain = dm.group(1).lower()
+            if any(b in domain for b in BANNED_SRC_LINK_DOMAINS):
+                hits.append((ln, domain, url))
+    return hits
+
+
 def scan_html(html_path: Path, verify_http: bool = True):
     """扫描单个 HTML 文件里的所有图片引用，返回问题列表 [(行号, 类型, 描述)]。
 
@@ -369,6 +400,12 @@ def scan_html(html_path: Path, verify_http: bool = True):
             issues.append((0, 'I7.WARN',
                 '配图率 %d%%（%d 条新闻 %d 张正文图，仅提示，不阻碍上线）'
                 % (int((len(body_imgs) / items) * 100), items, len(body_imgs))))
+
+    # --- I12 来源行竞品/聚合站链接（一票否决：不许把读者递给同行站点）---
+    for ln, domain, url in _banned_source_links(content):
+        issues.append((ln, 'I12.FAIL',
+            'src-line 竞品源链接 [%s] %s → 该源名改回纯文本，或换成新闻一手官方深链'
+            % (domain, url[:70])))
     return issues
 
 
@@ -451,11 +488,25 @@ def main():
     if args:
         html_files = [Path(a).resolve() for a in args]
     else:
-        html_files = sorted((REPO / '2026-08').glob('2026-08-*.html'))
-        older = sorted((REPO / '2026-07').glob('2026-07-*.html'))
-        html_files = older + html_files
+        # 2026-10-11 根治配图机制长期失效的第一根因：
+        # 旧实现把 --all 参数剥掉后回落到「只扫 2026-07 + 2026-08 中文」的硬编码 glob，
+        # 于是 6 月、9 月、10 月和全部英文版从来没人查过（实测 --all 只覆盖 65/267 页）。
+        # 现在全站日报（中文 + 英文）一律纳入扫描范围。
+        html_files = []
+        for month_dir in sorted(REPO.glob('2026-*')):
+            if not month_dir.is_dir():
+                continue
+            html_files += sorted(f for f in month_dir.glob('2026-*.html')
+                                 if '.bak' not in f.name)
+        en_root = REPO / 'en'
+        if en_root.is_dir():
+            for month_dir in sorted(en_root.glob('2026-*')):
+                if not month_dir.is_dir():
+                    continue
+                html_files += sorted(f for f in month_dir.glob('2026-*.html')
+                                     if '.bak' not in f.name)
     if not html_files:
-        print('image-gate: 未找到日报 HTML（2026-0*/*.html）')
+        print('image-gate: 未找到日报 HTML（2026-*/*.html 与 en/2026-*/*.html）')
         return 1
 
     total = 0
