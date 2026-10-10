@@ -365,7 +365,7 @@
     <div class="section-block">
         <h2 class="section-header">今日头版</h2>
         <div class="image-block">
-            <img src="../assets/ai-frontline-images/by-date/2026-07-21/alphafold-3.jpg" alt="AlphaFold预测的蛋白质3D结构：蓝色螺旋链与彩色分子交互可视化" loading="lazy">
+            <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-07-21/alphafold-3.jpg" alt="AlphaFold预测的蛋白质3D结构：蓝色螺旋链与彩色分子交互可视化" loading="lazy">
             <p class="image-caption">AlphaFold预测的蛋白质三维结构 · Google DeepMind / Isomorphic Labs</p>
         </div>
         <p class="intro-text"><span class="highlight">AlphaFold之父</span>离开了DeepMind——去了Anthropic。约翰·江珀（John Jumper），<span class="accent">2024年</span>诺贝尔化学奖得主，在Google做了近九年，决定走。</p>
@@ -398,10 +398,6 @@
         <!-- Copilot SearchLeak -->
         <div class="news-item">
             <h3 class="news-title">你点了一个链接——Copilot自己搜你的邮箱，把2FA码寄给了攻击者</h3>
-            <div class="image-block">
-                <img src="https://www.varonis.com/hubfs/Blog_VTL-SearchLeak_Diagram_202606_FNL.png" alt="SearchLeak攻击流程图：一次点击→Copilot搜邮箱→嵌入img标签→Bing代理外泄" loading="lazy">
-                <p class="image-caption">SearchLeak三阶段攻击链可视化 · Varonis Threat Labs</p>
-            </div>
             <p class="news-body">Varonis Threat Labs发现了一个三步漏洞链，叫<span class="highlight">SearchLeak</span>（CVE-2026-42824）。第一步——<span class="highlight">P2P注入</span>：Copilot Enterprise Search的URL参数直接被当成AI指令执行。</p>
 <p class="news-body">第二步——<span class="highlight">HTML渲染竞态</span>：AI回复流式输出时，&lt;img&gt;标签在安全过滤生效之前就触发了请求。第三步——<span class="highlight">Bing SSRF</span>：CSP白名单里的bing.com会做服务器端跳转，变成数据外泄的代理。</p>
 <p class="news-body">三步连起来：用户点一个链接→Copilot搜自己的邮箱、日历、SharePoint→数据通过Bing发到攻击者服务器。<span class="turn">一次点击，零二次确认</span>。Microsoft已修复，评级"严重"。</p>
