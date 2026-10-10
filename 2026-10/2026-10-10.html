@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 情报日报｜2026年10月10日</title>
+    <meta name="description" content="2026年10月10日 AI 情报日报：Google Cloud 发布通用工作智能体 Gemini agent，底层模型可自由编排；Anthropic 启动 Cyber Mission 并承诺 1.5 亿美元支持美国科研；NVIDIA 将 Halos 安全栈延伸到机器人；OpenAI 上线最快服务档位 Ultrafast；Google DeepMind 开源 EmbeddingGemma 2。">
+    <style>
+        @import url('../assets/fonts/fonts.css');
+        :root {
+  --klein: #002FA7;
+  --klein-bright: #0044FF;
+  --klein-soft: rgba(0, 47, 167, 0.08);
+  --paper: #FFFFFF;
+  --white: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-subtle: #F8F9FB;
+  --ink: #0E0E10;
+  --ink-soft: #3A3A3E;
+  --text-dark: #0E0E10;
+  --text-mid: #3A3A3E;
+  --text-light: #6B6B70;
+  --text-muted: #6B6B70;
+  --gray: #6B6B70;
+  --gray-light: #9CA3AF;
+  --line: #E8E8EC;
+  --border: #E8E8EC;
+  --border-color: #E8E8EC;
+  --accent: #C41E3A;
+}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+        }
+        .site-nav {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            z-index: 50;
+        }
+        .site-nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 13px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-nav-brand { font-size: 18px; font-weight: 800; text-decoration: none; color: var(--text-dark); }
+        .site-nav-brand span { color: var(--klein); }
+        .site-nav-links { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; align-items: center; }
+        .site-nav-links a { font-size: 13px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+        .site-nav-links a:hover { color: var(--klein); }
+        .site-nav-links a.active { color: var(--klein); font-weight: 700; }
+        .nav-pricing-btn { padding: 4px 10px; background: var(--klein); color: #fff !important; border-radius: 6px; font-size: 12px !important; }
+        .masthead { margin-bottom: 36px; }
+        .mast-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--klein);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .doc-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .doc-title span { color: var(--klein); }
+        .doc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .mast-lede {
+            font-size: 15.5px;
+            line-height: 1.85;
+            color: var(--text-mid);
+            padding: 18px 22px;
+            background: #F0F4FF;
+            border-left: 4px solid var(--klein);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        .section-block { margin-bottom: 48px; }
+        .sec-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .sec-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--klein);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .sec-title::before { content: '▮ '; color: var(--klein); margin-right: 8px; font-size: 13px; }
+        .item { margin-bottom: 36px; }
+        .dateline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .item-title { font-size: 20px; font-weight: 700; line-height: 1.45; margin-bottom: 14px; }
+        .body { font-size: 15px; color: var(--text-mid); line-height: 1.88; }
+        .body p { margin-bottom: 14px; }
+        .body strong { color: var(--text-dark); font-weight: 600; }
+        .accent { color: var(--accent); font-weight: 600; }
+        .hl { color: var(--klein); font-weight: 600; }
+        .turn { color: var(--klein); font-weight: 700; }
+        .num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+        .curiosity .image-caption { font-size: 14px; color: var(--text-mid); line-height: 1.9; }
+        .src-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+        .src-line a { color: var(--klein); text-decoration: none; word-break: break-all; }
+        .src-line a:hover { text-decoration: underline; }
+        .voice { position: relative; padding: 8px 0 8px 52px; margin-bottom: 24px; }
+        .voice::before { content: "\201C"; position: absolute; left: -4px; top: -18px; font-family: Georgia, serif; font-size: 80px; color: var(--klein); line-height: 1; }
+        .voice-text { font-size: 19px; font-weight: 600; line-height: 1.55; color: var(--text-dark, #0E0E10); margin-bottom: 10px; letter-spacing: -0.2px; }
+        .voice-who { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-light, #6B6B70); }
+        .voice-who a { color: var(--klein); text-decoration: none; }
+        .voice-sep { border-top: 1px dashed var(--border, #E8E8EC); margin: 24px 0 24px 52px; }
+        .curiosity {
+            padding: 24px;
+            background: #F0F4FF;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        .curiosity .body { font-size: 15px; color: var(--text-mid); }
+        .image-block { margin: 18px 0; }
+        .image-block img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+        .image-caption { font-size: 12.5px; color: var(--text-mid); margin-top: 10px; line-height: 1.9; letter-spacing: 0.01em; }
+        .post-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            margin: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+        .post-pagination a { color: var(--klein); text-decoration: none; font-weight: 600; }
+        .post-pagination a:hover { text-decoration: underline; }
+        .post-pagination .disabled { color: var(--text-light); opacity: 0.6; }
+        .footer {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 48px; }
+            .doc-title { font-size: 32px; }
+            .site-nav-inner { flex-wrap: wrap; row-gap: 6px; }
+            .site-nav-links { flex-wrap: wrap; gap: 6px 14px; }
+        }
+    
+/* 全站标准统一顶栏样式 */
+.site-header {
+  border-bottom: 1px solid #E8E8EC;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  width: 100%;
+}
+.site-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover {
+  color: #002FA7;
+}
+
+</style>
+</head>
+<body>
+<!-- IMAGE_READY 2026-10-10: 3 张正文配图，官方与一手主视觉，图文核验已通过 -->
+
+            <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="https://gyread.com/" title="返回 GYREAD 官网首页" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
+                <span style="width:24px; height:24px; border-radius:6px; background:#002FA7; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:900; box-shadow:0 2px 8px rgba(0,47,167,.26); flex:0 0 auto;">Y</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html" style="color: #002FA7; font-weight: 700;">新闻首页</a></li>
+                <li><a href="../latest.html">最新</a></li>
+                <li><a href="../ai-news-story.html">幕后故事</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+
+                <header class="masthead">
+            <div class="mast-eyebrow">Daily Intelligence</div>
+            <h1 class="doc-title">AI 情报<span>日报</span></h1>
+            <p class="doc-date">10月10日 · 星期六</p>
+                        <div class="mast-lede">
+                <span class="accent">Google</span>：Gemini agent 登场，一个入口接管企业工作流，底层可自由编排 Claude；<br>
+                <span class="accent">Anthropic</span>：启动 Cyber Mission，开源安全扫描与关键基础设施防护同时上线；<br>
+                <span class="accent">NVIDIA</span>：Halos 安全栈延伸到机器人，物理 AI 开始补安全课；<br>
+                <span class="accent">OpenAI</span>：Ultrafast 档位把响应推到最快，价格是标准版的 6 倍；<br>
+                <span class="accent">Google DeepMind</span>：EmbeddingGemma 2 开源，7.4 亿参数统一文本、图像、音频与视频。
+            </div>
+        </header>
+
+        <!-- ===== 1. 头版 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Headline</div>
+            <div class="sec-title">头版</div>
+
+            <div class="item">
+                <div class="dateline">企业智能体 · 通用工作入口</div>
+                <div class="item-title">Google Cloud 发布 Gemini agent：一个入口接管企业工作流，底层模型可自由编排</div>
+                <div class="body">
+                    <p>10 月 8 日，Google Cloud CEO Thomas Kurian 在 Gemini at Work 2026 大会上发布了 <span class="accent">Gemini agent</span>。</p>
+                    <p>它被定义为「通用的工作智能体」，回答问题、处理知识工作、生成图像与媒体、编写并运行代码，都收在同一个入口里。</p>
+                    <p>真正关键的设计是解耦。Gemini 作为顶层智能体，底层模型可以替换。</p>
+                    <p>企业可以在同一条工作流与同一个 API 里编排 Anthropic 的 Claude，Google 称未来还会接入更多闭源与开放底座。</p>
+                    <p>Google 还给智能体配了企业身份，比如 <span class="accent">@agents.company.com</span> 的邮箱、独立的 Drive 空间与日历。</p>
+                    <p>这样的智能体可以被拉进群聊，也能在文档协作里留下可审计的版本记录。</p>
+                    <p>成本控制被放在显眼位置：多模型编排、Smart Routing 与实时花费上限一起约束开销。</p>
+                    <p>一个更安静的信号是，大模型正在退成可替换的后端算力，而掌握企业工作数据流的云端平台，正在筑起新的壁垒。</p>
+                </div>
+                <div class="image-block">
+                    <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-10/google-cloud-gemini-agent-official.png" alt="Google Cloud Gemini at Work 2026 官方发布主视觉" loading="lazy">
+                    <p class="image-caption">Google Cloud「Gemini at Work 2026」官方主视觉 · 来源 Google Cloud Blog</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026" target="_blank">Google Cloud Blog ↗</a> · <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/" target="_blank">Google 官方公告 ↗</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">网络安全 · 防御侧投入</div>
+                <div class="item-title">Anthropic 启动 Cyber Mission：开源扫描器免费开放，关键基础设施防护同步上线</div>
+                <div class="body">
+                    <p>10 月 8 日，Anthropic 发布 <span class="accent">Cyber Mission</span>，这是一个长期承诺，目标是保护大家依赖的系统。</p>
+                    <p>起点有两个方向。第一个是保护关键基础设施，从电网、水务与交通的运营技术开始。</p>
+                    <p>配套的 Critical Infrastructure Defense Program 会交付前沿模型、驻场工程师与威胁研究。</p>
+                    <p>第二个方向是开源软件。Anthropic 上线 <span class="accent">OSS Scanner</span>，用自家最强的模型替开源项目做定期安全扫描，且完全免费。</p>
+                    <p>Anthropic 也承认，前沿模型既能用来防守，也能被用来利用漏洞。</p>
+                    <p>在 Project Glasswing 中，合作伙伴找到大量漏洞，但把网络风险真正降下来依然困难。</p>
+                    <p>这家公司的判断是：找到漏洞越来越容易，验证、排序与修复才是真正的瓶颈。</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://www.anthropic.com/news/anthropic-cyber-mission" target="_blank">Anthropic · Introducing the Anthropic Cyber Mission ↗</a></div>
+            </div>
+
+        </div>
+
+        <!-- ===== 2. 前线 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Front Line</div>
+            <div class="sec-title">前线</div>
+
+            <div class="item">
+                <div class="dateline">科学 · 政府与模型公司</div>
+                <div class="item-title">Anthropic 承诺 1.5 亿美元支持美国科研：Claude 将进入 15 个以上联邦机构</div>
+                <div class="body">
+                    <p>同样在 10 月 8 日，Anthropic 宣布在未来三年投入 <span class="accent">1.5 亿美元</span>，支持美国联邦的 Genesis Mission。</p>
+                    <p>这笔钱用于把 Claude 提供给参与该计划的 15 个以上机构，其中包含 NASA、美国国立卫生研究院与国家科学基金会。</p>
+                    <p>早在去年 12 月，Anthropic 就宣布与美国能源部合作，把 Claude 带进各国实验室。</p>
+                    <p>这一次的承诺包含三件事。它为数百个科研项目提供 Claude、Claude Code 与 API 额度。</p>
+                    <p>它与机构和实验室在聚变能、量子计算等重点方向深度合作。</p>
+                    <p>它还提供培训、上手与技术支持，帮助刚加入的机构跑起第一批项目。</p>
+                    <p>Anthropic 也在推进 Model Hardware Standard，尝试为智能体安全操作实验仪器建立共享规范。</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://www.anthropic.com/news/genesis-mission-commitment" target="_blank">Anthropic · Building on our commitment to American scientific discovery ↗</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">物理 AI · 机器人安全</div>
+                <div class="item-title">NVIDIA 把 Halos 安全栈延伸到机器人：物理 AI 的下一道瓶颈是安全</div>
+                <div class="body">
+                    <p>芯片公司同时也在压注实体世界。NVIDIA 在自动驾驶之外，把安全架构扩展到了机器人。</p>
+                    <p>2025 年，Halos 系统随自动驾驶推出，为无人车提供软硬件护栏。</p>
+                    <p>2026 年 6 月，NVIDIA 发布 <span class="accent">Halos for Robotics</span>，把安全能力扩展到仓储移动机器人、人形机器人与手术机器人。</p>
+                    <p>NVIDIA 机器人生态负责人 Amit Goel 的说法是，模型在变强，硬件在变强，而下一道瓶颈正是安全。</p>
+                    <p>NVIDIA 首席执行官黄仁勋今年 3 月曾称，物理 AI 业务已带来接近每年 100 亿美元的收入。</p>
+                    <p>这家公司还直接投资了 Agility Robotics 与 Figure AI 等人形机器人公司。</p>
+                    <p>它同时与中国的人形机器人公司 Unitree 合作，提供开源的机器人参考设计。</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://arstechnica.com/ai/2026/10/nvidias-big-bet-on-physical-ai-aims-for-safer-robotaxis-humanoid-robots/" target="_blank">Ars Technica · Nvidia&#39;s big bet on physical AI ↗</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">模型服务 · 速度与价格</div>
+                <div class="item-title">OpenAI 上线 Ultrafast 服务档位：把响应推到最快，价格是标准版的 6 倍</div>
+                <div class="body">
+                    <p>OpenAI 在 API 里为 GPT-6 Astra 与 GPT-6.1 Sol 提供了最快的服务档位 <span class="accent">Ultrafast</span>。</p>
+                    <p>使用时把模型设为 <span class="accent">gpt-6-astra</span> 或 <span class="accent">gpt-6.1-sol</span>，再把 service_tier 设为 ultrafast。</p>
+                    <p>官方文档强调，智能体应用如果频繁发起工具调用，最好配合 WebSocket 长连接。</p>
+                    <p>否则网络开销会吃掉一部分延迟收益。</p>
+                    <p>Ultrafast 的价格是标准版的 6 倍，Fast 模式则是标准版的 2 倍。</p>
+                    <p>它拥有独立的速率限制，需要单独查看组织的额度。</p>
+                    <p>GPT-5.6 Sol 的 Ultrafast 尚处预览阶段，GPT-6 Astra 与 6.1 Sol 对所有 API 用户开放。</p>
+                    <p>速度与成本的权衡，正在成为接口层最直接的一道选择题。</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://developers.openai.com/api/docs/guides/ultrafast-mode" target="_blank">OpenAI API Docs · Ultrafast mode ↗</a> · <a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol" target="_blank">GPT-6.1 Sol 模型页 ↗</a></div>
+            </div>
+
+        </div>
+
+        <!-- ===== 3. 开源前线 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Open Source</div>
+            <div class="sec-title">开源前线</div>
+
+            <div class="item">
+                <div class="dateline">端侧模型 · 多模态嵌入</div>
+                <div class="item-title">Google DeepMind 开源 EmbeddingGemma 2：7.4 亿参数统一文本、图像、音频与视频</div>
+                <div class="body">
+                    <p>10 月 6 日，Google DeepMind 发布 <span class="accent">EmbeddingGemma 2</span>，把端侧嵌入从文本扩展到多模态。</p>
+                    <p>它用同一个模型，把文本、图像、音频、代码与视频映射到统一的向量空间。</p>
+                    <p>模型有 7.4 亿参数，基于 Gemma 4 架构，采用允许商用的 Apache 2.0 许可。</p>
+                    <p>第一代 EmbeddingGemma 去年发布后，下载量超过 2000 万次。</p>
+                    <p>这一代的亮点是模块化。纯文本任务最低只要 2.7 亿参数。</p>
+                    <p>需要视觉时加 1.7 亿参数的编码器，需要音频时再加 3 亿参数。</p>
+                    <p>借助 Matryoshka 表示学习，向量维度可以从 768 动态截断到 128，存储最多省下 6 倍。</p>
+                    <p>它适合在本地完成隐私优先的检索增强与跨模态搜索。</p>
+                </div>
+                <div class="image-block">
+                    <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-10/embeddinggemma2-official.jpg" alt="Google DeepMind EmbeddingGemma 2 官方发布主视觉" loading="lazy">
+                    <p class="image-caption">Google DeepMind EmbeddingGemma 2 官方主视觉 · 7.4 亿参数多模态嵌入模型 · 来源 Google DeepMind Blog</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/" target="_blank">Google DeepMind Blog · EmbeddingGemma 2 ↗</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">开源模型 · 极限量化</div>
+                <div class="item-title">2-bit 的 Saluki 27B 反超全精度原版：7.89GB 装下 Qwen3.8-27B，工具调用更强</div>
+                <div class="body">
+                    <p>10 月 9 日，一个叫 <span class="accent">Saluki 27B</span> 的模型进入视野。</p>
+                    <p>它是 Qwen3.8-27B 的 2-bit GGUF 量化版本，文件只有 7.89GB，采用 Apache 2.0 许可。</p>
+                    <p>原版全精度模型体积约 54GB，而 Saluki 27B 在工具调用上反超了它。</p>
+                    <p>代价同样清楚。在竞赛数学与推理上，量化版本让出了不少分数。</p>
+                    <p>这类极低比特量化的意义在于，把过去必须上服务器的模型塞进消费级硬件。</p>
+                    <p>它也让开发者重新审视一件事：体积、能力与场景，本来就很难同时最大化。</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://www.marktechpost.com/2026/10/09/meet-the-underdog-saluki-27b-a-2-bit-qwen3-8-27b-that-beats-the-original-at-tool-calling/" target="_blank">MarkTechPost · Saluki 27B ↗</a></div>
+            </div>
+
+        </div>
+
+        <!-- ===== 4. 创造 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Create</div>
+            <div class="sec-title">创造</div>
+
+            <div class="item">
+                <div class="dateline">智能体 · 支付与边界</div>
+                <div class="item-title">LangChain 演示「会付款的智能体」：Stripe Link 兜住支付，用户预设额度兜住风险</div>
+                <div class="body">
+                    <p>10 月 8 日，LangChain 发布一个名为 <span class="accent">Restock</span> 的示例智能体，专门演示智能体如何真实下单。</p>
+                    <p>它在 Slack 里运行，基于 Managed Deep Agents，能搜索商品、组建购物车并完成结账。</p>
+                    <p>支付环节交给 Stripe 的消费者钱包 Link，智能体全程看不到卡号。</p>
+                    <p>用户预先批准一个花费上限，智能体就不能超支。</p>
+                    <p>演示里的请求是买一盒蓝色签字笔，预算在 25 美元以内。</p>
+                    <p>最终订单金额是 22.18 美元，含费用。</p>
+                    <p>LangChain 特意对比了另一条路，也就是让智能体去驱动零售网站的结账页面。</p>
+                    <p>那条路很脆弱，页面一改、站点一拦就断，支付信息也容易被暴露。</p>
+                    <p>会付款的智能体，把权限与边界推到了工程的前台。</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://www.langchain.com/blog/agents-that-can-pay-with-stripe-link" target="_blank">LangChain Blog · Agents that can pay ↗</a></div>
+            </div>
+
+        </div>
+
+        <!-- ===== 5. 视觉 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Vision</div>
+            <div class="sec-title">视觉</div>
+
+            <div class="item">
+                <div class="dateline">生命科学 · 一个隐喻的成熟</div>
+                <div class="item-title">一个 70 年前的比喻终于有了数据：Waddington 的「景观」正被实验证实</div>
+                <div class="body">
+                    <p>10 月 9 日，Quanta Magazine 刊出 Philip Ball 的文章，讲一个古老的比喻。</p>
+                    <p>上世纪 50 年代，生物学家 C.H. Waddington 画过一幅图，把细胞分化比作小球滚下起伏的山坡。</p>
+                    <p>这幅图在生物学界流传了几十年，却长期停留在直觉层面。</p>
+                    <p>如今，实验数据开始证实他的想法，同时也让它变得更复杂。</p>
+                    <p>文章提到，基因调控、表观遗传与数学建模正在一起补齐这幅图。</p>
+                    <p>一个被反复引用的比喻，终于等到了能验证它的时代。</p>
+                </div>
+                <div class="image-block">
+                    <img src="https://ainews-images-1317704267.cos.ap-guangzhou.myqcloud.com/ai-frontline-images/by-date/2026-10-10/quanta-waddington-official.jpg" alt="Waddington 势能景观的抽象科学可视化" loading="lazy">
+                    <p class="image-caption">Waddington「景观」的科学可视化 · 小球沿起伏曲面滚动，对应细胞分化的比喻 · 来源 Quanta Magazine</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://www.quantamagazine.org/how-does-life-unfold-a-landscape-metaphor-comes-into-its-own-20261009/" target="_blank">Quanta Magazine · How Does Life Unfold? ↗</a></div>
+            </div>
+
+            <div class="item">
+                <div class="dateline">基础设施 · 数据中心争议</div>
+                <div class="item-title">Meta 正面回应数据中心争议：封闭式液冷循环几乎不耗水，用电账单也不该由居民背</div>
+                <div class="body">
+                    <p>数据中心带来的用水与用电争议，最近被反复讨论。</p>
+                    <p>Meta 在官方新闻室发文，逐条回应流传较广的几种说法。</p>
+                    <p>关于用水，Meta 区分了两类设施。传统风冷数据中心只在一年中的少数月份用水。</p>
+                    <p>面向 AI 的闭式液冷数据中心，冷却液在水与乙二醇的封闭回路里循环，基本不消耗水。</p>
+                    <p>Meta 说，在真正缺水的地区，闭式液冷是默认方案。</p>
+                    <p>它还给了一个对比，不少 Meta 数据中心一年的用水量，低于一座普通美国高尔夫球场。</p>
+                    <p>关于电费，Meta 反驳了「数据中心让居民电价上涨」的说法。</p>
+                    <p>这类回应无法终结争论，但至少把技术细节摆上了台面。</p>
+                </div>
+                <div class="item-source">一手出处 · <a href="https://about.fb.com/news/2026/10/debunking-the-biggest-data-center-myths/" target="_blank">Meta Newsroom · Debunking the Biggest Data Center Myths ↗</a></div>
+            </div>
+
+        </div>
+
+        <!-- ===== 6. 声音 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Voices</div>
+            <div class="sec-title">声音</div>
+
+            <div class="voice">
+                <p class="voice-text">「模型在变强，机器人硬件在变强，我们原以为的下一道瓶颈，其实是安全。」</p>
+                <p class="voice-who">Amit Goel · NVIDIA 机器人生态负责人 · <a href="https://arstechnica.com/ai/2026/10/nvidias-big-bet-on-physical-ai-aims-for-safer-robotaxis-humanoid-robots/" target="_blank">Ars Technica 访谈</a></p>
+            </div><div class="voice-sep"></div>
+
+            <div class="voice">
+                <p class="voice-text">「找漏洞比以往任何时候都容易，但验证、排序与修复这些发现，依然是难题。」</p>
+                <p class="voice-who">Anthropic · Cyber Mission 公告 · <a href="https://www.anthropic.com/news/anthropic-cyber-mission" target="_blank">Anthropic 官方</a></p>
+            </div>
+        </div>
+
+        <!-- ===== 7. 小结 ===== -->
+        <div class="section-block">
+            <div class="sec-eyebrow">Summary</div>
+            <div class="sec-title">小结</div>
+
+            <div class="item">
+                <div class="body">
+                    <p>今天的共同主题，是边界。</p>
+                    <p>Gemini agent 把企业工作流收进一个入口，底层模型可以自由编排，权限与身份成了新的控制点。</p>
+                    <p>Anthropic 一边守住网络防御，一边把 Claude 送进联邦科研，能力越大，责任与争议也越大。</p>
+                    <p>NVIDIA 为机器人补上安全课，OpenAI 用更贵的最快档位，换来更短的等待。</p>
+                    <p>开源侧，EmbeddingGemma 2 与 2-bit 量化模型把能力压进更小的体积，把选择权还给本地。</p>
+                    <p>会付款的智能体则提醒所有人，真正的难题写在边界那一栏。</p>
+                    <div class="summary-poem">
+                        百工归于一入口，<br>
+                        守网研科各安流；<br>
+                        机器学步先学稳，<br>
+                        尺寸随人方自由。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 8. Be Curious ===== -->
+        <div class="sec-eyebrow">Be Curious</div>
+<div class="sec-title">保持好奇</div>
+
+            <div class="curiosity"><div class="body">
+                <p><strong>马里亚纳海沟 · 挑战者深渊，水面之下约 10,900 米。阳光到不了这里，压力是海平面的上千倍，却仍有生命安静地活着。</strong></p>
+                <p>看了一天 AI 的新闻，地球上还有不需要 GPU 冷却的地方。<br>
+                深海无言，让我们保持好奇、继续探索。</p>
+            </div></div>
+
+        <!-- 底部上一篇 / 往期目录 / 下一篇 翻页器 -->
+        <nav class="post-pagination">
+            <a href="2026-10-09.html" class="prev-post">← 上一篇：2026-10-09</a>
+            <a href="../index.html#archive" class="all-posts">往期目录</a>
+            <span class="next-post disabled">下一篇：最新一期 →</span>
+        </nav>
+
+        <footer class="footer">
+            AI News 每日情报 · 2026年10月10日 期 · 前沿信号流
+        </footer>
+
+    </div>
+
+    <link rel="stylesheet" href="../glossary/glossary.css">
+    <script src="../glossary/ai-dictionary-lite-inline.js"></script>
+    <script src="../glossary/glossary.js" data-dict="../glossary/ai-dictionary-lite.json"></script>
+
+</body>
+</html>
