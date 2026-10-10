@@ -289,6 +289,10 @@
 <div class="item-title">You clicked a link — Copilot searched your inbox and sent the 2FA code to an attacker</div>
 <div class="body">
 <p>Visualization of the SearchLeak Three-Stage Attack Chain · Varonis Threat Labs</p>
+<div style="margin: 22px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border, #E8E8EC); background: var(--bg-subtle, #F8F9FB);">
+<img alt="You clicked a link — Copilot searched your inbox and sent the 2FA code to an attacker · Primary Evidence Visual" loading="lazy" src="https://www.varonis.com/hubfs/Blog_VTL-SearchLeak_Diagram_202606_FNL.png" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;"/>
+<div style="padding: 10px 14px; font-size: 13px; color: var(--text-muted, #6B7280); font-family: var(--font-mono, monospace); line-height: 1.6; border-top: 1px solid var(--border, #E8E8EC);">Primary intelligence visual archive</div>
+</div>
 <p>Varonis Threat Labs discovered a three-step vulnerability chain designated<span class="num">SearchLeak</span>(CVE-2026-42824). Step One —<span class="num">P2P Injection</span>: URL parameters in Copilot Enterprise Search are directly executed as AI instructions.</p>
 <p>Step Two —<span class="num">HTML Rendering Race Condition</span>: As AI responses stream in, &lt;img&gt; tags trigger requests before safety filters take effect. Step Three —<span class="num">Bing SSRF</span>: bing.com within the CSP whitelist performs a server-side redirect, acting as a data exfiltration proxy.</p>
 <p>The chain in action: User clicks a link → Copilot searches personal email, calendar, and SharePoint → Data is exfiltrated to the attacker's server via Bing.<span class="turn">One click, zero secondary confirmation</span>. Microsoft has patched the issue, rated "Critical".</p>
@@ -337,11 +341,12 @@
 <div class="section-block">
 <div class="sec-eyebrow">Be Curious</div>
 <div class="sec-title">Be Curious</div>
-<div class="curiosity"><div style="margin-bottom:16px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #E8E8EC); background:#000;">
-<img alt="Morning, Planets, Moon and Montreal · Dawn in Montreal on the eve of the vernal equinox: waning moon over city lights, morning star at dawn · Photographer Arnaud Mariat · NASA APOD · 2020-03-20" loading="lazy" src="https://apod.nasa.gov/apod/image/2003/conjonction-montreal-200318.jpg" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; margin:0 auto;"/>
+<div class="curiosity">
+<div class="image-block">
+<img src="/assets/apod/fadai/fadai-00538.jpg" alt="Asia · Oman · Seeb · Satellite View" loading="lazy">
+<p class="image-caption">Asia · Oman · Seeb · Satellite View · <span class="num">23.71°N, 58.10°E</span><br>After a day tracking artificial intelligence breakthroughs, Earth still holds places that require zero GPU cooling.<br>Across peaks, rivers, lakes, and oceans—stay curious and keep exploring.</p>
 </div>
-<div style="font-size:13px; color:var(--text-muted, #6B7280); font-family:var(--font-mono, monospace); margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed var(--border, #E8E8EC); line-height:1.6;">Morning, Planets, Moon and Montreal · Dawn in Montreal on the eve of the vernal equinox: waning moon over city lights, morning star at dawn · Photographer Arnaud Mariat · NASA APOD · 2020-03-20</div>
-<p style="margin-bottom:8px; line-height:1.8;">City lights and celestial bodies coexist in a single frame — between what we build and what the universe creates, which endures longer? Looking back from the depths of the cosmos every day, stay curious and keep exploring.</p></div>
+</div>
 </div>
 <nav class="post-pagination">
 <a class="prev-post" href="2026-06-19.html">← Previous</a>
