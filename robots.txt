@@ -1,0 +1,15 @@
+# AI News public discovery policy.
+# Source-of-truth for the /news publication.
+# For gyread.com production, the same policy must also be served at
+# https://gyread.com/robots.txt because robots.txt is host-level.
+
+User-agent: *
+Allow: /
+Disallow: /*.bak
+Disallow: /news/scripts/
+Disallow: /news/data/
+Disallow: /news/tests/
+Disallow: /news/dist/
+Disallow: /news/_flow/
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Sitemap: https://gyread.com/news/sitemap.xml

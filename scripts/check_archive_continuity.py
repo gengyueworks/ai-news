@@ -25,6 +25,12 @@ WEEKLY_COVERED = {
     '2026-09/ai-weekly-2026-09-05-to-09-11.html', '2026-09/2026-09-15.html'
 }
 
+# 归档路径用于承载周报时，标题不得再冒充单日刊。
+# 2026-10-10：09-15 曾误写成 2026-09-15 单日标题，这里加回归门禁。
+WEEKLY_TITLE_FORBIDDEN_DATES = {
+    '2026-09/2026-09-15.html': '2026-09-15',
+}
+
 def audit(site_dir_path: Path) -> int:
     site_dir = Path(site_dir_path).resolve()
     idx_path = site_dir / 'index.html'
@@ -69,9 +75,20 @@ def audit(site_dir_path: Path) -> int:
     print(f"• 首页死链卡片 (dead cards): {len(dead_cards)} {dead_cards if dead_cards else '（无）'}")
     print(f"• 缺失月份区块 (missing month blocks): {len(missing_mb)} {missing_mb if missing_mb else '（无）'}")
     print(f"• 缺失筛选按钮 (missing filter chips): {len(missing_fc)} {missing_fc if missing_fc else '（无）'}")
+
+    title_anomalies = []
+    for rel, forbidden_date in WEEKLY_TITLE_FORBIDDEN_DATES.items():
+        page_path = site_dir / rel
+        if not page_path.exists():
+            continue
+        page_html = page_path.read_text(encoding='utf-8')
+        title_match = re.search(r'<title[^>]*>([\s\S]*?)</title>', page_html, re.I)
+        if title_match and forbidden_date in title_match.group(1):
+            title_anomalies.append(f"{rel}: <title> 仍含 {forbidden_date}")
+    print(f"• 周报错标标题 (weekly title anomalies): {len(title_anomalies)} {title_anomalies if title_anomalies else '（无）'}")
     print(f"--------------------------------------------------")
 
-    is_clean = (len(unlinked) == 0 and len(dead_cards) == 0 and len(missing_mb) == 0 and len(missing_fc) == 0)
+    is_clean = (len(unlinked) == 0 and len(dead_cards) == 0 and len(missing_mb) == 0 and len(missing_fc) == 0 and len(title_anomalies) == 0)
 
     if is_clean:
         print("✅ 巡检结论: PASS（全站归档完整，无任何漏挂或断裂）")
