@@ -260,6 +260,13 @@ def scan_html(html_path: Path, verify_http: bool = True):
     - 正文 <img> 只允许 COS 绝对链接（ainews-images-...myqcloud.com）
     - 本地相对路径 / GitHub raw / 第三方 CDN / data URI 一律 FAIL
     - Be Curious 图片放行 NASA/地球观测来源（WARN）
+
+    2026-10-10 修正（配图线核验后定盘）：
+    - Be Curious 底栏「山川湖海」卫星图池 /assets/apod/fadai/*.jpg 属站点自带资产，
+      随 worker/public 一起部署，线上实测 200。它不走 COS，也不该走 COS
+      （COS 桶内 fadai 对象数=0，强行改 URL 会让全站底栏图同时 404）。
+      因此这条路径判为 OK，但必须做 I11 存在性校验：文件不在仓库 = 真 404 = FAIL。
+    - 正文新闻图仍强制 COS，不接受本地相对路径（第三方源防盗链/随时失效的老教训不变）。
     """
     issues = []
     content = html_path.read_text(encoding='utf-8', errors='replace')
@@ -308,6 +315,14 @@ def scan_html(html_path: Path, verify_http: bool = True):
         # --- 本地相对路径 ---
         if is_bc and ('nasa' in src.lower() or 'science' in src.lower()):
             issues.append((ln, 'I6.WARN', '[%s] Be Curious NASA 本地图（允许）' % name))
+            continue
+        if is_bc and src.startswith('/assets/apod/fadai/'):
+            pool = REPO / src.lstrip('/')
+            if pool.is_file() and pool.stat().st_size > 0:
+                continue  # 底栏卫星图池：站点自带资产，随 worker 部署，路径与文件俱在
+            issues.append((ln, 'I11.FAIL',
+                '[%s] Be Curious 卫星图池文件缺失（%s）→ 该图会 404，必须补文件或改回纯文字'
+                % (name, src[:60])))
             continue
         issues.append((ln, 'I1.FAIL',
             '[%s] 本地相对路径禁止（当前: %s）→ 正文图必须走 COS 绝对链接' % (name, src[:50])))
